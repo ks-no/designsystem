@@ -1,0 +1,11 @@
+{
+  "name": "designsystem",
+  "version": "0.0.0",
+  "scripts": {},
+  "author": "KS Digital",
+  "license": "MIT",
+  "packageManager": "pnpm@10.9.0",
+  "engines": {
+    "node": "22.11.0"
+  }
+}
