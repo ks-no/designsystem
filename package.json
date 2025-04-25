@@ -2,7 +2,9 @@
   "name": "designsystem",
   "version": "0.0.0",
   "scripts": {
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "author": "KS Digital",
   "license": "MIT",
@@ -11,6 +13,20 @@
     "node": "22.11.0"
   },
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.31.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
