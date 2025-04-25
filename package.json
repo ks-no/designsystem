@@ -1,7 +1,9 @@
 {
   "name": "designsystem",
   "version": "0.0.0",
-  "scripts": {},
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
   "author": "KS Digital",
   "license": "MIT",
   "packageManager": "pnpm@10.9.0",
