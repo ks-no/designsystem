@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "react": ["packages/react/src/index.ts"]
+      "react": ["packages/react/src/index.ts"],
+      "themes": ["packages/themes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]
