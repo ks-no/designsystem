@@ -19,6 +19,7 @@
     "@nx/js": "20.8.1",
     "@nx/vite": "20.8.1",
     "@nx/web": "20.8.1",
+    "@pellegrims/nx-remotecache-s3": "^8.1.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
@@ -47,6 +48,5 @@
       "eslint --fix"
     ],
     "**/*": "prettier --write --ignore-unknown"
-  },
-  "dependencies": {}
+  }
 }

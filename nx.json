@@ -21,5 +21,14 @@
         "watchDepsTargetName": "watch-deps"
       }
     }
-  ]
+  ],
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@pellegrims/nx-remotecache-s3",
+      "options": {
+        "bucket": "ks-fiksfrontendcache",
+        "region": "eu-north-1"
+      }
+    }
+  }
 }
