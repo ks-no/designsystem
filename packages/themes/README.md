@@ -1,3 +1,3 @@
 # Themes
 
-This library contains themes for Designsystemet.
+This package contains prebuilt themes for Designsystemet.
