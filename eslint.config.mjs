@@ -1,20 +1,46 @@
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
-import { defineConfig } from 'eslint/config'
+import nx from '@nx/eslint-plugin'
 
-export default defineConfig([
+export default [
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-    languageOptions: { globals: globals.browser },
     ignores: [
-      'coverage',
-      '**/public',
       '**/dist',
-      'pnpm-lock.yaml',
-      'pnpm-workspace.yaml',
+      '**/vite.config.*.timestamp*',
+      '**/vitest.config.*.timestamp*',
     ],
   },
-  tseslint.configs.recommended,
-  eslintPluginPrettierRecommended,
-])
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    rules: {
+      '@nx/enforce-module-boundaries': [
+        'error',
+        {
+          enforceBuildableLibDependency: true,
+          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+          depConstraints: [
+            {
+              sourceTag: '*',
+              onlyDependOnLibsWithTags: ['*'],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: [
+      '**/*.ts',
+      '**/*.tsx',
+      '**/*.cts',
+      '**/*.mts',
+      '**/*.js',
+      '**/*.jsx',
+      '**/*.cjs',
+      '**/*.mjs',
+    ],
+    // Override or add rules here
+    rules: {},
+  },
+]
