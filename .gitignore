@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Deps
 node_modules
 
 # Nx
@@ -23,3 +24,7 @@ node_modules
 *.njsproj
 *.sln
 *.sw?
+
+# Vite
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
