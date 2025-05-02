@@ -6,5 +6,8 @@
   "type": "module",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "dependencies": {}
+  "devDependencies": {
+    "@digdir/designsystemet-css": "1.0.5",
+    "@digdir/designsystemet-react": "1.0.5"
+  }
 }
