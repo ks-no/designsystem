@@ -1,14 +1,16 @@
 import '@ks-no/designsystem-themes/base.css'
 import '@ks-no/designsystem-themes/ledsagerbevis.css'
 
-import { Alert, Button, Spinner } from '@ks-no/designsystem-react'
+import { Alert, Button, Spinner, Heading } from '@ks-no/designsystem-react'
 
 export function App() {
   return (
     <div>
-      Hi
+      <Heading level={1} data-size="lg">
+        Hi from Designsystemet
+      </Heading>
       <Button variant="primary" data-size="lg">
-        Hio
+        Click me!
       </Button>
       <Spinner data-size="lg" />
       <Alert data-color="info">En beskjed det er viktig at brukeren ser</Alert>
