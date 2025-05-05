@@ -1,3 +1,6 @@
+import '@ks-no/designsystem-themes/base.css'
+import '@ks-no/designsystem-themes/ledsagerbevis.css'
+
 import { Alert, Button, Spinner } from '@ks-no/designsystem-react'
 
 export function App() {
