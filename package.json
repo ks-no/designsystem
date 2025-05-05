@@ -1,6 +1,5 @@
 {
   "name": "designsystem",
-  "version": "0.0.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",

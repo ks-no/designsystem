@@ -1,6 +1,6 @@
 {
   "name": "@ks-no/designsystem-themes",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "license": "MIT",
   "type": "module",
   "main": "./index.js",
