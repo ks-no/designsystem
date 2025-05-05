@@ -2,7 +2,6 @@
   "name": "designsystem",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint .",
     "format": "prettier --write ."
   },
   "author": "KS Digital",
