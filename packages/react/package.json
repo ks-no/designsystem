@@ -10,10 +10,6 @@
     "@digdir/designsystemet-css": "1.0.5",
     "@digdir/designsystemet-react": "1.0.5"
   },
-  "devDependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
