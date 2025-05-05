@@ -1,5 +1,33 @@
 import {
-  MultiSuggestion,
+  EXPERIMENTAL_MultiSuggestion,
+  EXPERIMENTAL_MultiSuggestionInput,
+  EXPERIMENTAL_MultiSuggestionList,
+  EXPERIMENTAL_MultiSuggestionOption,
+  EXPERIMENTAL_MultiSuggestionChips,
+  EXPERIMENTAL_MultiSuggestionEmpty,
+  EXPERIMENTAL_MultiSuggestionClear,
   type MultiSuggestionProps,
+  type MultiSuggestionInputProps,
+  type MultiSuggestionListProps,
+  type MultiSuggestionOptionProps,
+  type MultiSuggestionChipsProps,
+  type MultiSuggestionEmptyProps,
+  type MultiSuggestionClearProps,
 } from '@digdir/designsystemet-react'
-export { MultiSuggestion, MultiSuggestionProps }
+
+export {
+  EXPERIMENTAL_MultiSuggestion,
+  EXPERIMENTAL_MultiSuggestionInput,
+  EXPERIMENTAL_MultiSuggestionList,
+  EXPERIMENTAL_MultiSuggestionOption,
+  EXPERIMENTAL_MultiSuggestionChips,
+  EXPERIMENTAL_MultiSuggestionEmpty,
+  EXPERIMENTAL_MultiSuggestionClear,
+  MultiSuggestionProps,
+  MultiSuggestionInputProps,
+  MultiSuggestionListProps,
+  MultiSuggestionOptionProps,
+  MultiSuggestionChipsProps,
+  MultiSuggestionEmptyProps,
+  MultiSuggestionClearProps,
+}

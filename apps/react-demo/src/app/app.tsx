@@ -1,4 +1,4 @@
-import { Alert, Button } from '@ks-no/designsystem-react'
+import { Alert, Button, Spinner } from '@ks-no/designsystem-react'
 
 export function App() {
   return (
@@ -7,6 +7,7 @@ export function App() {
       <Button variant="primary" data-size="lg">
         Hio
       </Button>
+      <Spinner data-size="lg" />
       <Alert data-color="info">En beskjed det er viktig at brukeren ser</Alert>
     </div>
   )
