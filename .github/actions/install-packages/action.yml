@@ -11,5 +11,6 @@ runs:
         node-version-file: 'package.json'
         cache: 'pnpm'
     - run: pnpm --version
+      shell: bash
     - run: pnpm install --frozen-lockfile --prefer-offline
       shell: bash
