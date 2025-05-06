@@ -1,6 +1,6 @@
 # Designsystem Themes
 
-This package provides prebuilt themes for use with Designsystemet.
+This package provides prebuilt themes for use with Designsystemet at KS Digital.
 
 ## Supported Themes
 
