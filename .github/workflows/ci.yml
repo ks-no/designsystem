@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+env:
+  NXCACHE_S3_ENDPOINT: ${{ secrets.NXCACHE_S3_ENDPOINT }}
+  NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
+  NXCACHE_S3_REGION: ${{ secrets.NXCACHE_S3_REGION }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/install-packages.yml
+      - name: Validate
+        run: pnpm run prettier:check
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/install-packages.yml
+      - name: Build
+        run: pnpm nx affected --t build
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/install-packages.yml
+      - name: Test
+        run: pnpm nx affected --t test
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/install-packages.yml
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: End-to-end test
+        run: pnpm nx affected --t=e2e
