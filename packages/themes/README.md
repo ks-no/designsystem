@@ -1,6 +1,6 @@
 # Designsystem Themes
 
-This package provides prebuilt themes for use with Designsystemet at KS Digital.
+This package provides prebuilt themes for use with Designsystemet at KS Digital. Themes are created using the [Theme Builder from Designsystemet](https://theme.designsystemet.no/)
 
 ## Supported Themes
 
@@ -31,7 +31,3 @@ If you are using a JavaScript or TypeScript application, import the styles like 
 import '@ks-no/designsystem-themes/base.css'
 import '@ks-no/designsystem-themes/ledsagerbevis.css'
 ```
-
-## Additional Information
-
-Themes are created using the [Theme Builder from Designsystemet](https://theme.designsystemet.no/)
