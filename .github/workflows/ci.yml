@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/install-packages.yml
+      - uses: ./.github/actions/install-packages
       - name: Validate
         run: pnpm run prettier:check
 
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/install-packages.yml
+      - uses: ./.github/actions/install-packages
       - name: Build
         run: pnpm nx affected --t build
 
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/install-packages.yml
+      - uses: ./.github/actions/install-packages
       - name: Test
         run: pnpm nx affected --t test
 
@@ -44,7 +44,7 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/install-packages.yml
+      - uses: ./.github/actions/install-packages
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: End-to-end test
