@@ -25,7 +25,7 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 ### In JavaScript/TypeScript Files
 
-If you are using a JavaScript or TypeScript application, import the styles like this. If you are using React, please check the readme in the React-package.
+If you are using a JavaScript or TypeScript application, import the styles like this. If you are using React, please check the readme in the React-package as well.
 
 ```javascript
 import '@ks-no/designsystem-themes/base.css'
