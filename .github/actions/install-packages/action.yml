@@ -14,3 +14,8 @@ runs:
       shell: bash
     - run: pnpm install --frozen-lockfile --prefer-offline
       shell: bash
+    - name: Set SHAs
+      uses: nrwl/nx-set-shas@v4
+    - run: |
+        echo "BASE: ${{ env.NX_BASE }}"
+        echo "HEAD: ${{ env.NX_HEAD }}"
