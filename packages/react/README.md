@@ -1,4 +1,4 @@
-# KS Designsystem for React
+# KS Digital Designsystem for React
 
 This library provides React components for KS Digital, designed to align closely with the components from [Designsystemet.no](https://www.designsystemet.no/komponenter).
 
