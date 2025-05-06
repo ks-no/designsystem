@@ -1,10 +1,17 @@
 {
   "name": "@ks-no/designsystem-react",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "license": "MIT",
   "private": true,
   "type": "module",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "dependencies": {}
+  "dependencies": {
+    "@digdir/designsystemet-css": "1.0.5",
+    "@digdir/designsystemet-react": "1.0.5"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
 }

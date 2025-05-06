@@ -1,9 +1,14 @@
 {
   "name": "@ks-no/designsystem-themes",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "license": "MIT",
   "type": "module",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "dependencies": {}
+  "exports": {
+    "./base.css": "./src/base.css",
+    "./ledsagerbevis.css": "./src/built/ledsagerbevis.css"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {}
 }

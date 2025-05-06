@@ -1,0 +1,18 @@
+{
+  "name": "react-demo",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ks-no/designsystem-react": "workspace:*",
+    "@ks-no/designsystem-themes": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6",
+    "@vitejs/plugin-react": "^4.2.0"
+  }
+}

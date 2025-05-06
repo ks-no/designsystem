@@ -1,5 +1,5 @@
 {
-  "name": "themes",
+  "name": "@ks-no/designsystem-themes",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/themes/src",
   "projectType": "library",

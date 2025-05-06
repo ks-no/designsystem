@@ -1,0 +1,9 @@
+{
+  "name": "react-demo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/react-demo-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["react-demo"],
+  "targets": {}
+}
