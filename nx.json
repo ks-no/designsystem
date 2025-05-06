@@ -41,11 +41,7 @@
   ],
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@pellegrims/nx-remotecache-s3",
-      "options": {
-        "bucket": "ks-fiksfrontendcache",
-        "region": "eu-north-1"
-      }
+      "runner": "@pellegrims/nx-remotecache-s3"
     }
   },
   "targetDefaults": {

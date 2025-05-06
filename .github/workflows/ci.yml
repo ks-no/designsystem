@@ -8,7 +8,6 @@ on:
   pull_request: {}
 
 env:
-  NXCACHE_S3_ENDPOINT: ${{ secrets.NXCACHE_S3_ENDPOINT }}
   NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
   NXCACHE_S3_REGION: ${{ secrets.NXCACHE_S3_REGION }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
