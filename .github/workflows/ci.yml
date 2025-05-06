@@ -18,9 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history so `main` exists locally
       - uses: ./.github/actions/install-packages
-      - name: Validate
-        run: pnpm run prettier:check
+      - name: Lint
+        run: pnpm nx affected --t lint
 
   build:
     runs-on: ubuntu-latest
