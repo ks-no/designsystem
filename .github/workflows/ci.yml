@@ -19,18 +19,18 @@ jobs:
         uses: ./.github/actions/install-packages
 
       - name: Lint
-        run: pnpm nx affected --target=lint --base=main --head=HEAD
+        run: pnpm nx affected --target=lint
 
       - name: Build
-        run: pnpm nx affected --target=build --base=main --head=HEAD
+        run: pnpm nx affected --target=build
 
       - name: Test
-        run: pnpm nx affected --target=test --base=main --head=HEAD --passWithNoTests
+        run: pnpm nx affected --target=test --passWithNoTests
 
       - name: Check if E2E is affected
         id: e2e_check
         run: |
-          AFFECTED_E2E=$(pnpm nx show projects --affected --target=e2e --base=main --head=HEAD)
+          AFFECTED_E2E=$(pnpm nx show projects --affected --target=e2e)
           if [ -n "$AFFECTED_E2E" ]; then
             echo "e2e_changed=true" >> $GITHUB_OUTPUT
           else
@@ -52,4 +52,4 @@ jobs:
 
       - name: End-to-end test
         if: steps.e2e_check.outputs.e2e_changed == 'true'
-        run: pnpm nx affected --target=e2e --base=main --head=HEAD
+        run: pnpm nx affected --target=e2e
