@@ -49,10 +49,9 @@
   },
   "targetDefaults": {
     "build": {
-      "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["default", "^default"],
-      "outputs": ["{projectRoot}/dist"]
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
     },
     "e2e-ci--**/**": {
       "dependsOn": ["^build"]
