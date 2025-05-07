@@ -6,6 +6,7 @@ import type { Color } from '@digdir/designsystemet-react/colors'
  */
 declare global {
   namespace React {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface HTMLAttributes<T> {
       'data-size'?: Size | (string & {})
       'data-color'?: Color | (string & {})
