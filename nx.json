@@ -78,28 +78,5 @@
         "linter": "eslint"
       }
     }
-  },
-  "release": {
-    "projectsRelationship": "independent",
-    "projects": ["@ks-no/designsystem-theme", "@ks-no/designsystem-react"],
-    "changelog": {
-      "projectChangelogs": {
-        "renderOptions": {
-          "authors": true,
-          "commitReferences": true,
-          "versionTitleDate": true,
-          "applyUsernameToAuthors": true
-        }
-      },
-      "workspaceChangelog": {
-        "createRelease": "github",
-        "renderOptions": {
-          "authors": true,
-          "commitReferences": true,
-          "versionTitleDate": true,
-          "applyUsernameToAuthors": true
-        }
-      }
-    }
   }
 }
