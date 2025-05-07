@@ -21,12 +21,12 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/install-packages
       - name: Lint
-        run: pnpm nx affected --t lint
+        run: pnpm nx affected --t lint --base=main --head=HEAD
       - name: Build
-        run: pnpm nx affected --t build
+        run: pnpm nx affected --t build --base=main --head=HEAD
       - name: Test
-        run: pnpm nx affected --t test --passWithNoTests
+        run: pnpm nx affected --t test --base=main --head=HEAD --passWithNoTests
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: End-to-end test
-        run: pnpm nx affected --t=e2e
+        run: pnpm nx affected --t=e2e --base=main --head=HEAD
