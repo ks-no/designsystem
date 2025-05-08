@@ -43,20 +43,23 @@
     "default": {
       "runner": "@pellegrims/nx-remotecache-s3",
       "options": {
-        "bucket": "ks-fiksfrontendcache",
-        "region": "eu-north-1"
+        "cacheableOperations": ["build", "test", "lint", "e2e"]
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["default", "^default"],
-      "outputs": ["{projectRoot}/dist"]
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
     },
     "e2e-ci--**/**": {
       "dependsOn": ["^build"]
+    },
+    "lint": {
+      "options": {
+        "max-warnings": 0
+      }
     }
   },
   "generators": {

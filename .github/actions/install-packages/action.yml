@@ -1,0 +1,22 @@
+name: Install packages
+description: Setup package-manager and install dependencies
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: 'package.json'
+        cache: 'pnpm'
+    - run: pnpm --version
+      shell: bash
+    - run: pnpm install --frozen-lockfile --prefer-offline
+      shell: bash
+    - name: Set SHAs
+      uses: nrwl/nx-set-shas@v4
+    - run: |
+        echo "BASE: ${{ env.NX_BASE }}"
+        echo "HEAD: ${{ env.NX_HEAD }}"
+      shell: bash
