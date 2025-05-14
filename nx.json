@@ -2,8 +2,8 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "release": {
     "projects": [
-      "@ks-utvikling/designsystem-themes",
-      "@ks-utvikling/designsystem-react"
+      "@ks-digital/designsystem-themes",
+      "@ks-digital/designsystem-react"
     ],
     "projectsRelationship": "fixed",
     "changelog": {

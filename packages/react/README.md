@@ -7,7 +7,7 @@ This library provides React components for KS Digital, designed to align closely
 Install the required packages using your preferred package manager:
 
 ```bash
-pnpm add @ks-utvikling/designsystem-react @ks-utvikling/designsystem-themes
+pnpm add @ks-digital/designsystem-react @ks-digital/designsystem-themes
 ```
 
 ## Setup
@@ -28,8 +28,8 @@ Add the Inter font to your `index.html`. This API supports the same parameters a
 Import the base styles and the theme you want to use in your application:
 
 ```javascript
-import '@ks-utvikling/designsystem-themes/base.css'
-import '@ks-utvikling/designsystem-themes/ledsagerbevis.css'
+import '@ks-digital/designsystem-themes/base.css'
+import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 ```
 
 ### 3. Use Components
@@ -37,7 +37,7 @@ import '@ks-utvikling/designsystem-themes/ledsagerbevis.css'
 Import and use the components you need. You can explore the available components at [Designsystemet.no](https://www.designsystemet.no/komponenter):
 
 ```javascript
-import { Button } from '@ks-utvikling/designsystem-react'
+import { Button } from '@ks-digital/designsystem-react'
 
 function MyComponent() {
   return <Button data-size="lg">My Button</Button>

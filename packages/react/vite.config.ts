@@ -30,7 +30,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: '@ks-utvikling/designsystem-react',
+      name: '@ks-digital/designsystem-react',
       fileName: 'index',
       formats: ['es' as const],
     },

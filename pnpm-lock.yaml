@@ -143,10 +143,10 @@ importers:
 
   apps/react-demo:
     dependencies:
-      '@ks-utvikling/designsystem-react':
+      '@ks-digital/designsystem-react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@ks-utvikling/designsystem-themes':
+      '@ks-digital/designsystem-themes':
         specifier: workspace:*
         version: link:../../packages/themes
       react:
