@@ -1,16 +1,28 @@
-# Designsystem KS Digital
+# Designsystem for KS Digital
 
-Our designsystem extends [Designsystemet from Digdir](https://www.designsystemet.no/).
+The KS Digital Designsystem builds upon [Designsystemet from Digdir](https://www.designsystemet.no/).
 
-## Release and Publishing
+## 💡 Philosophy
 
-Prerequisites: You need special access to do this
+Our goal is to align closely with the components and design decisions of Designsystemet while maintaining a set of custom components that address the unique requirements of our projects. This approach ensures consistency with established standards while allowing flexibility for customization.
+
+## 📦 Packages
+
+_Work in Progress_
+
+## 🚀 Release and Publishing
+
+### Prerequisites
+
+You need publish access to perform the following steps.
 
 1. Run the following command from a machine with access to publish on NPM:
-   ```bash
-   nx release --skip-publish
-   ```
-   This will:
+
+```bash
+nx release --skip-publish
+```
+
+This will:
 
 - Create a local Git tag for the release.
 - Generate changelogs based on conventional commits.
