@@ -1,5 +1,17 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "release": {
+    "projects": ["@ks-no/designsystem-themes", "@ks-no/designsystem-react"],
+    "projectsRelationship": "fixed",
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/eslint/plugin",
