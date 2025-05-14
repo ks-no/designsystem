@@ -8,7 +8,10 @@
     "projectsRelationship": "fixed",
     "changelog": {
       "workspaceChangelog": {
-        "createRelease": "github"
+        "createRelease": "github",
+        "renderOptions": {
+          "versionTitleDate": false
+        }
       }
     },
     "version": {
