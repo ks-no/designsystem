@@ -2,6 +2,7 @@
   "name": "@ks-utvikling/designsystem-themes",
   "version": "0.0.1-alpha.0",
   "license": "MIT",
+  "private": false,
   "type": "module",
   "exports": {
     "./base.css": "./src/base.css",
