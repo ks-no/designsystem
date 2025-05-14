@@ -3,6 +3,9 @@
   "version": "0.0.1-alpha.0",
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     "./base.css": "./src/base.css",
