@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ks-no/designsystem-react": ["packages/react/src/index.ts"],
-      "@ks-no/designsystem-themes": ["packages/themes/src/index.ts"]
+      "@ks-utvikling/designsystem-react": ["packages/react/src/index.ts"],
+      "@ks-utvikling/designsystem-themes": ["packages/themes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]

@@ -19,8 +19,8 @@ To use the themes, include the base styles and one of the supported themes in yo
 If your bundler (e.g., Vite) is configured to resolve npm packages in CSS imports:
 
 ```css
-@import '@ks-no/designsystem-themes/base.css';
-@import '@ks-no/designsystem-themes/ledsagerbevis.css';
+@import '@ks-utvikling/designsystem-themes/base.css';
+@import '@ks-utvikling/designsystem-themes/ledsagerbevis.css';
 ```
 
 ### In JavaScript/TypeScript Files
@@ -28,6 +28,6 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 If you are using a JavaScript or TypeScript application, import the styles like this. If you are using React, please check the readme in the React-package as well.
 
 ```javascript
-import '@ks-no/designsystem-themes/base.css'
-import '@ks-no/designsystem-themes/ledsagerbevis.css'
+import '@ks-utvikling/designsystem-themes/base.css'
+import '@ks-utvikling/designsystem-themes/ledsagerbevis.css'
 ```

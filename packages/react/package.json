@@ -1,6 +1,6 @@
 {
-  "name": "@ks-no/designsystem-react",
-  "version": "0.0.0-semantically-released",
+  "name": "@ks-utvikling/designsystem-react",
+  "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "type": "module",

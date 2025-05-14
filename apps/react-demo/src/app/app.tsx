@@ -1,7 +1,12 @@
-import '@ks-no/designsystem-themes/base.css'
-import '@ks-no/designsystem-themes/ledsagerbevis.css'
+import '@ks-utvikling/designsystem-themes/base.css'
+import '@ks-utvikling/designsystem-themes/ledsagerbevis.css'
 
-import { Alert, Button, Spinner, Heading } from '@ks-no/designsystem-react'
+import {
+  Alert,
+  Button,
+  Spinner,
+  Heading,
+} from '@ks-utvikling/designsystem-react'
 
 export function App() {
   return (
