@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "release": {
-    "projects": ["@ks-no/designsystem-themes", "@ks-no/designsystem-react"],
+    "projects": [
+      "@ks-utvikling/designsystem-themes",
+      "@ks-utvikling/designsystem-react"
+    ],
     "projectsRelationship": "fixed",
     "changelog": {
       "workspaceChangelog": {

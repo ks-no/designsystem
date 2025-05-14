@@ -5,8 +5,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@ks-no/designsystem-react": "workspace:*",
-    "@ks-no/designsystem-themes": "workspace:*",
+    "@ks-utvikling/designsystem-react": "workspace:*",
+    "@ks-utvikling/designsystem-themes": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
