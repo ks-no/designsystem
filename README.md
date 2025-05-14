@@ -14,12 +14,10 @@ _Work in Progress_
 
 ### Prerequisites
 
-You need publish access to perform the following steps.
-
-1. Run the following command from a machine with access to publish on NPM:
+1. Run the following command from a machine with access to publish on NPM.
 
 ```bash
-nx release --skip-publish
+pnpm nx release --skip-publish --specifier prerelease --preid alpha
 ```
 
 This will:
