@@ -10,7 +10,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "jsx": "react-jsx",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false
   },
   "files": [],
   "include": [],

@@ -1,6 +1,5 @@
 import '@digdir/designsystemet-css'
 
-export * from './react-types.d'
 export * from './components/Alert/Alert'
 export * from './components/Avatar/Avatar'
 export * from './components/Badge/Badge'
