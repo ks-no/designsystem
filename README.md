@@ -8,7 +8,9 @@ Our goal is to align closely with the components and design decisions of Designs
 
 ## 📦 Packages
 
-_Work in Progress_
+[`@ks-digital/designsystem-themes`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-themes) - Themes officially supported.
+
+[`@ks-digital/designsystem-react`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-react) - React implementation of components
 
 ## 🚀 Release and Publishing
 
