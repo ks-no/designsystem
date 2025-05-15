@@ -1,3 +1,13 @@
+## 0.0.1-alpha.1
+
+### 🩹 Fixes
+
+- **react:** adjust build configuration, set `packageRoot` for publish ([aeed752](https://github.com/ks-no/designsystem/commit/aeed752))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.0
 
 ### 🚀 Features
