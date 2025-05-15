@@ -14,10 +14,10 @@ _Work in Progress_
 
 ### Prerequisites
 
-1. Run the following command from a machine with access to publish on NPM.
+1. Run the following command from a machine with access to publish on NPM. Confirm the output with `dry-run`-flag first.
 
 ```bash
-pnpm nx release --skip-publish --specifier prerelease --preid alpha
+pnpm nx release --skip-publish --specifier prerelease --preid alpha --dry-run
 ```
 
 This will:
