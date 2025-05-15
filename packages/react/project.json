@@ -4,11 +4,5 @@
   "sourceRoot": "packages/react/src",
   "projectType": "library",
   "tags": [],
-  "targets": {
-    "nx-release-publish": {
-      "options": {
-        "packageRoot": "{projectRoot}/dist"
-      }
-    }
-  }
+  "targets": {}
 }
