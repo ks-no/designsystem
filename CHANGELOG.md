@@ -1,3 +1,13 @@
+## 0.0.1-alpha.2
+
+### 🩹 Fixes
+
+- **react:** build before publish ([38476cb](https://github.com/ks-no/designsystem/commit/38476cb))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.1
 
 ### 🩹 Fixes
