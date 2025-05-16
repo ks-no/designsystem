@@ -1,3 +1,13 @@
+## 0.0.1-alpha.3
+
+### 🚀 Features
+
+- **react:** expand exports in Details component to include Content and Summary ([a3b4d31](https://github.com/ks-no/designsystem/commit/a3b4d31))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.2
 
 ### 🩹 Fixes
