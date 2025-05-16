@@ -16,7 +16,7 @@ Our goal is to align closely with the components and design decisions of Designs
 
 ### Prerequisites
 
-1. Run the following command from a machine with access to publish on NPM. Confirm the output with `dry-run`-flag first.
+1. Run the following command. Confirm the output with `dry-run`-flag first.
 
 ```bash
 pnpm nx release --skip-publish --specifier prerelease --preid alpha --dry-run
@@ -28,7 +28,7 @@ This will:
 - Generate changelogs based on conventional commits.
 - Perform a semantic version bump. Note: This command will not push the package to NPM.
 
-2. Push to the remote repository, including the new version tag:
+2. If everything looks good, push to `main`, including the new version tag:
 
 ```bash
 git push origin main --follow-tags
