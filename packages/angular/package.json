@@ -1,8 +1,42 @@
 {
   "name": "@ks-digital/designsystem-angular",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/angular/src",
-  "projectType": "library",
-  "tags": [],
-  "targets": {}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ks-no/designsystem.git",
+    "directory": "packages/angular"
+  },
+  "version": "0.0.1-alpha.4",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "./dist"
+  ],
+  "dependencies": {
+    "@digdir/designsystemet-css": "1.0.5"
+  },
+  "peerDependencies": {
+    "@angular-devkit/build-angular": ">=19.0.0",
+    "@angular/animations": ">=19.0.0",
+    "@angular/common": ">=19.0.0",
+    "@angular/compiler-cli": ">=19.0.0",
+    "@angular/compiler": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "@angular/language-service": ">=19.0.0",
+    "@angular/platform-browser": ">=19.0.0",
+    "@angular/platform-browser-dynamic": ">=19.0.0",
+    "@angular/platform-server": ">=19.0.0"
+  }
 }
