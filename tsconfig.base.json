@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"],
+      "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
-      "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"]
+      "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]

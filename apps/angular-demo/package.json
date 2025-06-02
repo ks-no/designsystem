@@ -1,0 +1,25 @@
+{
+  "name": "angular-demo",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ks-digital/designsystem-angular": "workspace:*",
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "@angular/common": "~19.2.0",
+    "@angular/compiler": "~19.2.0",
+    "@angular/core": "~19.2.0",
+    "@angular/forms": "~19.2.0",
+    "@angular/platform-browser": "~19.2.0",
+    "@angular/platform-browser-dynamic": "~19.2.0",
+    "@angular/router": "~19.2.0",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6"
+  }
+}
