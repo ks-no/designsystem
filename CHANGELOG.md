@@ -1,3 +1,13 @@
+## 0.0.1-alpha.4
+
+### 🚀 Features
+
+- **themes:** add `forvaltning`-theme ([#6](https://github.com/ks-no/designsystem/pull/6))
+
+### ❤️ Thank You
+
+- Stian Morsund
+
 ## 0.0.1-alpha.3
 
 ### 🚀 Features
