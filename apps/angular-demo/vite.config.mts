@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite'
 import angular from '@analogjs/vite-plugin-angular'
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
+import { defineConfig } from 'vite'
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -23,5 +23,23 @@ export default defineConfig(() => ({
       reportsDirectory: '../../coverage/apps/angular-demo',
       provider: 'v8' as const,
     },
+  },
+  // build: {
+  //   outDir: '../../dist/apps/angular-demo',
+  //   emptyOutDir: true,
+  //   reportCompressedSize: true,
+  // },
+  resolve: {
+    preserveSymlinks: true,
+    // mainFields: ['module'],
+    dedupe: [
+      '@angular/core',
+      '@angular/common',
+      '@angular/forms',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router',
+      'rxjs',
+    ],
   },
 }))
