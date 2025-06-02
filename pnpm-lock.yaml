@@ -227,9 +227,6 @@ importers:
       '@digdir/designsystemet-css':
         specifier: 1.0.5
         version: 1.0.5
-      zone.js:
-        specifier: '*'
-        version: 0.15.1
     devDependencies:
       '@angular/compiler':
         specifier: ^19.2.0
