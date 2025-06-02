@@ -11,6 +11,11 @@
     "node": "22.11.0"
   },
   "devDependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
     "@analogjs/vite-plugin-angular": "~1.14.1",
     "@analogjs/vitest-angular": "~1.14.1",
     "@commitlint/cli": "^19.8.0",
