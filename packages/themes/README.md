@@ -7,6 +7,7 @@ This package provides prebuilt themes for use with Designsystemet at KS Digital.
 The following themes are officially supported:
 
 - **Ledsagerbevis**
+- **Forvaltning**
 
 Additionally, a base style is provided and should be applied first. We aim to keep this base style as minimal as possible.
 

@@ -14,7 +14,8 @@
   "type": "module",
   "exports": {
     "./base.css": "./src/base.css",
-    "./ledsagerbevis.css": "./src/built/ledsagerbevis.css"
+    "./ledsagerbevis.css": "./src/built/ledsagerbevis.css",
+    "./forvaltning.css": "./src/built/forvaltning.css"
   },
   "files": [
     "src"
