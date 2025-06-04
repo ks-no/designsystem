@@ -9,7 +9,5 @@
     "@ks-digital/designsystem-themes": "workspace:*",
     "rxjs": "~7.8.0"
   },
-  "devDependencies": {
-    "@angular/compiler": "^19.2.0"
-  }
+  "devDependencies": {}
 }
