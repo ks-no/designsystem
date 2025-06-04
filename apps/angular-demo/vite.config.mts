@@ -33,7 +33,6 @@ export default defineConfig(() => ({
     //   '@angular/forms',
     //   '@angular/platform-browser',
     //   '@angular/platform-browser-dynamic',
-    //   '@angular/router',
     //   'rxjs',
     // ],
   },
