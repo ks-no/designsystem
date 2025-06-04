@@ -1,13 +1,13 @@
 import { Component } from '@angular/core'
 import {
+  Field,
   Fieldset,
   FieldsetDescription,
   FieldsetLegend,
   Label,
+  ValidationMessage,
 } from '@ks-digital/designsystem-angular'
 import { CheckboxDirective } from 'packages/angular/src/components/checkbox/checkbox-input.component'
-
-import { Field } from '../../../../packages/angular/src/components/field/field'
 
 @Component({
   imports: [
@@ -18,6 +18,7 @@ import { Field } from '../../../../packages/angular/src/components/field/field'
     FieldsetLegend,
     Field,
     Label,
+    ValidationMessage,
   ],
   selector: 'app-root',
   template: `
@@ -36,9 +37,11 @@ import { Field } from '../../../../packages/angular/src/components/field/field'
       </ksd-field>
 
       <ksd-field>
-        <input ksdCheckbox value="SMS" />
+        <input ksdCheckbox value="SMS" aria-invalid="true" />
         <label ksdLabel> SMS </label>
       </ksd-field>
+
+      <p ksdValidationMessage>Du må velge minst to kontaktalternativ</p>
     </fieldset>
   `,
 })
