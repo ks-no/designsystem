@@ -1,12 +1,12 @@
-import { Component , input} from '@angular/core'
+import { Component, model } from '@angular/core'
 
 @Component({
   selector: 'label[ksdLabel]',
   template: `<ng-content />`,
   host: {
     '[attr.for]': 'for()',
-  }
+  },
 })
 export class Label {
-  for = input.required<string>();
+  for = model<string>()
 }

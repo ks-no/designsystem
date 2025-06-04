@@ -1,17 +1,11 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
-  standalone: true,
   selector: 'legend[ksdFieldsetLegend]',
   host: {
-    'role': 'legend',
-    'class': 'ds-label',
+    role: 'legend',
+    class: 'ds-label',
   },
-  template: `
-    <ng-content />
-  `,
+  template: ` <ng-content /> `,
 })
-export class FieldsetLegend {
-}
+export class FieldsetLegend {}

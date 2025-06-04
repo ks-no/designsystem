@@ -1,12 +1,7 @@
-
-import {
-  Component,
-  input
-} from '@angular/core'
+import { Component, model } from '@angular/core'
 
 @Component({
-  standalone: true,
-  selector: 'input[type="checkbox"][ksdCheckbox]',
+  selector: 'input[ksdCheckbox]',
   host: {
     type: 'checkbox',
     class: 'ds-input',
@@ -15,5 +10,5 @@ import {
   template: ``,
 })
 export class CheckboxDirective {
-  id = input<string>()
+  id = model<string>()
 }
