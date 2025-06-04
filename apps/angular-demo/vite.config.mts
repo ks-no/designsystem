@@ -24,22 +24,17 @@ export default defineConfig(() => ({
       provider: 'v8' as const,
     },
   },
-  // build: {
-  //   outDir: '../../dist/apps/angular-demo',
-  //   emptyOutDir: true,
-  //   reportCompressedSize: true,
-  // },
   resolve: {
-    preserveSymlinks: true,
+    // preserveSymlinks: true,
     // mainFields: ['module'],
-    dedupe: [
-      '@angular/core',
-      '@angular/common',
-      '@angular/forms',
-      '@angular/platform-browser',
-      '@angular/platform-browser-dynamic',
-      '@angular/router',
-      'rxjs',
-    ],
+    // dedupe: [
+    //   '@angular/core',
+    //   '@angular/common',
+    //   '@angular/forms',
+    //   '@angular/platform-browser',
+    //   '@angular/platform-browser-dynamic',
+    //   '@angular/router',
+    //   'rxjs',
+    // ],
   },
 }))

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core'
-import { AngularComponent } from '@ks-digital/designsystem-angular'
+import { FiksCheckboxInputComponent } from '@ks-digital/designsystem-angular'
 
 @Component({
-  imports: [AngularComponent],
+  imports: [FiksCheckboxInputComponent],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  template: `
+    <h1>Hi</h1>
+
+    <fiks-checkbox-input> Check meg ut </fiks-checkbox-input>
+  `,
+  styles: ``,
 })
 export class AppComponent {
   title = 'angular-demo'

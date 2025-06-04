@@ -1,3 +1,5 @@
+import { NgClass } from '@angular/common'
+
 import {
   Component,
   ElementRef,
@@ -8,11 +10,11 @@ import {
 } from '@angular/core'
 
 @Component({
+  standalone: true,
   selector: 'input[type="checkbox"][ksCheckboxInput]',
-  encapsulation: ViewEncapsulation.None,
   host: {
-    class: 'ds-input',
     type: 'checkbox',
+    class: 'ds-input',
     '[attr.id]': 'id()',
     '[attr.name]': 'name()',
     '[attr.checked]': 'isChecked()',
