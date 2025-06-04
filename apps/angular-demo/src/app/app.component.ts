@@ -22,4 +22,4 @@ import {
   `,
   styles: ``,
 })
-export class AppComponent { }
+export class App { }
