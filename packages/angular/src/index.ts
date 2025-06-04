@@ -1,1 +1,2 @@
-export * from './lib/checkbox/checkbox'
+export * from './components/checkbox/checkbox'
+export * from './components/field/field';
