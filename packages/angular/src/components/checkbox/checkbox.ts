@@ -1,7 +1,7 @@
-import { Component, inject, input, signal } from '@angular/core'
-import { CheckboxDirective } from './checkbox-input.component'
+import { Component, input, signal } from '@angular/core'
 import { Field } from '../field/field'
 import { Label } from '../label/label'
+import { CheckboxDirective } from './checkbox-input.component'
 
 let id = 0
 
@@ -17,12 +17,13 @@ let id = 0
       </label>
     </ksd-field>
   `,
+  styles: [`:host{display: block;}`]
 })
 export class Checkbox {
   private readonly _id = signal(`fiks-checkbox-${id++}`)
   protected id = this._id.asReadonly()
 
-  
+
   label = input.required<string>()
   description = input<string>();
   disabled = input<boolean>(false);
@@ -37,5 +38,5 @@ export class Checkbox {
   // ariaLabelledBy
 
 
-  
+
 }

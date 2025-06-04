@@ -1,22 +1,19 @@
 import {
-  Component,
-  ElementRef,
-  input,
-  output,
-  viewChild,
-  ViewEncapsulation,
+    Component,
+    input
 } from '@angular/core'
 
 @Component({
-  standalone: true,
-  selector: 'ksd-field',
-  host: {
-    class: 'ds-field',
-  },
-  template: `
+    standalone: true,
+    selector: 'ksd-field',
+    host: {
+        class: 'ds-field',
+    },
+    template: `
     <ng-content />
   `,
+    //   styles: `:host {display:block;}`
 })
 export class Field {
-  position = input<'start' | 'end'>('start')
+    position = input<'start' | 'end'>('start')
 }

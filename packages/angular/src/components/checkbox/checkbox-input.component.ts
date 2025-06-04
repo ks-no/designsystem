@@ -1,12 +1,7 @@
-import { NgClass } from '@angular/common'
 
 import {
   Component,
-  ElementRef,
-  input,
-  output,
-  viewChild,
-  ViewEncapsulation,
+  input
 } from '@angular/core'
 
 @Component({

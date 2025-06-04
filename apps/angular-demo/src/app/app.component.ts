@@ -1,15 +1,25 @@
 import { Component } from '@angular/core'
-import { Checkbox } from '@ks-digital/designsystem-angular'
+import {
+  Checkbox,
+  Fieldset,
+  FieldsetDescription,
+  FieldsetLegend,
+} from '@ks-digital/designsystem-angular'
 
 @Component({
-  imports: [Checkbox],
+  imports: [Checkbox, Fieldset, FieldsetDescription, FieldsetLegend],
   selector: 'app-root',
   template: `
     <h1>Hi</h1>
+    <fieldset ksdFieldset>
+      <legend ksdFieldsetLegend> Hvordan vil du helst at vi skal kontakte deg?</legend >
+      <p ksdFieldsetDescription> Velg alle alternativene som er relevante for deg.</p>
+      <ksd-checkbox label="E-post" />
+      <ksd-checkbox label="Telefon" />
+      <ksd-checkbox label="SMS" />
+    </fieldset>
 
-    <ksd-checkbox label="Hi u!" />
   `,
   styles: ``,
 })
-export class AppComponent {
-}
+export class AppComponent { }
