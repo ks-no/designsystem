@@ -8,8 +8,8 @@ type EmptyObject = { [emptyObjectSymbol]?: never };
  * type safety of custom color names.
  */
 
-// biome-ignore lint/suspicious/noEmptyInterface: used for interface augmentation
-export interface MainAndSupportColors {}
+// eslint-disable-next-line
+export interface MainAndSupportColors { }
 
 /**
  * If {@link MainAndSupportColors} has been extended to include color names, return T,

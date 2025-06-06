@@ -1,6 +1,7 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'legend[ksdFieldsetLegend]',
   host: {
     role: 'legend',
@@ -8,4 +9,4 @@ import { Component } from '@angular/core'
   },
   template: ` <ng-content /> `,
 })
-export class FieldsetLegend {}
+export class FieldsetLegend { }

@@ -41,7 +41,7 @@ import { CheckboxDirective } from 'packages/angular/src/components/checkbox/chec
         <label ksdLabel> SMS </label>
       </ksd-field>
 
-      <p ksdValidationMessage>Du må velge minst to kontaktalternativ</p>
+      <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>
     </fieldset>
   `,
 })
