@@ -1,44 +1,17 @@
-import { Component, input, signal } from '@angular/core'
-import { Field } from '../field/field'
-import { Label } from '../label/label'
-import { CheckboxDirective } from './checkbox-input.component'
-
-let id = 0
+import { Component, model } from '@angular/core'
 
 @Component({
-  selector: 'ksd-checkbox',
-  imports: [CheckboxDirective, Field, Label],
-  template: `
-    <ksd-field>
-      <input
-        ksd-checkbox
-        type="checkbox"
-        [id]="id()"
-        [value]="value()"
-        [readOnly]="readOnly()"
-      />
-      <label ksd-label [for]="id()">
-        {{ label() }}
-      </label>
-    </ksd-field>
-  `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-    `,
-  ],
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'input[ksd-checkbox]',
+  host: {
+    type: 'checkbox',
+    class: 'ds-input',
+    '[attr.id]': 'id()',
+  },
+  template: ``,
 })
 export class Checkbox {
-  private readonly _id = signal(`fiks-checkbox-${id++}`)
-  protected id = this._id.asReadonly()
-
-  label = input.required<string>()
-  description = input<string>()
-  disabled = input<boolean>(false)
-  readOnly = input<boolean>(false)
-  value = input<string | number | readonly string[]>()
+  id = model<string>()
 
   // dataSize = signal<DefaultProps>('')
   // dataColor

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import {
+  Checkbox,
   Field,
   Fieldset,
   FieldsetDescription,
@@ -7,16 +8,14 @@ import {
   Label,
   ValidationMessage,
 } from '@ks-digital/designsystem-angular'
-import { CheckboxDirective } from 'packages/angular/src/components/checkbox/checkbox-input.component'
 
 @Component({
   imports: [
-    // Checkbox,
-    CheckboxDirective,
+    Checkbox,
+    Field,
     Fieldset,
     FieldsetDescription,
     FieldsetLegend,
-    Field,
     Label,
     ValidationMessage,
   ],
@@ -33,12 +32,17 @@ import { CheckboxDirective } from 'packages/angular/src/components/checkbox/chec
 
       <ksd-field>
         <input ksd-checkbox value="telefon" />
-        <label ksd-label> Telefon </label>
+        <label ksd-label> I can be chosen </label>
       </ksd-field>
 
       <ksd-field>
         <input ksd-checkbox value="SMS" aria-invalid="true" />
-        <label ksd-label> SMS </label>
+        <label ksd-label> I am invalid </label>
+      </ksd-field>
+
+      <ksd-field>
+        <input ksd-checkbox value="SMS" disabled />
+        <label ksd-label> I am disabled </label>
       </ksd-field>
 
       <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>
