@@ -11,13 +11,13 @@ let id = 0
   template: `
     <ksd-field>
       <input
-        ksdCheckbox
+        ksd-checkbox
         type="checkbox"
         [id]="id()"
         [value]="value()"
         [readOnly]="readOnly()"
       />
-      <label ksdLabel [for]="id()">
+      <label ksd-label [for]="id()">
         {{ label() }}
       </label>
     </ksd-field>

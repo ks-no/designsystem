@@ -23,22 +23,22 @@ import { CheckboxDirective } from 'packages/angular/src/components/checkbox/chec
   selector: 'app-root',
   template: `
     <h1>Hi</h1>
-    <fieldset ksdFieldset>
-      <legend ksdFieldsetLegend>
+    <fieldset ksd-fieldset>
+      <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
       </legend>
-      <p ksdFieldsetDescription>
+      <p ksd-fieldset-description>
         Velg alle alternativene som er relevante for deg.
       </p>
 
       <ksd-field>
-        <input ksdCheckbox value="telefon" />
-        <label ksdLabel> Telefon </label>
+        <input ksd-checkbox value="telefon" />
+        <label ksd-label> Telefon </label>
       </ksd-field>
 
       <ksd-field>
-        <input ksdCheckbox value="SMS" aria-invalid="true" />
-        <label ksdLabel> SMS </label>
+        <input ksd-checkbox value="SMS" aria-invalid="true" />
+        <label ksd-label> SMS </label>
       </ksd-field>
 
       <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>
