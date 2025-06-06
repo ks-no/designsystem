@@ -1,0 +1,13 @@
+{
+  "name": "angular-demo",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ks-digital/designsystem-angular": "workspace:*",
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "rxjs": "~7.8.0"
+  },
+  "devDependencies": {}
+}
