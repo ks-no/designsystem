@@ -1,7 +1,6 @@
 import { Component, model } from '@angular/core'
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'input[ksd-checkbox]',
   host: {
     type: 'checkbox',

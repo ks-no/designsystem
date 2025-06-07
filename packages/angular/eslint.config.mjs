@@ -18,14 +18,6 @@ export default [
           style: 'camelCase',
         },
       ],
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'ksd',
-          style: 'kebab-case',
-        },
-      ],
     },
   },
   {
