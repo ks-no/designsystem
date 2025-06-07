@@ -3,7 +3,8 @@
   "release": {
     "projects": [
       "@ks-digital/designsystem-themes",
-      "@ks-digital/designsystem-react"
+      "@ks-digital/designsystem-react",
+      "@ks-digital/designsystem-angular"
     ],
     "projectsRelationship": "fixed",
     "changelog": {
