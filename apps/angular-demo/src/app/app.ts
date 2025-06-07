@@ -31,22 +31,22 @@ import {
       </p>
 
       <ksd-field>
-        <input ksd-checkbox value="telefon" />
-        <label ksd-label> I can be chosen </label>
+        <ksd-label> I can be chosen </ksd-label>
+        <input ksd-checkbox value="telefon"  />
       </ksd-field>
 
       <ksd-field>
+        <ksd-label> I am invalid </ksd-label>
         <input ksd-checkbox value="SMS" aria-invalid="true" />
-        <label ksd-label> I am invalid </label>
       </ksd-field>
 
       <ksd-field>
+        <ksd-label> I am disabled </ksd-label>
         <input ksd-checkbox value="SMS" disabled />
-        <label ksd-label> I am disabled </label>
       </ksd-field>
 
       <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>
     </fieldset>
   `,
 })
-export class App {}
+export class App { }

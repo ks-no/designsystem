@@ -13,6 +13,7 @@ import { Component, model } from '@angular/core'
 export class Checkbox {
   id = model<string>()
 
+
   // dataSize = signal<DefaultProps>('')
   // dataColor
   // ariaLabel
