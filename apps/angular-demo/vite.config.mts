@@ -24,16 +24,4 @@ export default defineConfig(() => ({
       provider: 'v8' as const,
     },
   },
-  resolve: {
-    // preserveSymlinks: true,
-    // mainFields: ['module'],
-    // dedupe: [
-    //   '@angular/core',
-    //   '@angular/common',
-    //   '@angular/forms',
-    //   '@angular/platform-browser',
-    //   '@angular/platform-browser-dynamic',
-    //   'rxjs',
-    // ],
-  },
 }))
