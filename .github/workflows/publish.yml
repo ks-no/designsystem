@@ -35,7 +35,9 @@ jobs:
         shell: bash
 
       - name: Build packages
-        run: pnpm nx run @ks-digital/designsystem-react:build
+        run: |
+          pnpm nx run @ks-digital/designsystem-react:build
+          pnpm nx run @ks-digital/designsystem-angular:build
         shell: bash
 
       - name: Publish packages

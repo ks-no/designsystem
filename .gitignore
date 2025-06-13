@@ -31,3 +31,4 @@ vitest.config.*.timestamp*
 
 # Built files
 dist
+.angular

@@ -3,7 +3,8 @@
   "release": {
     "projects": [
       "@ks-digital/designsystem-themes",
-      "@ks-digital/designsystem-react"
+      "@ks-digital/designsystem-react",
+      "@ks-digital/designsystem-angular"
     ],
     "projectsRelationship": "fixed",
     "changelog": {
@@ -78,6 +79,11 @@
       "options": {
         "max-warnings": 0
       }
+    },
+    "@angular-devkit/build-angular:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
     }
   },
   "generators": {
@@ -95,6 +101,19 @@
         "style": "css",
         "linter": "eslint"
       }
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "vitest"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    },
+    "@nx/angular:application": {
+      "e2eTestRunner": "playwright",
+      "linter": "eslint",
+      "style": "css",
+      "unitTestRunner": "vitest"
     }
   }
 }
