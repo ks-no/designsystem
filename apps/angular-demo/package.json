@@ -8,14 +8,15 @@
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
-    "@angular/platform-server": "^19.2.0",
     "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-server": "^19.2.0",
     "@ks-digital/designsystem-angular": "workspace:*",
     "@ks-digital/designsystem-themes": "workspace:*"
   },
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "~1.14.1",
     "@analogjs/vitest-angular": "~1.14.1",
+    "@testing-library/angular": "^17.4.0",
     "angular-eslint": "^19.2.0"
   }
 }
