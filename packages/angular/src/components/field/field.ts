@@ -5,12 +5,10 @@ import {
     input,
     signal,
 } from '@angular/core'
+import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
 import { Label } from '../label/label'
 
-const randomFiveChars = () => {
-    return Math.random().toString(36).substr(2, 5)
-}
 @Component({
     selector: 'ksd-field',
     host: {
@@ -23,7 +21,7 @@ export class Field {
 
     private input = contentChild(Checkbox)
     private label = contentChild(Label)
-    private readonly id = signal(randomFiveChars())
+    private readonly id = signal(randomId())
 
     constructor() {
         afterNextRender(() => {
