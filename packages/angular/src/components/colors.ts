@@ -1,6 +1,10 @@
+/**
+Lifted from https://github.com/digdir/designsystemet/blob/main/packages/react/src/colors.ts
+**/
+
 // EmptyObject implementation from https://github.com/sindresorhus/type-fest/blob/main/source/empty-object.d.ts
-declare const emptyObjectSymbol: unique symbol;
-type EmptyObject = { [emptyObjectSymbol]?: never };
+declare const emptyObjectSymbol: unique symbol
+type EmptyObject = { [emptyObjectSymbol]?: never }
 
 /**
  * Base interface for available colors in the design system.
@@ -17,16 +21,16 @@ export interface MainAndSupportColors { }
  */
 type ColorWithFallback<T> = MainAndSupportColors extends EmptyObject
   ? string
-  : T;
+  : T
 
-export type SeverityInfo = 'info';
-export type SeveritySuccess = 'success';
-export type SeverityWarning = 'warning';
-export type SeverityDanger = 'danger';
+export type SeverityInfo = 'info'
+export type SeveritySuccess = 'success'
+export type SeverityWarning = 'warning'
+export type SeverityDanger = 'danger'
 export type SeverityColors =
   | SeverityInfo
   | SeveritySuccess
   | SeverityWarning
-  | SeverityDanger;
+  | SeverityDanger
 
-export type Color = ColorWithFallback<'neutral' | keyof MainAndSupportColors>;
+export type Color = ColorWithFallback<'neutral' | keyof MainAndSupportColors>

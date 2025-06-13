@@ -1,7 +1,12 @@
 import { Component, model } from '@angular/core'
+import { DefaultInputs } from '../default-inputs'
 
 @Component({
   selector: 'input[ksd-checkbox]',
+  hostDirectives: [{
+    directive: DefaultInputs,
+    inputs: ['data-size', 'data-color']
+  }],
   host: {
     type: 'checkbox',
     class: 'ds-input',
@@ -11,11 +16,4 @@ import { Component, model } from '@angular/core'
 })
 export class Checkbox {
   id = model<string>()
-
-
-  // dataSize = signal<DefaultProps>('')
-  // dataColor
-  // ariaLabel
-  // error
-  // ariaLabelledBy
 }
