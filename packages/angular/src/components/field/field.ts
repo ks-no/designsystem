@@ -9,6 +9,10 @@ import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
 import { Label } from '../label/label'
 
+
+/**
+ * Use the Field component to connect inputs and labels
+ */
 @Component({
     selector: 'ksd-field',
     host: {
