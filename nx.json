@@ -58,14 +58,6 @@
       }
     }
   ],
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@pellegrims/nx-remotecache-s3",
-      "options": {
-        "cacheableOperations": ["build", "test", "lint", "e2e"]
-      }
-    }
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
