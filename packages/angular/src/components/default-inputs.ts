@@ -4,7 +4,7 @@ import { Color } from './colors'
 export type Size = 'sm' | 'md' | 'lg' | 'xl'
 
 @Directive()
-export class DefaultInputs {
+export class CommonInputs {
     /**
      * Changes size for descendant Designsystemet components. Select from predefined sizes.
      */

@@ -1,10 +1,10 @@
 import { Component, model } from '@angular/core'
-import { DefaultInputs } from '../default-inputs'
+import { CommonInputs } from '../default-inputs'
 
 @Component({
   selector: 'input[ksd-checkbox]',
   hostDirectives: [{
-    directive: DefaultInputs,
+    directive: CommonInputs,
     inputs: ['data-size', 'data-color']
   }],
   host: {
