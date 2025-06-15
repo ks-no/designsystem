@@ -45,9 +45,9 @@ import {
         <input ksd-checkbox value="SMS" disabled />
       </ksd-field>
 
-      <ksd-field>
-        <ksd-label data-size="xl"> I am extra large </ksd-label>
-        <input  ksd-checkbox value="xl"  />
+      <ksd-field data-size="lg">
+        <ksd-label> I am large </ksd-label>
+        <input ksd-checkbox value="lg"  />
       </ksd-field>
 
       <p ksd-validation-message data-size="xl">Du må velge minst to kontaktalternativ</p>

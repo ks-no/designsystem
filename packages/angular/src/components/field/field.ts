@@ -7,6 +7,7 @@ import {
 } from '@angular/core'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
+import { CommonInputs } from '../default-inputs'
 import { Label } from '../label/label'
 
 
@@ -15,6 +16,10 @@ import { Label } from '../label/label'
  */
 @Component({
     selector: 'ksd-field',
+    hostDirectives: [{
+        directive: CommonInputs,
+        inputs: ['data-size', 'data-color']
+    }],
     host: {
         class: 'ds-field',
     },
