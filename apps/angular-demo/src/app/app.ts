@@ -21,7 +21,7 @@ import {
   ],
   selector: 'app-root',
   template: `
-    <h1>Hi</h1>
+    <h1>Hi from Angular</h1>
     <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
