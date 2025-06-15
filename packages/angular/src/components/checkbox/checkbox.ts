@@ -1,5 +1,5 @@
 import { Component, model } from '@angular/core'
-import { CommonInputs } from '../default-inputs'
+import { CommonInputs } from '../common-inputs'
 
 @Component({
   selector: 'input[ksd-checkbox]',

@@ -6,7 +6,6 @@
  * proper TypeScript intellisense support.
  */
 
-
 import { Directive, input } from '@angular/core'
 import { Color } from './colors'
 

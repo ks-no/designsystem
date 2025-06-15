@@ -7,7 +7,7 @@ import {
 } from '@angular/core'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
-import { CommonInputs } from '../default-inputs'
+import { CommonInputs } from '../common-inputs'
 import { Label } from '../label/label'
 
 
