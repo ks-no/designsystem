@@ -4,7 +4,6 @@
     "allowJs": true,
     "outDir": "../../dist/out-tsc",
     "sourceMap": false,
-    "module": "commonjs",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
