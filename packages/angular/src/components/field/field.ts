@@ -36,7 +36,7 @@ export class Field {
     constructor() {
         afterNextRender(() => {
             if (isDevMode() && (!this.label() || !this.input())) {
-                console.error('[KSD Field] Missing required elements: ksd-label and ksd-input must be provided as children')
+                console.error('[Field] Missing required elements: ksd-label and ksd-input must be provided as children')
             }
 
             this.input()?.id.set(this.id())
