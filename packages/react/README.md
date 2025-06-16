@@ -46,4 +46,4 @@ function MyComponent() {
 
 ## Example
 
-A complete example setup is available in the `react-demo-app` located under the `apps` folder.
+A complete example setup is available in the `react-demo` located under the `apps` folder.
