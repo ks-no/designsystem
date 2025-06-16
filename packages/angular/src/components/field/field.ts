@@ -3,7 +3,8 @@ import {
     Component,
     contentChild,
     input,
-    signal,
+    isDevMode,
+    signal
 } from '@angular/core'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
@@ -34,10 +35,12 @@ export class Field {
 
     constructor() {
         afterNextRender(() => {
-            if (this.label() && this.input()) {
-                this.input()?.id.set(this.id())
-                this.label()?.for.set(this.id())
+            if (isDevMode() && (!this.label() || !this.input())) {
+                console.error('[KSD Field] Missing required elements: ksd-label and ksd-input must be provided as children')
             }
+
+            this.input()?.id.set(this.id())
+            this.label()?.for.set(this.id())
         })
     }
 }
