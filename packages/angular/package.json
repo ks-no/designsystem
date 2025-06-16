@@ -42,7 +42,6 @@
     "@angular-eslint/eslint-plugin-template": "^20.0.0",
     "@angular-eslint/schematics": "^20.0.0",
     "@angular-eslint/template-parser": "^20.0.0",
-    "@angular/platform-browser-dynamic": "^20.0.3",
     "@testing-library/angular": "^17.4.0",
     "angular-eslint": "^20.0.0"
   }
