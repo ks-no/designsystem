@@ -32,7 +32,9 @@
   "devDependencies": {
     "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react": "7.35.0",
-    "eslint-plugin-react-hooks": "5.0.0"
+    "eslint-plugin-react-hooks": "5.0.0",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "@testing-library/react": "16.1.0"
   },
   "peerDependencies": {
     "react": ">=18.3.1",
