@@ -22,7 +22,7 @@ import {
   selector: 'app-root',
   template: `
     <h1>Hi from Angular</h1>
-    <fieldset ksd-fieldset>
+    <fieldset ksd-fieldset style="width: 400px;">
       <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
       </legend>
@@ -50,7 +50,12 @@ import {
         <input ksd-checkbox value="lg"  />
       </ksd-field>
 
-      <p ksd-validation-message data-size="xl">Du må velge minst to kontaktalternativ</p>
+      <ksd-field data-position="end">
+        <ksd-label> Checkbox positioned at the end</ksd-label>
+        <input ksd-checkbox value="lg"  />
+      </ksd-field>
+
+      <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>
     </fieldset>
   `,
 })
