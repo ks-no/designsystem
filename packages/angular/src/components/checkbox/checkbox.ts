@@ -11,9 +11,11 @@ import { CommonInputs } from '../common-inputs'
     type: 'checkbox',
     class: 'ds-input',
     '[attr.id]': 'id()',
+    '[attr.aria-describedby]': 'ariaDescribedBy()',
   },
   template: ``,
 })
 export class Checkbox {
   id = model<string>()
+  ariaDescribedBy = model<string>()
 }
