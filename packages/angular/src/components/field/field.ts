@@ -24,7 +24,7 @@ import { Label } from '../label/label'
     ],
     host: {
         class: 'ds-field',
-        'data-position': 'position()',
+        '[attr.dataPosition]': 'position()',
     },
     template: ` <ng-content /> `,
 })
