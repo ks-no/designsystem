@@ -12,15 +12,6 @@
     "access": "public"
   },
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
-  },
   "files": [
     "./dist"
   ],
@@ -28,10 +19,10 @@
     "@digdir/designsystemet-css": "1.0.5"
   },
   "peerDependencies": {
-    "@angular/common": ">=19.0.0",
-    "@angular/core": ">=19.0.0",
-    "@angular/platform-browser": ">=19.0.0",
-    "@angular/platform-server": ">=19.0.0"
+    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=20.0.0",
+    "@angular/platform-browser": ">=20.0.0",
+    "@angular/platform-server": ">=20.0.0"
   },
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "~1.17.1",
@@ -43,6 +34,11 @@
     "@angular-eslint/schematics": "^20.0.0",
     "@angular-eslint/template-parser": "^20.0.0",
     "@testing-library/angular": "^17.4.0",
-    "angular-eslint": "^20.0.0"
+    "angular-eslint": "^20.0.0",
+    "jsdom": "~22.1.0",
+    "ng-packagr": "^20.0.1"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json"
   }
 }

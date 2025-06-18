@@ -23,29 +23,6 @@ export default defineConfig(() => ({
   optimizeDeps: {
     include: ['@digdir/designsystemet-css'],
   },
-  // Configuration for building your library.
-  // See: https://vitejs.dev/guide/build.html#library-mode
-  build: {
-    outDir: './dist',
-    emptyOutDir: true,
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-    lib: {
-      // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
-      name: '@ks-digital/designsystem-angular',
-      fileName: 'index',
-      formats: ['es' as const],
-    },
-    rollupOptions: {
-      external: [
-        '@digdir/designsystemet-css',
-        '@digdir/designsystemet-angular',
-      ],
-    },
-  },
   test: {
     watch: false,
     globals: true,
