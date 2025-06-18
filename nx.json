@@ -3,7 +3,8 @@
   "release": {
     "projects": [
       "@ks-digital/designsystem-themes",
-      "@ks-digital/designsystem-react"
+      "@ks-digital/designsystem-react",
+      "@ks-digital/designsystem-angular"
     ],
     "projectsRelationship": "fixed",
     "changelog": {
@@ -57,14 +58,6 @@
       }
     }
   ],
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@pellegrims/nx-remotecache-s3",
-      "options": {
-        "cacheableOperations": ["build", "test", "lint", "e2e"]
-      }
-    }
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -78,6 +71,11 @@
       "options": {
         "max-warnings": 0
       }
+    },
+    "@angular-devkit/build-angular:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
     }
   },
   "generators": {
@@ -95,6 +93,41 @@
         "style": "css",
         "linter": "eslint"
       }
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "vitest"
+    },
+    "@nx/angular:component": {
+      "style": "css",
+      "type": "component"
+    },
+    "@nx/angular:application": {
+      "e2eTestRunner": "playwright",
+      "linter": "eslint",
+      "style": "css",
+      "unitTestRunner": "vitest"
+    },
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@nx/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@nx/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@nx/angular:scam": {
+      "type": "component"
+    },
+    "@nx/angular:scam-directive": {
+      "type": "directive"
     }
   }
 }

@@ -1,13 +1,15 @@
-# KS Digital Designsystem for React
+# 🚧 KS Digital Designsystem for Angular
 
-This library provides React components for KS Digital, designed to align closely with the components from [Designsystemet.no](https://www.designsystemet.no/komponenter).
+> This is an experimental POC as for now
+
+This library provides Angular components for KS Digital, designed to align closely with the components from [Designsystemet.no](https://www.designsystemet.no/komponenter).
 
 ## Installation (WIP)
 
 Install the required packages using your preferred package manager:
 
 ```bash
-pnpm add @ks-digital/designsystem-react @ks-digital/designsystem-themes
+pnpm add @ks-digital/designsystem-angular @ks-digital/designsystem-themes
 ```
 
 ## Setup
@@ -34,16 +36,8 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 ### 3. Use Components
 
-Import and use the components you need. You can explore the available components at [Designsystemet.no](https://www.designsystemet.no/komponenter):
-
-```javascript
-import { Button } from '@ks-digital/designsystem-react'
-
-function MyComponent() {
-  return <Button data-size="lg">My Button</Button>
-}
-```
+To be written.
 
 ## Example
 
-A complete example setup is available in the `react-demo` located under the `apps` folder.
+A complete example setup is available in the `angular-demo` located under the `apps` folder.

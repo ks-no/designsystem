@@ -20,5 +20,8 @@
   "files": [
     "src"
   ],
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "dependencies": {
+    "@digdir/designsystemet-css": "1.0.5"
+  }
 }
