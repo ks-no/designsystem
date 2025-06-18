@@ -12,6 +12,8 @@ Our goal is to align closely with the components and design decisions of Designs
 
 [`@ks-digital/designsystem-react`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-react) - React implementation of components
 
+[`@ks-digital/designsystem-anglar`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components (Very WIP)
+
 ## 🚀 Release and Publishing
 
 ### Prerequisites
