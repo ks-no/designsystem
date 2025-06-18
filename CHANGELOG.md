@@ -1,3 +1,13 @@
+## 0.0.1-alpha.5
+
+### 🚀 Features
+
+- **angular:** init lib ([#7](https://github.com/ks-no/designsystem/pull/7))
+
+### ❤️ Thank You
+
+- Stian Morsund
+
 ## 0.0.1-alpha.4
 
 ### 🚀 Features
