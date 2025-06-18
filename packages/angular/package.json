@@ -15,7 +15,7 @@
   "files": [
     "./dist"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/fesm2022/ks-digital-designsystem-angular.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
     "@digdir/designsystemet-css": "1.0.5"
