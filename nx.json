@@ -128,36 +128,6 @@
     },
     "@nx/angular:scam-directive": {
       "type": "directive"
-    },
-    "@nx/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@nx/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@nx/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@nx/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@nx/angular:resolver": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
     }
   }
 }
