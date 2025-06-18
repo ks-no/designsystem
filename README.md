@@ -8,11 +8,11 @@ Our goal is to align closely with the components and design decisions of Designs
 
 ## 📦 Packages
 
-[`@ks-digital/designsystem-themes`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-themes) - Themes officially supported.
+[`@ks-digital/designsystem-themes`](https://www.npmjs.com/package/@ks-digital/designsystem-themes) - Themes officially supported.
 
-[`@ks-digital/designsystem-react`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-react) - React implementation of components
+[`@ks-digital/designsystem-react`](https://www.npmjs.com/package/@ks-digital/designsystem-react) - React implementation of components
 
-[`@ks-digital/designsystem-anglar`](httpshttps://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components (Very WIP)
+[`@ks-digital/designsystem-anglar`](https://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components (Very WIP)
 
 ## 🚀 Release and Publishing
 
