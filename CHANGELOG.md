@@ -1,3 +1,13 @@
+## 0.0.1-alpha.6
+
+### 🩹 Fixes
+
+- **angular:** builded package should now work ([2f619e7](https://github.com/ks-no/designsystem/commit/2f619e7))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.5
 
 ### 🚀 Features
