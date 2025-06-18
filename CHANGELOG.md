@@ -1,3 +1,13 @@
+## 0.0.1-alpha.8
+
+### 🩹 Fixes
+
+- **angular:** correct main entrypoint ([e30edfc](https://github.com/ks-no/designsystem/commit/e30edfc))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.7
 
 ### 🩹 Fixes
