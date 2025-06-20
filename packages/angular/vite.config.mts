@@ -20,9 +20,6 @@ export default defineConfig(() => ({
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
-  optimizeDeps: {
-    include: ['@digdir/designsystemet-css'],
-  },
   test: {
     watch: false,
     globals: true,
