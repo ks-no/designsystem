@@ -12,8 +12,4 @@ import { randomId } from '../../utils/random-id';
 })
 export class ValidationMessage {
   id = signal(randomId())
-
-  constructor() {
-    console.log('ValidationMessage', this.id())
-  }
 }
