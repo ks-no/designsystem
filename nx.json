@@ -61,7 +61,7 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/src/built"],
+      "outputs": ["{projectRoot}/dist"],
       "cache": true
     },
     "e2e-ci--**/**": {
