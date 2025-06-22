@@ -36,7 +36,6 @@ export default defineConfig(() => ({
     },
     rollupOptions: {
       external: [
-        '@digdir/designsystemet-css',
         '@digdir/designsystemet-react',
         '@navikt/aksel-icons',
       ],

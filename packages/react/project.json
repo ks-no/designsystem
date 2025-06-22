@@ -4,5 +4,14 @@
   "sourceRoot": "packages/react/src",
   "projectType": "library",
   "tags": [],
-  "targets": {}
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["@ks-digital/designsystem-themes"]
+        }
+      ]
+    }
+  }
 }

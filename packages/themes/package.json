@@ -13,15 +13,20 @@
   },
   "type": "module",
   "exports": {
-    "./base.css": "./src/base.css",
-    "./ledsagerbevis.css": "./src/built/ledsagerbevis.css",
-    "./forvaltning.css": "./src/built/forvaltning.css"
+    "./base.css": "./dist/base.css",
+    "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
+    "./forvaltning.css": "./dist/themes/forvaltning.css"
   },
   "files": [
-    "src"
+    "./dist"
   ],
-  "peerDependencies": {},
   "dependencies": {
     "@digdir/designsystemet-css": "1.0.5"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1"
+  },
+  "scripts": {
+    "build": "rimraf dist && postcss src/base.css -o dist/base.css && cp -r src/themes dist/"
   }
 }
