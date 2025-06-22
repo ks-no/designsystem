@@ -269,9 +269,6 @@ importers:
 
   packages/react:
     dependencies:
-      '@digdir/designsystemet-css':
-        specifier: 1.0.5
-        version: 1.0.5
       '@digdir/designsystemet-react':
         specifier: 1.0.5
         version: 1.0.5(@types/react@19.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
