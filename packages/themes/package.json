@@ -13,21 +13,18 @@
   },
   "type": "module",
   "exports": {
-    "./base.css": "./src/base.css",
-    "./ledsagerbevis.css": "./src/built/ledsagerbevis.css",
-    "./forvaltning.css": "./src/built/forvaltning.css"
+    "./base.css": "./src/built/base.css",
+    "./ledsagerbevis.css": "./src/themes/ledsagerbevis.css",
+    "./forvaltning.css": "./src/themes/forvaltning.css"
   },
   "files": [
-    "src"
+    "src/built",
+    "src/themes"
   ],
   "dependencies": {
     "@digdir/designsystemet-css": "1.0.5"
   },
-  "devDependencies": {
-    "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1",
-    "postcss-import": "^16.1.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "build": "postcss src/base.css -o src/built/base.css"
   }
