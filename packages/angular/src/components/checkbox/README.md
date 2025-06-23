@@ -6,8 +6,8 @@
 - [x] Group
 - [x] Aria-label
 - [x] Description
-- [ ] Read only
-- [ ] Disabeled
+- [x] Read only
+- [x] Disabeled
 - [ ] In table
 - [ ] Conditional
 - [ ] In table with pagination
