@@ -29,6 +29,8 @@ jobs:
           fetch-depth: 0
       - name: Install
         uses: ./.github/actions/install-packages
+      - name: Build storybook
+        run: pnpm nx run @ks-digital/designsystem-angular:build-storybook
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
