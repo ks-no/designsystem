@@ -23,7 +23,6 @@
     "@nx/storybook": "21.2.0",
     "@nx/vite": "21.2.0",
     "@nx/web": "21.2.0",
-    "@pellegrims/nx-remotecache-s3": "^8.1.0",
     "@playwright/test": "^1.36.0",
     "@schematics/angular": "20.0.2",
     "@storybook/angular": "9.0.12",
