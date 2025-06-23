@@ -8,6 +8,7 @@ import {
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
+import { CheckboxDescription } from '../checkbox/checkbox-description'
 import { CommonInputs } from '../common-inputs'
 import { Label } from '../label/label'
 
@@ -36,6 +37,7 @@ export class Field {
     position = input<'start' | 'end'>('start')
 
     private input = contentChild(Checkbox)
+    private description = contentChild(CheckboxDescription)
     private label = contentChild(Label)
     private readonly id = signal(randomId())
 
@@ -51,6 +53,16 @@ export class Field {
 
             this.input()?.id.set(this.id())
             this.label()?.for.set(this.id())
+
+            if (this.description()) {
+                const descriptionId = this.description()?.id()
+                const existingAriaDescribedBy = this.input()?.ariaDescribedBy()
+                this.input()?.ariaDescribedBy.set(
+                    existingAriaDescribedBy
+                        ? `${existingAriaDescribedBy} ${descriptionId}`
+                        : descriptionId
+                )
+            }
         })
     }
 }
