@@ -31,7 +31,8 @@
         "outputDir": "dist/storybook/@ks-digital/designsystem-angular",
         "configDir": "packages/angular/.storybook",
         "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": ["packages/angular/.storybook/styles.css"]
       },
       "configurations": {
         "ci": {
