@@ -1,9 +1,5 @@
 import type { Preview } from '@storybook/angular';
-
-const themes = [
-    { name: "Forvaltning", href: "/themes/forvaltning.css" },
-    { name: "Ledsagerbevis", href: "/themes/ledsagerbevis.css" },
-];
+import { themes } from './themes';
 
 function setTheme(href: string) {
     let link = document.getElementById("storybook-theme") as HTMLLinkElement | null;
