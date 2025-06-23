@@ -8,6 +8,58 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "packages/angular/.storybook",
+        "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
+        "compodoc": false,
+        "styles": ["packages/angular/.storybook/styles.css"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "dependsOn": ["build"],
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/@ks-digital/designsystem-angular",
+        "configDir": "packages/angular/.storybook",
+        "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
+        "compodoc": false,
+        "styles": ["packages/angular/.storybook/styles.css"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c packages/angular/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "@ks-digital/designsystem-angular:build-storybook",
+        "staticFilePath": "dist/storybook/@ks-digital/designsystem-angular",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "@ks-digital/designsystem-angular:build-storybook:ci"
+        }
+      }
     }
   }
 }

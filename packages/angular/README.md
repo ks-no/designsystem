@@ -20,7 +20,7 @@ Add the Inter font to your `index.html`. This API supports the same parameters a
 
 ```html
 <link
-  href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter&display=swap"
+  href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter:wght@400;500;600;700;800&display=swap"
   rel="stylesheet"
 />
 ```
@@ -29,9 +29,9 @@ Add the Inter font to your `index.html`. This API supports the same parameters a
 
 Import the base styles and the theme you want to use in your application:
 
-```javascript
-import '@ks-digital/designsystem-themes/base.css'
-import '@ks-digital/designsystem-themes/ledsagerbevis.css'
+```css
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/forvaltning.css');
 ```
 
 ### 3. Use Components
