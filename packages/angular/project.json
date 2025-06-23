@@ -26,6 +26,7 @@
     },
     "build-storybook": {
       "executor": "@storybook/angular:build-storybook",
+      "dependsOn": ["build"],
       "outputs": ["{options.outputDir}"],
       "options": {
         "outputDir": "dist/storybook/@ks-digital/designsystem-angular",
