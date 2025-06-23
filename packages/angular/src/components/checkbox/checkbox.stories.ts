@@ -41,6 +41,6 @@ export const Primary: Story = {
     `,
   }),
   play: async ({ canvas }) => {
-    await expect(canvas.getByText(/checkbox works!/gi)).toBeTruthy()
+    await expect(canvas.getByRole('checkbox')).toBeTruthy()
   },
 };
