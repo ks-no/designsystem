@@ -29,9 +29,6 @@
     "strictInjectionParameters": true,
     "strictTemplates": true,
     "extendedDiagnostics": {
-      "checks": {
-        "uninvokedFunctionInEventBinding": "error"
-      },
       "defaultCategory": "error"
     }
   }
