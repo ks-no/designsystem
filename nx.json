@@ -87,8 +87,7 @@
       "inputs": ["default", "^default"]
     },
     "build-storybook": {
-      "cache": true,
-      "dependsOn": ["^build"]
+      "cache": true
     }
   },
   "generators": {
