@@ -47,7 +47,7 @@ export class Field {
                 logIfDevMode({
                     component: 'Field',
                     message:
-                        'Missing required elements: ksd-label and ksd-input must be provided as children',
+                        'Missing required elements: ksd-label and ksd-input must be provided as children. Check imports and markup.',
                 })
             }
 
