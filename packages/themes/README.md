@@ -35,4 +35,6 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 ## Adding new themes
 
-Add builded theme into `packages/themes/src/themes` and to the `exports`-field in package.json.
+1. Add builded theme into `packages/themes/src/themes`
+2. Add theme `exports`-field in package.json
+3. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
