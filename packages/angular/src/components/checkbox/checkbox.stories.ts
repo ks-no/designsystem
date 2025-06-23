@@ -43,7 +43,7 @@ export const Group: Story = {
 
   render: (_args: any) => ({
     template: `
-     <fieldset ksd-fieldset style="width: 400px;">
+     <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
       </legend>
@@ -89,7 +89,7 @@ export const ReadOnly: Story = {
 
   render: (_args: any) => ({
     template: `
-     <fieldset ksd-fieldset style="width: 400px;">
+     <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
       </legend>
@@ -110,6 +110,39 @@ export const ReadOnly: Story = {
       <ksd-field>
         <ksd-label> SMS </ksd-label>
         <input readonly ksd-checkbox value="sms"  />
+      </ksd-field>
+
+    </fieldset>
+    `,
+  }),
+};
+
+export const Disabled: Story = {
+  args: {},
+
+  render: (_args: any) => ({
+    template: `
+     <fieldset ksd-fieldset>
+      <legend ksd-fieldset-legend>
+        Hvordan vil du helst at vi skal kontakte deg?
+      </legend>
+      <p ksd-fieldset-description>
+        Velg alle alternativene som er relevante for deg.
+      </p>
+
+      <ksd-field>
+        <ksd-label> E-post </ksd-label>
+        <input disabled ksd-checkbox value="e-post"  />
+      </ksd-field>
+
+      <ksd-field>
+        <ksd-label> Telefon </ksd-label>
+        <input disabled ksd-checkbox value="telefon"  />
+      </ksd-field>
+
+      <ksd-field>
+        <ksd-label> SMS </ksd-label>
+        <input disabled ksd-checkbox value="sms"  />
       </ksd-field>
 
     </fieldset>
