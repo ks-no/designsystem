@@ -12,7 +12,7 @@ import { CommonInputs } from '../common-inputs'
     class: 'ds-input',
     '[attr.id]': 'id()',
     '[attr.aria-describedby]': 'ariaDescribedBy()',
-    '[attr.readonly]': 'readonly ? true : null',
+    '[attr.readonly]': 'readonly() ? true : null',
     '(click)': 'onClick($event)',
   },
   template: ``,
