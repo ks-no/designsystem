@@ -3,9 +3,9 @@ import {
     Component,
     contentChild,
     input,
-    isDevMode,
-    signal,
+    signal
 } from '@angular/core'
+import { logIfDevMode } from '../../utils/log-if-devmode'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
 import { CommonInputs } from '../common-inputs'
@@ -41,10 +41,12 @@ export class Field {
 
     constructor() {
         afterNextRender(() => {
-            if (isDevMode() && (!this.label() || !this.input())) {
-                console.error(
-                    '[Field] Missing required elements: ksd-label and ksd-input must be provided as children',
-                )
+            if (!this.label() || !this.input()) {
+                logIfDevMode({
+                    component: 'Field',
+                    message:
+                        'Missing required elements: ksd-label and ksd-input must be provided as children',
+                })
             }
 
             this.input()?.id.set(this.id())
