@@ -25,6 +25,7 @@
     "@nx/web": "21.2.0",
     "@playwright/test": "^1.36.0",
     "@schematics/angular": "20.0.2",
+    "@storybook/addon-docs": "^9.0.12",
     "@storybook/angular": "9.0.12",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.6.0",
