@@ -1,5 +1,5 @@
 import { Component, contentChild, contentChildren, effect } from '@angular/core';
-import { Checkbox } from '../checkbox/checkbox';
+import { Input } from '../input/input';
 import { ValidationMessage } from '../validation-message/validation-message';
 
 @Component({
@@ -12,12 +12,12 @@ import { ValidationMessage } from '../validation-message/validation-message';
 })
 export class Fieldset {
   private validationMessage = contentChild(ValidationMessage)
-  private checkboxes = contentChildren(Checkbox, { descendants: true })
+  private inputs = contentChildren(Input, { descendants: true })
 
   constructor() {
     effect(() => {
-      this.checkboxes().forEach((checkbox) => {
-        checkbox.ariaDescribedBy.set(this.validationMessage()?.id())
+      this.inputs().forEach((input) => {
+        input.ariaDescribedBy.set(this.validationMessage()?.id())
       })
     })
   }

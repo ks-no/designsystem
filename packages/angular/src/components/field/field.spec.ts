@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/angular'
-import { Checkbox } from '../checkbox/checkbox'
 import { CheckboxDescription } from '../checkbox/checkbox-description'
+import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { Field } from './field'
 
@@ -9,9 +9,9 @@ test('should connect checkbox and label', async () => {
         `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" value="telefon"  />
     </ksd-field>`,
-        { imports: [Field, Label, Checkbox] },
+      { imports: [Field, Label, Input] },
     )
 
     const label = screen.getByText('Check me')
@@ -29,10 +29,10 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" value="telefon"  />
         <p ksd-checkbox-description>Description</p>
     </ksd-field>`,
-            { imports: [Field, Label, Checkbox, CheckboxDescription] },
+          { imports: [Field, Label, Input, CheckboxDescription] },
         )
 
         const checkbox = screen.getByRole('checkbox')
@@ -47,9 +47,9 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" value="telefon"  />
     </ksd-field>`,
-            { imports: [Field, Label, Checkbox] },
+          { imports: [Field, Label, Input] },
         )
 
         const checkbox = screen.getByRole('checkbox')
@@ -63,9 +63,9 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox type="checkbox" value="telefon" aria-describedby="existing-id"  />
+        <input ksd-input type="checkbox" value="telefon" aria-describedby="existing-id"  />
     </ksd-field>`,
-            { imports: [Field, Label, Checkbox] },
+          { imports: [Field, Label, Input] },
         )
 
         const checkbox = screen.getByRole('checkbox')

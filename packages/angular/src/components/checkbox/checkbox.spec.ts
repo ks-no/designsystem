@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { Checkbox } from '../checkbox/checkbox';
+import { Input } from '../input/input';
 
 test('should not be clickable if readonly', async () => {
     await render(
         `
-        <input ksd-checkbox type="checkbox" value="my-checkbox" readonly />
+        <input ksd-input type="checkbox" value="my-checkbox" readonly />
     `,
-        { imports: [Checkbox] },
+        { imports: [Input] },
     )
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement

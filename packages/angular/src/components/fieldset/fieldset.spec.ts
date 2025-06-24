@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/angular'
-import { Checkbox } from '../checkbox/checkbox'
 import { Field } from '../field/field'
+import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { ValidationMessage } from '../validation-message/validation-message'
 import { Fieldset } from './fieldset'
@@ -14,11 +14,11 @@ describe('Should connect checkbox and validation message with aria-describedby',
       <legend ksd-fieldset-legend>Hi</legend>
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="some-value"  />
+        <input ksd-input type="checkbox" value="some-value"  />
     </ksd-field>
     <p ksd-validation-message>This is a validation message</p>
     </fieldset>
-    
+
     `,
             {
                 imports: [
@@ -26,7 +26,7 @@ describe('Should connect checkbox and validation message with aria-describedby',
                     FieldsetLegend,
                     Field,
                     Label,
-                    Checkbox,
+                Input,
                     ValidationMessage,
                 ],
             },
@@ -47,11 +47,11 @@ describe('Should connect checkbox and validation message with aria-describedby',
       <legend ksd-fieldset-legend>Hi</legend>
       <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="some-value"  />
+        <input ksd-input type="checkbox" value="some-value"  />
     </ksd-field>
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="some-other-value"  />
+        <input ksd-input type="checkbox" value="some-other-value"  />
     </ksd-field>
     <p ksd-validation-message>This is a validation message</p>
     </fieldset>
@@ -62,7 +62,7 @@ describe('Should connect checkbox and validation message with aria-describedby',
                     FieldsetLegend,
                     Field,
                     Label,
-                    Checkbox,
+                Input,
                     ValidationMessage,
                 ],
             },
