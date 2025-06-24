@@ -11,5 +11,5 @@ import { randomId } from '../../utils/random-id';
   },
 })
 export class ValidationMessage {
-  id = signal(randomId())
+  id = signal(randomId()).asReadonly()
 }
