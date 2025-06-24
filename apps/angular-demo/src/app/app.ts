@@ -32,27 +32,27 @@ import {
 
       <ksd-field>
         <ksd-label> I can be chosen </ksd-label>
-        <input ksd-checkbox value="telefon"  />
+        <input ksd-checkbox type="checkbox" value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> I am invalid </ksd-label>
-        <input ksd-checkbox value="SMS" aria-invalid="true" />
+        <input ksd-checkbox type="checkbox" value="SMS" aria-invalid="true" />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> I am disabled </ksd-label>
-        <input ksd-checkbox value="SMS" disabled />
+        <input ksd-checkbox type="checkbox" value="SMS" disabled />
       </ksd-field>
 
       <ksd-field data-size="lg">
         <ksd-label> I am large </ksd-label>
-        <input ksd-checkbox value="lg"  />
+        <input ksd-checkbox type="checkbox" value="lg"  />
       </ksd-field>
 
       <ksd-field data-position="end">
         <ksd-label> Checkbox positioned at the end</ksd-label>
-        <input ksd-checkbox value="lg"  />
+        <input ksd-checkbox type="checkbox" value="lg"  />
       </ksd-field>
 
       <p ksd-validation-message>Du må velge minst to kontaktalternativ</p>

@@ -33,7 +33,8 @@
         "configDir": "packages/angular/.storybook",
         "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
         "compodoc": false,
-        "styles": ["packages/angular/.storybook/styles.css"]
+        "styles": ["packages/angular/.storybook/styles.css"],
+        "experimentalZoneless": true
       },
       "configurations": {
         "ci": {
@@ -53,7 +54,8 @@
       "options": {
         "buildTarget": "@ks-digital/designsystem-angular:build-storybook",
         "staticFilePath": "dist/storybook/@ks-digital/designsystem-angular",
-        "spa": true
+        "spa": true,
+        "experimentalZoneless": true
       },
       "configurations": {
         "ci": {

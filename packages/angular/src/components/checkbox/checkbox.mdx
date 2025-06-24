@@ -1,0 +1,51 @@
+import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks'
+
+import * as CheckboxStories from './checkbox.stories'
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Vi bruker `Checkbox` for å gi brukerne valg, der de kan velge ett eller flere alternativer. Brukerne kan både velge og oppheve valgene de gjør. Bruk [`Fieldset`](#fieldset) til å gruppere flere valg.
+
+<Primary />
+
+## Bruk
+
+```ts
+import {
+  Checkbox,
+  Field,
+  Fieldset,
+  FieldsetDescription,
+  FieldsetLegend,
+  Label,
+  ValidationMessage,
+} from '@ks-digital/designsystem-angular'
+
+<fieldset ksd-fieldset>
+    <legend ksd-fieldset-legend>
+    Hvordan vil du helst at vi skal kontakte deg?
+    </legend>
+
+    <p ksd-fieldset-description>
+    Velg alle alternativene som er relevante for deg.
+    </p>
+
+    <ksd-field>
+    <ksd-label> E-post </ksd-label>
+    <input ksd-checkbox type="checkbox" value="e-post"  />
+    </ksd-field>
+
+    <ksd-field>
+    <ksd-label> Telefon </ksd-label>
+    <input ksd-checkbox type="checkbox" value="telefon"  />
+    </ksd-field>
+
+    <ksd-field>
+    <ksd-label> SMS </ksd-label>
+    <input ksd-checkbox type="checkbox" value="sms"  />
+    </ksd-field>
+
+</fieldset>
+```
