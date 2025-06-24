@@ -1,3 +1,28 @@
+## 0.0.1-alpha.9
+
+This was a version bump only, there were no code changes.
+
+## 0.0.1-alpha.8
+
+### 🩹 Fixes
+
+- **angular:** correct main entrypoint ([e30edfc](https://github.com/ks-no/designsystem/commit/e30edfc))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.7
+
+### 🩹 Fixes
+
+- **angular:** data-position was wrongly set in `Field` ([1cdb7a3](https://github.com/ks-no/designsystem/commit/1cdb7a3))
+- **angular:** imports should work now ([537006d](https://github.com/ks-no/designsystem/commit/537006d))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.6
 
 ### 🩹 Fixes

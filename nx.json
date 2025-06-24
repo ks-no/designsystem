@@ -56,6 +56,15 @@
       "options": {
         "targetName": "e2e"
       }
+    },
+    {
+      "plugin": "@nx/storybook/plugin",
+      "options": {
+        "serveStorybookTargetName": "storybook",
+        "buildStorybookTargetName": "build-storybook",
+        "testStorybookTargetName": "test-storybook",
+        "staticStorybookTargetName": "static-storybook"
+      }
     }
   ],
   "targetDefaults": {
@@ -76,6 +85,9 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["default", "^default"]
+    },
+    "build-storybook": {
+      "cache": true
     }
   },
   "generators": {

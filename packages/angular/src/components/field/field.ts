@@ -3,11 +3,12 @@ import {
     Component,
     contentChild,
     input,
-    isDevMode,
-    signal,
+    signal
 } from '@angular/core'
+import { logIfDevMode } from '../../utils/log-if-devmode'
 import { randomId } from '../../utils/random-id'
 import { Checkbox } from '../checkbox/checkbox'
+import { CheckboxDescription } from '../checkbox/checkbox-description'
 import { CommonInputs } from '../common-inputs'
 import { Label } from '../label/label'
 
@@ -36,19 +37,32 @@ export class Field {
     position = input<'start' | 'end'>('start')
 
     private input = contentChild(Checkbox)
+    private description = contentChild(CheckboxDescription)
     private label = contentChild(Label)
     private readonly id = signal(randomId())
 
     constructor() {
         afterNextRender(() => {
-            if (isDevMode() && (!this.label() || !this.input())) {
-                console.error(
-                    '[Field] Missing required elements: ksd-label and ksd-input must be provided as children',
-                )
+            if (!this.label() || !this.input()) {
+                logIfDevMode({
+                    component: 'Field',
+                    message:
+                        'Missing required elements: ksd-label and ksd-input must be provided as children. Check imports and markup.',
+                })
             }
 
             this.input()?.id.set(this.id())
             this.label()?.for.set(this.id())
+
+            if (this.description()) {
+                const descriptionId = this.description()?.id()
+                const existingAriaDescribedBy = this.input()?.ariaDescribedBy()
+                this.input()?.ariaDescribedBy.set(
+                    existingAriaDescribedBy
+                        ? `${existingAriaDescribedBy} ${descriptionId}`
+                        : descriptionId
+                )
+            }
         })
     }
 }

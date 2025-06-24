@@ -32,3 +32,9 @@ If you are using a JavaScript or TypeScript application, import the styles like 
 import '@ks-digital/designsystem-themes/base.css'
 import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 ```
+
+## Adding new themes
+
+1. Add builded theme into `packages/themes/src/themes`
+2. Add theme `exports`-field in package.json
+3. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
