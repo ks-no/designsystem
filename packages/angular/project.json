@@ -10,13 +10,11 @@
       "executor": "@nx/eslint:lint"
     },
     "storybook": {
-      "executor": "@storybook/angular:start-storybook",
+      "executor": "@analogjs/storybook-angular:start-storybook",
       "options": {
         "port": 4400,
         "configDir": "packages/angular/.storybook",
-        "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
-        "compodoc": false,
-        "styles": ["packages/angular/.storybook/styles.css"]
+        "compodoc": false
       },
       "configurations": {
         "ci": {
@@ -25,15 +23,13 @@
       }
     },
     "build-storybook": {
-      "executor": "@storybook/angular:build-storybook",
+      "executor": "@analogjs/storybook-angular:build-storybook",
       "dependsOn": ["@ks-digital/designsystem-themes:build", "^build"],
       "outputs": ["{options.outputDir}"],
       "options": {
         "outputDir": "dist/storybook/@ks-digital/designsystem-angular",
         "configDir": "packages/angular/.storybook",
-        "browserTarget": "@ks-digital/designsystem-angular:build-storybook",
         "compodoc": false,
-        "styles": ["packages/angular/.storybook/styles.css"],
         "experimentalZoneless": true
       },
       "configurations": {

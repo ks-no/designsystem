@@ -1,19 +1,20 @@
-import type { StorybookConfig } from '@storybook/angular';
+import { StorybookConfig } from '@analogjs/storybook-angular';
+
 
 const config: StorybookConfig = {
   stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   addons: ['@storybook/addon-docs'],
   framework: {
-    name: '@storybook/angular',
+    name: '@analogjs/storybook-angular',
     options: {
       builder: {
-        viteConfigPath: 'vite.config.mts',
+        viteConfigPath: 'packages/angular/.storybook/vite.config.mts',
       },
     },
   },
   staticDirs: [
     // Map the local themes directory to a public path
-    { from: '../../themes/src/themes', to: '/themes' }
+    { from: '../../themes/dist', to: '/css' }
   ],
 }
 

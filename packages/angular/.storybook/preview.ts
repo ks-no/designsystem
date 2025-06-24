@@ -1,5 +1,7 @@
-import type { Preview, StoryContext, StoryFn } from '@storybook/angular'
-import { themes } from './themes'
+import { applicationConfig, type Preview, type StoryContext, type StoryFn } from '@analogjs/storybook-angular';
+
+import { provideZonelessChangeDetection } from '@angular/core';
+import { themes } from './themes';
 
 function setTheme(href: string): void {
     let link: HTMLLinkElement | null = document.getElementById(
@@ -11,6 +13,8 @@ function setTheme(href: string): void {
         link.id = 'storybook-theme'
         document.head.appendChild(link)
     }
+
+  console.log('link', link)
     link.href = href
 }
 
@@ -46,6 +50,11 @@ export const decorators: object[] = [
 ]
 
 const preview: Preview = {
+  decorators: [
+    applicationConfig({
+      providers: [provideZonelessChangeDetection()],
+    }),
+  ],
     parameters: {
         layout: 'centered',
     },
