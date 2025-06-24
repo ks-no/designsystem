@@ -27,7 +27,7 @@ export const Preview: Story = {
     template: `
       <ksd-field>
         <ksd-label> Checkbox label </ksd-label>
-        <input ksd-checkbox value="some-value"  />
+        <input ksd-checkbox type="checkbox" value="some-value"  />
         <p ksd-checkbox-description>Description</p>
       </ksd-field>
     `,
@@ -53,17 +53,17 @@ export const Group: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input ksd-checkbox value="e-post"  />
+        <input ksd-checkbox type="checkbox" value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input ksd-checkbox value="telefon"  />
+        <input ksd-checkbox type="checkbox" value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input ksd-checkbox value="sms"  />
+        <input ksd-checkbox type="checkbox" value="sms"  />
       </ksd-field>
 
     </fieldset>
@@ -78,7 +78,7 @@ export const AriaLabel: Story = {
   render: (_args: any) => ({
     template: `
       <ksd-field>
-        <input ksd-checkbox value="some-value" aria-label="Checkbox label"  />
+        <input ksd-checkbox type="checkbox" value="some-value" aria-label="Checkbox label"  />
       </ksd-field>
     `,
   }),
@@ -99,17 +99,17 @@ export const ReadOnly: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input readonly ksd-checkbox value="e-post"  />
+        <input readonly ksd-checkbox type="checkbox" value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input readonly ksd-checkbox value="telefon"  />
+        <input readonly ksd-checkbox type="checkbox" value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input readonly ksd-checkbox value="sms"  />
+        <input readonly ksd-checkbox type="checkbox" value="sms"  />
       </ksd-field>
 
     </fieldset>
@@ -132,17 +132,17 @@ export const Disabled: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input disabled ksd-checkbox value="e-post"  />
+        <input disabled ksd-checkbox type="checkbox" value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input disabled ksd-checkbox value="telefon"  />
+        <input disabled ksd-checkbox type="checkbox" value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input disabled ksd-checkbox value="sms"  />
+        <input disabled ksd-checkbox type="checkbox" value="sms"  />
       </ksd-field>
 
     </fieldset>

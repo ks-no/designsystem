@@ -9,7 +9,7 @@ test('should connect checkbox and label', async () => {
         `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="telefon"  />
+        <input ksd-checkbox type="checkbox" value="telefon"  />
     </ksd-field>`,
         { imports: [Field, Label, Checkbox] },
     )
@@ -29,7 +29,7 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="telefon"  />
+        <input ksd-checkbox type="checkbox" value="telefon"  />
         <p ksd-checkbox-description>Description</p>
     </ksd-field>`,
             { imports: [Field, Label, Checkbox, CheckboxDescription] },
@@ -47,7 +47,7 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="telefon"  />
+        <input ksd-checkbox type="checkbox" value="telefon"  />
     </ksd-field>`,
             { imports: [Field, Label, Checkbox] },
         )
@@ -63,7 +63,7 @@ describe('should connect checkbox and description', () => {
             `
     <ksd-field>
         <ksd-label> Check me </ksd-label>
-        <input ksd-checkbox value="telefon" aria-describedby="existing-id"  />
+        <input ksd-checkbox type="checkbox" value="telefon" aria-describedby="existing-id"  />
     </ksd-field>`,
             { imports: [Field, Label, Checkbox] },
         )

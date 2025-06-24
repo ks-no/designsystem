@@ -5,7 +5,7 @@ import { Checkbox } from '../checkbox/checkbox';
 test('should not be clickable if readonly', async () => {
     await render(
         `
-        <input ksd-checkbox value="my-checkbox" readonly />
+        <input ksd-checkbox type="checkbox" value="my-checkbox" readonly />
     `,
         { imports: [Checkbox] },
     )
