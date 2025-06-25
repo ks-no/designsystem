@@ -6,11 +6,10 @@ import { FieldsetDescription } from '../fieldset/fieldset-description';
 import { FieldsetLegend } from '../fieldset/fieldset-legend';
 import { Input } from '../input/input';
 import { Label } from '../label/label';
-import { Checkbox } from './checkbox';
 import { CheckboxDescription } from './checkbox-description';
 
-const meta: Meta<Checkbox> = {
-  component: Checkbox,
+const meta: Meta<Input> = {
+  component: Input,
   title: 'Checkbox',
   decorators: [
     moduleMetadata({
@@ -19,7 +18,7 @@ const meta: Meta<Checkbox> = {
   ]
 };
 export default meta;
-type Story = StoryObj<Checkbox>;
+type Story = StoryObj<Input>;
 
 export const Preview: Story = {
   args: {},
