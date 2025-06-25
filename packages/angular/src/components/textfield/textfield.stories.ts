@@ -31,3 +31,19 @@ export const Preview: Story = {
     await expect(canvas.getByRole('textbox')).toBeTruthy()
   },
 }
+
+export const Rows: Story = {
+  args: {},
+
+  render: () => ({
+    template: `
+        <ksd-field>
+          <ksd-label>Label</ksd-label>
+          <textarea ksd-input type="text" rows="4" ></textarea>
+        </ksd-field>
+    `,
+  }),
+  play: async ({ canvas }) => {
+    await expect(canvas.getByRole('textbox')).toBeTruthy()
+  },
+}

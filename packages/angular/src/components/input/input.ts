@@ -1,7 +1,7 @@
 import { booleanAttribute, Component, input, model } from '@angular/core'
 
 @Component({
-  selector: 'input[ksd-input]',
+  selector: 'input[ksd-input], textarea[ksd-input]',
   host: {
     class: 'ds-input',
     '[attr.id]': 'id()',
