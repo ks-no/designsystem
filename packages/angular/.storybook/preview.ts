@@ -1,26 +1,29 @@
 import {
   applicationConfig,
-  type Preview,
-  type StoryContext,
-  type StoryFn,
+  type Preview
 } from '@analogjs/storybook-angular'
+
+import { addons } from 'storybook/preview-api'
 
 import { provideZonelessChangeDetection } from '@angular/core'
 import customTheme from './customTheme'
 import { themes } from './themes'
 
+addons.getChannel().on('globalsUpdated', (globals) => {
+  setTheme(globals.theme)
+})
+
 function setTheme(href: string): void {
   let link: HTMLLinkElement | null = document.getElementById(
     'storybook-theme',
   ) as HTMLLinkElement | null
+  href = href ?? themes[0].href
   if (!link) {
     link = document.createElement('link')
     link.rel = 'stylesheet'
     link.id = 'storybook-theme'
     document.head.appendChild(link)
   }
-
-  console.log('link', link)
   link.href = href
 }
 
@@ -47,13 +50,6 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
     },
   },
 }
-
-export const decorators: object[] = [
-  (story: StoryFn, context: StoryContext) => {
-    setTheme(context.globals['theme'])
-    return story(story, context)
-  },
-]
 
 const preview: Preview = {
   decorators: [
