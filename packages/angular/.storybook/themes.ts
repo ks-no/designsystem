@@ -3,6 +3,6 @@
  */
 
 export const themes = [
-    { name: "Forvaltning", href: "themes/forvaltning.css" },
-    { name: "Ledsagerbevis", href: "themes/ledsagerbevis.css" },
-];
+  { name: 'Forvaltning', href: 'css/themes/forvaltning.css' },
+  { name: 'Ledsagerbevis', href: 'css/themes/ledsagerbevis.css' },
+]
