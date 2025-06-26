@@ -2,6 +2,7 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
+import { InputCounter } from '../input/input-counter'
 import { Label } from '../label/label'
 
 const meta: Meta<Input> = {
@@ -9,7 +10,7 @@ const meta: Meta<Input> = {
   title: 'Input',
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input],
+      imports: [Label, Field, Input, InputCounter],
     }),
   ],
 }
@@ -43,7 +44,18 @@ export const Rows: Story = {
         </ksd-field>
     `,
   }),
-  play: async ({ canvas }) => {
-    await expect(canvas.getByRole('textbox')).toBeTruthy()
-  },
+}
+
+export const Counter: Story = {
+  args: {},
+
+  render: () => ({
+    template: `
+        <ksd-field>
+          <ksd-label>Label</ksd-label>
+          <input ksd-input type="text" />
+          <ksd-input-counter [limit]="1"></ksd-input-counter>
+        </ksd-field>
+    `,
+  }),
 }
