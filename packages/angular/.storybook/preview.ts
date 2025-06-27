@@ -7,7 +7,7 @@ import { addons } from 'storybook/preview-api'
 import customTheme from './customTheme'
 import { themes } from './themes'
 
-addons.getChannel().on('globalsUpdated', (globals) => {
+addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setTheme(globals.theme)
 })
 
