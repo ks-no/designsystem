@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/angular'
-import { CheckboxDescription } from '../checkbox/checkbox-description'
+import { FieldDescription } from './field-description'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { Field } from './field'
@@ -30,9 +30,9 @@ describe('should connect checkbox and description', () => {
     <ksd-field>
         <ksd-label> Check me </ksd-label>
         <input ksd-input type="checkbox" value="telefon"  />
-        <p ksd-checkbox-description>Description</p>
+        <p ksd-field-description>Description</p>
     </ksd-field>`,
-          { imports: [Field, Label, Input, CheckboxDescription] },
+          { imports: [Field, Label, Input, FieldDescription] },
         )
 
         const checkbox = screen.getByRole('checkbox')
@@ -73,4 +73,23 @@ describe('should connect checkbox and description', () => {
             expect(checkbox.getAttribute('aria-describedby')).toBe('existing-id')
         })
     })
+})
+
+describe('FieldCounter', () => {
+  test('should render counter connected to input', async () => {
+    await render(
+      `
+    <ksd-field>
+      <ksd-label> Check me </ksd-label>
+      <input ksd-input [counter]="5" type="text"  />
+    </ksd-field>`,
+      { imports: [Field, Label, Input] },
+    )
+
+    const counter = screen.getByText('5 tegn igjen')
+    const input = screen.getByRole('textbox')
+    await waitFor(() => {
+      expect(input.getAttribute('aria-describedby')).toContain(counter.getAttribute('id'))
+    })
+  })
 })

@@ -1,6 +1,4 @@
-import { Component, contentChild, contentChildren, effect } from '@angular/core';
-import { Input } from '../input/input';
-import { ValidationMessage } from '../validation-message/validation-message';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'fieldset[ksd-fieldset]',
@@ -10,15 +8,4 @@ import { ValidationMessage } from '../validation-message/validation-message';
   },
   template: ` <ng-content /> `,
 })
-export class Fieldset {
-  private validationMessage = contentChild(ValidationMessage)
-  private inputs = contentChildren(Input, { descendants: true })
-
-  constructor() {
-    effect(() => {
-      this.inputs().forEach((input) => {
-        input.ariaDescribedBy.set(this.validationMessage()?.id())
-      })
-    })
-  }
-}
+export class Fieldset { }

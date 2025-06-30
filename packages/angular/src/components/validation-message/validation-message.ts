@@ -1,5 +1,4 @@
-import { Component, signal } from '@angular/core';
-import { randomId } from '../../utils/random-id';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'p[ksd-validation-message]',
@@ -7,9 +6,7 @@ import { randomId } from '../../utils/random-id';
   host: {
     class: 'ds-validation-message',
     'data-field': 'validation',
-    '[attr.id]': 'id()',
   },
 })
 export class ValidationMessage {
-  id = signal(randomId()).asReadonly()
 }

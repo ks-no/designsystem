@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core'
+import { Component } from '@angular/core'
 import { CommonInputs } from '../common-inputs'
 
 @Component({
@@ -7,8 +7,9 @@ import { CommonInputs } from '../common-inputs'
     directive: CommonInputs,
     inputs: ['data-size', 'data-color']
   }],
-  template: `<label class="ds-label" [for]="for()"><ng-content /></label>`,
+  template: `
+  <!-- eslint-disable @angular-eslint/template/label-has-associated-control -- Fieldobserver handles binding the label to the input -->
+  <label class="ds-label"><ng-content /></label>
+  `,
 })
-export class Label {
-  for = model<string>()
-}
+export class Label { }
