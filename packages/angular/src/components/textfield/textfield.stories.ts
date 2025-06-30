@@ -8,7 +8,7 @@ import { FieldCounter } from '../field/field-counter'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Input',
+  title: 'Textfield',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input, FieldCounter],

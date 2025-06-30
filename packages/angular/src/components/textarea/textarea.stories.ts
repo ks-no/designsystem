@@ -1,0 +1,44 @@
+import {
+  componentWrapperDecorator,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
+import { expect } from 'storybook/test'
+import { Field } from '../field/field'
+import { Input } from '../input/input'
+
+import { Label } from '../label/label'
+
+const meta: Meta<Input> = {
+  component: Input,
+  title: 'Textarea',
+  decorators: [
+    moduleMetadata({
+      imports: [Label, Field, Input],
+    }),
+  ],
+}
+export default meta
+type Story = StoryObj<Input>
+
+export const Preview: Story = {
+  args: {},
+
+  render: () => ({
+    template: `
+    <div style="
+        display: flex;
+        flex-direction: column;
+        gap: var(--ds-size-2);
+        max-width: 100%;
+        width: 20rem
+      " >
+        <ksd-field>
+          <ksd-label>Label</ksd-label>
+          <textarea ksd-input type="text"></textarea>
+        </ksd-field>
+      </div>
+    `,
+  })
+}
