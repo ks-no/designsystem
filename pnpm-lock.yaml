@@ -128,6 +128,9 @@ importers:
       prettier:
         specifier: ^3.5.3
         version: 3.6.0
+      prettier-plugin-organize-imports:
+        specifier: ^4.1.0
+        version: 4.1.0(prettier@3.6.0)(typescript@5.8.3)
       storybook:
         specifier: 9.0.12
         version: 9.0.12(@testing-library/dom@10.4.0)(prettier@3.6.0)
@@ -275,6 +278,9 @@ importers:
       '@testing-library/angular':
         specifier: ^17.4.0
         version: 17.4.0(041de9fa1c62d76522732bca6987ee26)
+      '@testing-library/jest-dom':
+        specifier: ^6.6.3
+        version: 6.6.3
       angular-eslint:
         specifier: ^20.0.0
         version: 20.1.1(chokidar@4.0.3)(eslint@9.29.0(jiti@2.4.2))(typescript-eslint@8.35.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
@@ -7059,6 +7065,16 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
+  prettier-plugin-organize-imports@4.1.0:
+    resolution: {integrity: sha512-5aWRdCgv645xaa58X8lOxzZoiHAldAPChljr/MT0crXVOWTZ+Svl4hIWlz+niYSlO6ikE5UXkN1JrRvIP2ut0A==}
+    peerDependencies:
+      prettier: '>=2.0'
+      typescript: '>=2.9'
+      vue-tsc: ^2.1.0
+    peerDependenciesMeta:
+      vue-tsc:
+        optional: true
+
   prettier@3.6.0:
     resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
     engines: {node: '>=14'}
@@ -9219,7 +9235,7 @@ snapshots:
       '@babel/helper-annotate-as-pure': 7.27.1
       '@babel/helper-split-export-declaration': 7.24.7
       '@inquirer/confirm': 5.1.10(@types/node@20.19.1)
-      '@vitejs/plugin-basic-ssl': 2.0.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(less@4.3.0)(sass-embedded@1.89.2)(sass@1.88.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0))
+      '@vitejs/plugin-basic-ssl': 2.0.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(less@4.1.3)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0))
       beasties: 0.3.4
       browserslist: 4.25.0
       esbuild: 0.25.5
@@ -9249,7 +9265,7 @@ snapshots:
       lmdb: 3.3.0
       ng-packagr: 20.0.1(@angular/compiler-cli@20.0.4(@angular/compiler@20.0.4)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3)
       postcss: 8.5.3
-      vitest: 3.2.4(@types/node@20.19.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.3.0)(sass-embedded@1.89.2)(sass@1.88.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
+      vitest: 3.2.4(@types/node@20.19.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.1.3)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -13361,7 +13377,7 @@ snapshots:
       sirv: 3.0.1
       tinyglobby: 0.2.14
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@20.19.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.3.0)(sass-embedded@1.89.2)(sass@1.88.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
+      vitest: 3.2.4(@types/node@20.19.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.1.3)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
 
   '@vitest/utils@3.0.9':
     dependencies:
@@ -17477,6 +17493,11 @@ snapshots:
   prettier-linter-helpers@1.0.0:
     dependencies:
       fast-diff: 1.3.0
+
+  prettier-plugin-organize-imports@4.1.0(prettier@3.6.0)(typescript@5.8.3):
+    dependencies:
+      prettier: 3.6.0
+      typescript: 5.8.3
 
   prettier@3.6.0: {}
 
