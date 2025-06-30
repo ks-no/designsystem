@@ -1,20 +1,37 @@
-import { booleanAttribute, Component, input, model } from '@angular/core'
+import {
+  booleanAttribute,
+  Directive,
+  input,
+  numberAttribute,
+  signal
+} from '@angular/core'
 
-@Component({
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'input[ksd-input], textarea[ksd-input]',
   host: {
     class: 'ds-input',
-    '[attr.id]': 'id()',
-    '[attr.aria-describedby]': 'ariaDescribedBy()',
     '[attr.readonly]': 'readonly() ? true : null',
     '(click)': 'onClick($event)',
+    '(input)': 'value.set($event.target.value)',
   },
-  template: ``,
 })
 export class Input {
-  id = model<string>()
-  ariaDescribedBy = model<string | undefined>(undefined, { alias: 'aria-describedby' })
+  /**
+   * The value of the input
+   */
+  value = signal('')
+
+
+  /**
+   * Whether the input is readonly
+   */
   readonly = input(false, { transform: booleanAttribute })
+
+  /**
+   * Displays a character counter. pass a number to set a limit.
+   */
+  counter = input(0, { transform: numberAttribute })
 
   onClick(event: Event) {
     if (this.readonly()) {

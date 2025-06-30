@@ -2,15 +2,16 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
-import { InputCounter } from '../input/input-counter'
+
 import { Label } from '../label/label'
+import { FieldCounter } from '../field/field-counter'
 
 const meta: Meta<Input> = {
   component: Input,
   title: 'Input',
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input, InputCounter],
+      imports: [Label, Field, Input, FieldCounter],
     }),
   ],
 }
@@ -53,8 +54,7 @@ export const Counter: Story = {
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input type="text" />
-          <ksd-input-counter [limit]="1"></ksd-input-counter>
+          <input ksd-input [counter]="5" type="text" />
         </ksd-field>
     `,
   }),
