@@ -6,14 +6,14 @@ import { FieldsetDescription } from '../fieldset/fieldset-description';
 import { FieldsetLegend } from '../fieldset/fieldset-legend';
 import { Input } from '../input/input';
 import { Label } from '../label/label';
-import { CheckboxDescription } from './checkbox-description';
+import { FieldDescription } from '../field/field-description';
 
 const meta: Meta<Input> = {
   component: Input,
   title: 'Checkbox',
   decorators: [
     moduleMetadata({
-      imports: [Input, Label, Field, CheckboxDescription, Fieldset, FieldsetDescription, FieldsetLegend],
+      imports: [Input, Label, Field, FieldDescription, Fieldset, FieldsetDescription, FieldsetLegend],
     })
   ]
 };
@@ -28,7 +28,7 @@ export const Preview: Story = {
       <ksd-field>
         <ksd-label> Checkbox label </ksd-label>
         <input ksd-input type="checkbox" value="some-value"  />
-        <p ksd-checkbox-description>Description</p>
+        <p ksd-field-description>Description</p>
       </ksd-field>
     `,
   }),

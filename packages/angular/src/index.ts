@@ -1,4 +1,3 @@
-export * from './components/checkbox'
 export * from './components/common-inputs'
 export * from './components/field'
 export * from './components/fieldset'
