@@ -1,10 +1,9 @@
 import { Component, computed, input } from '@angular/core'
 import { ValidationMessage } from '../validation-message'
-import { FieldDescription } from './field-description'
 
 @Component({
   selector: 'ksd-field-counter',
-  imports: [ValidationMessage, FieldDescription],
+  imports: [ValidationMessage],
   template: `
     <div data-field="description" class="ds-sr-only" aria-live="polite">
       @if (hasExceededLimit()) {
