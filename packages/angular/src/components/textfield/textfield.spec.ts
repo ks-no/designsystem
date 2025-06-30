@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/angular';
-import { Field } from '../field/field';
-import { Input } from '../input/input';
-import { Label } from '../label/label';
-
+import { render, screen } from '@testing-library/angular'
+import { Field } from '../field/field'
+import { Input } from '../input/input'
+import { Label } from '../label/label'
 
 test('should render', async () => {
   await render(

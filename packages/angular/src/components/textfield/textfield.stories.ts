@@ -2,9 +2,8 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
-
-import { Label } from '../label/label'
 import { FieldCounter } from '../field/field-counter'
+import { Label } from '../label/label'
 
 const meta: Meta<Input> = {
   component: Input,

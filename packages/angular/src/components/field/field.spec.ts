@@ -5,7 +5,6 @@ import { Label } from '../label/label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 
-
 test('should connect checkbox and label', async () => {
   await render(
     `
@@ -108,9 +107,10 @@ describe('FieldCounter', () => {
     const visibleMessage = screen.getByText('1 tegn for mye', { selector: 'p' })
     expect(visibleMessage).toBeInTheDocument()
 
-    const screenReaderMessage = screen.getByText('1 tegn for mye', { selector: 'div' })
+    const screenReaderMessage = screen.getByText('1 tegn for mye', {
+      selector: 'div',
+    })
     expect(screenReaderMessage).toBeInTheDocument()
     expect(screenReaderMessage).toHaveAttribute('aria-live', 'polite')
-
   })
 })

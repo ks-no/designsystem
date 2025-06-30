@@ -1,10 +1,4 @@
-import {
-  componentWrapperDecorator,
-  moduleMetadata,
-  type Meta,
-  type StoryObj,
-} from '@storybook/angular'
-import { expect } from 'storybook/test'
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
 
@@ -40,5 +34,5 @@ export const Preview: Story = {
         </ksd-field>
       </div>
     `,
-  })
+  }),
 }
