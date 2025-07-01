@@ -1,6 +1,4 @@
-import { Component, contentChild, contentChildren, effect } from '@angular/core'
-import { Checkbox } from '../checkbox/checkbox'
-import { ValidationMessage } from '../validation-message/validation-message'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'fieldset[ksd-fieldset]',
@@ -10,15 +8,4 @@ import { ValidationMessage } from '../validation-message/validation-message'
   },
   template: ` <ng-content /> `,
 })
-export class Fieldset {
-  private validationMessage = contentChild(ValidationMessage)
-  private checkboxes = contentChildren(Checkbox, { descendants: true })
-
-  constructor() {
-    effect(() => {
-      this.checkboxes().forEach((checkbox) => {
-        checkbox.ariaDescribedBy.set(this.validationMessage()?.id())
-      })
-    })
-  }
-}
+export class Fieldset {}

@@ -1,23 +1,23 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
+import { FieldDescription } from '../field/field-description'
 import { Fieldset } from '../fieldset/fieldset'
 import { FieldsetDescription } from '../fieldset/fieldset-description'
 import { FieldsetLegend } from '../fieldset/fieldset-legend'
+import { Input } from '../input/input'
 import { Label } from '../label/label'
-import { Checkbox } from './checkbox'
-import { CheckboxDescription } from './checkbox-description'
 
-const meta: Meta<Checkbox> = {
-  component: Checkbox,
+const meta: Meta<Input> = {
+  component: Input,
   title: 'Checkbox',
   decorators: [
     moduleMetadata({
       imports: [
-        Checkbox,
+        Input,
         Label,
         Field,
-        CheckboxDescription,
+        FieldDescription,
         Fieldset,
         FieldsetDescription,
         FieldsetLegend,
@@ -26,17 +26,17 @@ const meta: Meta<Checkbox> = {
   ],
 }
 export default meta
-type Story = StoryObj<Checkbox>
+type Story = StoryObj<Input>
 
 export const Preview: Story = {
   args: {},
 
-  render: (_args: any) => ({
+  render: () => ({
     template: `
       <ksd-field>
         <ksd-label> Checkbox label </ksd-label>
-        <input ksd-checkbox type="checkbox" value="some-value"  />
-        <p ksd-checkbox-description>Description</p>
+        <input ksd-input type="checkbox" value="some-value"  />
+        <p ksd-field-description>Description</p>
       </ksd-field>
     `,
   }),
@@ -48,7 +48,7 @@ export const Preview: Story = {
 export const Group: Story = {
   args: {},
 
-  render: (_args: any) => ({
+  render: () => ({
     template: `
      <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
@@ -60,17 +60,17 @@ export const Group: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input ksd-checkbox type="checkbox" value="e-post"  />
+        <input ksd-input type="checkbox" value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input ksd-checkbox type="checkbox" value="sms"  />
+        <input ksd-input type="checkbox" value="sms"  />
       </ksd-field>
 
     </fieldset>
@@ -81,10 +81,10 @@ export const Group: Story = {
 export const AriaLabel: Story = {
   args: {},
 
-  render: (_args: any) => ({
+  render: () => ({
     template: `
       <ksd-field>
-        <input ksd-checkbox type="checkbox" value="some-value" aria-label="Checkbox label"  />
+        <input ksd-input type="checkbox" value="some-value" aria-label="Checkbox label"  />
       </ksd-field>
     `,
   }),
@@ -93,7 +93,7 @@ export const AriaLabel: Story = {
 export const ReadOnly: Story = {
   args: {},
 
-  render: (_args: any) => ({
+  render: () => ({
     template: `
      <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
@@ -105,17 +105,17 @@ export const ReadOnly: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input readonly ksd-checkbox type="checkbox" value="e-post"  />
+        <input ksd-input type="checkbox" readonly value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input readonly ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" readonly value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input readonly ksd-checkbox type="checkbox" value="sms"  />
+        <input ksd-input type="checkbox" readonly value="sms"  />
       </ksd-field>
 
     </fieldset>
@@ -126,7 +126,7 @@ export const ReadOnly: Story = {
 export const Disabled: Story = {
   args: {},
 
-  render: (_args: any) => ({
+  render: () => ({
     template: `
      <fieldset ksd-fieldset>
       <legend ksd-fieldset-legend>
@@ -138,17 +138,17 @@ export const Disabled: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input disabled ksd-checkbox type="checkbox" value="e-post"  />
+        <input ksd-input type="checkbox" disabled value="e-post"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input disabled ksd-checkbox type="checkbox" value="telefon"  />
+        <input ksd-input type="checkbox" disabled value="telefon"  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input disabled ksd-checkbox type="checkbox" value="sms"  />
+        <input ksd-input type="checkbox" disabled value="sms"  />
       </ksd-field>
 
     </fieldset>

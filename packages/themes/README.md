@@ -20,8 +20,35 @@ To use the themes, include the base styles and one of the supported themes in yo
 If your bundler (e.g., Vite) is configured to resolve npm packages in CSS imports:
 
 ```css
-@import '@ks-digital/designsystem-themes/base.css';
-@import '@ks-digital/designsystem-themes/ledsagerbevis.css';
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+```
+
+#### Tailwind
+
+If you are using Tailwind with (Preflight)[https://tailwindcss.com/docs/preflight] make sure to load Designsystemet first.
+
+##### v4
+
+```css
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+@import url('tailwindcss');
+```
+
+##### v3 and older
+
+```css
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+
+@layer tailwind-base, ds;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+@tailwind components;
+@tailwind utilities;
 ```
 
 ### In JavaScript/TypeScript Files

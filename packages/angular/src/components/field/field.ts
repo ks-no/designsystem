@@ -1,16 +1,18 @@
 import {
   afterNextRender,
   Component,
+  computed,
   contentChild,
+  ElementRef,
+  inject,
   input,
-  signal,
 } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
-import { randomId } from '../../utils/random-id'
-import { Checkbox } from '../checkbox/checkbox'
-import { CheckboxDescription } from '../checkbox/checkbox-description'
 import { CommonInputs } from '../common-inputs'
+import { Input } from '../input/input'
 import { Label } from '../label/label'
+import { FieldCounter } from './field-counter'
+import { fieldObserver } from './field-observer'
 
 /**
  * Use the Field component to connect inputs and labels
@@ -27,7 +29,13 @@ import { Label } from '../label/label'
     class: 'ds-field',
     '[attr.dataPosition]': 'position()',
   },
-  template: ` <ng-content /> `,
+  template: `
+    <ng-content />
+    @if (hasCounter()) {
+      <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
+    }
+  `,
+  imports: [FieldCounter],
 })
 export class Field {
   /**
@@ -36,10 +44,13 @@ export class Field {
    */
   position = input<'start' | 'end'>('start')
 
-  private input = contentChild(Checkbox)
-  private description = contentChild(CheckboxDescription)
+  private input = contentChild(Input)
   private label = contentChild(Label)
-  private readonly id = signal(randomId())
+
+  private el = inject(ElementRef)
+  protected count = computed(() => this.input()?.value().length)
+  protected limit = computed(() => this.input()?.counter())
+  protected hasCounter = computed(() => this.limit())
 
   constructor() {
     afterNextRender(() => {
@@ -51,18 +62,7 @@ export class Field {
         })
       }
 
-      this.input()?.id.set(this.id())
-      this.label()?.for.set(this.id())
-
-      if (this.description()) {
-        const descriptionId = this.description()?.id()
-        const existingAriaDescribedBy = this.input()?.ariaDescribedBy()
-        this.input()?.ariaDescribedBy.set(
-          existingAriaDescribedBy
-            ? `${existingAriaDescribedBy} ${descriptionId}`
-            : descriptionId,
-        )
-      }
+      fieldObserver(this.el.nativeElement)
     })
   }
 }

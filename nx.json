@@ -1,4 +1,7 @@
 {
+  "tui": {
+    "enabled": false
+  },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "release": {
     "projects": [

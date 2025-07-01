@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'ksd-paragraph',
+  selector: 'p[ksd-paragraph]',
   template: `<ng-content />`,
   host: {
     class: 'ds-paragraph',
