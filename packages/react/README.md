@@ -17,10 +17,7 @@ pnpm add @ks-digital/designsystem-react @ks-digital/designsystem-themes
 Add the Inter font to your `index.html`. This API supports the same parameters as the Google Fonts API, allowing you to customize the font weights as needed:
 
 ```html
-<link
-  href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter&display=swap"
-  rel="stylesheet"
-/>
+<link href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter&display=swap" rel="stylesheet" />
 ```
 
 ### 2. Import Base Styles and Themes

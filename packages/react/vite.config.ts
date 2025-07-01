@@ -35,10 +35,7 @@ export default defineConfig(() => ({
       formats: ['es' as const, 'cjs' as const],
     },
     rollupOptions: {
-      external: [
-        '@digdir/designsystemet-react',
-        '@navikt/aksel-icons',
-      ],
+      external: ['@digdir/designsystemet-react', '@navikt/aksel-icons'],
     },
   },
   test: {

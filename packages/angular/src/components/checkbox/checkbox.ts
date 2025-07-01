@@ -3,10 +3,12 @@ import { CommonInputs } from '../common-inputs'
 
 @Component({
   selector: 'input[ksd-checkbox]',
-  hostDirectives: [{
-    directive: CommonInputs,
-    inputs: ['data-size', 'data-color']
-  }],
+  hostDirectives: [
+    {
+      directive: CommonInputs,
+      inputs: ['data-size', 'data-color'],
+    },
+  ],
   host: {
     type: 'checkbox',
     class: 'ds-input',
@@ -19,7 +21,9 @@ import { CommonInputs } from '../common-inputs'
 })
 export class Checkbox {
   id = model<string>()
-  ariaDescribedBy = model<string | undefined>(undefined, { alias: 'aria-describedby' })
+  ariaDescribedBy = model<string | undefined>(undefined, {
+    alias: 'aria-describedby',
+  })
   readonly = input(false, { transform: booleanAttribute })
 
   onClick(event: Event) {

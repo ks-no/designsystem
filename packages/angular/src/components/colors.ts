@@ -13,7 +13,7 @@ type EmptyObject = { [emptyObjectSymbol]?: never }
  */
 
 // eslint-disable-next-line
-export interface MainAndSupportColors { }
+export interface MainAndSupportColors {}
 
 /**
  * If {@link MainAndSupportColors} has been extended to include color names, return T,

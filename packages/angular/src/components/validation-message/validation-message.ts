@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { randomId } from '../../utils/random-id';
+import { Component, signal } from '@angular/core'
+import { randomId } from '../../utils/random-id'
 
 @Component({
   selector: 'p[ksd-validation-message]',

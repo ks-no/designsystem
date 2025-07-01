@@ -1,6 +1,6 @@
-import { Component, contentChild, contentChildren, effect } from '@angular/core';
-import { Checkbox } from '../checkbox/checkbox';
-import { ValidationMessage } from '../validation-message/validation-message';
+import { Component, contentChild, contentChildren, effect } from '@angular/core'
+import { Checkbox } from '../checkbox/checkbox'
+import { ValidationMessage } from '../validation-message/validation-message'
 
 @Component({
   selector: 'fieldset[ksd-fieldset]',

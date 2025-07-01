@@ -37,4 +37,3 @@ export * from './components/Textfield/Textfield'
 export * from './components/ToggleGroup/ToggleGroup'
 export * from './components/Tooltip/Tooltip'
 export * from './components/ValidationMessage/ValidationMessage'
-
