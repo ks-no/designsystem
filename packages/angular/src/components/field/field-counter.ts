@@ -32,14 +32,14 @@ export class FieldCounter {
    * The maximum allowed characters.
    *
    **/
-  limit = input.required<number>()
+  readonly limit = input.required<number>()
 
   /**
    * How many characters have been typed.
    *
    **/
-  count = input.required<number>()
-  remainder = computed(() => this.limit() - this.count())
-  excessCount = computed(() => Math.abs(this.remainder()))
-  hasExceededLimit = computed(() => this.count() > this.limit())
+  readonly count = input.required<number>()
+  protected readonly remainder = computed(() => this.limit() - this.count())
+  protected readonly excessCount = computed(() => Math.abs(this.remainder()))
+  protected readonly hasExceededLimit = computed(() => this.count() > this.limit())
 }
