@@ -63,7 +63,7 @@
     "vitest": "^3.0.0"
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": [
+    "**/*.{js,ts,tsx,md,mdx,html}": [
       "eslint --fix"
     ],
     "**/*": "prettier --write --ignore-unknown"
