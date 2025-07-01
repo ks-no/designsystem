@@ -68,6 +68,21 @@ describe('should connect checkbox and description', () => {
     const checkbox = screen.getByRole('checkbox')
     expect(checkbox.getAttribute('aria-describedby')).toBe('existing-id')
   })
+
+  test('should pass through a user-supplied id', async () => {
+    await render(
+      `
+    <ksd-field>
+      <ksd-label> Check me </ksd-label>
+        <input ksd-input type="checkbox" value="telefon" id="test" />
+    </ksd-field>`,
+      { imports: [Field, Label, Input] },
+    )
+
+    const input = screen.getByRole('checkbox')
+
+    expect(input).toHaveAttribute('id', 'test')
+  })
 })
 
 describe('FieldCounter', () => {
