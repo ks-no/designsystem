@@ -1,68 +1,68 @@
 import {
-    afterNextRender,
-    Component,
-    contentChild,
-    input,
-    signal
+  afterNextRender,
+  Component,
+  computed,
+  contentChild,
+  ElementRef,
+  inject,
+  input
 } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
-import { randomId } from '../../utils/random-id'
-import { Checkbox } from '../checkbox/checkbox'
-import { CheckboxDescription } from '../checkbox/checkbox-description'
 import { CommonInputs } from '../common-inputs'
+import { Input } from '../input/input'
 import { Label } from '../label/label'
+import { FieldCounter } from './field-counter'
+import { fieldObserver } from './field-observer'
 
 /**
  * Use the Field component to connect inputs and labels
  */
 @Component({
-    selector: 'ksd-field',
-    hostDirectives: [
-        {
-            directive: CommonInputs,
-            inputs: ['data-size', 'data-color'],
-        },
-    ],
-    host: {
-        class: 'ds-field',
-        '[attr.dataPosition]': 'position()',
+  selector: 'ksd-field',
+  hostDirectives: [
+    {
+      directive: CommonInputs,
+      inputs: ['data-size', 'data-color'],
     },
-    template: ` <ng-content /> `,
+  ],
+  host: {
+    class: 'ds-field',
+    '[attr.dataPosition]': 'position()',
+  },
+  template: `
+    <ng-content />
+    @if (hasCounter()) {
+      <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
+    }
+  `,
+  imports: [FieldCounter],
 })
 export class Field {
-    /**
-     * Position of toggle inputs (radio, checkbox, switch) in field
-     * @default start
-     */
-    position = input<'start' | 'end'>('start')
+  /**
+   * Position of toggle inputs (radio, checkbox, switch) in field
+   * @default start
+   */
+  position = input<'start' | 'end'>('start')
 
-    private input = contentChild(Checkbox)
-    private description = contentChild(CheckboxDescription)
-    private label = contentChild(Label)
-    private readonly id = signal(randomId())
+  private input = contentChild(Input)
+  private label = contentChild(Label)
 
-    constructor() {
-        afterNextRender(() => {
-            if (!this.label() || !this.input()) {
-                logIfDevMode({
-                    component: 'Field',
-                    message:
-                        'Missing required elements: ksd-label and ksd-input must be provided as children. Check imports and markup.',
-                })
-            }
+  private el = inject(ElementRef)
+  protected count = computed(() => this.input()?.value().length)
+  protected limit = computed(() => this.input()?.counter())
+  protected hasCounter = computed(() => this.limit())
 
-            this.input()?.id.set(this.id())
-            this.label()?.for.set(this.id())
-
-            if (this.description()) {
-                const descriptionId = this.description()?.id()
-                const existingAriaDescribedBy = this.input()?.ariaDescribedBy()
-                this.input()?.ariaDescribedBy.set(
-                    existingAriaDescribedBy
-                        ? `${existingAriaDescribedBy} ${descriptionId}`
-                        : descriptionId
-                )
-            }
+  constructor() {
+    afterNextRender(() => {
+      if (!this.label() || !this.input()) {
+        logIfDevMode({
+          component: 'Field',
+          message:
+            'Missing required elements: ksd-label and ksd-input must be provided as children. Check imports and markup.',
         })
-    }
+      }
+
+      fieldObserver(this.el.nativeElement)
+    })
+  }
 }
