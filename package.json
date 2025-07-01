@@ -2,7 +2,8 @@
   "name": "designsystem",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "author": "KS Digital",
   "license": "MIT",
@@ -43,6 +44,7 @@
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-prettier": "^5.2.6",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
     "lint-staged": "^15.5.1",
@@ -60,11 +62,5 @@
     "vite": "^6.0.0",
     "vite-plugin-dts": "~4.5.0",
     "vitest": "^3.0.0"
-  },
-  "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "**/*": "prettier --write --ignore-unknown"
   }
 }

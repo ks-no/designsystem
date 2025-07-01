@@ -3,7 +3,7 @@ import {
   Directive,
   input,
   numberAttribute,
-  signal
+  signal,
 } from '@angular/core'
 
 @Directive({
@@ -21,7 +21,6 @@ export class Input {
    * The value of the input
    */
   value = signal('')
-
 
   /**
    * Whether the input is readonly

@@ -1,2 +1,1 @@
-export { ValidationMessage } from './validation-message';
-
+export { ValidationMessage } from './validation-message'

@@ -1,7 +1,4 @@
-import {
-  applicationConfig,
-  type Preview
-} from '@analogjs/storybook-angular'
+import { applicationConfig, type Preview } from '@analogjs/storybook-angular'
 import { provideZonelessChangeDetection } from '@angular/core'
 import { addons } from 'storybook/preview-api'
 import customTheme from './customTheme'

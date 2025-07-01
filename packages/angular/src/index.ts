@@ -5,4 +5,3 @@ export * from './components/input'
 export * from './components/label'
 export * from './components/paragraph'
 export * from './components/validation-message'
-

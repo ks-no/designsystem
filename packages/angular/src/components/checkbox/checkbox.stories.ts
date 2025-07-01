@@ -1,24 +1,32 @@
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { expect } from 'storybook/test';
-import { Field } from '../field/field';
-import { Fieldset } from '../fieldset/fieldset';
-import { FieldsetDescription } from '../fieldset/fieldset-description';
-import { FieldsetLegend } from '../fieldset/fieldset-legend';
-import { Input } from '../input/input';
-import { Label } from '../label/label';
-import { FieldDescription } from '../field/field-description';
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import { expect } from 'storybook/test'
+import { Field } from '../field/field'
+import { FieldDescription } from '../field/field-description'
+import { Fieldset } from '../fieldset/fieldset'
+import { FieldsetDescription } from '../fieldset/fieldset-description'
+import { FieldsetLegend } from '../fieldset/fieldset-legend'
+import { Input } from '../input/input'
+import { Label } from '../label/label'
 
 const meta: Meta<Input> = {
   component: Input,
   title: 'Checkbox',
   decorators: [
     moduleMetadata({
-      imports: [Input, Label, Field, FieldDescription, Fieldset, FieldsetDescription, FieldsetLegend],
-    })
-  ]
-};
-export default meta;
-type Story = StoryObj<Input>;
+      imports: [
+        Input,
+        Label,
+        Field,
+        FieldDescription,
+        Fieldset,
+        FieldsetDescription,
+        FieldsetLegend,
+      ],
+    }),
+  ],
+}
+export default meta
+type Story = StoryObj<Input>
 
 export const Preview: Story = {
   args: {},
@@ -35,8 +43,7 @@ export const Preview: Story = {
   play: async ({ canvas }) => {
     await expect(canvas.getByText(/Checkbox label/gi)).toBeTruthy()
   },
-};
-
+}
 
 export const Group: Story = {
   args: {},
@@ -69,8 +76,7 @@ export const Group: Story = {
     </fieldset>
     `,
   }),
-};
-
+}
 
 export const AriaLabel: Story = {
   args: {},
@@ -82,7 +88,7 @@ export const AriaLabel: Story = {
       </ksd-field>
     `,
   }),
-};
+}
 
 export const ReadOnly: Story = {
   args: {},
@@ -115,7 +121,7 @@ export const ReadOnly: Story = {
     </fieldset>
     `,
   }),
-};
+}
 
 export const Disabled: Story = {
   args: {},
@@ -148,4 +154,4 @@ export const Disabled: Story = {
     </fieldset>
     `,
   }),
-};
+}

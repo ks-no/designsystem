@@ -41,5 +41,7 @@ export class FieldCounter {
   readonly count = input.required<number>()
   protected readonly remainder = computed(() => this.limit() - this.count())
   protected readonly excessCount = computed(() => Math.abs(this.remainder()))
-  protected readonly hasExceededLimit = computed(() => this.count() > this.limit())
+  protected readonly hasExceededLimit = computed(
+    () => this.count() > this.limit(),
+  )
 }

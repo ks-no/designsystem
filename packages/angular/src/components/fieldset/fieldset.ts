@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'fieldset[ksd-fieldset]',
@@ -8,4 +8,4 @@ import { Component } from '@angular/core';
   },
   template: ` <ng-content /> `,
 })
-export class Fieldset { }
+export class Fieldset {}

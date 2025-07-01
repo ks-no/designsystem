@@ -6,10 +6,7 @@ import {
   platformBrowserTesting,
 } from '@angular/platform-browser/testing'
 
-getTestBed().initTestEnvironment(
-  BrowserTestingModule,
-  platformBrowserTesting(),
-)
+getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting())
 
 // Need jest-dom for matchers like expect.toHaveAttribute
 import '@testing-library/jest-dom'

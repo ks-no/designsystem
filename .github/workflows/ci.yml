@@ -24,6 +24,9 @@ jobs:
       - name: Install
         uses: ./.github/actions/install-packages
 
+      - name: Check formatting
+        run: pnpm nx format:check
+
       - name: Lint
         run: pnpm nx affected --target=lint
 

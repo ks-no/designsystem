@@ -1,4 +1,4 @@
-import { create } from 'storybook/theming';
+import { create } from 'storybook/theming'
 
 export default create({
   brandTitle: 'Komponenter',
@@ -12,4 +12,4 @@ export default create({
   appBg: '#fefefe',
   appPreviewBg: 'var(--ds-color-neutral-background-default)',
   appContentBg: '#fefefe',
-});
+})

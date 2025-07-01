@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: '[ksd-field-description]',
@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
   },
   template: `<ng-content />`,
 })
-export class FieldDescription { }
+export class FieldDescription {}

@@ -5,7 +5,7 @@ import {
   contentChild,
   ElementRef,
   inject,
-  input
+  input,
 } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
