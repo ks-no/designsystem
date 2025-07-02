@@ -12,6 +12,7 @@ import {
   host: {
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
+    '[attr.disabled]': 'disabled() ? true : null',
     '(click)': 'onClick($event)',
     '(input)': 'value.set($event.target.value)',
   },
@@ -25,7 +26,12 @@ export class Input {
   /**
    * Whether the input is readonly
    */
-  readonly = input(false, { transform: booleanAttribute })
+  readonly readonly = input(false, { transform: booleanAttribute })
+
+  /**
+   * Disables element
+   */
+  readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
    * Displays a character counter. pass a number to set a limit.

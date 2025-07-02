@@ -26,6 +26,7 @@ type Story = StoryObj<Input>
 export const Preview: Story = {
   args: {
     readonly: false,
+    disabled: false,
   },
 
   render: (args) => ({
