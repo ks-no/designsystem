@@ -8,15 +8,15 @@ import {
   ElementRef,
   inject,
   input,
-  viewChildren,
 } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { ValidationMessage } from '../validation-message'
-import { FieldDescription } from './field-description'
+import { FieldCounter } from './field-counter'
 import { fieldObserver } from './field-observer'
+import { FieldState } from './field-state'
 
 /**
  * Use the Field component to connect inputs and labels
@@ -36,19 +36,11 @@ import { fieldObserver } from './field-observer'
   template: `
     <ng-content />
     @if (hasCounter()) {
-      <div ksd-field-description class="ds-sr-only" aria-live="polite">
-        @if (hasExceededLimit()) {
-          {{ excessCount() }} tegn for mye
-        }
-      </div>
-      @if (hasExceededLimit()) {
-        <p ksd-validation-message>{{ excessCount() }} tegn for mye</p>
-      } @else {
-        <p data-field="validation">{{ remainder() }} tegn igjen</p>
-      }
+      <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
     }
   `,
-  imports: [FieldDescription, ValidationMessage],
+  imports: [FieldCounter],
+  providers: [FieldState],
 })
 export class Field {
   /**
@@ -57,24 +49,15 @@ export class Field {
    */
   position = input<'start' | 'end'>('start')
 
-  private el = inject(ElementRef)
+  private fieldState = inject(FieldState)
   private input = contentChild(Input)
   private label = contentChild(Label)
+  private projectedErrors = contentChildren(ValidationMessage)
 
-  private readonly projectedErrors = contentChildren(ValidationMessage)
-  private readonly internalErrors = viewChildren(ValidationMessage)
-  protected hasError = computed(
-    () => this.projectedErrors().length || this.internalErrors().length,
-  )
-
-  protected readonly count = computed(() => this.input()?.value().length ?? 0)
-  protected readonly limit = computed(() => this.input()?.counter() ?? 0)
-  protected readonly hasCounter = computed(() => this.limit())
-  protected readonly remainder = computed(() => this.limit() - this.count())
-  protected readonly excessCount = computed(() => Math.abs(this.remainder()))
-  protected readonly hasExceededLimit = computed(
-    () => this.count() > this.limit(),
-  )
+  private el = inject(ElementRef)
+  protected count = computed(() => this.input()?.value().length)
+  protected limit = computed(() => this.input()?.counter())
+  protected hasCounter = computed(() => this.limit())
 
   constructor() {
     afterNextRender(() => {
@@ -90,9 +73,7 @@ export class Field {
     })
 
     effect(() => {
-      if (this.hasError()) {
-        this.input()?.invalid.set(true)
-      }
+      this.fieldState.hasProjectedErrors.set(this.projectedErrors().length > 0)
     })
   }
 }

@@ -1,12 +1,13 @@
 import {
   booleanAttribute,
   Directive,
+  inject,
   input,
-  model,
   numberAttribute,
   signal,
 } from '@angular/core'
 import { CommonInputs } from '../common-inputs'
+import { FieldState } from '../field/field-state'
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -21,7 +22,7 @@ import { CommonInputs } from '../common-inputs'
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
     '[attr.disabled]': 'disabled() ? true : null',
-    '[attr.aria-invalid]': 'invalid() ? true:  null',
+    '[attr.aria-invalid]': 'fieldState.hasError() ? true:  null',
     '(click)': 'onClick($event)',
     '(input)': 'value.set($event.target.value)',
   },
@@ -43,14 +44,11 @@ export class Input {
   readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
-   * Whether the input should be marked as invalid
-   */
-  invalid = model(false)
-
-  /**
    * Displays a character counter. pass a number to set a limit.
    */
   counter = input(0, { transform: numberAttribute })
+
+  protected fieldState = inject(FieldState)
 
   onClick(event: Event) {
     if (this.readonly()) {
