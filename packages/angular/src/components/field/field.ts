@@ -49,15 +49,15 @@ export class Field {
    */
   position = input<'start' | 'end'>('start')
 
-  private fieldState = inject(FieldState)
-  private input = contentChild(Input)
-  private label = contentChild(Label)
-  private projectedErrors = contentChildren(ValidationMessage)
+  private readonly fieldState = inject(FieldState)
+  private readonly input = contentChild(Input)
+  private readonly label = contentChild(Label)
+  private readonly projectedErrors = contentChildren(ValidationMessage)
 
-  private el = inject(ElementRef)
-  protected count = computed(() => this.input()?.value().length)
-  protected limit = computed(() => this.input()?.counter())
-  protected hasCounter = computed(() => this.limit())
+  private readonly el = inject(ElementRef)
+  protected readonly count = computed(() => this.input()?.value().length)
+  protected readonly limit = computed(() => this.input()?.counter())
+  protected readonly hasCounter = computed(() => this.limit())
 
   constructor() {
     afterNextRender(() => {
