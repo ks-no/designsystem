@@ -1,12 +1,12 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
-import { Input } from '../input/input'
 import { Label } from '../label/label'
+import { Input } from './input'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Textfield',
+  title: 'Input',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],
