@@ -9,6 +9,7 @@ import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { Field } from './field'
 import { FieldCounter } from './field-counter'
+import { FieldDescription } from './field-description'
 import { FieldError } from './field-error'
 
 const meta: Meta<Field> = {
@@ -16,7 +17,14 @@ const meta: Meta<Field> = {
   title: 'Field',
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input, FieldCounter, FieldError],
+      imports: [
+        Label,
+        Field,
+        Input,
+        FieldCounter,
+        FieldError,
+        FieldDescription,
+      ],
     }),
   ],
 }
@@ -33,7 +41,8 @@ export const Preview: Story = {
     props: args,
     template: `
         <ksd-field>
-          <ksd-label>Label</ksd-label>
+          <ksd-label>Etternavn</ksd-label>
+          <div ksd-field-description>Etternavn kan ikke inneholde mellomrom</div>
           <input ksd-input type="text" ${argsToTemplate(args)} />
         </ksd-field>
     `,
