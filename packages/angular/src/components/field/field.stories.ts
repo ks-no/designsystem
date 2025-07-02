@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -6,17 +5,18 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { expect } from 'storybook/test'
-import { Field } from '../field/field'
-import { FieldCounter } from '../field/field-counter'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
+import { Field } from './field'
+import { FieldCounter } from './field-counter'
+import { FieldError } from './field-error'
 
-const meta: Meta<Input> = {
-  component: Input,
-  title: 'Input',
+const meta: Meta<Field> = {
+  component: Field,
+  title: 'Field',
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input, FieldCounter, JsonPipe],
+      imports: [Label, Field, Input, FieldCounter, FieldError],
     }),
   ],
 }
@@ -71,6 +71,23 @@ export const Counter: Story = {
         <ksd-field>
           <ksd-label>Label</ksd-label>
           <input ksd-input [counter]="5" type="text" ${argsToTemplate(args)} />
+        </ksd-field>
+    `,
+  }),
+}
+
+export const Error: Story = {
+  args: {
+    ...Preview.args,
+  },
+
+  render: (args) => ({
+    props: args,
+    template: `
+        <ksd-field>
+          <ksd-label>Navn</ksd-label>
+          <input ksd-input type="text" ${argsToTemplate(args)} />
+          <p ksd-error>Feltet må fylles ut</p>
         </ksd-field>
     `,
   }),
