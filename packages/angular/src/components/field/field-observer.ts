@@ -28,6 +28,7 @@ export function fieldObserver(fieldElement: HTMLElement | null) {
     // Register elements
     for (const el of changed) {
       if (!isElement(el)) continue
+
       if (isLabel(el)) elements.set(el, el.htmlFor)
       else if (el.hasAttribute('data-field')) elements.set(el, el.id)
       else if (isInputLike(el)) {
