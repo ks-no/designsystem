@@ -1,7 +1,7 @@
 import '@ks-digital/designsystem-themes/base.css'
 import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
-import { Alert, Button, Spinner, Heading } from '@ks-digital/designsystem-react'
+import { Alert, Button, Heading, Spinner } from '@ks-digital/designsystem-react'
 
 export function App() {
   return (
