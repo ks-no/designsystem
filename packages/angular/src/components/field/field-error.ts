@@ -1,11 +1,13 @@
 import { Component } from '@angular/core'
+import { ValidationMessage } from '../validation-message'
 
 @Component({
   selector: '[ksd-error]',
   template: `<ng-content />`,
-  host: {
-    class: 'ds-validation-message',
-    'data-field': 'validation',
-  },
+  hostDirectives: [
+    {
+      directive: ValidationMessage,
+    },
+  ],
 })
 export class FieldError {}
