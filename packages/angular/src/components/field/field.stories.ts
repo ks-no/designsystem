@@ -8,7 +8,6 @@ import { expect } from 'storybook/test'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { Field } from './field'
-import { FieldCounter } from './field-counter'
 import { FieldDescription } from './field-description'
 import { FieldError } from './field-error'
 
@@ -17,14 +16,7 @@ const meta: Meta<Field> = {
   title: 'Field',
   decorators: [
     moduleMetadata({
-      imports: [
-        Label,
-        Field,
-        Input,
-        FieldCounter,
-        FieldError,
-        FieldDescription,
-      ],
+      imports: [Label, Field, Input, FieldError, FieldDescription],
     }),
   ],
 }
