@@ -5,10 +5,17 @@ import {
   numberAttribute,
   signal,
 } from '@angular/core'
+import { CommonInputs } from '../common-inputs'
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'input[ksd-input], textarea[ksd-input]',
+  hostDirectives: [
+    {
+      directive: CommonInputs,
+      inputs: ['data-size', 'data-color'],
+    },
+  ],
   host: {
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
