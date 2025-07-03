@@ -1,4 +1,9 @@
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { expect } from 'storybook/test'
 import { Field } from '../field/field'
 import { Label } from '../label/label'
@@ -17,13 +22,18 @@ export default meta
 type Story = StoryObj<Input>
 
 export const Preview: Story = {
-  args: {},
+  args: {
+    readonly: false,
+    disabled: false,
+    ariaInvalid: false,
+  },
 
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input type="text" />
+          <input ksd-input ${argsToTemplate(args)}  />
         </ksd-field>
     `,
   }),
@@ -33,26 +43,32 @@ export const Preview: Story = {
 }
 
 export const Rows: Story = {
-  args: {},
+  args: {
+    ...Preview.args,
+  },
 
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <textarea ksd-input type="text" rows="4" ></textarea>
+          <textarea ksd-input type="text" rows="4" ${argsToTemplate(args)} ></textarea>
         </ksd-field>
     `,
   }),
 }
 
 export const Counter: Story = {
-  args: {},
+  args: {
+    ...Preview.args,
+  },
 
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input [counter]="5" type="text" />
+          <input ksd-input [counter]="5" type="text" ${argsToTemplate(args)} />
         </ksd-field>
     `,
   }),

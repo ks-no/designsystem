@@ -1,18 +1,25 @@
 import { render, screen } from '@testing-library/angular'
-import { Field } from '../field/field'
-import { Label } from '../label/label'
 import { Input } from './input'
 
 test('should render', async () => {
   await render(
     `
-        <ksd-field>
-        <ksd-label>Label</ksd-label>
         <input ksd-input type="text"  />
-        </ksd-field>
     `,
-    { imports: [Field, Label, Input] },
+    { imports: [Input] },
   )
 
   expect(screen.getByRole('textbox')).toBeDefined()
+})
+
+test('should set aria-invalid', async () => {
+  await render(
+    `
+        <input ksd-input type="text" aria-invalid="true"  />
+    `,
+    { imports: [Input] },
+  )
+
+  expect(screen.getByRole('textbox')).toBeDefined()
+  expect(screen.getByRole('textbox').getAttribute('aria-invalid')).toBe('true')
 })

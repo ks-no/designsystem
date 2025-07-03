@@ -22,7 +22,8 @@ import { FieldState } from '../field/field-state'
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
     '[attr.disabled]': 'disabled() ? true : null',
-    '[attr.aria-invalid]': 'fieldState.hasError() ? true:  null',
+    '[attr.aria-invalid]':
+      'ariaInvalid() ? true : (fieldState?.hasError() ? true:  null)',
     '(click)': 'onClick($event)',
     '(input)': 'value.set($event.target.value)',
   },
@@ -44,11 +45,19 @@ export class Input {
   readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
+   * Whether the element is invalid.
+   */
+  readonly ariaInvalid = input(false, {
+    transform: booleanAttribute,
+    alias: 'aria-invalid',
+  })
+
+  /**
    * Displays a character counter. pass a number to set a limit.
    */
   counter = input(0, { transform: numberAttribute })
 
-  protected fieldState = inject(FieldState)
+  protected fieldState = inject(FieldState, { optional: true })
 
   onClick(event: Event) {
     if (this.readonly()) {
