@@ -1,3 +1,4 @@
+export * from './components/button'
 export * from './components/common-inputs'
 export * from './components/field'
 export * from './components/fieldset'
