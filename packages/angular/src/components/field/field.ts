@@ -3,6 +3,8 @@ import {
   Component,
   computed,
   contentChild,
+  contentChildren,
+  effect,
   ElementRef,
   inject,
   input,
@@ -11,8 +13,10 @@ import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
+import { ValidationMessage } from '../validation-message'
 import { FieldCounter } from './field-counter'
 import { fieldObserver } from './field-observer'
+import { FieldState } from './field-state'
 
 /**
  * Use the Field component to connect inputs and labels
@@ -36,6 +40,7 @@ import { fieldObserver } from './field-observer'
     }
   `,
   imports: [FieldCounter],
+  providers: [FieldState],
 })
 export class Field {
   /**
@@ -44,13 +49,15 @@ export class Field {
    */
   position = input<'start' | 'end'>('start')
 
-  private input = contentChild(Input)
-  private label = contentChild(Label)
+  private readonly fieldState = inject(FieldState)
+  private readonly input = contentChild(Input)
+  private readonly label = contentChild(Label)
+  private readonly projectedErrors = contentChildren(ValidationMessage)
 
-  private el = inject(ElementRef)
-  protected count = computed(() => this.input()?.value().length)
-  protected limit = computed(() => this.input()?.counter())
-  protected hasCounter = computed(() => this.limit())
+  private readonly el = inject(ElementRef)
+  protected readonly count = computed(() => this.input()?.value().length)
+  protected readonly limit = computed(() => this.input()?.counter())
+  protected readonly hasCounter = computed(() => this.limit())
 
   constructor() {
     afterNextRender(() => {
@@ -63,6 +70,10 @@ export class Field {
       }
 
       fieldObserver(this.el.nativeElement)
+    })
+
+    effect(() => {
+      this.fieldState.hasProjectedErrors.set(this.projectedErrors().length > 0)
     })
   }
 }

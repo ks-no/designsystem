@@ -1,8 +1,8 @@
-import { Component } from '@angular/core'
+import { Directive } from '@angular/core'
 
-@Component({
-  selector: 'p[ksd-validation-message]',
-  template: `<ng-content />`,
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: '[ksd-validation-message]',
   host: {
     class: 'ds-validation-message',
     'data-field': 'validation',

@@ -1,5 +1,6 @@
-import { Component, computed, input } from '@angular/core'
+import { Component, computed, effect, inject, input } from '@angular/core'
 import { ValidationMessage } from '../validation-message'
+import { FieldState } from './field-state'
 
 @Component({
   selector: 'ksd-field-counter',
@@ -44,4 +45,12 @@ export class FieldCounter {
   protected readonly hasExceededLimit = computed(
     () => this.count() > this.limit(),
   )
+
+  private fieldState = inject(FieldState)
+
+  constructor() {
+    effect(() => {
+      this.fieldState.hasExceededCounter.set(this.hasExceededLimit())
+    })
+  }
 }

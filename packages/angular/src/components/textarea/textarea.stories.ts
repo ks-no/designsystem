@@ -1,4 +1,9 @@
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
 
@@ -17,9 +22,13 @@ export default meta
 type Story = StoryObj<Input>
 
 export const Preview: Story = {
-  args: {},
+  args: {
+    readonly: false,
+    disabled: false,
+  },
 
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
     <div style="
         display: flex;
@@ -30,7 +39,7 @@ export const Preview: Story = {
       " >
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <textarea ksd-input type="text"></textarea>
+          <textarea ksd-input type="text" ${argsToTemplate(args)}></textarea>
         </ksd-field>
       </div>
     `,
