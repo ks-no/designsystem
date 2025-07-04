@@ -8,7 +8,7 @@ import { Spinner } from './spinner'
 
 const meta: Meta<Spinner> = {
   component: Spinner,
-  title: 'Spinner',
+  title: 'Komponenter/Loaders/Spinner',
   decorators: [
     moduleMetadata({
       imports: [Spinner],

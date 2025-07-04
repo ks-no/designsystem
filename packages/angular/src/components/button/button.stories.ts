@@ -8,7 +8,7 @@ import { Button } from './button'
 
 const meta: Meta<Button> = {
   component: Button,
-  title: 'Button',
+  title: 'Komponenter/Button',
   decorators: [
     moduleMetadata({
       imports: [Button],

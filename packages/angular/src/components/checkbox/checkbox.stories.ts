@@ -15,7 +15,7 @@ import { Label } from '../label/label'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Checkbox',
+  title: 'Komponenter/Checkbox',
   decorators: [
     moduleMetadata({
       imports: [

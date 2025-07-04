@@ -72,6 +72,7 @@ it('should render button text', async () => {
   const button = screen.getByRole('button', { name: 'Different button text' })
   expect(button).toBeInTheDocument()
 })
+
 it('should set aria-busy when loading', async () => {
   await render(
     `
