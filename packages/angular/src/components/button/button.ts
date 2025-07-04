@@ -1,5 +1,6 @@
 import { booleanAttribute, Component, input } from '@angular/core'
 import { CommonInputs } from '../common-inputs'
+import { Spinner } from '../spinner/spinner'
 
 @Component({
   selector: 'button[ksd-button], a[ksd-button]',
@@ -9,12 +10,21 @@ import { CommonInputs } from '../common-inputs'
       inputs: ['data-size', 'data-color'],
     },
   ],
+  imports: [Spinner],
   host: {
     class: 'ds-button',
+    type: 'button',
     '[attr.data-variant]': 'variant()',
+    '[attr.data-icon]': 'icon() ?? undefined',
     '[attr.disabled]': 'disabled() ? true : null',
+    '[attr.aria-busy]': 'loading() ? true : null',
   },
-  template: `<ng-content />`,
+  template: `
+    @if (loading()) {
+      <ksd-spinner aria-hidden="true" />
+    }
+    <ng-content />
+  `,
 })
 export class Button {
   /**
@@ -34,7 +44,7 @@ export class Button {
    *
    * @default false
    */
-  readonly loading = input<boolean>(false)
+  readonly loading = input(false, { transform: booleanAttribute })
 
   /**
    * Whether the input is readonly
