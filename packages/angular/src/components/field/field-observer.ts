@@ -9,6 +9,7 @@ export function fieldObserver(fieldElement: HTMLElement | null) {
   if (!fieldElement) return
 
   const elements = new Map<Element, string | null>()
+  const typeCounter = new Map<string, number>() // Track count for each data-field type
   const uuid = `:${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`
   let input: Element | null = null
   let describedby = ''
@@ -28,6 +29,7 @@ export function fieldObserver(fieldElement: HTMLElement | null) {
     // Register elements
     for (const el of changed) {
       if (!isElement(el)) continue
+
       if (isLabel(el)) elements.set(el, el.htmlFor)
       else if (el.hasAttribute('data-field')) elements.set(el, el.id)
       else if (isInputLike(el)) {
@@ -51,9 +53,21 @@ export function fieldObserver(fieldElement: HTMLElement | null) {
     const describedbyIds = [describedby] // Keep original aria-describedby
     const inputId = input?.id || uuid
 
+    // Reset type counters since we reprocess all elements
+    typeCounter.clear()
+
     for (const [el, value] of elements) {
       const descriptionType = el.getAttribute('data-field')
-      const id = descriptionType ? `${inputId}:${descriptionType}` : inputId
+      let id: string
+
+      if (descriptionType) {
+        // Increment type counter for this type
+        const count = (typeCounter.get(descriptionType) || 0) + 1
+        typeCounter.set(descriptionType, count)
+        id = `${inputId}:${descriptionType}:${count}`
+      } else {
+        id = inputId
+      }
 
       if (!value) setAttr(el, isLabel(el) ? 'for' : 'id', id) // Ensure we have a value
       if (descriptionType === 'validation')
