@@ -9,19 +9,17 @@ import { CommonInputs } from '../common-inputs'
       inputs: ['data-size', 'data-color'],
     },
   ],
+  host: {
+    '[attr.aria-hidden]': 'ariaHidden() ? true:  null',
+    '[attr.aria-label]': 'ariaLabel() ?? undefined',
+  },
   styles: `
     :host {
       display: contents;
     }
   `,
   template: `
-    <svg
-      [attr.aria-label]="ariaLabel() ?? undefined"
-      [attr.aria-hidden]="ariaHidden() ?? undefined"
-      class="ds-spinner"
-      role="img"
-      viewBox="0 0 50 50"
-    >
+    <svg class="ds-spinner" role="img" viewBox="0 0 50 50">
       <circle
         class="ds-spinner__background"
         cx="25"
