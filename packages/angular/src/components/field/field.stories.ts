@@ -13,7 +13,7 @@ import { FieldError } from './field-error'
 
 const meta: Meta<Field> = {
   component: Field,
-  title: 'Field',
+  title: 'Komponenter/Field',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input, FieldError, FieldDescription],

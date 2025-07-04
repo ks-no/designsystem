@@ -11,7 +11,7 @@ import { Input } from './input'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Input',
+  title: 'Komponenter/Input',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],

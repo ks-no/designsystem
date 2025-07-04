@@ -11,7 +11,7 @@ import { Label } from '../label/label'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Textarea',
+  title: 'Komponenter/Textarea',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],
