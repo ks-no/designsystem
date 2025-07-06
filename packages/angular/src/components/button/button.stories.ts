@@ -20,7 +20,6 @@ type Story = StoryObj<Button>
 
 export const Preview: Story = {
   args: {
-    icon: undefined,
     loading: false,
     disabled: false,
   },

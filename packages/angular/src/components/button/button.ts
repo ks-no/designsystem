@@ -15,7 +15,6 @@ import { Spinner } from '../spinner/spinner'
     class: 'ds-button',
     type: 'button',
     '[attr.data-variant]': 'variant()',
-    '[attr.data-icon]': 'icon() ?? undefined',
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
@@ -33,11 +32,6 @@ export class Button {
    */
   readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary')
 
-  /**
-   * Toggle icon only styling, pass icon as children
-   * @default false
-   */
-  readonly icon = input<string | undefined>(undefined)
   /**
    * Toggle loading state.
    * Pass an element if you want to display a custom loader.
