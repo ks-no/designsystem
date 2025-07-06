@@ -25,7 +25,6 @@ export const Preview: Story = {
   args: {
     readonly: false,
     disabled: false,
-    ariaInvalid: false,
   },
 
   render: (args) => ({
