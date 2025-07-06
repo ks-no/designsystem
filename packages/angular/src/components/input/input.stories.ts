@@ -5,6 +5,7 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { expect } from 'storybook/test'
+import { StorybookArgsWithCommonInputs } from '../../utils/default-args'
 import { Field } from '../field/field'
 import { Label } from '../label/label'
 import { Input } from './input'
@@ -25,7 +26,8 @@ export const Preview: Story = {
   args: {
     readonly: false,
     disabled: false,
-  },
+    'data-size': 'md',
+  } as StorybookArgsWithCommonInputs<Input>,
 
   render: (args) => ({
     props: args,
