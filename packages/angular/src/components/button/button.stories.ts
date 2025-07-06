@@ -22,7 +22,6 @@ export const Preview: Story = {
   args: {
     icon: undefined,
     loading: false,
-    readonly: false,
     disabled: false,
   },
 

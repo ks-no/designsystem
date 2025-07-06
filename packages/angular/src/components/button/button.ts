@@ -47,11 +47,6 @@ export class Button {
   readonly loading = input(false, { transform: booleanAttribute })
 
   /**
-   * Whether the input is readonly
-   */
-  readonly readonly = input(false, { transform: booleanAttribute })
-
-  /**
    * Disables element
    */
   readonly disabled = input(false, { transform: booleanAttribute })
