@@ -1,3 +1,20 @@
+## 0.0.1-alpha.11
+
+### 🚀 Features
+
+- **angular:** buttons + spinner ([#27](https://github.com/ks-no/designsystem/pull/27))
+- **angular:** support `select` for input ([532e9d4](https://github.com/ks-no/designsystem/commit/532e9d4))
+
+### 🩹 Fixes
+
+- **angular:** use new `fieldObserver`, that fixes dupe ids ([ff16f29](https://github.com/ks-no/designsystem/commit/ff16f29))
+- **angular:** actually use new fieldObserver, that fixes dupe ids ([d26f3d2](https://github.com/ks-no/designsystem/commit/d26f3d2))
+
+### ❤️ Thank You
+
+- Stian Morsund
+- stianmorsund
+
 ## 0.0.1-alpha.10
 
 ### 🚀 Features
