@@ -11,7 +11,7 @@ import { Input } from './input'
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Input',
+  title: 'Komponenter/Input',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],
@@ -25,7 +25,6 @@ export const Preview: Story = {
   args: {
     readonly: false,
     disabled: false,
-    ariaInvalid: false,
   },
 
   render: (args) => ({

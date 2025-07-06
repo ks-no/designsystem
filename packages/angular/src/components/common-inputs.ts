@@ -9,7 +9,7 @@
 import { Directive, input } from '@angular/core'
 import { Color } from './colors'
 
-export type Size = 'sm' | 'md' | 'lg' | 'xl'
+export type Size = 'sm' | 'md' | 'lg'
 
 @Directive()
 export class CommonInputs {
