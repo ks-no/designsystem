@@ -3,7 +3,7 @@ import { Color } from '../components/colors'
 import { Size } from '../components/common-inputs'
 
 /**
- * Storybook don't understand the data-* inputs, so we make a custom type that includes the common inputs
+ * Storybook doesnt include inputs from hostdirectives, so we make a custom type
  * @see {@link ../components/common-inputs.CommonInputs}
  */
 export type StorybookArgsWithCommonInputs<T> = StoryObj<T>['args'] & {
