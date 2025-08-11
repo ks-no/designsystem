@@ -11,9 +11,9 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.9.0",
+    "@testing-library/react": "16.1.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
-    "@testing-library/react": "16.1.0"
+    "@vitejs/plugin-react-swc": "^3.9.0"
   }
 }
