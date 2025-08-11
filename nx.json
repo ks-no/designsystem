@@ -90,6 +90,8 @@
       "inputs": ["default", "^default"]
     },
     "build-storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist"],
       "cache": true
     }
   },

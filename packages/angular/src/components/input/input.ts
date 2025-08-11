@@ -11,7 +11,7 @@ import { FieldState } from '../field/field-state'
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'input[ksd-input], textarea[ksd-input]',
+  selector: 'input[ksd-input], textarea[ksd-input], select[ksd-input]',
   hostDirectives: [
     {
       directive: CommonInputs,

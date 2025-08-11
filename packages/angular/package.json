@@ -5,7 +5,7 @@
     "url": "https://github.com/ks-no/designsystem.git",
     "directory": "packages/angular"
   },
-  "version": "0.0.1-alpha.10",
+  "version": "0.0.1-alpha.11",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -24,7 +24,7 @@
     "@angular/platform-server": ">=20.0.0"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "^1.18.0",
+    "@analogjs/storybook-angular": "^1.19.4",
     "@analogjs/vite-plugin-angular": "~1.17.1",
     "@analogjs/vitest-angular": "~1.17.1",
     "@angular-eslint/builder": "^20.0.0",
