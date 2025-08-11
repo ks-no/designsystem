@@ -300,21 +300,21 @@ importers:
   packages/react:
     dependencies:
       '@digdir/designsystemet-react':
-        specifier: 1.0.5
-        version: 1.0.5(@types/react@19.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 1.1.9
+        version: 1.1.9(@types/react@19.0.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@navikt/aksel-icons':
         specifier: ^7.21.1
         version: 7.23.2
       react:
         specifier: '>=18.3.1'
-        version: 19.1.0
+        version: 19.1.1
       react-dom:
         specifier: '>=18.3.1'
-        version: 19.1.0(react@19.1.0)
+        version: 19.1.1(react@19.1.1)
     devDependencies:
       '@testing-library/react':
         specifier: 16.1.0
-        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@vitejs/plugin-react-swc':
         specifier: ^3.9.0
         version: 3.10.2(@swc/helpers@0.5.17)(vite@6.3.5(@types/node@24.2.1)(jiti@2.4.2)(less@4.3.0)(sass-embedded@1.90.0)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.1))
@@ -331,8 +331,8 @@ importers:
   packages/themes:
     dependencies:
       '@digdir/designsystemet-css':
-        specifier: 1.0.5
-        version: 1.0.5
+        specifier: 1.1.9
+        version: 1.1.9
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -1406,11 +1406,11 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@digdir/designsystemet-css@1.0.5':
-    resolution: {integrity: sha512-QWHnlboagKVEjRG2ThLOtadEPsO4ZBPKmscsXStM4b4xLZK2bNEFq7ff+Whr//R/Efs+HlIlWhu7wE03HwGlKg==}
+  '@digdir/designsystemet-css@1.1.9':
+    resolution: {integrity: sha512-n0bjHpvrTGJ3VoWx82VA8FbtMUv4jgIesvSo1j/7Nzis/1GwhHu+SIQ1x3Ozv3u++mGd3QrAPXMZF6rjuaU6kA==}
 
-  '@digdir/designsystemet-react@1.0.5':
-    resolution: {integrity: sha512-fM7+sai1WCIDOt6x3ANmfPxvmRkStdoIEjWG84lUPsDl9c1MgTh3DZN1TzkGIurtBTr8deFXy3AcaUa3kux56Q==}
+  '@digdir/designsystemet-react@1.1.9':
+    resolution: {integrity: sha512-6VqTh7iKs5fXS/szxOQB4F8mdhziVV3GBFyX3pWR04l8qYvSzuB+RMa2cSloA8dIKAKpHQHiiBTtjH8HVQCa0Q==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
@@ -1772,14 +1772,14 @@ packages:
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@floating-ui/core@1.7.1':
-    resolution: {integrity: sha512-azI0DrjMMfIug/ExbBaeDVJXcY0a7EPvPjb2xAJPa4HeimBX+Z18HK8QQR3jb6356SnDDdxx+hinMLcJEDdOjw==}
+  '@floating-ui/core@1.7.3':
+    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
 
-  '@floating-ui/dom@1.7.1':
-    resolution: {integrity: sha512-cwsmW/zyw5ltYTUeeYJ60CnQuPqmGwuGVhG9w0PRaRKkAyi38BT5CKrpIbb+jtahSwUl04cWzSx9ZOIxeS6RsQ==}
+  '@floating-ui/dom@1.7.3':
+    resolution: {integrity: sha512-uZA413QEpNuhtb3/iIKoYMSK07keHPYeXF02Zhd6e213j+d1NamLix/mCLxBUDW/Gx52sPH2m+chlUsyaBs/Ag==}
 
-  '@floating-ui/react-dom@2.1.3':
-    resolution: {integrity: sha512-huMBfiU9UnQ2oBwIhgzyIiSpVgvlDstU8CX0AF+wS+KzmYMs0J2a3GwuFHV1Lz+jlrQGeC1fF+Nv0QoumyV0bA==}
+  '@floating-ui/react-dom@2.1.5':
+    resolution: {integrity: sha512-HDO/1/1oH9fjj4eLgegrlH3dklZpHtUYYFiVwMUwfGvk9jWDRWqkklA2/NFScknrcNSspbV868WjXORvreDX+Q==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -1790,8 +1790,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/utils@0.2.9':
-    resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+  '@floating-ui/utils@0.2.10':
+    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2444,6 +2444,9 @@ packages:
 
   '@navikt/aksel-icons@7.23.2':
     resolution: {integrity: sha512-My2frgQ7MZE68NWe3ENuO3G2V5wlCClvzuAPpY46vSbLU//VP6Pr7gnZWFNdrf4C5QMTACC0PzbNcWXNSxVBHg==}
+
+  '@navikt/aksel-icons@7.27.0':
+    resolution: {integrity: sha512-R2bHAjiCrrtL8BQBMZt1lmfwEK6aCL+Q/iolibyz4ohFE3mdnfzO9FMDSymopevBVVVwUEY/DiiQlWokWanRWg==}
 
   '@ngtools/webpack@20.0.3':
     resolution: {integrity: sha512-LVI3N45iBqrXxZgRpYOyGzOxssXnCckKEOSeqmvus1IJ1rN6nz+q4Pq428lDrb0KQOkRIt7iR/jQLD1RpcTHRw==}
@@ -3511,14 +3514,14 @@ packages:
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
 
-  '@tanstack/react-virtual@3.13.11':
-    resolution: {integrity: sha512-u5EaOSJOq08T9NXFuDopMdxZBNDFuEMohIFFU45fBYDXXh9SjYdbpNq1OLFSOpQnDRPjqgmY96ipZTkzom9t9Q==}
+  '@tanstack/react-virtual@3.13.12':
+    resolution: {integrity: sha512-Gd13QdxPSukP8ZrkbgS2RwoZseTTbQPLnQEn7HY/rqtM+8Zt95f7xKC7N0EsKs7aoz0WzZ+fditZux+F8EzYxA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/virtual-core@3.13.11':
-    resolution: {integrity: sha512-ORL6UyuZJ0D9X33LDR4TcgcM+K2YiS2j4xbvH1vnhhObwR1Z4dKwPTL/c0kj2Yeb4Yp2lBv1wpyVaqlohk8zpg==}
+  '@tanstack/virtual-core@3.13.12':
+    resolution: {integrity: sha512-1YBOJfRHV4sXUmWsFSf5rQor4Ss82G8dQWLRbnk3GA4jeP8hQt1hxXh0tmflpC0dz3VgEv/1+qwPyLeWkQuPFA==}
 
   '@testing-library/angular@17.4.0':
     resolution: {integrity: sha512-xxh2tllgvpPD7lF8k2v7CGN4S5gj5zwaMA4kkM8lAZFbDj2vdW6zdVN0CxXZJy219JlztR+py2BM0KepuCKyLw==}
@@ -3797,14 +3800,14 @@ packages:
     resolution: {integrity: sha512-ldgiJ+VAhQCfIjeOgu8Kj5nSxds0ktPOSO9p4+0VDH2R2pLvQraaM5Oen2d7NxzMCm+Sn/vJT+mv2H5u6b/3fA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@u-elements/u-datalist@0.1.5':
-    resolution: {integrity: sha512-EFMrolFuYMCj4ioT+ClNxIMHLUQldjzupvGoErmH/vfP+enbDy4ZwiI1U2kj6tYOwn9laDf+67M+gnP1X/ddlA==}
+  '@u-elements/u-combobox@0.0.18':
+    resolution: {integrity: sha512-0WttCjvLVTmJkEoTx7jkOu2thV3titNrQmo12jeBU/c+uviSAOfh5jMAwUj8ms2sZfvFkRy+d73VxjOHo0Iskw==}
+
+  '@u-elements/u-datalist@1.0.13':
+    resolution: {integrity: sha512-dm3ljVfbfYe3Heos3acbtEOpWM6IQDT+wtB9ay0JLd4KVDIgBE0ZX4UX+lvu+GKP9ohL0h6yDXlKoo9ADw6eiA==}
 
   '@u-elements/u-details@0.1.1':
     resolution: {integrity: sha512-VQDwumgWzXWe/vEUVs+jPvRVlNw+1epHjkNlCjx3IA5BSKSxAPRFZ47ew5iKuZhAKmK0wke0rreA7SO/pjZN6w==}
-
-  '@u-elements/u-tags@0.1.4':
-    resolution: {integrity: sha512-5VbqbFatd42ZY6Zf2d5MGvOIsJdflf5+ixpR4B5YT97dustT9csAS6SEHrUFgGdFzJDpASIbZdojsnU1j7GArA==}
 
   '@vitejs/plugin-basic-ssl@2.0.0':
     resolution: {integrity: sha512-gc9Tjg8bUxBVSTzeWT3Njc0Cl3PakHFKdNfABnZWiUgbxqmHDEn7uECv3fHVylxoYgNzAcmU7ZrILz+BwSo3sA==}
@@ -11498,21 +11501,21 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@digdir/designsystemet-css@1.0.5': {}
+  '@digdir/designsystemet-css@1.1.9': {}
 
-  '@digdir/designsystemet-react@1.0.5(@types/react@19.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@digdir/designsystemet-react@1.1.9(@types/react@19.0.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@floating-ui/dom': 1.7.1
-      '@floating-ui/react': 0.26.23(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@navikt/aksel-icons': 7.23.2
-      '@radix-ui/react-slot': 1.2.3(@types/react@19.0.0)(react@19.1.0)
-      '@tanstack/react-virtual': 3.13.11(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@u-elements/u-datalist': 0.1.5
+      '@floating-ui/dom': 1.7.3
+      '@floating-ui/react': 0.26.23(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@navikt/aksel-icons': 7.27.0
+      '@radix-ui/react-slot': 1.2.3(@types/react@19.0.0)(react@19.1.1)
+      '@tanstack/react-virtual': 3.13.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@u-elements/u-combobox': 0.0.18
+      '@u-elements/u-datalist': 1.0.13
       '@u-elements/u-details': 0.1.1
-      '@u-elements/u-tags': 0.1.4
       clsx: 2.1.1
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -11728,30 +11731,30 @@ snapshots:
       '@eslint/core': 0.15.2
       levn: 0.4.1
 
-  '@floating-ui/core@1.7.1':
+  '@floating-ui/core@1.7.3':
     dependencies:
-      '@floating-ui/utils': 0.2.9
+      '@floating-ui/utils': 0.2.10
 
-  '@floating-ui/dom@1.7.1':
+  '@floating-ui/dom@1.7.3':
     dependencies:
-      '@floating-ui/core': 1.7.1
-      '@floating-ui/utils': 0.2.9
+      '@floating-ui/core': 1.7.3
+      '@floating-ui/utils': 0.2.10
 
-  '@floating-ui/react-dom@2.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@floating-ui/react-dom@2.1.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@floating-ui/dom': 1.7.1
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      '@floating-ui/dom': 1.7.3
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
-  '@floating-ui/react@0.26.23(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@floating-ui/react@0.26.23(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@floating-ui/utils': 0.2.9
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      '@floating-ui/react-dom': 2.1.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@floating-ui/utils': 0.2.10
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
       tabbable: 6.2.0
 
-  '@floating-ui/utils@0.2.9': {}
+  '@floating-ui/utils@0.2.10': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -12524,6 +12527,8 @@ snapshots:
 
   '@navikt/aksel-icons@7.23.2': {}
 
+  '@navikt/aksel-icons@7.27.0': {}
+
   '@ngtools/webpack@20.0.3(@angular/compiler-cli@20.0.4(@angular/compiler@20.0.4)(typescript@5.8.3))(typescript@5.8.3)(webpack@5.99.8(@swc/core@1.5.29(@swc/helpers@0.5.17))(esbuild@0.25.5))':
     dependencies:
       '@angular/compiler-cli': 20.0.4(@angular/compiler@20.0.4)(typescript@5.8.3)
@@ -13128,16 +13133,16 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.0.0)(react@19.1.0)':
+  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.0.0)(react@19.1.1)':
     dependencies:
-      react: 19.1.0
+      react: 19.1.1
     optionalDependencies:
       '@types/react': 19.0.0
 
-  '@radix-ui/react-slot@1.2.3(@types/react@19.0.0)(react@19.1.0)':
+  '@radix-ui/react-slot@1.2.3(@types/react@19.0.0)(react@19.1.1)':
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.0.0)(react@19.1.0)
-      react: 19.1.0
+      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.0.0)(react@19.1.1)
+      react: 19.1.1
     optionalDependencies:
       '@types/react': 19.0.0
 
@@ -13831,13 +13836,13 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tanstack/react-virtual@3.13.11(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@tanstack/react-virtual@3.13.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@tanstack/virtual-core': 3.13.11
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      '@tanstack/virtual-core': 3.13.12
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
-  '@tanstack/virtual-core@3.13.11': {}
+  '@tanstack/virtual-core@3.13.12': {}
 
   '@testing-library/angular@17.4.0(041de9fa1c62d76522732bca6987ee26)':
     dependencies:
@@ -13886,6 +13891,16 @@ snapshots:
       '@testing-library/dom': 10.4.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+    optionalDependencies:
+      '@types/react': 19.0.0
+      '@types/react-dom': 19.0.0
+
+  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@babel/runtime': 7.27.6
+      '@testing-library/dom': 10.4.0
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
     optionalDependencies:
       '@types/react': 19.0.0
       '@types/react-dom': 19.0.0
@@ -14178,11 +14193,11 @@ snapshots:
       '@typescript-eslint/types': 8.39.0
       eslint-visitor-keys: 4.2.1
 
-  '@u-elements/u-datalist@0.1.5': {}
+  '@u-elements/u-combobox@0.0.18': {}
+
+  '@u-elements/u-datalist@1.0.13': {}
 
   '@u-elements/u-details@0.1.1': {}
-
-  '@u-elements/u-tags@0.1.4': {}
 
   '@vitejs/plugin-basic-ssl@2.0.0(vite@6.3.5(@types/node@20.19.10)(jiti@2.4.2)(less@4.1.3)(sass-embedded@1.90.0)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.1))':
     dependencies:
