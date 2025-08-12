@@ -3,7 +3,8 @@ import { Color } from '../components/colors'
 import { Size } from '../components/common-inputs'
 
 /**
- * Storybook doesnt include inputs from hostdirectives, so we make a custom type
+ * Storybook typings doesnt work for aliased inputs, so we make a custom type
+ * https://github.com/storybookjs/storybook/issues/29697
  * @see {@link ../components/common-inputs.CommonInputs}
  */
 export type StorybookArgsWithCommonInputs<T> = StoryObj<T>['args'] & {
