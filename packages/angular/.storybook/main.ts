@@ -3,6 +3,9 @@ import { StorybookConfig } from '@analogjs/storybook-angular'
 const config: StorybookConfig = {
   stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   addons: ['@storybook/addon-docs'],
+  core: {
+    disableTelemetry: true,
+  },
   framework: {
     name: '@analogjs/storybook-angular',
     options: {
