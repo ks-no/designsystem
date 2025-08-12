@@ -1,5 +1,5 @@
 export const icons = import.meta.glob(
-  '../../../node_modules/@material-symbols/svg-400/outlined/*.svg',
+  '../../../node_modules/@material-symbols/svg-400/rounded/*.svg',
   { eager: true, import: 'default' },
 )
 
