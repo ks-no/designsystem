@@ -4,5 +4,6 @@
   "assets": ["*.md"],
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@floating-ui/dom"]
 }
