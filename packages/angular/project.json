@@ -30,7 +30,10 @@
         "outputDir": "dist/storybook/@ks-digital/designsystem-angular",
         "configDir": "packages/angular/.storybook",
         "compodoc": false,
-        "experimentalZoneless": true
+        "experimentalZoneless": true,
+        "loader": {
+          ".svg": "text"
+        }
       },
       "configurations": {
         "ci": {

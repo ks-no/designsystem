@@ -4,6 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { Icon } from '../icon/icon'
 import { Button } from './button'
 
 const meta: Meta<Button> = {
@@ -11,7 +12,7 @@ const meta: Meta<Button> = {
   title: 'Komponenter/Button',
   decorators: [
     moduleMetadata({
-      imports: [Button],
+      imports: [Button, Icon],
     }),
   ],
 }
@@ -27,7 +28,11 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <button ksd-button ${argsToTemplate(args)}>Knapp</button>
+      <button ksd-button ${argsToTemplate(args)}>
+        <ksd-icon />
+
+      Knapp
+      </button>
     `,
   }),
 }
