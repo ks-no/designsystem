@@ -1,5 +1,6 @@
 import {
   argsToTemplate,
+  componentWrapperDecorator,
   moduleMetadata,
   type Meta,
   type StoryObj,
@@ -14,6 +15,10 @@ const meta: Meta<Button> = {
     moduleMetadata({
       imports: [Button, Icon],
     }),
+    componentWrapperDecorator(
+      (story) =>
+        `<div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4)">${story}</div>`,
+    ),
   ],
 }
 export default meta
@@ -29,9 +34,7 @@ export const Preview: Story = {
     props: args,
     template: `
       <button ksd-button ${argsToTemplate(args)}>
-        <ksd-icon />
-
-      Knapp
+        Knapp
       </button>
     `,
   }),
@@ -49,6 +52,25 @@ export const Variants: Story = {
       <button ksd-button variant="secondary" ${argsToTemplate(args)}>Secondary</button>
       <button ksd-button variant="tertiary" ${argsToTemplate(args)}>Teritiary</button>
     </div>
+    `,
+  }),
+}
+
+export const Icons: Story = {
+  args: {
+    ...Preview.args,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+       <button ksd-button ${argsToTemplate(args)}>
+        <ksd-icon icon="border_color" />
+      Rediger
+      </button>
+
+      <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
+        <ksd-icon icon="border_color" />
+      </button>
     `,
   }),
 }

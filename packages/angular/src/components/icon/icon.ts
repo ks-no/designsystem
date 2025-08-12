@@ -13,10 +13,15 @@ import { iconRegistry } from './iconmap'
 })
 export class Icon {
   sanitizer = inject(DomSanitizer)
-  icon = input('home')
+  icon = input.required()
 
-  protected svgIcon = computed(() => iconRegistry[this.icon()])
-  protected trustedSVG = computed(() =>
-    this.sanitizer.bypassSecurityTrustHtml(this.svgIcon()),
-  )
+  protected svgIcon = computed(() => {
+    const iconName = this.icon() as keyof typeof iconRegistry
+    return iconRegistry[iconName] || ''
+  })
+
+  protected trustedSVG = computed(() => {
+    const svg = this.svgIcon()
+    return svg ? this.sanitizer.bypassSecurityTrustHtml(svg) : ''
+  })
 }

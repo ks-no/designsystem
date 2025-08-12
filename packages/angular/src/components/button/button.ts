@@ -15,6 +15,7 @@ import { Spinner } from '../spinner/spinner'
     class: 'ds-button',
     type: 'button',
     '[attr.data-variant]': 'variant()',
+    '[attr.data-icon]': 'icon() || null',
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
@@ -44,4 +45,9 @@ export class Button {
    * Disables element
    */
   readonly disabled = input(false, { transform: booleanAttribute })
+
+  /**
+   * If this is a button with only an icon
+   */
+  readonly icon = input(false, { transform: booleanAttribute })
 }
