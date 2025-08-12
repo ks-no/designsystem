@@ -253,6 +253,9 @@ importers:
       '@angular/platform-server':
         specifier: '>=20.0.0'
         version: 20.0.4(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/compiler@20.0.4)(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.0.4(@angular/animations@20.0.4(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
+      '@material-symbols/font-400':
+        specifier: ^0.34.1
+        version: 0.34.1
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: ^1.19.4
@@ -1989,6 +1992,9 @@ packages:
     resolution: {integrity: sha512-kqUgQH+l8HDbkAapx+aoko7Ez4X4DqkIraOqY/k0QY5EN/iialVlFpBUXh4wFXzirdmEVjbIUMrceUh0Kh8LeA==}
     cpu: [x64]
     os: [win32]
+
+  '@material-symbols/font-400@0.34.1':
+    resolution: {integrity: sha512-0z4VVcupP3Y0XAOs+xHCy9EsGKGTk8lD0p+9zx5kwdppKwFeq84dj0GNtT5uCRqZOPZ2zgYgXHJzuKQ0q1iIXw==}
 
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
@@ -11941,6 +11947,8 @@ snapshots:
   '@lmdb/lmdb-win32-x64@3.3.0':
     optional: true
 
+  '@material-symbols/font-400@0.34.1': {}
+
   '@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.1.1)':
     dependencies:
       '@types/mdx': 2.0.13
@@ -14273,7 +14281,7 @@ snapshots:
       sirv: 3.0.1
       tinyglobby: 0.2.14
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@20.19.10)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.1.3)(sass-embedded@1.90.0)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.1)
+      vitest: 3.2.4(@types/node@24.2.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.3.0)(sass-embedded@1.90.0)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.1)
 
   '@vitest/utils@3.2.4':
     dependencies:
