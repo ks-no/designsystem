@@ -1,27 +1,32 @@
-import { Component, computed, inject, input } from '@angular/core'
-import { DomSanitizer } from '@angular/platform-browser'
-import { iconRegistry } from './iconmap'
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 
+// Import icons using unplugin-icons - these are compiled at build time
+// import locationHomeIcon from '@iconify/icons-material-symbols/location-home'
+
+import '~icons/material-symbols/add-alert'
+
+/**
+ * Renders a rounded Material Icon with weight 300
+ */
 @Component({
   selector: 'ksd-icon',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   styles: `
     :host {
       display: contents;
     }
+
+    :host > * {
+      display: inline-flex;
+    }
+
+    // ::ng-deep svg {
+    //   font-size: 100px;
+    // }
   `,
-  template: ` <span [outerHTML]="trustedSVG()"></span> `,
+  template: `
+    <icon-material-symbols-add-alert />
+    <!-- <ng-content /> -->
+  `,
 })
-export class Icon {
-  sanitizer = inject(DomSanitizer)
-  icon = input.required()
-
-  protected svgIcon = computed(() => {
-    const iconName = this.icon() as keyof typeof iconRegistry
-    return iconRegistry[iconName] || ''
-  })
-
-  protected trustedSVG = computed(() => {
-    const svg = this.svgIcon()
-    return svg ? this.sanitizer.bypassSecurityTrustHtml(svg) : ''
-  })
-}
+export class Icon {}

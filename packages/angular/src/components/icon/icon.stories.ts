@@ -20,7 +20,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-icon size="40px" />
+      <ksd-icon />
     `,
   }),
 }

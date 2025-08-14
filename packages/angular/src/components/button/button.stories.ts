@@ -64,12 +64,12 @@ export const Icons: Story = {
     props: args,
     template: `
        <button ksd-button ${argsToTemplate(args)}>
-        <ksd-icon icon="border_color" />
+        <ksd-icon icon="edit" />
       Rediger
       </button>
 
       <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
-        <ksd-icon icon="border_color" />
+        <ksd-icon icon="edit" />
       </button>
     `,
   }),

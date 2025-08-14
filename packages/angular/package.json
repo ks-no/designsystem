@@ -41,8 +41,5 @@
   },
   "scripts": {
     "build": "ng-packagr -p ng-package.json"
-  },
-  "dependencies": {
-    "@material-symbols/svg-300": "^0.34.1"
   }
 }
