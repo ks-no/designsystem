@@ -5,7 +5,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { Icon } from '../icon/icon'
+import '~icons/material-symbols/edit'
 import { Button } from './button'
 
 const meta: Meta<Button> = {
@@ -13,7 +13,7 @@ const meta: Meta<Button> = {
   title: 'Komponenter/Button',
   decorators: [
     moduleMetadata({
-      imports: [Button, Icon],
+      imports: [Button],
     }),
     componentWrapperDecorator(
       (story) =>
@@ -64,12 +64,22 @@ export const Icons: Story = {
     props: args,
     template: `
        <button ksd-button ${argsToTemplate(args)}>
-        <ksd-icon icon="edit" />
+          <icon-material-symbols-edit aria-hidden />
       Rediger
       </button>
 
       <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
-        <ksd-icon icon="edit" />
+        <icon-material-symbols-edit aria-hidden />
+      </button>
+
+      <button ksd-button ${argsToTemplate(args)}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5" />
+        <path d="M5 10.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9.5" />
+        <path d="M10 21v-5a2 2 0 0 1 4 0v5" />
+        </svg>
+
+      Eget SVG-ikon
       </button>
     `,
   }),

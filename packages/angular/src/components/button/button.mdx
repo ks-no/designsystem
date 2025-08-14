@@ -13,12 +13,36 @@ Knappar lèt brukarane utføre handlingar.
 
 ## Ikoner
 
-Bruk `ksd-icon` med et ikon fra ['Material Icons'](https://fonts.google.com/icons). Alle ikon er nå av type rounded med weight 300, grade 200. Vi ser på støtte for flere varianter.
-Se også [`Icons`](/docs/komponenter-button--icons).
+Hvis du trenger ikoner fra Material Icons så er `unplugin-icons` et godt alternativ å bruke. Eksempel under importerer et ikon som web-component
+fra Material Symbols.
+
+```tsx
+import '~icons/material-symbols/edit'
+;<button ksd-button>
+  <icon-material-symbols-edit aria-hidden />
+  Rediger
+</button>
+```
+
+### Egne ikoner
+
+Knappen støtter også egne SVG-ikoner.
 
 ```tsx
 <button ksd-button>
-  <ksd-icon />
-  Rediger
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M3 11.5L12 4l9 7.5" />
+    <path d="M5 10.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9.5" />
+    <path d="M10 21v-5a2 2 0 0 1 4 0v5" />
+  </svg>
+  Eget SVG-ikon
 </button>
 ```

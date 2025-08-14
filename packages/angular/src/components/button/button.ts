@@ -19,6 +19,12 @@ import { Spinner } from '../spinner/spinner'
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
+  styles: `
+    :host ::ng-deep > * {
+      display: inline-flex;
+    }
+  `,
+
   template: `
     @if (loading()) {
       <ksd-spinner aria-hidden="true" />
