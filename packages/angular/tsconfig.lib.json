@@ -7,7 +7,7 @@
     "inlineSources": true,
     "types": []
   },
-  "include": ["src/**/*.ts", "src/typings.d.ts", "src/vite-env.d.ts"],
+  "include": ["src/**/*.ts", "src/typings.d.ts"],
   "exclude": [
     "vite.config.ts",
     "vite.config.mts",

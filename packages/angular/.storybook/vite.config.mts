@@ -5,7 +5,6 @@ export default async function viteFinal(config: UserConfig) {
   return mergeConfig(config, {
     plugins: [
       Icons({
-        // autoInstall: true,
         compiler: 'web-components',
         webComponents: {
           autoDefine: true,
