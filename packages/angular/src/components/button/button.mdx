@@ -18,11 +18,11 @@ Ikonfonter skal helst ikke brukes. [Denne artikkelen](https://www.irigoyen.dev/b
 `unplugin-icons` er et bibliotek som kan brukes for SVG-ikoner. Pakken støtter alle ikonene fra [Iconify](https://icon-sets.iconify.design/), som er en samling av over 200k ikonsett, inkludert Material Symbols.
 Den enkleste måten å få til dette i Angular er hvis appen din bygges med `vite` og [vite-plugin-angular](https://www.npmjs.com/package/@analogjs/vite-plugin-angular).
 
-Etter at dette er satt, installer pakkene `unplugin-icons` og det ikonsettet du trenger fra Iconify, f.eks Material Symbols:
+Etter at dette er satt opp, installer pakkene `unplugin-icons` og det ikonsettet du trenger fra Iconify, f.eks Material Symbols:
 
 `pnpm install unplugin-icons @iconify-json/material-symbols`
 
-Legg til som plugin i Vite config.
+Legg til `unplugin-icons` som plugin i Vite configen din:
 
 ```(ts)
 import Icons from 'unplugin-icons/vite'
@@ -39,8 +39,6 @@ export default defineConfig({
 ```
 
 Du skal nå ha tilgang til alle ikonene fra Material Symbols som web-componenter:
-
-fra Material Symbols.
 
 ```tsx
 import '~icons/material-symbols/edit-rounded'
