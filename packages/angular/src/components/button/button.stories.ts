@@ -5,7 +5,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import '~icons/material-symbols/edit'
+import '~icons/material-symbols/edit-rounded'
 import { Button } from './button'
 
 const meta: Meta<Button> = {
@@ -64,12 +64,12 @@ export const Icons: Story = {
     props: args,
     template: `
        <button ksd-button ${argsToTemplate(args)}>
-          <icon-material-symbols-edit aria-hidden />
+          <icon-material-symbols-edit-rounded aria-hidden />
       Rediger
       </button>
 
       <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
-        <icon-material-symbols-edit aria-hidden />
+        <icon-material-symbols-edit-rounded aria-hidden />
       </button>
 
       <button ksd-button ${argsToTemplate(args)}>
