@@ -26,12 +26,13 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 #### Tailwind
 
-If you are using Tailwind with (Preflight)[https://tailwindcss.com/docs/preflight] make sure to load Designsystemet first.
+If you are using Tailwind with (Preflight)[https://tailwindcss.com/docs/preflight] make sure to load Designsystemet first, and import the
+`base.tailwind.css` instead. `base.tailwind.css` containts the `base.css` and certain overrides needed to make Designsystemet and Tailwind work smoothly together.
 
 ##### v4
 
 ```css
-@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/base.tailwind.css');
 @import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
 @import url('tailwindcss');
 ```
@@ -39,7 +40,7 @@ If you are using Tailwind with (Preflight)[https://tailwindcss.com/docs/prefligh
 ##### v3 and older
 
 ```css
-@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/tailwind.base.css');
 @import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
 
 @layer tailwind-base, ds;
