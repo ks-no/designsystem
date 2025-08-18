@@ -26,8 +26,7 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 #### Tailwind
 
-If you are using Tailwind with (Preflight)[https://tailwindcss.com/docs/preflight] make sure to load Designsystemet first, and import the
-`base.tailwind.css` instead. `base.tailwind.css` containts the `base.css` and certain overrides needed to make Designsystemet and Tailwind work smoothly together.
+If you are using Tailwind with [Preflight](https://tailwindcss.com/docs/preflight), ensure that you load the Designsystemet styles first by importing `base.tailwind.css` instead of `base.css`. The `base.tailwind.css` file includes all of `base.css` along with some overrides to ensure smooth integration between Designsystemet and Tailwind.
 
 ##### v4
 
