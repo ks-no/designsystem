@@ -20,7 +20,7 @@ import { Spinner } from '../spinner/spinner'
     '[attr.aria-busy]': 'loading() ? true : null',
   },
   styles: `
-    // Ensure transcluded icons are aligned properly
+    /* Ensure transcluded icons are aligned properly */
     :host ::ng-deep > * {
       display: inline-flex;
     }
