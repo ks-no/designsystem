@@ -15,7 +15,7 @@ import { Spinner } from '../spinner/spinner'
     class: 'ds-button',
     type: 'button',
     '[attr.data-variant]': 'variant()',
-    '[attr.data-icon]': 'icon() || null',
+    '[attr.data-icon]': 'icon() ?? null',
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
