@@ -1,9 +1,11 @@
 import {
   argsToTemplate,
+  componentWrapperDecorator,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import '~icons/material-symbols/edit-rounded'
 import { Button } from './button'
 
 const meta: Meta<Button> = {
@@ -13,6 +15,10 @@ const meta: Meta<Button> = {
     moduleMetadata({
       imports: [Button],
     }),
+    componentWrapperDecorator(
+      (story) =>
+        `<div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4)">${story}</div>`,
+    ),
   ],
 }
 export default meta
@@ -27,7 +33,9 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <button ksd-button ${argsToTemplate(args)}>Knapp</button>
+      <button ksd-button ${argsToTemplate(args)}>
+        Knapp
+      </button>
     `,
   }),
 }
@@ -44,6 +52,35 @@ export const Variants: Story = {
       <button ksd-button variant="secondary" ${argsToTemplate(args)}>Secondary</button>
       <button ksd-button variant="tertiary" ${argsToTemplate(args)}>Teritiary</button>
     </div>
+    `,
+  }),
+}
+
+export const Icons: Story = {
+  args: {
+    ...Preview.args,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+       <button ksd-button ${argsToTemplate(args)}>
+          <icon-material-symbols-edit-rounded aria-hidden />
+      Rediger
+      </button>
+
+      <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
+        <icon-material-symbols-edit-rounded aria-hidden />
+      </button>
+
+      <button ksd-button ${argsToTemplate(args)}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5" />
+        <path d="M5 10.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9.5" />
+        <path d="M10 21v-5a2 2 0 0 1 4 0v5" />
+        </svg>
+
+      Eget SVG-ikon
+      </button>
     `,
   }),
 }

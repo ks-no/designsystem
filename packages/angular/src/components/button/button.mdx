@@ -13,4 +13,62 @@ Knappar lèt brukarane utføre handlingar.
 
 ## Ikoner
 
-Ikoner er ikke støttet enda; trengs diskusjon.
+Ikonfonter skal helst ikke brukes. [Denne artikkelen](https://www.irigoyen.dev/blog/2021/02/17/stop-using-icon-fonts/) oppsummerer godt hvorfor.
+
+I prinsippet støtter knappen de ikonene du måtte velge å sende inn.
+
+`unplugin-icons` er et bibliotek som kan brukes for SVG-ikoner. Pakken støtter alle ikonene fra [Iconify](https://icon-sets.iconify.design/), som er en samling av over 200k ikonsett, inkludert Material Symbols.
+Den enkleste måten å få til dette i Angular er hvis appen din bygges med `vite` og [vite-plugin-angular](https://www.npmjs.com/package/@analogjs/vite-plugin-angular).
+
+Etter at dette er satt opp, installer pakkene `unplugin-icons` og det ikonsettet du trenger fra Iconify, f.eks Material Symbols:
+
+`pnpm install unplugin-icons @iconify-json/material-symbols`
+
+Legg til `unplugin-icons` som plugin i Vite configen din:
+
+```(ts)
+import Icons from 'unplugin-icons/vite'
+export default defineConfig({
+  plugins: [
+    Icons({
+      compiler: 'web-components',
+      webComponents: {
+        autoDefine: true,
+      },
+    }),
+  ],
+}
+```
+
+Du skal nå ha tilgang til alle ikonene fra Material Symbols som web-componenter:
+
+```tsx
+import '~icons/material-symbols/edit-rounded'
+;<button ksd-button>
+  <icon-material-symbols-edit-rounded aria-hidden />
+  Rediger
+</button>
+```
+
+### Egne ikoner
+
+Du kan også bruke SVG-markup direkte, f.eks. hvis du har egne ikoner.
+
+```tsx
+<button ksd-button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M3 11.5L12 4l9 7.5" />
+    <path d="M5 10.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9.5" />
+    <path d="M10 21v-5a2 2 0 0 1 4 0v5" />
+  </svg>
+  Eget SVG-ikon
+</button>
+```
