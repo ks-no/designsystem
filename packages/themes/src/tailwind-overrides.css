@@ -1,0 +1,17 @@
+@layer tailwind-base {
+  /* Tailwind preflight resets border-styles. We redefine them to get ds-styling.
+  https://tailwindcss.com/docs/preflight#border-styles-are-reset
+  */
+  .ds-card {
+    border-width: var(--dsc-card-border-width);
+    border-style: var(--dsc-card-border-style);
+    border-color: var(--dsc-card-border-color);
+  }
+
+  .ds-details {
+    border-top-width: var(--dsc-details-border-block-width);
+    border-bottom-width: var(--dsc-details-border-block-width);
+    border-style: var(--dsc-details-border-block-style);
+    border-color: var(--dsc-details-border-color);
+  }
+}
