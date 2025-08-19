@@ -1,3 +1,13 @@
+## 0.0.1-alpha.13
+
+### 🚀 Features
+
+- **angular:** add popover to public api ([dbcbf4f](https://github.com/ks-no/designsystem/commit/dbcbf4f))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.12
 
 ### 🚀 Features
