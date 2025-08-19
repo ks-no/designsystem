@@ -5,7 +5,7 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { expect } from 'storybook/test'
-import { StorybookArgsWithCommonInputs } from '../../utils/default-args'
+import { StorybookArgsWithCommonInputs } from '../../../.storybook/default-args'
 import { Field } from '../field/field'
 import { Label } from '../label/label'
 import { Input } from './input'

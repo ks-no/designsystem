@@ -5,15 +5,14 @@ import {
   moduleMetadata,
 } from '@storybook/angular'
 import { expect, userEvent, within } from 'storybook/internal/test'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Button } from '../button/button'
 import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 
-interface PopoverArgs {
+type PopoverArgs = CommonArgs & {
   variant: 'default' | 'tinted'
   placement: 'top' | 'bottom' | 'left' | 'right'
-  'data-color': string
-  'data-size': 'sm' | 'md' | 'lg'
 }
 
 const meta: Meta<PopoverArgs> = {

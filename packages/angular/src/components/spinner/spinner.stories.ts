@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { StorybookArgsWithCommonInputs } from '../../utils/default-args'
+import { StorybookArgsWithCommonInputs } from '../../../.storybook/default-args'
 import { Spinner } from './spinner'
 
 const meta: Meta<Spinner> = {
