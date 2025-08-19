@@ -1,3 +1,13 @@
+## 0.0.1-alpha.14
+
+### 🩹 Fixes
+
+- **themes:** popover tailwind overrides ([#36](https://github.com/ks-no/designsystem/pull/36))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.13
 
 ### 🚀 Features
