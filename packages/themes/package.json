@@ -28,6 +28,6 @@
     "rimraf": "^6.0.1"
   },
   "scripts": {
-    "build": "rimraf dist && postcss src/base.css -o dist/base.css && cp -r src/themes dist/"
+    "build": "./scripts/build.sh"
   }
 }
