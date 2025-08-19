@@ -1,3 +1,22 @@
+## 0.0.1-alpha.12
+
+### 🚀 Features
+
+- **angular:** popover ([#33](https://github.com/ks-no/designsystem/pull/33))
+- **angular:** button icons ([#34](https://github.com/ks-no/designsystem/pull/34))
+- **themes:** introduce tailwind base styles ([#35](https://github.com/ks-no/designsystem/pull/35))
+
+### 🩹 Fixes
+
+- **angular:** button styles were wrongly affected by nullish coalescing operator ([024b61d](https://github.com/ks-no/designsystem/commit/024b61d))
+- **angular:** button styles were not applied because of single line css comment ([98bbc24](https://github.com/ks-no/designsystem/commit/98bbc24))
+
+### ❤️ Thank You
+
+- Nora @norahovland
+- Stian Morsund
+- stianmorsund
+
 ## 0.0.1-alpha.11
 
 ### 🚀 Features
