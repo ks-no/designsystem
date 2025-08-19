@@ -14,4 +14,16 @@
     border-style: var(--dsc-details-border-block-style);
     border-color: var(--dsc-details-border-color);
   }
+
+  .ds-popover {
+    border-color: var(--dsc-popover-border-color);
+    border-style: var(--dsc-popover-border-style);
+    border-width: var(--dsc-popover-border-width);
+  }
+
+  .ds-popover:before {
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-width: var(--dsc-popover-border-width);
+  }
 }
