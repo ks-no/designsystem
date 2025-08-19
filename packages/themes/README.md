@@ -39,7 +39,7 @@ If you are using Tailwind with [Preflight](https://tailwindcss.com/docs/prefligh
 ##### v3 and older
 
 ```css
-@import url('@ks-digital/designsystem-themes/tailwind.base.css');
+@import url('@ks-digital/designsystem-themes/base.tailwind.css');
 @import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
 
 @layer tailwind-base, ds;
