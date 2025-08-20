@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -5,36 +6,44 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { expect } from 'storybook/test'
-import { StorybookArgsWithCommonInputs } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Field } from '../field/field'
 import { Label } from '../label/label'
 import { Input } from './input'
 
-const meta: Meta<Input> = {
+type InputArgs = CommonArgs & {
+  readonly: boolean
+  disabled: boolean
+}
+
+const meta: Meta<InputArgs> = {
   component: Input,
   title: 'Komponenter/Input',
+  argTypes: {
+    ...commonArgTypes,
+    readonly: {
+      control: { type: 'boolean' },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+  },
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input],
+      imports: [Label, Field, Input, JsonPipe],
     }),
   ],
 }
 export default meta
-type Story = StoryObj<Input>
+type Story = StoryObj<InputArgs>
 
 export const Preview: Story = {
-  args: {
-    readonly: false,
-    disabled: false,
-    'data-size': 'md',
-  } as StorybookArgsWithCommonInputs<Input>,
-
   render: (args) => ({
     props: args,
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input ${argsToTemplate(args)}  />
+          <input ${argsToTemplate(args)} ksd-input  />
         </ksd-field>
     `,
   }),
@@ -44,10 +53,6 @@ export const Preview: Story = {
 }
 
 export const Rows: Story = {
-  args: {
-    ...Preview.args,
-  },
-
   render: (args) => ({
     props: args,
     template: `
@@ -60,10 +65,6 @@ export const Rows: Story = {
 }
 
 export const Counter: Story = {
-  args: {
-    ...Preview.args,
-  },
-
   render: (args) => ({
     props: args,
     template: `

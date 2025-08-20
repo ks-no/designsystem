@@ -1,4 +1,3 @@
-import { StoryObj } from '@storybook/angular'
 import { Color } from '../src/components/colors'
 import { Size } from '../src/components/common-inputs'
 
@@ -26,11 +25,4 @@ export const commonArgTypes = {
     ],
     control: { type: 'radio' },
   },
-}
-
-/**
- * Storybook typings doesnt work for aliased inputs, so we make a custom type
- * https://github.com/storybookjs/storybook/issues/29697
- * @see {@link ../components/common-inputs.CommonInputs}
- */
-export type StorybookArgsWithCommonInputs<T> = StoryObj<T>['args'] & CommonArgs
+} satisfies import('@storybook/angular').ArgTypes
