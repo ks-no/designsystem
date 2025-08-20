@@ -1,9 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/angular'
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
 import { Card } from './card'
+import { CardBlock } from './card.block'
 
 const meta: Meta<Card> = {
   component: Card,
   title: 'Komponenter/Card',
+  decorators: [
+    moduleMetadata({
+      imports: [Card, CardBlock],
+    }),
+  ],
 }
 export default meta
 type Story = StoryObj<Card>
@@ -17,6 +23,20 @@ export const Preview: Story = {
     <p>Most provide as with carried business are much better more the perfected designer. Writing slightly explain desk unable at supposedly about this</p>
     <p data-size="sm">Footer text</p>
   </article>
+</div>
+    `,
+  }),
+}
+
+export const CardWithBlocks: Story = {
+  render: (_args: any) => ({
+    template: `
+<div style="max-width: 320px;">
+  <article ksd-card>
+  <h2 ksd-card-block>Use blocks to section the card</h2>
+  <p ksd-card-block>Most provide as with carried business are much better more the perfected designer. Writing slightly explain desk unable at supposedly about this</p>
+  <p ksd-card-block>Valgfri fotnote</p>
+</article>
 </div>
     `,
   }),
@@ -52,22 +72,15 @@ export const AsLink: Story = {
     template: `
 <div style="max-width: 320px;">
   <article ksd-card>
-    <h2>Nå er jeg ikke klikkbar</h2>
-  </article>
-  <article ksd-card>
-    <h2><a href="/">Nå er jeg klikkbar!</a></h2>
+    <h2><a href="/">Whole card is clickable when link is present inside heading</a></h2>
   </article>
 </div>
-
-
-
     `,
   }),
 }
 
 export const TintedVariant: Story = {
   render: (_args: any) => ({
-    imports: [Card],
     template: `
 <div style="max-width: 320px;">
   <article ksd-card variant="tinted">
