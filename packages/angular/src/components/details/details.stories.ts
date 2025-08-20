@@ -30,10 +30,10 @@ export const Preview: Story = {
       content: context.parameters['contentText'],
     },
     template: `
-      <fiks-details data-testid="details">
-        <fiks-details-summary>Vedlegg</fiks-details-summary>
-        <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-      </fiks-details>
+      <ksd-details data-testid="details">
+        <ksd-details-summary>Vedlegg</ksd-details-summary>
+        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+      </ksd-details>
     `,
   }),
   play: async ({ canvasElement, context, step }) => {
@@ -65,42 +65,42 @@ export const Preview: Story = {
 export const WithoutCard: Story = {
   render: () => ({
     template: `
-      <fiks-details>
-        <fiks-details-summary>Vedlegg</fiks-details-summary>
-        <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-      </fiks-details>
+      <ksd-details>
+        <ksd-details-summary>Vedlegg</ksd-details-summary>
+        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+      </ksd-details>
     `,
   }),
 }
 
-export const WithCard: Story = {
+export const InCard: Story = {
   render: () => ({
     template: `
       <div class="ds-card">
-        <fiks-details>
-          <fiks-details-summary>Vedlegg</fiks-details-summary>
-          <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-        </fiks-details>
+        <ksd-details>
+          <ksd-details-summary>Vedlegg</ksd-details-summary>
+          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+        </ksd-details>
       </div>
     `,
   }),
 }
 
-export const WithColors: Story = {
+export const InCardWithColor: Story = {
   render: () => ({
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem">
         <div class="ds-card">
-          <fiks-details data-color="accent">
-            <fiks-details-summary>Vedlegg</fiks-details-summary>
-            <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-          </fiks-details>
+          <ksd-details data-color="accent">
+            <ksd-details-summary>Vedlegg</ksd-details-summary>
+            <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+          </ksd-details>
         </div>
         <div class="ds-card">
-          <fiks-details data-color="accent" variant="tinted">
-            <fiks-details-summary>Vedlegg</fiks-details-summary>
-            <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-          </fiks-details>
+          <ksd-details data-color="accent" variant="tinted">
+            <ksd-details-summary>Vedlegg</ksd-details-summary>
+            <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+          </ksd-details>
         </div>
       </div>
     `,
@@ -110,18 +110,18 @@ export const WithColors: Story = {
 export const WithDifferentSizes: Story = {
   render: () => ({
     template: `
-      <fiks-details data-size="sm">
-          <fiks-details-summary>Vedlegg</fiks-details-summary>
-          <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-        </fiks-details>
-        <fiks-details data-size="md">
-          <fiks-details-summary>Vedlegg</fiks-details-summary>
-          <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-        </fiks-details>
-        <fiks-details data-size="lg">
-          <fiks-details-summary>Vedlegg</fiks-details-summary>
-          <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-        </fiks-details>
+      <ksd-details data-size="sm">
+          <ksd-details-summary>Vedlegg</ksd-details-summary>
+          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+        </ksd-details>
+        <ksd-details data-size="md">
+          <ksd-details-summary>Vedlegg</ksd-details-summary>
+          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+        </ksd-details>
+        <ksd-details data-size="lg">
+          <ksd-details-summary>Vedlegg</ksd-details-summary>
+          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+        </ksd-details>
     `,
   }),
 }
@@ -129,10 +129,10 @@ export const WithDifferentSizes: Story = {
 export const DefaultOpen: Story = {
   render: () => ({
     template: `
-      <fiks-details [defaultOpen]="true">
-        <fiks-details-summary>Vedlegg</fiks-details-summary>
-        <fiks-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</fiks-details-content>
-      </fiks-details>
+      <ksd-details [defaultOpen]="true">
+        <ksd-details-summary>Vedlegg</ksd-details-summary>
+        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
+      </ksd-details>
     `,
   }),
 }

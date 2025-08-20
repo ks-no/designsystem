@@ -9,12 +9,12 @@ describe('Details', () => {
   it('should have summary, content and be open when clicked', async () => {
     @Component({
       template: `
-        <fiks-details>
-          <fiks-details-summary>Details Summary Text</fiks-details-summary>
-          <fiks-details-content
-            >The fantastic details content text</fiks-details-content
+        <ksd-details>
+          <ksd-details-summary>Details Summary Text</ksd-details-summary>
+          <ksd-details-content
+            >The fantastic details content text</ksd-details-content
           >
-        </fiks-details>
+        </ksd-details>
       `,
       imports: [Details, DetailsContent, DetailsSummary],
     })
@@ -35,12 +35,12 @@ describe('Details', () => {
   it('should render details with open state as controlled', async () => {
     @Component({
       template: `
-        <fiks-details [open]="true" (toggled)="VOID()">
-          <fiks-details-summary>Details Summary Text</fiks-details-summary>
-          <fiks-details-content
-            >The fantastic details content text</fiks-details-content
+        <ksd-details [open]="true" (toggled)="VOID()">
+          <ksd-details-summary>Details Summary Text</ksd-details-summary>
+          <ksd-details-content
+            >The fantastic details content text</ksd-details-content
           >
-        </fiks-details>
+        </ksd-details>
       `,
       imports: [Details, DetailsContent, DetailsSummary],
     })

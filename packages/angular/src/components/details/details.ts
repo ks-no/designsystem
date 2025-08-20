@@ -8,7 +8,7 @@ import {
 import '@u-elements/u-details'
 
 @Component({
-  selector: 'fiks-details',
+  selector: 'ksd-details',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <u-details
@@ -20,10 +20,10 @@ import '@u-elements/u-details'
       (toggle)="onToggle($event)"
     >
       <u-summary>
-        <ng-content select="fiks-details-summary" />
+        <ng-content select="ksd-details-summary" />
       </u-summary>
       <div>
-        <ng-content select="fiks-details-content" />
+        <ng-content select="ksd-details-content" />
       </div>
     </u-details>
   `,
@@ -46,12 +46,12 @@ import '@u-elements/u-details'
   `,
 })
 export class Details {
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   readonly dataSize = input<'sm' | 'md' | 'lg' | undefined>(undefined, {
+    // eslint-disable-next-line @angular-eslint/no-input-rename
     alias: 'data-size',
   })
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   readonly dataColor = input<string | undefined>(undefined, {
+    // eslint-disable-next-line @angular-eslint/no-input-rename
     alias: 'data-color',
   })
   readonly variant = input<'tinted' | 'default'>('default')

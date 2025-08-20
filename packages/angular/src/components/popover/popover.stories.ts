@@ -68,7 +68,7 @@ export const Preview: Story = {
     </div>
     `,
   }),
-  play: async ({ canvasElement, step }: any) => {
+  play: async ({ canvasElement, step }) => {
     const contentText = 'Her er det noe innhold'
     const canvas = within(canvasElement)
     const user = userEvent.setup()
