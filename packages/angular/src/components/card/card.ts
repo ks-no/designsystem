@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, input } from '@angular/core'
 import { CommonInputs } from '../common-inputs'
 
 @Component({
-  selector: 'ksd-card',
+  selector: '[ksd-card]',
   template: ` <ng-content /> `,
   hostDirectives: [
     {
@@ -17,8 +17,13 @@ import { CommonInputs } from '../common-inputs'
   },
 })
 export class Card {
+  /**
+   * Change the background color of the card
+   * @default 'default
+   */
   variant = input<'tinted' | 'default'>('default')
   private elementRef = inject(ElementRef)
+
   protected handleClick = (event: MouseEvent) => {
     const el = this.elementRef.nativeElement
 
