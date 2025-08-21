@@ -31,15 +31,15 @@ import '@u-elements/u-details'
   `,
   styles: `
     /* Styles needed since Designsystemet styles doesnt expect an element wrapping .ds-details, which we have */
-    .ds-card > :host(:last-child) > .ds-details {
+    .ds-card > :host(:last-of-type) > .ds-details {
       border-bottom: 0;
     }
 
-    .ds-card > :host(:first-child) > .ds-details {
+    .ds-card > :host(:first-of-type) > .ds-details {
       border-top: 0;
     }
 
-    :host(:not(:first-child)) > .ds-details {
+    :host(:not(:first-of-type)) > .ds-details {
       border-top: 0;
       margin-top: 0;
     }
