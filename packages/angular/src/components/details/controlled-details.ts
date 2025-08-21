@@ -1,15 +1,17 @@
 import { Component, computed, signal } from '@angular/core'
+import { Button } from '../button'
 import { Details } from './details'
 import { DetailsContent } from './details-content'
 import { DetailsSummary } from './details-summary'
 
 @Component({
   selector: 'fiks-controlled-details',
-  imports: [Details, DetailsContent, DetailsSummary],
+  imports: [Details, DetailsContent, DetailsSummary, Button],
   template: `
     <button
-      class="self-start py-3 px-4 mb-4 rounded-lg bg-primary-800 text-neutral-100"
-      type="button"
+      ksd-button
+      variant="secondary"
+      style="margin-bottom: .5em;"
       (click)="toggleOpen()"
     >
       {{ toggleOpenText() }}
