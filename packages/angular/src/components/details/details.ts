@@ -18,6 +18,7 @@ import '@u-elements/u-details'
       [attr.data-variant]="variant()"
       [attr.open]="(open() ?? defaultOpen()) || undefined"
       [attr.data-color]="dataColor()"
+      [attr.data-size]="dataSize()"
       (toggle)="onToggle($event)"
     >
       <u-summary>
