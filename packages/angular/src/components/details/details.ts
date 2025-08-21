@@ -39,11 +39,9 @@ import '@u-elements/u-details'
       border-top: 0;
     }
 
-    :host {
-      & + & > .ds-details {
-        border-top: 0;
-        margin-top: 0;
-      }
+    :host(:not(:first-child)) > .ds-details {
+      border-top: 0;
+      margin-top: 0;
     }
   `,
 })
