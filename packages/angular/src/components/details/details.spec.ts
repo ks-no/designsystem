@@ -35,7 +35,7 @@ describe('Details', () => {
   it('should render details with open state as controlled', async () => {
     @Component({
       template: `
-        <ksd-details [open]="true" (toggled)="VOID()">
+        <ksd-details [open]="true" (toggled)="noop()">
           <ksd-details-summary>Details Summary Text</ksd-details-summary>
           <ksd-details-content
             >The fantastic details content text</ksd-details-content
@@ -45,8 +45,7 @@ describe('Details', () => {
       imports: [Details, DetailsContent, DetailsSummary],
     })
     class TestDetails {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      VOID = () => {}
+      noop = () => undefined
     }
 
     await render(TestDetails)
