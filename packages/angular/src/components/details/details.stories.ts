@@ -7,7 +7,10 @@ import { DetailsSummary } from './details-summary'
 
 const meta: Meta<Details> = {
   component: Details,
-  title: 'Details',
+  title: 'Komponenter/Details',
+  parameters: {
+    layout: 'padded',
+  },
   decorators: [
     moduleMetadata({
       imports: [Details, DetailsContent, DetailsSummary, ControlledDetails],
