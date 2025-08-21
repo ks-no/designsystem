@@ -19,9 +19,9 @@ Med Card kan vi fremheve informasjon eller oppgaver som hører sammen.
 
 ## Bruk
 
-`ksd-card` brukes som direktiv sammen med riktig HTML-tag i din kontekst, f.eks `article`.
+`ksd-card` brukes som direktiv sammen med riktig HTML-tag i din kontekst, f.eks `article`. Du kan bruke `ksd-card-block` for å dele inn kortet i flere seksjoner.
 
-```tsx
+```html
 <article ksd-card>
   <h2 ksd-card-block>Tittel</h2>
   <p ksd-card-block>Innhold</p>
@@ -33,10 +33,12 @@ Med Card kan vi fremheve informasjon eller oppgaver som hører sammen.
 
 ### Liste
 
-En liste med cards i en grid-layout
+En liste med cards i en grid-layout.
 
-```tsx
-<ul style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;">
+```html
+<ul
+  style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;"
+>
   <li ksd-card>
     <h2>Item 1</h2>
     <p>Description</p>
@@ -65,9 +67,24 @@ En liste med cards i en grid-layout
 Dersom kortet skal lenke til en annen side, kan du legge en lenke i kortets tittel. Hele kortet blir da automatisk klikkbart, men skjermlesere får en bedre brukeropplevelse enn dersom hele kortet var en lenke.
 Dette fordi kun lenken istedenfor hele kortets innhold vil bli lest opp ved fokus.
 
+```html
+<article ksd-card>
+  <h2><a href="/">Whole card is clickable because of this link</a></h2>
+</article>
+```
+
 #### Kort som er en lenke
 
-Hele kortet kan bli en lenke ved å bruke anchor-tag som host-element. Dette er nyttig hvis du ønsker at hele kortets innhold skal bli lest opp
+Hele kortet kan bli en lenke ved å bruke anchor-tag som host-element. Dette er nyttig hvis du ønsker at hele kortets innhold skal bli lest opp.
+
+> ⚠ Vær oppmerksom på at dette vanligvis ikke er anbefalt, da det ofte er forstyrrende for skjermleserbrukere hvis kortet har mye innhold.
+
+```html
+<a ksd-card>
+  <h2>My heading</h2>
+  <p>My paragraph</p>
+</a>
+```
 
 ### Retningslinjer
 
