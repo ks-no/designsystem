@@ -1,9 +1,5 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
-import { CssVariables } from '@doc-components'
-
 import * as DetailsStories from './details.stories'
-
-import css from '@digdir/designsystemet-css/details.css?inline'
 
 <Meta of={DetailsStories} />
 
@@ -91,7 +87,3 @@ Ikkje plasser andre interaktive element inn i `Details.Summary`, då heile rada 
 
 I Firefox og Safari blir det ikkje spelt av animasjon når `Details` blir opna og lukka.
 Sjå [interpolate-size](https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size).
-
-## CSS-variablar
-
-<CssVariables css={css} />
