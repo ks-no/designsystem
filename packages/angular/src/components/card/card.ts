@@ -21,19 +21,21 @@ export class Card {
    * Change the background color of the card
    * @default 'default
    */
-  variant = input<'tinted' | 'default'>('default')
+  public variant = input<'tinted' | 'default'>('default')
   private elementRef = inject(ElementRef)
 
-  protected handleClick = (event: MouseEvent) => {
+  private projectedLink() {
     const el = this.elementRef.nativeElement
-
-    const link = el?.querySelector(
+    return el?.querySelector(
       'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a',
     ) as HTMLAnchorElement | null
+  }
 
+  protected handleClick = (event: MouseEvent) => {
+    const link = this.projectedLink()
     if (!link) return
 
-    if ((event as MouseEvent).metaKey || (event as MouseEvent).ctrlKey) {
+    if (event.metaKey || event.ctrlKey) {
       window.open(link.href, '_blank', 'noreferrer')
     } else {
       link.click()

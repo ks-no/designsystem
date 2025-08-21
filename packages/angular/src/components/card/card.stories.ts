@@ -15,7 +15,7 @@ export default meta
 type Story = StoryObj<Card>
 
 export const Preview: Story = {
-  render: (_args: any) => ({
+  render: (_args) => ({
     template: `
 <div style="max-width: 320px;">
   <article ksd-card>
@@ -29,7 +29,7 @@ export const Preview: Story = {
 }
 
 export const CardWithBlocks: Story = {
-  render: (_args: any) => ({
+  render: (_args) => ({
     template: `
 <div style="max-width: 320px;">
   <article ksd-card>
@@ -68,7 +68,7 @@ export const ListOfCards: Story = {
 }
 
 export const AsLink: Story = {
-  render: (_args: any) => ({
+  render: (_args) => ({
     template: `
 <div style="max-width: 320px;">
   <article ksd-card>
@@ -80,7 +80,7 @@ export const AsLink: Story = {
 }
 
 export const TintedVariant: Story = {
-  render: (_args: any) => ({
+  render: (_args) => ({
     template: `
 <div style="max-width: 320px;">
   <article ksd-card variant="tinted">
