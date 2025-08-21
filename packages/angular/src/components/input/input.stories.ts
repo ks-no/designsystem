@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -30,7 +29,7 @@ const meta: Meta<InputArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Label, Field, Input, JsonPipe],
+      imports: [Label, Field, Input],
     }),
   ],
 }
