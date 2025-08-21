@@ -1,6 +1,7 @@
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  ElementRef,
   input,
   output,
   viewChild,
@@ -58,10 +59,10 @@ export class Details {
   readonly defaultOpen = input<boolean>(false)
   readonly open = input<boolean | undefined>(undefined)
   readonly toggled = output<Event>()
-  private detailsRef = viewChild('detailsRef')
+  private detailsRef = viewChild<ElementRef<HTMLDetailsElement>>('detailsRef')
 
   onToggle(event: Event) {
-    const details = (this.detailsRef() as any).nativeElement
+    const details = this.detailsRef()?.nativeElement
     if (details && details.open !== this.open()) {
       this.toggled.emit(event)
     }
