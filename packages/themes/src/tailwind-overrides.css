@@ -26,4 +26,91 @@
     border-top-color: transparent;
     border-width: var(--dsc-popover-border-width);
   }
+
+  .ds-table {
+    --_dsc-table-border-radius--inner: calc(
+      var(--dsc-table-border-radius) - var(--dsc-table-border-width)
+    );
+    border-collapse: separate; /* Using separate mode to enable border-radius */
+    border-spacing: 0;
+    box-sizing: border-box;
+    & > :is(tbody, thead, tfoot) > tr > :is(th, td) {
+      border-bottom-width: var(--dsc-table-border-width);
+      border-bottom-style: var(--dsc-table-border-style);
+      border-color: var(--dsc-table-border-color);
+    }
+
+    & > thead > tr:last-child > :is(th, td) {
+      border-bottom-width: var(--dsc-table-divider-border-width);
+      border-bottom-style: var(--dsc-table-divider-border-style);
+      border-bottom-color: var(--dsc-table-divider-border-color);
+    }
+
+    & > tbody:has(+ tfoot) > tr:last-child > :is(th, td) {
+      border-bottom: none; /* Skip border-bottom when followed by <tfoot> */
+    }
+
+    & > tfoot > tr:first-child > :is(th, td) {
+      border-top-width: var(--dsc-table-divider-border-width);
+      border-top-style: var(--dsc-table-divider-border-style);
+      border-top-color: var(--dsc-table-divider-border-color);
+    }
+
+    & > tfoot > tr:last-child > :is(th, td) {
+      border-bottom: none;
+    }
+
+    /*
+  * Configurations
+  */
+    &[data-border] {
+      border-radius: var(--dsc-table-border-radius);
+      border-width: var(--dsc-table-border-width);
+      border-style: var(--dsc-table-border-style);
+      border-color: var(--dsc-table-border-color);
+
+      & > :last-child > tr:last-child > :is(th, td) {
+        border-bottom: none; /* Skip last border-bottom when <table> has border */
+      }
+
+      /* Add rounded border to first and last row */
+
+      &
+      > :is(
+        thead:first-of-type /* If first <thead>, but using :first-of-type to support <caption> */,
+        :not(:has(thead)) tbody:first-of-type /* If <tbody> is :first-of-type and not followed by <thead> */
+      )
+      > tr:first-child
+      > :is(th, td) {
+        &:first-child {
+          border-top-left-radius: var(--_dsc-table-border-radius--inner);
+        }
+
+        &:last-child {
+          border-top-right-radius: var(--_dsc-table-border-radius--inner);
+        }
+      }
+
+      /* Add rounded border to last row (using :last-of-type to suppoert <caption>) */
+      &
+      > :is(
+        tfoot:last-of-type /* If first <thead>, but using :first-of-type to support <caption> */,
+        :not(:has(tfoot)) tbody:last-of-type /* If <tbody> is :first-of-type and not followed by <thead> */
+      )
+      > tr:last-child
+      > :is(th, td) {
+        &:first-child {
+          border-bottom-left-radius: var(--_dsc-table-border-radius--inner);
+        }
+
+        &:last-child {
+          border-bottom-right-radius: var(--_dsc-table-border-radius--inner);
+        }
+      }
+    }
+
+    &[data-zebra] > tbody > tr > :is(th, td) {
+      border-block: 0;
+    }
+  }
 }
