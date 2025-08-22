@@ -43,7 +43,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <div style="margin: 0 auto; width:100%;  text-align:center;" >
+    <div style="margin: 0 auto; width:100%; text-align:center;" >
       <button ksd-button variant="primary"  popovertarget="my-popover"> Enkel popover </button>
       <ksd-popover popoverId="my-popover"  ${argsToTemplate(args)}> Her er det noe innhold </ksd-popover>
     </div>
