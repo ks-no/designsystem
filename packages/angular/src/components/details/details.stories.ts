@@ -1,5 +1,6 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular'
 import { expect, userEvent, within } from 'storybook/internal/test'
+import { Card } from '../card/card'
 import { ControlledDetails } from './controlled-details'
 import { Details } from './details'
 import { DetailsContent } from './details-content'
@@ -13,7 +14,13 @@ const meta: Meta<Details> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Details, DetailsContent, DetailsSummary, ControlledDetails],
+      imports: [
+        Card,
+        Details,
+        DetailsContent,
+        DetailsSummary,
+        ControlledDetails,
+      ],
     }),
   ],
 }
@@ -79,12 +86,12 @@ export const WithoutCard: Story = {
 export const InCard: Story = {
   render: () => ({
     template: `
-      <div class="ds-card">
+      <article ksd-card>
         <ksd-details>
           <ksd-details-summary>Vedlegg</ksd-details-summary>
           <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
         </ksd-details>
-      </div>
+      </article>
     `,
   }),
 }
@@ -93,18 +100,18 @@ export const InCardWithColor: Story = {
   render: () => ({
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem">
-        <div class="ds-card">
+        <article ksd-card>
           <ksd-details data-color="accent">
             <ksd-details-summary>Vedlegg</ksd-details-summary>
             <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
           </ksd-details>
-        </div>
-        <div class="ds-card">
+        </article>
+        <article ksd-card>
           <ksd-details data-color="accent" variant="tinted">
             <ksd-details-summary>Vedlegg</ksd-details-summary>
             <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
           </ksd-details>
-        </div>
+        </article>
       </div>
     `,
   }),
@@ -116,15 +123,15 @@ export const WithDifferentSizes: Story = {
       <ksd-details data-size="sm">
           <ksd-details-summary>Vedlegg</ksd-details-summary>
           <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-        </ksd-details>
-        <ksd-details data-size="md">
+      </ksd-details>
+      <ksd-details data-size="md">
           <ksd-details-summary>Vedlegg</ksd-details-summary>
           <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-        </ksd-details>
-        <ksd-details data-size="lg">
+      </ksd-details>
+      <ksd-details data-size="lg">
           <ksd-details-summary>Vedlegg</ksd-details-summary>
           <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-        </ksd-details>
+      </ksd-details>
     `,
   }),
 }
