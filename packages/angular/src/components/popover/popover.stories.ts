@@ -5,15 +5,14 @@ import {
   moduleMetadata,
 } from '@storybook/angular'
 import { expect, userEvent, within } from 'storybook/internal/test'
+import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Button } from '../button/button'
 import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 
-interface PopoverArgs {
+type PopoverArgs = CommonArgs & {
   variant: 'default' | 'tinted'
   placement: 'top' | 'bottom' | 'left' | 'right'
-  'data-color': string
-  'data-size': 'sm' | 'md' | 'lg'
 }
 
 const meta: Meta<PopoverArgs> = {
@@ -25,30 +24,13 @@ const meta: Meta<PopoverArgs> = {
   ],
   title: 'Komponenter/Popover',
   argTypes: {
+    ...commonArgTypes,
     variant: {
       options: ['default', 'tinted'],
       control: { type: 'radio' },
     },
     placement: {
       options: ['top', 'bottom', 'left', 'right'],
-      control: { type: 'radio' },
-    },
-    'data-size': {
-      options: ['sm', 'md', 'lg'],
-      control: { type: 'radio' },
-    },
-    'data-color': {
-      options: [
-        'accent',
-        'brand1',
-        'brand2',
-        'brand3',
-        'neutral',
-        'danger',
-        'info',
-        'success',
-        'warning',
-      ],
       control: { type: 'radio' },
     },
   },
@@ -61,8 +43,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-
-    <div style="margin: 0 auto; width:100%;  text-align:center;" >
+    <div style="margin: 0 auto; width:100%; text-align:center;" >
       <button ksd-button variant="primary"  popovertarget="my-popover"> Enkel popover </button>
       <ksd-popover popoverId="my-popover"  ${argsToTemplate(args)}> Her er det noe innhold </ksd-popover>
     </div>
