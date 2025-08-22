@@ -1,3 +1,19 @@
+## 0.0.1-alpha.15
+
+### 🚀 Features
+
+- **angular:** card ([#37](https://github.com/ks-no/designsystem/pull/37))
+- **angular:** details ([#38](https://github.com/ks-no/designsystem/pull/38))
+
+### 🩹 Fixes
+
+- **themes:** tailwind overrides for table ([#39](https://github.com/ks-no/designsystem/pull/39))
+
+### ❤️ Thank You
+
+- Knut Valen @knutvalen
+- stianmorsund
+
 ## 0.0.1-alpha.14
 
 ### 🩹 Fixes
