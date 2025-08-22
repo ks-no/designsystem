@@ -18,7 +18,8 @@
   "main": "./dist/fesm2022/ks-digital-designsystem-angular.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@floating-ui/dom": "^1.7.3"
+    "@floating-ui/dom": "^1.7.3",
+    "@u-elements/u-details": "^0.1.2"
   },
   "peerDependencies": {
     "@angular/common": ">=20.0.0",

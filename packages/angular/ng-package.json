@@ -5,5 +5,5 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "allowedNonPeerDependencies": ["@floating-ui/dom"]
+  "allowedNonPeerDependencies": ["@floating-ui/dom", "@u-elements/u-details"]
 }
