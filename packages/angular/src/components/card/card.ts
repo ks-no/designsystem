@@ -36,7 +36,7 @@ export class Card {
     if (!link) return
 
     if (event.metaKey || event.ctrlKey) {
-      window.open(link.href, '_blank', 'noreferrer')
+      window.open(link.href, '_blank', 'noopener,noreferrer')
     } else {
       link.click()
     }
