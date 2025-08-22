@@ -19,7 +19,7 @@ import { CommonInputs } from '../common-inputs'
 export class Card {
   /**
    * Change the background color of the card
-   * @default 'default
+   * @default 'default'
    */
   public variant = input<'tinted' | 'default'>('default')
   private elementRef = inject(ElementRef)
