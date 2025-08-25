@@ -1,3 +1,13 @@
+## 0.0.1-alpha.16
+
+### 🚀 Features
+
+- **angular:** add card to public api ([2b30598](https://github.com/ks-no/designsystem/commit/2b30598))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.15
 
 ### 🚀 Features
