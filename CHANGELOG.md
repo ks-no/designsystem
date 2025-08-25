@@ -1,3 +1,13 @@
+## 0.0.1-alpha.17
+
+### 🩹 Fixes
+
+- **themes:** tailwind overrides for card links ([5ef415b](https://github.com/ks-no/designsystem/commit/5ef415b))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.16
 
 ### 🚀 Features
