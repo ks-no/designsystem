@@ -1,4 +1,5 @@
 export * from './components/button'
+export * from './components/card'
 export * from './components/common-inputs'
 export * from './components/details'
 export * from './components/field'
