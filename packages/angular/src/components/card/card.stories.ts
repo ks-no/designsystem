@@ -6,7 +6,7 @@ import {
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Card } from './card'
-import { CardBlock } from './card.block'
+import { CardBlock } from './card-block'
 
 type CardArgs = CommonArgs & {
   variant: 'default' | 'tinted'
