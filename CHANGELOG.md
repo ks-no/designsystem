@@ -1,3 +1,13 @@
+## 0.0.1-alpha.18
+
+### 🚀 Features
+
+- **angular:** add `CardBlock` to public-api ([#63](https://github.com/ks-no/designsystem/pull/63))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.17
 
 ### 🩹 Fixes
