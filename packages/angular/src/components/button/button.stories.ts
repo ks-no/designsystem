@@ -7,7 +7,6 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import '~icons/material-symbols/edit-rounded'
 import { Button } from './button'
 
 const meta: Meta<Button> = {
