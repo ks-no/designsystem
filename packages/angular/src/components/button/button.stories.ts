@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { matEditSharp } from '@ng-icons/material-icons/sharp'
 import {
   argsToTemplate,
   componentWrapperDecorator,
@@ -13,7 +15,8 @@ const meta: Meta<Button> = {
   title: 'Komponenter/Button',
   decorators: [
     moduleMetadata({
-      imports: [Button],
+      imports: [Button, NgIcon],
+      providers: [provideIcons({ matEditSharp })],
     }),
     componentWrapperDecorator(
       (story) =>
@@ -64,12 +67,12 @@ export const Icons: Story = {
     props: args,
     template: `
        <button ksd-button ${argsToTemplate(args)}>
-          <icon-material-symbols-edit-rounded aria-hidden />
+          <ng-icon name="matEditSharp" />
       Rediger
       </button>
 
       <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
-        <icon-material-symbols-edit-rounded aria-hidden />
+        <ng-icon name="matEditSharp" />
       </button>
 
       <button ksd-button ${argsToTemplate(args)}>
