@@ -23,9 +23,7 @@
   },
   "peerDependencies": {
     "@angular/common": ">=20.0.0",
-    "@angular/core": ">=20.0.0",
-    "@angular/platform-browser": ">=20.0.0",
-    "@angular/platform-server": ">=20.0.0"
+    "@angular/core": ">=20.0.0"
   },
   "devDependencies": {
     "@analogjs/storybook-angular": "^1.19.4",
