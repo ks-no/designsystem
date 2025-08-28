@@ -33,7 +33,18 @@ Import the base styles and the theme you want to use in your application:
 
 ### 3. Use Components
 
-To be written.
+```ts
+import { Button } from '@ks-digital/designsystem-angular'
+
+@Component({
+  imports: [Button],
+  template: `
+  <button ksd-button>
+    Click me
+  </button>
+  `,
+})
+```
 
 ## Example
 
