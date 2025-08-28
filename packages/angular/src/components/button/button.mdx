@@ -17,38 +17,7 @@ Ikonfonter skal helst ikke brukes. [Denne artikkelen](https://www.irigoyen.dev/b
 
 I prinsippet støtter knappen de ikonene du måtte velge å sende inn.
 
-`unplugin-icons` er et bibliotek som kan brukes for SVG-ikoner. Pakken støtter alle ikonene fra [Iconify](https://icon-sets.iconify.design/), som er en samling av over 200k ikonsett, inkludert Material Symbols.
-Den enkleste måten å få til dette i Angular er hvis appen din bygges med `vite` og [vite-plugin-angular](https://www.npmjs.com/package/@analogjs/vite-plugin-angular).
-
-Etter at dette er satt opp, installer pakkene `unplugin-icons` og det ikonsettet du trenger fra Iconify, f.eks Material Symbols:
-
-`pnpm install unplugin-icons @iconify-json/material-symbols`
-
-Legg til `unplugin-icons` som plugin i Vite configen din:
-
-```(ts)
-import Icons from 'unplugin-icons/vite'
-export default defineConfig({
-  plugins: [
-    Icons({
-      compiler: 'web-components',
-      webComponents: {
-        autoDefine: true,
-      },
-    }),
-  ],
-}
-```
-
-Du skal nå ha tilgang til alle ikonene fra Material Symbols som web-componenter:
-
-```tsx
-import '~icons/material-symbols/edit-rounded'
-;<button ksd-button>
-  <icon-material-symbols-edit-rounded aria-hidden />
-  Rediger
-</button>
-```
+For Angular så er [Ng Icons](https://ng-icons.github.io/ng-icons) et bibliotek som kan brukes. Pakken støtter over 96k opensource ikoner.
 
 ### Egne ikoner
 
