@@ -49,3 +49,7 @@ import { Button } from '@ks-digital/designsystem-angular'
 ## Example
 
 A complete example setup is available in the `angular-demo` located under the `apps` folder.
+
+## Development
+
+`pnpm nx run @ks-digital/designsystem-angular:storybook`
