@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - v*.*.*
-  workflow_dispatch:
 
 env:
   NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
