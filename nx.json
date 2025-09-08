@@ -93,6 +93,9 @@
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist"],
       "cache": true
+    },
+    "storybook": {
+      "dependsOn": ["^build"]
     }
   },
   "generators": {
