@@ -9,7 +9,7 @@
     "@angular/common": "^20.0.3",
     "@angular/core": "^20.0.3",
     "@angular/platform-browser": "^20.0.3",
-    "@angular/platform-server": "^20.0.3",
+    "@angular/platform-server": "^20.3.0",
     "@ks-digital/designsystem-angular": "workspace:*",
     "@ks-digital/designsystem-themes": "workspace:*"
   },
