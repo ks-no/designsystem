@@ -41,9 +41,9 @@ jobs:
         run: |
           AFFECTED_E2E=$(pnpm nx show projects --affected --target=e2e)
           if [ -n "$AFFECTED_E2E" ]; then
-            echo "e2e_changed=true" >> $GITHUB_OUTPUT
+            echo "e2e_changed=true" >> "$GITHUB_OUTPUT"
           else
-            echo "e2e_changed=false" >> $GITHUB_OUTPUT
+            echo "e2e_changed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Cache Playwright
