@@ -90,7 +90,7 @@ jobs:
             playwright-${{ runner.os }}-
 
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
 
       - name: End-to-end test
         run: pnpm nx affected --target=e2e
