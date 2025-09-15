@@ -1,4 +1,6 @@
 name: Publish
+# Opt out of any default permissions
+permissions: {}
 
 on:
   push:
