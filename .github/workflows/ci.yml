@@ -1,4 +1,6 @@
 name: CI
+# Opt out of any default permissions
+permissions: {}
 
 on:
   push:
@@ -14,6 +16,10 @@ env:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      e2e_changed: ${{ steps.e2e_check.outputs.e2e_changed }}
 
     steps:
       - name: Checkout repository
@@ -46,8 +52,24 @@ jobs:
             echo "e2e_changed=false" >> "$GITHUB_OUTPUT"
           fi
 
+  e2e:
+    needs: ci
+    if: needs.ci.outputs.e2e_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write # Required by actions/cache to save caches
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # 5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/actions/install-packages
+
       - name: Cache Playwright
-        if: steps.e2e_check.outputs.e2e_changed == 'true'
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # 4.2.4
         with:
           path: ~/.cache/ms-playwright
@@ -56,9 +78,7 @@ jobs:
             playwright-${{ runner.os }}-
 
       - name: Install Playwright
-        if: steps.e2e_check.outputs.e2e_changed == 'true'
         run: npx playwright install --with-deps
 
       - name: End-to-end test
-        if: steps.e2e_check.outputs.e2e_changed == 'true'
         run: pnpm nx affected --target=e2e
