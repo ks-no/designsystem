@@ -5,8 +5,8 @@ runs:
   using: 'composite'
   steps:
     - name: Install pnpm
-      uses: pnpm/action-setup@v4
-    - uses: actions/setup-node@v4
+      uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # 4.1.0
+    - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # 5.0.0
       with:
         node-version-file: 'package.json'
         cache: 'pnpm'
@@ -16,7 +16,7 @@ runs:
     - run: pnpm install --frozen-lockfile --prefer-offline
       shell: bash
     - name: Set SHAs
-      uses: nrwl/nx-set-shas@v4
+      uses: nrwl/nx-set-shas@826660b82addbef3abff5fa871492ebad618c9e1 # 4.3.3
     - run: |
         echo "BASE: ${{ env.NX_BASE }}"
         echo "HEAD: ${{ env.NX_HEAD }}"
