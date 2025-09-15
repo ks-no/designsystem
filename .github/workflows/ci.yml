@@ -48,7 +48,7 @@ jobs:
 
       - name: Cache Playwright
         if: steps.e2e_check.outputs.e2e_changed == 'true'
-        uses: actions/cache@v3
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # 4.2.4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
