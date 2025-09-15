@@ -6,20 +6,26 @@ on:
   push:
     branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
 
-env:
-  NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
-  NXCACHE_S3_REGION: ${{ secrets.NXCACHE_S3_REGION }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
+      NXCACHE_S3_REGION: ${{ secrets.NXCACHE_S3_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     outputs:
       e2e_changed: ${{ steps.e2e_check.outputs.e2e_changed }}
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -59,6 +65,12 @@ jobs:
     permissions:
       contents: read
       actions: write # Required by actions/cache to save caches
+    env:
+      NXCACHE_S3_BUCKET: ${{ secrets.NXCACHE_S3_BUCKET }}
+      NXCACHE_S3_REGION: ${{ secrets.NXCACHE_S3_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
