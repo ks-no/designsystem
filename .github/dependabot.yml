@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '03:03'
+      timezone: 'Europe/Oslo'
+    groups:
+      angular:
+        patterns:
+          - '@angular/*'
+      designsystemet:
+        patterns:
+          - '@digdir/designsystemet*'
+    open-pull-requests-limit: 5
