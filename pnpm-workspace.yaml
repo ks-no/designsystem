@@ -4,3 +4,5 @@ packages:
 
 onlyBuiltDependencies:
   - nx
+
+minimum-release-age: 2880 # 48 hours
