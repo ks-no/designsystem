@@ -26,7 +26,7 @@ export default defineConfig({
   webServer: {
     command: 'pnpm exec nx run angular-demo:serve',
     url: 'http://localhost:4200',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env['CI'],
     cwd: workspaceRoot,
   },
   projects: [
