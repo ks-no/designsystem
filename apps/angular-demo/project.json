@@ -7,8 +7,14 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["@ks-digital/designsystem-themes"]
+        }
+      ],
       "options": {
         "externalDependencies": [""],
         "outputPath": "dist/apps/angular-demo",
@@ -49,7 +55,13 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["@ks-digital/designsystem-themes"]
+        }
+      ],
       "configurations": {
         "production": {
           "buildTarget": "angular-demo:build:production"
@@ -60,12 +72,6 @@
       },
       "defaultConfiguration": "development",
       "continuous": true
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "angular-demo:build"
-      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
