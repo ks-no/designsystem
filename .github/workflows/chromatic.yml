@@ -1,6 +1,7 @@
 name: 'Chromatic'
-# Opt out of any default permissions
-# permissions: {}
+# Opt out of any default permissions, but allow read access to contents
+permissions:
+  contents: read
 
 on: push
 
@@ -13,7 +14,6 @@ jobs:
     name: Run Chromatic
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pull-requests: write
       statuses: write
     timeout-minutes: 15
