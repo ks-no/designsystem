@@ -16,7 +16,8 @@
     "./base.css": "./dist/base.css",
     "./base.tailwind.css": "./dist/base.tailwind.css",
     "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
-    "./forvaltning.css": "./dist/themes/forvaltning.css"
+    "./forvaltning.css": "./dist/themes/forvaltning.css",
+    "./forvaltning.tailwind.css": "./dist/themes/forvaltning.tailwind.css"
   },
   "files": [
     "./dist"
