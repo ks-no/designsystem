@@ -41,6 +41,9 @@ The [theme].tailwind.css bridges the gap between Designsystemet and Tailwind, by
 
 ##### v3 and older
 
+> **Note:**  
+> Tailwind versions earlier than v4 do **not** support mapping Tailwind utility classes directly to Designsystemet tokens.
+
 ```css
 @import url('@ks-digital/designsystem-themes/base.tailwind.css');
 @import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
