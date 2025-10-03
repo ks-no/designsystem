@@ -1,3 +1,13 @@
+## 0.0.1-alpha.19
+
+### 🚀 Features
+
+- **themes:** sync tokens, tailwind support ([#88](https://github.com/ks-no/designsystem/pull/88))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.18
 
 ### 🚀 Features
