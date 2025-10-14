@@ -80,7 +80,7 @@ export const Grouped: Story = {
   }),
 }
 
-export const RightJusted: Story = {
+export const RightAligned: Story = {
   render: () => ({
     template: `
       <ksd-field>
