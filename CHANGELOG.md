@@ -1,3 +1,14 @@
+## 0.0.1-alpha.20
+
+### 🚀 Features
+
+- **angular:** include spinner component in exports ([#95](https://github.com/ks-no/designsystem/pull/95))
+- **angular:** switch ([#96](https://github.com/ks-no/designsystem/pull/96))
+
+### ❤️ Thank You
+
+- Marie
+
 ## 0.0.1-alpha.19
 
 ### 🚀 Features
