@@ -284,12 +284,9 @@ importers:
       '@ng-icons/core':
         specifier: ^32.1.0
         version: 32.1.0(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
-      '@ng-icons/material-icons':
-        specifier: ^32.1.0
-        version: 32.1.0
-      '@ng-icons/material-symbols':
-        specifier: ^32.1.0
-        version: 32.1.0(@ng-icons/core@32.1.0(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))
+      '@ng-icons/phosphor-icons':
+        specifier: ^32.2.0
+        version: 32.2.0
       '@testing-library/angular':
         specifier: ^17.4.0
         version: 17.4.0(041de9fa1c62d76522732bca6987ee26)
@@ -2807,13 +2804,8 @@ packages:
       '@angular/core': '>=20.0.0'
       rxjs: ^6.5.3 || ^7.4.0
 
-  '@ng-icons/material-icons@32.1.0':
-    resolution: {integrity: sha512-nzpdJ5dybmId92K0/Ql4Fg8XzNQK5r9lRw0MfuTokghC0XQMZlDgmy87TKNQCgYda1vCCYF87J2aT4FafvrxKQ==}
-
-  '@ng-icons/material-symbols@32.1.0':
-    resolution: {integrity: sha512-VHoaJBWjF0nX9TYgUYeDJ+FmTS071736Ht2FhsTvbmV5cYThM94Sn4n67romcTQgNC7VTIn5UgIGttxIJDSMlQ==}
-    peerDependencies:
-      '@ng-icons/core': 32.1.0
+  '@ng-icons/phosphor-icons@32.2.0':
+    resolution: {integrity: sha512-3qEEOvUKgtDmvpr/LEZRroY4ubaMSceLjahW15gb3E/DLwtUKeNsgp3xMh/ljJiro2KKjNBKbEBuoijYqTxYow==}
 
   '@ngtools/webpack@20.0.3':
     resolution: {integrity: sha512-LVI3N45iBqrXxZgRpYOyGzOxssXnCckKEOSeqmvus1IJ1rN6nz+q4Pq428lDrb0KQOkRIt7iR/jQLD1RpcTHRw==}
@@ -13442,13 +13434,8 @@ snapshots:
       rxjs: 7.8.2
       tslib: 2.8.1
 
-  '@ng-icons/material-icons@32.1.0':
+  '@ng-icons/phosphor-icons@32.2.0':
     dependencies:
-      tslib: 2.8.1
-
-  '@ng-icons/material-symbols@32.1.0(@ng-icons/core@32.1.0(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))':
-    dependencies:
-      '@ng-icons/core': 32.1.0(@angular/common@20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       tslib: 2.8.1
 
   '@ngtools/webpack@20.0.3(@angular/compiler-cli@20.0.4(@angular/compiler@20.0.4)(typescript@5.8.3))(typescript@5.8.3)(webpack@5.99.8(@swc/core@1.5.29(@swc/helpers@0.5.17))(esbuild@0.25.5))':
