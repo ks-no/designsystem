@@ -30,4 +30,4 @@ This will do the following:
 - Perform a semantic version bump. Note: This command will not push the package to Github packages.
 - Push the release to main and create a git tag and a Github release
 
-The [publish pipeline](.github/workflows/publish.yml) will automatically detect the new release and publish the packages.
+The [publish pipeline](.github/workflows/publish.yml) will automatically detect the new release and publish the packages to the NPM registry.
