@@ -21,6 +21,6 @@
     "@angular/compiler": "^20.0.3",
     "@angular/compiler-cli": "^20.0.3",
     "@testing-library/angular": "^17.4.0",
-    "angular-eslint": "^20.0.0"
+    "angular-eslint": "^20.4.0"
   }
 }
