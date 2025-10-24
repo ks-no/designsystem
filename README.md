@@ -18,22 +18,16 @@ Our goal is to align closely with the components and design decisions of Designs
 
 ### Prerequisites
 
-1. Run the following command. Confirm the output with `dry-run`-flag first.
+On the main branch, run the following command. Confirm the output with `dry-run`-flag first.
 
 ```bash
 pnpm nx release --skip-publish --specifier prerelease --preid alpha --dry-run
 ```
 
-This will:
+This will do the following:
 
-- Create a local Git tag for the release.
 - Generate changelogs based on conventional commits.
-- Perform a semantic version bump. Note: This command will not push the package to NPM.
+- Perform a semantic version bump. Note: This command will not push the package to Github packages.
+- Push the release to main and create a git tag and a Github release
 
-2. If everything looks good, push to `main`, including the new version tag:
-
-```bash
-git push origin main --follow-tags
-```
-
-3. The [publish pipeline](.github/workflows/publish.yml) will automatically detect the new release and publish the packages to the NPM registry.
+The [publish pipeline](.github/workflows/publish.yml) will automatically detect the new release and publish the packages.
