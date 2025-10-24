@@ -1,5 +1,5 @@
 import { NgIcon, provideIcons } from '@ng-icons/core'
-import { matEditSharp } from '@ng-icons/material-icons/sharp'
+import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import {
   argsToTemplate,
   componentWrapperDecorator,
@@ -15,7 +15,7 @@ const meta: Meta<Button> = {
   decorators: [
     moduleMetadata({
       imports: [Button, NgIcon],
-      providers: [provideIcons({ matEditSharp })],
+      providers: [provideIcons({ phosphorPencilLine })],
     }),
     componentWrapperDecorator(
       (story) =>
@@ -66,12 +66,12 @@ export const Icons: Story = {
     props: args,
     template: `
        <button ksd-button ${argsToTemplate(args)}>
-          <ng-icon name="matEditSharp" />
+          <ng-icon name="phosphorPencilLine" />
       Rediger
       </button>
 
       <button icon ksd-button ${argsToTemplate(args)} aria-label="Kun ikon">
-        <ng-icon name="matEditSharp" />
+        <ng-icon name="phosphorPencilLine" />
       </button>
 
       <button ksd-button ${argsToTemplate(args)}>
