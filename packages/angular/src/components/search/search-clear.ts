@@ -12,7 +12,7 @@ import { Button } from '../button'
 @Component({
   selector: 'button[ksd-search-clear]',
   standalone: true,
-  template: ` <ng-content></ng-content> `,
+  template: ``, // Keep empty, clear button should not project any content
   host: {
     type: 'reset',
     '[attr.data-variant]': "'tertiary'",
