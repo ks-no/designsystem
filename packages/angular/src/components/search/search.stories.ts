@@ -64,10 +64,8 @@ export const Preview: Story = {
   render: (args) => ({
     props: {
       ...args,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      dataSize: (args as any)['data-size'],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      dataColor: (args as any)['data-color'],
+      dataSize: (args as SearchArgs)['data-size'],
+      dataColor: (args as SearchArgs)['data-color'],
     },
     template: `
       <div ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
