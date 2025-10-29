@@ -14,7 +14,7 @@ import { Button } from '../button'
 @Component({
   selector: 'button[ksd-search-button]',
   standalone: true,
-  template: ` <ng-content></ng-content> `,
+  template: ` <ng-content>Søk</ng-content> `,
   host: {
     type: 'submit',
     '[attr.aria-label]': 'this.ariaLabel()',
@@ -27,7 +27,6 @@ export class SearchButton extends Button implements OnInit {
    *
    * Note: \'tertiary\' variant is not supported, but needed to be accepted
    * as input to avoid compiler errors for narrowing types.
-   *
    * @default 'primary'
    *
    */

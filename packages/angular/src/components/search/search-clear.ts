@@ -23,8 +23,9 @@ import { Button } from '../button'
 export class SearchClear extends Button {
   /**
    * Aria label for the button
+   * @default 'Tøm'
    */
-  readonly ariaLabel = input('', { alias: 'aria-label' })
+  readonly ariaLabel = input('Tøm', { alias: 'aria-label' })
 
   /**
    * Output to notify controlled forms that input should be cleared
