@@ -64,7 +64,9 @@ export const Preview: Story = {
   render: (args) => ({
     props: {
       ...args,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dataSize: (args as any)['data-size'],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dataColor: (args as any)['data-color'],
     },
     template: `
