@@ -6,7 +6,7 @@ import { Button } from '../button'
  *
  * Used within SearchComponent to provide a clear button.
  *
- * @param {string} aria-label - Aria label for the button
+ * @param {string} [aria-label] - Aria label for the button
  * @param {EventEmitter<void>} [clearInput] - Emitted when the clear button is clicked
  */
 @Component({
@@ -15,14 +15,20 @@ import { Button } from '../button'
   template: ` <ng-content></ng-content> `,
   host: {
     type: 'reset',
+    '[attr.data-variant]': "'tertiary'",
     '[attr.aria-label]': 'this.ariaLabel()',
     '(click)': 'handleClear($event)',
   },
 })
 export class SearchClear extends Button {
-  ariaLabel = input('', { alias: 'aria-label' })
+  /**
+   * Aria label for the button
+   */
+  readonly ariaLabel = input('', { alias: 'aria-label' })
 
-  // Output to notify controlled forms that input should be cleared
+  /**
+   * Output to notify controlled forms that input should be cleared
+   */
   clearInput = output<void>()
 
   handleClear(e: Event): void {

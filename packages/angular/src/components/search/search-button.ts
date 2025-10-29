@@ -8,7 +8,7 @@ import { Button } from '../button'
  * Used within SearchComponent to provide a submit button.
  *
  * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use
- * @param {string} aria-label - Aria label for the button
+ * @param {string} [aria-label] - Aria label for the button
  *
  */
 @Component({
