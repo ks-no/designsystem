@@ -93,25 +93,30 @@ export const Controlled: Story = {
           state.value = value
         },
 
+        setValue: (event: KeyboardEvent) => {
+          const input = event.target as HTMLInputElement
+          state.value = input.value
+        },
+
         clearValue: () => {
           state.value = ''
         },
       },
       template: `
-        <div ksd-search style="margin-bottom: 1rem;">
-          <input ksd-search-input [value]="state.value" role="searchbox" />
+        <div ksd-search>
+          <input ksd-search-input role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
           <button ksd-search-clear role="reset" (clearInput)="clearValue()" ></button>
           <button ksd-search-button></button>
         </div>
 
-        <div style="margin-top: 1rem;">
+        <div>
           <span>Current search value: "{{ state.value }}"</span>
-          <br />
-          <button ksd-button (click)="setInput('Calzone')" style="margin-top: 1rem;">
-            Set search value to "Calzone"
+
+          <button ksd-button (click)="setInput('Calzone')">
+            Set input value to "Calzone"
           </button>
 
-          <p>The clear button has an output (clearInput) that is emitted when clicked.</p>
+          <p>The clear button has an output <em>(clearInput)</em> that is emitted when clicked.</p>
         </div>
 
       `,
@@ -132,14 +137,14 @@ export const Variants: Story = {
     template: `
       <div>
         <p>Primary variant (default)</p>
-        <div ksd-search style="margin-bottom: 1rem;">
+        <div ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear role="reset"></button>
           <button ksd-search-button variant="primary"></button>
         </div>
       </div>
 
-      <div style="margin-top: 1rem;">
+      <div>
         <p>Secondary variant</p>
         <div ksd-search>
           <input ksd-search-input role="searchbox" />
@@ -148,7 +153,7 @@ export const Variants: Story = {
         </div>
       </div>
 
-      <div style="margin-top: 1rem;">
+      <div>
         <p>Search with icon</p>
         <div ksd-search>
           <input ksd-search-input role="searchbox" />
