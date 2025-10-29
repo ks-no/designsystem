@@ -58,8 +58,8 @@ export const Preview: Story = {
     variant: 'primary',
     buttonLabel: 'Søk',
     clearButtonLabel: 'Tøm',
-    'data-size': 'md',
-    'data-color': 'brand1',
+    'data-size': '',
+    'data-color': '',
   },
   render: (args) => ({
     props: {
@@ -70,7 +70,7 @@ export const Preview: Story = {
       dataColor: (args as any)['data-color'],
     },
     template: `
-      <div ksd-search role="search" [data-size]="dataSize" [data-color]="dataColor">
+      <div ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
         <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
         <button ksd-search-clear role="reset" [aria-label]="clearButtonLabel"></button>
         <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>
