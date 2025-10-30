@@ -18,20 +18,20 @@ import { SearchInput } from './search-input'
  *
  * @example
  * <div ksd-search>
- *   <input ksd-search-input />
- *   <button ksd-search-clear></button>
- *   <button ksd-search-button></button>
+ *   <input ksd-input ksdSearchInput />
+ *   <button ksd-button ksdSearchClear></button>
+ *   <button ksd-button ksdSearchButton></button>
  * </div>
  */
 @Component({
   selector: '[ksd-search]',
   template: `
-    <ng-content select="[ksd-search-input]" />
+    <ng-content select="[ksdSearchInput]" />
     @if (hasClear()) {
-      <ng-content select="[ksd-search-clear]" />
+      <ng-content select="[ksdSearchClear]" />
     }
     @if (hasButton()) {
-      <ng-content select="[ksd-search-button]" />
+      <ng-content select="[ksdSearchButton]" />
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
