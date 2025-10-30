@@ -50,12 +50,12 @@ export class Search {
   private readonly clear = contentChild(SearchClear)
   private readonly button = contentChild(SearchButton)
 
-  protected readonly hasButton = () => !!this.button
-  protected readonly hasClear = () => !!this.clear
+  protected readonly hasButton = () => !!this.button()
+  protected readonly hasClear = () => !!this.clear()
 
   constructor() {
     afterNextRender(() => {
-      if (!this.input) {
+      if (!this.input()) {
         logIfDevMode({
           component: 'Search',
           message:
