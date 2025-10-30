@@ -1,3 +1,13 @@
+## 0.0.1-alpha.21
+
+### 🚀 Features
+
+- **themes:** add minkommune theme ([#115](https://github.com/ks-no/designsystem/pull/115))
+
+### ❤️ Thank You
+
+- Ronny Valentin Vindenes @rvv-bouvet
+
 ## 0.0.1-alpha.20
 
 ### 🚀 Features
