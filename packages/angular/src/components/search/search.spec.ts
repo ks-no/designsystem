@@ -25,7 +25,7 @@ test('should clear the input when the clear button is clicked', async () => {
     `
       <div ksd-search>
         <input ksd-search-input role="searchbox" />
-        <button ksd-search-clear role="reset"></button>
+        <button ksd-search-clear role="button"></button>
         <button ksd-search-button></button>
       </div>
     `,
@@ -33,7 +33,9 @@ test('should clear the input when the clear button is clicked', async () => {
   )
 
   const searchInput = screen.getByRole('searchbox') as HTMLInputElement
-  const clearButton = screen.getByRole('reset') as HTMLButtonElement
+  const clearButton = screen.getByRole('button', {
+    name: /tøm/i,
+  }) as HTMLButtonElement
 
   await userEvent.type(searchInput, 'test')
   expect(searchInput.value).toBe('test')
