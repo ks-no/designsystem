@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 import { CommonInputs } from '../common-inputs'
 
 @Component({
   selector: 'ksd-alert',
-  template: `<ng-content />`,
+  template: `
+    <ng-content />`,
   host: {
     class: 'ds-alert',
-    style: 'display: block;',
+    style: 'display: block;'
   },
   hostDirectives: [
     {
       directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
-    },
-  ],
+      inputs: ['data-size', 'data-color']
+    }
+  ]
 })
-export class Alert {}
+export class Alert {
+}
