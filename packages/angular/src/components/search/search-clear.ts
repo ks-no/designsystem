@@ -1,4 +1,12 @@
-import { Component, input, output } from '@angular/core'
+import {
+  afterNextRender,
+  Directive,
+  ElementRef,
+  inject,
+  input,
+  output,
+} from '@angular/core'
+import { logIfDevMode } from '../../utils/log-if-devmode'
 import { Button } from '../button'
 
 /**
@@ -9,10 +17,9 @@ import { Button } from '../button'
  * @param {string} [aria-label] - Aria label for the button
  * @param {EventEmitter<void>} [clearInput] - Emitted when the clear button is clicked
  */
-@Component({
-  selector: 'button[ksd-search-clear]',
+@Directive({
+  selector: 'button[ksdSearchClear]',
   standalone: true,
-  template: ``, // Keep empty, clear button should not project any content
   host: {
     type: 'reset',
     '[attr.data-variant]': "'tertiary'",
@@ -20,7 +27,9 @@ import { Button } from '../button'
     '(click)': 'handleClear($event)',
   },
 })
-export class SearchClear extends Button {
+export class SearchClear {
+  private readonly button = inject(ElementRef<Button>)
+
   /**
    * Aria label for the button
    * @default 'Tøm'
@@ -31,6 +40,22 @@ export class SearchClear extends Button {
    * Output to notify controlled forms that input should be cleared
    */
   clearInput = output<void>()
+
+  /**
+   * Check that component is a ksd-button at runtime
+   */
+  constructor() {
+    afterNextRender(() => {
+      const hasKsdButton = this.button.nativeElement.hasAttribute('ksd-button')
+      if (!hasKsdButton) {
+        logIfDevMode({
+          component: 'SearchClear',
+          message:
+            'Missing required elements: ksd-button must be provided for the SearchClear. Check imports and markup.',
+        })
+      }
+    })
+  }
 
   handleClear(e: Event): void {
     const target = e.target as HTMLButtonElement

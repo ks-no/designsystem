@@ -1,4 +1,10 @@
-import { Component, input, OnInit } from '@angular/core'
+import {
+  afterNextRender,
+  Directive,
+  ElementRef,
+  inject,
+  input,
+} from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { Button } from '../button'
 
@@ -11,44 +17,57 @@ import { Button } from '../button'
  * @param {string} [aria-label] - Aria label for the button
  *
  */
-@Component({
-  selector: 'button[ksd-search-button]',
+@Directive({
+  selector: 'button[ksdSearchButton]',
   standalone: true,
-  template: ` <ng-content>Søk</ng-content> `,
   host: {
     type: 'submit',
     '[attr.aria-label]': 'this.ariaLabel()',
     '[attr.variant]': 'this.variant()',
   },
 })
-export class SearchButton extends Button implements OnInit {
+export class SearchButton {
+  private readonly button = inject(ElementRef<Button>)
+
   /**
    * Specify which button variant to use
    *
-   * Note: \'tertiary\' variant is not supported, but needed to be accepted
-   * as input to avoid compiler errors for narrowing types.
+   * Note: Since the `SearchButton` is an instance of `Button`,
+   * but should only allow `'primary'` and `'secondary'` variants.
+   * `'tertiary'` will compile but will log a warning in dev mode.
+   *
    * @default 'primary'
    *
    */
-  override readonly variant = input<'primary' | 'secondary' | 'tertiary'>(
-    'primary',
-  )
+  readonly variant = input<'primary' | 'secondary'>('primary')
 
   /**
    * Aria label for the button
    */
-  protected readonly ariaLabel = input('', { alias: 'aria-label' })
+  readonly ariaLabel = input('', { alias: 'aria-label' })
 
   /**
-   * Runtime check for unsupported 'tertiary' variant
+   * Check that component is a ksd-button at runtime
    */
-  ngOnInit(): void {
-    if (this.variant() === 'tertiary') {
-      logIfDevMode({
-        component: 'SearchButton',
-        message:
-          "The 'tertiary' variant is not supported - use 'primary' or 'secondary'.",
-      })
-    }
+  constructor() {
+    afterNextRender(() => {
+      const hasKsdButton = this.button.nativeElement.hasAttribute('ksd-button')
+      const allowedVariants = ['primary', 'secondary']
+      if (!hasKsdButton) {
+        logIfDevMode({
+          component: 'SearchButton',
+          message:
+            'Missing required elements: ksd-button must be provided for the SearchButton. Check imports and markup.',
+        })
+      }
+      if (!allowedVariants.includes(this.variant())) {
+        logIfDevMode({
+          component: 'SearchButton',
+          message: `Invalid variant "${this.variant()}" provided for SearchButton. Allowed variants are: ${allowedVariants.join(
+            ', ',
+          )}.`,
+        })
+      }
+    })
   }
 }
