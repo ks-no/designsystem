@@ -6,7 +6,6 @@ import { CommonInputs } from '../common-inputs'
   template: ` <ng-content />`,
   host: {
     class: 'ds-alert',
-    style: 'display: block;',
   },
   hostDirectives: [
     {
