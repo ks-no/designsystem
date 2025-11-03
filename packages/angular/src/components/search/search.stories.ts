@@ -69,9 +69,9 @@ export const Preview: Story = {
     },
     template: `
       <div ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
-        <input ksd-input ksdSearchInput role="searchbox" aria-label="Søkefelt" />
-        <button ksd-button ksdSearchClear [aria-label]="clearButtonLabel"></button>
-        <button ksd-button ksdSearchButton [variant]="variant" [aria-label]="buttonLabel"></button>
+        <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
+        <button ksd-search-clear [aria-label]="clearButtonLabel"></button>
+        <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>
       </div>
     `,
   }),
@@ -104,9 +104,9 @@ export const Controlled: Story = {
       },
       template: `
         <div ksd-search>
-          <input ksd-input ksdSearchInput role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
-          <button ksd-button ksdSearchClear (clearInput)="clearValue()" ></button>
-          <button ksd-button ksdSearchButton></button>
+          <input ksd-search-input role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
+          <button ksd-search-clear (clearInput)="clearValue()" ></button>
+          <button ksd-search-button></button>
         </div>
 
         <div>
@@ -138,26 +138,26 @@ export const Variants: Story = {
       <div>
         <p>Primary variant (default)</p>
         <div ksd-search>
-          <input ksd-input ksdSearchInput role="searchbox" />
-          <button ksd-button ksdSearchClear></button>
-          <button ksd-button ksdSearchButton></button>
+          <input ksd-search-input role="searchbox" />
+          <button ksd-search-clear></button>
+          <button ksd-search-button></button>
         </div>
       </div>
 
       <div>
         <p>Secondary variant</p>
         <div ksd-search>
-          <input ksd-input ksdSearchInput role="searchbox" />
-          <button ksd-button ksdSearchClear></button>
-          <button ksd-button ksdSearchButton variant="secondary"></button>
+          <input ksd-search-input role="searchbox" />
+          <button ksd-search-clear></button>
+          <button ksd-search-button variant="secondary"></button>
         </div>
       </div>
 
       <div>
         <p>Search with icon</p>
         <div ksd-search>
-          <input ksd-input ksdSearchInput role="searchbox" />
-          <button ksd-button ksdSearchClear></button>
+          <input ksd-search-input role="searchbox" />
+          <button ksd-search-clear></button>
         </div>
       </div>
     `,
@@ -175,9 +175,9 @@ export const WithLabel: Story = {
       <ksd-field>
         <ksd-label>Søk etter hunder:</ksd-label>
         <div ksd-search>
-          <input ksd-input ksdSearchInput role="searchbox" name="dog-search" />
-          <button ksd-button ksdSearchClear></button>
-          <button ksd-button ksdSearchButton></button>
+          <input ksd-search-input role="searchbox" name="dog-search" />
+          <button ksd-search-clear></button>
+          <button ksd-search-button></button>
         </div>
       </ksd-field>
     `,
@@ -202,9 +202,9 @@ export const Form: Story = {
       },
       template: `
         <form ksd-search role="search" (submit)="onSubmit($event)">
-          <input ksd-input ksdSearchInput role="searchbox" name="search" />
-          <button ksd-button ksdSearchClear (clearInput)="onClear()"></button>
-          <button ksd-button ksdSearchButton></button>
+          <input ksd-search-input role="searchbox" name="search" />
+          <button ksd-search-clear (clearInput)="onClear()"></button>
+          <button ksd-search-button></button>
         </form>
 
         <p>Submitted value: "{{ state.value }}"</p>

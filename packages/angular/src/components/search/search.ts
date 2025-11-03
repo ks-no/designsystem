@@ -18,20 +18,20 @@ import { SearchInput } from './search-input'
  *
  * @example
  * <div ksd-search>
- *   <input ksd-input ksdSearchInput />
- *   <button ksd-button ksdSearchClear></button>
- *   <button ksd-button ksdSearchButton></button>
+ *   <input ksd-search-input />
+ *   <button ksd-search-clear></button>
+ *   <button ksd-search-button></button>
  * </div>
  */
 @Component({
   selector: '[ksd-search]',
   template: `
-    <ng-content select="[ksdSearchInput]" />
+    <ng-content select="[ksd-search-input]" />
     @if (hasClear()) {
-      <ng-content select="[ksdSearchClear]" />
+      <ng-content select="[ksd-search-clear]" />
     }
     @if (hasButton()) {
-      <ng-content select="[ksdSearchButton]" />
+      <ng-content select="[ksd-search-button]" />
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -59,7 +59,7 @@ export class Search {
         logIfDevMode({
           component: 'Search',
           message:
-            'Missing required elements: SearchInput must be provided as child. Check imports and markup.',
+            'Missing required elements: ksd-search-input must be provided as child. Check imports and markup.',
         })
       }
     })

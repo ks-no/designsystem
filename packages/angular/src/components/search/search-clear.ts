@@ -1,12 +1,4 @@
-import {
-  afterNextRender,
-  Directive,
-  ElementRef,
-  inject,
-  input,
-  output,
-} from '@angular/core'
-import { logIfDevMode } from '../../utils/log-if-devmode'
+import { Directive, ElementRef, inject, input, output } from '@angular/core'
 import { Button } from '../button'
 
 /**
@@ -18,9 +10,11 @@ import { Button } from '../button'
  * @param {EventEmitter<void>} [clearInput] - Emitted when the clear button is clicked
  */
 @Directive({
-  selector: 'button[ksdSearchClear]',
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: 'button[ksd-search-clear]',
   standalone: true,
   host: {
+    class: 'ds-button',
     type: 'reset',
     '[attr.data-variant]': "'tertiary'",
     '[attr.aria-label]': 'this.ariaLabel()',
@@ -40,22 +34,6 @@ export class SearchClear {
    * Output to notify controlled forms that input should be cleared
    */
   clearInput = output<void>()
-
-  /**
-   * Check that component is a ksd-button at runtime
-   */
-  constructor() {
-    afterNextRender(() => {
-      const hasKsdButton = this.button.nativeElement.hasAttribute('ksd-button')
-      if (!hasKsdButton) {
-        logIfDevMode({
-          component: 'SearchClear',
-          message:
-            'Missing required elements: ksd-button must be provided for the SearchClear. Check imports and markup.',
-        })
-      }
-    })
-  }
 
   handleClear(e: Event): void {
     const target = e.target as HTMLButtonElement
