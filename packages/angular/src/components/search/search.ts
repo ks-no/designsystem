@@ -6,8 +6,6 @@ import {
 } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
-import { SearchButton } from './search-button'
-import { SearchClear } from './search-clear'
 import { SearchInput } from './search-input'
 
 /**
@@ -27,12 +25,8 @@ import { SearchInput } from './search-input'
   selector: '[ksd-search]',
   template: `
     <ng-content select="[ksd-search-input]" />
-    @if (hasClear()) {
-      <ng-content select="[ksd-search-clear]" />
-    }
-    @if (hasButton()) {
-      <ng-content select="[ksd-search-button]" />
-    }
+    <ng-content select="[ksd-search-clear]" />
+    <ng-content select="[ksd-search-button]" />
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
@@ -47,11 +41,6 @@ import { SearchInput } from './search-input'
 })
 export class Search {
   private readonly input = contentChild(SearchInput)
-  private readonly clear = contentChild(SearchClear)
-  private readonly button = contentChild(SearchButton)
-
-  protected readonly hasButton = () => !!this.button()
-  protected readonly hasClear = () => !!this.clear()
 
   constructor() {
     afterNextRender(() => {
