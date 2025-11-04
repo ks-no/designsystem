@@ -1,9 +1,4 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  Component,
-  contentChild,
-} from '@angular/core'
+import { afterNextRender, Component, contentChild } from '@angular/core'
 import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
 import { SearchInput } from './search-input'
@@ -22,13 +17,12 @@ import { SearchInput } from './search-input'
  * </div>
  */
 @Component({
-  selector: '[ksd-search]',
+  selector: 'ksd-search',
   template: `
     <ng-content select="[ksd-search-input]" />
     <ng-content select="[ksd-search-clear]" />
     <ng-content select="[ksd-search-button]" />
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'ds-search',
   },

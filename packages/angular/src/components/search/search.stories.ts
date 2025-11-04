@@ -68,11 +68,11 @@ export const Preview: Story = {
       dataColor: (args as SearchArgs)['data-color'],
     },
     template: `
-      <div ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
+      <ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
         <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
         <button ksd-search-clear [aria-label]="clearButtonLabel"></button>
         <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>
-      </div>
+      </ksd-search>
     `,
   }),
   play: async ({ canvas }) => {
@@ -103,11 +103,11 @@ export const Controlled: Story = {
         },
       },
       template: `
-        <div ksd-search>
+        <ksd-search>
           <input ksd-search-input role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
           <button ksd-search-clear (clearInput)="clearValue()" ></button>
           <button ksd-search-button></button>
-        </div>
+        </ksd-search>
 
         <div>
           <span>Current search value: "{{ state.value }}"</span>
@@ -118,7 +118,6 @@ export const Controlled: Story = {
 
           <p>The clear button has an output <em>(clearInput)</em> that is emitted when clicked.</p>
         </div>
-
       `,
     }
   },
@@ -137,28 +136,28 @@ export const Variants: Story = {
     template: `
       <div>
         <p>Primary variant (default)</p>
-        <div ksd-search>
+        <ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear></button>
           <button ksd-search-button></button>
-        </div>
+        </ksd-search>
       </div>
 
       <div>
         <p>Secondary variant</p>
-        <div ksd-search>
+        <ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear></button>
           <button ksd-search-button variant="secondary"></button>
-        </div>
+        </ksd-search>
       </div>
 
       <div>
         <p>Search with icon</p>
-        <div ksd-search>
+        <ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear></button>
-        </div>
+        </ksd-search>
       </div>
     `,
   }),
@@ -174,11 +173,11 @@ export const WithLabel: Story = {
     template: `
       <ksd-field>
         <ksd-label>Søk etter hunder:</ksd-label>
-        <div ksd-search>
+        <ksd-search>
           <input ksd-search-input role="searchbox" name="dog-search" />
           <button ksd-search-clear></button>
           <button ksd-search-button></button>
-        </div>
+        </ksd-search>
       </ksd-field>
     `,
   }),
@@ -201,10 +200,12 @@ export const Form: Story = {
         },
       },
       template: `
-        <form ksd-search role="search" (submit)="onSubmit($event)">
-          <input ksd-search-input role="searchbox" name="search" />
-          <button ksd-search-clear (clearInput)="onClear()"></button>
-          <button ksd-search-button></button>
+        <form role="search" (submit)="onSubmit($event)">
+          <ksd-search>
+            <input ksd-search-input role="searchbox" name="search" />
+            <button ksd-search-clear (clearInput)="onClear()"></button>
+            <button ksd-search-button></button>
+          </ksd-search>
         </form>
 
         <p>Submitted value: "{{ state.value }}"</p>

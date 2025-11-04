@@ -3,7 +3,7 @@ import { Directive } from '@angular/core'
 /**
  * Search input
  *
- * Used within SearchComponent to provide a search input.
+ * Used within Search to provide a search input.
  */
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

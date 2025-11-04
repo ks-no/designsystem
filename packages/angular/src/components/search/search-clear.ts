@@ -4,7 +4,7 @@ import { Button } from '../button'
 /**
  * Search clear button
  *
- * Used within SearchComponent to provide a clear button.
+ * Used within Search to provide a clear button.
  *
  * @param {string} [aria-label] - Aria label for the button
  * @param {EventEmitter<void>} [clearInput] - Emitted when the clear button is clicked

@@ -9,9 +9,9 @@ import { SearchInput } from './search-input'
 test('should render minimal search component', async () => {
   await render(
     `
-      <div ksd-search>
+      <ksd-search>
         <input ksd-search-input role="searchbox" />
-      </div>
+      </ksd-search>
     `,
     { imports: [SearchInput, Search, Input] },
   )
@@ -24,11 +24,11 @@ test('should render minimal search component', async () => {
 test('should clear the input when the clear button is clicked', async () => {
   await render(
     `
-      <div ksd-search>
+      <ksd-search>
         <input ksd-search-input role="searchbox" />
         <button ksd-search-clear role="button"></button>
         <button ksd-search-button></button>
-      </div>
+      </ksd-search>
     `,
     {
       imports: [SearchInput, SearchClear, SearchButton, Search],

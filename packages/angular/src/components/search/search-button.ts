@@ -4,7 +4,7 @@ import { Button } from '../button'
 /**
  * Search button
  *
- * Used within SearchComponent to provide a submit button.
+ * Used within Search to provide a submit button.
  *
  * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use
  * @param {string} [aria-label] - Aria label for the button
