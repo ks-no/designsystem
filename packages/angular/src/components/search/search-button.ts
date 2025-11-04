@@ -1,5 +1,4 @@
-import { Directive, ElementRef, inject, input } from '@angular/core'
-import { Button } from '../button'
+import { Directive, input } from '@angular/core'
 
 /**
  * Search button
@@ -22,8 +21,6 @@ import { Button } from '../button'
   },
 })
 export class SearchButton {
-  private readonly button = inject(ElementRef<Button>)
-
   /**
    * Specify which button variant to use
    *

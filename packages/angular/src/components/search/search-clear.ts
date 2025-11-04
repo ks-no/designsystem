@@ -1,5 +1,4 @@
-import { Directive, ElementRef, inject, input, output } from '@angular/core'
-import { Button } from '../button'
+import { Directive, input, output } from '@angular/core'
 
 /**
  * Search clear button
@@ -22,8 +21,6 @@ import { Button } from '../button'
   },
 })
 export class SearchClear {
-  private readonly button = inject(ElementRef<Button>)
-
   /**
    * Aria label for the button
    * @default 'Tøm'
