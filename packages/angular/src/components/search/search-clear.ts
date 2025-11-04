@@ -5,8 +5,11 @@ import { Directive, input, output } from '@angular/core'
  *
  * Used within Search to provide a clear button.
  *
- * @param {string} [aria-label] - Aria label for the button
- * @param {EventEmitter<void>} [clearInput] - Emitted when the clear button is clicked
+ * @param {string} [aria-label] - Aria label for the button.
+ *
+ * @event clearInput - Emitted when the clear button is clicked.
+ * Use this to notify controlled forms that the input should be cleared.
+ *
  */
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
