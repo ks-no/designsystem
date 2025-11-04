@@ -17,7 +17,7 @@ import { Directive, input } from '@angular/core'
     class: 'ds-button',
     type: 'submit',
     '[attr.aria-label]': 'this.ariaLabel()',
-    '[attr.variant]': 'this.variant()',
+    '[attr.data-variant]': 'this.variant()',
   },
 })
 export class SearchButton {
@@ -25,7 +25,6 @@ export class SearchButton {
    * Specify which button variant to use
    *
    * @default 'primary'
-   *
    */
   readonly variant = input<'primary' | 'secondary'>('primary')
 
