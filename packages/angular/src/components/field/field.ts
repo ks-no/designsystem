@@ -9,7 +9,6 @@ import {
   inject,
   input,
 } from '@angular/core'
-import { logIfDevMode } from '../../utils/log-if-devmode'
 import { CommonInputs } from '../common-inputs'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
@@ -61,14 +60,6 @@ export class Field {
 
   constructor() {
     afterNextRender(() => {
-      if (!this.label() || !this.input()) {
-        logIfDevMode({
-          component: 'Field',
-          message:
-            'Missing required elements: ksd-label and ksd-input must be provided as children. Check imports and markup.',
-        })
-      }
-
       fieldObserver(this.el.nativeElement)
     })
 
