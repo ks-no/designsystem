@@ -1,3 +1,13 @@
+## 0.0.1-alpha.23
+
+### 🚀 Features
+
+- **angular:** added search component ([#111](https://github.com/ks-no/designsystem/pull/111))
+
+### ❤️ Thank You
+
+- Roar Helland
+
 ## 0.0.1-alpha.22
 
 This was a version bump only, there were no code changes.
