@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, input } from '@angular/core'
+import { SeverityColors } from '../colors'
 import { CommonInputs } from '../common-inputs'
 
 @Component({
@@ -29,8 +30,11 @@ import { CommonInputs } from '../common-inputs'
   hostDirectives: [
     {
       directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      inputs: ['data-size'],
     },
   ],
 })
-export class Alert {}
+export class Alert {
+  /* eslint-disable-next-line @angular-eslint/no-input-rename */
+  dataColor = input<SeverityColors>(undefined, { alias: 'data-color' })
+}

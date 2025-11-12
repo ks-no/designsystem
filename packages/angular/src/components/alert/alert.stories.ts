@@ -6,12 +6,35 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { CommonArgs } from '../../../.storybook/default-args'
+import { SeverityColors } from '../colors'
 import { Paragraph } from '../paragraph/paragraph'
 import { Alert } from './alert'
 
-const meta: Meta<Alert> = {
+const SEVERITY_COLORS: SeverityColors[] = [
+  'info',
+  'success',
+  'warning',
+  'danger',
+]
+
+type AlertArgs = CommonArgs & {
+  variant: 'default' | 'tinted'
+}
+
+const meta: Meta<AlertArgs> = {
   component: Alert,
   title: 'Komponenter/Alert',
+  argTypes: {
+    'data-size': {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+    'data-color': {
+      options: SEVERITY_COLORS,
+      control: { type: 'radio' },
+    },
+  },
   decorators: [
     moduleMetadata({
       imports: [Alert, Paragraph],
@@ -24,10 +47,9 @@ const meta: Meta<Alert> = {
   ],
 }
 export default meta
-type Story = StoryObj<Alert>
+type Story = StoryObj<AlertArgs>
 
 export const Preview: Story = {
-  args: {},
   render: (args) => ({
     props: args,
     template: `
