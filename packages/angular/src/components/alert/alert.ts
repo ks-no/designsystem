@@ -2,6 +2,9 @@ import { Component, input } from '@angular/core'
 import { SeverityColors } from '../colors'
 import { CommonInputs } from '../common-inputs'
 
+/**
+ * Alerts are used to inform users about important information, warnings, errors, or success.
+ */
 @Component({
   selector: 'ksd-alert',
   template: ` <ng-content />`,
@@ -35,6 +38,9 @@ import { CommonInputs } from '../common-inputs'
   ],
 })
 export class Alert {
+  /**
+   * The color variant of the alert.
+   */
   /* eslint-disable-next-line @angular-eslint/no-input-rename */
   dataColor = input<SeverityColors>(undefined, { alias: 'data-color' })
 }
