@@ -10,7 +10,14 @@ updates:
       angular:
         patterns:
           - '@angular/*'
+      angular-eslint:
+        patterns:
+          - 'angular-eslint'
+          - '@angular-eslint/*'
       designsystemet:
         patterns:
           - '@digdir/designsystemet*'
+      nx:
+        patterns:
+          - '@nx/*'
     open-pull-requests-limit: 5
