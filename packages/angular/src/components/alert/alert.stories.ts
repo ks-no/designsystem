@@ -1,14 +1,13 @@
-import { NgIcon, provideIcons } from '@ng-icons/core'
+import { provideIcons } from '@ng-icons/core'
 import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import {
-  argsToTemplate,
   componentWrapperDecorator,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { Alert } from './alert'
 import { Paragraph } from '../paragraph/paragraph'
+import { Alert } from './alert'
 
 const meta: Meta<Alert> = {
   component: Alert,
@@ -77,7 +76,6 @@ export const VariantWarning: Story = {
   }),
 }
 
-
 export const VariantDanger: Story = {
   args: {},
   render: (args) => ({
@@ -116,4 +114,3 @@ export const VariantSuccess: Story = {
     `,
   }),
 }
-
