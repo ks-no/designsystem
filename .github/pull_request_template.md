@@ -9,6 +9,7 @@
 
 ## Checklist
 
+- [ ] 📦 I have updated the public API (for example, if a new component was added)
 - [ ] 🧪 Tests - I have added or updated tests that cover my changes (if applicable)
 - [ ] 📝 Documentation - I have updated relevant documentation, README, or comments (if applicable)
 - [ ] 🔗 I have linked all related issues or discussions
