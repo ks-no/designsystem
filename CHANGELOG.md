@@ -1,3 +1,13 @@
+## 0.0.1-alpha.24
+
+### 🚀 Features
+
+- **angular/alert:** alert component ([#114](https://github.com/ks-no/designsystem/pull/114))
+
+### ❤️ Thank You
+
+- Håkon Herrevold @584973
+
 ## 0.0.1-alpha.23
 
 ### 🚀 Features
