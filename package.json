@@ -26,7 +26,7 @@
     "@nx/storybook": "21.2.0",
     "@nx/vite": "21.2.0",
     "@nx/web": "21.2.0",
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "^1.56.1",
     "@schematics/angular": "20.0.2",
     "@storybook/addon-docs": "^9.1.1",
     "@storybook/angular": "9.0.12",
