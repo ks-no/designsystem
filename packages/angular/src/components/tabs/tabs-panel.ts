@@ -25,21 +25,22 @@ import { Tabs } from './tabs'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsPanel implements AfterContentInit {
-  readonly elementRef = inject(ElementRef)
+  private elementRef = inject(ElementRef)
+  private group = inject(Tabs)
 
-  group = inject(Tabs)
-  id = input<string>()
-  value = input.required<string>()
-  isSelected = computed(() => this.group.value() === this.value())
-  labelledBy = computed(() =>
+  readonly id = input<string>()
+  readonly value = input.required<string>()
+  readonly labelledBy = computed(() =>
     this.group
       .tabs()
       .find((tab) => tab.value() === this.value())
       ?.buttonId(),
   )
   readonly panelId = computed(() => this.id() ?? 'tabpanel-' + randomId())
-  hasTabbableElement = signal(false)
-  tabIndex = computed(() => (this.hasTabbableElement() ? -1 : 0))
+
+  protected isSelected = computed(() => this.group.value() === this.value())
+  protected hasTabbableElement = signal(false)
+  protected tabIndex = computed(() => (this.hasTabbableElement() ? -1 : 0))
 
   constructor() {
     effect(() => {
@@ -52,9 +53,9 @@ export class TabsPanel implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this.hasTabbableElement.set(
-      document.querySelectorAll(
-        `#${this.panelId()} > button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])`,
-      ).length > 0,
+      this.elementRef.nativeElement.querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ),
     )
   }
 }
