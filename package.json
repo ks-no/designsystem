@@ -29,7 +29,7 @@
     "@playwright/test": "^1.56.1",
     "@schematics/angular": "20.0.2",
     "@storybook/addon-docs": "^9.1.16",
-    "@storybook/angular": "^9.0.12",
+    "@storybook/angular": "^9.1.16",
     "@swc-node/register": "~1.9.2",
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.29",
