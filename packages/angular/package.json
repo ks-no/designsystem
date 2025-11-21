@@ -26,7 +26,7 @@
     "@angular/core": ">=20.0.0"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "^1.22.5",
+    "@analogjs/storybook-angular": "~1.17.1",
     "@analogjs/vite-plugin-angular": "~1.17.1",
     "@analogjs/vitest-angular": "~1.17.1",
     "@angular-eslint/builder": "^20.6.0",
