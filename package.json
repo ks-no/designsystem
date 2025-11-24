@@ -1,17 +1,13 @@
 {
   "name": "designsystem",
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "format": "prettier --write .",
-    "prepare": "husky",
-    "build-storybook": "pnpm nx run @ks-digital/designsystem-angular:build-storybook",
-    "chromatic": "npx chromatic --project-token=chpt_086af95d74cc9bd"
-  },
-  "author": "KS Digital",
   "license": "MIT",
-  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40",
-  "engines": {
-    "node": "22.14.0"
+  "author": "KS Digital",
+  "scripts": {
+    "build-storybook": "pnpm nx run @ks-digital/designsystem-angular:build-storybook",
+    "chromatic": "npx chromatic --project-token=chpt_086af95d74cc9bd",
+    "format": "prettier --write .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@analogjs/storybook-angular": "~2.1.0",
@@ -68,5 +64,9 @@
     "vite": "7.2.4",
     "vite-plugin-dts": "~4.5.4",
     "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40",
+  "engines": {
+    "node": "22.14.0"
   }
 }
