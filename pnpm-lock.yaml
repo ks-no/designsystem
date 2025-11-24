@@ -176,9 +176,6 @@ importers:
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@20.19.25)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@22.1.0)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
-      yargs:
-        specifier: ^18.0.0
-        version: 18.0.0
 
   apps/angular-demo:
     dependencies:
@@ -252,7 +249,7 @@ importers:
         version: 19.0.0
       '@vitejs/plugin-react-swc':
         specifier: ^3.9.0
-        version: 3.10.2(@swc/helpers@0.5.17)(vite@6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
+        version: 3.10.2(@swc/helpers@0.5.17)(vite@7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
 
   packages/angular:
     dependencies:
@@ -353,7 +350,7 @@ importers:
         version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@vitejs/plugin-react-swc':
         specifier: ^3.11.0
-        version: 3.11.0(@swc/helpers@0.5.17)(vite@6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
+        version: 3.11.0(@swc/helpers@0.5.17)(vite@7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
       eslint-plugin-jsx-a11y:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.39.1(jiti@2.6.1))
@@ -14867,19 +14864,19 @@ snapshots:
     dependencies:
       vite: 7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.90.0)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
 
-  '@vitejs/plugin-react-swc@3.10.2(@swc/helpers@0.5.17)(vite@6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))':
+  '@vitejs/plugin-react-swc@3.10.2(@swc/helpers@0.5.17)(vite@7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.11
       '@swc/core': 1.12.6(@swc/helpers@0.5.17)
-      vite: 6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react-swc@3.11.0(@swc/helpers@0.5.17)(vite@6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))':
+  '@vitejs/plugin-react-swc@3.11.0(@swc/helpers@0.5.17)(vite@7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@swc/core': 1.15.2(@swc/helpers@0.5.17)
-      vite: 6.4.0(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -21134,6 +21131,7 @@ snapshots:
       terser: 5.44.1
       tsx: 4.20.6
       yaml: 2.8.1
+    optional: true
 
   vite@7.1.11(@types/node@20.19.25)(jiti@2.4.2)(less@4.4.0)(sass-embedded@1.93.3)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1):
     dependencies:
@@ -21230,6 +21228,26 @@ snapshots:
       jiti: 2.6.1
       less: 4.4.2
       sass: 1.90.0
+      sass-embedded: 1.93.3
+      stylus: 0.64.0
+      terser: 5.44.1
+      tsx: 4.20.6
+      yaml: 2.8.1
+
+  vite@7.1.11(@types/node@24.10.1)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1):
+    dependencies:
+      esbuild: 0.25.12
+      fdir: 6.5.0(picomatch@4.0.3)
+      picomatch: 4.0.3
+      postcss: 8.5.6
+      rollup: 4.53.3
+      tinyglobby: 0.2.15
+    optionalDependencies:
+      '@types/node': 24.10.1
+      fsevents: 2.3.3
+      jiti: 2.6.1
+      less: 4.4.2
+      sass: 1.94.1
       sass-embedded: 1.93.3
       stylus: 0.64.0
       terser: 5.44.1
