@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta } from '@storybook/angular'
-import { expect } from 'storybook/internal/test'
+import { expect } from '@storybook/test'
 import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Button } from '../button'
 import { Field } from '../field/field'

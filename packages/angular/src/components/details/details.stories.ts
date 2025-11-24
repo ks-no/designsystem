@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular'
-import { expect, userEvent, within } from 'storybook/internal/test'
+import { expect, userEvent, within } from '@storybook/test'
 import { Card } from '../card/card'
 import { ControlledDetails } from './controlled-details'
 import { Details } from './details'

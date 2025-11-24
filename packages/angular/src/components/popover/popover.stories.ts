@@ -4,7 +4,7 @@ import {
   argsToTemplate,
   moduleMetadata,
 } from '@storybook/angular'
-import { expect, userEvent, within } from 'storybook/internal/test'
+import { expect, userEvent, within } from '@storybook/test'
 import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Button } from '../button/button'
 import { ControlledPopover } from './controlled-popover'
