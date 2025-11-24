@@ -26,22 +26,22 @@
     "@angular/core": ">=20.0.0"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "~1.17.1",
-    "@analogjs/vite-plugin-angular": "~1.17.1",
-    "@analogjs/vitest-angular": "~1.17.1",
+    "@analogjs/storybook-angular": "~2.0.5",
+    "@analogjs/vite-plugin-angular": "~2.0.5",
+    "@analogjs/vitest-angular": "~2.0.5",
     "@angular-eslint/builder": "^20.6.0",
     "@angular-eslint/bundled-angular-compiler": "^20.6.0",
     "@angular-eslint/eslint-plugin": "^20.6.0",
     "@angular-eslint/eslint-plugin-template": "^20.6.0",
     "@angular-eslint/schematics": "^20.6.0",
     "@angular-eslint/template-parser": "^20.6.0",
-    "@ng-icons/core": "^32.4.0",
-    "@ng-icons/phosphor-icons": "^32.4.0",
+    "@ng-icons/core": "^32.5.0",
+    "@ng-icons/phosphor-icons": "^32.5.0",
     "@testing-library/angular": "^17.4.0",
     "@testing-library/jest-dom": "^6.9.1",
     "angular-eslint": "^20.6.0",
     "jsdom": "~22.1.0",
-    "ng-packagr": "^20.3.2"
+    "ng-packagr": "^20.0.7"
   },
   "scripts": {
     "build": "ng-packagr -p ng-package.json"

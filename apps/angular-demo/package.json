@@ -5,19 +5,19 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@angular/animations": "^20.0.3",
-    "@angular/common": "^20.0.3",
-    "@angular/core": "^20.0.3",
-    "@angular/platform-browser": "^20.0.3",
-    "@angular/platform-server": "^20.0.3",
+    "@angular/animations": "~20.0.3",
+    "@angular/common": "~20.0.3",
+    "@angular/core": "~20.0.3",
+    "@angular/platform-browser": "~20.0.3",
+    "@angular/platform-server": "~20.0.3",
     "@ks-digital/designsystem-angular": "workspace:*",
     "@ks-digital/designsystem-themes": "workspace:*"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "~1.17.1",
-    "@analogjs/vitest-angular": "~1.17.1",
-    "@angular-devkit/build-angular": "^20.0.2",
-    "@angular/build": "^20.0.2",
+    "@analogjs/vite-plugin-angular": "~2.0.5",
+    "@analogjs/vitest-angular": "~2.0.5",
+    "@angular-devkit/build-angular": "~20.0.3",
+    "@angular/build": "^20.0.3",
     "@angular/compiler": "^20.0.3",
     "@angular/compiler-cli": "^20.0.3",
     "@testing-library/angular": "^17.4.0",
