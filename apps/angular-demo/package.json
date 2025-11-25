@@ -19,6 +19,6 @@
     "@angular/compiler-cli": "20.3.9",
     "@testing-library/angular": "^17.4.0",
     "angular-eslint": "^20.6.0",
-    "zone.js": "^0.16.0"
+    "zone.js": "~0.15.0"
   }
 }
