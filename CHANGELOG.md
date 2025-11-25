@@ -1,3 +1,13 @@
+## 0.0.1-alpha.27
+
+### 🩹 Fixes
+
+- specifying just inputs in targetDefaults caused release error ([7e017c7](https://github.com/ks-no/designsystem/commit/7e017c7))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.26
 
 ### 🩹 Fixes
