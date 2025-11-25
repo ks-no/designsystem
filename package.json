@@ -34,7 +34,7 @@
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.29",
     "@swc/helpers": "~0.5.17",
-    "@testing-library/dom": "10.4.0",
+    "@testing-library/dom": "10.4.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20.19.25",
     "@typescript-eslint/utils": "^8.47.0",
