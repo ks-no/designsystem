@@ -75,6 +75,12 @@
           "buildTarget": "@ks-digital/designsystem-angular:build-storybook:ci"
         }
       }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}",
+        "verbose": true
+      }
     }
   }
 }

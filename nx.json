@@ -72,11 +72,7 @@
   ],
   "targetDefaults": {
     "nx-release-publish": {
-      "inputs": ["production", "^production"],
-      "options": {
-        "packageRoot": "dist/{projectRoot}",
-        "verbose": true
-      }
+      "inputs": ["production", "^production"]
     },
     "build": {
       "dependsOn": ["^build"],
