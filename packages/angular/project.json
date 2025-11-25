@@ -11,7 +11,6 @@
       "dependsOn": ["@ks-digital/designsystem-themes:build"],
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "tsConfig": "packages/angular/tsconfig.lib.prod.json",
         "project": "packages/angular/ng-package.json"
       },
       "configurations": {
@@ -75,6 +74,12 @@
         "ci": {
           "buildTarget": "@ks-digital/designsystem-angular:build-storybook:ci"
         }
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}",
+        "verbose": true
       }
     }
   }
