@@ -55,9 +55,6 @@ export const Preview: Story = {
         </ksd-field>
     `,
   }),
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getByRole('switch')).toBeTruthy()
-  // },
 }
 
 export const Grouped: Story = {

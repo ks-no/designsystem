@@ -45,9 +45,6 @@ export const Preview: Story = {
         </ksd-field>
     `,
   }),
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getByRole('textbox')).toBeTruthy()
-  // },
 }
 
 export const Rows: Story = {

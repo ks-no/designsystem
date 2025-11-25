@@ -56,9 +56,6 @@ export const Preview: Story = {
         </ksd-field>
     `,
   }),
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getByRole('radio')).toBeTruthy()
-  // },
 }
 
 export const AriaLabel: Story = {

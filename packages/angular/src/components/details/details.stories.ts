@@ -45,30 +45,6 @@ export const Preview: Story = {
       </ksd-details>
     `,
   }),
-  // play: async ({ canvasElement, context, step }) => {
-  //   const canvas = within(canvasElement)
-  //   const summaryText = context.parameters['summaryText']
-  //   const contentText = context.parameters['contentText']
-  //   const user = userEvent.setup()
-
-  //   await step(
-  //     'Detaljer skal vise innholdet når brukeren klikker på sammendraget',
-  //     async () => {
-  //       await user.click(canvas.getByText(summaryText))
-  //       await expect(canvas.queryByText(summaryText)).toBeVisible()
-  //       await expect(canvas.queryByText(contentText)).toBeVisible()
-  //     },
-  //   )
-
-  //   await step(
-  //     'Detaljer skal ikke lukke seg når brukeren klikker på innholdet',
-  //     async () => {
-  //       await user.click(canvas.getByText(contentText))
-  //       await expect(canvas.queryByText(summaryText)).toBeVisible()
-  //       await expect(canvas.queryByText(contentText)).toBeVisible()
-  //     },
-  //   )
-  // },
 }
 
 export const WithoutCard: Story = {

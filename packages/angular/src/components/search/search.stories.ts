@@ -74,9 +74,6 @@ export const Preview: Story = {
       </ksd-search>
     `,
   }),
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getByRole('search')).toBeTruthy()
-  // },
 }
 
 export const Controlled: Story = {
@@ -120,12 +117,6 @@ export const Controlled: Story = {
       `,
     }
   },
-  // play: async ({ canvas }) => {
-  //   const searchInput = (await canvas.getByRole(
-  //     'searchbox',
-  //   )) as HTMLInputElement
-  //   await expect(searchInput.value).toBe('')
-  // },
 }
 
 export const Variants: Story = {
@@ -160,9 +151,6 @@ export const Variants: Story = {
       </div>
     `,
   }),
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getAllByRole('searchbox').length).toBe(3)
-  // },
 }
 
 export const WithLabel: Story = {
