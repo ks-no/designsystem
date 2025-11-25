@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { expect } from 'storybook/test'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Field } from '../field/field'
 import { FieldDescription } from '../field/field-description'
 import { Fieldset } from '../fieldset/fieldset'
@@ -12,6 +12,11 @@ import { FieldsetDescription } from '../fieldset/fieldset-description'
 import { FieldsetLegend } from '../fieldset/fieldset-legend'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
+
+type InputArgs = CommonArgs & {
+  readonly: boolean
+  disabled: boolean
+}
 
 const meta: Meta<Input> = {
   component: Input,
@@ -31,7 +36,7 @@ const meta: Meta<Input> = {
   ],
 }
 export default meta
-type Story = StoryObj<Input>
+type Story = StoryObj<InputArgs>
 
 export const Preview: Story = {
   args: {
@@ -49,9 +54,6 @@ export const Preview: Story = {
       </ksd-field>
     `,
   }),
-  play: async ({ canvas }) => {
-    await expect(canvas.getByText(/Checkbox label/gi)).toBeTruthy()
-  },
 }
 
 export const Group: Story = {

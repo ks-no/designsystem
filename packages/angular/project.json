@@ -6,6 +6,23 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "dependsOn": ["@ks-digital/designsystem-themes:build"],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/angular/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/angular/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/angular/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "lint": {
       "executor": "@nx/eslint:lint"
     },
