@@ -50,12 +50,14 @@ export class Tabs {
   onKeyDown(event: KeyboardEvent) {
     switch (event.code) {
       case 'ArrowLeft':
+      case 'ArrowUp':
         this.focusTab(
           (this.focusedIndex() + this.tabs().length - 1) % this.tabs().length,
         )
         event.preventDefault()
         break
       case 'ArrowRight':
+      case 'ArrowDown':
         this.focusTab((this.focusedIndex() + 1) % this.tabs().length)
         event.preventDefault()
         break

@@ -102,6 +102,10 @@ describe('Tabs', () => {
     expect(tab2).toHaveFocus()
     await user.keyboard('{ArrowLeft}')
     expect(tab1).toHaveFocus()
+    await user.keyboard('{ArrowUp}')
+    expect(tab2).toHaveFocus()
+    await user.keyboard('{ArrowDown}')
+    expect(tab1).toHaveFocus()
   })
 
   it('has tabindex 0 on tabpanel', async () => {
