@@ -1,10 +1,11 @@
 # 🚧 KS Digital Designsystem for Angular
 
-> This is an experimental POC as for now
+> [!WARNING]
+> This library is currently experimental. However, we actively use and test it in internal applications, and we strive to keep it stable at all times.
 
 This library provides Angular components for KS Digital, designed to align closely with the components from [Designsystemet.no](https://www.designsystemet.no/komponenter).
 
-## Installation (WIP)
+## Installation
 
 Install the required packages using your preferred package manager:
 
