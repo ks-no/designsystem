@@ -71,9 +71,6 @@
     }
   ],
   "targetDefaults": {
-    "nx-release-publish": {
-      "inputs": ["production", "^production"]
-    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist"],
