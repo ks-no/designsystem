@@ -318,8 +318,8 @@ importers:
   packages/react:
     dependencies:
       '@digdir/designsystemet-react':
-        specifier: 1.5.1
-        version: 1.5.1(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 1.7.3
+        version: 1.7.3(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@navikt/aksel-icons':
         specifier: ^7.33.4
         version: 7.33.4
@@ -349,8 +349,8 @@ importers:
   packages/themes:
     dependencies:
       '@digdir/designsystemet-css':
-        specifier: 1.5.1
-        version: 1.5.1
+        specifier: 1.7.3
+        version: 1.7.3
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -1386,11 +1386,11 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
-  '@digdir/designsystemet-css@1.5.1':
-    resolution: {integrity: sha512-o7QltH+fXjNvgJ9Z3d+dMnaSbTBf+aMsECqtO9uLhQVyA/p8t3rWKZsOFl33vgqpvtWuI9NfEQv75DavTc2RWA==}
+  '@digdir/designsystemet-css@1.7.3':
+    resolution: {integrity: sha512-JN6SLik9eS5G+AF7dfTngOajI+4q1hXJLlphxNQKjGwomYrga1s30nHlE71F+DEH6oNdY4rcatcjs2CfFg4Gvg==}
 
-  '@digdir/designsystemet-react@1.5.1':
-    resolution: {integrity: sha512-tGTpfESIFWkhY7WIHgpNEhbU6fZb4SDHEGec+ccQcEj3UXfXT0YS+SRwSBrk3TRrO8eigUkhhHK3qbd0Jabekg==}
+  '@digdir/designsystemet-react@1.7.3':
+    resolution: {integrity: sha512-eNEilZoc3mbv556HbdN2N3YjQzG2sazSaXPCAsJMhFOozQnQBF1fz9L5ZP2FfPG7GlcL1S4or9Ce/DhQf0Mkiw==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
@@ -12079,9 +12079,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@digdir/designsystemet-css@1.5.1': {}
+  '@digdir/designsystemet-css@1.7.3': {}
 
-  '@digdir/designsystemet-react@1.5.1(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@digdir/designsystemet-react@1.7.3(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@floating-ui/dom': 1.7.4
       '@floating-ui/react': 0.26.23(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
