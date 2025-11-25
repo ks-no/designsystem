@@ -1,3 +1,13 @@
+## 0.0.1-alpha.26
+
+### 🩹 Fixes
+
+- **angular:** correct release path ([#142](https://github.com/ks-no/designsystem/pull/142))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.25
 
 ### 🚀 Features
