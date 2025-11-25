@@ -1,3 +1,13 @@
+## 0.0.1-alpha.25
+
+### 🚀 Features
+
+- update `@digdir/designsystemet-*` to 1.7.3 ([#140](https://github.com/ks-no/designsystem/issues/140))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.24
 
 ### 🚀 Features
