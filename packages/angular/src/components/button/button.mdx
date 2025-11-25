@@ -1,0 +1,40 @@
+import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks'
+
+import * as ButtonStories from './button.stories'
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Knappar lèt brukarane utføre handlingar.
+
+<Primary />
+<Controls />
+
+## Ikoner
+
+- [Unngå å bruke ikonfonter](https://www.irigoyen.dev/blog/2021/02/17/stop-using-icon-fonts/).
+- For Angular kan du bruke [Ng Icons](https://ng-icons.github.io/ng-icons), et bibliotek som inneholder ikoner fra Phosphor Icons og Material Icons – de to ikonsettene vi offisielt støtter i våre løsninger.
+
+### Egne ikoner
+
+Du kan også bruke SVG-markup direkte, f.eks. hvis du har egne ikoner.
+
+```tsx
+<button ksd-button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M3 11.5L12 4l9 7.5" />
+    <path d="M5 10.5v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9.5" />
+    <path d="M10 21v-5a2 2 0 0 1 4 0v5" />
+  </svg>
+  Eget SVG-ikon
+</button>
+```
