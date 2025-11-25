@@ -4,12 +4,17 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Field } from '../field/field'
 import { Input } from '../input/input'
-
 import { Label } from '../label/label'
 
-const meta: Meta<Input> = {
+type TextareaArgs = CommonArgs & {
+  readonly: boolean
+  disabled: boolean
+}
+
+const meta: Meta<TextareaArgs> = {
   component: Input,
   title: 'Komponenter/Textarea',
   decorators: [
@@ -19,7 +24,7 @@ const meta: Meta<Input> = {
   ],
 }
 export default meta
-type Story = StoryObj<Input>
+type Story = StoryObj<TextareaArgs>
 
 export const Preview: Story = {
   args: {

@@ -7,9 +7,15 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Button } from './button'
 
-const meta: Meta<Button> = {
+type ButtonArgs = CommonArgs & {
+  loading: boolean
+  disabled: boolean
+}
+
+const meta: Meta<ButtonArgs> = {
   component: Button,
   title: 'Komponenter/Button',
   decorators: [
@@ -24,7 +30,7 @@ const meta: Meta<Button> = {
   ],
 }
 export default meta
-type Story = StoryObj<Button>
+type Story = StoryObj<ButtonArgs>
 
 export const Preview: Story = {
   args: {

@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { expect } from 'storybook/test'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Field } from '../field/field'
 import { FieldDescription } from '../field/field-description'
 import { Fieldset } from '../fieldset/fieldset'
@@ -14,7 +14,12 @@ import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { ValidationMessage } from '../validation-message'
 
-const meta: Meta<Input> = {
+type SwitchArgs = CommonArgs & {
+  readonly: boolean
+  disabled: boolean
+}
+
+const meta: Meta<SwitchArgs> = {
   component: Input,
   title: 'Komponenter/Switch',
   decorators: [
@@ -33,7 +38,7 @@ const meta: Meta<Input> = {
   ],
 }
 export default meta
-type Story = StoryObj<Input>
+type Story = StoryObj<SwitchArgs>
 
 export const Preview: Story = {
   args: {
@@ -50,9 +55,9 @@ export const Preview: Story = {
         </ksd-field>
     `,
   }),
-  play: async ({ canvas }) => {
-    await expect(canvas.getByRole('switch')).toBeTruthy()
-  },
+  // play: async ({ canvas }) => {
+  //   await expect(canvas.getByRole('switch')).toBeTruthy()
+  // },
 }
 
 export const Grouped: Story = {

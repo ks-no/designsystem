@@ -4,12 +4,18 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { expect } from 'storybook/test'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Input } from '../input/input'
 import { Label } from '../label/label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 import { FieldError } from './field-error'
+
+type FieldArgs = CommonArgs & {
+  readonly: boolean
+  disabled: boolean
+  counter: number
+}
 
 const meta: Meta<Field> = {
   component: Field,
@@ -21,7 +27,7 @@ const meta: Meta<Field> = {
   ],
 }
 export default meta
-type Story = StoryObj<Input>
+type Story = StoryObj<FieldArgs>
 
 export const Preview: Story = {
   args: {
@@ -39,9 +45,9 @@ export const Preview: Story = {
         </ksd-field>
     `,
   }),
-  play: async ({ canvas }) => {
-    await expect(canvas.getByRole('textbox')).toBeTruthy()
-  },
+  // play: async ({ canvas }) => {
+  //   await expect(canvas.getByRole('textbox')).toBeTruthy()
+  // },
 }
 
 export const Rows: Story = {

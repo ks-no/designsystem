@@ -4,10 +4,12 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { StorybookArgsWithCommonInputs } from '../../../.storybook/default-args'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Spinner } from './spinner'
 
-const meta: Meta<Spinner> = {
+type SpinnerArgs = CommonArgs
+
+const meta: Meta<SpinnerArgs> = {
   component: Spinner,
   title: 'Komponenter/Loaders/Spinner',
   decorators: [
@@ -17,14 +19,13 @@ const meta: Meta<Spinner> = {
   ],
 }
 export default meta
-type Story = StoryObj<Spinner>
+type Story = StoryObj<SpinnerArgs>
 
 export const Preview: Story = {
   args: {
-    ariaLabel: undefined,
     'data-size': 'md',
     'data-color': undefined,
-  } as StorybookArgsWithCommonInputs<Spinner>,
+  },
 
   render: (args) => ({
     props: args,
@@ -38,7 +39,7 @@ export const Sizes: Story = {
   args: {
     ...Preview.args,
     'data-size': undefined,
-  } as StorybookArgsWithCommonInputs<Spinner>,
+  },
   render: (args) => ({
     props: args,
     template: `
