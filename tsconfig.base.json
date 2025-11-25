@@ -16,6 +16,36 @@
     "baseUrl": ".",
     "paths": {
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
+      "@ks-digital/designsystem-angular/utils": [
+        "packages/angular/utils/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/alert": ["packages/angular/alert"],
+      "@ks-digital/designsystem-angular/button": ["packages/angular/button"],
+      "@ks-digital/designsystem-angular/card": ["packages/angular/card"],
+      "@ks-digital/designsystem-angular/checkbox": [
+        "packages/angular/checkbox"
+      ],
+      "@ks-digital/designsystem-angular/details": ["packages/angular/details"],
+      "@ks-digital/designsystem-angular/field": ["packages/angular/field"],
+      "@ks-digital/designsystem-angular/fieldset": [
+        "packages/angular/fieldset"
+      ],
+      "@ks-digital/designsystem-angular/input": ["packages/angular/input"],
+      "@ks-digital/designsystem-angular/label": ["packages/angular/label"],
+      "@ks-digital/designsystem-angular/paragraph": [
+        "packages/angular/paragraph"
+      ],
+      "@ks-digital/designsystem-angular/popover": ["packages/angular/popover"],
+      "@ks-digital/designsystem-angular/radio": ["packages/angular/radio"],
+      "@ks-digital/designsystem-angular/search": ["packages/angular/search"],
+      "@ks-digital/designsystem-angular/spinner": ["packages/angular/spinner"],
+      "@ks-digital/designsystem-angular/switch": ["packages/angular/switch"],
+      "@ks-digital/designsystem-angular/textarea": [
+        "packages/angular/textarea"
+      ],
+      "@ks-digital/designsystem-angular/validation-message": [
+        "packages/angular/validation-message"
+      ],
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
       "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"]
     }
