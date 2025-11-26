@@ -7,7 +7,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs } from '../../.storybook/default-args'
 import { Button } from './button'
 
 type ButtonArgs = CommonArgs & {

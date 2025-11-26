@@ -1,9 +1,12 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 
 import { Component, input, signal } from '@angular/core'
-import { Button } from '../button'
-import { Color, SeverityColors } from '../colors'
-import { Size } from '../common-inputs'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import {
+  Color,
+  SeverityColors,
+  Size,
+} from '@ks-digital/designsystem-angular/utils'
 import { Popover } from './popover'
 
 /* Demo component to be used in story only */

@@ -1,5 +1,5 @@
+import { Card } from '@ks-digital/designsystem-angular/card'
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular'
-import { Card } from '../card/card'
 import { ControlledDetails } from './controlled-details'
 import { Details } from './details'
 import { DetailsContent } from './details-content'

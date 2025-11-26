@@ -19,6 +19,9 @@ const renderPopover = async () => {
 const contentText = 'her er det noe innhold'
 
 describe('Popover', () => {
+  beforeAll(() => {
+    // window.getComputedStyle = () => <any>{};
+  })
   const user = userEvent.setup()
 
   it('should render popover on trigger-click when closed', async () => {

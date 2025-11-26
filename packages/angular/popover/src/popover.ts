@@ -20,8 +20,11 @@ import {
   Placement,
   shift,
 } from '@floating-ui/dom'
-import { Color, SeverityColors } from '../colors'
-import { Size } from '../common-inputs'
+import {
+  Color,
+  SeverityColors,
+  Size,
+} from '@ks-digital/designsystem-angular/utils'
 
 @Component({
   selector: 'ksd-popover',

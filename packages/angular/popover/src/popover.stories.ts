@@ -1,11 +1,11 @@
+import { Button } from '@ks-digital/designsystem-angular/button'
 import {
   Meta,
   StoryObj,
   argsToTemplate,
   moduleMetadata,
 } from '@storybook/angular'
-import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
-import { Button } from '../button/button'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 

@@ -1,18 +1,19 @@
+import { Field, FieldDescription } from '@ks-digital/designsystem-angular/field'
+import {
+  Fieldset,
+  FieldsetDescription,
+  FieldsetLegend,
+} from '@ks-digital/designsystem-angular/fieldset'
+import { Input } from '@ks-digital/designsystem-angular/input'
+import { Label } from '@ks-digital/designsystem-angular/label'
+import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import {
   argsToTemplate,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
-import { Field } from '../field/field'
-import { FieldDescription } from '../field/field-description'
-import { Fieldset } from '../fieldset/fieldset'
-import { FieldsetDescription } from '../fieldset/fieldset-description'
-import { FieldsetLegend } from '../fieldset/fieldset-legend'
-import { Input } from '../input/input'
-import { Label } from '../label/label'
-import { ValidationMessage } from '../validation-message'
+import { CommonArgs } from '../../.storybook/default-args'
 
 type RadioArgs = CommonArgs & {
   readonly: boolean
