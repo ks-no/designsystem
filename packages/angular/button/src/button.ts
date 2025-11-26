@@ -1,8 +1,6 @@
 import { booleanAttribute, Component, input } from '@angular/core'
-import {
-  CommonInputs
-} from '@ks-digital/designsystem-angular/utils'
 import { Spinner } from '@ks-digital/designsystem-angular/spinner'
+import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
 
 @Component({
   selector: 'button[ksd-button], a[ksd-button]',

@@ -17,58 +17,58 @@
     "paths": {
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
       "@ks-digital/designsystem-angular/utils": [
-        "packages/angular/utils/index.ts"
+        "packages/angular/utils/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/alert": [
-        "packages/angular/alert/index.ts"
+        "packages/angular/alert/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/button": [
-        "packages/angular/button/index.ts"
+        "packages/angular/button/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/card": [
-        "packages/angular/card/index.ts"
+        "packages/angular/card/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/checkbox": [
-        "packages/angular/checkbox/index.ts"
+        "packages/angular/checkbox/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/details": [
-        "packages/angular/details/index.ts"
+        "packages/angular/details/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/field": [
-        "packages/angular/field/index.ts"
+        "packages/angular/field/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/fieldset": [
-        "packages/angular/fieldset/index.ts"
+        "packages/angular/fieldset/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/input": [
-        "packages/angular/input/index.ts"
+        "packages/angular/input/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/label": [
-        "packages/angular/label/index.ts"
+        "packages/angular/label/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/paragraph": [
-        "packages/angular/paragraph/index.ts"
+        "packages/angular/paragraph/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/popover": [
-        "packages/angular/popover/index.ts"
+        "packages/angular/popover/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/radio": [
-        "packages/angular/radio/index.ts"
+        "packages/angular/radio/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/search": [
-        "packages/angular/search/index.ts"
+        "packages/angular/search/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/spinner": [
-        "packages/angular/spinner/index.ts"
+        "packages/angular/spinner/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/switch": [
-        "packages/angular/switch/index.ts"
+        "packages/angular/switch/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/textarea": [
-        "packages/angular/textarea/index.ts"
+        "packages/angular/textarea/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/validation-message": [
-        "packages/angular/validation-message/index.ts"
+        "packages/angular/validation-message/src/index.ts"
       ],
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
       "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"]

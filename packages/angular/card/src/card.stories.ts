@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Card } from './card'
 import { CardBlock } from './card-block'
 

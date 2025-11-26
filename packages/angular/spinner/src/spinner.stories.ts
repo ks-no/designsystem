@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs } from '../../.storybook/default-args'
 import { Spinner } from './spinner'
 
 type SpinnerArgs = CommonArgs

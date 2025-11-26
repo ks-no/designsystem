@@ -5,10 +5,10 @@ import { Alert } from './alert'
 it('should render children, heading level 1', async () => {
   await render(
     `
-      <ksd-alert color="info">
-        <h1>Alert me!</h1>
-      </ksd-alert>
-    `,
+        <ksd-alert color="info">
+          <h1>Alert me!</h1>
+        </ksd-alert>
+      `,
     { imports: [Alert] },
   )
 
@@ -20,10 +20,10 @@ it('should render children, heading level 1', async () => {
 it('style should be applied', async () => {
   await render(
     `
-      <ksd-alert data-testid="alert" color="info" [ngStyle]="{ color: '#ffcc00' }" class="my-class">
-        <h1>Alert me!</h1>
-      </ksd-alert>
-    `,
+        <ksd-alert data-testid="alert" color="info" [ngStyle]="{ color: '#ffcc00' }" class="my-class">
+          <h1>Alert me!</h1>
+        </ksd-alert>
+      `,
     { imports: [Alert, NgStyle] },
   )
 

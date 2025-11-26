@@ -1,3 +1,5 @@
+import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
+import { SeverityColors } from '@ks-digital/designsystem-angular/utils'
 import { provideIcons } from '@ng-icons/core'
 import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import {
@@ -6,9 +8,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
-import { SeverityColors } from '../colors'
-import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
+import { CommonArgs } from '../../.storybook/default-args'
 import { Alert } from './alert'
 
 const SEVERITY_COLORS: SeverityColors[] = [

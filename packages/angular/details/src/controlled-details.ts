@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core'
-import { Button } from '../button'
+import { Button } from '@ks-digital/designsystem-angular/button'
 import { Details } from './details'
 import { DetailsContent } from './details-content'
 import { DetailsSummary } from './details-summary'
