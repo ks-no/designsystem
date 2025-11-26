@@ -1,12 +1,12 @@
+import { Input } from '@ks-digital/designsystem-angular/input'
+import { Label } from '@ks-digital/designsystem-angular/label'
 import {
   argsToTemplate,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
-import { Input } from '../input/input'
-import { Label } from '../label/label'
+import { CommonArgs } from '../../.storybook/default-args'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 import { FieldError } from './field-error'
