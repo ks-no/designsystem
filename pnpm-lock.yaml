@@ -294,8 +294,8 @@ importers:
         specifier: ^32.5.0
         version: 32.5.0(@angular/common@20.3.9(@angular/core@20.3.9(@angular/compiler@20.3.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.9(@angular/compiler@20.3.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@ng-icons/phosphor-icons':
-        specifier: ^32.5.0
-        version: 32.5.0
+        specifier: ^33.0.0
+        version: 33.0.0
       '@testing-library/angular':
         specifier: ^17.4.0
         version: 17.4.0(9a733042e6280aa4f9308172814d7c6c)
@@ -2546,8 +2546,8 @@ packages:
       '@angular/core': '>=20.0.0'
       rxjs: ^6.5.3 || ^7.4.0
 
-  '@ng-icons/phosphor-icons@32.5.0':
-    resolution: {integrity: sha512-ZQeU4l6hINJzJ1nqkUsiUHbReLeHqOhR1JA05sjkgKtoRVxmqwr5tGx2tnl5+13ntomSdfv5Y74pK+n/aznaEQ==}
+  '@ng-icons/phosphor-icons@33.0.0':
+    resolution: {integrity: sha512-pI8JWpZ0qNl7z5zShtIvRYLNExWbIlML5g97NbesMsYDoBX4mhyIbOwEeaOW+KbUi55zAdht+rgx4gwAzH9OKQ==}
 
   '@ngtools/webpack@20.3.9':
     resolution: {integrity: sha512-3h5laY9+kP7Tzociy3Lg5sMfpTTKMU+XbLQAHxnIvywHLD6r/fgVkwRli8GZf5JFMTwAkul0AQPKom9SCSWJLg==}
@@ -13018,7 +13018,7 @@ snapshots:
       rxjs: 7.8.2
       tslib: 2.8.1
 
-  '@ng-icons/phosphor-icons@32.5.0':
+  '@ng-icons/phosphor-icons@33.0.0':
     dependencies:
       tslib: 2.8.1
 
