@@ -19,10 +19,31 @@ const renderPopover = async () => {
 const contentText = 'her er det noe innhold'
 
 describe('Popover', () => {
-  beforeAll(() => {
-    // window.getComputedStyle = () => <any>{};
-  })
   const user = userEvent.setup()
+
+  // Mock getComputedStyle for pseudo-elements (jsdom doesn't fully support this)
+  const originalGetComputedStyle = window.getComputedStyle
+  beforeAll(() => {
+    window.getComputedStyle = function (
+      element: Element,
+      pseudoElement?: string | null,
+    ): CSSStyleDeclaration {
+      if (pseudoElement) {
+        // Mock arrow style
+        const mockStyle = {
+          height: '8px',
+          width: '8px',
+          getPropertyValue: () => '',
+        } as Partial<CSSStyleDeclaration> as CSSStyleDeclaration
+        return mockStyle
+      }
+      return originalGetComputedStyle.call(window, element, pseudoElement)
+    }
+  })
+
+  afterAll(() => {
+    window.getComputedStyle = originalGetComputedStyle
+  })
 
   it('should render popover on trigger-click when closed', async () => {
     await renderPopover()
