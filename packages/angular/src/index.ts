@@ -1,16 +1,1 @@
-// export * from './components/alert'
-// export * from './components/button'
-// export * from './components/card'
-// export * from './components/common-inputs'
-// export * from './components/details'
-// export * from './components/field'
-// export * from './components/fieldset'
-// export * from './components/input'
-// export * from './components/label'
-// export * from './components/paragraph'
-// export * from './components/popover'
-// export * from './components/search'
-// export * from './components/spinner'
-// export * from './components/validation-message'
-
-export default void 0;
+export default void 0
