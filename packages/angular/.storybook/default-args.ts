@@ -1,5 +1,4 @@
-import { Color } from '../src/components/colors'
-import { Size } from '../src/components/common-inputs'
+import { Color, Size } from '@ks-digital/designsystem-angular/utils'
 
 export type CommonArgs = {
   'data-size'?: Size | undefined
