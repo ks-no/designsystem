@@ -6,8 +6,8 @@ import {
   FieldsetLegend,
   Input,
   Label,
-  ValidationMessage,
-} from '@ks-digital/designsystem-angular'
+} from '@ks-digital/designsystem-angular/forms'
+import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 
 @Component({
   imports: [

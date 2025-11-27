@@ -1,0 +1,40 @@
+import {
+  Meta,
+  Primary,
+  Canvas,
+  Controls,
+  Story,
+} from '@storybook/addon-docs/blocks'
+
+import * as FieldStories from './field.stories'
+
+<Meta of={FieldStories} />
+
+# Field
+
+`Field` er et hjelpemiddel for å automatisk koble sammen labels, input og feilmeldinger. Field kan brukes sammen med input, textarea og select.
+
+<Primary />
+<Controls />
+
+## Bruk
+
+```tsx
+import {
+  Field,
+  FieldError,
+  Label,
+  Input,
+} from '@ks-digital/designsystem-angular/forms'
+;<ksd-field>
+  <ksd-label>Kort beskrivelse</ksd-label>
+  <input ksd-input type="text" />
+  <ksd-error>Feilmelding</ksd-error>
+</ksd-field>
+```
+
+## Feilmeldinger
+
+Bruk `<ksd-error>` for å sette en feilmelding. Du må selv kontrollere når disse skal vises eller skjules. Det er tillatt å vise flere fielmeldinger av gangen.
+
+<Canvas of={FieldStories.Error} />
