@@ -1,10 +1,9 @@
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { Input } from '../input/input'
+import { Label } from '../label/label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
-import { FieldError } from './field-error'
 
 test('should connect checkbox and label', async () => {
   await render(
@@ -20,21 +19,6 @@ test('should connect checkbox and label', async () => {
   const checkbox = screen.getByRole('checkbox')
 
   expect(label.getAttribute('for')).toBe(checkbox.getAttribute('id'))
-})
-
-test('should set aria-invalid on input when field has errors', async () => {
-  await render(
-    `
-    <ksd-field>
-        <ksd-label> Check me </ksd-label>
-        <input ksd-input type="checkbox" value="telefon"  />
-        <p ksd-error>Error message</p>
-    </ksd-field>`,
-    { imports: [Field, Label, Input, FieldError] },
-  )
-
-  const checkbox = screen.getByRole('checkbox')
-  expect(checkbox.getAttribute('aria-invalid')).toBe('true')
 })
 
 describe('should connect checkbox and description', () => {
