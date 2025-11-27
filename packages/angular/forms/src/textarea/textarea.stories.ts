@@ -1,10 +1,10 @@
-import { CommonArgs } from '@ks-digital/designsystem-angular/utils'
 import {
   argsToTemplate,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { CommonArgs } from '../../../.storybook/default-args'
 import { Field } from '../field'
 import { Input } from '../input'
 import { Label } from '../label'
