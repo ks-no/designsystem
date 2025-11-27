@@ -16,7 +16,7 @@ type TextareaArgs = CommonArgs & {
 
 const meta: Meta<TextareaArgs> = {
   component: Input,
-  title: 'Komponenter/Textarea',
+  title: 'Komponenter/Forms/Textarea',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],

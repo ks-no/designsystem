@@ -20,7 +20,7 @@ type SwitchArgs = CommonArgs & {
 
 const meta: Meta<SwitchArgs> = {
   component: Input,
-  title: 'Komponenter/Switch',
+  title: 'Komponenter/Forms/Switch',
   decorators: [
     moduleMetadata({
       imports: [
