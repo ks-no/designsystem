@@ -1,8 +1,6 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 import { Project } from 'ts-morph'
-
-// --- Parse CLI args ---
 const [, , oldLib, componentName, newLib] = process.argv
 
 if (!oldLib || !componentName || !newLib) {
@@ -12,12 +10,10 @@ if (!oldLib || !componentName || !newLib) {
   process.exit(1)
 }
 
-// --- Setup ts-morph project ---
 const project = new Project({
   tsConfigFilePath: 'tsconfig.base.json', // assumes monorepo root
 })
 
-// --- Process all source files in the workspace ---
 project.getSourceFiles().forEach((sourceFile) => {
   let modified = false
 
