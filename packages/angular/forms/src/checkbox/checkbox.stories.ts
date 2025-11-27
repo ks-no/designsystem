@@ -19,7 +19,7 @@ type InputArgs = CommonArgs & {
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Komponenter/Checkbox',
+  title: 'Komponenter/Forms/Checkbox',
   decorators: [
     moduleMetadata({
       imports: [

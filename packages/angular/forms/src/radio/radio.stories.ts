@@ -20,7 +20,7 @@ type RadioArgs = CommonArgs & {
 
 const meta: Meta<Input> = {
   component: Input,
-  title: 'Komponenter/Radio',
+  title: 'Komponenter/Forms/Radio',
   decorators: [
     moduleMetadata({
       imports: [
