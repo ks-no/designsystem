@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
-import { Input } from '../../forms/input/src'
 import { Search } from './search'
 import { SearchButton } from './search-button'
 import { SearchClear } from './search-clear'
@@ -13,7 +12,7 @@ test('should render minimal search component', async () => {
         <input ksd-search-input role="searchbox" />
       </ksd-search>
     `,
-    { imports: [SearchInput, Search, Input] },
+    { imports: [SearchInput, Search] },
   )
 
   const searchElement = screen.getByRole('searchbox').parentElement
