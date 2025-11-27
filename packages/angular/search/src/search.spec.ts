@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
-import { Input } from '../../input/src'
+import { Input } from '../../forms/input/src'
 import { Search } from './search'
 import { SearchButton } from './search-button'
 import { SearchClear } from './search-clear'

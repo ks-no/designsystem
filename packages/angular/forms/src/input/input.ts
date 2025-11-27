@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core'
 import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
-import { FieldState } from '@ks-digital/designsystem-angular/field'
+import { FieldState } from '../field'
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

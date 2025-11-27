@@ -1,6 +1,3 @@
-import { Field } from '@ks-digital/designsystem-angular/field'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { CommonArgs } from '@ks-digital/designsystem-angular/utils'
 import {
   argsToTemplate,
@@ -8,6 +5,9 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
+import { Field } from '../field'
+import { Input } from '../input'
+import { Label } from '../label'
 
 type TextareaArgs = CommonArgs & {
   readonly: boolean

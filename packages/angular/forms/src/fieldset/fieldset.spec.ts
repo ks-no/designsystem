@@ -1,8 +1,8 @@
-import { Field } from '@ks-digital/designsystem-angular/field'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { render, screen, waitFor } from '@testing-library/angular'
+import { Field } from '../field'
+import { Input } from '../input'
+import { Label } from '../label'
 import { Fieldset } from './fieldset'
 import { FieldsetLegend } from './fieldset-legend'
 
