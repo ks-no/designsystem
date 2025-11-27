@@ -6,13 +6,13 @@ import {
   contentChildren,
   effect,
   ElementRef,
+  forwardRef,
   inject,
   input,
 } from '@angular/core'
 import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { Input } from '../input'
-import { Label } from '../label'
 import { FieldCounter } from './field-counter'
 import { fieldObserver } from './field-observer'
 import { FieldState } from './field-state'
@@ -49,8 +49,7 @@ export class Field {
   position = input<'start' | 'end'>('start')
 
   private readonly fieldState = inject(FieldState)
-  private readonly input = contentChild(Input)
-  private readonly label = contentChild(Label)
+  private readonly input = contentChild(forwardRef(() => Input))
   private readonly projectedErrors = contentChildren(ValidationMessage)
 
   private readonly el = inject(ElementRef)

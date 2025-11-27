@@ -22,8 +22,8 @@ import { FieldState } from '../field'
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
     '[attr.disabled]': 'disabled() ? true : null',
-    // '[attr.aria-invalid]':
-    //   'ariaInvalid() ? true : (fieldState?.hasError() ? true:  null)',
+    '[attr.aria-invalid]':
+      'ariaInvalid() ? true : (fieldState?.hasError() ? true:  null)',
     '(click)': 'onClick($event)',
     '(input)': 'value.set($event.target.value)',
   },
