@@ -1,7 +1,5 @@
 import { Button } from '@ks-digital/designsystem-angular/button'
-import { Field } from '@ks-digital/designsystem-angular/field'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { moduleMetadata, type Meta } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Search } from './search'

@@ -1,8 +1,8 @@
-import { Field } from '@ks-digital/designsystem-angular/field'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { Field } from '../field'
+import { Input } from '../input'
+import { Label } from '../label'
 
 test('should not be clickable if readonly', async () => {
   await render(

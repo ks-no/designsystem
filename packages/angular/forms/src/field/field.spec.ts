@@ -1,7 +1,7 @@
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { Input } from '../input'
+import { Label } from '../label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 

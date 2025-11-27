@@ -9,10 +9,10 @@ import {
   inject,
   input,
 } from '@angular/core'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
 import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
+import { Input } from '../input'
+import { Label } from '../label'
 import { FieldCounter } from './field-counter'
 import { fieldObserver } from './field-observer'
 import { FieldState } from './field-state'

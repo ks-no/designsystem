@@ -1,12 +1,12 @@
 import { Component } from '@angular/core'
-import { Field } from '@ks-digital/designsystem-angular/field'
 import {
+  Field,
   Fieldset,
   FieldsetDescription,
   FieldsetLegend,
-} from '@ks-digital/designsystem-angular/fieldset'
-import { Input } from '@ks-digital/designsystem-angular/input'
-import { Label } from '@ks-digital/designsystem-angular/label'
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 
 @Component({

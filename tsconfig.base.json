@@ -22,29 +22,17 @@
       "@ks-digital/designsystem-angular/alert": [
         "packages/angular/alert/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/forms": [
+        "packages/angular/forms/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/button": [
         "packages/angular/button/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/card": [
         "packages/angular/card/src/index.ts"
       ],
-      "@ks-digital/designsystem-angular/checkbox": [
-        "packages/angular/checkbox/src/index.ts"
-      ],
       "@ks-digital/designsystem-angular/details": [
         "packages/angular/details/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/field": [
-        "packages/angular/field/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/fieldset": [
-        "packages/angular/fieldset/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/input": [
-        "packages/angular/input/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/label": [
-        "packages/angular/label/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/paragraph": [
         "packages/angular/paragraph/src/index.ts"
@@ -52,20 +40,11 @@
       "@ks-digital/designsystem-angular/popover": [
         "packages/angular/popover/src/index.ts"
       ],
-      "@ks-digital/designsystem-angular/radio": [
-        "packages/angular/radio/src/index.ts"
-      ],
       "@ks-digital/designsystem-angular/search": [
         "packages/angular/search/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/spinner": [
         "packages/angular/spinner/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/switch": [
-        "packages/angular/switch/src/index.ts"
-      ],
-      "@ks-digital/designsystem-angular/textarea": [
-        "packages/angular/textarea/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/validation-message": [
         "packages/angular/validation-message/src/index.ts"
