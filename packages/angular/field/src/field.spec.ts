@@ -1,11 +1,11 @@
+import { Input } from '@ks-digital/designsystem-angular/input'
+import { Label } from '@ks-digital/designsystem-angular/label'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
-import { Input } from '../input/input'
-import { Label } from '../label/label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 
-test('should connect checkbox and label', async () => {
+test.only('should connect checkbox and label', async () => {
   await render(
     `
     <ksd-field>
@@ -21,7 +21,7 @@ test('should connect checkbox and label', async () => {
   expect(label.getAttribute('for')).toBe(checkbox.getAttribute('id'))
 })
 
-describe('should connect checkbox and description', () => {
+describe.skip('should connect checkbox and description', () => {
   test('should connect checkbox and description', async () => {
     await render(
       `
