@@ -5,7 +5,7 @@ import { Label } from '../label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
 
-test.only('should connect checkbox and label', async () => {
+test('should connect checkbox and label', async () => {
   await render(
     `
     <ksd-field>
@@ -21,7 +21,7 @@ test.only('should connect checkbox and label', async () => {
   expect(label.getAttribute('for')).toBe(checkbox.getAttribute('id'))
 })
 
-describe.skip('should connect checkbox and description', () => {
+describe('should connect checkbox and description', () => {
   test('should connect checkbox and description', async () => {
     await render(
       `
