@@ -28,6 +28,7 @@ it('style should be applied', async () => {
   )
 
   const alert = screen.getByTestId('alert')
+  expect(alert).toHaveStyle({ display: 'block' })
   expect(alert).toHaveStyle({ color: '#ffcc00' })
   expect(alert).toHaveClass('my-class')
 })
