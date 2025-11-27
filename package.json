@@ -9,6 +9,11 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.{ts,tsx,mts,html,scss,json,yml,yaml,md}": [
+      "pnpm nx format:write --uncommited"
+    ]
+  },
   "devDependencies": {
     "@analogjs/storybook-angular": "~2.1.0",
     "@analogjs/vite-plugin-angular": "~2.1.0",
