@@ -11,7 +11,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,mts,html,scss,json,yml,yaml,md}": [
-      "pnpm nx format:write --uncommited"
+      "pnpm nx format:write --uncommitted"
     ]
   },
   "devDependencies": {
