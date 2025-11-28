@@ -32,7 +32,8 @@
         "neutral": "#1E2B3C",
         "support": {
           "extra1": "#471aa8",
-          "extra2": "#a8801a"
+          "extra2": "#a8801a",
+          "extra3": "#F4ECDF"
         }
       },
       "borderRadius": 16
