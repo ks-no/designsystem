@@ -29,7 +29,7 @@
     "@angular-eslint/template-parser": "^20.6.0",
     "@angular/platform-browser": "20.3.9",
     "@ng-icons/core": "^32.5.0",
-    "@ng-icons/phosphor-icons": "^32.5.0",
+    "@ng-icons/phosphor-icons": "^33.0.0",
     "@testing-library/angular": "^17.4.0",
     "@testing-library/jest-dom": "^6.9.1",
     "angular-eslint": "^20.6.0",
