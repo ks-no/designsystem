@@ -8,6 +8,7 @@ The following themes are officially supported:
 
 - **Ledsagerbevis**
 - **Forvaltning**
+- **Minkommune**
 
 Additionally, a base style is provided and should be applied first. We aim to keep this base style as minimal as possible.
 
@@ -68,6 +69,7 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 ## Adding new themes
 
-1. Add builded theme into `packages/themes/src/themes`
-2. Add theme `exports`-field in package.json
-3. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
+1. Add theme to `designsystemet.config.json`.
+2. Build themes `npx @digdir/designsystemet@latest tokens build --experimental-tailwind --out-dir packages/themes/src/themes`
+3. Add theme `exports`-field in package.json
+4. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
