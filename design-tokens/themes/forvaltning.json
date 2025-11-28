@@ -1,0 +1,722 @@
+{
+  "color": {
+    "primary": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.primary.16}"
+      }
+    },
+    "accent": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.accent.16}"
+      }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.neutral.16}"
+      }
+    },
+    "extra1": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.extra1.16}"
+      }
+    },
+    "extra2": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.extra2.16}"
+      }
+    },
+    "extra3": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.extra3.16}"
+      }
+    },
+    "info": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.info.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.info.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.info.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.info.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.info.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.info.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.info.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.info.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.info.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.info.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.info.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.info.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.info.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.info.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.info.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.info.16}"
+      }
+    },
+    "success": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.success.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.success.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.success.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.success.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.success.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.success.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.success.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.success.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.success.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.success.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.success.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.success.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.success.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.success.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.success.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.success.16}"
+      }
+    },
+    "warning": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.warning.16}"
+      }
+    },
+    "danger": {
+      "1": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{forvaltning.danger.16}"
+      }
+    },
+    "link": {
+      "visited": {
+        "$type": "color",
+        "$value": "{forvaltning.link.visited}"
+      }
+    }
+  },
+  "font-family": {
+    "$type": "fontFamilies",
+    "$value": "{forvaltning.font-family}"
+  },
+  "font-weight": {
+    "medium": {
+      "$type": "fontWeights",
+      "$value": "{forvaltning.font-weight.medium}"
+    },
+    "semibold": {
+      "$type": "fontWeights",
+      "$value": "{forvaltning.font-weight.semibold}"
+    },
+    "regular": {
+      "$type": "fontWeights",
+      "$value": "{forvaltning.font-weight.regular}"
+    }
+  },
+  "border-radius": {
+    "1": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*0.5,{border-radius.scale})"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base},{border-radius.scale}*2)"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*2,{border-radius.scale}*5)"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*3,{border-radius.scale}*7)"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "{border-radius.base}"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "9999"
+    },
+    "base": {
+      "$type": "dimension",
+      "$value": "8"
+    },
+    "scale": {
+      "$type": "dimension",
+      "$value": "4"
+    }
+  }
+}
