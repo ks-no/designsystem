@@ -1,0 +1,171 @@
+[
+  {
+    "id": "8b2c8cc86611a34b135cb22948666779361fd729",
+    "name": "medium",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "primitives/modes/size/medium": "source",
+      "primitives/modes/size/global": "enabled",
+      "primitives/modes/typography/size/medium": "enabled"
+    },
+    "$figmaCollectionId": "VariableCollectionId:36248:20757",
+    "$figmaModeId": "41630:1",
+    "group": "Size"
+  },
+  {
+    "id": "d49b9eebeb48a4f165a74b7261733d0a73370f0e",
+    "name": "large",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "primitives/modes/size/large": "source",
+      "primitives/modes/size/global": "enabled",
+      "primitives/modes/typography/size/large": "enabled"
+    },
+    "$figmaCollectionId": "VariableCollectionId:36248:20757",
+    "$figmaModeId": "41630:2",
+    "group": "Size"
+  },
+  {
+    "id": "fb11567729c298ca37c9da4e3a27716a23480824",
+    "name": "small",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "primitives/modes/size/small": "source",
+      "primitives/modes/size/global": "enabled",
+      "primitives/modes/typography/size/small": "enabled"
+    },
+    "$figmaCollectionId": "VariableCollectionId:36248:20757",
+    "$figmaModeId": "41630:3",
+    "group": "Size"
+  },
+  {
+    "id": "cb265157eff94bd0baef10277b58fc7f6c8f8629",
+    "$figmaCollectionId": "VariableCollectionId:36528:61712",
+    "$figmaModeId": "40960:6",
+    "name": "forvaltning",
+    "selectedTokenSets": {
+      "themes/forvaltning": "enabled"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "4d47896cd27865e6e55f090c36b0ba201817d0aa",
+    "$figmaCollectionId": "VariableCollectionId:36528:61712",
+    "$figmaModeId": "40960:7",
+    "name": "minkommune",
+    "selectedTokenSets": {
+      "themes/minkommune": "enabled"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "f869e160d59823ba4585dc9012e27c4cabceffae",
+    "$figmaCollectionId": "VariableCollectionId:36528:61712",
+    "$figmaModeId": "40960:8",
+    "name": "ledsagerbevis",
+    "selectedTokenSets": {
+      "themes/ledsagerbevis": "enabled"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "368d753fcac4455f289500eaa42e70dc0a03522f",
+    "$figmaCollectionId": "VariableCollectionId:36248:20769",
+    "$figmaModeId": "36248:2",
+    "name": "Primary",
+    "selectedTokenSets": {
+      "primitives/modes/typography/primary/forvaltning": "enabled",
+      "primitives/modes/typography/primary/minkommune": "enabled",
+      "primitives/modes/typography/primary/ledsagerbevis": "enabled"
+    },
+    "group": "Typography"
+  },
+  {
+    "id": "264b8bd1d40b364e1ea3acf09e49795ddd4c513c",
+    "$figmaCollectionId": "VariableCollectionId:36248:20769",
+    "$figmaModeId": "36248:3",
+    "name": "Secondary",
+    "selectedTokenSets": {
+      "primitives/modes/typography/secondary/forvaltning": "enabled",
+      "primitives/modes/typography/secondary/minkommune": "enabled",
+      "primitives/modes/typography/secondary/ledsagerbevis": "enabled"
+    },
+    "group": "Typography"
+  },
+  {
+    "name": "Dark",
+    "selectedTokenSets": {
+      "primitives/modes/color-scheme/dark/forvaltning": "enabled",
+      "primitives/modes/color-scheme/dark/minkommune": "enabled",
+      "primitives/modes/color-scheme/dark/ledsagerbevis": "enabled"
+    },
+    "id": "9ebd8aed52afbffc17e2666e8b4653a53498b257",
+    "$figmaCollectionId": "VariableCollectionId:34811:5472",
+    "$figmaModeId": "34811:1",
+    "group": "Color scheme"
+  },
+  {
+    "name": "Light",
+    "selectedTokenSets": {
+      "primitives/modes/color-scheme/light/forvaltning": "enabled",
+      "primitives/modes/color-scheme/light/minkommune": "enabled",
+      "primitives/modes/color-scheme/light/ledsagerbevis": "enabled"
+    },
+    "id": "0daa3ca0b427b9349da7e7dc00101b5668972926",
+    "$figmaCollectionId": "VariableCollectionId:34811:5472",
+    "$figmaModeId": "34811:0",
+    "group": "Color scheme"
+  },
+  {
+    "id": "541629445ef90ad5363f9e88f52a1ccb617e6f84",
+    "name": "Semantic",
+    "selectedTokenSets": {
+      "semantic/style": "enabled",
+      "semantic/color": "enabled",
+      "primitives/globals": "source"
+    },
+    "$figmaCollectionId": "VariableCollectionId:34811:5976",
+    "$figmaModeId": "34811:5",
+    "group": "Semantic"
+  },
+  {
+    "id": "593774a74235b661fff40693ca7bda160aadfb74",
+    "name": "primary",
+    "selectedTokenSets": {
+      "semantic/modes/main-color/primary": "enabled"
+    },
+    "group": "Main color"
+  },
+  {
+    "id": "77029e975ec86efe4b92eb0be546d61959085bd1",
+    "name": "accent",
+    "selectedTokenSets": {
+      "semantic/modes/main-color/accent": "enabled"
+    },
+    "group": "Main color"
+  },
+  {
+    "id": "0d546651bdff926cb8bb0befe83947ca4bf348b0",
+    "name": "extra1",
+    "selectedTokenSets": {
+      "semantic/modes/support-color/extra1": "enabled"
+    },
+    "group": "Support color"
+  },
+  {
+    "id": "276da52ce879d63f404de7dbc88b166b5f602248",
+    "name": "extra2",
+    "selectedTokenSets": {
+      "semantic/modes/support-color/extra2": "enabled"
+    },
+    "group": "Support color"
+  },
+  {
+    "id": "d902f9e827cf2743dd109f3eb527561cc1a0a0f2",
+    "name": "extra3",
+    "selectedTokenSets": {
+      "semantic/modes/support-color/extra3": "enabled"
+    },
+    "group": "Support color"
+  }
+]
