@@ -27,19 +27,24 @@ import { Tabs } from './tabs'
 export class TabsPanel implements AfterContentInit {
   private elementRef = inject(ElementRef)
   private group = inject(Tabs)
+  private hasTabbableElement = signal(false)
 
-  readonly id = input<string>()
+  /**
+   * When this value is selected as the current state, render this TabsPanel component. Must match the value of a Tabs.Tab component.
+   */
   readonly value = input.required<string>()
-  readonly labelledBy = computed(() =>
+  readonly id = input<string>()
+
+  protected readonly labelledBy = computed(() =>
     this.group
       .tabs()
       .find((tab) => tab.value() === this.value())
       ?.buttonId(),
   )
-  readonly panelId = computed(() => this.id() ?? 'tabpanel-' + randomId())
-
+  protected readonly panelId = computed(
+    () => this.id() ?? 'tabpanel-' + randomId(),
+  )
   protected isSelected = computed(() => this.group.value() === this.value())
-  protected hasTabbableElement = signal(false)
   protected tabIndex = computed(() => (this.hasTabbableElement() ? -1 : 0))
 
   constructor() {
