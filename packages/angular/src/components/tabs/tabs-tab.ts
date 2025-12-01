@@ -34,10 +34,12 @@ import { Tabs } from './tabs'
   ],
 })
 export class TabsTab {
+  /**
+   * Unique value that will be set in the Tabs components state when the tab is activated
+   */
   readonly value = input.required<string>()
-  readonly elementRef = inject(ElementRef)
   readonly id = input<string>()
-
+  readonly elementRef = inject(ElementRef)
   readonly ariaControls = signal<string | undefined>(undefined)
   readonly buttonId = computed(() => this.id() ?? 'tab-' + randomId())
 
