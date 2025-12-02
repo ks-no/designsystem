@@ -27,6 +27,16 @@ describe('Tabs', () => {
     expect(tab2).toHaveFocus()
     await user.keyboard('{ArrowLeft}')
     expect(tab1).toHaveFocus()
+    await user.keyboard('{ArrowUp}')
+    expect(tab2).toHaveFocus()
+    await user.keyboard('{ArrowDown}')
+    expect(tab1).toHaveFocus()
+    await user.keyboard('{Space}')
+    expect(tab1).toHaveAttribute('aria-selected')
+    await user.keyboard('{ArrowRight}')
+    expect(tab2).toHaveFocus()
+    await user.keyboard('{Enter}')
+    expect(tab2).toHaveAttribute('aria-selected')
   })
 
   it('renders content based on value', async () => {
@@ -81,31 +91,6 @@ describe('Tabs', () => {
 
     const content = screen.queryByText('content 1')
     expect(content).toBeInTheDocument()
-  })
-
-  it('can navigate tabs with keyboard', async () => {
-    await render(
-      `<ksd-tabs>
-        <ksd-tabs-list>
-          <button ksd-tabs-tab value='value1'>Tab 1</button>
-          <button ksd-tabs-tab value='value2'>Tab 2</button>
-        </ksd-tabs-list>
-      </ksd-tabs>`,
-      { imports: [Tabs, TabsList, TabsTab, TabsPanel] },
-    )
-
-    const tab1 = screen.getByRole('tab', { name: 'Tab 1' })
-    const tab2 = screen.getByRole('tab', { name: 'Tab 2' })
-    await user.tab()
-    expect(tab1).toHaveFocus()
-    await user.keyboard('{ArrowRight}')
-    expect(tab2).toHaveFocus()
-    await user.keyboard('{ArrowLeft}')
-    expect(tab1).toHaveFocus()
-    await user.keyboard('{ArrowUp}')
-    expect(tab2).toHaveFocus()
-    await user.keyboard('{ArrowDown}')
-    expect(tab1).toHaveFocus()
   })
 
   it('has tabindex 0 on tabpanel', async () => {
