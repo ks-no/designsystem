@@ -4,7 +4,7 @@
   "themes": {
     "forvaltning": {
       "colors": {
-        "main": { "accent": "#00042E" },
+        "main": { "primary": "#00042E", "accent": "#714EEA" },
         "neutral": "#1D252D",
         "support": {
           "extra1": "#d0aef4",
@@ -16,7 +16,7 @@
     },
     "minkommune": {
       "colors": {
-        "main": { "accent": "#00042E" },
+        "main": { "primary": "#00042E", "accent": "#714EEA" },
         "neutral": "#1D252D",
         "support": {
           "extra1": "#d0aef4",
@@ -28,7 +28,7 @@
     },
     "ledsagerbevis": {
       "colors": {
-        "main": { "accent": "#2B5246" },
+        "main": { "primary": "#2B5246", "accent": "#1AA87E" },
         "neutral": "#1E2B3C",
         "support": {
           "extra1": "#471aa8",
