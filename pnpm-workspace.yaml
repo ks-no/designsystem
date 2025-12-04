@@ -6,3 +6,10 @@ onlyBuiltDependencies:
   - nx
 
 minimumReleaseAge: 2880 # 48 hours
+
+catalogs:
+  designsystemet:
+    '@digdir/designsystemet': ~1.7.3
+    '@digdir/designsystemet-css': ~1.7.3
+    '@digdir/designsystemet-react': ~1.7.3
+    '@navikt/aksel-icons': ~7.33.4

@@ -4,6 +4,21 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  designsystemet:
+    '@digdir/designsystemet':
+      specifier: ~1.7.3
+      version: 1.7.3
+    '@digdir/designsystemet-css':
+      specifier: ~1.7.3
+      version: 1.7.3
+    '@digdir/designsystemet-react':
+      specifier: ~1.7.3
+      version: 1.7.3
+    '@navikt/aksel-icons':
+      specifier: ~7.33.4
+      version: 7.33.4
+
 importers:
 
   .:
@@ -24,7 +39,7 @@ importers:
         specifier: ^19.8.1
         version: 19.8.1
       '@digdir/designsystemet':
-        specifier: ^1.7.3
+        specifier: catalog:designsystemet
         version: 1.7.3
       '@nx/angular':
         specifier: 22.1.1
@@ -321,10 +336,10 @@ importers:
   packages/react:
     dependencies:
       '@digdir/designsystemet-react':
-        specifier: 1.7.3
+        specifier: catalog:designsystemet
         version: 1.7.3(@types/react@19.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@navikt/aksel-icons':
-        specifier: ^7.33.4
+        specifier: catalog:designsystemet
         version: 7.33.4
       react:
         specifier: '>=18.3.1'
@@ -352,7 +367,7 @@ importers:
   packages/themes:
     dependencies:
       '@digdir/designsystemet-css':
-        specifier: 1.7.3
+        specifier: catalog:designsystemet
         version: 1.7.3
     devDependencies:
       rimraf:

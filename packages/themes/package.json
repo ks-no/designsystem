@@ -28,7 +28,7 @@
     "./dist"
   ],
   "dependencies": {
-    "@digdir/designsystemet-css": "1.7.3"
+    "@digdir/designsystemet-css": "catalog:designsystemet"
   },
   "devDependencies": {
     "rimraf": "^6.0.1"
