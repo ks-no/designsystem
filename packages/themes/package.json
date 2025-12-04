@@ -13,7 +13,7 @@
   },
   "type": "module",
   "exports": {
-    "./types.d.ts": "./dist/themes/types.d.ts",
+    "./types": "./dist/themes/types.d.ts",
     "./base.css": "./dist/base.css",
     "./base.tailwind.css": "./dist/base.tailwind.css",
     "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
