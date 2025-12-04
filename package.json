@@ -20,6 +20,7 @@
     "@analogjs/vitest-angular": "~2.1.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@digdir/designsystemet": "^1.7.3",
     "@nx/angular": "22.1.1",
     "@nx/devkit": "22.1.1",
     "@nx/eslint": "22.1.1",
