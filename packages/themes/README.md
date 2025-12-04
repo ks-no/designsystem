@@ -71,5 +71,5 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 1. Add theme to `designsystemet.config.json`.
 2. Build themes `npx @digdir/designsystemet@latest tokens build --experimental-tailwind --out-dir packages/themes/src/themes`
-3. Add theme `exports`-field in package.json
+3. Add theme `exports`-field in `packages/themes/package.json`
 4. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
