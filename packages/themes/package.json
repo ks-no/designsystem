@@ -13,6 +13,7 @@
   },
   "type": "module",
   "exports": {
+    "./types": "./dist/themes/types.d.ts",
     "./base.css": "./dist/base.css",
     "./base.tailwind.css": "./dist/base.tailwind.css",
     "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
@@ -26,7 +27,7 @@
     "./dist"
   ],
   "dependencies": {
-    "@digdir/designsystemet-css": "1.7.3"
+    "@digdir/designsystemet-css": "catalog:designsystemet"
   },
   "devDependencies": {
     "rimraf": "^6.0.1"

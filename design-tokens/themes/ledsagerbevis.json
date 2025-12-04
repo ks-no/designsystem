@@ -1,0 +1,722 @@
+{
+  "color": {
+    "primary": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.16}"
+      }
+    },
+    "accent": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.accent.16}"
+      }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.neutral.16}"
+      }
+    },
+    "extra1": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra1.16}"
+      }
+    },
+    "extra2": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra2.16}"
+      }
+    },
+    "extra3": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.extra3.16}"
+      }
+    },
+    "info": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.info.16}"
+      }
+    },
+    "success": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.success.16}"
+      }
+    },
+    "warning": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.warning.16}"
+      }
+    },
+    "danger": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.danger.16}"
+      }
+    },
+    "link": {
+      "visited": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.link.visited}"
+      }
+    }
+  },
+  "font-family": {
+    "$type": "fontFamilies",
+    "$value": "{ledsagerbevis.font-family}"
+  },
+  "font-weight": {
+    "medium": {
+      "$type": "fontWeights",
+      "$value": "{ledsagerbevis.font-weight.medium}"
+    },
+    "semibold": {
+      "$type": "fontWeights",
+      "$value": "{ledsagerbevis.font-weight.semibold}"
+    },
+    "regular": {
+      "$type": "fontWeights",
+      "$value": "{ledsagerbevis.font-weight.regular}"
+    }
+  },
+  "border-radius": {
+    "1": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*0.5,{border-radius.scale})"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base},{border-radius.scale}*2)"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*2,{border-radius.scale}*5)"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "min({border-radius.base}*3,{border-radius.scale}*7)"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "{border-radius.base}"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "9999"
+    },
+    "base": {
+      "$type": "dimension",
+      "$value": "16"
+    },
+    "scale": {
+      "$type": "dimension",
+      "$value": "4"
+    }
+  }
+}

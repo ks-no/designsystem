@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@digdir/designsystemet/dist/config.schema.json",
+  "outDir": "./design-tokens",
+  "clean": true,
+  "themes": {
+    "forvaltning": {
+      "colors": {
+        "main": { "primary": "#00042E", "accent": "#714EEA" },
+        "neutral": "#1D252D",
+        "support": {
+          "extra1": "#d0aef4",
+          "extra2": "#07604F",
+          "extra3": "#F4ECDF"
+        }
+      },
+      "borderRadius": 8
+    },
+    "minkommune": {
+      "colors": {
+        "main": { "primary": "#00042E", "accent": "#714EEA" },
+        "neutral": "#1D252D",
+        "support": {
+          "extra1": "#d0aef4",
+          "extra2": "#07604F",
+          "extra3": "#F4ECDF"
+        }
+      },
+      "borderRadius": 8
+    },
+    "ledsagerbevis": {
+      "colors": {
+        "main": { "primary": "#2B5246", "accent": "#1AA87E" },
+        "neutral": "#1E2B3C",
+        "support": {
+          "extra1": "#471aa8",
+          "extra2": "#a8801a",
+          "extra3": "#F4ECDF"
+        }
+      },
+      "borderRadius": 16
+    }
+  }
+}
