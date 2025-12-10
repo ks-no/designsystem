@@ -1,5 +1,5 @@
+import { SeverityColors } from '@ks-digital/designsystem-angular/__internals'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
-import { SeverityColors } from '@ks-digital/designsystem-angular/utils'
 import { provideIcons } from '@ng-icons/core'
 import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import {

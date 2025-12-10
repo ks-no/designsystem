@@ -10,7 +10,7 @@ import {
   inject,
   input,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { Input } from '../input'
 import { FieldCounter } from './field-counter'

@@ -24,7 +24,7 @@ import {
   Color,
   SeverityColors,
   Size,
-} from '@ks-digital/designsystem-angular/utils'
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-popover',

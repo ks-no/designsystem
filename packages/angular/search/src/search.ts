@@ -2,7 +2,7 @@ import { afterNextRender, Component, contentChild } from '@angular/core'
 import {
   CommonInputs,
   logIfDevMode,
-} from '@ks-digital/designsystem-angular/utils'
+} from '@ks-digital/designsystem-angular/__internals'
 import { SearchInput } from './search-input'
 
 /**

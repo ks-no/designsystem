@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-label',

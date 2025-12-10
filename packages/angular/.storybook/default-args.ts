@@ -1,4 +1,4 @@
-import { Color, Size } from '@ks-digital/designsystem-angular/utils'
+import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
 
 export type CommonArgs = {
   'data-size'?: Size | undefined

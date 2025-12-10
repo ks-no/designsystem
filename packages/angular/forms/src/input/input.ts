@@ -6,7 +6,7 @@ import {
   numberAttribute,
   signal,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/utils'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 import { FieldState } from '../field'
 
 @Directive({

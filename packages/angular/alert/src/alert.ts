@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core'
 import {
   CommonInputs,
   SeverityColors,
-} from '@ks-digital/designsystem-angular/utils'
+} from '@ks-digital/designsystem-angular/__internals'
 
 /**
  * Alerts are used to inform users about important information, warnings, errors, or success.

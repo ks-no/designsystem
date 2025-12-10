@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
-      "@ks-digital/designsystem-angular/utils": [
-        "packages/angular/utils/src/index.ts"
+      "@ks-digital/designsystem-angular/__internals": [
+        "packages/angular/__internals/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/alert": [
         "packages/angular/alert/src/index.ts"

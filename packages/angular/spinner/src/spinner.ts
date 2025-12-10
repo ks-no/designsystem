@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
-import { Size } from '@ks-digital/designsystem-angular/utils'
+import { Size } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-spinner',
