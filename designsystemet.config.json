@@ -5,10 +5,10 @@
   "themes": {
     "forvaltning": {
       "colors": {
-        "main": { "primary": "#00042E", "accent": "#714EEA" },
+        "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
         "support": {
-          "extra1": "#d0aef4",
+          "extra1": "#714EEA",
           "extra2": "#07604F",
           "extra3": "#F4ECDF"
         }
@@ -17,10 +17,10 @@
     },
     "minkommune": {
       "colors": {
-        "main": { "primary": "#00042E", "accent": "#714EEA" },
+        "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
         "support": {
-          "extra1": "#d0aef4",
+          "extra1": "#714EEA",
           "extra2": "#07604F",
           "extra3": "#F4ECDF"
         }
