@@ -94,7 +94,7 @@ export const WithOnlyIcons: Story = {
     props: args,
     template: `
       <a ksd-link href="https://example.com" ${argsToTemplate(args)} aria-label="Example Link">
-        <ng-icon name="phosphorArrowUpRight"  />
+        <ng-icon name="phosphorArrowUpRight" />
       </a>
     `,
   }),
