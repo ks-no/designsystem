@@ -27,6 +27,8 @@
     "@angular-eslint/eslint-plugin-template": "^20.6.0",
     "@angular-eslint/schematics": "^20.6.0",
     "@angular-eslint/template-parser": "^20.6.0",
+    "@angular/compiler": "20.3.9",
+    "@angular/router": "20.3.9",
     "@angular/platform-browser": "20.3.9",
     "@ng-icons/core": "^32.5.0",
     "@ng-icons/phosphor-icons": "^33.0.0",
