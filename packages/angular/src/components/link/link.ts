@@ -23,9 +23,7 @@ import { CommonInputs } from '../common-inputs'
           vertical-align: unset;
         }
       }
-    }
 
-    :host {
       > :is(svg, img) {
         width: 1.2em;
         height: 1.2em;
