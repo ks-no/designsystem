@@ -8,7 +8,7 @@ import {
   model,
   signal,
 } from '@angular/core'
-import { CommonInputs } from '../common-inputs'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 import { TabsTab } from './tabs-tab'
 
 @Component({

@@ -1,6 +1,6 @@
+import { Button } from '@ks-digital/designsystem-angular/button'
 import { Meta, moduleMetadata } from '@storybook/angular'
-import { Button } from '../../'
-import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Tabs, TabsList, TabsPanel, TabsTab } from './'
 
 type TabsArgs = CommonArgs & {

@@ -9,7 +9,7 @@ import {
   input,
   signal,
 } from '@angular/core'
-import { randomId } from '../../utils/random-id'
+import { randomId } from '@ks-digital/designsystem-angular/__internals'
 import { Tabs } from './tabs'
 
 @Component({

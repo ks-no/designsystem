@@ -7,8 +7,10 @@ import {
   input,
   signal,
 } from '@angular/core'
-import { randomId } from '../../utils/random-id'
-import { CommonInputs } from '../common-inputs'
+import {
+  CommonInputs,
+  randomId,
+} from '@ks-digital/designsystem-angular/__internals'
 import { Tabs } from './tabs'
 
 @Component({
