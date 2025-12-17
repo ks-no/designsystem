@@ -22,9 +22,6 @@
       "@ks-digital/designsystem-angular/alert": [
         "packages/angular/alert/src/index.ts"
       ],
-      "@ks-digital/designsystem-angular/forms": [
-        "packages/angular/forms/src/index.ts"
-      ],
       "@ks-digital/designsystem-angular/button": [
         "packages/angular/button/src/index.ts"
       ],
@@ -33,6 +30,9 @@
       ],
       "@ks-digital/designsystem-angular/details": [
         "packages/angular/details/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/forms": [
+        "packages/angular/forms/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/paragraph": [
         "packages/angular/paragraph/src/index.ts"
@@ -45,6 +45,9 @@
       ],
       "@ks-digital/designsystem-angular/spinner": [
         "packages/angular/spinner/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/tabs": [
+        "packages/angular/tabs/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/validation-message": [
         "packages/angular/validation-message/src/index.ts"
