@@ -1,3 +1,22 @@
+## 0.0.1-alpha.28
+
+### 🚀 Features
+
+- add design tokens, generate new themes ([#155](https://github.com/ks-no/designsystem/pull/155))
+- ⚠️ **angular:** secondary entrypoints ([#150](https://github.com/ks-no/designsystem/pull/150))
+
+### 🩹 Fixes
+
+- **angular:** alert component default display style to block ([#152](https://github.com/ks-no/designsystem/pull/152))
+
+### ⚠️ Breaking Changes
+
+- ⚠️ **angular:** secondary entrypoints ([#150](https://github.com/ks-no/designsystem/pull/150))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.27
 
 ### 🩹 Fixes

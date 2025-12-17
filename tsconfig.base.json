@@ -16,6 +16,39 @@
     "baseUrl": ".",
     "paths": {
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
+      "@ks-digital/designsystem-angular/__internals": [
+        "packages/angular/__internals/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/alert": [
+        "packages/angular/alert/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/forms": [
+        "packages/angular/forms/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/button": [
+        "packages/angular/button/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/card": [
+        "packages/angular/card/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/details": [
+        "packages/angular/details/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/paragraph": [
+        "packages/angular/paragraph/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/popover": [
+        "packages/angular/popover/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/search": [
+        "packages/angular/search/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/spinner": [
+        "packages/angular/spinner/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/validation-message": [
+        "packages/angular/validation-message/src/index.ts"
+      ],
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
       "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"]
     }
