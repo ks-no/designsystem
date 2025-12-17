@@ -1,3 +1,13 @@
+## 0.0.1-alpha.29
+
+### 🚀 Features
+
+- **angular:** add tabs component ([#134](https://github.com/ks-no/designsystem/pull/134))
+
+### ❤️ Thank You
+
+- Ronny Valentin Vindenes @rvv-bouvet
+
 ## 0.0.1-alpha.28
 
 ### 🚀 Features
