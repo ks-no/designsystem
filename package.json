@@ -32,7 +32,7 @@
     "@nx/vite": "22.1.1",
     "@nx/web": "22.1.1",
     "@playwright/test": "^1.56.1",
-    "@schematics/angular": "20.3.9",
+    "@schematics/angular": "21.0.2",
     "@storybook/addon-docs": "10.0.8",
     "@storybook/angular": "10.0.8",
     "@storybook/test": "^8.6.14",
