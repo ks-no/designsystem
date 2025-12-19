@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { CommonInputs } from '../common-inputs'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'a[ksd-link]',

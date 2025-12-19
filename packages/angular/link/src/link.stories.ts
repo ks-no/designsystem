@@ -4,7 +4,7 @@ import {
   phosphorPencilLine,
 } from '@ng-icons/phosphor-icons/regular'
 import { argsToTemplate, Meta, moduleMetadata } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs } from 'packages/angular/.storybook/default-args'
 import { Link } from './link'
 
 type LinkArgs = CommonArgs
