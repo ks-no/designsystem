@@ -44,7 +44,7 @@ type ThemeGlobalType = {
 export const globalTypes: Record<string, ThemeGlobalType> = {
   theme: {
     name: 'Theme',
-    description: 'Global theme for components',
+    description: 'Change theme',
     defaultValue: themes[0].href,
     toolbar: {
       icon: 'paintbrush',
