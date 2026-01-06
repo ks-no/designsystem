@@ -7,11 +7,7 @@
       "colors": {
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
-        "support": {
-          "extra1": "#714EEA",
-          "extra2": "#07604F",
-          "extra3": "#F4ECDF"
-        }
+        "support": {}
       },
       "borderRadius": 8
     },
@@ -19,11 +15,7 @@
       "colors": {
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
-        "support": {
-          "extra1": "#714EEA",
-          "extra2": "#07604F",
-          "extra3": "#F4ECDF"
-        }
+        "support": {}
       },
       "borderRadius": 8
     },
@@ -31,11 +23,7 @@
       "colors": {
         "main": { "primary": "#2B5246", "accent": "#1AA87E" },
         "neutral": "#1E2B3C",
-        "support": {
-          "extra1": "#471aa8",
-          "extra2": "#a8801a",
-          "extra3": "#F4ECDF"
-        }
+        "support": {}
       },
       "borderRadius": 16
     }
