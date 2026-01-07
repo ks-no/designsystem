@@ -9,6 +9,7 @@ The following themes are officially supported:
 - **Ledsagerbevis**
 - **Forvaltning**
 - **Minkommune**
+- **Tilskudd**
 
 Additionally, a base style is provided and should be applied first. We aim to keep this base style as minimal as possible.
 
@@ -60,7 +61,7 @@ The [theme].tailwind.css bridges the gap between Designsystemet and Tailwind, by
 
 ### In JavaScript/TypeScript Files
 
-If you are using a JavaScript or TypeScript application, import the styles like this. If you are using React, please check the readme in the React-package as well.
+If you are building a JavaScript/TypeScript application, import the styles like this. If you are using React, please check the readme in the React-package.
 
 ```javascript
 import '@ks-digital/designsystem-themes/base.css'
@@ -70,6 +71,7 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 ## Adding new themes
 
 1. Add theme to `designsystemet.config.json`.
-2. Build themes `npx @digdir/designsystemet@latest tokens build --experimental-tailwind --out-dir packages/themes/src/themes`
-3. Add theme `exports`-field in `packages/themes/package.json`
-4. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
+2. Create design tokens for theme `./node_modules/.bin/designsystemet tokens create --config designsystemet.config.json`
+3. Build themes `./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes`
+4. Add theme `exports`-field in `packages/themes/package.json`
+5. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
