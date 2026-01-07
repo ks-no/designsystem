@@ -14,7 +14,6 @@
   "type": "module",
   "exports": {
     "./types": "./dist/themes/types.d.ts",
-    "./colors": "./dist/themes/colors.d.ts",
     "./base.css": "./dist/base.css",
     "./base.tailwind.css": "./dist/base.tailwind.css",
     "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
