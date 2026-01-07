@@ -66,6 +66,72 @@
         "$value": "{ledsagerbevis.accent.16}"
       }
     },
+    "primary": {
+      "1": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.primary.16}"
+      }
+    },
     "neutral": {
       "1": {
         "$type": "color",

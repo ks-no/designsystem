@@ -66,6 +66,72 @@
         "$value": "{minkommune.accent.16}"
       }
     },
+    "primary": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.primary.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.primary.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.primary.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.primary.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.primary.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.primary.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.primary.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.primary.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.primary.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.primary.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.primary.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.primary.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.primary.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.primary.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.primary.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.primary.16}"
+      }
+    },
     "neutral": {
       "1": {
         "$type": "color",

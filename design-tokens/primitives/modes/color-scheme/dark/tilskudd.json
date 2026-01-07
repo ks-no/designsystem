@@ -66,6 +66,72 @@
         "$value": "#000000"
       }
     },
+    "primary": {
+      "1": {
+        "$type": "color",
+        "$value": "#181818"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "#1f1f1f"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "#282828"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "#2e2e2e"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#353535"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "#434343"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "#505050"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "#818181"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "#a8a8a8"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "#a8a8a8"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "#ececec"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "#181818"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "#282828"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "#919191"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "#ffffff"
+      }
+    },
     "neutral": {
       "1": {
         "$type": "color",
