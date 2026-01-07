@@ -70,7 +70,7 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 ## Adding new themes
 
-1. Add theme to `designsystemet.config.json`.
+1. Add theme to `designsystemet.config.json`. The color names must match the other themes.
 2. Create design tokens for theme `./node_modules/.bin/designsystemet tokens create --config designsystemet.config.json`
 3. Build themes `./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes`
 4. Add theme `exports`-field in `packages/themes/package.json`
