@@ -3,422 +3,422 @@
     "accent": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.1}"
+        "$value": "{tilskudd.accent.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.2}"
+        "$value": "{tilskudd.accent.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.3}"
+        "$value": "{tilskudd.accent.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.4}"
+        "$value": "{tilskudd.accent.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.5}"
+        "$value": "{tilskudd.accent.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.6}"
+        "$value": "{tilskudd.accent.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.7}"
+        "$value": "{tilskudd.accent.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.8}"
+        "$value": "{tilskudd.accent.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.9}"
+        "$value": "{tilskudd.accent.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.10}"
+        "$value": "{tilskudd.accent.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.11}"
+        "$value": "{tilskudd.accent.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.12}"
+        "$value": "{tilskudd.accent.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.13}"
+        "$value": "{tilskudd.accent.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.14}"
+        "$value": "{tilskudd.accent.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.15}"
+        "$value": "{tilskudd.accent.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.accent.16}"
+        "$value": "{tilskudd.accent.16}"
       }
     },
     "neutral": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.1}"
+        "$value": "{tilskudd.neutral.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.2}"
+        "$value": "{tilskudd.neutral.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.3}"
+        "$value": "{tilskudd.neutral.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.4}"
+        "$value": "{tilskudd.neutral.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.5}"
+        "$value": "{tilskudd.neutral.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.6}"
+        "$value": "{tilskudd.neutral.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.7}"
+        "$value": "{tilskudd.neutral.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.8}"
+        "$value": "{tilskudd.neutral.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.9}"
+        "$value": "{tilskudd.neutral.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.10}"
+        "$value": "{tilskudd.neutral.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.11}"
+        "$value": "{tilskudd.neutral.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.12}"
+        "$value": "{tilskudd.neutral.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.13}"
+        "$value": "{tilskudd.neutral.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.14}"
+        "$value": "{tilskudd.neutral.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.15}"
+        "$value": "{tilskudd.neutral.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.neutral.16}"
+        "$value": "{tilskudd.neutral.16}"
       }
     },
     "info": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.1}"
+        "$value": "{tilskudd.info.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.2}"
+        "$value": "{tilskudd.info.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.3}"
+        "$value": "{tilskudd.info.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.4}"
+        "$value": "{tilskudd.info.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.5}"
+        "$value": "{tilskudd.info.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.6}"
+        "$value": "{tilskudd.info.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.7}"
+        "$value": "{tilskudd.info.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.8}"
+        "$value": "{tilskudd.info.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.9}"
+        "$value": "{tilskudd.info.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.10}"
+        "$value": "{tilskudd.info.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.11}"
+        "$value": "{tilskudd.info.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.12}"
+        "$value": "{tilskudd.info.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.13}"
+        "$value": "{tilskudd.info.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.14}"
+        "$value": "{tilskudd.info.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.15}"
+        "$value": "{tilskudd.info.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.info.16}"
+        "$value": "{tilskudd.info.16}"
       }
     },
     "success": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.1}"
+        "$value": "{tilskudd.success.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.2}"
+        "$value": "{tilskudd.success.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.3}"
+        "$value": "{tilskudd.success.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.4}"
+        "$value": "{tilskudd.success.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.5}"
+        "$value": "{tilskudd.success.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.6}"
+        "$value": "{tilskudd.success.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.7}"
+        "$value": "{tilskudd.success.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.8}"
+        "$value": "{tilskudd.success.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.9}"
+        "$value": "{tilskudd.success.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.10}"
+        "$value": "{tilskudd.success.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.11}"
+        "$value": "{tilskudd.success.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.12}"
+        "$value": "{tilskudd.success.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.13}"
+        "$value": "{tilskudd.success.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.14}"
+        "$value": "{tilskudd.success.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.15}"
+        "$value": "{tilskudd.success.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.success.16}"
+        "$value": "{tilskudd.success.16}"
       }
     },
     "warning": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.1}"
+        "$value": "{tilskudd.warning.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.2}"
+        "$value": "{tilskudd.warning.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.3}"
+        "$value": "{tilskudd.warning.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.4}"
+        "$value": "{tilskudd.warning.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.5}"
+        "$value": "{tilskudd.warning.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.6}"
+        "$value": "{tilskudd.warning.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.7}"
+        "$value": "{tilskudd.warning.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.8}"
+        "$value": "{tilskudd.warning.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.9}"
+        "$value": "{tilskudd.warning.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.10}"
+        "$value": "{tilskudd.warning.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.11}"
+        "$value": "{tilskudd.warning.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.12}"
+        "$value": "{tilskudd.warning.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.13}"
+        "$value": "{tilskudd.warning.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.14}"
+        "$value": "{tilskudd.warning.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.15}"
+        "$value": "{tilskudd.warning.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.warning.16}"
+        "$value": "{tilskudd.warning.16}"
       }
     },
     "danger": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.1}"
+        "$value": "{tilskudd.danger.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.2}"
+        "$value": "{tilskudd.danger.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.3}"
+        "$value": "{tilskudd.danger.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.4}"
+        "$value": "{tilskudd.danger.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.5}"
+        "$value": "{tilskudd.danger.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.6}"
+        "$value": "{tilskudd.danger.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.7}"
+        "$value": "{tilskudd.danger.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.8}"
+        "$value": "{tilskudd.danger.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.9}"
+        "$value": "{tilskudd.danger.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.10}"
+        "$value": "{tilskudd.danger.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.11}"
+        "$value": "{tilskudd.danger.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.12}"
+        "$value": "{tilskudd.danger.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.13}"
+        "$value": "{tilskudd.danger.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.14}"
+        "$value": "{tilskudd.danger.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.15}"
+        "$value": "{tilskudd.danger.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.danger.16}"
+        "$value": "{tilskudd.danger.16}"
       }
     },
     "link": {
       "visited": {
         "$type": "color",
-        "$value": "{ledsagerbevis.link.visited}"
+        "$value": "{tilskudd.link.visited}"
       }
     }
   },
   "font-family": {
     "$type": "fontFamilies",
-    "$value": "{ledsagerbevis.font-family}"
+    "$value": "{tilskudd.font-family}"
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.medium}"
+      "$value": "{tilskudd.font-weight.medium}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.semibold}"
+      "$value": "{tilskudd.font-weight.semibold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.regular}"
+      "$value": "{tilskudd.font-weight.regular}"
     }
   },
   "border-radius": {
@@ -448,7 +448,7 @@
     },
     "base": {
       "$type": "dimension",
-      "$value": "16"
+      "$value": "10"
     },
     "scale": {
       "$type": "dimension",
