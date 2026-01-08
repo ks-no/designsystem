@@ -1,3 +1,13 @@
+## 0.0.1-alpha.30
+
+### 🚀 Features
+
+- **react:** export hooks ([#171](https://github.com/ks-no/designsystem/pull/171))
+
+### ❤️ Thank You
+
+- Tellev @Tellev
+
 ## 0.0.1-alpha.29
 
 ### 🚀 Features
