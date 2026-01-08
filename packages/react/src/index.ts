@@ -37,8 +37,6 @@ export * from './components/ToggleGroup/ToggleGroup'
 export * from './components/Tooltip/Tooltip'
 export * from './components/ValidationMessage/ValidationMessage'
 
-export * from './utilities/RovingFocus'
-
 export * from './utilities/hooks/useCheckboxGroup'
 export * from './utilities/hooks/usePagination'
 export * from './utilities/hooks/useRadioGroup'
