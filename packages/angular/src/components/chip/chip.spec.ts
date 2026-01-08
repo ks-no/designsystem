@@ -1,5 +1,5 @@
+import { Input } from '@ks-digital/designsystem-angular/forms'
 import { render, screen } from '@testing-library/angular'
-import { Input } from '../input/input'
 import { Chip } from './chip'
 
 it('Should render button chip', async () => {
