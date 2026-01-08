@@ -31,3 +31,17 @@ it('Should render checkbox chip', async () => {
   expect(label).toHaveClass('ds-chip')
   expect(label).toBeInTheDocument()
 })
+
+it('Should render radio chip', async () => {
+  await render(
+    `<label ksd-chip>
+            <input ksd-input type="radio" />
+            My radio chip
+        </label>`,
+    { imports: [Chip, Input] },
+  )
+
+  const label = screen.getByText('My radio chip')
+  expect(label).toHaveClass('ds-chip')
+  expect(label).toBeInTheDocument()
+})
