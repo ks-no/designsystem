@@ -21,9 +21,9 @@ it('Should render label chip', async () => {
 it('Should render checkbox chip', async () => {
   await render(
     `<label ksd-chip>
-            <input ksd-input type="checkbox" />
-            My checkbox chip
-        </label>`,
+           <input ksd-input type="checkbox" />
+           My checkbox chip
+         </label>`,
     { imports: [Chip, Input] },
   )
 
@@ -35,9 +35,9 @@ it('Should render checkbox chip', async () => {
 it('Should render radio chip', async () => {
   await render(
     `<label ksd-chip>
-            <input ksd-input type="radio" />
-            My radio chip
-        </label>`,
+           <input ksd-input type="radio" />
+           My radio chip
+         </label>`,
     { imports: [Chip, Input] },
   )
 
