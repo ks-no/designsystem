@@ -7,7 +7,9 @@
       "colors": {
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
-        "support": {}
+        "support": {
+          "support1": "#714EEA"
+        }
       },
       "borderRadius": 8
     },
@@ -15,7 +17,9 @@
       "colors": {
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
-        "support": {}
+        "support": {
+          "support1": "#714EEA"
+        }
       },
       "borderRadius": 8
     },
@@ -23,7 +27,9 @@
       "colors": {
         "main": { "accent": "#2B5246" },
         "neutral": "#1E2422",
-        "support": {}
+        "support": {
+          "support1": "#1AA87E"
+        }
       },
       "borderRadius": 16
     },
@@ -32,7 +38,9 @@
         "main": {
           "accent": "#31373D"
         },
-        "support": {},
+        "support": {
+          "support1": "#ffffff"
+        },
         "neutral": "#4D524D"
       },
       "overrides": {
