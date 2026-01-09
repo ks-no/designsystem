@@ -1,15 +1,26 @@
 import { Card } from '@ks-digital/designsystem-angular/card'
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from '@storybook/angular'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { ControlledDetails } from './controlled-details'
 import { Details } from './details'
 import { DetailsContent } from './details-content'
 import { DetailsSummary } from './details-summary'
 
-const meta: Meta<Details> = {
+type DetailsArgs = CommonArgs
+
+const meta: Meta<DetailsArgs> = {
   component: Details,
   title: 'Komponenter/Details',
   parameters: {
     layout: 'padded',
+  },
+  argTypes: {
+    ...commonArgTypes,
   },
   decorators: [
     moduleMetadata({
@@ -24,7 +35,7 @@ const meta: Meta<Details> = {
   ],
 }
 export default meta
-type Story = StoryObj<Details>
+type Story = StoryObj<DetailsArgs>
 
 export const Preview: Story = {
   args: {},
@@ -39,7 +50,7 @@ export const Preview: Story = {
       content: context.parameters['contentText'],
     },
     template: `
-      <ksd-details data-testid="details">
+      <ksd-details data-testid="details" ${argsToTemplate(args)}>
         <ksd-details-summary>Vedlegg</ksd-details-summary>
         <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
       </ksd-details>
@@ -48,9 +59,10 @@ export const Preview: Story = {
 }
 
 export const WithoutCard: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
-      <ksd-details>
+      <ksd-details ${argsToTemplate(args)}>
         <ksd-details-summary>Vedlegg</ksd-details-summary>
         <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
       </ksd-details>
@@ -59,7 +71,8 @@ export const WithoutCard: Story = {
 }
 
 export const InCard: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
       <article ksd-card>
         <ksd-details>
@@ -72,7 +85,8 @@ export const InCard: Story = {
 }
 
 export const InCardWithColor: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem">
         <article ksd-card>
@@ -93,7 +107,8 @@ export const InCardWithColor: Story = {
 }
 
 export const WithDifferentSizes: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
       <ksd-details data-size="sm">
           <ksd-details-summary>Vedlegg</ksd-details-summary>
@@ -112,7 +127,8 @@ export const WithDifferentSizes: Story = {
 }
 
 export const DefaultOpen: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
       <ksd-details [defaultOpen]="true">
         <ksd-details-summary>Vedlegg</ksd-details-summary>
@@ -123,7 +139,8 @@ export const DefaultOpen: Story = {
 }
 
 export const Controlled: StoryObj<ControlledDetails> = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `<fiks-controlled-details />`,
   }),
 }

@@ -5,7 +5,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Field, FieldDescription } from '../field'
 import { Fieldset } from '../fieldset/fieldset'
 import { FieldsetDescription } from '../fieldset/fieldset-description'
@@ -21,6 +21,7 @@ type SwitchArgs = CommonArgs & {
 const meta: Meta<SwitchArgs> = {
   component: Input,
   title: 'Komponenter/Forms/Switch',
+  argTypes: { ...commonArgTypes },
   decorators: [
     moduleMetadata({
       imports: [
@@ -48,32 +49,33 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Min switch</ksd-label>
-          <input ksd-input role="switch" type="checkbox" ${argsToTemplate(args)} role="switch"/>
+          <input ksd-input role="switch" type="checkbox" role="switch"/>
         </ksd-field>
     `,
   }),
 }
 
 export const Grouped: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
-      <fieldset ksd-fieldset>
+      <fieldset ksd-fieldset ${argsToTemplate(args)}>
         <legend ksd-fieldset-legend> Skru av/på lys </legend>
-        <ksd-field>
+        <ksd-field  ${argsToTemplate(args)}>
           <ksd-label>Stue</ksd-label>
           <input ksd-input  type="checkbox" role="switch" checked=${true} />
         </ksd-field>
-        <ksd-field>
+        <ksd-field  ${argsToTemplate(args)}>
           <ksd-label>Kjøkken</ksd-label>
           <input ksd-input  type="checkbox" role="switch"/>
         </ksd-field>
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Bad</ksd-label>
           <input ksd-input  type="checkbox" role="switch"/>
         </ksd-field>
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Soverom</ksd-label>
           <input ksd-input  type="checkbox" role="switch" />
         </ksd-field>
@@ -82,9 +84,10 @@ export const Grouped: Story = {
 }
 
 export const RightAligned: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
-      <ksd-field>
+      <ksd-field ${argsToTemplate(args)}>
         <input ksd-input role="switch" type="checkbox" role="switch"/>
         <ksd-label>Min switch</ksd-label>
       </ksd-field>
