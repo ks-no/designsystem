@@ -12,7 +12,12 @@ import { Directive, input } from '@angular/core'
 import type { Color, Size } from '@digdir/designsystemet/types'
 export type { Color, SeverityColors, Size } from '@digdir/designsystemet/types'
 
-@Directive()
+@Directive({
+  host: {
+    '[attr.data-size]': 'dataSize()',
+    '[attr.data-color]': 'dataColor()',
+  },
+})
 export class CommonInputs {
   /**
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
