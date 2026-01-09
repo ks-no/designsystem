@@ -149,5 +149,13 @@
       "semantic/modes/main-color/accent": "enabled"
     },
     "group": "Main color"
+  },
+  {
+    "id": "8fa5895cfad7c46cd3e6c45bc10f05d330fe1c49",
+    "name": "support1",
+    "selectedTokenSets": {
+      "semantic/modes/support-color/support1": "enabled"
+    },
+    "group": "Support color"
   }
 ]

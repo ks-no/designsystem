@@ -30,6 +30,7 @@
     "themes/tilskudd",
     "semantic/color",
     "semantic/modes/main-color/accent",
+    "semantic/modes/support-color/support1",
     "semantic/style"
   ]
 }
