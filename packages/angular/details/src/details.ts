@@ -6,11 +6,18 @@ import {
   output,
   viewChild,
 } from '@angular/core'
+import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 import '@u-elements/u-details'
 
 @Component({
   selector: 'ksd-details',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  hostDirectives: [
+    {
+      directive: CommonInputs,
+      inputs: ['data-size', 'data-color'],
+    },
+  ],
   template: `
     <u-details
       #detailsRef
@@ -46,14 +53,6 @@ import '@u-elements/u-details'
   `,
 })
 export class Details {
-  readonly dataSize = input<'sm' | 'md' | 'lg' | undefined>(undefined, {
-    // eslint-disable-next-line @angular-eslint/no-input-rename
-    alias: 'data-size',
-  })
-  readonly dataColor = input<string | undefined>(undefined, {
-    // eslint-disable-next-line @angular-eslint/no-input-rename
-    alias: 'data-color',
-  })
   readonly variant = input<'tinted' | 'default'>('default')
   readonly defaultOpen = input<boolean>(false)
   readonly open = input<boolean | undefined>(undefined)
