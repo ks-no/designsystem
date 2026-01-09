@@ -7,7 +7,9 @@
     "chromatic": "npx chromatic --project-token=chpt_086af95d74cc9bd",
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky"
+    "prepare": "husky",
+    "themes:create-tokens": "./node_modules/.bin/designsystemet tokens create --config designsystemet.config.json",
+    "themes:build": "./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes"
   },
   "lint-staged": {
     "*.{ts,tsx,mts,html,scss,json,yml,yaml,md}": [
