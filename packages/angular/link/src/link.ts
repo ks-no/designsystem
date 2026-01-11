@@ -3,7 +3,7 @@ import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'a[ksd-link]',
-  template: `<ng-content />`,
+  template: ` <ng-content /> `,
   hostDirectives: [
     {
       directive: CommonInputs,
@@ -14,19 +14,18 @@ import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
     class: 'ds-link',
   },
   styles: `
-    /* Ensure that icons are aligned in middle */
     :host {
-      ng-icon {
-        vertical-align: middle;
-
-        & :is(svg, img) {
-          vertical-align: unset;
-        }
+      &:has(> span) > :is(ng-icon) {
+        margin-inline: var(--ds-size-1);
+        margin-inline-start: 0;
       }
-
-      > :is(svg, img) {
-        width: 1.2em;
-        height: 1.2em;
+      ng-icon {
+        display: inline-flex;
+        vertical-align: middle;
+      }
+      svg {
+        width: 1em;
+        height: 1em;
       }
     }
   `,
