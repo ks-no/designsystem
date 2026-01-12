@@ -6,6 +6,9 @@ onlyBuiltDependencies:
   - nx
 
 minimumReleaseAge: 2880 # 48 hours
+trustPolicy: 'no-downgrade'
+cleanupUnusedCatalogs: true
+verifyDepsBeforeRun: prompt
 
 catalogs:
   designsystemet:
