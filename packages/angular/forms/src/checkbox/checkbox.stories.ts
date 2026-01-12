@@ -51,7 +51,7 @@ export const Preview: Story = {
     template: `
       <ksd-field ${argsToTemplate(args)}>
         <ksd-label> Checkbox label </ksd-label>
-        <input ksd-input type="checkbox" value="some-value"  />
+        <input ksd-input type="checkbox" value="some-value" ${argsToTemplate(args)}  />
         <p ksd-field-description>Description</p>
       </ksd-field>
     `,
@@ -76,17 +76,17 @@ export const Group: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input ksd-input type="checkbox" value="e-post"   />
+        <input ksd-input type="checkbox" value="e-post" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input ksd-input type="checkbox" value="telefon"   />
+        <input ksd-input type="checkbox" value="telefon" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input ksd-input type="checkbox" value="sms"   />
+        <input ksd-input type="checkbox" value="sms" ${argsToTemplate(args)}  />
       </ksd-field>
 
     </fieldset>
@@ -128,17 +128,17 @@ export const ReadOnly: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input ksd-input type="checkbox" value="e-post"   />
+        <input ksd-input type="checkbox" value="e-post" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input ksd-input type="checkbox" value="telefon"   />
+        <input ksd-input type="checkbox" value="telefon" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input ksd-input type="checkbox" value="sms"   />
+        <input ksd-input type="checkbox" value="sms" ${argsToTemplate(args)}  />
       </ksd-field>
 
     </fieldset>
@@ -165,17 +165,17 @@ export const Disabled: Story = {
 
       <ksd-field>
         <ksd-label> E-post </ksd-label>
-        <input ksd-input type="checkbox" value="e-post"   />
+        <input ksd-input type="checkbox" value="e-post" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> Telefon </ksd-label>
-        <input ksd-input type="checkbox" value="telefon"   />
+        <input ksd-input type="checkbox" value="telefon" ${argsToTemplate(args)}  />
       </ksd-field>
 
       <ksd-field>
         <ksd-label> SMS </ksd-label>
-        <input ksd-input type="checkbox" value="sms"   />
+        <input ksd-input type="checkbox" value="sms" ${argsToTemplate(args)}  />
       </ksd-field>
 
     </fieldset>
