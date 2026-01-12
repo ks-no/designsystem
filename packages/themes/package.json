@@ -21,7 +21,9 @@
     "./forvaltning.css": "./dist/themes/forvaltning.css",
     "./forvaltning.tailwind.css": "./dist/themes/forvaltning.tailwind.css",
     "./minkommune.css": "./dist/themes/minkommune.css",
-    "./minkommune.tailwind.css": "./dist/themes/minkommune.tailwind.css"
+    "./minkommune.tailwind.css": "./dist/themes/minkommune.tailwind.css",
+    "./tilskudd.css": "./dist/themes/tilskudd.css",
+    "./tilskudd.tailwind.css": "./dist/themes/tilskudd.tailwind.css"
   },
   "files": [
     "./dist"

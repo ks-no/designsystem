@@ -9,9 +9,8 @@
  */
 
 import { Directive, input } from '@angular/core'
-import { Color } from './colors'
-
-export type Size = 'sm' | 'md' | 'lg'
+import type { Color, Size } from '@digdir/designsystemet/types'
+export type { Color, SeverityColors, Size } from '@digdir/designsystemet/types'
 
 @Directive()
 export class CommonInputs {
