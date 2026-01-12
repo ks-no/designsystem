@@ -70,7 +70,7 @@ export const VariantInfo: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-alert ${argsToTemplate(args)} data-color="info" >
+      <ksd-alert data-color="info" >
       <h2 class="ds-heading" data-size="xs" style="margin-bottom: var(--ds-size-2)">
             Har du husket å bestille passtime?
       </h2>
