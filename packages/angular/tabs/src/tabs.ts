@@ -8,20 +8,39 @@ import {
   input,
   model,
   signal,
+
 } from '@angular/core'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
+import { NgTemplateOutlet } from '@angular/common';
+import '@u-elements/u-tabs'
 import { TabsTab } from './tabs-tab'
 
 @Component({
   selector: `ksd-tabs`,
+  imports: [NgTemplateOutlet],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <u-tabs class="ds-tabs">
-      <ng-content select="ksd-tabs-list" />
+
+    <u-tablist>
+
+@for(tab of tabs(); track tab;) {
+  <!-- {{tab.content()}} -->
+  <u-tab>
+      <!-- <ng-container *ngTemplateOutlet="tab"></ng-container> -->
+           <!-- <ng-container *ngTemplateOutlet="tab.template"></ng-container> -->
+  </u-tab>
+}
+
+    </u-tablist>
+    
+    
+    <u-tab-panel>
       <ng-content select="ksd-tabs-panel" />
+    </u-tab-panel>
     </u-tabs>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -100,6 +119,6 @@ export class Tabs {
 
   private selectTab(index: number) {
     this.selectedIndex.set(index)
-    this.tabs()[index]?.elementRef.nativeElement.focus()
+    // this.tabs()[index]?.elementRef.nativeElement.focus()
   }
 }

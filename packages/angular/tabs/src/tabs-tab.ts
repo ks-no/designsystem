@@ -2,7 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  effect,
   input,
+  TemplateRef,
+  viewChild,
 } from '@angular/core'
 import {
   HostColor,
@@ -14,7 +17,7 @@ import { Tabs } from './tabs'
 @Component({
   selector: `button[ksd-tabs-tab]`,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  template: `<u-tab><ng-content /></u-tab>`,
+  template: `<ng-template #tpl><ng-content /></ng-template>`,
   host: {},
   styles: `
     :host {
@@ -38,4 +41,12 @@ export class TabsTab {
    * Unique value that will be set in the Tabs components state when the tab is activated
    */
   readonly value = input.required<string>()
+
+  template = viewChild<TemplateRef<unknown>>('tpl')
+
+  constructor() {
+    effect(() => {
+      console.log('template', this.template())
+    })
+  }
 }
