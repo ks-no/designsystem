@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
-import { Size } from '@ks-digital/designsystem-angular/__internals'
+import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-spinner',
@@ -45,12 +45,14 @@ export class Spinner {
   /**
    * Aria-label for the spinner
    */
-  readonly dataSize = input<Size>(undefined, { alias: 'data-size' })
+  readonly dataSize = input<(Size & 'xs') | 'xl' | '2xs'>(undefined, {
+    alias: 'data-size',
+  })
 
   /**
    * Aria-label for the spinner
    */
-  readonly dataColor = input<Size>(undefined, { alias: 'data-color' })
+  readonly dataColor = input<Color>(undefined, { alias: 'data-color' })
 
   /**
    * Aria-hidden for the spinner
