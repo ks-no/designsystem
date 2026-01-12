@@ -6,7 +6,10 @@ import {
   output,
   viewChild,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import '@u-elements/u-details'
 
 @Component({
@@ -14,8 +17,12 @@ import '@u-elements/u-details'
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
   template: `

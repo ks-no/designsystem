@@ -1,13 +1,20 @@
 import { Component, ElementRef, inject, input } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: '[ksd-card]',
   template: ` <ng-content /> `,
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
   host: {

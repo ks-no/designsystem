@@ -8,7 +8,10 @@ import {
   model,
   signal,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import { TabsTab } from './tabs-tab'
 
 @Component({
@@ -22,8 +25,12 @@ import { TabsTab } from './tabs-tab'
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
 })

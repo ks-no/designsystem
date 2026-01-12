@@ -18,14 +18,21 @@ import {
   Placement,
   shift,
 } from '@floating-ui/dom'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-popover',
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
   template: `

@@ -6,7 +6,10 @@ import {
   numberAttribute,
   signal,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import { FieldState } from '../field'
 
 @Directive({
@@ -14,8 +17,12 @@ import { FieldState } from '../field'
   selector: 'input[ksd-input], textarea[ksd-input], select[ksd-input]',
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
   host: {

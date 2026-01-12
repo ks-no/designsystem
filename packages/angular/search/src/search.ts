@@ -1,6 +1,7 @@
 import { afterNextRender, Component, contentChild } from '@angular/core'
 import {
-  CommonInputs,
+  HostSeverityColors,
+  HostSize,
   logIfDevMode,
 } from '@ks-digital/designsystem-angular/__internals'
 import { SearchInput } from './search-input'
@@ -30,8 +31,12 @@ import { SearchInput } from './search-input'
   },
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
 })

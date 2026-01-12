@@ -10,7 +10,10 @@ import {
   inject,
   input,
 } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostSeverityColors,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { Input } from '../input'
 import { FieldCounter } from './field-counter'
@@ -24,8 +27,12 @@ import { FieldState } from './field-state'
   selector: 'ksd-field',
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostSeverityColors,
+      inputs: ['data-color'],
     },
   ],
   host: {
