@@ -1,15 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-} from '@angular/core'
-import '@u-elements/u-tabs'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 
 @Component({
   selector: `ksd-tabs-panel`,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  template: `<u-tabpanel><ng-content /></u-tabpanel>`,
+  template: `<ng-content />`,
   host: {},
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TabsPanel {}
+export class TabsPanel { }
