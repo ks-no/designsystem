@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -8,7 +9,6 @@ import {
   input,
   model,
   signal,
-
 } from '@angular/core'
 import {
   HostColor,
@@ -24,23 +24,14 @@ import { TabsTab } from './tabs-tab'
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <u-tabs class="ds-tabs">
-
-    <u-tablist>
-
-@for(tab of tabs(); track tab;) {
-  <!-- {{tab.content()}} -->
-  <u-tab>
-      <!-- <ng-container *ngTemplateOutlet="tab"></ng-container> -->
-           <!-- <ng-container *ngTemplateOutlet="tab.template"></ng-container> -->
-  </u-tab>
-}
-
-    </u-tablist>
-    
-    
-    <u-tab-panel>
+      <u-tablist>
+        @for (tab of tabs(); track tab) {
+          <u-tab>
+            <ng-container *ngTemplateOutlet="tab.template()" />
+          </u-tab>
+        }
+      </u-tablist>
       <ng-content select="ksd-tabs-panel" />
-    </u-tab-panel>
     </u-tabs>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

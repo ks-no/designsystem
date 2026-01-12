@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-  effect,
   input,
   TemplateRef,
   viewChild,
@@ -15,14 +14,9 @@ import {
 import { Tabs } from './tabs'
 
 @Component({
-  selector: `button[ksd-tabs-tab]`,
+  selector: `ksd-tabs-tab`,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  template: `<ng-template #tpl><ng-content /></ng-template>`,
-  host: {},
-  styles: `
-    :host {
-    }
-  `,
+  template: ` <ng-template #tpl><ng-content /></ng-template> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   hostDirectives: [
@@ -40,13 +34,11 @@ export class TabsTab {
   /**
    * Unique value that will be set in the Tabs components state when the tab is activated
    */
-  readonly value = input.required<string>()
+  readonly value = input<string>()
 
+  /**
+   * Hack to get the content of the tab from outside so that we can
+   * keep the dom structure needed without additional host elements
+   */
   template = viewChild<TemplateRef<unknown>>('tpl')
-
-  constructor() {
-    effect(() => {
-      console.log('template', this.template())
-    })
-  }
 }

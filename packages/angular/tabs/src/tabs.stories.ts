@@ -51,23 +51,23 @@ export const Preview: Story = {
 
       <ksd-tabs [defaultValue]='defaultValue'>
         <ksd-tabs-list>
-           <button ksd-tabs-tab value="value1">
+           <ksd-tabs-tab>
             Tab 1
-          </button>
-          <button ksd-tabs-tab value="value2">
+          </ksd-tabs-tab>
+          <ksd-tabs-tab>
             Tab 2
-          </button>
-          <button ksd-tabs-tab value="value3">
+          </ksd-tabs-tab>
+          <ksd-tabs-tab>
             Tab 3
-          </button>
+          </ksd-tabs-tab>
         </ksd-tabs-list>
-        <ksd-tabs-panel value='value1'>
+        <ksd-tabs-panel >
           content 1
         </ksd-tabs-panel>
-        <ksd-tabs-panel value='value2'>
+        <ksd-tabs-panel >
           content 2
         </ksd-tabs-panel>
-        <ksd-tabs-panel value='value3'>
+        <ksd-tabs-panel >
           content 3
         </ksd-tabs-panel>
       </ksd-tabs>
