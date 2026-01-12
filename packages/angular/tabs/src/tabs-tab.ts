@@ -10,6 +10,7 @@ import {
 import {
   HostSeverityColors,
   HostSize,
+  randomId,
 } from '@ks-digital/designsystem-angular/__internals'
 import { Tabs } from './tabs'
 
