@@ -155,7 +155,7 @@ export const Disabled: Story = {
   render: (args) => ({
     props: args,
     template: `
-     <fieldset ksd-fieldset ${argsToTemplate(args)}> 
+     <fieldset ksd-fieldset> 
       <legend ksd-fieldset-legend>
         Hvordan vil du helst at vi skal kontakte deg?
       </legend>
