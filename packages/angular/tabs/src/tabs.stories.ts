@@ -1,5 +1,5 @@
 import { Button } from '@ks-digital/designsystem-angular/button'
-import { argsToTemplate, Meta, moduleMetadata } from '@storybook/angular'
+import { Meta, moduleMetadata } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Tabs, TabsList, TabsPanel, TabsTab } from './'
 
@@ -27,13 +27,13 @@ export default meta
 type Story = Meta<Tabs>
 
 export const Preview: Story = {
-  args: {},
+  args: { defaultValue: 'value1' },
   render: (args) => ({
     props: {
       ...args,
     },
     template: `
-      <ksd-tabs [defaultValue]='defaultValue' ${argsToTemplate(args)}>
+      <ksd-tabs [defaultValue]='defaultValue'>
         <ksd-tabs-list>
            <button ksd-tabs-tab value="value1">
             Tab 1
