@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import * as ChipStories from './chip.stories'
+
+<Meta of={ChipStories} />
+
+# Chip
+
+Chip er små, interaktive komponentar som lèt brukarane styre korleis dei vil sjå innhald. For eksempel kan dei brukast til å filtrere kategoriar i eit søkeresultat og vise kva for filter som er aktive.
+
+<Primary />
+<Controls />
+
+## Kodeeksempler
+
+### Chip som checkbox
+
+<Canvas of={ChipStories.Checkbox} />
+
+### Removable
+
+Det er viktig å merke seg at aria-label må leggjast til dersom innhaldet i Chip ikkje forklarer at den kan fjernast. I dette eksempelet er det lagt til aria-label="Slett 2 kg sukker".
+
+<Canvas of={ChipStories.Removable} />
+
+## Button
+
+<Canvas of={ChipStories.Button} />
