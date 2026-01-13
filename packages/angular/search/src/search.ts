@@ -1,6 +1,6 @@
 import { afterNextRender, Component, contentChild } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
   logIfDevMode,
 } from '@ks-digital/designsystem-angular/__internals'
@@ -35,7 +35,7 @@ import { SearchInput } from './search-input'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

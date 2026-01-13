@@ -7,7 +7,7 @@ import {
   viewChild,
 } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 import '@u-elements/u-details'
@@ -21,7 +21,7 @@ import '@u-elements/u-details'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

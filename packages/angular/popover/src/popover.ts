@@ -19,7 +19,7 @@ import {
   shift,
 } from '@floating-ui/dom'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 
@@ -31,7 +31,7 @@ import {
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

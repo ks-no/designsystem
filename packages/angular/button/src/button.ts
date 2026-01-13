@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 import { Spinner } from '@ks-digital/designsystem-angular/spinner'
@@ -14,7 +14,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

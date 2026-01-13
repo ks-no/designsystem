@@ -9,7 +9,7 @@ import {
   signal,
 } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 import { TabsTab } from './tabs-tab'
@@ -29,7 +29,7 @@ import { TabsTab } from './tabs-tab'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

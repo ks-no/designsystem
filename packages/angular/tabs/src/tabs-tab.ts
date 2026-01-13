@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
   randomId,
 } from '@ks-digital/designsystem-angular/__internals'
@@ -35,7 +35,7 @@ import { Tabs } from './tabs'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],

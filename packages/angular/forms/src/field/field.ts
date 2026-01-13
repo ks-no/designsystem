@@ -11,7 +11,7 @@ import {
   input,
 } from '@angular/core'
 import {
-  HostSeverityColors,
+  HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
@@ -31,7 +31,7 @@ import { FieldState } from './field-state'
       inputs: ['data-size'],
     },
     {
-      directive: HostSeverityColors,
+      directive: HostColor,
       inputs: ['data-color'],
     },
   ],
