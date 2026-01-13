@@ -1,3 +1,15 @@
+## 0.0.1-alpha.31
+
+### 🚀 Features
+
+- new themes setup ([#170](https://github.com/ks-no/designsystem/pull/170))
+- **angular:** chip component ([#118](https://github.com/ks-no/designsystem/pull/118))
+
+### ❤️ Thank You
+
+- Håkon Herrevold @584973
+- stianmorsund
+
 ## 0.0.1-alpha.30
 
 ### 🚀 Features
