@@ -45,7 +45,7 @@ export class Spinner {
   /**
    * Aria-label for the spinner
    */
-  readonly dataSize = input<(Size & 'xs') | 'xl' | '2xs'>(undefined, {
+  readonly dataSize = input<Size | 'xs' | 'xl' | '2xs'>(undefined, {
     alias: 'data-size',
   })
 

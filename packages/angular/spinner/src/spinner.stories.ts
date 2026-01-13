@@ -8,7 +8,7 @@ import {
 import { commonArgTypes } from '../../.storybook/default-args'
 import { Spinner } from './spinner'
 
-type SpinnerSizes = (Size & 'xs') | 'xl' | '2xs'
+type SpinnerSizes = Size | 'xs' | 'xl' | '2xs'
 
 type SpinnerArgs = {
   'data-size'?: SpinnerSizes | undefined
@@ -35,11 +35,11 @@ export default meta
 type Story = StoryObj<SpinnerArgs>
 
 export const Preview: Story = {
-  args: {},
+  args: { 'data-size': 'md' },
   render: (args) => ({
     props: args,
     template: `
-      <ksd-spinner ${argsToTemplate(args)} data-size="xl" />
+      <ksd-spinner ${argsToTemplate(args)} />
     `,
   }),
 }
