@@ -11,7 +11,15 @@ export const commonArgTypes = {
     control: { type: 'radio' },
   },
   'data-color': {
-    options: ['accent', 'neutral', 'danger', 'info', 'success', 'warning'],
+    options: [
+      'accent',
+      'neutral',
+      'support1',
+      'danger',
+      'info',
+      'success',
+      'warning',
+    ],
     control: { type: 'radio' },
   },
 } satisfies import('@storybook/angular').ArgTypes
