@@ -14,10 +14,10 @@ import {
   `,
   template: `
     <svg
-      [attr.data-size]="dataSize()"
       class="ds-spinner"
       role="img"
       viewBox="0 0 50 50"
+      [attr.data-size]="dataSize()"
     >
       <circle
         class="ds-spinner__background"
@@ -46,15 +46,6 @@ import {
 })
 export class Spinner {
   /**
-   * Changes size for descendant Designsystemet components. Select from predefined sizes.
-   * @attribute data-size
-   */
-
-  // Spinner doesnt inherit size from wrapping element (bug?) so we cant use hostdirective here
-  readonly dataSize = input<ExtendedSize>(undefined, {
-    alias: 'data-size',
-  })
-  /**
    * Aria-label for the spinner
    */
   readonly ariaLabel = input<string>(undefined, { alias: 'aria-label' })
@@ -65,5 +56,14 @@ export class Spinner {
   readonly ariaHidden = input(undefined, {
     transform: booleanAttribute,
     alias: 'aria-hidden',
+  })
+
+  /**
+   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   * @attribute data-size
+   */
+  // Spinner doesnt inherit size from wrapping element (bug?) so we cant use hostdirective here, and must define it directly
+  readonly dataSize = input<ExtendedSize>(undefined, {
+    alias: 'data-size',
   })
 }
