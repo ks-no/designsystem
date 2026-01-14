@@ -29,14 +29,14 @@
     "@navikt/aksel-icons": "catalog:designsystemet"
   },
   "devDependencies": {
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "catalog:testing-library",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0"
   },
   "peerDependencies": {
-    "react": ">=18.3.1",
-    "react-dom": ">=18.3.1"
+    "react": "catalog:react-supported-versions",
+    "react-dom": "catalog:react-supported-versions"
   }
 }

@@ -20,23 +20,23 @@
     "@angular/core": ">=20.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.9",
-    "@angular-eslint/builder": "^20.6.0",
-    "@angular-eslint/bundled-angular-compiler": "^20.6.0",
-    "@angular-eslint/eslint-plugin": "^20.6.0",
-    "@angular-eslint/eslint-plugin-template": "^20.6.0",
-    "@angular-eslint/schematics": "^20.6.0",
-    "@angular-eslint/template-parser": "^20.6.0",
-    "@angular/compiler": "20.3.9",
-    "@angular/router": "20.3.9",
-    "@angular/platform-browser": "20.3.9",
+    "@angular-devkit/build-angular": "catalog:angular",
+    "@angular-eslint/builder": "catalog:angular",
+    "@angular-eslint/bundled-angular-compiler": "catalog:angular",
+    "@angular-eslint/eslint-plugin": "catalog:angular",
+    "@angular-eslint/eslint-plugin-template": "catalog:angular",
+    "@angular-eslint/schematics": "catalog:angular",
+    "@angular-eslint/template-parser": "catalog:angular",
+    "@angular/compiler": "catalog:angular",
+    "@angular/router": "catalog:angular",
+    "@angular/platform-browser": "catalog:angular",
     "@ng-icons/core": "^32.5.0",
     "@ng-icons/phosphor-icons": "^33.0.0",
-    "@testing-library/angular": "^17.4.0",
-    "@testing-library/jest-dom": "^6.9.1",
-    "angular-eslint": "^20.6.0",
+    "@testing-library/angular": "catalog:testing-library",
+    "@testing-library/jest-dom": "catalog:testing-library",
+    "angular-eslint": "catalog:angular",
     "jsdom": "~27.2.0",
-    "ng-packagr": "^20.3.2",
-    "zone.js": "~0.15.0"
+    "ng-packagr": "catalog:angular",
+    "zone.js": "catalog:angular"
   }
 }
