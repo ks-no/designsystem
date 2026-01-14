@@ -1,3 +1,4 @@
+export { ExtendedSize } from './extended-size'
 export {
   CommonInputs,
   HostColor,

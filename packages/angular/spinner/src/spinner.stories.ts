@@ -1,4 +1,7 @@
-import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
+import {
+  Color,
+  ExtendedSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -8,10 +11,8 @@ import {
 import { commonArgTypes } from '../../.storybook/default-args'
 import { Spinner } from './spinner'
 
-type SpinnerSizes = Size | 'xs' | 'xl' | '2xs'
-
 type SpinnerArgs = {
-  'data-size'?: SpinnerSizes | undefined
+  'data-size'?: ExtendedSize | undefined
   'data-color'?: Color | undefined
 }
 

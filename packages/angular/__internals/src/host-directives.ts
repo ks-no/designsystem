@@ -6,6 +6,7 @@ import {
   SeverityColorDefinitions,
   SizeDefinition,
 } from '@ks-digital/designsystem-themes/types'
+import { ExtendedSize } from './extended-size'
 
 /**
  * @deprecated Use individual directives instead
@@ -67,12 +68,9 @@ export class HostSizeExtended {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  readonly dataSize = input<keyof SizeDefinition | 'xs' | 'xl' | '2xs'>(
-    undefined,
-    {
-      alias: 'data-size',
-    },
-  )
+  readonly dataSize = input<ExtendedSize>(undefined, {
+    alias: 'data-size',
+  })
 }
 
 /**
