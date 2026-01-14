@@ -16,8 +16,8 @@
     "@u-elements/u-details": "^0.1.5"
   },
   "peerDependencies": {
-    "@angular/common": ">=20.0.0",
-    "@angular/core": ">=20.0.0"
+    "@angular/common": "catalog:angular-supported-versions",
+    "@angular/core": "catalog:angular-supported-versions"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "catalog:angular",
@@ -30,12 +30,11 @@
     "@angular/compiler": "catalog:angular",
     "@angular/router": "catalog:angular",
     "@angular/platform-browser": "catalog:angular",
-    "@ng-icons/core": "^32.5.0",
-    "@ng-icons/phosphor-icons": "^33.0.0",
+    "@ng-icons/core": "catalog:angular",
+    "@ng-icons/phosphor-icons": "catalog:angular",
     "@testing-library/angular": "catalog:testing-library",
     "@testing-library/jest-dom": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
-    "jsdom": "~27.2.0",
     "ng-packagr": "catalog:angular",
     "zone.js": "catalog:angular"
   }

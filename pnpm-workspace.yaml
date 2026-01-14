@@ -3,19 +3,6 @@ packages:
   - packages/*
 
 blockExoticSubdeps: true
-cleanupUnusedCatalogs: true
-minimumReleaseAge: 2880
-onlyBuiltDependencies:
-  - nx
-trustPolicy: no-downgrade
-trustPolicyExclude:
-  - chokidar@4.0.3
-  - detect-port@1.6.1
-  - undici-types@6.21.0
-  - semver@6.3.1
-
-trustPolicyIgnoreAfter: 10080
-verifyDepsBeforeRun: prompt
 
 catalogs:
   angular:
@@ -35,10 +22,15 @@ catalogs:
     '@angular/platform-browser': 20.3.9
     '@angular/platform-server': 20.3.9
     '@angular/router': 20.3.9
+    '@ng-icons/core': ^32.5.0
+    '@ng-icons/phosphor-icons': ^33.0.0
     '@schematics/angular': 20.3.9
     angular-eslint: 20.6.0
     ng-packagr: 20.3.2
     zone.js: 0.15.1
+  angular-supported-versions:
+    '@angular/common': '>= 20.0.0 < 21.0.0'
+    '@angular/core': '>= 20.0.0 < 21.0.0'
   designsystemet:
     '@digdir/designsystemet': 1.7.3
     '@digdir/designsystemet-css': 1.7.3
@@ -81,3 +73,22 @@ catalogs:
     tsx: 4.7.0
     typescript: ~5.8.3
 
+cleanupUnusedCatalogs: true
+
+minimumReleaseAge: 2880
+
+onlyBuiltDependencies:
+  - esbuild
+  - nx
+
+trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  - chokidar@4.0.3
+  - detect-port@1.6.1
+  - undici-types@6.21.0
+  - semver@6.3.1
+
+trustPolicyIgnoreAfter: 10080
+
+verifyDepsBeforeRun: prompt
