@@ -27,7 +27,7 @@ export class CommonInputs {
 
   /**
    * Changes color for descendant Designsystemet components.
-   * Select from predefined colors and colors defined using theme.designsystemet.no.
+   * Select from predefined colors and colors defined in theme.
    * @attribute data-color
    */
   readonly dataColor = input<keyof ColorDefinitions>(undefined, {
@@ -86,7 +86,7 @@ export class HostSizeExtended {
 export class HostColor {
   /**
    * Changes color for descendant Designsystemet components.
-   * Select from predefined colors and colors defined using theme.designsystemet.no.
+   * Select from predefined colors and colors defined in theme.
    * @attribute data-color
    */
   readonly dataColor = input<
@@ -105,7 +105,7 @@ export class HostColor {
 export class HostSeverityColors {
   /**
    * Changes color for descendant Designsystemet components.
-   * Select from predefined colors and colors defined using theme.designsystemet.no.
+   * Select from predefined colors and colors defined in theme.
    * @attribute data-color
    */
   readonly dataColor = input<keyof SeverityColorDefinitions>(undefined, {
