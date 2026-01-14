@@ -14,7 +14,7 @@ import {
 } from '@storybook/angular'
 import { Alert } from './alert'
 
-const SEVERITY_COLORS: SeverityColors[] = [
+const SEVERITY_COLORS: (keyof SeverityColors)[] = [
   'info',
   'success',
   'warning',
