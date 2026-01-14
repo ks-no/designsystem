@@ -83,14 +83,16 @@ onlyBuiltDependencies:
   - esbuild
   - nx
 
-trustPolicy: no-downgrade
+minimumReleaseAge: 2880 # 48 hours
+trustPolicy: 'no-downgrade'
+trustPolicyIgnoreAfter: 10080
+cleanupUnusedCatalogs: true
+verifyDepsBeforeRun: prompt
 
 trustPolicyExclude:
   - chokidar@4.0.3
   - detect-port@1.6.1
   - undici-types@6.21.0
   - semver@6.3.1
-
-trustPolicyIgnoreAfter: 10080
 
 verifyDepsBeforeRun: prompt
