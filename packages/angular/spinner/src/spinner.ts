@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
-import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
+import { HostColor, Size } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-spinner',
@@ -11,11 +11,10 @@ import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
   `,
   template: `
     <svg
+      [attr.data-size]="dataSize()"
       class="ds-spinner"
       role="img"
       viewBox="0 0 50 50"
-      [attr.data-size]="dataSize()"
-      [attr.data-color]="dataColor()"
     >
       <circle
         class="ds-spinner__background"
@@ -35,24 +34,27 @@ import { Color, Size } from '@ks-digital/designsystem-angular/__internals'
       />
     </svg>
   `,
+  hostDirectives: [
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
+    },
+  ],
 })
 export class Spinner {
+  /**
+   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   * @attribute data-size
+   */
+
+  // Spinner doesnt inherit size from wrapping element (bug?) so we cant use hostdirective here
+  readonly dataSize = input<Size | 'xs' | 'xl' | '2xs'>(undefined, {
+    alias: 'data-size',
+  })
   /**
    * Aria-label for the spinner
    */
   readonly ariaLabel = input<string>(undefined, { alias: 'aria-label' })
-
-  /**
-   * Aria-label for the spinner
-   */
-  readonly dataSize = input<Size | 'xs' | 'xl' | '2xs'>(undefined, {
-    alias: 'data-size',
-  })
-
-  /**
-   * Aria-label for the spinner
-   */
-  readonly dataColor = input<Color>(undefined, { alias: 'data-color' })
 
   /**
    * Aria-hidden for the spinner
