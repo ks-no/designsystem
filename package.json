@@ -37,7 +37,7 @@
     "@schematics/angular": "catalog:angular",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/angular": "catalog:storybook",
-    "@storybook/test": "^8.6.14",
+    "@storybook/test": "catalog:storybook",
     "@swc-node/register": "~1.9.2",
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.29",
