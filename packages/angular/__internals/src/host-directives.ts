@@ -67,9 +67,12 @@ export class HostSizeExtended {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  readonly dataSize = input<SizeDefinition | 'xs' | 'xl' | '2xs'>(undefined, {
-    alias: 'data-size',
-  })
+  readonly dataSize = input<keyof SizeDefinition | 'xs' | 'xl' | '2xs'>(
+    undefined,
+    {
+      alias: 'data-size',
+    },
+  )
 }
 
 /**
