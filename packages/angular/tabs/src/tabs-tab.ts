@@ -40,5 +40,5 @@ export class TabsTab {
    * Hack to get the content of the tab from outside so that we can
    * keep the dom structure needed without additional host elements
    */
-  template = viewChild<TemplateRef<unknown>>('tpl')
+  templateRef = viewChild<TemplateRef<unknown>>('tpl')
 }
