@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
 import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
 import { Spinner } from '@ks-digital/designsystem-angular/spinner'
@@ -38,7 +39,6 @@ export class Button {
    * Specify which variant to use
    * @default 'primary'
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary', {
     alias: 'data-variant',
   })
