@@ -3,6 +3,7 @@ export {
   HostColor,
   HostSeverityColors,
   HostSize,
+  HostSizeExtended,
 } from './host-directives'
 export { logIfDevMode } from './log-if-devmode'
 export { randomId } from './random-id'

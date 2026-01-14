@@ -48,6 +48,25 @@ export class HostSize {
 }
 
 /**
+ * Applies data-size attribute to host-element.
+ * Includes more size options than HostSize.
+ */
+@Directive({
+  host: {
+    '[attr.data-size]': 'dataSize() || null',
+  },
+})
+export class HostSizeExtended {
+  /**
+   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   * @attribute data-size
+   */
+  readonly dataSize = input<SizeDefinition | 'xs' | 'xl' | '2xs'>(undefined, {
+    alias: 'data-size',
+  })
+}
+
+/**
  * Applies data-color attribute to host-element for all colors, including severity colors.
  */
 @Directive({
