@@ -21,14 +21,18 @@ export class CommonInputs {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  dataSize = input<keyof SizeDefinition>(undefined, { alias: 'data-size' })
+  readonly dataSize = input<keyof SizeDefinition>(undefined, {
+    alias: 'data-size',
+  })
 
   /**
    * Changes color for descendant Designsystemet components.
    * Select from predefined colors and colors defined using theme.designsystemet.no.
    * @attribute data-color
    */
-  dataColor = input<keyof ColorDefinitions>(undefined, { alias: 'data-color' })
+  readonly dataColor = input<keyof ColorDefinitions>(undefined, {
+    alias: 'data-color',
+  })
 }
 
 /**
@@ -44,7 +48,9 @@ export class HostSize {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  dataSize = input<keyof SizeDefinition>(undefined, { alias: 'data-size' })
+  readonly dataSize = input<keyof SizeDefinition>(undefined, {
+    alias: 'data-size',
+  })
 }
 
 /**
@@ -80,10 +86,9 @@ export class HostColor {
    * Select from predefined colors and colors defined using theme.designsystemet.no.
    * @attribute data-color
    */
-  dataColor = input<keyof ColorDefinitions | keyof SeverityColorDefinitions>(
-    undefined,
-    { alias: 'data-color' },
-  )
+  readonly dataColor = input<
+    keyof ColorDefinitions | keyof SeverityColorDefinitions
+  >(undefined, { alias: 'data-color' })
 }
 
 /**
@@ -100,7 +105,7 @@ export class HostSeverityColors {
    * Select from predefined colors and colors defined using theme.designsystemet.no.
    * @attribute data-color
    */
-  dataColor = input<keyof SeverityColorDefinitions>(undefined, {
+  readonly dataColor = input<keyof SeverityColorDefinitions>(undefined, {
     alias: 'data-color',
   })
 }
