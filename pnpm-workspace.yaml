@@ -2,28 +2,48 @@ packages:
   - apps/*
   - packages/*
 
+blockExoticSubdeps: true
+cleanupUnusedCatalogs: true
+minimumReleaseAge: 2880
 onlyBuiltDependencies:
   - nx
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - chokidar@4.0.3
+  - detect-port@1.6.1
+  - undici-types@6.21.0
+  - semver@6.3.1
 
-minimumReleaseAge: 2880 # 48 hours
-trustPolicy: 'no-downgrade'
-cleanupUnusedCatalogs: true
+trustPolicyIgnoreAfter: 10080
 verifyDepsBeforeRun: prompt
 
 catalogs:
+  angular:
+    '@angular-devkit/build-angular': 20.3.9
+    '@angular-eslint/builder': ^20.6.0
+    '@angular-eslint/bundled-angular-compiler': ^20.6.0
+    '@angular-eslint/eslint-plugin': ^20.6.0
+    '@angular-eslint/eslint-plugin-template': ^20.6.0
+    '@angular-eslint/schematics': ^20.6.0
+    '@angular-eslint/template-parser': 20.6.0
+    '@angular/animations': 20.3.9
+    '@angular/build': 20.3.9
+    '@angular/common': 20.3.9
+    '@angular/compiler': 20.3.9
+    '@angular/compiler-cli': 20.3.9
+    '@angular/core': 20.3.9
+    '@angular/platform-browser': 20.3.9
+    '@angular/platform-server': 20.3.9
+    '@angular/router': 20.3.9
+    '@schematics/angular': 20.3.9
+    angular-eslint: 20.6.0
+    ng-packagr: 20.3.2
+    zone.js: 0.15.1
   designsystemet:
     '@digdir/designsystemet': 1.7.3
     '@digdir/designsystemet-css': 1.7.3
     '@digdir/designsystemet-react': 1.7.3
     '@navikt/aksel-icons': 7.33.4
-  react:
-    '@types/react': 19.0.0
-    '@types/react-dom': 19.0.0
-    react: 19.0.0
-    react-dom: 19.0.0
-  react-supported-versions:
-    react: '>=18.3.1'
-    react-dom: '>=18.3.1'
   nx:
     '@nx/angular': 22.1.1
     '@nx/devkit': 22.1.1
@@ -35,55 +55,29 @@ catalogs:
     '@nx/storybook': 22.1.1
     '@nx/vite': 22.1.1
     '@nx/web': 22.1.1
-    'nx': 22.1.1
+    nx: 22.1.1
+  react:
+    '@types/react': 19.0.0
+    '@types/react-dom': 19.0.0
+    react: 19.0.0
+    react-dom: 19.0.0
+  react-supported-versions:
+    react: '>=18.3.1'
+    react-dom: '>=18.3.1'
   storybook:
     '@storybook/addon-docs': 10.0.8
     '@storybook/angular': 10.0.8
-    '@storybook/test': 8.6.14
-    'storybook': 10.0.8
-  angular:
-    '@angular-devkit/build-angular': 20.3.9
-    '@angular/animations': 20.3.9
-    '@angular/build': 20.3.9
-    '@angular/common': 20.3.9
-    '@angular/compiler': 20.3.9
-    '@angular/compiler-cli': 20.3.9
-    '@angular/core': 20.3.9
-    '@angular/platform-browser': 20.3.9
-    '@angular/platform-server': 20.3.9
-    '@angular/router': 20.3.9
-    '@schematics/angular': 20.3.9
-    'angular-eslint': 20.6.0
-    "@angular-eslint/builder": "^20.6.0"
-    "@angular-eslint/bundled-angular-compiler": ^20.6.0
-    "@angular-eslint/eslint-plugin": ^20.6.0
-    "@angular-eslint/eslint-plugin-template": ^20.6.0
-    "@angular-eslint/schematics": ^20.6.0
-    '@angular-eslint/template-parser': 20.6.0
-    'ng-packagr': 20.3.2
-    'zone.js': '0.15.1'
-  angular-supported-versions:
-    '@angular-devkit/build-angular': '>= 20.0.0 < 21.0.0'
-    '@angular-devkit/core': '>= 20.0.0 < 21.0.0'
-    '@angular-devkit/schematics': '>= 20.0.0 < 21.0.0'
-    '@angular/build': '>= 20.0.0 < 21.0.0'
-    '@angular/localize': '>= 20.0.0 < 21.0.0'
-    '@angular/elements': '>= 20.0.0 < 21.0.0'
-    '@angular/platform-browser': '>= 20.0.0 < 21.0.0'
-    '@angular/common': '>= 20.0.0 < 21.0.0'
-    '@angular/core': '>= 20.0.0 < 21.0.0'
-    '@schematics/angular': '>= 20.0.0 < 21.0.0'
-    'ng-packagr': '>= 20.0.0 < 21.0.0'
-    'zone.js': '0.15.1 < 16.0.0'
-  typescript:
-    '@types/node': ^22.14.0
-    'tsx': 4.7.0
-    'tslib': ^2.8.0
-    'typescript': ~5.8.3
-    'ts-morph': ^27.0.2
+    storybook: 10.0.8
   testing-library:
+    '@testing-library/angular': ^17.4.0
+    '@testing-library/dom': 10.4.1
     '@testing-library/jest-dom': ~6.6.3
     '@testing-library/react': ^16.3.0
-    '@testing-library/dom': 10.4.1
     '@testing-library/user-event': ^14.6.1
-    '@testing-library/angular': ^17.4.0
+  typescript:
+    '@types/node': ^22.14.0
+    ts-morph: ^27.0.2
+    tslib: ^2.8.0
+    tsx: 4.7.0
+    typescript: ~5.8.3
+
