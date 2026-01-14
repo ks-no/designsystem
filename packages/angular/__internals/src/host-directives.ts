@@ -7,11 +7,6 @@ import {
   SizeDefinition,
 } from '@ks-digital/designsystem-themes/types'
 
-export type {
-  ColorDefinitions as Color,
-  SizeDefinition as Size,
-} from '@ks-digital/designsystem-themes/types'
-
 /**
  * @deprecated Use individual directives instead
  */
