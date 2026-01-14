@@ -38,7 +38,10 @@ export class Button {
    * Specify which variant to use
    * @default 'primary'
    */
-  readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary')
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary', {
+    alias: 'data-variant',
+  })
 
   /**
    * Toggle loading state.
