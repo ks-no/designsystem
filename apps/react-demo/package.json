@@ -7,13 +7,13 @@
   "dependencies": {
     "@ks-digital/designsystem-react": "workspace:*",
     "@ks-digital/designsystem-themes": "workspace:*",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "catalog:react",
+    "react-dom": "catalog:react"
   },
   "devDependencies": {
-    "@testing-library/react": "16.1.0",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@testing-library/react": "catalog:testing-library",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react-swc": "^3.9.0"
   }
 }

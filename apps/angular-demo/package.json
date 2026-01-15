@@ -4,21 +4,21 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@angular/animations": "20.3.9",
-    "@angular/common": "20.3.9",
-    "@angular/core": "20.3.9",
-    "@angular/platform-browser": "20.3.9",
-    "@angular/platform-server": "20.3.9",
+    "@angular/animations": "catalog:angular",
+    "@angular/common": "catalog:angular",
+    "@angular/core": "catalog:angular",
+    "@angular/platform-browser": "catalog:angular",
+    "@angular/platform-server": "catalog:angular",
     "@ks-digital/designsystem-angular": "workspace:*",
     "@ks-digital/designsystem-themes": "workspace:*"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.9",
-    "@angular/build": "20.3.9",
-    "@angular/compiler": "20.3.9",
-    "@angular/compiler-cli": "20.3.9",
-    "@testing-library/angular": "^17.4.0",
-    "angular-eslint": "^20.6.0",
-    "zone.js": "~0.15.0"
+    "@angular-devkit/build-angular": "catalog:angular",
+    "@angular/build": "catalog:angular",
+    "@angular/compiler": "catalog:angular",
+    "@angular/compiler-cli": "catalog:angular",
+    "@testing-library/angular": "catalog:testing-library",
+    "angular-eslint": "catalog:angular",
+    "zone.js": "catalog:angular"
   }
 }
