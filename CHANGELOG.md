@@ -1,3 +1,13 @@
+## 0.0.1-alpha.32
+
+### 🩹 Fixes
+
+- **angular:** missing entrypoint for chip ([#183](https://github.com/ks-no/designsystem/pull/183))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.31
 
 ### 🚀 Features
