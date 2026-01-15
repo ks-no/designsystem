@@ -34,6 +34,9 @@
       "@ks-digital/designsystem-angular/forms": [
         "packages/angular/forms/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/pagination": [
+        "packages/angular/pagination/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/paragraph": [
         "packages/angular/paragraph/src/index.ts"
       ],
