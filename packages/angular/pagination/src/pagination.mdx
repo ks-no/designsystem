@@ -1,0 +1,106 @@
+import {
+  Meta,
+  Primary,
+  Canvas,
+  Controls,
+  Story,
+} from '@storybook/addon-docs/blocks'
+
+import * as PaginationStories from './pagination.stories'
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+Pagination er en liste med knapper som brukes for å navigere mellom ulike sider med innhold, for eksempel søkeresultater eller tabeller.
+
+<Primary />
+<Controls />
+
+## Bruk
+
+```html
+import { Button } from '@ks-digital/designsystem-angular/button' import {
+Pagination } from '@ks-digital/designsystem-angular/pagination'
+
+<nav ksd-pagination aria-label="Sidenavigering">
+  <ul>
+    <li>
+      <button
+        ksd-button
+        data-variant="tertiary"
+        type="button"
+        aria-label="Forrige side"
+      >
+        Forrige
+      </button>
+    </li>
+    <li>
+      <button
+        ksd-button
+        data-variant="tertiary"
+        type="button"
+        aria-label="Side 1"
+      >
+        1
+      </button>
+    </li>
+    <li>
+      <button
+        ksd-button
+        data-variant="primary"
+        type="button"
+        aria-label="Side 2"
+      >
+        2
+      </button>
+    </li>
+    <li></li>
+    <li>
+      <button
+        ksd-button
+        data-variant="tertiary"
+        type="button"
+        aria-label="Side 9"
+      >
+        9
+      </button>
+    </li>
+    <li>
+      <button
+        ksd-button
+        data-variant="tertiary"
+        type="button"
+        aria-label="Side 10"
+      >
+        10
+      </button>
+    </li>
+    <li>
+      <button
+        ksd-button
+        data-variant="tertiary"
+        type="button"
+        aria-label="Neste side"
+      >
+        Neste
+      </button>
+    </li>
+  </ul>
+</nav>
+```
+
+## Som lenker
+
+Erstatt knappene med lenker hvis pagineringen skal navigere til en ny side.
+
+<Canvas of={PaginationStories.WithAnchor} />
+
+## Responsiv visning
+
+På små skjermer er det lurt å begrense antall synlige sidetall for å spare plass. Vis kun:
+
+- den aktive siden
+- én side før og etter
+
+<Canvas of={PaginationStories.Mobile} />

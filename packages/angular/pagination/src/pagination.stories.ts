@@ -10,10 +10,6 @@ const meta: Meta<PaginationArgs> = {
   title: 'Komponenter/Pagination',
   argTypes: {
     ...commonArgTypes,
-    variant: {
-      options: ['default', 'tinted'],
-      control: { type: 'radio' },
-    },
   },
   decorators: [
     moduleMetadata({
