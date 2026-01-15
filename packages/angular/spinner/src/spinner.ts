@@ -1,9 +1,7 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
-import {
-  ExtendedSize,
-  HostColor,
-} from '@ks-digital/designsystem-angular/__internals'
+import { HostColor } from '@ks-digital/designsystem-angular/__internals'
+import { SpinnerSize } from './spinner-sizes'
 
 @Component({
   selector: 'ksd-spinner',
@@ -62,8 +60,7 @@ export class Spinner {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  // Spinner doesnt inherit size from wrapping element (bug?) so we cant use hostdirective here, and must define it directly
-  readonly dataSize = input<ExtendedSize>(undefined, {
+  readonly dataSize = input<SpinnerSize>(undefined, {
     alias: 'data-size',
   })
 }

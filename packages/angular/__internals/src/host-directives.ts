@@ -6,7 +6,6 @@ import {
   SeverityColorDefinitions,
   SizeDefinition,
 } from '@ks-digital/designsystem-themes/types'
-import { ExtendedSize } from './extended-size'
 
 /**
  * @deprecated Use individual directives instead
@@ -50,25 +49,6 @@ export class HostSize {
    * @attribute data-size
    */
   readonly dataSize = input<keyof SizeDefinition>(undefined, {
-    alias: 'data-size',
-  })
-}
-
-/**
- * Applies data-size attribute to host-element.
- * Includes more size options than HostSize.
- */
-@Directive({
-  host: {
-    '[attr.data-size]': 'dataSize() || null',
-  },
-})
-export class HostSizeExtended {
-  /**
-   * Changes size for descendant Designsystemet components. Select from predefined sizes.
-   * @attribute data-size
-   */
-  readonly dataSize = input<ExtendedSize>(undefined, {
     alias: 'data-size',
   })
 }
