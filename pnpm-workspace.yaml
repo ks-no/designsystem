@@ -16,7 +16,7 @@ catalogs:
     '@angular/animations': 20.3.9
     '@angular/build': 20.3.9
     '@angular/common': 20.3.9
-    '@angular/compiler': 20.3.9
+    '@angular/compiler': 20.3.16
     '@angular/compiler-cli': 20.3.9
     '@angular/core': 20.3.9
     '@angular/platform-browser': 20.3.9
