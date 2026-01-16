@@ -26,8 +26,8 @@ catalogs:
     ng-packagr: '21.0.1'
     zone.js: '0.16.0'
   angular-supported-versions:
-    '@angular/common': '>= 21.0.6 < 21.1.0'
-    '@angular/core': '>= 21.0.6 < 21.1.0'
+    '@angular/common': '>= 21.0.6 < 21.0.8'
+    '@angular/core': '>= 21.0.6 < 21.0.8'
   designsystemet:
     '@digdir/designsystemet': '1.7.3'
     '@digdir/designsystemet-css': '1.7.3'
