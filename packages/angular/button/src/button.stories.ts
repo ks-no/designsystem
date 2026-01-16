@@ -7,7 +7,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Button } from './button'
 
 type ButtonArgs = CommonArgs & {
@@ -28,20 +28,19 @@ const meta: Meta<ButtonArgs> = {
         `<div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4)">${story}</div>`,
     ),
   ],
+  argTypes: {
+    ...commonArgTypes,
+  },
 }
 export default meta
 type Story = StoryObj<ButtonArgs>
 
 export const Preview: Story = {
-  args: {
-    loading: false,
-    disabled: false,
-  },
-
+  args: {},
   render: (args) => ({
     props: args,
     template: `
-      <button ksd-button ${argsToTemplate(args)}>
+      <button ksd-button  ${argsToTemplate(args)}>
         Knapp
       </button>
     `,

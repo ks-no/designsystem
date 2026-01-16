@@ -1,13 +1,18 @@
+import { Color } from '@ks-digital/designsystem-angular/__internals'
 import {
   argsToTemplate,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../.storybook/default-args'
+import { commonArgTypes } from '../../.storybook/default-args'
 import { Spinner } from './spinner'
+import { SpinnerSize } from './spinner-sizes'
 
-type SpinnerArgs = CommonArgs
+type SpinnerArgs = {
+  'data-size'?: SpinnerSize | undefined
+  'data-color'?: Color | undefined
+}
 
 const meta: Meta<SpinnerArgs> = {
   component: Spinner,
@@ -17,20 +22,23 @@ const meta: Meta<SpinnerArgs> = {
       imports: [Spinner],
     }),
   ],
+  argTypes: {
+    'data-color': commonArgTypes['data-color'],
+    'data-size': {
+      options: commonArgTypes['data-size'].options.concat(['xs', '2xs', 'xl']),
+      control: commonArgTypes['data-size'].control,
+    },
+  },
 }
 export default meta
 type Story = StoryObj<SpinnerArgs>
 
 export const Preview: Story = {
-  args: {
-    'data-size': 'md',
-    'data-color': undefined,
-  },
-
+  args: { 'data-size': 'md' },
   render: (args) => ({
     props: args,
     template: `
-      <ksd-spinner ${argsToTemplate(args)} data-size="xl" />
+      <ksd-spinner ${argsToTemplate(args)} />
     `,
   }),
 }

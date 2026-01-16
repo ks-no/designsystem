@@ -1,6 +1,6 @@
 import { Button } from '@ks-digital/designsystem-angular/button'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
-import { moduleMetadata, type Meta } from '@storybook/angular'
+import { argsToTemplate, moduleMetadata, type Meta } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Search } from './search'
 import { SearchButton } from './search-button'
@@ -53,19 +53,11 @@ type Story = Meta<Search>
 export const Preview: Story = {
   args: {
     variant: 'primary',
-    buttonLabel: 'Søk',
-    clearButtonLabel: 'Tøm',
-    'data-size': '',
-    'data-color': '',
   },
   render: (args) => ({
-    props: {
-      ...args,
-      dataSize: (args as SearchArgs)['data-size'],
-      dataColor: (args as SearchArgs)['data-color'],
-    },
+    props: args,
     template: `
-      <ksd-search role="search" [attr.data-size]="dataSize" [attr.data-color]="dataColor">
+      <ksd-search role="search" ${argsToTemplate(args)}>
         <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
         <button ksd-search-clear [aria-label]="clearButtonLabel"></button>
         <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>

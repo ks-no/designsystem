@@ -5,7 +5,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Field, FieldDescription } from '../field'
 import { Fieldset } from '../fieldset/fieldset'
 import { FieldsetDescription } from '../fieldset/fieldset-description'
@@ -18,9 +18,12 @@ type RadioArgs = CommonArgs & {
   disabled: boolean
 }
 
-const meta: Meta<Input> = {
+const meta: Meta<RadioArgs> = {
   component: Input,
   title: 'Komponenter/Forms/Radio',
+  argTypes: {
+    ...commonArgTypes,
+  },
   decorators: [
     moduleMetadata({
       imports: [
@@ -40,17 +43,12 @@ export default meta
 type Story = StoryObj<RadioArgs>
 
 export const Preview: Story = {
-  args: {
-    readonly: false,
-    disabled: false,
-  },
-
   render: (args) => ({
     props: args,
     template: `
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Label</ksd-label>
-          <input type="radio" ksd-input ${argsToTemplate(args)}  />
+          <input type="radio" ksd-input   ${argsToTemplate(args)} />
           <p ksd-field-description>Description</p>
         </ksd-field>
     `,
@@ -78,7 +76,7 @@ export const Group: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <fieldset ksd-fieldset>
+        <fieldset ksd-fieldset  ${argsToTemplate(args)}>
         <legend ksd-fieldset-legend>Hvilken iskremsmak er best ? </legend>
           <p ksd-fieldset-description>Velg din favorittsmak blant alternativene.</p>
           <ksd-field>
@@ -110,7 +108,7 @@ export const WithError: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <fieldset ksd-fieldset>
+        <fieldset ksd-fieldset  ${argsToTemplate(args)}>
         <legend ksd-fieldset-legend>Hvilken bydel bor du i?</legend>
         <p ksd-fieldset-description>Bergen er delt inn i åtte bydeler</p>
         <ksd-field>
@@ -159,7 +157,7 @@ export const ReadOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <fieldset ksd-fieldset>
+        <fieldset ksd-fieldset ${argsToTemplate(args)}>
         <legend ksd-fieldset-legend>Hvilken bydel bor du i?</legend>
         <p ksd-fieldset-description>Bergen er delt inn i åtte bydeler</p>
         <ksd-field>
@@ -206,7 +204,7 @@ export const Inline: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <fieldset ksd-fieldset>
+        <fieldset ksd-fieldset ${argsToTemplate(args)}>
         <legend ksd-fieldset-legend>Kontaktes på e-post?</legend>
         <p ksd-fieldset-description>Bekreft om du ønsker å bli kontaktet per e-post.</p>
           <div style="display: flex; flex-wrap: wrap; gap: var(--ds-size-6)">

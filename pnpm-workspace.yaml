@@ -2,8 +2,6 @@ packages:
   - apps/*
   - packages/*
 
-blockExoticSubdeps: true
-
 catalogs:
   angular:
     '@angular-devkit/build-angular': 20.3.9
@@ -74,15 +72,18 @@ catalogs:
     tsx: 4.7.0
     typescript: 5.9.3
 
-cleanupUnusedCatalogs: true
 
-minimumReleaseAge: 2880
+blockExoticSubdeps: true
 
 onlyBuiltDependencies:
   - esbuild
   - nx
 
-trustPolicy: no-downgrade
+minimumReleaseAge: 2880 # 48 hours
+trustPolicy: 'no-downgrade'
+trustPolicyIgnoreAfter: 10080
+cleanupUnusedCatalogs: true
+verifyDepsBeforeRun: prompt
 
 trustPolicyExclude:
   - chokidar@4.0.3
@@ -90,6 +91,3 @@ trustPolicyExclude:
   - undici-types@6.21.0
   - semver@6.3.1
 
-trustPolicyIgnoreAfter: 10080
-
-verifyDepsBeforeRun: prompt

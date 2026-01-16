@@ -1,24 +1,29 @@
-import { SeverityColors } from '@ks-digital/designsystem-angular/__internals'
+import {
+  SeverityColors,
+  Size,
+} from '@ks-digital/designsystem-angular/__internals'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
 import { provideIcons } from '@ng-icons/core'
 import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import {
+  argsToTemplate,
   componentWrapperDecorator,
   moduleMetadata,
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../.storybook/default-args'
 import { Alert } from './alert'
 
-const SEVERITY_COLORS: SeverityColors[] = [
+const SEVERITY_COLORS: (keyof SeverityColors)[] = [
   'info',
   'success',
   'warning',
   'danger',
 ]
 
-type AlertArgs = CommonArgs & {
+type AlertArgs = {
+  'data-size'?: Size | undefined
+  'data-color'?: SeverityColors | undefined
   variant: 'default' | 'tinted'
 }
 
@@ -53,7 +58,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-alert>
+      <ksd-alert ${argsToTemplate(args)}>
       En beskjed det er viktig at brukeren ser
       </ksd-alert>
     `,
@@ -65,7 +70,7 @@ export const VariantInfo: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-alert data-color="info">
+      <ksd-alert data-color="info" >
       <h2 class="ds-heading" data-size="xs" style="margin-bottom: var(--ds-size-2)">
             Har du husket å bestille passtime?
       </h2>

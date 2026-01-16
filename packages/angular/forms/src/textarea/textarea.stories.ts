@@ -4,12 +4,12 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs } from '../../../.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Field } from '../field'
 import { Input } from '../input'
 import { Label } from '../label'
 
-type TextareaArgs = CommonArgs & {
+type TextareaArgs = Pick<CommonArgs, 'data-size'> & {
   readonly: boolean
   disabled: boolean
 }
@@ -17,6 +17,9 @@ type TextareaArgs = CommonArgs & {
 const meta: Meta<TextareaArgs> = {
   component: Input,
   title: 'Komponenter/Forms/Textarea',
+  argTypes: {
+    'data-size': commonArgTypes['data-size'],
+  },
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input],
@@ -42,9 +45,9 @@ export const Preview: Story = {
         max-width: 100%;
         width: 20rem
       " >
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Label</ksd-label>
-          <textarea ksd-input type="text" ${argsToTemplate(args)}></textarea>
+          <textarea ksd-input type="text"></textarea>
         </ksd-field>
       </div>
     `,

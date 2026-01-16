@@ -6,19 +6,31 @@ import {
   output,
   viewChild,
 } from '@angular/core'
+import {
+  HostColor,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import '@u-elements/u-details'
 
 @Component({
   selector: 'ksd-details',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  hostDirectives: [
+    {
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
+    },
+  ],
   template: `
     <u-details
       #detailsRef
       class="ds-details"
       [attr.data-variant]="variant()"
       [attr.open]="(open() ?? defaultOpen()) || undefined"
-      [attr.data-color]="dataColor()"
-      [attr.data-size]="dataSize()"
       (toggle)="onToggle($event)"
     >
       <u-summary>
@@ -46,14 +58,6 @@ import '@u-elements/u-details'
   `,
 })
 export class Details {
-  readonly dataSize = input<'sm' | 'md' | 'lg' | undefined>(undefined, {
-    // eslint-disable-next-line @angular-eslint/no-input-rename
-    alias: 'data-size',
-  })
-  readonly dataColor = input<string | undefined>(undefined, {
-    // eslint-disable-next-line @angular-eslint/no-input-rename
-    alias: 'data-color',
-  })
   readonly variant = input<'tinted' | 'default'>('default')
   readonly defaultOpen = input<boolean>(false)
   readonly open = input<boolean | undefined>(undefined)

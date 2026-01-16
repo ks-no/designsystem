@@ -1,5 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
-
 import {
   booleanAttribute,
   Component,
@@ -21,14 +19,22 @@ import {
   shift,
 } from '@floating-ui/dom'
 import {
-  Color,
-  SeverityColors,
-  Size,
+  HostColor,
+  HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-popover',
-
+  hostDirectives: [
+    {
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
+    },
+  ],
   template: `
     <div
       #myPopover
@@ -36,8 +42,6 @@ import {
       class="ds-popover"
       data-testid="popover"
       [id]="popoverId()"
-      [attr.data-size]="dataSize()"
-      [attr.data-color]="dataColor()"
       [attr.data-variant]="variant()"
     >
       @if (controlledOpen()) {
@@ -45,7 +49,6 @@ import {
       }
     </div>
   `,
-  imports: [],
 })
 export class Popover {
   // use popoverId instead of id since id will be put on the angular element and not the popover-div
@@ -68,10 +71,6 @@ export class Popover {
   )
 
   readonly variant = input<'tinted' | 'default'>('default')
-  readonly dataSize = input<Size>('md', { alias: 'data-size' })
-  readonly dataColor = input<Color | SeverityColors>('neutral', {
-    alias: 'data-color',
-  })
 
   private popoverRef = viewChild<ElementRef>('myPopover')
 

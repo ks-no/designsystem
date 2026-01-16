@@ -8,7 +8,8 @@ import {
   signal,
 } from '@angular/core'
 import {
-  CommonInputs,
+  HostColor,
+  HostSize,
   randomId,
 } from '@ks-digital/designsystem-angular/__internals'
 import { Tabs } from './tabs'
@@ -30,8 +31,12 @@ import { Tabs } from './tabs'
   imports: [],
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
     },
   ],
 })

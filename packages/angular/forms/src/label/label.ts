@@ -1,12 +1,19 @@
 import { Component } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostColor,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'ksd-label',
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
     },
   ],
   template: `

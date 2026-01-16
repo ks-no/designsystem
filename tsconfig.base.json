@@ -56,7 +56,10 @@
         "packages/angular/validation-message/src/index.ts"
       ],
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
-      "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"]
+      "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"],
+      "@ks-digital/designsystem-themes/types": [
+        "packages/themes/src/themes/types.d.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]

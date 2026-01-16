@@ -17,7 +17,8 @@
   },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
-    "@angular/core": "catalog:angular-supported-versions"
+    "@angular/core": "catalog:angular-supported-versions",
+    "@ks-digital/designsystem-themes": "workspace:*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "catalog:angular",

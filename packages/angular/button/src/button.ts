@@ -1,14 +1,21 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { booleanAttribute, Component, input } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostColor,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 import { Spinner } from '@ks-digital/designsystem-angular/spinner'
 
 @Component({
   selector: 'button[ksd-button], a[ksd-button]',
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
     },
   ],
   imports: [Spinner],
