@@ -1,3 +1,13 @@
+## 0.0.1-alpha.34
+
+### 🚀 Features
+
+- **angular:** pagination ([#184](https://github.com/ks-no/designsystem/pull/184))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.33
 
 This was a version bump only, there were no code changes.
