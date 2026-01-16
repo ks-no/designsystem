@@ -1,5 +1,10 @@
 import { Button } from '@ks-digital/designsystem-angular/button'
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Pagination } from './pagination'
 
@@ -24,7 +29,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-<nav ksd-pagination aria-label="Sidenavigering" >
+<nav ksd-pagination aria-label="Sidenavigering" ${argsToTemplate(args)} >
   <ul>
     <li>
       <button
