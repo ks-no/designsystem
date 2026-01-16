@@ -32,14 +32,14 @@ import { FieldState } from '../field'
     '[attr.aria-invalid]':
       'ariaInvalid() ? true : (fieldState?.hasError() ? true:  null)',
     '(click)': 'onClick($event)',
-    '(input)': 'value.set($event.target.value)',
+    '(input)': 'onInput($event)',
   },
 })
 export class Input {
   /**
    * The value of the input
    */
-  value = signal('')
+  value = signal<string | undefined>('')
 
   /**
    * Whether the input is readonly
@@ -70,5 +70,15 @@ export class Input {
     if (this.readonly()) {
       event.preventDefault()
     }
+  }
+
+  onInput(event: Event) {
+    const target = event.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLSelectElement
+      | null
+    const val = target?.value
+    this.value.set(val ?? '')
   }
 }
