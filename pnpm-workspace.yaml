@@ -16,7 +16,7 @@ catalogs:
     '@angular/common': 20.3.9
     '@angular/compiler': 20.3.9
     '@angular/compiler-cli': 20.3.9
-    '@angular/core': 20.3.9
+    '@angular/core': 20.3.16
     '@angular/platform-browser': 20.3.9
     '@angular/platform-server': 20.3.9
     '@angular/router': 20.3.9
