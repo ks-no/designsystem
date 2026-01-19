@@ -1,0 +1,54 @@
+import {
+  Meta,
+  Primary,
+  Controls,
+  Story,
+  Canvas,
+} from '@storybook/addon-docs/blocks'
+
+import * as LinkStories from './link.stories'
+
+<Meta of={LinkStories} />
+
+# Link
+
+`Link` er klikkbar tekst eller grafikk, som gjør det enkelt for brukerne å navigere til filer eller sider internt eller eksternt. Komponenten er basert på [anchor HTML-taggen (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+
+<Primary />
+<Controls />
+
+## Bruk
+
+```ts
+import { Link } from '@ks-digital/designsystem-angular';
+
+<a ksd-link href="https://designsystemet.no/">
+  Gå til designsystemet
+</a>
+```
+
+## Eksempel
+
+### I tekst
+
+<Canvas of={LinkStories.InText} />
+
+### Med ikon
+
+<Canvas of={LinkStories.WithIcon} />
+
+### Med ikon til høgre
+
+<Canvas of={LinkStories.WithIconRight} />
+
+### Med flere ikoner
+
+<Canvas of={LinkStories.WithMultipleIcons} />
+
+### Med SVG elementer
+
+<Canvas of={LinkStories.WithSVG} />
+
+### Flere linjer
+
+<Canvas of={LinkStories.LongLink} />
