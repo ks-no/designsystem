@@ -1,3 +1,14 @@
+## 0.0.1-alpha.35
+
+### 🚀 Features
+
+- **angular:** link component ([#165](https://github.com/ks-no/designsystem/pull/165))
+
+### ❤️ Thank You
+
+- Roar Helland
+- stianmorsund
+
 ## 0.0.1-alpha.34
 
 ### 🚀 Features
