@@ -17,9 +17,9 @@
     ]
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "2.1.3",
-    "@analogjs/vite-plugin-angular": "2.1.3",
-    "@analogjs/vitest-angular": "2.1.3",
+    "@analogjs/storybook-angular": "~2.1.0",
+    "@analogjs/vite-plugin-angular": "~2.1.0",
+    "@analogjs/vitest-angular": "~2.1.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@digdir/designsystemet": "catalog:designsystemet",
