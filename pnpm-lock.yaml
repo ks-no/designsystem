@@ -132,13 +132,6 @@ catalogs:
     react-dom:
       specifier: 19.0.0
       version: 19.0.0
-  react-supported-versions:
-    react:
-      specifier: '>=18.3.1'
-      version: 19.2.3
-    react-dom:
-      specifier: '>=18.3.1'
-      version: 19.2.3
   storybook:
     '@storybook/addon-docs':
       specifier: 10.0.8
@@ -9911,8 +9904,8 @@ packages:
   tar-stream@3.1.7:
     resolution: {integrity: sha512-qJj60CXt7IU1Ffyc3NJMjh6EkuCFej46zUqJ4J7pqYlThyd9bO0XBTmcOIhSzZJVWfsLks0+nle/j538YAW9RQ==}
 
-  tar@7.5.2:
-    resolution: {integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==}
+  tar@7.5.3:
+    resolution: {integrity: sha512-ENg5JUHUm2rDD7IvKNFGzyElLXNjachNLp6RaGf4+JOgxXHkqA+gq81ZAMCUmtMtqBsoU62lcp6S27g1LCYGGQ==}
     engines: {node: '>=18'}
 
   telejson@8.0.0:
@@ -10345,6 +10338,46 @@ packages:
 
   vite@7.2.4:
     resolution: {integrity: sha512-NL8jTlbo0Tn4dUEXEsUg8KeyG/Lkmc4Fnzb8JXN/Ykm9G4HNImjtABMJgkQoVjOBN/j2WAwDTRytdqJbZsah7w==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^20.19.0 || >=22.12.0
+      jiti: '>=1.21.0'
+      less: ^4.0.0
+      lightningcss: ^1.21.0
+      sass: ^1.70.0
+      sass-embedded: ^1.70.0
+      stylus: '>=0.54.8'
+      sugarss: ^5.0.0
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
+        optional: true
+
+  vite@7.3.1:
+    resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -16487,13 +16520,13 @@ snapshots:
     optionalDependencies:
       vite: 7.2.4(@types/node@24.10.7)(jiti@2.4.2)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.44.1)(tsx@4.7.0)(yaml@2.8.2)
 
-  '@vitest/mocker@4.0.16(vite@7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))':
+  '@vitest/mocker@4.0.16(vite@7.3.1(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@vitest/spy': 4.0.16
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.3.1(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
     optional: true
 
   '@vitest/mocker@4.0.9(vite@7.2.4(@types/node@24.10.7)(jiti@2.4.2)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.44.1)(tsx@4.7.0)(yaml@2.8.2))':
@@ -20548,7 +20581,7 @@ snapshots:
       nopt: 9.0.0
       proc-log: 6.1.0
       semver: 7.7.3
-      tar: 7.5.2
+      tar: 7.5.3
       tinyglobby: 0.2.15
       which: 6.0.0
     transitivePeerDependencies:
@@ -20884,7 +20917,7 @@ snapshots:
       promise-retry: 2.0.1
       sigstore: 4.1.0
       ssri: 12.0.0
-      tar: 7.5.2
+      tar: 7.5.3
     transitivePeerDependencies:
       - supports-color
 
@@ -22652,7 +22685,7 @@ snapshots:
       - bare-abort-controller
       - react-native-b4a
 
-  tar@7.5.2:
+  tar@7.5.3:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -23170,26 +23203,6 @@ snapshots:
       tsx: 4.7.0
       yaml: 2.8.2
 
-  vite@7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2):
-    dependencies:
-      esbuild: 0.25.12
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-      postcss: 8.5.6
-      rollup: 4.55.1
-      tinyglobby: 0.2.15
-    optionalDependencies:
-      '@types/node': 24.10.7
-      fsevents: 2.3.3
-      jiti: 2.6.1
-      less: 4.4.2
-      sass: 1.93.2
-      sass-embedded: 1.97.2
-      terser: 5.44.1
-      tsx: 4.21.0
-      yaml: 2.8.2
-    optional: true
-
   vite@7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.12
@@ -23209,10 +23222,30 @@ snapshots:
       tsx: 4.21.0
       yaml: 2.8.2
 
+  vite@7.3.1(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2):
+    dependencies:
+      esbuild: 0.27.2
+      fdir: 6.5.0(picomatch@4.0.3)
+      picomatch: 4.0.3
+      postcss: 8.5.6
+      rollup: 4.55.1
+      tinyglobby: 0.2.15
+    optionalDependencies:
+      '@types/node': 24.10.7
+      fsevents: 2.3.3
+      jiti: 2.6.1
+      less: 4.4.2
+      sass: 1.93.2
+      sass-embedded: 1.97.2
+      terser: 5.44.1
+      tsx: 4.21.0
+      yaml: 2.8.2
+    optional: true
+
   vitest@4.0.16(@types/node@24.10.7)(@vitest/ui@4.0.16)(jiti@2.6.1)(jsdom@27.2.0)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.16
-      '@vitest/mocker': 4.0.16(vite@7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/mocker': 4.0.16(vite@7.3.1(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
       '@vitest/pretty-format': 4.0.16
       '@vitest/runner': 4.0.16
       '@vitest/snapshot': 4.0.16
@@ -23229,7 +23262,7 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.2.4(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.3.1(@types/node@24.10.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.10.7
