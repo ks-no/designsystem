@@ -1,5 +1,8 @@
 import { Component } from '@angular/core'
-import { HostColor, HostSize } from '../../__internals/src'
+import {
+  HostColor,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'a[ksd-link]',
