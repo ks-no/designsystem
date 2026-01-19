@@ -1,5 +1,8 @@
 import { Component, input } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import {
+  HostColor,
+  HostSize,
+} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'label[ksd-chip], button[ksd-chip]',
@@ -9,8 +12,12 @@ import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
   },
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
     },
   ],
 })

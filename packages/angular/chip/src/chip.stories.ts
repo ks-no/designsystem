@@ -1,11 +1,14 @@
 import { Input } from '@ks-digital/designsystem-angular/forms'
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Chip } from './chip'
 
-type ChipArgs = CommonArgs & {
-  variant: 'default' | 'tinted'
-}
+type ChipArgs = CommonArgs
 
 const meta: Meta<ChipArgs> = {
   component: Chip,
@@ -26,10 +29,16 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <label ksd-chip>
-            <input ksd-input type="radio" />
-            My radio chip
+    <div style="padding: 1rem; display: flex; gap: var(--ds-size-2);"> 
+        <label ksd-chip ${argsToTemplate(args)}>
+            <input ksd-input type="radio" name="language" value="nynorsk" checked/>
+            Nynorsk
         </label>
+        <label ksd-chip ${argsToTemplate(args)}>
+            <input ksd-input type="radio" name="language" value="bokmaal" />
+            Bokmål
+        </label>
+    </div>
     `,
   }),
 }
@@ -38,7 +47,7 @@ export const Checkbox: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <label ksd-chip>
+        <label ksd-chip ${argsToTemplate(args)}>
             <input ksd-input type="checkbox" />
             My checkbox chip
         </label>
@@ -50,7 +59,7 @@ export const Removable: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <label ksd-chip data-removable="true" aria-label="Fjern 2 kg sukker" >
+        <label ksd-chip data-removable="true" aria-label="Fjern 2 kg sukker" ${argsToTemplate(args)}>
             2 kg sukker
         </label>
     `,
@@ -61,7 +70,7 @@ export const Button: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <button ksd-chip>
+        <button ksd-chip ${argsToTemplate(args)}>
             Tøm alle filtre
         </button>
     `,
