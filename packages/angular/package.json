@@ -35,6 +35,7 @@
     "@angular/platform-browser": "catalog:angular",
     "@ng-icons/core": "catalog:angular",
     "@ng-icons/phosphor-icons": "catalog:angular",
+    "@ks-digital/designsystem-themes": "workspace:*",
     "@testing-library/angular": "catalog:testing-library",
     "@testing-library/jest-dom": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
