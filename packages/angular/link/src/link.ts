@@ -1,13 +1,17 @@
 import { Component } from '@angular/core'
-import { CommonInputs } from '@ks-digital/designsystem-angular/__internals'
+import { HostColor, HostSize } from '../../__internals/src'
 
 @Component({
   selector: 'a[ksd-link]',
   template: ` <ng-content /> `,
   hostDirectives: [
     {
-      directive: CommonInputs,
-      inputs: ['data-size', 'data-color'],
+      directive: HostSize,
+      inputs: ['data-size'],
+    },
+    {
+      directive: HostColor,
+      inputs: ['data-color'],
     },
   ],
   host: {

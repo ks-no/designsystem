@@ -4,7 +4,7 @@ import {
   phosphorPencilLine,
 } from '@ng-icons/phosphor-icons/regular'
 import { argsToTemplate, Meta, moduleMetadata } from '@storybook/angular'
-import { CommonArgs } from 'packages/angular/.storybook/default-args'
+import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Link } from './link'
 
 type LinkArgs = CommonArgs
@@ -12,6 +12,9 @@ type LinkArgs = CommonArgs
 const meta: Meta<LinkArgs> = {
   component: Link,
   title: 'Komponenter/Link',
+  argTypes: {
+    ...commonArgTypes,
+  },
   decorators: [
     moduleMetadata({
       imports: [Link, NgIcon],
