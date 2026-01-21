@@ -1,6 +1,5 @@
 import { Component, contentChild, effect, signal } from '@angular/core'
 import {
-  HostColor,
   HostSize,
   randomId,
 } from '@ks-digital/designsystem-angular/__internals'
@@ -13,10 +12,6 @@ import { Heading } from '@ks-digital/designsystem-angular/heading'
     {
       directive: HostSize,
       inputs: ['data-size'],
-    },
-    {
-      directive: HostColor,
-      inputs: ['data-color'],
     },
   ],
   host: {
