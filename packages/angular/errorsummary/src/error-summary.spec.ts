@@ -31,9 +31,9 @@ const renderErrorSummary = async () =>
 it('should render errorsummary', async () => {
   await renderErrorSummary()
 
-  const crumbs = screen.getByRole('navigation')
-  expect(crumbs).toBeInTheDocument()
-  expect(crumbs).toHaveClass('ds-errorsummary')
+  const errorSummary = screen.getByRole('navigation')
+  expect(errorSummary).toBeInTheDocument()
+  expect(errorSummary).toHaveClass('ds-errorsummary')
 
   const links = screen.getAllByRole('link')
   expect(links).toHaveLength(5)
