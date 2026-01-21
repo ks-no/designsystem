@@ -18,7 +18,7 @@ import {
     },
   ],
   host: {
-    class: 'ds-errorsummary',
+    class: 'ds-error-summary',
   },
 })
 export class ErrorSummary {}
