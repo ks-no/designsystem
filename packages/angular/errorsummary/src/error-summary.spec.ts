@@ -1,3 +1,4 @@
+import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Link } from '@ks-digital/designsystem-angular/link'
 import { render, screen } from '@testing-library/angular'
 import { ErrorSummary } from './error-summary'
@@ -8,10 +9,8 @@ const renderErrorSummary = async () =>
     <div
       ksd-error-summary
       data-testid="error-summary"
-      tabindex="-1"
-      aria-labelledby="error-heading"
     >
-      <h2 class="ds-heading" id="error-heading">For å gå videre må du rette opp følgende feil:</h2>
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
       <ul class="ds-list">
         <li>
           <a ksd-link data-color="neutral" href="#field1">Fødselsdato kan ikke være etter år 2005</a>
@@ -25,22 +24,24 @@ const renderErrorSummary = async () =>
       </ul>
     </div>
     `,
-    { imports: [Link, ErrorSummary] },
+    { imports: [Link, ErrorSummary, Heading] },
   )
 
-it('should render error summary', async () => {
+it('should render error summary with tabindex=-1 and aria-labelledby for heading', async () => {
   await renderErrorSummary()
 
   const errorSummary = screen.getByTestId('error-summary')
-  expect(errorSummary).toBeInTheDocument()
-  expect(errorSummary).toHaveClass('ds-error-summary')
-  expect(errorSummary).toHaveAttribute('tabindex', '-1')
-  expect(errorSummary).toHaveAttribute('aria-labelledby', 'error-heading')
-
   const heading = screen.getByRole('heading', {
     name: 'For å gå videre må du rette opp følgende feil:',
   })
-  expect(heading).toHaveAttribute('id', 'error-heading')
+
+  expect(errorSummary).toBeInTheDocument()
+  expect(errorSummary).toHaveClass('ds-error-summary')
+  expect(errorSummary).toHaveAttribute('tabindex', '-1')
+  expect(errorSummary).toHaveAttribute(
+    'aria-labelledby',
+    heading.getAttribute('id'),
+  )
 
   const links = screen.getAllByRole('link')
   expect(links).toHaveLength(3)
@@ -53,10 +54,8 @@ it('should apply data-size attribute', async () => {
       ksd-error-summary
       data-testid="error-summary"
       data-size="sm"
-      tabindex="-1"
-      aria-labelledby="error-heading"
     >
-      <h2 class="ds-heading" id="error-heading">For å gå videre må du rette opp følgende feil:</h2>
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
       <ul class="ds-list">
         <li>
           <a ksd-link href="#field1">Error message</a>

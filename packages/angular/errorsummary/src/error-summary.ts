@@ -1,8 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, contentChild, effect, signal } from '@angular/core'
 import {
   HostColor,
   HostSize,
+  randomId,
 } from '@ks-digital/designsystem-angular/__internals'
+import { Heading } from '@ks-digital/designsystem-angular/heading'
 
 @Component({
   selector: '[ksd-error-summary]',
@@ -19,6 +21,19 @@ import {
   ],
   host: {
     class: 'ds-error-summary',
+    tabindex: '-1',
+    '[attr.aria-labelledby]': 'id()',
   },
 })
-export class ErrorSummary {}
+export class ErrorSummary {
+  protected id = signal(randomId())
+  private heading = contentChild(Heading)
+
+  constructor() {
+    effect(() => {
+      if (this.heading()) {
+        this.heading()?.setId(this.id())
+      }
+    })
+  }
+}

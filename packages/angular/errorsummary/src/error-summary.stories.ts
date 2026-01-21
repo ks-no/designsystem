@@ -1,3 +1,4 @@
+import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Link } from '@ks-digital/designsystem-angular/link'
 import {
   argsToTemplate,
@@ -18,7 +19,7 @@ const meta: Meta<ErrorSummaryArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Link, ErrorSummary],
+      imports: [Link, ErrorSummary, Heading],
     }),
   ],
 }
@@ -32,20 +33,17 @@ export const Preview: Story = {
     <div
       ksd-error-summary
       ${argsToTemplate(args)}
-      tabindex="-1"
-      aria-labelledby="_r_2j_"
-      class="ds-error-summary"
     >
-      <h2 class="ds-heading" id="_r_2j_">For å gå videre må du rette opp følgende feil:</h2>
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
       <ul class="ds-list">
         <li>
-          <a class="ds-link" data-color="neutral" href="#">Fødselsdato kan ikke være etter år 2005</a>
+          <a ksd-link data-color="neutral" href="#">Fødselsdato kan ikke være etter år 2005</a>
         </li>
         <li>
-          <a class="ds-link" data-color="neutral" href="#">Telefonnummer kan kun inneholde siffer</a>
+          <a ksd-link data-color="neutral" href="#">Telefonnummer kan kun inneholde siffer</a>
         </li>
         <li>
-          <a class="ds-link" data-color="neutral" href="#">E-post må være gyldig</a>
+          <a ksd-link data-color="neutral" href="#">E-post må være gyldig</a>
         </li>
       </ul>
     </div>
@@ -95,17 +93,14 @@ export const WithForm: Story = {
     <div
       ksd-error-summary
       ${argsToTemplate(args)}
-      tabindex="-1"
-      aria-labelledby="_r_4j_"
-      class="ds-error-summary"
     >
-      <h2 class="ds-heading" id="_r_4j_">For å gå videre må du rette opp følgende feil:</h2>
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
       <ul class="ds-list">
         <li>
-          <a class="ds-link" data-color="neutral" href="#fornavn">Fornavn må være minst 2 tegn</a>
+          <a ksd-link data-color="neutral" href="#fornavn">Fornavn må være minst 2 tegn</a>
         </li>
         <li>
-          <a class="ds-link" data-color="neutral" href="#telefon">Telefonnummer kan kun inneholde siffer</a>
+          <a ksd-link data-color="neutral" href="#telefon">Telefonnummer kan kun inneholde siffer</a>
         </li>
       </ul>
     </div>
