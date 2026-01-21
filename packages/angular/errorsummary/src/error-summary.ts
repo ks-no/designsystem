@@ -5,7 +5,7 @@ import {
 } from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
-  selector: '[ksd-errorsummary]',
+  selector: '[ksd-error-summary]',
   template: ` <ng-content /> `,
   hostDirectives: [
     {

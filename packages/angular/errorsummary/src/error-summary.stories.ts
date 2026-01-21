@@ -6,7 +6,7 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { ErrorSummary } from './errorsummary'
+import { ErrorSummary } from './error-summary'
 
 type ErrorSummaryArgs = Omit<CommonArgs, 'data-color'>
 
@@ -30,7 +30,7 @@ export const Preview: Story = {
     props: args,
     template: `
     <div
-      ksd-errorsummary
+      ksd-error-summary
       ${argsToTemplate(args)}
       tabindex="-1"
       aria-labelledby="_r_2j_"
@@ -93,7 +93,7 @@ export const WithForm: Story = {
       >Telefonnummer kan kun inneholde siffer</p>
     </div>
     <div
-      ksd-errorsummary
+      ksd-error-summary
       ${argsToTemplate(args)}
       tabindex="-1"
       aria-labelledby="_r_4j_"

@@ -1,6 +1,6 @@
 import { Link } from '@ks-digital/designsystem-angular/link'
 import { render, screen } from '@testing-library/angular'
-import { ErrorSummary } from './errorsummary'
+import { ErrorSummary } from './error-summary'
 
 const renderErrorSummary = async () =>
   await render(
