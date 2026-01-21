@@ -1,1 +1,1 @@
-export { ErrorSummary } from './errorsummary'
+export { ErrorSummary } from './error-summary'
