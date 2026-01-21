@@ -8,13 +8,13 @@ import {
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { ErrorSummary } from './errorsummary'
 
-type ErrorSummaryArgs = CommonArgs
+type ErrorSummaryArgs = Omit<CommonArgs, 'data-color'>
 
 const meta: Meta<ErrorSummaryArgs> = {
   component: ErrorSummary,
   title: 'Komponenter/ErrorSummary',
   argTypes: {
-    ...commonArgTypes,
+    'data-size': commonArgTypes['data-size'],
   },
   decorators: [
     moduleMetadata({
