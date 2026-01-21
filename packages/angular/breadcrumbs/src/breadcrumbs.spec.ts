@@ -5,7 +5,7 @@ import { Breadcrumbs } from './breadcrumbs'
 const renderCrumbs = async () =>
   await render(
     `
-  <nav aria-label="Du er her:" class="ds-breadcrumbs">
+  <nav aria-label="Du er her:" ksd-breadcrumbs>
   <a ksd-link href="#" aria-label="Tilbake til Nivå 3">Nivå 3</a>
   <ol>
     <li>
