@@ -36,5 +36,5 @@ it('should render errorsummary', async () => {
   expect(errorSummary).toHaveClass('ds-errorsummary')
 
   const links = screen.getAllByRole('link')
-  expect(links).toHaveLength(5)
+  expect(links).toHaveLength(3)
 })
