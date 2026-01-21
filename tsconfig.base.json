@@ -22,6 +22,9 @@
       "@ks-digital/designsystem-angular/alert": [
         "packages/angular/alert/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/heading": [
+        "packages/angular/heading/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/button": [
         "packages/angular/button/src/index.ts"
       ],
