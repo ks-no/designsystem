@@ -1,1 +1,1 @@
-export { Pagination } from './breadcrumbs'
+export { Breadcrumbs } from './breadcrumbs'
