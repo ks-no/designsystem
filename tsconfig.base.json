@@ -49,6 +49,9 @@
       "@ks-digital/designsystem-angular/popover": [
         "packages/angular/popover/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/error-summary": [
+        "packages/angular/errorsumary/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/search": [
         "packages/angular/search/src/index.ts"
       ],
