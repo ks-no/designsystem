@@ -47,6 +47,43 @@ it('should render error summary with tabindex=-1 and aria-labelledby for heading
   expect(links).toHaveLength(3)
 })
 
+it('should respect id set by consumer', async () => {
+  await render(
+    `
+    <div
+      ksd-error-summary
+      data-testid="error-summary"
+      id="my-id"
+    >
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
+      <ul class="ds-list">
+        <li>
+          <a ksd-link data-color="neutral" href="#field1">Fødselsdato kan ikke være etter år 2005</a>
+        </li>
+        <li>
+          <a ksd-link data-color="neutral" href="#field2">Telefonnummer kan kun inneholde siffer</a>
+        </li>
+        <li>
+          <a ksd-link data-color="neutral" href="#field3">E-post må være gyldig</a>
+        </li>
+      </ul>
+    </div>
+    `,
+    { imports: [Link, ErrorSummary, Heading] },
+  )
+
+  const errorSummary = screen.getByTestId('error-summary')
+  const heading = screen.getByRole('heading', {
+    name: 'For å gå videre må du rette opp følgende feil:',
+  })
+
+  expect(errorSummary).toBeInTheDocument()
+  expect(errorSummary).toHaveAttribute(
+    'aria-labelledby',
+    heading.getAttribute('id'),
+  )
+})
+
 it('should apply data-size attribute', async () => {
   await render(
     `
