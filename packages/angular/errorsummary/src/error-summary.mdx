@@ -20,10 +20,8 @@ import * as ErrorSummaryStories from './error-summary.stories'
 ## Bruk
 
 ```html
-<div ksd-error-summary tabindex="-1" aria-labelledby="error-heading">
-  <h2 class="ds-heading" id="error-heading">
-    For å gå videre må du rette opp følgende feil:
-  </h2>
+<div ksd-error-summary>
+  <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
   <ul class="ds-list">
     <li>
       <a ksd-link data-color="neutral" href="#field-id">
@@ -42,8 +40,7 @@ For utfyllende retningslinjer, tilgjengelighetsinformasjon og flere eksempler, s
 
 - Bruk `ErrorSummary` når et skjema har mange felt hvor det kan være vanskelig å få oversikt over feilene
 - Vis komponenten først når brukeren prøver å sende inn skjemaet
-- Komponenten skal få fokus når den vises (bruk `tabindex="-1"`)
-- Bruk `aria-labelledby` som peker til overskriftens ID
+- Komponenten skal få fokus når den vises. `tabindex=-1` blir automatisk satt på `ksd-error-summary`, og komponenten har en public `focus()`-metode.
 - Feilmeldingene skal lenke direkte til feltet med feil
 - Feilmeldingene i oppsummeringen skal være formulert likt som feilmeldingen ved feltet
 
