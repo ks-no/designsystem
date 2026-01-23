@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core'
+import { Component, viewChild } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
 import { Heading } from './heading'
 
@@ -8,7 +8,7 @@ import { Heading } from './heading'
   imports: [Heading],
 })
 class TestHeadingComponent {
-  @ViewChild(Heading) heading!: Heading
+  heading = viewChild(Heading)
 }
 
 it('Should render heading', async () => {
@@ -30,7 +30,7 @@ it('Should not render heading when tag is not a valid heading', async () => {
 it('Should set id', async () => {
   const { fixture } = await render(TestHeadingComponent)
 
-  fixture.componentInstance.heading.setId('test-id')
+  fixture.componentInstance.heading()!.setId('test-id')
   fixture.detectChanges()
 
   const heading = screen.getByRole('heading', { name: 'My heading' })
