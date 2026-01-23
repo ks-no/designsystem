@@ -1,7 +1,10 @@
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Link } from '@ks-digital/designsystem-angular/link'
+import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import {
   argsToTemplate,
+  componentWrapperDecorator,
   moduleMetadata,
   type Meta,
   type StoryObj,
@@ -19,8 +22,20 @@ const meta: Meta<ErrorSummaryArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Link, ErrorSummary, Heading],
+      imports: [
+        Link,
+        ErrorSummary,
+        Heading,
+        Field,
+        Input,
+        Label,
+        ValidationMessage,
+      ],
     }),
+    componentWrapperDecorator(
+      (story) =>
+        `<div style="display: grid; align-items: stretch; gap: var(--ds-size-4);">${story}</div>`,
+    ),
   ],
 }
 export default meta
@@ -56,40 +71,28 @@ export const WithForm: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <div class="ds-field">
-      <label class="ds-label" data-weight="medium" for="fornavn">Fornavn</label>
-      <div class="ds-field-affixes">
+    <ksd-field>
+      <ksd-label>Fornavn</ksd-label>
         <input
-          class="ds-input"
+          ksd-input
           aria-invalid="true"
-          id="fornavn"
           type="text"
-          aria-describedby="fornavn:validation:1"
-        >
-      </div>
-      <p
-        class="ds-validation-message"
-        data-field="validation"
-        id="fornavn:validation:1"
+        />
+        <p
+        ksd-validation-message
       >Fornavn må være minst 2 tegn</p>
-    </div>
-    <div class="ds-field">
-      <label class="ds-label" data-weight="medium" for="telefon">Telefon</label>
-      <div class="ds-field-affixes">
-        <input
-          class="ds-input"
+      </ksd-field>
+      
+    <ksd-field>
+      <ksd-label>Telefon</ksd-label>
+      <input
+          ksd-input
           aria-invalid="true"
-          id="telefon"
-          type="tel"
-          aria-describedby="telefon:validation:1"
-        >
-      </div>
-      <p
-        class="ds-validation-message"
-        data-field="validation"
-        id="telefon:validation:1"
+          type="text"
+        />
+      <p ksd-validation-message
       >Telefonnummer kan kun inneholde siffer</p>
-    </div>
+    </ksd-field>
     <div
       ksd-error-summary
       ${argsToTemplate(args)}
