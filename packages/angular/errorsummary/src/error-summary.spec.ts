@@ -106,3 +106,22 @@ it('should apply data-size attribute', async () => {
   const errorSummary = screen.getByTestId('error-summary')
   expect(errorSummary).toHaveAttribute('data-size', 'sm')
 })
+
+it('should focus error-summary', async () => {
+  await render(
+    `
+    <div
+      ksd-error-summary
+      data-testid="error-summary"
+      data-size="sm"
+    >
+      <h2 ksd-heading>For å gå videre må du rette opp følgende feil:</h2>
+    </div>
+    `,
+    { imports: [Link, ErrorSummary] },
+  )
+
+  const errorSummary = screen.getByTestId('error-summary')
+  errorSummary.focus()
+  expect(errorSummary).toHaveFocus()
+})

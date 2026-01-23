@@ -1,4 +1,11 @@
-import { Component, contentChild, effect, signal } from '@angular/core'
+import {
+  Component,
+  contentChild,
+  effect,
+  ElementRef,
+  inject,
+  signal,
+} from '@angular/core'
 import {
   HostSize,
   randomId,
@@ -23,6 +30,7 @@ import { Heading } from '@ks-digital/designsystem-angular/heading'
 export class ErrorSummary {
   protected id = signal(randomId())
   private heading = contentChild(Heading)
+  private el = inject(ElementRef)
 
   constructor() {
     effect(() => {
@@ -30,5 +38,9 @@ export class ErrorSummary {
         this.heading()?.setId(this.id())
       }
     })
+  }
+
+  focus() {
+    this.el.nativeElement.focus()
   }
 }
