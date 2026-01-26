@@ -4,7 +4,7 @@ import { Directive, input } from '@angular/core'
 import {
   ColorDefinitions,
   SeverityColorDefinitions,
-  SizeDefinition,
+  Size,
 } from '@ks-digital/designsystem-themes/types'
 
 /**
@@ -21,7 +21,7 @@ export class CommonInputs {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  readonly dataSize = input<keyof SizeDefinition>(undefined, {
+  readonly dataSize = input<Size>(undefined, {
     alias: 'data-size',
   })
 
@@ -48,7 +48,7 @@ export class HostSize {
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    * @attribute data-size
    */
-  readonly dataSize = input<keyof SizeDefinition>(undefined, {
+  readonly dataSize = input<'sm' | 'md' | 'xs' | 'lg'>(undefined, {
     alias: 'data-size',
   })
 }

@@ -1,3 +1,3 @@
-import { SizeDefinition } from '@ks-digital/designsystem-themes/types'
+import { Size } from '@ks-digital/designsystem-themes/types'
 
-export type SpinnerSize = keyof SizeDefinition | 'xs' | 'xl' | '2xs'
+export type SpinnerSize = Size | 'xs' | 'xl' | '2xs'
