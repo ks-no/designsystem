@@ -24,13 +24,10 @@ function setTheme(href: string): void {
 }
 
 function setColorScheme(colorScheme: 'light' | 'dark' | 'auto'): void {
-  // Target the story container and apply the color scheme
-  const storyContainer = document.querySelectorAll('.docs-story')
-  if (storyContainer) {
-    storyContainer.forEach((element) => {
-      element.setAttribute('data-color-scheme', colorScheme)
-    })
-  }
+  const stories = document.querySelectorAll('.docs-story')
+  stories.forEach((el) => {
+    el.setAttribute('data-color-scheme', colorScheme)
+  })
 }
 
 type ThemeGlobalType = {
