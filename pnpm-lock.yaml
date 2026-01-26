@@ -121,17 +121,17 @@ catalogs:
       version: 22.3.3
   react:
     '@types/react':
-      specifier: 19.0.0
-      version: 19.0.0
+      specifier: 19.2.9
+      version: 19.2.9
     '@types/react-dom':
-      specifier: 19.0.0
-      version: 19.0.0
+      specifier: 19.2.3
+      version: 19.2.3
     react:
-      specifier: 19.0.0
-      version: 19.0.0
+      specifier: 19.2.3
+      version: 19.2.3
     react-dom:
-      specifier: 19.0.0
-      version: 19.0.0
+      specifier: 19.2.3
+      version: 19.2.3
   react-supported-versions:
     react:
       specifier: '>=18.3.1'
@@ -245,7 +245,7 @@ importers:
         version: 21.0.4(chokidar@4.0.3)
       '@storybook/addon-docs':
         specifier: catalog:storybook
-        version: 10.0.8(@types/react@19.0.0)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.4(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(webpack@5.104.1(@swc/core@1.5.29(@swc/helpers@0.5.18))(esbuild@0.27.2))
+        version: 10.0.8(@types/react@19.2.9)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.4(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(webpack@5.104.1(@swc/core@1.5.29(@swc/helpers@0.5.18))(esbuild@0.27.2))
       '@storybook/angular':
         specifier: catalog:storybook
         version: 10.1.9(e061864a9d827e95e9b9f94a6522b07e)
@@ -414,20 +414,20 @@ importers:
         version: link:../../packages/themes
       react:
         specifier: catalog:react
-        version: 19.0.0
+        version: 19.2.3
       react-dom:
         specifier: catalog:react
-        version: 19.0.0(react@19.0.0)
+        version: 19.2.3(react@19.2.3)
     devDependencies:
       '@testing-library/react':
         specifier: catalog:testing-library
-        version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@types/react':
         specifier: catalog:react
-        version: 19.0.0
+        version: 19.2.9
       '@types/react-dom':
         specifier: catalog:react
-        version: 19.0.0
+        version: 19.2.3(@types/react@19.2.9)
       '@vitejs/plugin-react-swc':
         specifier: ^3.9.0
         version: 3.11.0(@swc/helpers@0.5.18)(vite@7.2.4(@types/node@25.0.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))
@@ -506,7 +506,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-react':
         specifier: catalog:designsystemet
-        version: 1.7.3(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 1.7.3(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
         version: 7.33.4
@@ -519,7 +519,7 @@ importers:
     devDependencies:
       '@testing-library/react':
         specifier: catalog:testing-library
-        version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@vitejs/plugin-react-swc':
         specifier: ^3.11.0
         version: 3.11.0(@swc/helpers@0.5.18)(vite@7.2.4(@types/node@25.0.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))
@@ -4501,11 +4501,13 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react-dom@19.0.0':
-    resolution: {integrity: sha512-1KfiQKsH1o00p9m5ag12axHQSb3FOU9H20UTrujVSkNhuCrRHiQWFqgEnTNK5ZNfnzZv8UWrnXVqCmCF9fgY3w==}
+  '@types/react-dom@19.2.3':
+    resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
+    peerDependencies:
+      '@types/react': ^19.2.0
 
-  '@types/react@19.0.0':
-    resolution: {integrity: sha512-MY3oPudxvMYyesqs/kW1Bh8y9VqSmf+tzqw3ae8a9DZW68pUe3zAdHeI1jc6iAysuRdACnVknHP8AhwD4/dxtg==}
+  '@types/react@19.2.9':
+    resolution: {integrity: sha512-Lpo8kgb/igvMIPeNV2rsYKTgaORYdO1XGVZ4Qz3akwOj0ySGYMPlQWa8BaLn0G63D1aSaAQ5ldR06wCpChQCjA==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -8976,11 +8978,6 @@ packages:
     resolution: {integrity: sha512-K5zQjDllxWkf7Z5xJdV0/B0WTNqx6vxG70zJE4N0kBs4LovmEYWJzQGxC9bS9RAKu3bgM40lrd5zoLJ12MQ5BA==}
     engines: {node: '>= 0.10'}
 
-  react-dom@19.0.0:
-    resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
-    peerDependencies:
-      react: ^19.0.0
-
   react-dom@19.2.3:
     resolution: {integrity: sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg==}
     peerDependencies:
@@ -8997,10 +8994,6 @@ packages:
 
   react-refresh@0.18.0:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.0.0:
-    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
 
   react@19.2.3:
@@ -9400,9 +9393,6 @@ packages:
   saxes@6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
-
-  scheduler@0.25.0:
-    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
   scheduler@0.27.0:
     resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
@@ -13160,12 +13150,12 @@ snapshots:
 
   '@digdir/designsystemet-css@1.7.3': {}
 
-  '@digdir/designsystemet-react@1.7.3(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@digdir/designsystemet-react@1.7.3(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       '@floating-ui/dom': 1.7.4
       '@floating-ui/react': 0.26.23(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons': 7.33.4
-      '@radix-ui/react-slot': 1.2.4(@types/react@19.0.0)(react@19.2.3)
+      '@radix-ui/react-slot': 1.2.4(@types/react@19.2.9)(react@19.2.3)
       '@tanstack/react-virtual': 3.13.18(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@u-elements/u-combobox': 1.0.5
       '@u-elements/u-datalist': 1.0.14
@@ -14013,10 +14003,10 @@ snapshots:
   '@lmdb/lmdb-win32-x64@3.4.3':
     optional: true
 
-  '@mdx-js/react@3.1.1(@types/react@19.0.0)(react@19.2.3)':
+  '@mdx-js/react@3.1.1(@types/react@19.2.9)(react@19.2.3)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.0.0
+      '@types/react': 19.2.9
       react: 19.2.3
 
   '@microsoft/api-extractor-model@7.32.2(@types/node@24.10.9)':
@@ -15368,18 +15358,18 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.0.0)(react@19.2.3)':
+  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.2.9)(react@19.2.3)':
     dependencies:
       react: 19.2.3
     optionalDependencies:
-      '@types/react': 19.0.0
+      '@types/react': 19.2.9
 
-  '@radix-ui/react-slot@1.2.4(@types/react@19.0.0)(react@19.2.3)':
+  '@radix-ui/react-slot@1.2.4(@types/react@19.2.9)(react@19.2.3)':
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.0.0)(react@19.2.3)
+      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.2.9)(react@19.2.3)
       react: 19.2.3
     optionalDependencies:
-      '@types/react': 19.0.0
+      '@types/react': 19.2.9
 
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
     optional: true
@@ -15753,9 +15743,9 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@storybook/addon-docs@10.0.8(@types/react@19.0.0)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.4(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(webpack@5.104.1(@swc/core@1.5.29(@swc/helpers@0.5.18))(esbuild@0.27.2))':
+  '@storybook/addon-docs@10.0.8(@types/react@19.2.9)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.4(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(webpack@5.104.1(@swc/core@1.5.29(@swc/helpers@0.5.18))(esbuild@0.27.2))':
     dependencies:
-      '@mdx-js/react': 3.1.1(@types/react@19.0.0)(react@19.2.3)
+      '@mdx-js/react': 3.1.1(@types/react@19.2.9)(react@19.2.3)
       '@storybook/csf-plugin': 10.0.8(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.4(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(webpack@5.104.1(@swc/core@1.5.29(@swc/helpers@0.5.18))(esbuild@0.27.2))
       '@storybook/icons': 1.6.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@storybook/react-dom-shim': 10.0.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.9(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -16181,25 +16171,15 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@babel/runtime': 7.28.6
-      '@testing-library/dom': 10.4.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-    optionalDependencies:
-      '@types/react': 19.0.0
-      '@types/react-dom': 19.0.0
-
-  '@testing-library/react@16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@testing-library/react@16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@testing-library/dom': 10.4.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
     optionalDependencies:
-      '@types/react': 19.0.0
-      '@types/react-dom': 19.0.0
+      '@types/react': 19.2.9
+      '@types/react-dom': 19.2.3(@types/react@19.2.9)
 
   '@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1)':
     dependencies:
@@ -16363,11 +16343,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@19.0.0':
+  '@types/react-dom@19.2.3(@types/react@19.2.9)':
     dependencies:
-      '@types/react': 19.0.0
+      '@types/react': 19.2.9
 
-  '@types/react@19.0.0':
+  '@types/react@19.2.9':
     dependencies:
       csstype: 3.2.3
 
@@ -21568,11 +21548,6 @@ snapshots:
       iconv-lite: 0.7.2
       unpipe: 1.0.0
 
-  react-dom@19.0.0(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-      scheduler: 0.25.0
-
   react-dom@19.2.3(react@19.2.3):
     dependencies:
       react: 19.2.3
@@ -21585,8 +21560,6 @@ snapshots:
   react-is@18.3.1: {}
 
   react-refresh@0.18.0: {}
-
-  react@19.0.0: {}
 
   react@19.2.3: {}
 
@@ -22025,8 +21998,6 @@ snapshots:
   saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
-
-  scheduler@0.25.0: {}
 
   scheduler@0.27.0: {}
 
