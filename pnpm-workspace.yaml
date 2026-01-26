@@ -22,7 +22,7 @@ catalogs:
     '@ng-icons/core': '^32.5.0'
     '@ng-icons/phosphor-icons': '^33.0.0'
     '@schematics/angular': '21.0.4'
-    angular-eslint: '21.0.0'
+    angular-eslint: '21.1.0'
     ng-packagr: '21.0.1'
     zone.js: '0.16.0'
   angular-supported-versions:
