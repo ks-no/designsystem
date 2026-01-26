@@ -30,7 +30,7 @@ it('Should not render heading when tag is not a valid heading', async () => {
 it('Should set id', async () => {
   const { fixture } = await render(TestHeadingComponent)
 
-  fixture.componentInstance.heading()!.setId('test-id')
+  fixture.componentInstance.heading()?.setId('test-id')
   fixture.detectChanges()
 
   const heading = screen.getByRole('heading', { name: 'My heading' })
