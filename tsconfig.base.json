@@ -61,6 +61,9 @@
       "@ks-digital/designsystem-angular/tabs": [
         "packages/angular/tabs/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/tag": [
+        "packages/angular/tag/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/validation-message": [
         "packages/angular/validation-message/src/index.ts"
       ],
