@@ -1,6 +1,6 @@
 /* build: v1.7.3 */
 import type {} from '@digdir/designsystemet/types'
-export type { SizeDefinition } from '@digdir/designsystemet/types'
+export type { Size } from '@digdir/designsystemet/types'
 
 // Augment types based on theme
 
