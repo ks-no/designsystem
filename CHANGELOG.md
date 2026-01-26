@@ -1,3 +1,13 @@
+## 0.0.1-alpha.38
+
+### 🩹 Fixes
+
+- **angular:** `Size`-type ([#204](https://github.com/ks-no/designsystem/pull/204))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.37
 
 This was a version bump only, there were no code changes.
