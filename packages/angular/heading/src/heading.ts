@@ -24,6 +24,10 @@ export class Heading {
     },
   )
 
+  /**
+   * Set the id of the heading
+   * @param id
+   */
   setId(id: string) {
     this.id.set(id)
   }
