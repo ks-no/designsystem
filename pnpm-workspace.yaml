@@ -59,7 +59,6 @@ catalogs:
   storybook:
     '@storybook/addon-docs': 10.0.8
     '@storybook/angular': 10.1.9
-    '@storybook/test': ^8.6.14
     storybook: 10.1.9
   testing-library:
     '@testing-library/angular': ^17.4.0
