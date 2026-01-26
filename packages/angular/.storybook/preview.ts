@@ -6,6 +6,7 @@ import { themes } from './themes'
 
 addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setTheme(globals.theme)
+  setColorScheme(globals.colorScheme)
 })
 
 function setTheme(href: string): void {
@@ -20,6 +21,16 @@ function setTheme(href: string): void {
     document.head.appendChild(link)
   }
   link.href = href
+}
+
+function setColorScheme(colorScheme: 'light' | 'dark' | 'auto'): void {
+  // Target the story container and apply the color scheme
+  const storyContainer = document.querySelectorAll('.docs-story')
+  if (storyContainer) {
+    storyContainer.forEach((element) => {
+      element.setAttribute('data-color-scheme', colorScheme)
+    })
+  }
 }
 
 type ThemeGlobalType = {
@@ -44,6 +55,20 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
       showName: true,
     },
   },
+  colorScheme: {
+    name: 'Color Scheme',
+    description: 'Set color scheme for components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'moon',
+      items: [
+        { value: 'light', title: 'Light' },
+        { value: 'dark', title: 'Dark' },
+        { value: 'auto', title: 'Auto' },
+      ],
+      showName: true,
+    },
+  },
 }
 
 const preview: Preview = {
@@ -51,6 +76,11 @@ const preview: Preview = {
     applicationConfig({
       providers: [provideZonelessChangeDetection()],
     }),
+    (story, context) => {
+      const storyFn = story()
+      setColorScheme(context.globals['colorScheme'] || 'light')
+      return storyFn
+    },
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
