@@ -14,5 +14,5 @@ export { randomId } from './random-id'
 export type {
   ColorDefinitions as Color,
   SeverityColorDefinitions as SeverityColors,
-  SizeDefinition as Size,
+  Size,
 } from '@ks-digital/designsystem-themes/types'

@@ -12,7 +12,7 @@ import { Directive, input, signal } from '@angular/core'
   },
 })
 export class Heading {
-  protected id = signal<string | undefined>(undefined)
+  public id = signal<string | undefined>(undefined)
   /**
    * Changes text sizing
    * @default 'md'
@@ -24,6 +24,10 @@ export class Heading {
     },
   )
 
+  /**
+   * Set the id of the heading
+   * @param id
+   */
   setId(id: string) {
     this.id.set(id)
   }

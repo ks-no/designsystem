@@ -5,7 +5,7 @@
     "url": "https://github.com/ks-no/designsystem.git",
     "directory": "packages/angular"
   },
-  "version": "0.0.1-alpha.36",
+  "version": "0.0.1-alpha.38",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -17,8 +17,7 @@
   },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
-    "@angular/core": "catalog:angular-supported-versions",
-    "@ks-digital/designsystem-themes": "workspace:*"
+    "@angular/core": "catalog:angular-supported-versions"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "catalog:angular",
