@@ -62,7 +62,7 @@ export const Variants: Story = {
     <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4);">
       <button ksd-button  ${argsToTemplate(args)} data-variant="primary">Primary</button>
       <button ksd-button  ${argsToTemplate(args)} data-variant="secondary">Secondary</button>
-      <button ksd-button  ${argsToTemplate(args)} data-variant="tertiary">Teritiary</button>
+      <button ksd-button  ${argsToTemplate(args)} data-variant="tertiary">Tertiary</button>
     </div>
     `,
   }),
