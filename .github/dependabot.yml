@@ -17,6 +17,15 @@ updates:
       designsystemet:
         patterns:
           - '@digdir/designsystemet*'
+      storybook:
+        patterns:
+          - '@storybook/*'
+      react:
+        patterns:
+          - '@types/react'
+          - '@types/react-dom'
+          - 'react'
+          - 'react-dom'
       nx:
         patterns:
           - '@nx/*'
