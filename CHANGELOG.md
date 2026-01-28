@@ -1,3 +1,23 @@
+## 0.0.1-alpha.39
+
+### 🚀 Features
+
+- **angular:** heading ([#199](https://github.com/ks-no/designsystem/pull/199))
+- **angular:** error summary ([#195](https://github.com/ks-no/designsystem/pull/195))
+- **angular:** breadcrumbs ([#189](https://github.com/ks-no/designsystem/pull/189))
+- **angular:** tag ([#205](https://github.com/ks-no/designsystem/pull/205))
+
+### 🩹 Fixes
+
+- **angular:** data-variant for buttons in storybook ([#207](https://github.com/ks-no/designsystem/pull/207))
+
+### ❤️ Thank You
+
+- Anton Nydal
+- Copilot @Copilot
+- ntnon
+- stianmorsund
+
 ## 0.0.1-alpha.38
 
 ### 🩹 Fixes
