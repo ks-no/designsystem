@@ -1,3 +1,13 @@
+## 0.0.1-alpha.40
+
+### 🩹 Fixes
+
+- **angular:** dont set role on `fieldset` ([#217](https://github.com/ks-no/designsystem/pull/217))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.39
 
 ### 🚀 Features
