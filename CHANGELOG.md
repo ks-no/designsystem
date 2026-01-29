@@ -1,3 +1,13 @@
+## 0.0.1-alpha.41
+
+### 🩹 Fixes
+
+- **angular:** dont set role on fieldset `legend` ([#219](https://github.com/ks-no/designsystem/pull/219))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.40
 
 ### 🩹 Fixes
