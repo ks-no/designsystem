@@ -1,4 +1,3 @@
-import '@digdir/designsystemet-web';
 import {
   Component,
   computed,
@@ -6,11 +5,11 @@ import {
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
   effect,
-  ElementRef,
   forwardRef,
   inject,
-  input
+  input,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
@@ -39,12 +38,12 @@ import { FieldState } from './field-state'
     '[attr.dataPosition]': 'position()',
   },
   template: `
-  <ds-field class="ds-field">
-    <ng-content />
-    @if (hasCounter()) {
-      <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
-    }
-  </ds-field>
+    <ds-field class="ds-field">
+      <ng-content />
+      @if (hasCounter()) {
+        <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
+      }
+    </ds-field>
   `,
   imports: [FieldCounter],
   providers: [FieldState],
