@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
@@ -6,7 +7,13 @@ import {
 
 @Component({
   selector: '[ksd-breadcrumbs]',
-  template: ` <ng-content /> `,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  template: `
+    <ds-breadcrumbs class="ds-breadcrumbs">
+      <ng-content />
+    </ds-breadcrumbs>
+  `,
+  // Todo: attrs not working now
   hostDirectives: [
     {
       directive: HostSize,
@@ -17,8 +24,5 @@ import {
       inputs: ['data-color'],
     },
   ],
-  host: {
-    class: 'ds-breadcrumbs',
-  },
 })
 export class Breadcrumbs {}
