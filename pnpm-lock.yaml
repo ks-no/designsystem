@@ -74,14 +74,17 @@ catalogs:
       version: 0.16.0
   designsystemet:
     '@digdir/designsystemet':
-      specifier: 1.11.0
-      version: 1.11.0
+      specifier: 0.0.0-fix-designsystemet-web-20260126133306
+      version: 0.0.0-fix-designsystemet-web-20260126133306
     '@digdir/designsystemet-css':
-      specifier: 1.11.0
-      version: 1.11.0
+      specifier: 0.0.0-fix-designsystemet-web-20260126133306
+      version: 0.0.0-fix-designsystemet-web-20260126133306
     '@digdir/designsystemet-react':
-      specifier: 1.11.0
-      version: 1.11.0
+      specifier: 0.0.0-fix-designsystemet-web-20260126133306
+      version: 0.0.0-fix-designsystemet-web-20260126133306
+    '@digdir/designsystemet-web':
+      specifier: 0.0.0-fix-designsystemet-web-20260126133306
+      version: 0.0.0-fix-designsystemet-web-20260126133306
     '@navikt/aksel-icons':
       specifier: 7.33.4
       version: 7.33.4
@@ -203,7 +206,7 @@ importers:
         version: 19.8.1
       '@digdir/designsystemet':
         specifier: catalog:designsystemet
-        version: 1.11.0(tslib@2.8.1)
+        version: 0.0.0-fix-designsystemet-web-20260126133306(tslib@2.8.1)
       '@nx/angular':
         specifier: catalog:nx
         version: 22.3.3(f91e62970366ca5d0a40c9c644a3ab5f)
@@ -477,6 +480,9 @@ importers:
       '@angular/router':
         specifier: catalog:angular
         version: 21.0.6(@angular/common@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.6(@angular/animations@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0)))(@angular/common@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0)))(rxjs@7.8.2)
+      '@digdir/designsystemet-web':
+        specifier: catalog:designsystemet
+        version: 0.0.0-fix-designsystemet-web-20260126133306
       '@ks-digital/designsystem-themes':
         specifier: workspace:*
         version: link:../themes
@@ -506,7 +512,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-react':
         specifier: catalog:designsystemet
-        version: 1.11.0(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 0.0.0-fix-designsystemet-web-20260126133306(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
         version: 7.33.4
@@ -537,7 +543,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-css':
         specifier: catalog:designsystemet
-        version: 1.11.0
+        version: 0.0.0-fix-designsystemet-web-20260126133306
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -1696,20 +1702,26 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
-  '@digdir/designsystemet-css@1.11.0':
-    resolution: {integrity: sha512-fbLs5nrDyCdoIZAJMErj9+P4dmA+u2q3n+y2fWHRYK2U1Bs8hWKF47M3EhtqVCbmJIUhhI0SvRp8vb72Fa+WLQ==}
+  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260126133306':
+    resolution: {integrity: sha512-b1DbU0+vWaTsGTn8ZkeDib5CaDg+e8iAra6/gkS87kXyROP5cCdnDgXYojkH8O3iaxszqOkTOfcdPpQ6hqhkRg==}
 
-  '@digdir/designsystemet-react@1.11.0':
-    resolution: {integrity: sha512-JoCTcKxD3MiMakyfv458TVvA6YIfjSoDOUkBcSbLC7sp+WrczjA9lJN+NsCv2PNTb6kGLJ2WPwNhhx+6i8dlJQ==}
+  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260126133306':
+    resolution: {integrity: sha512-58Sj5rVJGM/KO6/hZnkWDEGQVNkTAPUDr4vERZ3VynyR9zbeVud3DPGgOi9kVbC5aWwvg/RXXvadf+h5wg7Cqw==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  '@digdir/designsystemet-types@1.11.0':
-    resolution: {integrity: sha512-9kgM+cADYmroibCSH5VWqkXw6gEYXN+vV1glmRWhHvMq6veiD4BpBgsVAs2tDi972+SIvyo8VMPriva+XEobug==}
+  '@digdir/designsystemet-types@0.0.0-react-side-effects-20260113071010':
+    resolution: {integrity: sha512-2DV5MDDM4efxaznH+dm/67+jwQ7qUbu5KuTqLoagEl21GrCc9O6UtRIDI6btX5Z9YbnsOUn/DtU4aHV+htpNVQ==}
 
-  '@digdir/designsystemet@1.11.0':
-    resolution: {integrity: sha512-pQTfjCJ5X4dY0pGxUvkI7xD1YbiKKilsy9c1BLUgqg30+aK2P1W6ngD8DSDec09X3AvCBxLwJV7bK4Jg3jNBnw==}
+  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260126133306':
+    resolution: {integrity: sha512-93AvN775SCINN+bUIRwambFuLXB9z9gH7sNQIph4xl5ODRmGVqGhP93ZHtNMxBGK6tQ69u4if7AedybtU55T/g==}
+
+  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260128130007':
+    resolution: {integrity: sha512-3T4/jKRIu1HUqf/xrEhD14ugqY29rYG2+8cinK8UqVlmgdwtDRYHVTgmZtgNbrEbFZbQTg0olVGDiB49gcCIdA==}
+
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260126133306':
+    resolution: {integrity: sha512-kZr1EkauEhhW+p672St+j02Ls5O/N/l8J+T1nn9ASn3pWAhUTVKvsClP/OUzLopLRgXfcZ4dZUvWQKafUqo3kQ==}
     engines: {node: '>=20 <25'}
     hasBin: true
 
@@ -4748,14 +4760,23 @@ packages:
     resolution: {integrity: sha512-oy+wV7xDKFPRyNggmXuZQSBzvoLnpmJs+GhzRhPjrxl2b/jIlyjVokzm47CZCDUdXKr2zd7ZLodPfOBpOPyPlg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@u-elements/u-combobox@1.0.5':
-    resolution: {integrity: sha512-43c9Z9DIKxK+xcLhUVDZCzRRPCZNMJlFrNwF6jaCUw119RcyGMAt38Lc0giXqxvkrxKIBVBTYwMiTA+iDEvm6g==}
+  '@u-elements/u-combobox@1.0.7':
+    resolution: {integrity: sha512-rueG+Wof9ycmbjIW2omS4bLite5BkH87SWfkBrvSjrR1GWn4wgpjnUQ1lORDRalYcPYlgFWy2uGFEqqKPx3Yqw==}
 
-  '@u-elements/u-datalist@1.0.14':
-    resolution: {integrity: sha512-wgh7BMLySzPF3xcfxeNnZgy/JmFZOQVJVY+XwAiIBgDYkCWQqERJrHjxRHv8C6t4h2PWnO7mwDIqdLQHEq12XQ==}
+  '@u-elements/u-datalist@1.1.0':
+    resolution: {integrity: sha512-t8H3OddziXmq0YBuXodVWnvRi56WW4sfbJEIO1fx4i39sZ0s/0xjHBsoAsTZkb9mXJEtpgrsH8IkDYP0ZSgSXQ==}
 
   '@u-elements/u-details@0.1.5':
     resolution: {integrity: sha512-08sBhbc4u3VFlXIvH//m2yCDBHOJlQigs8QiKVLAVk2hMSg+fcRPggcgeBmtVPuy7iN3u/VURP6G2Ajlfbr6xg==}
+
+  '@u-elements/u-details@0.2.2':
+    resolution: {integrity: sha512-8EJH3ajS34IjX4bauUi7z16FNZOLa3GNxfS6QReO1dck4nGNsHT25GYSyDaoQOQX7ZMxlsWADWrUJ9AGLgDO7w==}
+
+  '@u-elements/u-progress@0.0.7':
+    resolution: {integrity: sha512-T2Q6jwWL60we4qiZCOPqnhEfoI2lOaUP3EmYYvnVpZ+iA8HVuqT+kgdQgACiVymfGWgIzapTcP6xaM02AvPa/A==}
+
+  '@u-elements/u-tabs@0.1.2':
+    resolution: {integrity: sha512-KVYJFDPZdo+LXrW+mCMPEUen4wXi8VfSMDKWLt2+q6VgYqWBcAIZcaWBRWxIjXFzGfXQSJqD0amnYGaL1RGZ/w==}
 
   '@vitejs/plugin-basic-ssl@2.1.0':
     resolution: {integrity: sha512-dOxxrhgyDIEUADhb/8OlV9JIqYLgos03YorAueTIeOUskLJSEsfwCByjbu98ctXitUN3znXKp0bYD/WHSudCeA==}
@@ -7176,6 +7197,9 @@ packages:
   internal-slot@1.1.0:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
+
+  invokers-polyfill@0.6.1:
+    resolution: {integrity: sha512-SOl+PfmPcjaXGYvUs3GkbwXN5rAADzl3i33GJ1jOsGhwtlwfMonQvVu5/4aI7X9+J4g+KX2kfiO8jUIvISBubg==}
 
   ip-address@10.1.0:
     resolution: {integrity: sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q==}
@@ -13317,33 +13341,51 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@digdir/designsystemet-css@1.11.0':
+  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260126133306':
     dependencies:
-      '@digdir/designsystemet-types': 1.11.0
+      '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
 
-  '@digdir/designsystemet-react@1.11.0(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260126133306(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
-      '@digdir/designsystemet-types': 1.11.0
+      '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
+      '@digdir/designsystemet-web': 0.0.0-fix-designsystemet-web-20260128130007
       '@floating-ui/dom': 1.7.4
       '@floating-ui/react': 0.26.23(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons': 7.40.0
       '@radix-ui/react-slot': 1.2.4(@types/react@19.0.0)(react@19.2.3)
       '@tanstack/react-virtual': 3.13.18(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@u-elements/u-combobox': 1.0.5
-      '@u-elements/u-datalist': 1.0.14
-      '@u-elements/u-details': 0.1.5
       clsx: 2.1.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
     transitivePeerDependencies:
       - '@types/react'
 
-  '@digdir/designsystemet-types@1.11.0': {}
+  '@digdir/designsystemet-types@0.0.0-react-side-effects-20260113071010': {}
 
-  '@digdir/designsystemet@1.11.0(tslib@2.8.1)':
+  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260126133306':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
+      '@u-elements/u-combobox': 1.0.7
+      '@u-elements/u-datalist': 1.1.0
+      '@u-elements/u-details': 0.2.2
+      '@u-elements/u-progress': 0.0.7
+      '@u-elements/u-tabs': 0.1.2
+      invokers-polyfill: 0.6.1
+
+  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260128130007':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
+      '@u-elements/u-combobox': 1.0.7
+      '@u-elements/u-datalist': 1.1.0
+      '@u-elements/u-details': 0.2.2
+      '@u-elements/u-progress': 0.0.7
+      '@u-elements/u-tabs': 0.1.2
+      invokers-polyfill: 0.6.1
+
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260126133306(tslib@2.8.1)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.2)
-      '@digdir/designsystemet-types': 1.11.0
+      '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
       '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.2.0(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
@@ -16851,11 +16893,17 @@ snapshots:
       '@typescript-eslint/types': 8.53.1
       eslint-visitor-keys: 4.2.1
 
-  '@u-elements/u-combobox@1.0.5': {}
+  '@u-elements/u-combobox@1.0.7': {}
 
-  '@u-elements/u-datalist@1.0.14': {}
+  '@u-elements/u-datalist@1.1.0': {}
 
   '@u-elements/u-details@0.1.5': {}
+
+  '@u-elements/u-details@0.2.2': {}
+
+  '@u-elements/u-progress@0.0.7': {}
+
+  '@u-elements/u-tabs@0.1.2': {}
 
   '@vitejs/plugin-basic-ssl@2.1.0(vite@7.2.2(@types/node@24.10.9)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.97.2)(sass@1.93.2)(terser@5.44.0)(tsx@4.7.0)(yaml@2.8.2))':
     dependencies:
@@ -19885,6 +19933,8 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.2
       side-channel: 1.1.0
+
+  invokers-polyfill@0.6.1: {}
 
   ip-address@10.1.0: {}
 

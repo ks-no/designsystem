@@ -39,6 +39,7 @@
     "@testing-library/jest-dom": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
-    "zone.js": "catalog:angular"
+    "zone.js": "catalog:angular",
+    "@digdir/designsystemet-web": "catalog:designsystemet"
   }
 }
