@@ -1,14 +1,15 @@
+import '@digdir/designsystemet-web';
 import {
-  afterNextRender,
   Component,
   computed,
   contentChild,
   contentChildren,
+  CUSTOM_ELEMENTS_SCHEMA,
   effect,
   ElementRef,
   forwardRef,
   inject,
-  input,
+  input
 } from '@angular/core'
 import {
   HostColor,
@@ -17,7 +18,6 @@ import {
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { Input } from '../input'
 import { FieldCounter } from './field-counter'
-import { fieldObserver } from './field-observer'
 import { FieldState } from './field-state'
 
 /**
@@ -36,17 +36,19 @@ import { FieldState } from './field-state'
     },
   ],
   host: {
-    class: 'ds-field',
     '[attr.dataPosition]': 'position()',
   },
   template: `
+  <ds-field class="ds-field">
     <ng-content />
     @if (hasCounter()) {
       <ksd-field-counter [limit]="limit() ?? 0" [count]="count() ?? 0" />
     }
+  </ds-field>
   `,
   imports: [FieldCounter],
   providers: [FieldState],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Field {
   /**
@@ -59,16 +61,11 @@ export class Field {
   private readonly input = contentChild(forwardRef(() => Input))
   private readonly projectedErrors = contentChildren(ValidationMessage)
 
-  private readonly el = inject(ElementRef)
   protected readonly count = computed(() => this.input()?.value().length)
   protected readonly limit = computed(() => this.input()?.counter())
   protected readonly hasCounter = computed(() => this.limit())
 
   constructor() {
-    afterNextRender(() => {
-      fieldObserver(this.el.nativeElement)
-    })
-
     effect(() => {
       this.fieldState.hasProjectedErrors.set(this.projectedErrors().length > 0)
     })
