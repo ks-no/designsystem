@@ -1,16 +1,8 @@
-import {
-  booleanAttribute,
-  Directive,
-  inject,
-  input,
-  numberAttribute,
-  signal,
-} from '@angular/core'
+import { booleanAttribute, Directive, input, signal } from '@angular/core'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-import { FieldState } from '../field'
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -29,8 +21,7 @@ import { FieldState } from '../field'
     class: 'ds-input',
     '[attr.readonly]': 'readonly() ? true : null',
     '[attr.disabled]': 'disabled() ? true : null',
-    '[attr.aria-invalid]':
-      'ariaInvalid() ? true : (fieldState?.hasError() ? true:  null)',
+    '[attr.aria-invalid]': 'ariaInvalid() ? true : null',
     '(click)': 'onClick($event)',
     '(input)': 'onInput($event)',
   },
@@ -58,13 +49,6 @@ export class Input {
     transform: booleanAttribute,
     alias: 'aria-invalid',
   })
-
-  /**
-   * Displays a character counter. pass a number to set a limit.
-   */
-  counter = input(0, { transform: numberAttribute })
-
-  protected fieldState = inject(FieldState, { optional: true })
 
   onClick(event: Event) {
     if (this.readonly()) {
