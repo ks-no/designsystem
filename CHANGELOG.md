@@ -1,3 +1,13 @@
+## 0.0.1-alpha.42
+
+### 🚀 Features
+
+- update designsystemet packages to `1.11.0` ([#198](https://github.com/ks-no/designsystem/pull/198))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.41
 
 ### 🩹 Fixes
