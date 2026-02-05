@@ -14,7 +14,7 @@ catalogs:
     '@angular-eslint/schematics': ^21.1.0
     '@angular-eslint/template-parser': 21.1.0
     '@angular/animations': 21.0.6
-    '@angular/build': 21.0.4
+    '@angular/build': 21.1.2
     '@angular/common': 21.0.6
     '@angular/compiler': 21.0.6
     '@angular/compiler-cli': 21.0.6
