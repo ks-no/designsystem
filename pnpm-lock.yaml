@@ -74,17 +74,17 @@ catalogs:
       version: 0.16.0
   designsystemet:
     '@digdir/designsystemet':
-      specifier: 0.0.0-fix-designsystemet-web-20260126133306
-      version: 0.0.0-fix-designsystemet-web-20260126133306
+      specifier: test
+      version: 0.0.0-fix-designsystemet-web-20260128130007
     '@digdir/designsystemet-css':
-      specifier: 0.0.0-fix-designsystemet-web-20260126133306
-      version: 0.0.0-fix-designsystemet-web-20260126133306
+      specifier: test
+      version: 0.0.0-fix-designsystemet-web-20260128130007
     '@digdir/designsystemet-react':
-      specifier: 0.0.0-fix-designsystemet-web-20260126133306
-      version: 0.0.0-fix-designsystemet-web-20260126133306
+      specifier: test
+      version: 0.0.0-fix-designsystemet-web-20260128130007
     '@digdir/designsystemet-web':
-      specifier: 0.0.0-fix-designsystemet-web-20260126133306
-      version: 0.0.0-fix-designsystemet-web-20260126133306
+      specifier: test
+      version: 0.0.0-fix-designsystemet-web-20260128130007
     '@navikt/aksel-icons':
       specifier: 7.33.4
       version: 7.33.4
@@ -206,7 +206,7 @@ importers:
         version: 19.8.1
       '@digdir/designsystemet':
         specifier: catalog:designsystemet
-        version: 0.0.0-fix-designsystemet-web-20260126133306(tslib@2.8.1)
+        version: 0.0.0-fix-designsystemet-web-20260128130007(tslib@2.8.1)
       '@nx/angular':
         specifier: catalog:nx
         version: 22.3.3(f91e62970366ca5d0a40c9c644a3ab5f)
@@ -482,7 +482,7 @@ importers:
         version: 21.0.6(@angular/common@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.6(@angular/animations@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0)))(@angular/common@21.0.6(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.6(@angular/compiler@21.0.6)(rxjs@7.8.2)(zone.js@0.16.0)))(rxjs@7.8.2)
       '@digdir/designsystemet-web':
         specifier: catalog:designsystemet
-        version: 0.0.0-fix-designsystemet-web-20260126133306
+        version: 0.0.0-fix-designsystemet-web-20260128130007
       '@ks-digital/designsystem-themes':
         specifier: workspace:*
         version: link:../themes
@@ -512,7 +512,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-react':
         specifier: catalog:designsystemet
-        version: 0.0.0-fix-designsystemet-web-20260126133306(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 0.0.0-fix-designsystemet-web-20260128130007(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
         version: 7.33.4
@@ -543,7 +543,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-css':
         specifier: catalog:designsystemet
-        version: 0.0.0-fix-designsystemet-web-20260126133306
+        version: 0.0.0-fix-designsystemet-web-20260128130007
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -1702,11 +1702,11 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
-  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260126133306':
-    resolution: {integrity: sha512-b1DbU0+vWaTsGTn8ZkeDib5CaDg+e8iAra6/gkS87kXyROP5cCdnDgXYojkH8O3iaxszqOkTOfcdPpQ6hqhkRg==}
+  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260128130007':
+    resolution: {integrity: sha512-9StFP3t7EvwPK7dHB92Zu6NKb9LRaHVGajoXwXtf9LrDwVKugyiI8irhdeUeTi2FWNEfyZzycXS9pb98b8vGMA==}
 
-  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260126133306':
-    resolution: {integrity: sha512-58Sj5rVJGM/KO6/hZnkWDEGQVNkTAPUDr4vERZ3VynyR9zbeVud3DPGgOi9kVbC5aWwvg/RXXvadf+h5wg7Cqw==}
+  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260128130007':
+    resolution: {integrity: sha512-lX7tjXJ5FzHHzqTg74wH8wME59BxgIwQtWkSSpt7QR/zG6Cj4Ial5ZXPefNVyxiFntXX1aGJq2FylB29Ut/FCA==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
@@ -1714,14 +1714,11 @@ packages:
   '@digdir/designsystemet-types@0.0.0-react-side-effects-20260113071010':
     resolution: {integrity: sha512-2DV5MDDM4efxaznH+dm/67+jwQ7qUbu5KuTqLoagEl21GrCc9O6UtRIDI6btX5Z9YbnsOUn/DtU4aHV+htpNVQ==}
 
-  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260126133306':
-    resolution: {integrity: sha512-93AvN775SCINN+bUIRwambFuLXB9z9gH7sNQIph4xl5ODRmGVqGhP93ZHtNMxBGK6tQ69u4if7AedybtU55T/g==}
-
   '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260128130007':
     resolution: {integrity: sha512-3T4/jKRIu1HUqf/xrEhD14ugqY29rYG2+8cinK8UqVlmgdwtDRYHVTgmZtgNbrEbFZbQTg0olVGDiB49gcCIdA==}
 
-  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260126133306':
-    resolution: {integrity: sha512-kZr1EkauEhhW+p672St+j02Ls5O/N/l8J+T1nn9ASn3pWAhUTVKvsClP/OUzLopLRgXfcZ4dZUvWQKafUqo3kQ==}
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260128130007':
+    resolution: {integrity: sha512-eutOZOXcxJ1Pr2E+50WQ+qYuQzAKGY2VxiSdDcs1x2OXDdeRl4zV5Rrqtv/rNoWqCAdu1W/J5+QSghyADby2/Q==}
     engines: {node: '>=20 <25'}
     hasBin: true
 
@@ -6877,6 +6874,7 @@ packages:
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.0:
@@ -10052,7 +10050,7 @@ packages:
   tar@7.5.6:
     resolution: {integrity: sha512-xqUeu2JAIJpXyvskvU3uvQW8PAmHrtXp2KDuMJwQqW8Sqq0CaZBAQ+dKS3RBXVhU4wC5NjAdKrmh84241gO9cA==}
     engines: {node: '>=18'}
-    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   telejson@8.0.0:
     resolution: {integrity: sha512-8mCI1dHX80nchOkIEgvyWlGLgeh/SxO7JZPOud0DxvfFdI6MgwxRL8ff7rVdj6436uHhpWaxLQjU74Jb2I0u9g==}
@@ -13341,11 +13339,11 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260126133306':
+  '@digdir/designsystemet-css@0.0.0-fix-designsystemet-web-20260128130007':
     dependencies:
       '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
 
-  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260126133306(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@digdir/designsystemet-react@0.0.0-fix-designsystemet-web-20260128130007(@types/react@19.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
       '@digdir/designsystemet-web': 0.0.0-fix-designsystemet-web-20260128130007
@@ -13362,16 +13360,6 @@ snapshots:
 
   '@digdir/designsystemet-types@0.0.0-react-side-effects-20260113071010': {}
 
-  '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260126133306':
-    dependencies:
-      '@floating-ui/dom': 1.7.4
-      '@u-elements/u-combobox': 1.0.7
-      '@u-elements/u-datalist': 1.1.0
-      '@u-elements/u-details': 0.2.2
-      '@u-elements/u-progress': 0.0.7
-      '@u-elements/u-tabs': 0.1.2
-      invokers-polyfill: 0.6.1
-
   '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260128130007':
     dependencies:
       '@floating-ui/dom': 1.7.4
@@ -13382,7 +13370,7 @@ snapshots:
       '@u-elements/u-tabs': 0.1.2
       invokers-polyfill: 0.6.1
 
-  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260126133306(tslib@2.8.1)':
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260128130007(tslib@2.8.1)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.2)
       '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
