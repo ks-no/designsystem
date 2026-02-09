@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, input, signal } from '@angular/core'
 
 @Directive({

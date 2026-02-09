@@ -1,5 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
-
 import { Directive, input } from '@angular/core'
 import {
   ColorDefinitions,

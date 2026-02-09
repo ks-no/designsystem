@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
 import { Component, input } from '@angular/core'
 import {
   HostColor,

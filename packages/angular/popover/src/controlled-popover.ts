@@ -1,5 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
-
 import { Component, input, signal } from '@angular/core'
 import {
   Color,
