@@ -29,71 +29,17 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-<nav ksd-pagination aria-label="Sidenavigering" ${argsToTemplate(args)} >
-  <ul>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Forrige side"
-      >
-        Forrige
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 1"
-      >
-        1
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="primary"
-        type="button"
-        aria-label="Side 2"
-      >
-        2
-      </button>
-    </li>
-    <li></li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 9"
-      >
-        9
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 10"
-      >
-        10
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Neste side"
-      >
-        Neste
-      </button>
-    </li>
-  </ul>
-</nav>
+    <nav ksd-pagination data-current="2" data-total="100" ${argsToTemplate(args)}>
+      <ol>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
+      </ol>
+    </nav>
 
     `,
   }),

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, CUSTOM_ELEMENTS_SCHEMA, input } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -6,7 +6,16 @@ import {
 
 @Component({
   selector: '[ksd-pagination]',
-  template: ` <ng-content /> `,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  template: `
+    <ds-pagination
+      class="ds-pagination"
+      [attr.data-current]="dataCurrent()"
+      [attr.data-total]="dataTotal()"
+    >
+      <ng-content />
+    </ds-pagination>
+  `,
   hostDirectives: [
     {
       directive: HostSize,
@@ -21,4 +30,18 @@ import {
     class: 'ds-pagination',
   },
 })
-export class Pagination {}
+export class Pagination {
+  /**
+   * The current page
+   */
+  readonly dataCurrent = input.required<number>({
+    alias: 'data-current',
+  })
+
+  /**
+   * The total number of pages
+   */
+  readonly dataTotal = input.required<number>({
+    alias: 'data-total',
+  })
+}
