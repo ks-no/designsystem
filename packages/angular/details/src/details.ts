@@ -1,20 +1,12 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  ElementRef,
-  input,
-  output,
-  viewChild,
-} from '@angular/core'
+import { Directive } from '@angular/core'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-import '@u-elements/u-details'
 
-@Component({
-  selector: 'ksd-details',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: 'details[ksd-details]',
   hostDirectives: [
     {
       directive: HostSize,
@@ -25,49 +17,8 @@ import '@u-elements/u-details'
       inputs: ['data-color'],
     },
   ],
-  template: `
-    <u-details
-      #detailsRef
-      class="ds-details"
-      [attr.data-variant]="variant()"
-      [attr.open]="(open() ?? defaultOpen()) || undefined"
-      (toggle)="onToggle($event)"
-    >
-      <u-summary>
-        <ng-content select="ksd-details-summary" />
-      </u-summary>
-      <div>
-        <ng-content select="ksd-details-content" />
-      </div>
-    </u-details>
-  `,
-  styles: `
-    /* Styles needed since Designsystemet styles doesnt expect an element wrapping .ds-details, which we have */
-    .ds-card > :host(:last-of-type) > .ds-details {
-      border-bottom: 0;
-    }
-
-    .ds-card > :host(:first-of-type) > .ds-details {
-      border-top: 0;
-    }
-
-    :host(:not(:first-of-type)) > .ds-details {
-      border-top: 0;
-      margin-top: 0;
-    }
-  `,
+  host: {
+    class: 'ds-details',
+  },
 })
-export class Details {
-  readonly variant = input<'tinted' | 'default'>('default')
-  readonly defaultOpen = input<boolean>(false)
-  readonly open = input<boolean | undefined>(undefined)
-  readonly toggled = output<Event>()
-  private detailsRef = viewChild<ElementRef<HTMLDetailsElement>>('detailsRef')
-
-  onToggle(event: Event) {
-    const details = this.detailsRef()?.nativeElement
-    if (details && details.open !== this.open()) {
-      this.toggled.emit(event)
-    }
-  }
-}
+export class Details {}

@@ -11,9 +11,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@u-elements/u-details": "^0.1.5"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
     "@angular/core": "catalog:angular-supported-versions"

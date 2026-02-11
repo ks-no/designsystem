@@ -436,10 +436,6 @@ importers:
         version: 3.11.0(@swc/helpers@0.5.18)(vite@7.2.4(@types/node@25.0.9)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))
 
   packages/angular:
-    dependencies:
-      '@u-elements/u-details':
-        specifier: ^0.1.5
-        version: 0.1.5
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: catalog:angular
@@ -4759,9 +4755,6 @@ packages:
 
   '@u-elements/u-datalist@1.1.0':
     resolution: {integrity: sha512-t8H3OddziXmq0YBuXodVWnvRi56WW4sfbJEIO1fx4i39sZ0s/0xjHBsoAsTZkb9mXJEtpgrsH8IkDYP0ZSgSXQ==}
-
-  '@u-elements/u-details@0.1.5':
-    resolution: {integrity: sha512-08sBhbc4u3VFlXIvH//m2yCDBHOJlQigs8QiKVLAVk2hMSg+fcRPggcgeBmtVPuy7iN3u/VURP6G2Ajlfbr6xg==}
 
   '@u-elements/u-details@0.2.2':
     resolution: {integrity: sha512-8EJH3ajS34IjX4bauUi7z16FNZOLa3GNxfS6QReO1dck4nGNsHT25GYSyDaoQOQX7ZMxlsWADWrUJ9AGLgDO7w==}
@@ -16881,8 +16874,6 @@ snapshots:
   '@u-elements/u-combobox@1.0.7': {}
 
   '@u-elements/u-datalist@1.1.0': {}
-
-  '@u-elements/u-details@0.1.5': {}
 
   '@u-elements/u-details@0.2.2': {}
 

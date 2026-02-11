@@ -50,10 +50,10 @@ export const Preview: Story = {
       content: context.parameters['contentText'],
     },
     template: `
-      <ksd-details data-testid="details" ${argsToTemplate(args)}>
-        <ksd-details-summary>Vedlegg</ksd-details-summary>
-        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
+      <details ksd-details data-testid="details" ${argsToTemplate(args)}>
+        <summary>Vedlegg</summary>
+        <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+      </details>
     `,
   }),
 }
@@ -62,10 +62,10 @@ export const WithoutCard: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-details ${argsToTemplate(args)}>
-        <ksd-details-summary>Vedlegg</ksd-details-summary>
-        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
+      <details ksd-details ${argsToTemplate(args)}>
+        <summary>Vedlegg</summary>
+        <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+      </details>
     `,
   }),
 }
@@ -75,10 +75,10 @@ export const InCard: Story = {
     props: args,
     template: `
       <article ksd-card>
-        <ksd-details>
-          <ksd-details-summary>Vedlegg</ksd-details-summary>
-          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-        </ksd-details>
+        <details ksd-details>
+          <summary>Vedlegg</summary>
+          <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+        </details>
       </article>
     `,
   }),
@@ -90,16 +90,16 @@ export const InCardWithColor: Story = {
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem">
         <article ksd-card>
-          <ksd-details data-color="accent">
-            <ksd-details-summary>Vedlegg</ksd-details-summary>
-            <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-          </ksd-details>
+          <details ksd-details data-color="accent">
+            <summary>Vedlegg</summary>
+            <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+          </details>
         </article>
         <article ksd-card>
-          <ksd-details data-color="accent" variant="tinted">
-            <ksd-details-summary>Vedlegg</ksd-details-summary>
-            <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-          </ksd-details>
+          <details ksd-details data-color="accent" variant="tinted">
+            <summary>Vedlegg</summary>
+            <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+          </details>
         </article>
       </div>
     `,
@@ -110,37 +110,18 @@ export const WithDifferentSizes: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-details data-size="sm">
-          <ksd-details-summary>Vedlegg</ksd-details-summary>
-          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
-      <ksd-details data-size="md">
-          <ksd-details-summary>Vedlegg</ksd-details-summary>
-          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
-      <ksd-details data-size="lg">
-          <ksd-details-summary>Vedlegg</ksd-details-summary>
-          <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
+      <details ksd-details data-size="sm">
+          <summary>Vedlegg</summary>
+          <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+      </details>
+      <details ksd-details data-size="md">
+          <summary>Vedlegg</summary>
+          <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+      </details>
+      <details ksd-details data-size="lg">
+          <summary>Vedlegg</summary>
+          <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
+      </details>
     `,
-  }),
-}
-
-export const DefaultOpen: Story = {
-  render: (args) => ({
-    props: args,
-    template: `
-      <ksd-details [defaultOpen]="true">
-        <ksd-details-summary>Vedlegg</ksd-details-summary>
-        <ksd-details-content>Vedlegg 1, vedlegg 2, vedlegg 3</ksd-details-content>
-      </ksd-details>
-    `,
-  }),
-}
-
-export const Controlled: StoryObj<ControlledDetails> = {
-  render: (args) => ({
-    props: args,
-    template: `<fiks-controlled-details />`,
   }),
 }
