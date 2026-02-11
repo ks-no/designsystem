@@ -437,9 +437,6 @@ importers:
 
   packages/angular:
     dependencies:
-      '@floating-ui/dom':
-        specifier: ^1.7.4
-        version: 1.7.4
       '@u-elements/u-details':
         specifier: ^0.1.5
         version: 0.1.5

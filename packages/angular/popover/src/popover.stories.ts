@@ -49,15 +49,3 @@ export const Preview: Story = {
     `,
   }),
 }
-
-export const Controlled: StoryObj<ControlledPopover> = {
-  render: (args) => ({
-    props: args,
-    template: `
-
-    <div style="margin: 0 auto; width:100%;  text-align:center;" >
-      <ksd-controlled-popover ${argsToTemplate(args)}/>
-    </div>
-    `,
-  }),
-}

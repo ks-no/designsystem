@@ -12,7 +12,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.7.4",
     "@u-elements/u-details": "^0.1.5"
   },
   "peerDependencies": {

@@ -29,28 +29,7 @@ import * as PopoverStories from './popover.stories.ts'
 `Popover` kommer i alle farger, du kan endre den med `data-color`.
 Du kan også sette `variant` direkte for å endre bakgrunnsfarge.
 
-### Kontrollert
-
-Dersom du sender inn `open`, så bruker du `popover` kontrollert. Du kan bruke `triggeredClose` for å få beskjed når `popover` vil lukkes.
-Dette er nyttig dersom du har innhold som skal lukke `popover` når du klikker på det.
-
-```tsx
-
-<button ksd-button popovertarget="my-popover">Kontrollert popover</button>
-<ksd-popover id="my-popover"  [open]="isPopoverOpen()" (triggeredClose)="setPopoverClosed()">
-    <p>Her er det noe innhold</p>
-      <button
-        ksd-button
-        variant="secondary"
-        data-color="danger"
-        (click)="setPopoverClosed()"
-      >
-        Lukk popover
-      </button>
-</ksd-popover>
 ```
-
-<Canvas of={PopoverStories.Controlled} />
 
 ## Retningslinjer
 
@@ -79,3 +58,4 @@ Unngå lange tekster og kompliserte forklaringer. I noen tilfeller er det kanskj
 ## Tilgjengelighet
 
 Det er innebygd tilgjengelighet i [Popover APIet (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i henhold til åpne/lukket tilstand og tastatur navigasjon.
+```
