@@ -104,3 +104,70 @@ På små skjermer er det lurt å begrense antall synlige sidetall for å spare p
 - én side før og etter
 
 <Canvas of={PaginationStories.Mobile} />
+
+## Med Angular Router
+
+Bruk `pagination`-hjelpefunksjonen fra `@digdir/designsystemet-web` sammen med Angular Router for dynamisk paginering:
+
+```ts
+import { Component, computed, signal } from '@angular/core'
+import { RouterLink } from '@angular/router'
+import { pagination } from '@digdir/designsystemet-web'
+
+@Component({
+  imports: [RouterLink],
+  template: `
+    <nav class="ds-pagination" aria-label="Sidenavigering">
+      <ol>
+        <li>
+          <a
+            class="ds-button"
+            data-variant="tertiary"
+            [routerLink]="['/results']"
+            [queryParams]="{ page: pager().prev }"
+            [attr.aria-hidden]="!pager().prev"
+            [attr.tabindex]="pager().prev ? null : -1"
+          >
+            Forrige
+          </a>
+        </li>
+        @for (p of pager().pages; track p.key) {
+          <li>
+            <a
+              class="ds-button"
+              [attr.data-variant]="p.current ? 'primary' : 'tertiary'"
+              [routerLink]="['/results']"
+              [queryParams]="{ page: p.page }"
+              [attr.aria-current]="p.current ? 'page' : null"
+              [attr.aria-hidden]="!p.page || null"
+              [attr.tabindex]="p.page ? null : -1"
+            >
+              {{ p.page }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            class="ds-button"
+            data-variant="tertiary"
+            [routerLink]="['/results']"
+            [queryParams]="{ page: pager().next }"
+            [attr.aria-hidden]="!pager().next"
+            [attr.tabindex]="pager().next ? null : -1"
+          >
+            Neste
+          </a>
+        </li>
+      </ol>
+    </nav>
+  `,
+})
+export class SearchResultsComponent {
+  current = signal(5)
+  total = signal(50)
+
+  pager = computed(() =>
+    pagination({ current: this.current(), total: this.total(), show: 7 }),
+  )
+}
+```

@@ -1,4 +1,5 @@
 import { JsonPipe } from '@angular/common'
+import { pagination } from '@digdir/designsystemet-web'
 import { Button } from '@ks-digital/designsystem-angular/button'
 import {
   argsToTemplate,
@@ -43,41 +44,17 @@ type Story = StoryObj<PaginationArgs>
 
 export const Preview: Story = {
   render: (args) => ({
-    props: {
-      ...args,
-      pages: [1, 2, 3, 4, 5, 6, 7],
-      currentPage: args['data-current'],
-    },
+    props: args,
     template: `
       <nav ksd-pagination ${argsToTemplate(args)}>
         <ol>
-          <li>
-            <a
-              href="#forrige-side"
-              ksd-button
-              data-variant="tertiary"
-              type="button"
-              aria-label="Forrige side"
-            >Forrige</a>
-          </li>
-          @for (page of pages; track page) {
-            <li>
-              <a
-                class="ds-button"
-                [attr.data-variant]="page === currentPage ? 'primary' : 'tertiary'"
-                href="#none"
-              >{{ page }}</a>
-            </li>
-          }
-          <li>
-            <a
-              href="#neste-side"
-              ksd-button
-              data-variant="tertiary"
-              aria-label="Neste side"
-              aria-hidden="false"
-            >Neste</a>
-          </li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
+          <li><a ksd-button data-variant="tertiary" href="#none"></a></li>
         </ol>
       </nav>
     `,
@@ -229,4 +206,53 @@ export const Mobile: Story = {
 </nav>
     `,
   }),
+}
+
+export const WithPaginationHelper: Story = {
+  render: (args) => {
+    const current = args['data-current'] ?? 5
+    const total = args['data-total'] ?? 50
+    const pager = pagination({ current, total, show: 7 })
+
+    return {
+      props: {
+        ...args,
+        pager,
+      },
+      template: `
+        <nav ksd-pagination aria-label="Pagination">
+          <ol>
+            <li>
+              <a class="ds-button" data-variant="tertiary"
+                 href="#"
+                 [attr.aria-hidden]="!pager.prev"
+                 [attr.tabindex]="pager.prev ? null : -1">
+                Forrige
+              </a>
+            </li>
+            @for (p of pager.pages; track p.key) {
+              <li>
+                <a class="ds-button"
+                   [attr.data-variant]="p.current ? 'primary' : 'tertiary'"
+                   href="#"
+                   [attr.aria-current]="p.current ? 'page' : null"
+                   [attr.aria-hidden]="!p.page || null"
+                   [attr.tabindex]="p.page ? null : -1">
+                  {{ p.page }}
+                </a>
+              </li>
+            }
+            <li>
+              <a class="ds-button" data-variant="tertiary"
+                 href="#"
+                 [attr.aria-hidden]="!pager.next"
+                 [attr.tabindex]="pager.next ? null : -1">
+                Neste
+              </a>
+            </li>
+          </ol>
+        </nav>
+      `,
+    }
+  },
 }
