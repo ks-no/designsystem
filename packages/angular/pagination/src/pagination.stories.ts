@@ -21,9 +21,11 @@ const meta: Meta<PaginationArgs> = {
     'data-current': {
       control: { type: 'number' },
       description: 'The current page',
+      defaultValue: 5,
     },
     'data-total': {
       control: { type: 'number' },
+      defaultValue: 50,
       description: 'The total number of pages',
     },
   },
