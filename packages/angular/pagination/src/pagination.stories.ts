@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common'
 import { Button } from '@ks-digital/designsystem-angular/button'
 import {
   argsToTemplate,
@@ -16,22 +17,24 @@ type PaginationArgs = CommonArgs & {
 const meta: Meta<PaginationArgs> = {
   component: Pagination,
   title: 'Komponenter/Pagination',
+  args: {
+    'data-current': 5,
+    'data-total': 50,
+  },
   argTypes: {
     ...commonArgTypes,
     'data-current': {
       control: { type: 'number' },
       description: 'The current page',
-      defaultValue: 5,
     },
     'data-total': {
       control: { type: 'number' },
-      defaultValue: 50,
       description: 'The total number of pages',
     },
   },
   decorators: [
     moduleMetadata({
-      imports: [Button, Pagination],
+      imports: [Button, Pagination, JsonPipe],
     }),
   ],
 }
@@ -40,20 +43,43 @@ type Story = StoryObj<PaginationArgs>
 
 export const Preview: Story = {
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      pages: [1, 2, 3, 4, 5, 6, 7],
+      currentPage: args['data-current'],
+    },
     template: `
-    <nav ksd-pagination data-current="2" data-total="100" ${argsToTemplate(args)}>
-      <ol>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-        <li><a class="ds-button" data-variant="tertiary" href="#none"></a></li>
-      </ol>
-    </nav>
-
+      <nav ksd-pagination ${argsToTemplate(args)}>
+        <ol>
+          <li>
+            <a
+              href="#forrige-side"
+              ksd-button
+              data-variant="tertiary"
+              type="button"
+              aria-label="Forrige side"
+            >Forrige</a>
+          </li>
+          @for (page of pages; track page) {
+            <li>
+              <a
+                class="ds-button"
+                [attr.data-variant]="page === currentPage ? 'primary' : 'tertiary'"
+                href="#none"
+              >{{ page }}</a>
+            </li>
+          }
+          <li>
+            <a
+              href="#neste-side"
+              ksd-button
+              data-variant="tertiary"
+              aria-label="Neste side"
+              aria-hidden="false"
+            >Neste</a>
+          </li>
+        </ol>
+      </nav>
     `,
   }),
 }
@@ -62,7 +88,7 @@ export const WithAnchor: Story = {
   render: (args) => ({
     props: args,
     template: `
-<nav aria-label="Sidenavigering" ksd-pagination>
+<nav aria-label="Sidenavigering" ksd-pagination ${argsToTemplate(args)}>
   <ul>
     <li>
       <a
@@ -151,7 +177,7 @@ export const Mobile: Story = {
   render: (args) => ({
     props: args,
     template: `
-<nav aria-label="Sidenavigering" class="ds-pagination">
+<nav aria-label="Sidenavigering" ksd-pagination ${argsToTemplate(args)}>
   <ul>
     <li>
       <button
