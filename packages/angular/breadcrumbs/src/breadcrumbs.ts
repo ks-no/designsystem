@@ -13,7 +13,6 @@ import {
       <ng-content />
     </ds-breadcrumbs>
   `,
-  // Todo: attrs not working now
   hostDirectives: [
     {
       directive: HostSize,

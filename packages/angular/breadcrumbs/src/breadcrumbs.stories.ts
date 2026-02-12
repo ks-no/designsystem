@@ -1,5 +1,10 @@
 import { Link } from '@ks-digital/designsystem-angular/link'
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Breadcrumbs } from './breadcrumbs'
 
@@ -24,7 +29,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <nav aria-label="Du er her:" ksd-breadcrumbs>
+      <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
         <a ksd-link href="#" aria-label="Tilbake til Søknader">Søknader</a>
         <ol>
           <li><a ksd-link href="#">Hjem</a></li>
@@ -41,7 +46,7 @@ export const ListOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs>
+    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
       <ol>
         <li><a ksd-link href="#">Nivå 1</a></li>
         <li><a ksd-link href="#">Nivå 2</a></li>
@@ -57,7 +62,7 @@ export const BackOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs>
+    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
       <a ksd-link href="#" aria-label="Tilbake til Nivå 3">Nivå 3</a>
     </nav>
     `,
@@ -68,7 +73,7 @@ export const LongItems: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs>
+    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
       <a
         ksd-link
         href="#"
@@ -104,7 +109,7 @@ export const MobileView: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs>
+    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
       <a ksd-link href="#" aria-label="Tilbake til Nivå 3">Nivå 3</a>
       <ol>
         <li><a ksd-link href="#">Nivå 1</a></li>
