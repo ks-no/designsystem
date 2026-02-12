@@ -8,13 +8,24 @@ import {
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Pagination } from './pagination'
 
-type PaginationArgs = CommonArgs
+type PaginationArgs = CommonArgs & {
+  'data-current'?: number
+  'data-total'?: number
+}
 
 const meta: Meta<PaginationArgs> = {
   component: Pagination,
   title: 'Komponenter/Pagination',
   argTypes: {
     ...commonArgTypes,
+    'data-current': {
+      control: { type: 'number' },
+      description: 'The current page',
+    },
+    'data-total': {
+      control: { type: 'number' },
+      description: 'The total number of pages',
+    },
   },
   decorators: [
     moduleMetadata({
