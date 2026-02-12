@@ -37,6 +37,8 @@ export class Popover {
   readonly variant = input<'tinted' | 'default'>('default', {
     alias: 'data-variant',
   })
+
+  // Todo: replace with centralized types
   readonly placement = input<
     | 'bottom'
     | 'bottom-end'
