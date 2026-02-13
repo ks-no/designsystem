@@ -90,21 +90,6 @@ import { Pagination } from '@ks-digital/designsystem-angular/pagination'
 </nav>
 ```
 
-## Som lenker
-
-Erstatt knappene med lenker hvis pagineringen skal navigere til en ny side.
-
-<Canvas of={PaginationStories.WithAnchor} />
-
-## Responsiv visning
-
-På små skjermer er det lurt å begrense antall synlige sidetall for å spare plass. Vis kun:
-
-- den aktive siden
-- én side før og etter
-
-<Canvas of={PaginationStories.Mobile} />
-
 ## Med Angular Router
 
 Bruk `pagination`-hjelpefunksjonen fra `@digdir/designsystemet-web` sammen med Angular Router for dynamisk paginering:
@@ -112,21 +97,21 @@ Bruk `pagination`-hjelpefunksjonen fra `@digdir/designsystemet-web` sammen med A
 ```ts
 import { Component, computed, signal } from '@angular/core'
 import { RouterLink } from '@angular/router'
+import { Pagination } from '@ks-digital/designsystem-angular/pagination'
+import { Button } from '@ks-digital/designsystem-angular/button'
 import { pagination } from '@digdir/designsystemet-web'
 
 @Component({
-  imports: [RouterLink],
+  imports: [Pagination, RouterLink],
   template: `
-    <nav class="ds-pagination" aria-label="Sidenavigering">
+    <nav ksd-pagination aria-label="Sidenavigering">
       <ol>
         <li>
           <a
-            class="ds-button"
+            ksd-button
             data-variant="tertiary"
             [routerLink]="['/results']"
             [queryParams]="{ page: pager().prev }"
-            [attr.aria-hidden]="!pager().prev"
-            [attr.tabindex]="pager().prev ? null : -1"
           >
             Forrige
           </a>
@@ -134,26 +119,21 @@ import { pagination } from '@digdir/designsystemet-web'
         @for (p of pager().pages; track p.key) {
           <li>
             <a
-              class="ds-button"
+              ksd-button
               [attr.data-variant]="p.current ? 'primary' : 'tertiary'"
               [routerLink]="['/results']"
               [queryParams]="{ page: p.page }"
-              [attr.aria-current]="p.current ? 'page' : null"
-              [attr.aria-hidden]="!p.page || null"
-              [attr.tabindex]="p.page ? null : -1"
             >
-              {{ p.page }}
+              {{ p.page || '...' }}
             </a>
           </li>
         }
         <li>
           <a
-            class="ds-button"
+            ksd-button
             data-variant="tertiary"
             [routerLink]="['/results']"
             [queryParams]="{ page: pager().next }"
-            [attr.aria-hidden]="!pager().next"
-            [attr.tabindex]="pager().next ? null : -1"
           >
             Neste
           </a>
@@ -163,10 +143,9 @@ import { pagination } from '@digdir/designsystemet-web'
   `,
 })
 export class SearchResultsComponent {
-  current = signal(5)
-  total = signal(50)
-
-  pager = computed(() =>
+  protected current = signal(5)
+  protected total = signal(50)
+  protected pager = computed(() =>
     pagination({ current: this.current(), total: this.total(), show: 7 }),
   )
 }
