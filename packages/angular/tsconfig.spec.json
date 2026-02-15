@@ -12,8 +12,7 @@
       "vite/client",
       "node",
       "vitest",
-      "@testing-library/jest-dom",
-      "@digdir/designsystemet-web"
+      "@testing-library/jest-dom"
     ]
   },
   "include": [
