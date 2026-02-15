@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core'
+import { Directive, input } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -19,6 +19,11 @@ import {
   ],
   host: {
     class: 'ds-details',
+    '[attr.data-variant]': 'dataVariant()',
   },
 })
-export class Details {}
+export class Details {
+  readonly dataVariant = input<'default' | 'tinted'>('default', {
+    alias: 'data-variant',
+  })
+}

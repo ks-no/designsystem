@@ -96,7 +96,7 @@ export const InCardWithColor: Story = {
           </details>
         </article>
         <article ksd-card>
-          <details ksd-details data-color="accent" variant="tinted">
+          <details ksd-details data-color="accent" data-variant="tinted">
             <summary>Vedlegg</summary>
             <div>Vedlegg 1, vedlegg 2, vedlegg 3</div>
           </details>
