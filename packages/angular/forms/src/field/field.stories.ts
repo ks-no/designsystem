@@ -75,8 +75,7 @@ export const Counter: Story = {
         <ksd-field>
           <ksd-label>Label</ksd-label>
           <input ksd-input type="text" ${argsToTemplate(args)} />
-          <!-- Todo: This has issues with validation message -->
-            <p data-field="counter" data-limit="20" data-over="%d tegn for mye" data-under="%d tegn igjen" data-hint="Maks %d tegn tillatt."></p>
+          <p class="ds-validation-message" data-field="counter" data-limit="20" data-over="%d tegn for mye" data-under="%d tegn igjen" data-hint="Maks %d tegn tillatt."></p>
         </ksd-field>
     `,
   }),
