@@ -13,7 +13,7 @@ import { Button } from './button'
 type ButtonArgs = CommonArgs & {
   loading: boolean
   disabled: boolean
-  'data-variant': 'primary' | 'secondary' | 'tertiary'
+  variant: 'primary' | 'secondary' | 'tertiary'
 }
 
 const meta: Meta<ButtonArgs> = {
@@ -31,7 +31,7 @@ const meta: Meta<ButtonArgs> = {
   ],
   argTypes: {
     ...commonArgTypes,
-    'data-variant': {
+    variant: {
       options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' },
     },
@@ -60,9 +60,9 @@ export const Variants: Story = {
     props: args,
     template: `
     <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4);">
-      <button ksd-button  ${argsToTemplate(args)} data-variant="primary">Primary</button>
-      <button ksd-button  ${argsToTemplate(args)} data-variant="secondary">Secondary</button>
-      <button ksd-button  ${argsToTemplate(args)} data-variant="tertiary">Tertiary</button>
+      <button ksd-button  ${argsToTemplate(args)} variant="primary">Primary</button>
+      <button ksd-button  ${argsToTemplate(args)} variant="secondary">Secondary</button>
+      <button ksd-button  ${argsToTemplate(args)} variant="tertiary">Tertiary</button>
     </div>
     `,
   }),

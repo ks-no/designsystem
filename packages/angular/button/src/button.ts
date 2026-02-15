@@ -45,9 +45,7 @@ export class Button {
    * Specify which variant to use
    * @default 'primary'
    */
-  readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary', {
-    alias: 'data-variant',
-  })
+  readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary')
 
   /**
    * Toggle loading state.
