@@ -1,8 +1,10 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
   input,
+  numberAttribute,
   output,
 } from '@angular/core'
 import { pagination } from '@digdir/designsystemet-web'
@@ -26,6 +28,7 @@ export interface PaginationPages {
 @Component({
   selector: 'ksd-pagination',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ds-pagination
       class="ds-pagination"
@@ -53,12 +56,16 @@ export class Pagination {
   /**
    * The current page
    */
-  readonly current = input.required<number>()
+  readonly current = input.required<number, string | number>({
+    transform: numberAttribute,
+  })
 
   /**
    * The total number of pages
    */
-  readonly total = input.required<number>()
+  readonly total = input.required<number, string | number>({
+    transform: numberAttribute,
+  })
 
   /**
    * Sets the screen reader label for the pagination
@@ -68,12 +75,13 @@ export class Pagination {
   /**
    * How many pages to show. Default is 7
    */
-  readonly show = input(7)
+  readonly show = input(7, { transform: numberAttribute })
 
   /**
    * E.g if "?page=%d" all the links will set href to "?page=1", "?page=2".
    */
   readonly href = input<string>()
+
   /**
    * Emits the page number when a page is clicked
    */
