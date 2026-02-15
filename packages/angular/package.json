@@ -11,7 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@digdir/designsystemet-web": "catalog:designsystemet"
+  },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
     "@angular/core": "catalog:angular-supported-versions"
@@ -37,7 +39,6 @@
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
     "zone.js": "catalog:angular",
-    "@digdir/designsystemet-web": "catalog:designsystemet",
     "vitest": "4.0.9"
   }
 }
