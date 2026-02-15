@@ -43,7 +43,7 @@ const meta: Meta<PaginationArgs> = {
     },
     ariaLabel: {
       control: { type: 'text' },
-      description: 'Aria-label for the pagination nav',
+      description: 'Aria-label for the pagination',
     },
   },
   decorators: [
@@ -60,10 +60,10 @@ export const Preview: Story = {
   render: (args) => ({
     props: {
       ...args,
-      onPageChanged: (page: number) => console.log('pageChanged', page),
+      onpageClicked: (page: number) => console.log('pageClicked', page),
     },
     template: `
-      <nav ksd-pagination ${argsToTemplate(args)} #pagination (pageChanged)="onPageChanged($event)">
+      <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
         <ol>
           <li><button ksdPaginationButton>Forrige</button></li>
           @for (page of pagination.pages().pages; track page.key) {
@@ -71,7 +71,7 @@ export const Preview: Story = {
           }
           <li><button ksdPaginationButton>Neste</button></li>
         </ol>
-      </nav>
+      </ksd-pagination>
     `,
   }),
 }
@@ -85,7 +85,7 @@ export const WithLinks: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <nav ksd-pagination ${argsToTemplate(args)} #pagination>
+      <ksd-pagination ${argsToTemplate(args)} #pagination>
         <ol>
           <li><a ksdPaginationButton>Forrige</a></li>
           @for (page of pagination.pages().pages; track page.key) {
@@ -93,7 +93,7 @@ export const WithLinks: Story = {
           }
           <li><a ksdPaginationButton>Neste</a></li>
         </ol>
-      </nav>
+      </ksd-pagination>
     `,
   }),
 }
@@ -107,10 +107,10 @@ export const Mobile: Story = {
   render: (args) => ({
     props: {
       ...args,
-      onPageChanged: (page: number) => console.log('pageChanged', page),
+      onpageClicked: (page: number) => console.log('pageClicked', page),
     },
     template: `
-      <nav ksd-pagination ${argsToTemplate(args)} #pagination (pageChanged)="onPageChanged($event)">
+      <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
         <ol>
           <li><button ksdPaginationButton>Forrige</button></li>
           @for (page of pagination.pages().pages; track page.key) {
@@ -118,7 +118,7 @@ export const Mobile: Story = {
           }
           <li><button ksdPaginationButton>Neste</button></li>
         </ol>
-      </nav>
+      </ksd-pagination>
     `,
   }),
 }

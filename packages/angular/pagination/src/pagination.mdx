@@ -23,7 +23,7 @@ Pagination er en liste med knapper eller lenker som brukes for å navigere mello
 import { Button } from '@ks-digital/designsystem-angular/button'
 import { Pagination } from '@ks-digital/designsystem-angular/pagination'
 
-<nav ksd-pagination aria-label="Sidenavigering">
+<ksd-pagination aria-label="Sidenavigering">
   <ul>
     <li>
       <button
@@ -87,7 +87,7 @@ import { Pagination } from '@ks-digital/designsystem-angular/pagination'
       </button>
     </li>
   </ul>
-</nav>
+</ksd-pagination>
 ```
 
 ## Med Angular Router
@@ -104,7 +104,7 @@ import { pagination } from '@digdir/designsystemet-web'
 @Component({
   imports: [Pagination, RouterLink],
   template: `
-    <nav ksd-pagination aria-label="Sidenavigering">
+    <ksd-pagination aria-label="Sidenavigering">
       <ol>
         <li>
           <a
@@ -139,7 +139,7 @@ import { pagination } from '@digdir/designsystemet-web'
           </a>
         </li>
       </ol>
-    </nav>
+    </ksd-pagination>
   `,
 })
 export class SearchResultsComponent {

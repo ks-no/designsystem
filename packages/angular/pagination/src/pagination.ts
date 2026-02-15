@@ -24,7 +24,7 @@ export interface PaginationPages {
 }
 
 @Component({
-  selector: 'nav[ksd-pagination]',
+  selector: 'ksd-pagination',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <ds-pagination
@@ -32,6 +32,7 @@ export interface PaginationPages {
       [attr.data-current]="current()"
       [attr.data-total]="total()"
       [attr.data-href]="href()"
+      [attr.aria-label]="ariaLabel()"
       (click)="onClick($event)"
     >
       <ng-content />
@@ -60,6 +61,11 @@ export class Pagination {
   readonly total = input.required<number>()
 
   /**
+   * Sets the screen reader label for the pagination
+   */
+  readonly ariaLabel = input<string>('Bla i sider', { alias: 'aria-label' })
+
+  /**
    * How many pages to show. Default is 7
    */
   readonly show = input(7)
@@ -71,7 +77,7 @@ export class Pagination {
   /**
    * Emits the page number when a page is clicked
    */
-  readonly pageChanged = output<number>()
+  readonly pageClicked = output<number>()
 
   /**
    * Exposes pagination data for consumer use
@@ -94,13 +100,16 @@ export class Pagination {
   })
 
   protected onClick(e: Event) {
-    const target = (e.target as HTMLElement).closest('[data-page]')
+    const target = (e.target as HTMLElement).closest('[aria-label]')
     if (!target) return
 
-    const page = Number((target as HTMLElement).dataset['page'])
-    if (page && page !== this.current()) {
+    const label = target.getAttribute('aria-label')
+    if (!label) return
+
+    const page = Number(label)
+    if (!isNaN(page) && page !== this.current()) {
       e.preventDefault()
-      this.pageChanged.emit(page)
+      this.pageClicked.emit(page)
     }
   }
 }
