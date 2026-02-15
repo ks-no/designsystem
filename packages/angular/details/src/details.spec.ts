@@ -21,7 +21,7 @@ describe('Details', () => {
     const { container } = await render(TestDetails)
 
     const user = userEvent.setup()
-    const details = container.querySelector('details')!
+    const details = container.querySelector('details')
     const summary = screen.getByText('Details Summary Text')
 
     expect(details).not.toHaveAttribute('open')
