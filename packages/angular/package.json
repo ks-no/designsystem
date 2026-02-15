@@ -37,6 +37,7 @@
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
     "zone.js": "catalog:angular",
-    "@digdir/designsystemet-web": "catalog:designsystemet"
+    "@digdir/designsystemet-web": "catalog:designsystemet",
+    "vitest": "4.0.9"
   }
 }
