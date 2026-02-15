@@ -38,7 +38,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <ksd-field>
+        <ksd-field position="end">
           <ksd-label>Etternavn</ksd-label>
           <div ksd-field-description>Etternavn kan ikke inneholde mellomrom</div>
           <input ksd-input type="text" ${argsToTemplate(args)} />

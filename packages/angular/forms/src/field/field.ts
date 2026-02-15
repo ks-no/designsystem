@@ -20,11 +20,8 @@ import {
       inputs: ['data-color'],
     },
   ],
-  host: {
-    '[attr.dataPosition]': 'position()',
-  },
   template: `
-    <ds-field class="ds-field">
+    <ds-field class="ds-field" [attr.data-position]="position()">
       <ng-content />
     </ds-field>
   `,
