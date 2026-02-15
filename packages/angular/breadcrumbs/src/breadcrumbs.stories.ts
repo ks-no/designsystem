@@ -29,7 +29,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
+      <ksd-breadcrumbs aria-label="Du er her:" ${argsToTemplate(args)}>
         <a ksd-link href="#" aria-label="Tilbake til Søknader">Søknader</a>
         <ol>
           <li><a ksd-link href="#">Hjem</a></li>
@@ -37,7 +37,7 @@ export const Preview: Story = {
           <li><a ksd-link href="#">Søknader</a></li>
           <li><a ksd-link href="#" aria-current="page">Søknad om barnehageplass</a></li>
         </ol>
-      </nav>
+      </ksd-breadcrumbs>
     `,
   }),
 }
@@ -46,14 +46,14 @@ export const ListOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
+    <ksd-breadcrumbs aria-label="Du er her:" ${argsToTemplate(args)}>
       <ol>
         <li><a ksd-link href="#">Nivå 1</a></li>
         <li><a ksd-link href="#">Nivå 2</a></li>
         <li><a ksd-link href="#">Nivå 3</a></li>
         <li><a ksd-link href="#" aria-current="page">Nivå 4</a></li>
       </ol>
-    </nav>
+    </ksd-breadcrumbs>
     `,
   }),
 }
@@ -62,9 +62,9 @@ export const BackOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
+    <ksd-breadcrumbs aria-label="Du er her:" ${argsToTemplate(args)}>
       <a ksd-link href="#" aria-label="Tilbake til Nivå 3">Nivå 3</a>
-    </nav>
+    </ksd-breadcrumbs>
     `,
   }),
 }
@@ -73,7 +73,7 @@ export const LongItems: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
+    <ksd-breadcrumbs aria-label="Du er her:" ${argsToTemplate(args)}>
       <a
         ksd-link
         href="#"
@@ -99,7 +99,7 @@ export const LongItems: Story = {
           >
         </li>
       </ol>
-    </nav>
+    </ksd-breadcrumbs>
 
     `,
   }),
@@ -109,7 +109,7 @@ export const MobileView: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <nav aria-label="Du er her:" ksd-breadcrumbs ${argsToTemplate(args)}>
+    <ksd-breadcrumbs aria-label="Du er her:" ${argsToTemplate(args)}>
       <a ksd-link href="#" aria-label="Tilbake til Nivå 3">Nivå 3</a>
       <ol>
         <li><a ksd-link href="#">Nivå 1</a></li>
@@ -117,7 +117,7 @@ export const MobileView: Story = {
         <li><a ksd-link href="#">Nivå 3</a></li>
         <li><a ksd-link href="#" aria-current="page">Nivå 4</a></li>
       </ol>
-    </nav>
+    </ksd-breadcrumbs>
     `,
   }),
 }
