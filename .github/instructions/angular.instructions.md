@@ -117,9 +117,7 @@ Here is a link to the most recent Angular style guide https://angular.dev/style-
 - Use `ksdComponentName` style for directive selectors
 - Use PascalCase for classes and interfaces
 - Use camelCase for variables and functions
-  <<<<<<< HEAD
 
 ## Working with web-components
 
-- # Use `CUSTOM_ELEMENTS_SCHEMA` when wrapping web components
-  > > > > > > > 9a92dcf (chore: add instructions)
+- Use `CUSTOM_ELEMENTS_SCHEMA` when wrapping web components
