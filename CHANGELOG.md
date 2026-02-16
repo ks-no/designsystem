@@ -1,3 +1,17 @@
+## 0.0.1-alpha.43
+
+### 🚀 Features
+
+- ⚠️ **angular:** migrate popover, field, breadcrumbs, pagination to use web package ([#231](https://github.com/ks-no/designsystem/pull/231))
+
+### ⚠️ Breaking Changes
+
+- **angular:** migrate popover, field, breadcrumbs, pagination to use web package ([#231](https://github.com/ks-no/designsystem/pull/231))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.42
 
 ### 🚀 Features
