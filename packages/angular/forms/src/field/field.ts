@@ -25,6 +25,11 @@ import {
       <ng-content />
     </ds-field>
   `,
+  styles: `
+    :host {
+      display: grid;
+    }
+  `,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Field {
