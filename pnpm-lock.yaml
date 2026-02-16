@@ -74,16 +74,16 @@ catalogs:
       version: 0.16.0
   designsystemet:
     '@digdir/designsystemet':
-      specifier: test
-      version: 0.0.0-fix-designsystemet-web-20260128130007
+      specifier: 0.0.0-fix-designsystemet-web-20260213102609
+      version: 0.0.0-fix-designsystemet-web-20260213102609
     '@digdir/designsystemet-css':
-      specifier: test
+      specifier: 0.0.0-fix-designsystemet-web-20260213102609
       version: 0.0.0-fix-designsystemet-web-20260213102609
     '@digdir/designsystemet-react':
-      specifier: test
+      specifier: 0.0.0-fix-designsystemet-web-20260213102609
       version: 0.0.0-fix-designsystemet-web-20260213102609
     '@digdir/designsystemet-web':
-      specifier: test
+      specifier: 0.0.0-fix-designsystemet-web-20260213102609
       version: 0.0.0-fix-designsystemet-web-20260213102609
     '@navikt/aksel-icons':
       specifier: 7.33.4
@@ -206,7 +206,7 @@ importers:
         version: 19.8.1
       '@digdir/designsystemet':
         specifier: catalog:designsystemet
-        version: 0.0.0-fix-designsystemet-web-20260128130007(tslib@2.8.1)
+        version: 0.0.0-fix-designsystemet-web-20260213102609(tslib@2.8.1)
       '@nx/angular':
         specifier: catalog:nx
         version: 22.3.3(f91e62970366ca5d0a40c9c644a3ab5f)
@@ -1714,8 +1714,8 @@ packages:
   '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260213102609':
     resolution: {integrity: sha512-siKUBaa9SHpWGKaBSbUwymXxN1F9nvjKgiN7cofppzecCkfIpc69BgWHRUPuQVe4eMKugB7UddGtvQ19peyeHw==}
 
-  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260128130007':
-    resolution: {integrity: sha512-eutOZOXcxJ1Pr2E+50WQ+qYuQzAKGY2VxiSdDcs1x2OXDdeRl4zV5Rrqtv/rNoWqCAdu1W/J5+QSghyADby2/Q==}
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260213102609':
+    resolution: {integrity: sha512-XD0j+GagEugMPPOP4pc2LAK0pvfAvIiBzptY4GiUlxA6+22rV+AFV5NpvVOp+fyL2QsWRYXI+N7eKPcwkCWK/Q==}
     engines: {node: '>=20 <25'}
     hasBin: true
 
@@ -2376,14 +2376,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@floating-ui/core@1.7.3':
-    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
-
   '@floating-ui/core@1.7.4':
     resolution: {integrity: sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==}
-
-  '@floating-ui/dom@1.7.4':
-    resolution: {integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==}
 
   '@floating-ui/dom@1.7.5':
     resolution: {integrity: sha512-N0bD2kIPInNHUHehXhMke1rBGs1dwqvC9O9KYMyyjK7iXt7GAhnro7UlcuYcGdS/yYOlq0MAVgrow8IbWJwyqg==}
@@ -5632,6 +5626,10 @@ packages:
 
   commander@14.0.2:
     resolution: {integrity: sha512-TywoWNNRbhoD0BXs1P3ZEScW8W5iKrnbithIl0YH+uCmBd0QpPOA8yc82DS3BIE5Ma6FnBVUsJ7wVUDz4dvOWQ==}
+    engines: {node: '>=20'}
+
+  commander@14.0.3:
+    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
 
   commander@2.20.3:
@@ -13221,9 +13219,9 @@ snapshots:
     dependencies:
       postcss-calc-ast-parser: 0.1.4
 
-  '@commander-js/extra-typings@14.0.0(commander@14.0.2)':
+  '@commander-js/extra-typings@14.0.0(commander@14.0.3)':
     dependencies:
-      commander: 14.0.2
+      commander: 14.0.3
 
   '@commitlint/cli@19.8.1(@types/node@24.10.9)(typescript@5.9.3)':
     dependencies:
@@ -13380,7 +13378,7 @@ snapshots:
 
   '@digdir/designsystemet-web@0.0.0-fix-designsystemet-web-20260213102609':
     dependencies:
-      '@floating-ui/dom': 1.7.4
+      '@floating-ui/dom': 1.7.5
       '@u-elements/u-combobox': 1.0.7
       '@u-elements/u-datalist': 1.1.0
       '@u-elements/u-details': 0.2.2
@@ -13388,14 +13386,14 @@ snapshots:
       '@u-elements/u-tabs': 0.1.2
       invokers-polyfill: 0.6.1
 
-  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260128130007(tslib@2.8.1)':
+  '@digdir/designsystemet@0.0.0-fix-designsystemet-web-20260213102609(tslib@2.8.1)':
     dependencies:
-      '@commander-js/extra-typings': 14.0.0(commander@14.0.2)
+      '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
       '@digdir/designsystemet-types': 0.0.0-react-side-effects-20260113071010
       '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.2.0(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
-      commander: 14.0.2
+      commander: 14.0.3
       fast-glob: 3.3.3
       hsluv: 1.0.1
       object-hash: 3.0.0
@@ -13772,17 +13770,8 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@floating-ui/core@1.7.3':
-    dependencies:
-      '@floating-ui/utils': 0.2.10
-
   '@floating-ui/core@1.7.4':
     dependencies:
-      '@floating-ui/utils': 0.2.10
-
-  '@floating-ui/dom@1.7.4':
-    dependencies:
-      '@floating-ui/core': 1.7.3
       '@floating-ui/utils': 0.2.10
 
   '@floating-ui/dom@1.7.5':
@@ -18019,6 +18008,8 @@ snapshots:
   commander@13.1.0: {}
 
   commander@14.0.2: {}
+
+  commander@14.0.3: {}
 
   commander@2.20.3: {}
 
