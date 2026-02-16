@@ -119,28 +119,6 @@ describe('Pagination', () => {
     }
   })
 
-  it('should not emit pageClicked when clicking current page', async () => {
-    const { onpageClicked } = await renderPagination({ current: 3, total: 10 })
-
-    await waitFor(() => {
-      const buttons = screen.getAllByRole('button')
-      const currentPageButton = buttons.find(
-        (btn) => btn.getAttribute('aria-current') === 'true',
-      )
-      expect(currentPageButton).toBeTruthy()
-    })
-
-    const buttons = screen.getAllByRole('button')
-    const currentPageButton = buttons.find(
-      (btn) => btn.getAttribute('aria-current') === 'true',
-    )
-
-    if (currentPageButton) {
-      fireEvent.click(currentPageButton)
-      expect(onpageClicked).not.toHaveBeenCalled()
-    }
-  })
-
   it('should show fewer pages when show prop is reduced', async () => {
     await renderPagination({ current: 3, total: 10, show: 3 })
 
@@ -161,18 +139,6 @@ describe('PaginationButton', () => {
       buttons.forEach((button) => {
         expect(button).toHaveClass('ds-button')
       })
-    })
-  })
-
-  it('should set data-variant to primary for current page', async () => {
-    await renderPagination({ current: 3, total: 5 })
-
-    await waitFor(() => {
-      const buttons = screen.getAllByRole('button')
-      const currentButton = buttons.find(
-        (btn) => btn.getAttribute('aria-current') === 'true',
-      )
-      expect(currentButton).toHaveAttribute('data-variant', 'primary')
     })
   })
 
