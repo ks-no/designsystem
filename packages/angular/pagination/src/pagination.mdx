@@ -12,95 +12,86 @@ import * as PaginationStories from './pagination.stories'
 
 # Pagination
 
-Pagination er en liste med knapper eller lenker som brukes for å navigere mellom ulike sider med innhold, for eksempel søkeresultater eller tabeller.
+Pagination er en wrapper for `ds-pagination` web-componenten fra Designsystemet for å gjøre den litt enklere å bruke i Angular-prosjekter.
 
 <Primary />
 <Controls />
 
 ## Bruk
 
+- Du kan bruke `pages`-signalet som komponenten gir for å rendre sidene du vil vise.
+- Lytt til `pageClicked`-eventen for å håndtere sideklikk.
+- Utfylling av sidetall og ellipsis håndteres av komponenten, så du behøver ikke fylle ut dette selv.
+- Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
+- Komponenten setter `aria-current` og styler knappene for gjeldende side, så du trenger ikke håndtere dette selv.
+  - Hvis du skriver sidetall selv, så får du ellipsis ved å lage et tomt element, f.eks: `<button ksdPaginationButton>{{page.page || ''}}</button>`
+
+## Med knapper
+
 ```ts
 import { Button } from '@ks-digital/designsystem-angular/button'
-import { Pagination } from '@ks-digital/designsystem-angular/pagination'
+import { Pagination, PaginationButton } from '@ks-digital/designsystem-angular/pagination'
 
-<nav ksd-pagination aria-label="Sidenavigering">
-  <ul>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Forrige side"
-      >
-        Forrige
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 1"
-      >
-        1
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="primary"
-        type="button"
-        aria-label="Side 2"
-      >
-        2
-      </button>
-    </li>
-    <li></li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 9"
-      >
-        9
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 10"
-      >
-        10
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Neste side"
-      >
-        Neste
-      </button>
-    </li>
-  </ul>
-</nav>
+ <ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
+    <ol>
+      <li><button ksdPaginationButton>Forrige</button></li>
+      @for (page of pagination.pages().pages; track page.key) {
+        <li><button ksdPaginationButton></button></li>
+      }
+      <li><button ksdPaginationButton>Neste</button></li>
+    </ol>
+</ksd-pagination>
 ```
 
-## Som lenker
+## Med Angular Router
 
-Erstatt knappene med lenker hvis pagineringen skal navigere til en ny side.
+```ts
+import { Component, computed, signal } from '@angular/core'
+import { RouterLink } from '@angular/router'
+import {
+  Pagination,
+  PaginationButton,
+} from '@ks-digital/designsystem-angular/pagination'
 
-<Canvas of={PaginationStories.WithAnchor} />
-
-## Responsiv visning
-
-På små skjermer er det lurt å begrense antall synlige sidetall for å spare plass. Vis kun:
-
-- den aktive siden
-- én side før og etter
-
-<Canvas of={PaginationStories.Mobile} />
+@Component({
+  imports: [Pagination, RouterLink],
+  template: `
+    <ksd-pagination [current]="current()" [total]="total()" #pagination>
+      <ol>
+        <li>
+          <a
+            ksdPaginationButton
+            [routerLink]="[]"
+            [queryParams]="{ page: pagination.pages().prev }"
+          >
+            Forrige
+          </a>
+        </li>
+        @for (page of pagination.pages().pages; track page.key) {
+          <li>
+            <a
+              ksdPaginationButton
+              [routerLink]="[]"
+              [queryParams]="{ page: page.page }"
+            >
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            ksdPaginationButton
+            [routerLink]="[]"
+            [queryParams]="{ page: pagination.pages().next }"
+          >
+            Neste
+          </a>
+        </li>
+      </ol>
+    </ksd-pagination>
+  `,
+})
+export class App {
+  protected current = signal(5)
+  protected total = signal(50)
+}
+```

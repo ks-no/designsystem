@@ -6,8 +6,8 @@ import {
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../../.storybook/default-args'
 import { Field } from '../field'
+import { Input } from '../input'
 import { Label } from '../label'
-import { Input } from './input'
 
 type InputArgs = CommonArgs & {
   readonly: boolean
@@ -16,7 +16,7 @@ type InputArgs = CommonArgs & {
 
 const meta: Meta<InputArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Input',
+  title: 'Komponenter/Forms/Select',
   argTypes: {
     ...commonArgTypes,
     readonly: {
@@ -41,32 +41,17 @@ export const Preview: Story = {
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ${argsToTemplate(args)} ksd-input  />
-        </ksd-field>
-    `,
-  }),
-}
-
-export const Rows: Story = {
-  render: (args) => ({
-    props: args,
-    template: `
-        <ksd-field>
-          <ksd-label>Label</ksd-label>
-          <textarea ksd-input type="text" rows="4" ${argsToTemplate(args)} ></textarea>
-        </ksd-field>
-    `,
-  }),
-}
-
-export const Counter: Story = {
-  render: (args) => ({
-    props: args,
-    template: `
-        <ksd-field>
-          <ksd-label>Label</ksd-label>
-          <input ksd-input type="text" ${argsToTemplate(args)} />
-          <p class="ds-validation-message" data-field="counter" data-limit="5" data-over="%d tegn for mye" data-under="%d tegn igjen" data-hint="Maks %d tegn tillatt."></p>
+            <select ksd-input ${argsToTemplate(args)}>
+              <option value="" disabled="" selected="">Velg et fjell …</option>
+              <option value="everest">Mount Everest</option>
+              <option value="aconcagua">Aconcagua</option>
+              <option value="denali">Denali</option>
+              <option value="kilimanjaro">Kilimanjaro</option>
+              <option value="elbrus">Elbrus</option>
+              <option value="vinson">Mount Vinson</option>
+              <option value="puncakjaya">Puncak Jaya</option>
+              <option value="kosciuszko">Mount Kosciuszko</option>
+            </select>
         </ksd-field>
     `,
   }),

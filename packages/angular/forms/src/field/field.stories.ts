@@ -38,7 +38,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <ksd-field>
+        <ksd-field position="end">
           <ksd-label>Etternavn</ksd-label>
           <div ksd-field-description>Etternavn kan ikke inneholde mellomrom</div>
           <input ksd-input type="text" ${argsToTemplate(args)} />
@@ -74,7 +74,8 @@ export const Counter: Story = {
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input [counter]="5" type="text" ${argsToTemplate(args)} />
+          <input ksd-input type="text" ${argsToTemplate(args)} />
+          <p class="ds-validation-message" data-field="counter" data-limit="20" data-over="%d tegn for mye" data-under="%d tegn igjen" data-hint="Maks %d tegn tillatt."></p>
         </ksd-field>
     `,
   }),

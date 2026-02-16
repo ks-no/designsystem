@@ -27,6 +27,5 @@ export class Chip {
    * If using this, you should add an aria-label as well, e.g "Slett {item}"
    * @attribute data-removable
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   dataRemovable = input<boolean>(false, { alias: 'data-removable' })
 }

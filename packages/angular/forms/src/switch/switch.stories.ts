@@ -14,14 +14,20 @@ import { Input } from '../input'
 import { Label } from '../label'
 
 type SwitchArgs = CommonArgs & {
-  readonly: boolean
-  disabled: boolean
+  position: 'start' | 'end'
 }
 
 const meta: Meta<SwitchArgs> = {
   component: Input,
   title: 'Komponenter/Forms/Switch',
-  argTypes: { ...commonArgTypes },
+  argTypes: {
+    ...commonArgTypes,
+    position: {
+      control: 'radio',
+      options: ['start', 'end'],
+      description: 'Position of the switch input',
+    },
+  },
   decorators: [
     moduleMetadata({
       imports: [
@@ -42,8 +48,7 @@ type Story = StoryObj<SwitchArgs>
 
 export const Preview: Story = {
   args: {
-    readonly: false,
-    disabled: false,
+    position: 'start',
   },
 
   render: (args) => ({

@@ -10,6 +10,7 @@ export default [
     rules: {
       '@angular-eslint/component-class-suffix': 'off',
       '@angular-eslint/directive-class-suffix': 'off',
+      '@angular-eslint/no-input-rename': 'off', // We use data-attributes extensively
       '@angular-eslint/directive-selector': [
         'error',
         {

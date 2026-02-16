@@ -118,9 +118,9 @@ export const Loading: Story = {
     props: args,
     template: `
     <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;gap:var(--ds-size-4);">
-      <button ksd-button variant="primary" ${argsToTemplate(args)}>Primary</button>
-      <button ksd-button variant="secondary" ${argsToTemplate(args)}>Secondary</button>
-      <button ksd-button variant="tertiary" ${argsToTemplate(args)}>Teritiary</button>
+      <button ksd-button data-variant="primary" ${argsToTemplate(args)}>Primary</button>
+      <button ksd-button data-variant="secondary" ${argsToTemplate(args)}>Secondary</button>
+      <button ksd-button data-variant="tertiary" ${argsToTemplate(args)}>Teritiary</button>
     </div>
     `,
   }),

@@ -1,4 +1,5 @@
 import '@analogjs/vitest-angular/setup-zone'
+import '@testing-library/jest-dom/vitest'
 
 import { getTestBed } from '@angular/core/testing'
 import {
@@ -8,5 +9,11 @@ import {
 
 getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting())
 
-// Need jest-dom for matchers like expect.toHaveAttribute
-import '@testing-library/jest-dom'
+// Mock CSS.supports for jsdom
+if (typeof CSS === 'undefined') {
+  ;(globalThis as any).CSS = {
+    supports: () => false,
+  }
+} else if (!CSS.supports) {
+  CSS.supports = () => false
+}

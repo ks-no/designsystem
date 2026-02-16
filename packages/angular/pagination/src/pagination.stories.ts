@@ -1,4 +1,3 @@
-import { Button } from '@ks-digital/designsystem-angular/button'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -7,241 +6,119 @@ import {
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Pagination } from './pagination'
+import { PaginationButton } from './pagination.button'
 
-type PaginationArgs = CommonArgs
+type PaginationArgs = CommonArgs & {
+  current: number
+  total: number
+  show?: number
+  href?: string
+  ariaLabel?: string
+}
 
 const meta: Meta<PaginationArgs> = {
   component: Pagination,
   title: 'Komponenter/Pagination',
+  args: {
+    current: 5,
+    total: 50,
+  },
   argTypes: {
     ...commonArgTypes,
+    current: {
+      control: { type: 'number', min: 1 },
+      description: 'The current page',
+    },
+    total: {
+      control: { type: 'number', min: 1 },
+      description: 'The total number of pages',
+    },
+    show: {
+      control: { type: 'number', min: 3 },
+      description: 'How many pages to show',
+    },
+    href: {
+      control: { type: 'text' },
+      description: 'URL pattern for links, e.g. "?page=%d"',
+    },
+    ariaLabel: {
+      control: { type: 'text' },
+      description: 'Aria-label for the pagination',
+    },
   },
   decorators: [
     moduleMetadata({
-      imports: [Button, Pagination],
+      imports: [Pagination, PaginationButton],
     }),
   ],
 }
+
 export default meta
 type Story = StoryObj<PaginationArgs>
 
 export const Preview: Story = {
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      onpageClicked: (page: number) => console.log('pageClicked', page),
+    },
     template: `
-<nav ksd-pagination aria-label="Sidenavigering" ${argsToTemplate(args)} >
-  <ul>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Forrige side"
-      >
-        Forrige
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 1"
-      >
-        1
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="primary"
-        type="button"
-        aria-label="Side 2"
-      >
-        2
-      </button>
-    </li>
-    <li></li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 9"
-      >
-        9
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 10"
-      >
-        10
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Neste side"
-      >
-        Neste
-      </button>
-    </li>
-  </ul>
-</nav>
-
+      <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
+        <ol>
+          <li><button ksdPaginationButton>Forrige</button></li>
+          @for (page of pagination.pages().pages; track page.key) {
+            <li><button ksdPaginationButton></button></li>
+          }
+          <li><button ksdPaginationButton>Neste</button></li>
+        </ol>
+      </ksd-pagination>
     `,
   }),
 }
 
-export const WithAnchor: Story = {
+export const WithLinks: Story = {
+  args: {
+    current: 5,
+    total: 50,
+    href: '?page=%d',
+  },
   render: (args) => ({
     props: args,
     template: `
-<nav aria-label="Sidenavigering" ksd-pagination>
-  <ul>
-    <li>
-      <a
-        href="#forrige-side"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Forrige side"
-        aria-hidden="false"
-        >Forrige</a
-      >
-    </li>
-    <li>
-      <a
-        href="#side-1"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Side 1"
-        >1</a
-      >
-    </li>
-    <li>
-      <a
-        href="#side-2"
-        ksd-button
-        data-variant="primary"
-        aria-label="Side 2"
-        aria-current="page"
-        >2</a
-      >
-    </li>
-    <li>
-      <a
-        href="#side-3"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Side 3"
-        >3</a
-      >
-    </li>
-    <li>
-      <a
-        href="#side-4"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Side 4"
-        >4</a
-      >
-    </li>
-    <li>
-      <a
-        href="#side-5"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Side 5"
-        >5</a
-      >
-    </li>
-    <li></li>
-    <li>
-      <a
-        href="#side-10"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Side 10"
-        >10</a
-      >
-    </li>
-    <li>
-      <a
-        href="#neste-side"
-        ksd-button
-        data-variant="tertiary"
-        aria-label="Neste side"
-        aria-hidden="false"
-        >Neste</a
-      >
-    </li>
-  </ul>
-</nav>
-
+      <ksd-pagination ${argsToTemplate(args)} #pagination>
+        <ol>
+          <li><a ksdPaginationButton>Forrige</a></li>
+          @for (page of pagination.pages().pages; track page.key) {
+            <li><a ksdPaginationButton></a></li>
+          }
+          <li><a ksdPaginationButton>Neste</a></li>
+        </ol>
+      </ksd-pagination>
     `,
   }),
 }
 
 export const Mobile: Story = {
+  args: {
+    current: 3,
+    total: 5,
+    show: 3,
+  },
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      onpageClicked: (page: number) => console.log('pageClicked', page),
+    },
     template: `
-<nav aria-label="Sidenavigering" class="ds-pagination">
-  <ul>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Forrige side"
-      ></button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 2"
-      >
-        2
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="primary"
-        type="button"
-        aria-label="Side 3"
-      >
-        3
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Side 4"
-      >
-        4
-      </button>
-    </li>
-    <li>
-      <button
-        ksd-button
-        data-variant="tertiary"
-        type="button"
-        aria-label="Neste side"
-      ></button>
-    </li>
-  </ul>
-</nav>
+      <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
+        <ol>
+          <li><button ksdPaginationButton>Forrige</button></li>
+          @for (page of pagination.pages().pages; track page.key) {
+            <li><button ksdPaginationButton></button></li>
+          }
+          <li><button ksdPaginationButton>Neste</button></li>
+        </ol>
+      </ksd-pagination>
     `,
   }),
 }

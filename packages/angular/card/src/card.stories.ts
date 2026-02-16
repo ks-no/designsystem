@@ -1,3 +1,4 @@
+import { Input } from '@ks-digital/designsystem-angular/forms'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -24,7 +25,7 @@ const meta: Meta<CardArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Card, CardBlock],
+      imports: [Card, CardBlock, Input],
     }),
   ],
 }
@@ -93,8 +94,22 @@ export const AsLink: Story = {
     template: `
 <div style="max-width: 320px;">
   <article ksd-card ${argsToTemplate(args)}>
-    <h2><a href="/">Whole card is clickable when link is present inside heading</a></h2>
+    <h2 class="ds-heading"><a href="/" class="ds-link">Whole card is clickable when link is present inside heading</a></h2>
   </article>
+</div>
+    `,
+  }),
+}
+
+export const CheckboxCard: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+<div style="max-width: 320px;">
+  <div ksd-card data-clickdelegatefor="target" ${argsToTemplate(args)}>
+    <input id="target" ksd-input type="checkbox"/>
+    <span style="padding-left: .5rem;">Clicking this card will toggle the checkbox</span>
+  </div>
 </div>
     `,
   }),

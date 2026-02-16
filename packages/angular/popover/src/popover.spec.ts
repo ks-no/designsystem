@@ -55,7 +55,7 @@ describe('Popover', () => {
     expect(popoverButton).toBeVisible()
 
     //the popover content should not be visible yet
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
 
     //click button to see popover
     await user.click(popoverButton)
@@ -69,7 +69,7 @@ describe('Popover', () => {
     })
 
     //the popover content should not be visible yet
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
 
     //click button to see popover
     await user.click(popoverButton)
@@ -77,7 +77,7 @@ describe('Popover', () => {
 
     //click button again to hide popover
     await user.click(popoverButton)
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
   })
 
   it('should close when we click outside', async () => {
@@ -92,7 +92,7 @@ describe('Popover', () => {
 
     //click outside to hide popover
     await user.click(document.body)
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
   })
 
   it('should close when we press ESC', async () => {
@@ -107,7 +107,7 @@ describe('Popover', () => {
 
     //press ESC to hide popover
     await user.keyboard('[Escape]')
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
   })
 
   it('should close when we press SPACE', async () => {
@@ -122,7 +122,7 @@ describe('Popover', () => {
 
     //press SPACE to hide popover
     await user.keyboard('[Space]')
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
   })
 
   it('should close when we press ENTER', async () => {
@@ -137,7 +137,7 @@ describe('Popover', () => {
 
     //press ENTER to hide popover
     await user.keyboard('[Enter]')
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument()
+    expect(screen.queryByText(contentText)).not.toBeVisible()
   })
 
   it('should not close if we click inside the popover', async () => {

@@ -12,8 +12,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.7.4",
-    "@u-elements/u-details": "^0.1.5"
+    "@digdir/designsystemet-web": "catalog:designsystemet"
   },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
@@ -39,6 +38,7 @@
     "@testing-library/jest-dom": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
-    "zone.js": "catalog:angular"
+    "zone.js": "catalog:angular",
+    "vitest": "4.0.9"
   }
 }

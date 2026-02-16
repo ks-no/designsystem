@@ -1,70 +1,123 @@
-import { fireEvent, render, screen } from '@testing-library/angular'
-import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
+import { render, screen } from '@testing-library/angular'
 import { Card } from './card'
 
-it('should render card', async () => {
-  await render(
-    `
-      <article ksd-card>My card</article>
-    `,
-    { imports: [Card] },
-  )
+describe('Card', () => {
+  it('should add ds-card class to host', async () => {
+    await render(`<div ksd-card>Card content</div>`, {
+      imports: [Card],
+    })
 
-  const card = screen.getByRole('article')
-  expect(card).toHaveClass('ds-card')
-})
+    const card = screen.getByText('Card content')
+    expect(card).toHaveClass('ds-card')
+  })
 
-it('clicking anywhere on the card triggers the inner link', async () => {
-  await render(
-    `
-      <article ksd-card>
-        <h2><a href="https://vg.no">My link</a></h2>
-        <p>My paragraph</p>
-      </article>
-    `,
-    { imports: [Card] },
-  )
+  it('should set data-variant to default by default', async () => {
+    await render(`<div ksd-card>Card content</div>`, {
+      imports: [Card],
+    })
 
-  const user = userEvent.setup()
-  const card = screen.getByRole('article')
+    const card = screen.getByText('Card content')
+    expect(card).toHaveAttribute('data-variant', 'default')
+  })
 
-  // Spy on the link inside the card
-  const clickSpy = vi
-    .spyOn(HTMLAnchorElement.prototype, 'click')
-    .mockImplementation(() => undefined)
+  it('should set data-variant to tinted when variant is tinted', async () => {
+    await render(`<div ksd-card variant="tinted">Card content</div>`, {
+      imports: [Card],
+    })
 
-  await user.click(card)
+    const card = screen.getByText('Card content')
+    expect(card).toHaveAttribute('data-variant', 'tinted')
+  })
 
-  // Expect that the link inside the card has been clicked
-  expect(clickSpy).toHaveBeenCalledTimes(1)
-  clickSpy.mockRestore()
-})
+  describe('click delegation', () => {
+    it('should set data-clickdelegatefor when card has a link in a heading', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card>
+          <h2><a href="#">Card link</a></h2>
+          <p>Card content</p>
+        </div>
+        `,
+        { imports: [Card] },
+      )
 
-it('opens link in new tab with noopener,noreferrer on meta/ctrl click', async () => {
-  await render(
-    `
-      <article ksd-card>
-        <h2><a href="https://vg.no">My link</a></h2>
-        <p>My paragraph</p>
-      </article>
-    `,
-    { imports: [Card] },
-  )
+      const card = container.querySelector('[ksd-card]')
+      expect(card).toHaveAttribute('data-clickdelegatefor')
+    })
 
-  const card = screen.getByRole('article')
-  const anchor = screen.getByRole('link') as HTMLAnchorElement
+    it('should set id on link when link has no id', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card>
+          <h2><a href="#">Card link</a></h2>
+        </div>
+        `,
+        { imports: [Card] },
+      )
 
-  const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
+      const link = container.querySelector('a')
+      expect(link).toHaveAttribute('id')
+      expect(link?.id).toContain('ksd-card-link-')
+    })
 
-  fireEvent.click(card, { ctrlKey: true })
+    it('should preserve existing link id', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card>
+          <h2><a id="my-link" href="#">Card link</a></h2>
+        </div>
+        `,
+        { imports: [Card] },
+      )
 
-  expect(openSpy).toHaveBeenCalledTimes(1)
-  expect(openSpy).toHaveBeenCalledWith(
-    anchor.href,
-    '_blank',
-    'noopener,noreferrer',
-  )
+      const link = container.querySelector('a')
+      const card = container.querySelector('[ksd-card]')
 
-  openSpy.mockRestore()
+      expect(link).toHaveAttribute('id', 'my-link')
+      expect(card).toHaveAttribute('data-clickdelegatefor', 'my-link')
+    })
+
+    it('should not set data-clickdelegatefor when link is not in a heading', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card>
+          <a href="#">Card link</a>
+          <p>Card content</p>
+        </div>
+        `,
+        { imports: [Card] },
+      )
+
+      const card = container.querySelector('[ksd-card]')
+      expect(card).not.toHaveAttribute('data-clickdelegatefor')
+    })
+
+    it('should not set data-clickdelegatefor when link is inside a button', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card>
+          <button><h2><a href="#">Card link</a></h2></button>
+        </div>
+        `,
+        { imports: [Card] },
+      )
+
+      const card = container.querySelector('[ksd-card]')
+      expect(card).not.toHaveAttribute('data-clickdelegatefor')
+    })
+
+    it('should not set data-clickdelegatefor when already set', async () => {
+      const { container } = await render(
+        `
+        <div ksd-card data-clickdelegatefor="existing-target">
+          <h2><a href="#">Card link</a></h2>
+        </div>
+        `,
+        { imports: [Card] },
+      )
+
+      const card = container.querySelector('[ksd-card]')
+      expect(card).toHaveAttribute('data-clickdelegatefor', 'existing-target')
+    })
+  })
 })
