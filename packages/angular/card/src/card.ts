@@ -1,12 +1,25 @@
-import { Component, ElementRef, inject, input } from '@angular/core'
+import {
+  afterNextRender,
+  DestroyRef,
+  Directive,
+  ElementRef,
+  inject,
+  input,
+} from '@angular/core'
 import {
   HostColor,
   HostSize,
+  randomId,
 } from '@ks-digital/designsystem-angular/__internals'
 
-@Component({
+const ATTR_CLICKDELEGATE = 'data-clickdelegatefor'
+const SELECTOR_LINK = ':is(h1,h2,h3,h4,h5,h6) a'
+const SELECTOR_SKIP =
+  'a,button,label,details,dialog,[role="button"],[popover],[contenteditable]'
+
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[ksd-card]',
-  template: ` <ng-content /> `,
   hostDirectives: [
     {
       directive: HostSize,
@@ -20,7 +33,6 @@ import {
   host: {
     class: 'ds-card',
     '[attr.data-variant]': 'variant()',
-    '(click)': 'handleClick($event)',
   },
 })
 export class Card {
@@ -29,23 +41,31 @@ export class Card {
    * @default 'default'
    */
   public variant = input<'tinted' | 'default'>('default')
-  private elementRef = inject(ElementRef)
+  private el = inject<ElementRef<HTMLElement>>(ElementRef)
+  private destroyRef = inject(DestroyRef)
+  private generatedId = `ksd-card-link-${randomId()}`
+  private originalId: string | null = null
 
-  private projectedLink() {
-    const el = this.elementRef.nativeElement
-    return el?.querySelector(
-      'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a',
-    ) as HTMLAnchorElement | null
-  }
+  constructor() {
+    afterNextRender(() => {
+      const card = this.el.nativeElement
+      const link = card.querySelector<HTMLAnchorElement>(SELECTOR_LINK)
+      const skip = !link || link.parentElement?.closest(SELECTOR_SKIP)
 
-  protected handleClick = (event: MouseEvent) => {
-    const link = this.projectedLink()
-    if (!link) return
+      if (card.hasAttribute(ATTR_CLICKDELEGATE) || skip) return
 
-    if (event.metaKey || event.ctrlKey) {
-      window.open(link.href, '_blank', 'noopener,noreferrer')
-    } else {
-      link.click()
-    }
+      this.originalId = link.id || null
+      link.id = link.id || this.generatedId
+      card.setAttribute(ATTR_CLICKDELEGATE, link.id)
+
+      this.destroyRef.onDestroy(() => {
+        if (this.originalId) {
+          link.id = this.originalId
+        } else {
+          link.removeAttribute('id')
+        }
+        card.removeAttribute(ATTR_CLICKDELEGATE)
+      })
+    })
   }
 }
