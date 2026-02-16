@@ -22,7 +22,7 @@ Pagination er en wrapper for `ds-pagination` web-componenten fra Designsystemet 
 - Du kan bruke `pages`-signalet som komponenten gir for å rendre sidene du vil vise.
 - Lytt til `pageClicked`-eventen for å håndtere sideklikk.
 - Utfylling av sidetall og ellipsis håndteres av komponenten, så du behøver ikke fylle ut dette selv.
-- Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag, da dette vil skape dupliserte navigasjonsregioner.
+- Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
 - Komponenten setter `aria-current` og styler knappene for gjeldende side, så du trenger ikke håndtere dette selv.
   - Hvis du skriver sidetall selv, så får du ellipsis ved å lage et tomt element, f.eks: `<button ksdPaginationButton>{{page.page || ''}}</button>`
 
