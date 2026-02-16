@@ -65,7 +65,8 @@ export const Counter: Story = {
     template: `
         <ksd-field>
           <ksd-label>Label</ksd-label>
-          <input ksd-input [counter]="5" type="text" ${argsToTemplate(args)} />
+          <input ksd-input type="text" ${argsToTemplate(args)} />
+          <p class="ds-validation-message" data-field="counter" data-limit="5" data-over="%d tegn for mye" data-under="%d tegn igjen" data-hint="Maks %d tegn tillatt."></p>
         </ksd-field>
     `,
   }),
