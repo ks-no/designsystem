@@ -12,7 +12,6 @@ import { Directive, input } from '@angular/core'
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'button[ksd-search-button]',
-  standalone: true,
   host: {
     class: 'ds-button',
     type: 'submit',

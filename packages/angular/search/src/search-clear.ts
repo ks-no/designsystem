@@ -14,7 +14,6 @@ import { Directive, input, output } from '@angular/core'
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'button[ksd-search-clear]',
-  standalone: true,
   host: {
     class: 'ds-button',
     type: 'reset',

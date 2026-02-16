@@ -8,7 +8,6 @@ import { Directive } from '@angular/core'
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'input[ksd-search-input]',
-  standalone: true,
   host: {
     class: 'ds-input',
     type: 'search',
