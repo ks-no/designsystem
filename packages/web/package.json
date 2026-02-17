@@ -1,0 +1,35 @@
+{
+  "name": "@ks-digital/designsystem-web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ks-no/designsystem.git",
+    "directory": "packages/web"
+  },
+  "version": "0.0.1-alpha.1",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@digdir/designsystemet-web": "catalog:designsystemet"
+  },
+  "devDependencies": {
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "@storybook/addon-docs": "catalog:storybook",
+    "@storybook/web-components": "catalog:storybook",
+    "@storybook/web-components-vite": "catalog:storybook",
+    "lit": "catalog:storybook",
+    "storybook": "catalog:storybook",
+    "typescript": "catalog:typescript"
+  }
+}

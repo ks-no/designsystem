@@ -1,0 +1,60 @@
+{
+  "name": "@ks-digital/designsystem-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/web/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "dependsOn": ["@ks-digital/designsystem-themes:build"],
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/web"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4401,
+        "configDir": "packages/web/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "dependsOn": ["@ks-digital/designsystem-themes:build"],
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/@ks-digital/designsystem-web",
+        "configDir": "packages/web/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "@ks-digital/designsystem-web:build-storybook",
+        "staticFilePath": "dist/storybook/@ks-digital/designsystem-web",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "@ks-digital/designsystem-web:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
