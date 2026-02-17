@@ -1,0 +1,10 @@
+{
+  "name": "www",
+  "private": true,
+  "devDependencies": {
+    "@storybook/addon-docs": "catalog:storybook",
+    "@storybook/html": "catalog:storybook",
+    "@storybook/html-vite": "catalog:storybook",
+    "storybook": "catalog:storybook"
+  }
+}
