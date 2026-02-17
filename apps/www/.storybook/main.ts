@@ -14,12 +14,10 @@ const config: StorybookConfig = {
     angular: {
       title: 'Angular',
       url: process.env.STORYBOOK_ANGULAR_URL || 'http://localhost:4400',
-      type: 'lazy',
     },
     web: {
       title: 'Web Components',
       url: process.env.STORYBOOK_WEB_URL || 'http://localhost:4401',
-      type: 'lazy',
     },
   },
 }

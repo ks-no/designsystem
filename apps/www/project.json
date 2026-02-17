@@ -55,7 +55,7 @@
         "commands": [
           "nx run @ks-digital/designsystem-angular:storybook",
           "nx run @ks-digital/designsystem-web:storybook",
-          "nx run www:storybook"
+          "sleep 5 && nx run www:storybook"
         ],
         "parallel": true
       }
