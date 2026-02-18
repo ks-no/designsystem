@@ -19,18 +19,25 @@ Search lar brukere raskt finne relevant innhold på et nettsted i en applikasjon
 
 ## Bruk
 
-```tsx
+```ts
 import {
   Search,
   SearchInput,
   SearchClear,
   SearchButton,
 } from '@ks-digital/designsystem-angular'
-;<ksd-search>
-  <input ksd-search-input />
-  <button ksd-search-clear></button>
-  <button ksd-search-button></button>
-</ksd-search>
+
+@Component({
+  imports: [Search, SearchInput, SearchClear, SearchButton],
+  template: `
+    <ksd-search>
+      <input ksd-search-input placeholder="Søk..." />
+      <button ksd-search-clear aria-label="Tøm søk"></button>
+      <button ksd-search-button>Søk</button>
+    </ksd-search>
+  `,
+})
+export class App {}
 ```
 
 ## Kontrollert

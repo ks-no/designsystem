@@ -58,7 +58,7 @@ export const Preview: Story = {
     props: args,
     template: `
       <ksd-search role="search" ${argsToTemplate(args)}>
-        <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
+        <input ksd-search-input role="searchbox" aria-label="Søkefelt" placeholder="Test placeholder" />
         <button ksd-search-clear [aria-label]="clearButtonLabel"></button>
         <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>
       </ksd-search>
