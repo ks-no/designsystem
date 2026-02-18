@@ -12,47 +12,17 @@ import * as PopoverStories from './popover.stories.ts'
 
 ## Bruk
 
-```tsx
+```ts
+import { Component } from '@angular/core'
 
-<button ksd-button variant="primary"  popovertarget="my-popover"> Enkel popover </button>
-<ksd-popover popoverId="my-popover"> Her er det noe innhold </ksd-popover>
+@Component({
+  selector: 'app-popover-example',
+  template: `
+    <button ksd-button variant="primary" popovertarget="my-popover">
+      Enkel popover
+    </button>
+    <ksd-popover popoverId="my-popover"> Her er det noe innhold </ksd-popover>
+  `,
+})
+export class App {}
 ```
-
-### Polyfill
-
-`Popover` bruker [popover (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover). Dette apiet er klassifisert som [Baseline: Newly available (mozilla.org)](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) fra april 2024, da Firefox som siste nettleser la det til. I noen tilfeller kan en oppleve at brukere av ulike grunner er låst til eldre nettleserversjoner, og da kan det være aktuelt å legge til en [Popover-Polyfill (github.com)](https://github.com/oddbird/popover-polyfill) for å sikre at `Popover` fungerer for alle.
-
-## Kodeeksempler
-
-### Farger
-
-`Popover` kommer i alle farger, du kan endre den med `data-color`.
-Du kan også sette `variant` direkte for å endre bakgrunnsfarge.
-
-## Retningslinjer
-
-`Popover` brukes for å vise mer detaljert eller interaktiv tilleggsinformasjon uten å ta brukeren bort fra konteksten. Den åpnes ved et bevisst brukerklikk og kan inneholde både tekst, lenker og enkle skjemaelementer. Innholdet bør være kort og relevant, og ikke kritisk for å fullføre oppgaven.
-
-**Passer til:**
-
-- Utfyllende forklaringer som krever mer plass enn en kort [`Tooltip`](/docs/komponenter-tooltip--docs), f.eks. definisjoner eller utdypende instruksjoner.
-- Kontekstspesifikk hjelp som brukeren kan velge å åpne/lukke uten å forlate siden.
-- Visning av tilleggsinformasjon som ikke er kritisk for å fullføre oppgaven, men som kan være nyttig for enkelte brukere.
-
-**Passer ikke til:**
-
-- Å beskrive et symbol eller tastatursnartvei, bruk heller [`Tooltip`](/docs/komponenter-tooltip--docs).
-- Navigasjon eller valg av alternativer (bruk [`Dropdown`](/docs/komponenter-dropdown--docs) i stedet)
-- Å vise innhold ved `hover`.
-
-### Plassering
-
-`Popover` plasseres etter ønske, men holder seg automatisk innenfor det synlige området i nettleseren. Denne oppførselen kan deaktiveres med `autoPlacement`.
-
-## Tekst
-
-Unngå lange tekster og kompliserte forklaringer. I noen tilfeller er det kanskje bedre å lenke til en annen side med utdypende informasjon om temaet.
-
-## Tilgjengelighet
-
-Det er innebygd tilgjengelighet i [Popover APIet (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i henhold til åpne/lukket tilstand og tastatur navigasjon.
