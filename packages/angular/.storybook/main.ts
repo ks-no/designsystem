@@ -1,7 +1,7 @@
 import { StorybookConfig } from '@analogjs/storybook-angular'
 
 const config: StorybookConfig = {
-  stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
+  stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))', './**/*.mdx'],
   addons: ['@storybook/addon-docs'],
   core: {
     disableTelemetry: true,
