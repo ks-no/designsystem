@@ -1,18 +1,12 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
-
 import * as AlertStories from './alert.stories'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 <Meta of={AlertStories} />
 
 # Alert
 
-<a
-  href="https://designsystemet.no/komponenter/alert"
-  rel="noopener noreferrer"
-  class="official-docs"
->
-  📖 Gå til offisiell dokumentasjon
-</a>
+<OfficialDocsLink href="https://designsystemet.no/komponenter/alert" />
 
 Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 
