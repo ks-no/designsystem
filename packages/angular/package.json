@@ -29,17 +29,20 @@
     "@angular/common": "catalog:angular",
     "@angular/compiler": "catalog:angular",
     "@angular/core": "catalog:angular",
-    "@angular/router": "catalog:angular",
     "@angular/platform-browser": "catalog:angular",
+    "@angular/router": "catalog:angular",
+    "@ks-digital/designsystem-themes": "workspace:*",
     "@ng-icons/core": "catalog:angular",
     "@ng-icons/phosphor-icons": "catalog:angular",
-    "@ks-digital/designsystem-themes": "workspace:*",
     "@testing-library/angular": "catalog:testing-library",
     "@testing-library/jest-dom": "catalog:testing-library",
+    "@types/react": "catalog:react",
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
     "vitest-axe": "catalog:vitest-a11y",
-    "zone.js": "catalog:angular",
-    "vitest": "4.0.9"
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "vitest": "4.0.9",
+    "zone.js": "catalog:angular"
   }
 }
