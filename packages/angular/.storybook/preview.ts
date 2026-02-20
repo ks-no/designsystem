@@ -9,7 +9,19 @@ addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setColorScheme(globals.colorScheme)
 })
 
+// Composition mode: parent sends globals via postMessage
+window.addEventListener('message', (event) => {
+  if (event.data?.key !== 'ks-globals-updated') return
+  console.log('ks key', event.data.key)
+  const globals = event.data.globals
+  if (globals) {
+    setTheme(globals.theme)
+    setColorScheme(globals.colorScheme)
+  }
+})
+
 function setTheme(href: string): void {
+  console.log('set theme was called!')
   let link: HTMLLinkElement | null = document.getElementById(
     'storybook-theme',
   ) as HTMLLinkElement | null
@@ -75,6 +87,7 @@ const preview: Preview = {
     }),
     (story, context) => {
       const storyFn = story()
+      setTheme(context.globals['theme'])
       setColorScheme(context.globals['colorScheme'] || 'light')
       return storyFn
     },
