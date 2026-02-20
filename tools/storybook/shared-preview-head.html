@@ -24,23 +24,25 @@
     border-bottom: 2px solid;
   }
 
-  /* Increase font-size */
-  h1 {
+  /* Increase font-size - scoped to docs pages, excluding story canvases */
+  .sbdocs-wrapper h1:not(.docs-story *) {
     font-size: 40px !important;
     padding-bottom: 0.2em !important;
   }
 
-  h2 {
+  .sbdocs-wrapper h2:not(.docs-story *) {
     padding-top: 2rem !important;
   }
 
-  :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-  :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+  .sbdocs-wrapper
+    :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p, .docs-story *)),
+  .sbdocs-wrapper
+    :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .docs-story *)) {
     font-size: max(0.8em, 16px) !important;
     line-height: 2rem !important;
   }
 
-  body {
+  .sbdocs-wrapper {
     font-size: 18px;
   }
 
