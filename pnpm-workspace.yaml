@@ -78,9 +78,19 @@ cleanupUnusedCatalogs: true
 
 minimumReleaseAge: 2880
 
+ignoredBuiltDependencies:
+  - less
+
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
   - esbuild
+  - lmdb
+  - msgpackr-extract
+  - msw
   - nx
+  - sharp
+  - unrs-resolver
 
 trustPolicy: no-downgrade
 
