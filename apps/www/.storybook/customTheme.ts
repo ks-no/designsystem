@@ -5,14 +5,16 @@ export default create({
   fontBase: '"Inter", sans-serif',
   // Colors
   base: 'light',
-  brandUrl: 'https://your-site.com',
-  brandImage: '/logo.svg', // Place your logo in public or static folder
+  brandUrl: 'https://design.ksdigital.no',
+  brandImage: '/logo.svg',
   brandTarget: '_self',
-  colorPrimary: '#0055a6', // Your primary color
-  colorSecondary: '#0062BA',
-  barTextColor: '#243142',
-  textColor: '#1e2b3c',
-  inputTextColor: '#243142',
+  colorPrimary: '#00042e', // Your primary color
+  colorSecondary: '#00042e',
+  barTextColor: '#00042e',
+  barSelectedColor: '#d9dae0',
+  barHoverColor: '#d9dae0',
+  textColor: '#00042e',
+  inputTextColor: '#00042e',
   appBg: '#e8e8ec',
   appPreviewBg: 'var(--ds-color-neutral-background-default)',
   appContentBg: '#fefefe',
