@@ -25,6 +25,12 @@ const config: StorybookConfig = {
   ],
   previewHead: (head) =>
     `${head}${readFileSync(join(__dirname, '../../../tools/storybook/shared-preview-head.html'), 'utf-8')}`,
+  viteFinal: (config) => {
+    if (process.env.STORYBOOK_BASE_URL) {
+      config.base = process.env.STORYBOOK_BASE_URL
+    }
+    return config
+  },
 }
 
 export default config
