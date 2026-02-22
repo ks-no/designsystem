@@ -15,7 +15,7 @@ type ThemeGlobalType = {
 export const globalTypes: Record<string, ThemeGlobalType> = {
   theme: {
     name: 'Theme',
-    description: 'Global theme for components',
+    description: 'Velg tema for stories',
     defaultValue: themes[0].href,
     toolbar: {
       icon: 'paintbrush',
@@ -25,7 +25,7 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
   },
   colorScheme: {
     name: 'Color Scheme',
-    description: 'Set color scheme for components',
+    description: 'Velg lys/dark-mode for stories',
     defaultValue: 'light',
     toolbar: {
       icon: 'moon',

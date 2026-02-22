@@ -15,7 +15,7 @@ addons.register('ks-globals-forwarder', () => {
     document.querySelectorAll<HTMLIFrameElement>('iframe').forEach((iframe) => {
       try {
         iframe.contentWindow?.postMessage(
-          { key: 'ksd-theme-updated', globals: payload.globals },
+          { key: 'ksd-globals-updated', globals: payload.globals },
           '*',
         )
       } catch {

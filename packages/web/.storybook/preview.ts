@@ -10,7 +10,7 @@ addons.getChannel().on('globalsUpdated', ({ globals }) => {
 
 // Composition mode: receive forwarded globals from www manager.ts
 window.addEventListener('message', (event) => {
-  if (event.data?.key !== 'ksd-theme-updated') return
+  if (event.data?.key !== 'ksd-globals-updated') return
   const globals = event.data.globals
   if (globals) {
     setTheme(globals.theme)
@@ -33,8 +33,8 @@ function setTheme(href: string): void {
 }
 
 function setColorScheme(colorScheme: 'light' | 'dark' | 'auto'): void {
-  const stories = document.querySelectorAll('.docs-story')
-  stories.forEach((el) => {
+  document.documentElement.setAttribute('data-color-scheme', colorScheme)
+  document.querySelectorAll('.docs-story').forEach((el) => {
     el.setAttribute('data-color-scheme', colorScheme)
   })
 }
@@ -53,7 +53,7 @@ type ThemeGlobalType = {
 export const globalTypes: Record<string, ThemeGlobalType> = {
   theme: {
     name: 'Theme',
-    description: 'Global theme for components',
+    description: 'Velg tema for stories',
     defaultValue: themes[0].href,
     toolbar: {
       icon: 'paintbrush',
@@ -63,7 +63,7 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
   },
   colorScheme: {
     name: 'Color Scheme',
-    description: 'Set color scheme for components',
+    description: 'Velg lys/dark-mode for stories',
     defaultValue: 'light',
     toolbar: {
       icon: 'moon',
