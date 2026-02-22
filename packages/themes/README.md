@@ -72,6 +72,6 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 1. Add theme to `designsystemet.config.json`. The color names must match the other themes.
 2. Create design tokens for theme `pnpm run themes:create-tokens`
-3. Build themes `pnmp run themes:build`
+3. Build themes `pnpm run themes:build`
 4. Add theme `exports`-field in `packages/themes/package.json`
 5. Add theme to Angular Storybook `packages/angular/.storybook/themes.ts`
