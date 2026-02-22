@@ -48,6 +48,11 @@ const preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        order: ['Introduksjon', 'Temaer', 'Ikoner'],
+      },
+    },
     layout: 'centered',
     docs: {
       theme: customTheme,
