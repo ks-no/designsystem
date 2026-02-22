@@ -11,8 +11,7 @@ addons.getChannel().on('globalsUpdated', ({ globals }) => {
 
 // Composition mode: parent sends globals via postMessage
 window.addEventListener('message', (event) => {
-  if (event.data?.key !== 'ks-globals-updated') return
-  console.log('ks key', event.data.key)
+  if (event.data?.key !== 'ksd-theme-updated') return
   const globals = event.data.globals
   if (globals) {
     setTheme(globals.theme)

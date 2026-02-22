@@ -9,14 +9,18 @@ addons.setConfig({
   },
 })
 
-// Forward globals changes to ref iframes so composed storybooks can react
-addons.getChannel().on('globalsUpdated', (payload) => {
-  document.querySelectorAll<HTMLIFrameElement>('iframe').forEach((iframe) => {
-    try {
-      iframe.contentWindow?.postMessage(
-        { key: 'ks-globals-updated', globals: payload.globals },
-        '*',
-      )
-    } catch {}
+// Forward globals changes to composed ref iframes
+addons.register('ks-globals-forwarder', () => {
+  addons.getChannel().on('globalsUpdated', (payload) => {
+    document.querySelectorAll<HTMLIFrameElement>('iframe').forEach((iframe) => {
+      try {
+        iframe.contentWindow?.postMessage(
+          { key: 'ksd-theme-updated', globals: payload.globals },
+          '*',
+        )
+      } catch {
+        // Silence
+      }
+    })
   })
 })
