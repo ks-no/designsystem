@@ -1,7 +1,7 @@
+import { themes } from '@internal/storybook/themes'
 import type { Preview } from '@storybook/web-components'
 import { addons } from 'storybook/preview-api'
 import customTheme from './customTheme'
-import { themes } from './themes'
 
 addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setTheme(globals.theme)

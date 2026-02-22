@@ -31,6 +31,14 @@ const config: StorybookConfig = {
   ],
   previewHead: (head) =>
     `${head}${readFileSync(join(__dirname, '../../../tools/storybook/shared-preview-head.html'), 'utf-8')}`,
+  viteFinal: (config) => {
+    config.resolve ??= {}
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@internal/storybook': join(__dirname, '../../../tools/storybook'),
+    }
+    return config
+  },
 }
 
 export default config
