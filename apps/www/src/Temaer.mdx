@@ -1,0 +1,71 @@
+# Temaer
+
+KS Digital sine løsninger har ulik visuell identitet. Designsystemet gir oss en struktur for å bygge og vedlikeholde disse. Temaene er basert på design tokens – en W3C-standard som fungerer som felles kilde for både Figma og generert CSS.
+
+Temaene distribueres som en sentral npm-pakke, slik at team raskt kan komme i gang - både i Figma og i kode.
+
+Når du navigerer gjennom de ulike komponentene, kan du forhåndsvise de i de ulike temaene, samt lys/mørk-modus via verktøylinjen øverst på siden.
+
+## Tilgjengelige temaer
+
+- **Ledsagerbevis**
+- **Forvaltning**
+- **Minkommune**
+- **Tilskudd**
+
+## Om temaene
+
+Ved å bruke et tema fra Designsystemet får du en generert fargeskala som er satt opp for å fungere med lys og mørk modus. Bruk kun farger definert i temaet – farger utenfor kan gjøre identiteten utydelig og bryte modus-støtten.
+
+CSS-pakken inneholder også eventuelle stiler for egne komponenter. Disse bruker prefikset `ksd-` istedenfor `ds-`.
+
+## Bruk
+
+Importer basisstiler og ønsket tema i CSS- eller JavaScript/TypeScript-filene dine:
+
+### CSS
+
+Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-imports:
+
+```js
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+```
+
+#### Tailwind
+
+Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (ekserimentelt).
+
+##### v4
+
+```css
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css');
+@import url('tailwindcss');
+```
+
+##### v3 og eldre
+
+> **Merk:**  
+> Tailwind v3 og eldre støtter ikke direkte mapping av Tailwind-klasser til Designsystemets tokens.
+
+```css
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+
+@layer tailwind-base, ds;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+@tailwind components;
+@tailwind utilities;
+```
+
+### JavaScript / TypeScript
+
+Importer stilene direkte i applikasjonen din. Bruker du React, se README i React-pakken.
+
+```javascript
+import '@ks-digital/designsystem-themes/base.css'
+import '@ks-digital/designsystem-themes/ledsagerbevis.css'
+```
