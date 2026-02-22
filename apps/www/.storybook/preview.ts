@@ -1,5 +1,5 @@
+import { themes } from '@internal/storybook/themes'
 import customTheme from './customTheme'
-import { themes } from './themes'
 
 type ThemeGlobalType = {
   name: string

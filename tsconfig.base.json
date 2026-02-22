@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@internal/storybook/*": ["tools/storybook/*"],
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
       "@ks-digital/designsystem-angular/__internals": [
         "packages/angular/__internals/src/index.ts"

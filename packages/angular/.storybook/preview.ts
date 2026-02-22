@@ -1,8 +1,8 @@
 import { applicationConfig, type Preview } from '@analogjs/storybook-angular'
 import { provideZonelessChangeDetection } from '@angular/core'
+import { themes } from '@internal/storybook/themes'
 import { addons } from 'storybook/preview-api'
 import customTheme from './customTheme'
-import { themes } from './themes'
 
 addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setTheme(globals.theme)
