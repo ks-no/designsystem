@@ -36,10 +36,10 @@ execSync('nx run www:build-storybook --skip-nx-cache', {
 rmSync(composedDist, { recursive: true, force: true })
 mkdirSync(composedDist, { recursive: true })
 cpSync(join(root, 'www'), composedDist, { recursive: true })
-cpSync(join(root, 'web'), join(composedDist, 'web'), {
+cpSync(join(root, 'designsystem-web'), join(composedDist, 'web'), {
   recursive: true,
 })
-cpSync(join(root, 'angular'), join(composedDist, 'angular'), {
+cpSync(join(root, 'designsystem-angular'), join(composedDist, 'angular'), {
   recursive: true,
 })
 
