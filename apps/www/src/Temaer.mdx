@@ -1,6 +1,6 @@
 # Temaer
 
-KS Digital sine løsninger har ulik visuell identitet. Designsystemet gir oss en struktur for å bygge og vedlikeholde disse. Temaene er basert på design tokens – en W3C-standard som fungerer som felles kilde for både Figma og generert CSS.
+Løsningene som KS Digital utvikler har ulik visuell identitet. Designsystemet gir oss en struktur for å bygge og vedlikeholde disse. Temaene er basert på design tokens – en W3C-standard som fungerer som felles kilde for både Figma og generert CSS.
 
 Temaene distribueres som en sentral npm-pakke, slik at team raskt kan komme i gang - både i Figma og i kode.
 
@@ -20,6 +20,12 @@ Ved å bruke et tema fra Designsystemet får du en generert fargeskala som er sa
 CSS-pakken inneholder også eventuelle stiler for egne komponenter. Disse bruker prefikset `ksd-` istedenfor `ds-`.
 
 ## Bruk
+
+Innstallér temapakken:
+
+```
+pnpm add @ks-digital/designsystem-themes
+```
 
 Importer basisstiler og ønsket tema i CSS- eller JavaScript/TypeScript-filene dine:
 
