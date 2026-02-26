@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
 
 const meta: Meta = {
+  title: 'Kommunevåpen',
   component: 'kommunevaapen',
 }
 
