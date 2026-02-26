@@ -60,7 +60,7 @@ catalogs:
   storybook:
     '@storybook/addon-docs': 10.0.8
     '@storybook/angular': 10.1.9
-    storybook: 10.1.9
+    storybook: 10.2.10
   testing-library:
     '@testing-library/angular': ^17.4.0
     '@testing-library/dom': 10.4.1
