@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@ks-digital/designsystem-themes": "workspace:*",
+    "@open-wc/testing": "catalog:open-wc",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/web-components": "catalog:storybook",
     "@storybook/web-components-vite": "catalog:storybook",
