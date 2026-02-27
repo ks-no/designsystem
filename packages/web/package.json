@@ -21,14 +21,15 @@
     }
   },
   "dependencies": {
-    "@digdir/designsystemet-web": "catalog:designsystemet"
+    "@digdir/designsystemet-web": "catalog:designsystemet",
+    "@lit-labs/signals": "catalog:lit",
+    "lit": "catalog:lit"
   },
   "devDependencies": {
     "@ks-digital/designsystem-themes": "workspace:*",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/web-components": "catalog:storybook",
     "@storybook/web-components-vite": "catalog:storybook",
-    "lit": "catalog:storybook",
     "storybook": "catalog:storybook",
     "typescript": "catalog:typescript"
   }
