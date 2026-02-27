@@ -1,0 +1,28 @@
+import { Meta, Controls, Primary } from '@storybook/addon-docs/blocks'
+import * as CopyButtonStories from './copy-button.stories'
+
+<Meta of={CopyButtonStories} />
+
+# Copy button
+
+`ksd-copy-button` kopierer tekst til utklippstavlen når brukeren klikker på knappen.
+
+<Primary />
+<Controls />
+
+## Bruk
+
+`ksd-copy-button` er en `button` og kan kombineres med `ds-button` om ønskelig.
+
+```html
+<ksd-copy-button
+  class="ds-button"
+  data-variant="secondary"
+  value="Text to copy!"
+></ksd-copy-button>
+```
+
+## Events
+
+- `ksd-copy`: sendes ved vellykket kopiering (`detail.value`)
+- `ksd-error`: sendes hvis kopiering feiler (`detail.value`, `detail.error`)
