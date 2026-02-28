@@ -5,12 +5,11 @@ import {
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-import { NgTemplateOutlet } from '@angular/common';
-import '@u-elements/u-tabs'
 import { TabsTab } from './tabs-tab'
 
 @Component({
@@ -18,16 +17,16 @@ import { TabsTab } from './tabs-tab'
   imports: [NgTemplateOutlet],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <u-tabs class="ds-tabs">
-      <u-tablist>
+    <ds-tabs class="ds-tabs">
+      <ds-tablist>
         @for (tab of tabs(); track tab) {
-          <u-tab>
+          <ds-tab>
             <ng-container *ngTemplateOutlet="tab.templateRef()" />
-          </u-tab>
+          </ds-tab>
         }
-      </u-tablist>
+      </ds-tablist>
       <ng-content select="ksd-tabs-panel" />
-    </u-tabs>
+    </ds-tabs>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [

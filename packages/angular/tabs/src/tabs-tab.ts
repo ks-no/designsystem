@@ -2,16 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-  input,
   TemplateRef,
   viewChild,
 } from '@angular/core'
 import {
   HostColor,
   HostSize,
-  randomId,
 } from '@ks-digital/designsystem-angular/__internals'
-import { Tabs } from './tabs'
 
 @Component({
   selector: `ksd-tabs-tab`,
@@ -31,11 +28,6 @@ import { Tabs } from './tabs'
   ],
 })
 export class TabsTab {
-  /**
-   * Unique value that will be set in the Tabs components state when the tab is activated
-   */
-  readonly value = input<string>()
-
   /**
    * Hack to get the content of the tab from outside so that we can
    * keep the dom structure needed without additional host elements
