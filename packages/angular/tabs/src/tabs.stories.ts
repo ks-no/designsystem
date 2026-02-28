@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { Button } from '@ks-digital/designsystem-angular/button'
-import { Meta, moduleMetadata } from '@storybook/angular'
+import { argsToTemplate, Meta, moduleMetadata } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Tabs, TabsList, TabsPanel, TabsTab } from './'
 
@@ -29,43 +29,13 @@ export const Preview: Story = {
     },
     template: `
 
-   <ksd-tabs>
+   <ksd-tabs ${argsToTemplate(args)}>
         <ksd-tabs-list>
-          <ksd-tabs-tab value='value1'>Tab 1</ksd-tabs-tab>
-          <ksd-tabs-tab value='value2'>Tab 2</ksd-tabs-tab>
+          <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
+          <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
         </ksd-tabs-list>
-        <ksd-tabs-panel value='value1'>content 1</ksd-tabs-panel>
-        <ksd-tabs-panel value='value2'>content 2</ksd-tabs-panel>
-      </ksd-tabs>
-
-
-      <br>
-
-
-
-
-
-      <ksd-tabs>
-        <ksd-tabs-list>
-           <ksd-tabs-tab>
-            Tab 1
-          </ksd-tabs-tab>
-          <ksd-tabs-tab>
-            Tab 2
-          </ksd-tabs-tab>
-          <ksd-tabs-tab>
-            Tab 3
-          </ksd-tabs-tab>
-        </ksd-tabs-list>
-        <ksd-tabs-panel >
-          content 1
-        </ksd-tabs-panel>
-        <ksd-tabs-panel >
-          content 2
-        </ksd-tabs-panel>
-        <ksd-tabs-panel >
-          content 3
-        </ksd-tabs-panel>
+        <ksd-tabs-panel>content 1</ksd-tabs-panel>
+        <ksd-tabs-panel>content 2</ksd-tabs-panel>
       </ksd-tabs>
     `,
   }),
