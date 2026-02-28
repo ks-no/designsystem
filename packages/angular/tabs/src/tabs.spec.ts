@@ -1,9 +1,6 @@
 import { render } from '@testing-library/angular'
-import userEvent from '@testing-library/user-event'
 import { axe } from 'vitest-axe'
 import { Tabs, TabsList, TabsPanel, TabsTab } from '.'
-
-const user = userEvent.setup()
 
 describe('Tabs', () => {
   it('should have no obvious accessibility violations', async () => {
