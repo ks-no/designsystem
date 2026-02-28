@@ -20,87 +20,22 @@ import { Tabs, TabsList, TabsTab, TabsPanel } from './'
 
 ## Bruk
 
-```tsx
+```ts
 import {
   Tabs,
   TabsList,
   TabsTab,
   TabsPanel,
 } from '@ks-digital/designsystem-angular'
-;<ksd-tabs defaultValue="value1">
+
+<ksd-tabs>
   <ksd-tabs-list>
-    <button ksd-button ksd-tabs-tab value="value1">
-      Tab 1
-    </button>
-    <button ksd-tabs-tab value="value2">
-      Tab 2
-    </button>
-    <button ksd-tabs-tab value="value3">
-      Tab 3
-    </button>
+    <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
+    <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
+    <ksd-tabs-tab>Tab 3</ksd-tabs-tab>
   </ksd-tabs-list>
-  <ksd-tabs-panel value="value1">content 1</ksd-tabs-panel>
-  <ksd-tabs-panel value="value2">content 2</ksd-tabs-panel>
-  <ksd-tabs-panel value="value3">content 3</ksd-tabs-panel>
+  <ksd-tabs-panel>content 1</ksd-tabs-panel>
+  <ksd-tabs-panel>content 2</ksd-tabs-panel>
+  <ksd-tabs-panel>content 3</ksd-tabs-panel>
 </ksd-tabs>
 ```
-
-## Eksempler
-
-## Retningslinjer
-
-`Tabs` skal brukes til å organisere relatert innhold i separate seksjoner.
-
-**Passer til å**
-
-- strukturere innhold uten å laste en ny side
-- dele opp innhold i tydelig merkede seksjoner
-- forenkle navigasjon når brukeren ikke trenger å se alt samtidig
-
-**Passer ikke til å**
-
-- gi en umiddelbar oversikt over innhold, da `Tabs` skjuler informasjon
-- presentere innhold som må sammenlignes på tvers av seksjoner
-- veilede brukeren gjennom en steg-for-steg-prosess der rekkefølgen er viktig
-- håndtere store mengder innhold som kan gjøre siden treg å laste
-- erstatte hovednavigasjon eller brukes til filtrering og sortering
-- være en løsning når innholdet like gjerne kan vises på én side eller fordeles på flere sider
-
-### Alternativer til Tabs
-
-Før du velger `Tabs`, vurder om det er bedre å:
-
-- Forenkle og redusere mengden innhold
-- Fordele innholdet på flere sider
-- Beholde alt på én side, med tydelige overskrifter
-- Bruke en innholdsfortegnelse for enklere navigasjon
-
-### Beste praksis
-
-- **Begrens antall `Tabs`** - for mange skaper dårlig oversikt, særlig på små skjermer
-- **Bruk tydelig navn på `Tabs`** - `Tabs` skjuler innhold, så `Tabs`en må klart indikere hva brukeren får se
-- **Plasser viktigst innhold først** - organiser `Tabs` etter brukerens behov
-- **Hold `Tabs` på én linje** - Lange `Tabs` eller for mange `Tabs` kan gjøre navigasjonen vanskelig
-- **Unngå deaktiverte `Tabs`** - Fjern deaktiverte `Tabs` eller forklar hvorfor de er tomme
-
-## Tekst
-
-`Tabs` bør være korte og beskrivende, slik at brukeren lett forstår hva de vil se når de klikker. Hvis det er vanskelig å lage presise `Tabs`, kan det tyde på at innholdet ikke er godt strukturert.
-
-Hvis det er behov for å gi en overordnet kontekst, kan en felles tittel plasseres over `Tabs`-komponenten. Dette kan fungere som en "catchall"-beskrivelse som gir brukeren rask oversikt over innholdet i `Tabs`.
-
-## Tilgjengelighet
-
-- `Tabs` støtter tastaturnavigasjon med piltaster
-- Hver tab må ha en unik tittel
-- Ved bruk av ikoner, sørg for at de er dekorative (`aria-hidden`) eller har beskrivende titler
-- Dersom et tabpanel ikke har fokuserbare elementer, får selve panelet fokus
-
-### Tastaturnavigasjon
-
-- <kbd>Tab</kbd> flytter fokus til neste interaktive element
-- <kbd data-icon>→</kbd> flytter til neste tab
-- <kbd data-icon>←</kbd> flytter til forrige tab
-- <kbd>Home</kbd> flytter til første tab
-- <kbd>End</kbd> flytter til siste tab
-- <kbd>Enter</kbd> eller <kbd>Space</kbd> aktiverer valgt tab

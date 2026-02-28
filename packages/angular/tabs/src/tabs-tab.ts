@@ -1,32 +1,19 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
-  ElementRef,
-  inject,
-  input,
-  signal,
+  CUSTOM_ELEMENTS_SCHEMA,
+  TemplateRef,
+  viewChild,
 } from '@angular/core'
 import {
   HostColor,
   HostSize,
-  randomId,
 } from '@ks-digital/designsystem-angular/__internals'
-import { Tabs } from './tabs'
 
 @Component({
-  selector: `button[ksd-tabs-tab]`,
-  template: ` <ng-content /> `,
-  host: {
-    role: 'tab',
-    class: 'ds-button',
-    '[id]': 'buttonId()',
-    '[attr.aria-controls]': 'ariaControls()',
-    '[attr.aria-selected]': 'isSelected()',
-    '[attr.tab-index]': 'isFocused() ? 0 : -1',
-    '(click)': 'tabs.changeTab(value())',
-    '(keydown)': 'tabs.onKeyDown($event)',
-  },
+  selector: `ksd-tabs-tab`,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  template: ` <ng-template #tpl><ng-content /></ng-template> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   hostDirectives: [
@@ -42,17 +29,8 @@ import { Tabs } from './tabs'
 })
 export class TabsTab {
   /**
-   * Unique value that will be set in the Tabs components state when the tab is activated
+   * Hack to get the content of the tab from outside so that we can
+   * keep the dom structure needed without additional host elements
    */
-  readonly value = input.required<string>()
-  readonly id = input<string>()
-  readonly elementRef = inject(ElementRef)
-  readonly ariaControls = signal<string | undefined>(undefined)
-  readonly buttonId = computed(() => this.id() ?? 'tab-' + randomId())
-
-  protected tabs = inject(Tabs)
-  protected isFocused = computed(
-    () => this.tabs.focusedValue() === this.value(),
-  )
-  protected isSelected = computed(() => this.tabs.value() === this.value())
+  templateRef = viewChild<TemplateRef<unknown>>('tpl')
 }
