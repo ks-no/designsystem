@@ -467,6 +467,16 @@
         "$type": "color",
         "$value": "{ledsagerbevis.link.visited}"
       }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{ledsagerbevis.focus.outer}"
+      }
     }
   },
   "font-family": {

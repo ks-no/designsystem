@@ -467,6 +467,16 @@
         "$type": "color",
         "$value": "#b49acd"
       }
+    },
+    "focus": {
+      "inner": {
+        "$type": "color",
+        "$value": "#151917"
+      },
+      "outer": {
+        "$type": "color",
+        "$value": "#ececec"
+      }
     }
   }
 }
