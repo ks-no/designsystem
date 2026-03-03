@@ -467,6 +467,16 @@
         "$type": "color",
         "$value": "{minkommune.link.visited}"
       }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{minkommune.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{minkommune.focus.outer}"
+      }
     }
   },
   "font-family": {

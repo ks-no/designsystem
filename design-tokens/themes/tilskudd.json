@@ -467,6 +467,16 @@
         "$type": "color",
         "$value": "{tilskudd.link.visited}"
       }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{tilskudd.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{tilskudd.focus.outer}"
+      }
     }
   },
   "font-family": {

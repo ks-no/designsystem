@@ -14,7 +14,7 @@ import '@digdir/designsystemet-web'
   template: ` <ng-content /> `,
   styles: `
     :host > ::ng-deep ksd-field + ksd-field {
-      margin-block-start: var(--dsc-fieldset-gap);
+      margin-block-start: var(--ds-size-4);
     }
   `,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

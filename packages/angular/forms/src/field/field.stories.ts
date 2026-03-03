@@ -14,7 +14,6 @@ import { FieldError } from './field-error'
 type FieldArgs = CommonArgs & {
   readonly: boolean
   disabled: boolean
-  counter: number
 }
 
 const meta: Meta<Field> = {
@@ -66,7 +65,6 @@ export const Rows: Story = {
 export const Counter: Story = {
   args: {
     ...Preview.args,
-    counter: 5,
   },
 
   render: (args) => ({

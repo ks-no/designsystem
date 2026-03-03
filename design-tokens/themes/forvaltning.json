@@ -467,6 +467,16 @@
         "$type": "color",
         "$value": "{forvaltning.link.visited}"
       }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{forvaltning.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{forvaltning.focus.outer}"
+      }
     }
   },
   "font-family": {

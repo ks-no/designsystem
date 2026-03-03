@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*
-build: v1.7.3
+build: v1.12.1
+design-tokens: v1.12.1
 */
 
 @layer ds.theme.size-mode {
@@ -230,8 +231,8 @@ build: v1.7.3
     --ds-color-danger-base-active: #ffc2d0;
     --ds-color-danger-base-contrast-subtle: #ffadc4;
     --ds-color-danger-base-contrast-default: #ffffff;
-    --ds-color-focus-inner: #fafdff;
-    --ds-color-focus-outer: #10171f;
+    --ds-color-focus-inner: #ffffff;
+    --ds-color-focus-outer: #292c29;
     --ds-link-color-visited: #663299;
 
     color-scheme: light;
@@ -351,8 +352,8 @@ build: v1.7.3
       --ds-color-danger-base-active: #ffc2d0;
       --ds-color-danger-base-contrast-subtle: #ffadc4;
       --ds-color-danger-base-contrast-default: #ffffff;
-      --ds-color-focus-inner: #fafdff;
-      --ds-color-focus-outer: #10171f;
+      --ds-color-focus-inner: #ffffff;
+      --ds-color-focus-outer: #292c29;
       --ds-link-color-visited: #663299;
 
       color-scheme: light;

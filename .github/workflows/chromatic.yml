@@ -32,3 +32,4 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: false
           autoAcceptChanges: ${{ github.ref == 'refs/heads/main' }}
+          onlyChanged: true
