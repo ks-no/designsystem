@@ -28,14 +28,20 @@ import {
   TabsPanel,
 } from '@ks-digital/designsystem-angular'
 
-<ksd-tabs>
-  <ksd-tabs-list>
-    <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
-    <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
-    <ksd-tabs-tab>Tab 3</ksd-tabs-tab>
-  </ksd-tabs-list>
-  <ksd-tabs-panel>content 1</ksd-tabs-panel>
-  <ksd-tabs-panel>content 2</ksd-tabs-panel>
-  <ksd-tabs-panel>content 3</ksd-tabs-panel>
-</ksd-tabs>
+@Component({
+  imports: [Tabs, TabsList, TabsTab, TabsPanel],
+  template: `
+    <ksd-tabs>
+      <ksd-tabs-list>
+        <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
+        <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
+        <ksd-tabs-tab>Tab 3</ksd-tabs-tab>
+      </ksd-tabs-list>
+      <ksd-tabs-panel>Content 1</ksd-tabs-panel>
+      <ksd-tabs-panel>Content 2</ksd-tabs-panel>
+      <ksd-tabs-panel>Content 3</ksd-tabs-panel>
+    </ksd-tabs>
+  `,
+})
+export class App {}
 ```
