@@ -28,8 +28,7 @@ export const Preview: Story = {
       ...args,
     },
     template: `
-
-   <ksd-tabs ${argsToTemplate(args)}>
+      <ksd-tabs ${argsToTemplate(args)}>
         <ksd-tabs-list>
           <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
           <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
