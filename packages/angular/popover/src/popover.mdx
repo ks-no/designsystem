@@ -13,14 +13,9 @@ import * as PopoverStories from './popover.stories.ts'
 ## Bruk
 
 ```tsx
-
-<button ksd-button variant="primary"  popovertarget="my-popover"> Enkel popover </button>
-<ksd-popover popoverId="my-popover"> Her er det noe innhold </ksd-popover>
+<button ksd-button data-variant="primary"  popovertarget="my-popover"> Enkel popover </button>
+<div ksd-popover id="my-popover"> Her er det noe innhold </div>
 ```
-
-### Polyfill
-
-`Popover` bruker [popover (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover). Dette apiet er klassifisert som [Baseline: Newly available (mozilla.org)](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) fra april 2024, da Firefox som siste nettleser la det til. I noen tilfeller kan en oppleve at brukere av ulike grunner er låst til eldre nettleserversjoner, og da kan det være aktuelt å legge til en [Popover-Polyfill (github.com)](https://github.com/oddbird/popover-polyfill) for å sikre at `Popover` fungerer for alle.
 
 ## Kodeeksempler
 

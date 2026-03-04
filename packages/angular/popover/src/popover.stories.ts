@@ -6,29 +6,28 @@ import {
   moduleMetadata,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 
 type PopoverArgs = CommonArgs & {
-  variant: 'default' | 'tinted'
-  placement: 'top' | 'bottom' | 'left' | 'right'
+  'data-variant': 'default' | 'tinted'
+  'data-placement': 'top' | 'bottom' | 'left' | 'right'
 }
 
 const meta: Meta<PopoverArgs> = {
   component: Popover,
   decorators: [
     moduleMetadata({
-      imports: [ControlledPopover, Button],
+      imports: [Button],
     }),
   ],
   title: 'Komponenter/Popover',
   argTypes: {
     ...commonArgTypes,
-    variant: {
+    'data-variant': {
       options: ['default', 'tinted'],
       control: { type: 'radio' },
     },
-    placement: {
+    'data-placement': {
       options: ['top', 'bottom', 'left', 'right'],
       control: { type: 'radio' },
     },
@@ -44,7 +43,7 @@ export const Preview: Story = {
     template: `
     <div style="margin: 0 auto; width:100%; text-align:center;" >
       <button ksd-button variant="primary"  popovertarget="my-popover"> Enkel popover </button>
-      <ksd-popover popoverId="my-popover"  ${argsToTemplate(args)}> Her er det noe innhold </ksd-popover>
+      <p ksd-popover id="my-popover"  ${argsToTemplate(args)}> Her er det noe innhold </p>
     </div>
     `,
   }),

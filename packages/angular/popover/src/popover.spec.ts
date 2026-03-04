@@ -6,9 +6,9 @@ const renderPopover = async () => {
   return await render(
     `
   <button popovertarget="my-popover"> enkel popover</button>
-    <ksd-popover popoverId="my-popover" placement="top" >
+    <div ksd-popover id="my-popover" data-placement="top" >
       her er det noe innhold
-    </ksd-popover>
+    </div>
   `,
     {
       imports: [Popover],
@@ -20,30 +20,6 @@ const contentText = 'her er det noe innhold'
 
 describe('Popover', () => {
   const user = userEvent.setup()
-
-  // Mock getComputedStyle for pseudo-elements (jsdom doesn't fully support this)
-  const originalGetComputedStyle = window.getComputedStyle
-  beforeAll(() => {
-    window.getComputedStyle = function (
-      element: Element,
-      pseudoElement?: string | null,
-    ): CSSStyleDeclaration {
-      if (pseudoElement) {
-        // Mock arrow style
-        const mockStyle = {
-          height: '8px',
-          width: '8px',
-          getPropertyValue: () => '',
-        } as Partial<CSSStyleDeclaration> as CSSStyleDeclaration
-        return mockStyle
-      }
-      return originalGetComputedStyle.call(window, element, pseudoElement)
-    }
-  })
-
-  afterAll(() => {
-    window.getComputedStyle = originalGetComputedStyle
-  })
 
   it('should render popover on trigger-click when closed', async () => {
     await renderPopover()
@@ -160,7 +136,7 @@ describe('Popover', () => {
     const popoverButton = await screen.findByRole('button', {
       name: /enkel popover/i,
     })
-    const popover = screen.getByTestId('popover')
+    const popover = screen.getByText(contentText).closest('[ksd-popover]')
 
     expect(popoverButton.getAttribute('popovertarget')).toBe(popover.id)
   })

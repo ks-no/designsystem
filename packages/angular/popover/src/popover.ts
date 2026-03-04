@@ -1,12 +1,13 @@
-import { booleanAttribute, Component, input } from '@angular/core'
+import { booleanAttribute, Directive, input } from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 
-@Component({
-  selector: 'ksd-popover',
+@Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: '[ksd-popover]',
   hostDirectives: [
     {
       directive: HostSize,
@@ -17,22 +18,15 @@ import {
       inputs: ['data-color'],
     },
   ],
-  template: `
-    <div
-      popover="manual"
-      class="ds-popover"
-      data-testid="popover"
-      [id]="popoverId()"
-      [attr.data-variant]="variant()"
-      [attr.data-placement]="placement()"
-      [attr.data-autoplacement]="autoPlacement()"
-    >
-      <ng-content />
-    </div>
-  `,
+  host: {
+    class: 'ds-popover',
+    '[attr.data-variant]': 'variant()',
+    '[attr.data-placement]': 'placement()',
+    '[attr.data-autoplacement]': 'autoPlacement()',
+    '[attr.popover]': 'popover()',
+  },
 })
 export class Popover {
-  readonly popoverId = input.required<string>()
   readonly autoPlacement = input(true, { transform: booleanAttribute })
   readonly variant = input<'tinted' | 'default'>('default', {
     alias: 'data-variant',
@@ -53,4 +47,6 @@ export class Popover {
     | 'top-end'
     | 'top-start'
   >('top', { alias: 'data-placement' })
+
+  readonly popover = input<'auto' | 'manual'>('auto', { alias: 'popover' })
 }
