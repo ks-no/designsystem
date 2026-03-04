@@ -6,7 +6,6 @@ import {
   moduleMetadata,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 
 type PopoverArgs = CommonArgs & {
@@ -18,7 +17,7 @@ const meta: Meta<PopoverArgs> = {
   component: Popover,
   decorators: [
     moduleMetadata({
-      imports: [ControlledPopover, Button],
+      imports: [Button],
     }),
   ],
   title: 'Komponenter/Popover',
