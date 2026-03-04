@@ -6,9 +6,9 @@ const renderPopover = async () => {
   return await render(
     `
   <button popovertarget="my-popover"> enkel popover</button>
-    <ksd-popover popoverId="my-popover" placement="top" >
+    <p ksd-popover id="my-popover" placement="top" >
       her er det noe innhold
-    </ksd-popover>
+    </p>
   `,
     {
       imports: [Popover],
@@ -160,7 +160,7 @@ describe('Popover', () => {
     const popoverButton = await screen.findByRole('button', {
       name: /enkel popover/i,
     })
-    const popover = screen.getByTestId('popover')
+    const popover = screen.getByText(contentText).closest('[ksd-popover]')
 
     expect(popoverButton.getAttribute('popovertarget')).toBe(popover.id)
   })
