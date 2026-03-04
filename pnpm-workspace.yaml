@@ -62,6 +62,8 @@ catalogs:
     '@storybook/angular': 10.1.9
     '@storybook/html': 10.1.9
     '@storybook/html-vite': 10.1.9
+    '@storybook/react': 10.1.9
+    '@storybook/react-vite': 10.1.9
     '@storybook/web-components': 10.1.9
     '@storybook/web-components-vite': 10.1.9
     storybook: 10.1.9
@@ -110,6 +112,7 @@ trustPolicyExclude:
   - detect-port@1.6.1
   - undici-types@6.21.0
   - semver@6.3.1
+  - express-rate-limit@8.3.0
 
 trustPolicyIgnoreAfter: 10080
 

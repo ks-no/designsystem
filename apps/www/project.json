@@ -60,8 +60,9 @@
       "options": {
         "commands": [
           "nx run @ks-digital/designsystem-angular:storybook",
+          "nx run @ks-digital/designsystem-react:storybook",
           "nx run @ks-digital/designsystem-web:storybook",
-          "until curl -s http://localhost:4400 > /dev/null && curl -s http://localhost:4401 > /dev/null; do sleep 1; done && nx run www:storybook"
+          "until curl -s http://localhost:4400 > /dev/null && curl -s http://localhost:4401 > /dev/null && curl -s http://localhost:4403 > /dev/null; do sleep 1; done && nx run www:storybook"
         ],
         "parallel": true
       }

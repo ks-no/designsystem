@@ -23,12 +23,22 @@ execSync(
   },
 )
 
+console.log('🔨 Building react storybook')
+execSync(
+  'nx run @ks-digital/designsystem-react:build-storybook --skip-nx-cache',
+  {
+    stdio: 'inherit',
+    env: { ...process.env, STORYBOOK_BASE_URL: '/react/' },
+  },
+)
+
 console.log('🔨 Building www')
 execSync('nx run www:build-storybook --skip-nx-cache', {
   stdio: 'inherit',
   env: {
     ...process.env,
     STORYBOOK_WEB_URL: '/web',
+    STORYBOOK_REACT_URL: '/react',
     STORYBOOK_ANGULAR_URL: '/angular',
   },
 })
@@ -40,6 +50,9 @@ cpSync(join(root, 'designsystem-web'), join(composedDist, 'web'), {
   recursive: true,
 })
 cpSync(join(root, 'designsystem-angular'), join(composedDist, 'angular'), {
+  recursive: true,
+})
+cpSync(join(root, 'designsystem-react'), join(composedDist, 'react'), {
   recursive: true,
 })
 
