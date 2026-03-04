@@ -16,7 +16,7 @@ type SpinnerArgs = {
 
 const meta: Meta<SpinnerArgs> = {
   component: Spinner,
-  title: 'Komponenter/Loaders/Spinner',
+  title: 'Spinner',
   decorators: [
     moduleMetadata({
       imports: [Spinner],

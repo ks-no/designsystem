@@ -20,7 +20,7 @@ type RadioArgs = CommonArgs & {
 
 const meta: Meta<RadioArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Radio',
+  title: 'Forms/Radio',
   argTypes: {
     ...commonArgTypes,
   },

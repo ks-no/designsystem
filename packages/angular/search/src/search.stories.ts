@@ -15,7 +15,7 @@ type SearchArgs = CommonArgs & {
 
 const meta: Meta<SearchArgs> = {
   component: Search,
-  title: 'Komponenter/Search',
+  title: 'Search',
   argTypes: {
     ...commonArgTypes,
     variant: {

@@ -12,7 +12,7 @@ type BreadcrumbsArgs = CommonArgs
 
 const meta: Meta<BreadcrumbsArgs> = {
   component: Breadcrumbs,
-  title: 'Komponenter/Breadcrumbs',
+  title: 'Breadcrumbs',
   argTypes: {
     ...commonArgTypes,
   },
