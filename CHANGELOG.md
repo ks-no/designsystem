@@ -1,3 +1,21 @@
+## 0.0.1-alpha.44
+
+### 🚀 Features
+
+- update to latest `@digdir`-packages ([#237](https://github.com/ks-no/designsystem/pull/237))
+
+### 🩹 Fixes
+
+- ⚠️ **angular:** popover should default to auto ([#241](https://github.com/ks-no/designsystem/pull/241))
+
+### ⚠️ Breaking Changes
+
+- **angular:** popover should default to auto ([#241](https://github.com/ks-no/designsystem/pull/241))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.43
 
 ### 🚀 Features
