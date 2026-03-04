@@ -10,8 +10,8 @@ import { ControlledPopover } from './controlled-popover'
 import { Popover } from './popover'
 
 type PopoverArgs = CommonArgs & {
-  variant: 'default' | 'tinted'
-  placement: 'top' | 'bottom' | 'left' | 'right'
+  'data-variant': 'default' | 'tinted'
+  'data-placement': 'top' | 'bottom' | 'left' | 'right'
 }
 
 const meta: Meta<PopoverArgs> = {
@@ -24,11 +24,11 @@ const meta: Meta<PopoverArgs> = {
   title: 'Komponenter/Popover',
   argTypes: {
     ...commonArgTypes,
-    variant: {
+    'data-variant': {
       options: ['default', 'tinted'],
       control: { type: 'radio' },
     },
-    placement: {
+    'data-placement': {
       options: ['top', 'bottom', 'left', 'right'],
       control: { type: 'radio' },
     },
