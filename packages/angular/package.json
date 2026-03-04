@@ -38,6 +38,7 @@
     "@testing-library/jest-dom": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
     "ng-packagr": "catalog:angular",
+    "vitest-axe": "catalog:vitest-a11y",
     "zone.js": "catalog:angular",
     "vitest": "4.0.9"
   }
