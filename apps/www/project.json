@@ -22,6 +22,7 @@
       "executor": "@nx/storybook:build",
       "dependsOn": [
         "@ks-digital/designsystem-angular:build-storybook",
+        "@ks-digital/designsystem-react:build-storybook",
         "@ks-digital/designsystem-web:build-storybook"
       ],
       "outputs": ["{options.outputDir}"],

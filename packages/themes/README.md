@@ -75,4 +75,4 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 3. Build themes `pnpm run themes:build`
 4. Add theme `exports`-field in `packages/themes/package.json`
 5. Add theme to Storybook `tools/storybook/themes.ts`
-6. Add theme to docs `apps/www/src/Tema.mdx`
+6. Add theme to docs `apps/www/src/Temaer.mdx`

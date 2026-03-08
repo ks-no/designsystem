@@ -11,7 +11,8 @@ export function OfficialDocsLink({ href, label }: Props) {
       rel="noopener noreferrer"
       className="official-docs"
     >
-      📖 {label ?? 'Besøk Digdir sin dokumentasjon'}
+      <span aria-hidden="true">📖</span>{' '}
+      {label ?? 'Besøk Digdir sin dokumentasjon'}
     </a>
   )
 }
