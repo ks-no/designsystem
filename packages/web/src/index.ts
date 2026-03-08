@@ -1,1 +1,1 @@
-export * from './copy-button'
+export default void 0
