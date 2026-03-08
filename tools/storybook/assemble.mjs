@@ -6,34 +6,25 @@ const root = join(process.cwd(), 'dist/storybook/@ks-digital')
 const composedDist = join(root, 'assembled')
 
 console.log('🔨 Building web storybook')
-execSync(
-  'nx run @ks-digital/designsystem-web:build-storybook --skip-nx-cache',
-  {
-    stdio: 'inherit',
-    env: { ...process.env, STORYBOOK_BASE_URL: '/web/' },
-  },
-)
+execSync('nx run @ks-digital/designsystem-web:build-storybook', {
+  stdio: 'inherit',
+  env: { ...process.env, STORYBOOK_BASE_URL: '/web/' },
+})
 
 console.log('🔨 Building angular storybook')
-execSync(
-  'nx run @ks-digital/designsystem-angular:build-storybook --skip-nx-cache',
-  {
-    stdio: 'inherit',
-    env: { ...process.env, STORYBOOK_BASE_URL: '/angular/' },
-  },
-)
+execSync('nx run @ks-digital/designsystem-angular:build-storybook', {
+  stdio: 'inherit',
+  env: { ...process.env, STORYBOOK_BASE_URL: '/angular/' },
+})
 
 console.log('🔨 Building react storybook')
-execSync(
-  'nx run @ks-digital/designsystem-react:build-storybook --skip-nx-cache',
-  {
-    stdio: 'inherit',
-    env: { ...process.env, STORYBOOK_BASE_URL: '/react/' },
-  },
-)
+execSync('nx run @ks-digital/designsystem-react:build-storybook', {
+  stdio: 'inherit',
+  env: { ...process.env, STORYBOOK_BASE_URL: '/react/' },
+})
 
 console.log('🔨 Building www')
-execSync('nx run www:build-storybook --skip-nx-cache', {
+execSync('nx run www:build-storybook', {
   stdio: 'inherit',
   env: {
     ...process.env,
