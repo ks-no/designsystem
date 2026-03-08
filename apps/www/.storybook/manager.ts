@@ -39,9 +39,15 @@ addons.register('ks-globals-forwarder', () => {
   addons.getChannel().on('globalsUpdated', (payload) => {
     document.querySelectorAll<HTMLIFrameElement>('iframe').forEach((iframe) => {
       try {
+        const iframeUrl = iframe.src
+          ? new URL(iframe.src, window.location.href)
+          : null
+        const targetOrigin = iframeUrl
+          ? iframeUrl.origin
+          : window.location.origin
         iframe.contentWindow?.postMessage(
           { key: 'ksd-globals-updated', globals: payload.globals },
-          '*',
+          targetOrigin,
         )
       } catch {
         // Silence
