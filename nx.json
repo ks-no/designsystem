@@ -96,6 +96,7 @@
     },
     "build-storybook": {
       "dependsOn": ["^build"],
+      "inputs": ["default", "^default", "{workspaceRoot}/tools/storybook/**/*"],
       "outputs": ["{projectRoot}/dist"],
       "cache": true
     },
