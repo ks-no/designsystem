@@ -15,7 +15,7 @@ type CardArgs = CommonArgs & {
 
 const meta: Meta<CardArgs> = {
   component: Card,
-  title: 'Komponenter/Card',
+  title: 'Card',
   argTypes: {
     ...commonArgTypes,
     variant: {

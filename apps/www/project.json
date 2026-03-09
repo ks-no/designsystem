@@ -1,0 +1,72 @@
+{
+  "name": "www",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "root": "apps/www",
+  "sourceRoot": "apps/www/.storybook",
+  "tags": [],
+  "targets": {
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4402,
+        "configDir": "apps/www/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "dependsOn": [
+        "@ks-digital/designsystem-angular:build-storybook",
+        "@ks-digital/designsystem-react:build-storybook",
+        "@ks-digital/designsystem-web:build-storybook"
+      ],
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/@ks-digital/www",
+        "configDir": "apps/www/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "assemble-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/storybook/assemble.mjs"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["assemble-storybook"],
+      "options": {
+        "buildTarget": "www:assemble-storybook",
+        "staticFilePath": "dist/storybook/@ks-digital/assembled",
+        "spa": false
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "www:build-storybook:ci"
+        }
+      }
+    },
+    "storybook-all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run @ks-digital/designsystem-angular:storybook",
+          "nx run @ks-digital/designsystem-react:storybook",
+          "nx run @ks-digital/designsystem-web:storybook",
+          "until curl -s http://localhost:4400 > /dev/null && curl -s http://localhost:4401 > /dev/null && curl -s http://localhost:4403 > /dev/null; do sleep 1; done && nx run www:storybook"
+        ],
+        "parallel": true
+      }
+    }
+  }
+}

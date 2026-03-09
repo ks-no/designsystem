@@ -19,7 +19,7 @@ type SwitchArgs = CommonArgs & {
 
 const meta: Meta<SwitchArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Switch',
+  title: 'Forms/Switch',
   argTypes: {
     ...commonArgTypes,
     position: {

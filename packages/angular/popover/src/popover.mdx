@@ -1,9 +1,12 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
 import * as PopoverStories from './popover.stories.ts'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 <Meta of={PopoverStories} />
 
 # Popover
+
+<OfficialDocsLink href="https://designsystemet.no/no/components/docs/popover/overview" />
 
 `Popover` vises over andre elementer i grensesnittet og er koblet til et spesifikt element. Den brukes til å vise tilleggsinformasjon, interaktive elementer eller korte forklaringer uten å navigere bort fra siden. `Popover` kan brukes som en utvidet løsning når [`Tooltip`](/docs/komponenter-tooltip--docs) ikke strekker til.
 
@@ -12,42 +15,17 @@ import * as PopoverStories from './popover.stories.ts'
 
 ## Bruk
 
-```tsx
-<button ksd-button data-variant="primary"  popovertarget="my-popover"> Enkel popover </button>
-<div ksd-popover id="my-popover"> Her er det noe innhold </div>
+```ts
+import { Component } from '@angular/core'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import { Popover } from '@ks-digital/designsystem-angular/popover'
+
+@Component({
+  imports: [Button, Popover],
+  template: `
+    <button ksd-button popovertarget="my-popover">Enkel popover</button>
+    <div ksd-popover id="my-popover">Her er det noe innhold</div>
+  `,
+})
+export class App {}
 ```
-
-## Kodeeksempler
-
-### Farger
-
-`Popover` kommer i alle farger, du kan endre den med `data-color`.
-Du kan også sette `variant` direkte for å endre bakgrunnsfarge.
-
-## Retningslinjer
-
-`Popover` brukes for å vise mer detaljert eller interaktiv tilleggsinformasjon uten å ta brukeren bort fra konteksten. Den åpnes ved et bevisst brukerklikk og kan inneholde både tekst, lenker og enkle skjemaelementer. Innholdet bør være kort og relevant, og ikke kritisk for å fullføre oppgaven.
-
-**Passer til:**
-
-- Utfyllende forklaringer som krever mer plass enn en kort [`Tooltip`](/docs/komponenter-tooltip--docs), f.eks. definisjoner eller utdypende instruksjoner.
-- Kontekstspesifikk hjelp som brukeren kan velge å åpne/lukke uten å forlate siden.
-- Visning av tilleggsinformasjon som ikke er kritisk for å fullføre oppgaven, men som kan være nyttig for enkelte brukere.
-
-**Passer ikke til:**
-
-- Å beskrive et symbol eller tastatursnartvei, bruk heller [`Tooltip`](/docs/komponenter-tooltip--docs).
-- Navigasjon eller valg av alternativer (bruk [`Dropdown`](/docs/komponenter-dropdown--docs) i stedet)
-- Å vise innhold ved `hover`.
-
-### Plassering
-
-`Popover` plasseres etter ønske, men holder seg automatisk innenfor det synlige området i nettleseren. Denne oppførselen kan deaktiveres med `autoPlacement`.
-
-## Tekst
-
-Unngå lange tekster og kompliserte forklaringer. I noen tilfeller er det kanskje bedre å lenke til en annen side med utdypende informasjon om temaet.
-
-## Tilgjengelighet
-
-Det er innebygd tilgjengelighet i [Popover APIet (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i henhold til åpne/lukket tilstand og tastatur navigasjon.

@@ -19,7 +19,7 @@ type InputArgs = CommonArgs & {
 
 const meta: Meta<InputArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Checkbox',
+  title: 'Forms/Checkbox',
   argTypes: {
     ...commonArgTypes,
   },

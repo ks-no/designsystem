@@ -38,6 +38,7 @@
     "@schematics/angular": "catalog:angular",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/angular": "catalog:storybook",
+    "@storybook/html-vite": "catalog:storybook",
     "@swc-node/register": "~1.9.2",
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.29",

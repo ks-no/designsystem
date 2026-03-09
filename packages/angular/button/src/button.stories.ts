@@ -18,7 +18,7 @@ type ButtonArgs = CommonArgs & {
 
 const meta: Meta<ButtonArgs> = {
   component: Button,
-  title: 'Komponenter/Button',
+  title: 'Button',
   decorators: [
     moduleMetadata({
       imports: [Button, NgIcon],

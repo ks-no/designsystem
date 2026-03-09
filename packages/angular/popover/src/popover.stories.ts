@@ -20,7 +20,7 @@ const meta: Meta<PopoverArgs> = {
       imports: [Button],
     }),
   ],
-  title: 'Komponenter/Popover',
+  title: 'Popover',
   argTypes: {
     ...commonArgTypes,
     'data-variant': {

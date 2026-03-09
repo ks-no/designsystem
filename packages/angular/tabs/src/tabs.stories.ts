@@ -7,7 +7,7 @@ type TabsArgs = CommonArgs
 
 const meta: Meta<TabsArgs> = {
   component: Tabs,
-  title: 'Komponenter/Tabs',
+  title: 'Tabs',
   argTypes: {
     ...commonArgTypes,
   },

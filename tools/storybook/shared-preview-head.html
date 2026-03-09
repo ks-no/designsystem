@@ -1,0 +1,73 @@
+<link
+  href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+
+<link rel="stylesheet" href="css/base.css" />
+
+<style>
+  *:not(pre *):not(code *) {
+    font-feature-settings: 'cv05' 1;
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  .sbdocs-content.sbdocs-content {
+    max-width: 50rem;
+  }
+
+  .sbdocs-a {
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 currentColor;
+    font-weight: 500;
+    color: #005db1 !important;
+  }
+
+  .sbdocs-a:hover {
+    box-shadow: inset 0 -2px 0 currentColor;
+  }
+
+  /* Increase font-size - scoped to docs pages, excluding story canvases */
+  .sbdocs-wrapper h1:not(.docs-story *) {
+    font-size: 40px !important;
+    padding-bottom: 0.2em !important;
+  }
+
+  .sbdocs-wrapper h2:not(.docs-story *) {
+    padding-top: 2rem !important;
+  }
+
+  .sbdocs-wrapper
+    :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p, .docs-story *)),
+  .sbdocs-wrapper
+    :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .docs-story *)) {
+    font-size: max(0.8em, 16px) !important;
+    line-height: 2rem !important;
+  }
+
+  .sbdocs-wrapper {
+    font-size: 18px;
+  }
+
+  .official-docs {
+    margin: 1.5rem 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    text-decoration: none;
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 currentColor;
+    color: #005db1;
+  }
+
+  .official-docs span {
+    padding-right: 6px;
+  }
+
+  .official-docs:hover {
+    box-shadow: inset 0 -2px 0 currentColor;
+  }
+</style>
+
+<script>
+  document.documentElement.setAttribute('lang', 'no')
+</script>

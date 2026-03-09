@@ -16,7 +16,7 @@ type TextareaArgs = Pick<CommonArgs, 'data-size'> & {
 
 const meta: Meta<TextareaArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Textarea',
+  title: 'Forms/Textarea',
   argTypes: {
     'data-size': commonArgTypes['data-size'],
   },

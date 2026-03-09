@@ -29,6 +29,10 @@
     "@navikt/aksel-icons": "catalog:designsystemet"
   },
   "devDependencies": {
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "@storybook/addon-docs": "catalog:storybook",
+    "@storybook/react": "catalog:storybook",
+    "@storybook/react-vite": "catalog:storybook",
     "@testing-library/react": "catalog:testing-library",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",

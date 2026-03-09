@@ -11,7 +11,7 @@ type LinkArgs = CommonArgs
 
 const meta: Meta<LinkArgs> = {
   component: Link,
-  title: 'Komponenter/Link',
+  title: 'Link',
   argTypes: {
     ...commonArgTypes,
   },

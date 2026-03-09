@@ -16,7 +16,7 @@ type InputArgs = CommonArgs & {
 
 const meta: Meta<InputArgs> = {
   component: Input,
-  title: 'Komponenter/Forms/Input',
+  title: 'Forms/Input',
   argTypes: {
     ...commonArgTypes,
     readonly: {

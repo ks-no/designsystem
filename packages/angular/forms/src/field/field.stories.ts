@@ -18,7 +18,7 @@ type FieldArgs = CommonArgs & {
 
 const meta: Meta<Field> = {
   component: Field,
-  title: 'Komponenter/Forms/Field',
+  title: 'Forms/Field',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input, FieldError, FieldDescription],

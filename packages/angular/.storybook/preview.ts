@@ -1,12 +1,33 @@
 import { applicationConfig, type Preview } from '@analogjs/storybook-angular'
 import { provideZonelessChangeDetection } from '@angular/core'
+import { themes } from '@internal/storybook/themes'
 import { addons } from 'storybook/preview-api'
 import customTheme from './customTheme'
-import { themes } from './themes'
 
 addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setTheme(globals.theme)
   setColorScheme(globals.colorScheme)
+})
+
+const allowedMessageOrigins = new Set<string>([window.location.origin])
+
+if (document.referrer) {
+  try {
+    allowedMessageOrigins.add(new URL(document.referrer).origin)
+  } catch {
+    // Ignore invalid referrer URL
+  }
+}
+
+// Composition mode: parent sends globals via postMessage
+window.addEventListener('message', (event) => {
+  if (!allowedMessageOrigins.has(event.origin)) return
+  if (event.data?.key !== 'ksd-globals-updated') return
+  const globals = event.data.globals
+  if (globals) {
+    setTheme(globals.theme)
+    setColorScheme(globals.colorScheme)
+  }
 })
 
 function setTheme(href: string): void {
@@ -24,8 +45,8 @@ function setTheme(href: string): void {
 }
 
 function setColorScheme(colorScheme: 'light' | 'dark' | 'auto'): void {
-  const stories = document.querySelectorAll('.docs-story')
-  stories.forEach((el) => {
+  document.documentElement.setAttribute('data-color-scheme', colorScheme)
+  document.querySelectorAll('.docs-story').forEach((el) => {
     el.setAttribute('data-color-scheme', colorScheme)
   })
 }
@@ -44,7 +65,7 @@ type ThemeGlobalType = {
 export const globalTypes: Record<string, ThemeGlobalType> = {
   theme: {
     name: 'Theme',
-    description: 'Global theme for components',
+    description: 'Velg tema for stories',
     defaultValue: themes[0].href,
     toolbar: {
       icon: 'paintbrush',
@@ -54,7 +75,7 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
   },
   colorScheme: {
     name: 'Color Scheme',
-    description: 'Set color scheme for components',
+    description: 'Velg lys/dark-mode for stories',
     defaultValue: 'light',
     toolbar: {
       icon: 'moon',
@@ -75,11 +96,17 @@ const preview: Preview = {
     }),
     (story, context) => {
       const storyFn = story()
+      setTheme(context.globals['theme'])
       setColorScheme(context.globals['colorScheme'] || 'light')
       return storyFn
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: ['Introduksjon', '*'],
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

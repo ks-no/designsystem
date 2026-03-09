@@ -15,7 +15,7 @@ type DetailsArgs = CommonArgs
 
 const meta: Meta<DetailsArgs> = {
   component: Details,
-  title: 'Komponenter/Details',
+  title: 'Details',
   parameters: {
     layout: 'padded',
   },

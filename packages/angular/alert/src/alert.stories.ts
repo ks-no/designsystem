@@ -29,7 +29,7 @@ type AlertArgs = {
 
 const meta: Meta<AlertArgs> = {
   component: Alert,
-  title: 'Komponenter/Alert',
+  title: 'Alert',
   argTypes: {
     'data-size': {
       options: ['sm', 'md', 'lg'],

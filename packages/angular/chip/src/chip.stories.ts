@@ -12,7 +12,7 @@ type ChipArgs = CommonArgs
 
 const meta: Meta<ChipArgs> = {
   component: Chip,
-  title: 'Komponenter/Chip',
+  title: 'Chip',
   argTypes: {
     ...commonArgTypes,
   },
