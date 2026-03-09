@@ -16,13 +16,14 @@
   }
 
   .sbdocs-a {
-    border-bottom: 1px solid;
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 currentColor;
     font-weight: 500;
     color: #005db1 !important;
   }
 
   .sbdocs-a:hover {
-    border-bottom: 2px solid;
+    box-shadow: inset 0 -2px 0 currentColor;
   }
 
   /* Increase font-size - scoped to docs pages, excluding story canvases */
@@ -53,12 +54,17 @@
     font-size: 1.1rem;
     display: inline-flex;
     text-decoration: none;
-    border-bottom: 1px solid;
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 currentColor;
     color: #005db1;
   }
 
+  .official-docs span {
+    padding-right: 6px;
+  }
+
   .official-docs:hover {
-    border-bottom: 2px solid;
+    box-shadow: inset 0 -2px 0 currentColor;
   }
 </style>
 
