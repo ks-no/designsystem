@@ -1,5 +1,10 @@
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular'
+import {
+  componentWrapperDecorator,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Suggestion, SuggestionList, SuggestionListOption } from './suggestion'
 
@@ -19,6 +24,9 @@ const meta: Meta<SuggestionArgs> = {
         Label,
       ],
     }),
+    componentWrapperDecorator(
+      (story) => `<div style="max-width:500px;">${story}</div>`,
+    ),
   ],
   argTypes: {
     ...commonArgTypes,
@@ -39,7 +47,7 @@ export const Preview: Story = {
     template: `
     <ksd-field>
         <ksd-label> Velg organisasjon</ksd-label>
-          <ksd-suggestion (selectedChange)="onSelectedChange($event)">
+          <ksd-suggestion multiple (selectedChange)="onSelectedChange($event)">
           <input
             type="search"
             ksd-input
