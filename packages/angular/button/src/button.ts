@@ -31,6 +31,12 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     :host ::ng-deep > * {
       display: inline-flex;
     }
+
+    :host {
+      ng-icon {
+        font-size: var(--ng-icon-size, 1.3em);
+      }
+    }
   `,
 
   template: `

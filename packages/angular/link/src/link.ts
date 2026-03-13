@@ -29,6 +29,7 @@ import {
       ng-icon {
         display: inline-flex;
         vertical-align: middle;
+        font-size: var(--ng-icon-size, 1.3em);
       }
       svg {
         width: 1em;
