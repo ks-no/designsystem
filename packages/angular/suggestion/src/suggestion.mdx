@@ -1,0 +1,64 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import * as SuggestionStories from './suggestion.stories.ts'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+
+<Meta of={SuggestionStories} />
+
+# Suggestion
+
+<OfficialDocsLink href="https://designsystemet.no/no/components/docs/suggestion/overview" />
+
+`Suggestion` er en wrapper for `ds-suggestion` web-componenten fra Designsystemet for å gjøre den litt enklere å bruke i Angular-prosjekter.
+
+<Primary />
+<Controls />
+
+## Bruk
+
+- Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`).
+- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg.
+
+```ts
+import { Component, signal } from '@angular/core'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
+import {
+  Suggestion,
+  type SuggestionItem,
+  SuggestionList,
+  SuggestionListOption,
+} from '@ks-digital/designsystem-angular/suggestion'
+
+@Component({
+  imports: [
+    Field,
+    Label,
+    Input,
+    Suggestion,
+    SuggestionList,
+    SuggestionListOption,
+  ],
+  template: `
+    <ksd-field>
+      <ksd-label>Velg destinasjon</ksd-label>
+      <ksd-suggestion
+        [selected]="selected()"
+        (selectedChange)="selected.set($event)"
+      >
+        <input type="text" ksd-input placeholder="Skriv for å søke" />
+        <del aria-label="Tøm" hidden=""></del>
+        <ksd-suggestion-list>
+          <ksd-suggestion-list-option value="Sogndal"
+            >Sogndal</ksd-suggestion-list-option
+          >
+          <ksd-suggestion-list-option value="Oslo"
+            >Oslo</ksd-suggestion-list-option
+          >
+        </ksd-suggestion-list>
+      </ksd-suggestion>
+    </ksd-field>
+  `,
+})
+export class App {
+  selected = signal<SuggestionItem | undefined>(undefined)
+}
+```
