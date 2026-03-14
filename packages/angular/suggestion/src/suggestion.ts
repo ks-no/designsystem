@@ -95,6 +95,7 @@ export class Suggestion {
 
 @Component({
   selector: 'ksd-suggestion-list-option',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [],
   template: ` <ng-template #tpl><ng-content /></ng-template> `,
@@ -111,6 +112,7 @@ export class SuggestionListOption {
 
 @Component({
   selector: 'ksd-suggestion-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [NgTemplateOutlet],
   host: {
