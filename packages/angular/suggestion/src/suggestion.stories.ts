@@ -3,6 +3,7 @@ import { Button } from '@ks-digital/designsystem-angular/button'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
 import {
+  argsToTemplate,
   componentWrapperDecorator,
   moduleMetadata,
   type Meta,
@@ -86,7 +87,7 @@ export const Preview: Story = {
         },
       },
       template: `
-      <ksd-field>
+      <ksd-field ${argsToTemplate(args)}>
         <ksd-label>Velg en destinasjon</ksd-label>
         <ksd-suggestion
           [multiple]="true"
@@ -129,7 +130,7 @@ export const ControlledSingle: Story = {
           }),
       },
       template: `
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Velg destinasjon</ksd-label>
           <ksd-suggestion
             [selected]="selected()"
@@ -176,7 +177,7 @@ export const ControlledMultiple: Story = {
           ]),
       },
       template: `
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Velg destinasjoner</ksd-label>
           <ksd-suggestion
             [multiple]="true"
@@ -224,7 +225,7 @@ export const ControlledIndependentLabelValue: Story = {
         setNina: () => selected.set(DATA_PEOPLE[2]),
       },
       template: `
-        <ksd-field>
+        <ksd-field ${argsToTemplate(args)}>
           <ksd-label>Velg person</ksd-label>
           <ksd-suggestion
             [selected]="selected()"
@@ -263,7 +264,7 @@ export const DefaultValue: Story = {
       },
     },
     template: `
-      <ksd-field>
+      <ksd-field ${argsToTemplate(args)}>
         <ksd-label>Velg en destinasjon</ksd-label>
         <ksd-suggestion [selected]="selected">
           <input type="text" ksd-input placeholder="Velg destinasjon" />
@@ -289,7 +290,7 @@ export const Multiple: Story = {
       places: DATA_PLACES,
     },
     template: `
-      <ksd-field>
+      <ksd-field ${argsToTemplate(args)}>
         <ksd-label>Velg en destinasjon</ksd-label>
         <ksd-suggestion [multiple]="true">
           <input type="text" ksd-input placeholder="Velg destinasjoner" />
@@ -316,7 +317,7 @@ export const Creatable: Story = {
       places: DATA_PLACES,
     },
     template: `
-      <ksd-field>
+      <ksd-field ${argsToTemplate(args)}>
         <ksd-label>Velg eller legg til en destinasjon</ksd-label>
         <ksd-suggestion [multiple]="true" [creatable]="true">
           <input type="text" ksd-input placeholder="Velg eller legg til destinasjon" />
