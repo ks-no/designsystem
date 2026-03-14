@@ -1,3 +1,4 @@
+import { signal } from '@angular/core'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import {
   componentWrapperDecorator,
@@ -6,7 +7,12 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { Suggestion, SuggestionList, SuggestionListOption } from './suggestion'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListOption,
+  type SuggestionItem,
+} from './suggestion'
 
 type SuggestionArgs = CommonArgs & {}
 
@@ -37,17 +43,26 @@ type Story = StoryObj<SuggestionArgs>
 
 export const Preview: Story = {
   args: {},
-  render: (args) => ({
-    props: {
-      ...args,
-      onSelectedChange: (event: unknown) => {
-        console.log('selectedchange', event)
+  render: (args) => {
+    const selectedOrg = signal<SuggestionItem[]>([])
+
+    return {
+      props: {
+        ...args,
+        selectedOrg,
+        onSelectedChange: (value: SuggestionItem[]) => {
+          selectedOrg.set(value)
+          console.log('selectedchange', value)
+        },
       },
-    },
-    template: `
+      template: `
     <ksd-field>
         <ksd-label> Velg organisasjon</ksd-label>
-          <ksd-suggestion multiple (selectedChange)="onSelectedChange($event)">
+          <ksd-suggestion
+            multiple
+            [selected]="selectedOrg()"
+            (selectedChange)="onSelectedChange($event)"
+          >
           <input
             type="search"
             ksd-input
@@ -61,5 +76,6 @@ export const Preview: Story = {
           </ksd-suggestion>
       </ksd-field>
     `,
-  }),
+    }
+  },
 }

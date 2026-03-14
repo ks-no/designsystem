@@ -1,13 +1,13 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
   booleanAttribute,
+  ChangeDetectionStrategy,
   Component,
   computed,
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
   input,
   model,
-  output,
   TemplateRef,
   viewChild,
 } from '@angular/core'
@@ -18,22 +18,36 @@ import {
 
 export type SuggestionItem = { label: string; value: string }
 
-type SuggestionSelected =
-  | string
-  | SuggestionItem
-  | Array<string | SuggestionItem>
+type SuggestionModelValue = SuggestionItem | SuggestionItem[] | null | undefined
 
-const sanitizeItems = (values: SuggestionSelected = []): SuggestionItem[] =>
-  typeof values === 'string'
-    ? [{ label: values, value: values }]
-    : !Array.isArray(values)
-      ? [values]
-      : values.map((value) =>
-          typeof value === 'string' ? { label: value, value } : value,
-        )
+const sanitizeItems = (values: SuggestionModelValue): SuggestionItem[] =>
+  !values ? [] : Array.isArray(values) ? values : [values]
+
+const toItem = (data: HTMLDataElement): SuggestionItem => ({
+  label: data.textContent?.trim() || data.value,
+  value: data.value,
+})
+
+const nextSelected = (
+  data: HTMLDataElement,
+  previous: SuggestionModelValue,
+  multiple: boolean,
+): SuggestionItem | SuggestionItem[] | null => {
+  const item = toItem(data)
+
+  if (!multiple) {
+    return data.isConnected ? null : item
+  }
+
+  const prevItems = sanitizeItems(previous)
+  return data.isConnected
+    ? prevItems.filter(({ value }) => value !== item.value)
+    : [...prevItems, item]
+}
 
 @Component({
   selector: 'ksd-suggestion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
       directive: HostSize,
@@ -53,34 +67,29 @@ const sanitizeItems = (values: SuggestionSelected = []): SuggestionItem[] =>
       [attr.data-creatable]="creatable() || undefined"
       (comboboxbeforeselect)="onSelect($event)"
     >
-      @for (option of selectedArray(); track option) {
-        <data [attr.key]="option.value" [attr.value]="option.value">{{
-          option.label
-        }}</data>
+      @for (option of selectedArray(); track option.value) {
+        <data [attr.value]="option.value">{{ option.label }}</data>
       }
       <ng-content />
     </ds-suggestion>
   `,
 })
 export class Suggestion {
-  selectedChange = output<SuggestionItem>()
   multiple = input(false, { transform: booleanAttribute })
   creatable = input(false, { transform: booleanAttribute })
 
-  selected = model<SuggestionItem | SuggestionItem[] | undefined>(undefined)
+  selected = model<SuggestionItem | SuggestionItem[] | null>(null)
 
   protected selectedArray = computed(() => sanitizeItems(this.selected()))
-  onSelect(event: any) {
-    event.preventDefault()
-    const data = event.detail
-    const label = data.textContent
-    const value = data.value
-    this.selected.set(
-      this.multiple()
-        ? [...((this.selected() as SuggestionItem[]) || []), { label, value }]
-        : { label, value },
-    )
-    this.selectedChange.emit({ label, value })
+
+  onSelect(event: Event) {
+    const customEvent = event as CustomEvent<HTMLDataElement | undefined>
+    customEvent.preventDefault()
+
+    const data = customEvent.detail
+    if (!data) return
+
+    this.selected.set(nextSelected(data, this.selected(), this.multiple()))
   }
 }
 
