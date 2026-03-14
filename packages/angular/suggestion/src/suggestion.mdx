@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import * as SuggestionStories from './suggestion.stories.ts'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+
+<Meta of={SuggestionStories} />
+
+# Suggestion
+
+<OfficialDocsLink href="https://designsystemet.no/no/components/docs/suggestion/overview" />
+
+`Suggestion` er en wrapper for `ds-suggestion` web-componenten fra Designsystemet for å gjøre den litt enklere å bruke i Angular-prosjekter.
+
+<Primary />
+<Controls />
+
+## Bruk
+
+```ts
+import { Component } from '@angular/core'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import { Popover } from '@ks-digital/designsystem-angular/popover'
+
+@Component({
+  imports: [Button, Popover],
+  template: `
+    <button ksd-button popovertarget="my-popover">Enkel popover</button>
+    <div ksd-popover id="my-popover">Her er det noe innhold</div>
+  `,
+})
+export class App {}
+```
