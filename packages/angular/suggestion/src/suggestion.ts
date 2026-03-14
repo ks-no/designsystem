@@ -113,7 +113,9 @@ export class SuggestionListOption {
   selector: 'ksd-suggestion-list',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [NgTemplateOutlet],
-  host: {},
+  host: {
+    style: 'display: contents;',
+  },
   template: `
     <u-datalist>
       @for (option of options(); track option) {

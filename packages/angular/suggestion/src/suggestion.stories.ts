@@ -64,11 +64,11 @@ export const Preview: Story = {
             (selectedChange)="onSelectedChange($event)"
           >
           <input
-            type="search"
+            type="text"
             ksd-input
             placeholder="Skriv for å søke etter organisasjon"
           />
-          <del aria-label="Fjern innhold"></del>
+          <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
             <ksd-suggestion-list-option value="123">Bergen</ksd-suggestion-list-option>
             <ksd-suggestion-list-option value="321">Oslo</ksd-suggestion-list-option>
