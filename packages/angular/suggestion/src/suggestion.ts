@@ -7,6 +7,7 @@ import {
   input,
   model,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
@@ -47,11 +48,11 @@ export class Suggestion {
   multiple = input(false, { transform: booleanAttribute })
   creatable = input(false, { transform: booleanAttribute })
 
-  selected = model<SuggestionItem | SuggestionItem[] | null>(null)
+  selected = model<SuggestionItem | SuggestionItem[] | undefined>(undefined)
 
   protected selectedArray = computed(() => sanitizeItems(this.selected()))
 
-  onSelect(event: Event) {
+  protected onSelect(event: Event) {
     const customEvent = event as CustomEvent<HTMLDataElement | undefined>
     customEvent.preventDefault()
 

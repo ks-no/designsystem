@@ -16,10 +16,10 @@ import {
 })
 export class SuggestionListOption {
   /**
-   * Hack to get the content of the tab from outside so that we can
+   * Hack to get the content from parent component so that we can
    * keep the dom structure needed without additional host elements
    */
   templateRef = viewChild<TemplateRef<unknown>>('tpl')
 
-  value = input<string>()
+  value = input.required<string>()
 }

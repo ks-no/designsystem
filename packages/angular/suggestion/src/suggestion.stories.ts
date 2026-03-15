@@ -83,9 +83,9 @@ export const Preview: Story = {
         },
       },
       template: `
-      <ksd-field ${argsToTemplate(args)}>
+      <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion
+        <ksd-suggestion ${argsToTemplate(args)}
           [multiple]="true"
           [selected]="selected()"
           (selectedChange)="onSelectedChange($event)"
@@ -126,9 +126,9 @@ export const ControlledSingle: Story = {
           }),
       },
       template: `
-        <ksd-field ${argsToTemplate(args)}>
+        <ksd-field>
           <ksd-label>Velg destinasjon</ksd-label>
-          <ksd-suggestion
+          <ksd-suggestion ${argsToTemplate(args)}
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -173,9 +173,9 @@ export const ControlledMultiple: Story = {
           ]),
       },
       template: `
-        <ksd-field ${argsToTemplate(args)}>
+        <ksd-field>
           <ksd-label>Velg destinasjoner</ksd-label>
-          <ksd-suggestion
+          <ksd-suggestion ${argsToTemplate(args)}
             [multiple]="true"
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
@@ -221,9 +221,9 @@ export const ControlledIndependentLabelValue: Story = {
         setStavanger: () => selected.set(DATA_MUNICIPALITIES[2]),
       },
       template: `
-        <ksd-field ${argsToTemplate(args)}>
+        <ksd-field>
           <ksd-label>Velg kommune</ksd-label>
-          <ksd-suggestion
+          <ksd-suggestion ${argsToTemplate(args)}
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -260,9 +260,9 @@ export const DefaultValue: Story = {
       },
     },
     template: `
-      <ksd-field ${argsToTemplate(args)}>
+      <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion [selected]="selected">
+        <ksd-suggestion ${argsToTemplate(args)} [selected]="selected">
           <input type="text" ksd-input placeholder="Velg destinasjon" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
@@ -286,9 +286,9 @@ export const Multiple: Story = {
       places: DATA_PLACES,
     },
     template: `
-      <ksd-field ${argsToTemplate(args)}>
+      <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion [multiple]="true">
+        <ksd-suggestion ${argsToTemplate(args)} [multiple]="true">
           <input type="text" ksd-input placeholder="Velg destinasjoner" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
@@ -313,9 +313,9 @@ export const Creatable: Story = {
       places: DATA_PLACES,
     },
     template: `
-      <ksd-field ${argsToTemplate(args)}>
+      <ksd-field>
         <ksd-label>Velg eller legg til en destinasjon</ksd-label>
-        <ksd-suggestion [multiple]="true" [creatable]="true">
+        <ksd-suggestion ${argsToTemplate(args)}>
           <input type="text" ksd-input placeholder="Velg eller legg til destinasjon" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>

@@ -14,11 +14,11 @@ export const nextSelected = (
   data: HTMLDataElement,
   previous: SuggestionModelValue,
   multiple: boolean,
-): SuggestionItem | SuggestionItem[] | null => {
+): SuggestionItem | SuggestionItem[] | undefined => {
   const item = toItem(data)
 
   if (!multiple) {
-    return data.isConnected ? null : item
+    return data.isConnected ? undefined : item
   }
 
   const prevItems = sanitizeItems(previous)
