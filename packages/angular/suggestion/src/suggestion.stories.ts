@@ -32,11 +32,11 @@ const DATA_PLACES = [
   'Lillestrøm',
 ]
 
-const DATA_PEOPLE: SuggestionItem[] = [
-  { label: 'Lars', value: '#004' },
-  { label: 'James', value: '#007' },
-  { label: 'Nina', value: '#113' },
-  { label: 'Tove', value: '#110' },
+const DATA_MUNICIPALITIES: SuggestionItem[] = [
+  { label: 'Bergen', value: '4601' },
+  { label: 'Oslo', value: '0301' },
+  { label: 'Stavanger', value: '1103' },
+  { label: 'Molde', value: '1506' },
 ]
 
 const meta: Meta<SuggestionArgs> = {
@@ -214,38 +214,38 @@ export const ControlledMultiple: Story = {
 export const ControlledIndependentLabelValue: Story = {
   args: {},
   render: (args) => {
-    const selected = signal<SuggestionItem | null>(DATA_PEOPLE[0])
+    const selected = signal<SuggestionItem | null>(DATA_MUNICIPALITIES[0])
 
     return {
       props: {
         ...args,
-        people: DATA_PEOPLE,
+        municipalities: DATA_MUNICIPALITIES,
         selected,
         onSelectedChange: (value: SuggestionItem | null) => selected.set(value),
-        setNina: () => selected.set(DATA_PEOPLE[2]),
+        setStavanger: () => selected.set(DATA_MUNICIPALITIES[2]),
       },
       template: `
         <ksd-field ${argsToTemplate(args)}>
-          <ksd-label>Velg person</ksd-label>
+          <ksd-label>Velg kommune</ksd-label>
           <ksd-suggestion
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
-            <input type="text" ksd-input placeholder="Velg person" />
+            <input type="text" ksd-input placeholder="Velg kommune" />
             <del aria-label="Tøm" hidden=""></del>
             <ksd-suggestion-list>
-              @for (person of people; track person.value) {
-                <ksd-suggestion-list-option [value]="person.value">{{ person.label }}</ksd-suggestion-list-option>
+              @for (municipality of municipalities; track municipality.value) {
+                <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
               }
             </ksd-suggestion-list>
           </ksd-suggestion>
         </ksd-field>
 
         <p ksd-paragraph>
-          Valgt person: {{ selected()?.label || '' }} ({{ selected()?.value || '' }})
+          Valgt kommune: {{ selected()?.label || '' }} (kommunenummer: {{ selected()?.value || '' }})
         </p>
-        <button ksd-button type="button" data-variant="secondary" (click)="setNina()">
-          Sett Nina
+        <button ksd-button type="button" data-variant="secondary" (click)="setStavanger()">
+          Sett Stavanger
         </button>
       `,
     }

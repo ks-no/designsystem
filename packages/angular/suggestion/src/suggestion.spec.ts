@@ -1,3 +1,4 @@
+import { Input } from '@ks-digital/designsystem-angular/forms'
 import { render } from '@testing-library/angular'
 import { vi } from 'vitest'
 import type { SuggestionItem } from './suggestion'
@@ -24,11 +25,11 @@ const renderSuggestion = async ({
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
 			>
-				<input type="search" />
+				<input ksd-input />
 			</ksd-suggestion>
 		`,
     {
-      imports: [Suggestion],
+      imports: [Suggestion, Input],
       componentProperties: {
         creatable,
         multiple,
