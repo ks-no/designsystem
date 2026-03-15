@@ -1,1 +1,6 @@
-export { Suggestion, SuggestionList, SuggestionListOption } from './suggestion'
+export {
+  Suggestion,
+  SuggestionList,
+  SuggestionListOption,
+  type SuggestionItem,
+} from './suggestion'
