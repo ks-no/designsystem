@@ -1,8 +1,8 @@
 import { Input } from '@ks-digital/designsystem-angular/forms'
 import { render } from '@testing-library/angular'
 import { vi } from 'vitest'
-import type { SuggestionItem } from './suggestion'
 import { Suggestion } from './suggestion'
+import type { SuggestionItem } from './suggestion.types'
 
 type RenderSuggestionProps = {
   creatable?: boolean

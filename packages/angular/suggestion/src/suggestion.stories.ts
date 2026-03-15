@@ -10,12 +10,8 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import {
-  Suggestion,
-  SuggestionList,
-  SuggestionListOption,
-  type SuggestionItem,
-} from './suggestion'
+import { Suggestion, SuggestionList, SuggestionListOption } from './index'
+import type { SuggestionItem } from './suggestion.types'
 
 type SuggestionArgs = CommonArgs & {
   multiple: boolean

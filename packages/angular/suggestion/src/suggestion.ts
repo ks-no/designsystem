@@ -1,49 +1,18 @@
-import { NgTemplateOutlet } from '@angular/common'
 import {
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   computed,
-  contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
   input,
   model,
-  TemplateRef,
-  viewChild,
 } from '@angular/core'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-
-export type SuggestionItem = { label: string; value: string }
-
-type SuggestionModelValue = SuggestionItem | SuggestionItem[] | null | undefined
-
-const sanitizeItems = (values: SuggestionModelValue): SuggestionItem[] =>
-  !values ? [] : Array.isArray(values) ? values : [values]
-
-const toItem = (data: HTMLDataElement): SuggestionItem => ({
-  label: data.textContent?.trim() || data.value,
-  value: data.value,
-})
-
-const nextSelected = (
-  data: HTMLDataElement,
-  previous: SuggestionModelValue,
-  multiple: boolean,
-): SuggestionItem | SuggestionItem[] | null => {
-  const item = toItem(data)
-
-  if (!multiple) {
-    return data.isConnected ? null : item
-  }
-
-  const prevItems = sanitizeItems(previous)
-  return data.isConnected
-    ? prevItems.filter(({ value }) => value !== item.value)
-    : [...prevItems, item]
-}
+import type { SuggestionItem } from './suggestion.types'
+import { nextSelected, sanitizeItems } from './suggestion.utils'
 
 @Component({
   selector: 'ksd-suggestion',
@@ -91,45 +60,4 @@ export class Suggestion {
 
     this.selected.set(nextSelected(data, this.selected(), this.multiple()))
   }
-}
-
-@Component({
-  selector: 'ksd-suggestion-list-option',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [],
-  template: ` <ng-template #tpl><ng-content /></ng-template> `,
-})
-export class SuggestionListOption {
-  /**
-   * Hack to get the content of the tab from outside so that we can
-   * keep the dom structure needed without additional host elements
-   */
-  templateRef = viewChild<TemplateRef<unknown>>('tpl')
-
-  value = input<string>()
-}
-
-@Component({
-  selector: 'ksd-suggestion-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [NgTemplateOutlet],
-  host: {
-    style: 'display: contents;',
-  },
-  template: `
-    <u-datalist>
-      @for (option of options(); track option) {
-        <u-option [value]="option.value()">
-          <ng-container *ngTemplateOutlet="option.templateRef()" />
-        </u-option>
-      }
-    </u-datalist>
-  `,
-})
-export class SuggestionList {
-  readonly options = contentChildren(SuggestionListOption, {
-    descendants: true,
-  })
 }
