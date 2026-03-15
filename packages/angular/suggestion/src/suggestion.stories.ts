@@ -56,7 +56,7 @@ const meta: Meta<SuggestionArgs> = {
       ],
     }),
     componentWrapperDecorator(
-      (story) => `<div style="max-width:600px;">${story}</div>`,
+      (story) => `<div style="width:400px;">${story}</div>`,
     ),
   ],
   argTypes: {
