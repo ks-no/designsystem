@@ -18,6 +18,11 @@ type SuggestionArgs = CommonArgs & {
   creatable: boolean
 }
 
+const suggestionArgsToTemplate = (args: SuggestionArgs) => {
+  const { multiple: _multiple, creatable: _creatable, ...rest } = args
+  return argsToTemplate(rest)
+}
+
 const DATA_PLACES = [
   'Sogndal',
   'Oslo',
@@ -69,7 +74,10 @@ export default meta
 type Story = StoryObj<SuggestionArgs>
 
 export const Preview: Story = {
-  args: {},
+  args: {
+    multiple: false,
+    creatable: false,
+  },
   render: (args) => {
     const selected = signal<SuggestionItem[]>([])
 
@@ -85,8 +93,9 @@ export const Preview: Story = {
       template: `
       <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion ${argsToTemplate(args)}
-          [multiple]="true"
+        <ksd-suggestion ${suggestionArgsToTemplate(args)}
+          [multiple]="multiple"
+          [creatable]="creatable"
           [selected]="selected()"
           (selectedChange)="onSelectedChange($event)"
         >
@@ -109,7 +118,10 @@ export const Preview: Story = {
 }
 
 export const ControlledSingle: Story = {
-  args: {},
+  args: {
+    multiple: false,
+    creatable: false,
+  },
   render: (args) => {
     const selected = signal<SuggestionItem | null>(null)
 
@@ -128,7 +140,9 @@ export const ControlledSingle: Story = {
       template: `
         <ksd-field>
           <ksd-label>Velg destinasjon</ksd-label>
-          <ksd-suggestion ${argsToTemplate(args)}
+          <ksd-suggestion ${suggestionArgsToTemplate(args)}
+            [multiple]="multiple"
+            [creatable]="creatable"
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -154,6 +168,7 @@ export const ControlledSingle: Story = {
 export const ControlledMultiple: Story = {
   args: {
     multiple: true,
+    creatable: false,
   },
   render: (args) => {
     const selected = signal<SuggestionItem[]>([
@@ -175,8 +190,9 @@ export const ControlledMultiple: Story = {
       template: `
         <ksd-field>
           <ksd-label>Velg destinasjoner</ksd-label>
-          <ksd-suggestion ${argsToTemplate(args)}
-            [multiple]="true"
+          <ksd-suggestion ${suggestionArgsToTemplate(args)}
+            [multiple]="multiple"
+            [creatable]="creatable"
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -208,7 +224,10 @@ export const ControlledMultiple: Story = {
 }
 
 export const ControlledIndependentLabelValue: Story = {
-  args: {},
+  args: {
+    multiple: false,
+    creatable: false,
+  },
   render: (args) => {
     const selected = signal<SuggestionItem | null>(DATA_MUNICIPALITIES[0])
 
@@ -223,7 +242,9 @@ export const ControlledIndependentLabelValue: Story = {
       template: `
         <ksd-field>
           <ksd-label>Velg kommune</ksd-label>
-          <ksd-suggestion ${argsToTemplate(args)}
+          <ksd-suggestion ${suggestionArgsToTemplate(args)}
+            [multiple]="multiple"
+            [creatable]="creatable"
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -249,7 +270,10 @@ export const ControlledIndependentLabelValue: Story = {
 }
 
 export const DefaultValue: Story = {
-  args: {},
+  args: {
+    multiple: false,
+    creatable: false,
+  },
   render: (args) => ({
     props: {
       ...args,
@@ -262,7 +286,12 @@ export const DefaultValue: Story = {
     template: `
       <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion ${argsToTemplate(args)} [selected]="selected">
+        <ksd-suggestion
+          ${suggestionArgsToTemplate(args)}
+          [multiple]="multiple"
+          [creatable]="creatable"
+          [selected]="selected"
+        >
           <input type="text" ksd-input placeholder="Velg destinasjon" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
@@ -279,6 +308,7 @@ export const DefaultValue: Story = {
 export const Multiple: Story = {
   args: {
     multiple: true,
+    creatable: false,
   },
   render: (args) => ({
     props: {
@@ -288,7 +318,11 @@ export const Multiple: Story = {
     template: `
       <ksd-field>
         <ksd-label>Velg en destinasjon</ksd-label>
-        <ksd-suggestion ${argsToTemplate(args)} [multiple]="true">
+        <ksd-suggestion
+          ${suggestionArgsToTemplate(args)}
+          [multiple]="multiple"
+          [creatable]="creatable"
+        >
           <input type="text" ksd-input placeholder="Velg destinasjoner" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
@@ -315,7 +349,11 @@ export const Creatable: Story = {
     template: `
       <ksd-field>
         <ksd-label>Velg eller legg til en destinasjon</ksd-label>
-        <ksd-suggestion ${argsToTemplate(args)}>
+        <ksd-suggestion
+          ${suggestionArgsToTemplate(args)}
+          [multiple]="multiple"
+          [creatable]="creatable"
+        >
           <input type="text" ksd-input placeholder="Velg eller legg til destinasjon" />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
