@@ -45,9 +45,25 @@ import { nextSelected, sanitizeItems } from './suggestion.utils'
   `,
 })
 export class Suggestion {
+  /**
+   * Allows the user to select multiple items
+   *
+   * @default false
+   */
   multiple = input(false, { transform: booleanAttribute })
+
+  /**
+   * Allows the user to create new items
+   *
+   * @default false
+   */
   creatable = input(false, { transform: booleanAttribute })
 
+  /**
+   * Model for the selected item(s).
+   *
+   * @default undefined
+   */
   selected = model<SuggestionItem | SuggestionItem[] | undefined>(undefined)
 
   protected selectedArray = computed(() => sanitizeItems(this.selected()))
