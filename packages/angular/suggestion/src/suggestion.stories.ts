@@ -19,6 +19,7 @@ type SuggestionArgs = CommonArgs & {
 }
 
 const suggestionArgsToTemplate = (args: SuggestionArgs) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { multiple: _multiple, creatable: _creatable, ...rest } = args
   return argsToTemplate(rest)
 }
