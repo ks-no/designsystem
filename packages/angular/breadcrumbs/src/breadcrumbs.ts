@@ -1,4 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, input } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  input,
+} from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
   HostColor,
@@ -7,6 +12,7 @@ import {
 
 @Component({
   selector: 'ksd-breadcrumbs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <ds-breadcrumbs

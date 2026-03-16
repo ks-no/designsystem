@@ -1,9 +1,10 @@
-import { Component, viewChild } from '@angular/core'
+import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
 import { Heading } from './heading'
 
 @Component({
   selector: 'test-heading',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<h1 ksd-heading>My heading</h1>`,
   imports: [Heading],
 })

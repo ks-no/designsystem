@@ -1,9 +1,15 @@
-import { booleanAttribute, Component, input } from '@angular/core'
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core'
 import { HostColor } from '@ks-digital/designsystem-angular/__internals'
 import { SpinnerSize } from './spinner-sizes'
 
 @Component({
   selector: 'ksd-spinner',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     :host {
       display: contents;

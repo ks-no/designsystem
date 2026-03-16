@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
 import { Details } from './details'
@@ -8,6 +8,7 @@ import { DetailsSummary } from './details-summary'
 describe('Details', () => {
   it('should have summary, content and be open when clicked', async () => {
     @Component({
+      changeDetection: ChangeDetectionStrategy.OnPush,
       template: `
         <details ksd-details>
           <summary>Details Summary Text</summary>
