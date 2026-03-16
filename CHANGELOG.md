@@ -1,3 +1,17 @@
+## 0.0.1-alpha.45
+
+### 🚀 Features
+
+- **angular:** suggestion ([#245](https://github.com/ks-no/designsystem/pull/245))
+
+### 🩹 Fixes
+
+- **angular:** slotted icon-size ([#244](https://github.com/ks-no/designsystem/pull/244))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.44
 
 ### 🚀 Features
