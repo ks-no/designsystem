@@ -6,7 +6,6 @@ import {
   StoryObj,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { ControlledDetails } from './controlled-details'
 import { Details } from './details'
 import { DetailsContent } from './details-content'
 import { DetailsSummary } from './details-summary'
@@ -24,13 +23,7 @@ const meta: Meta<DetailsArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [
-        Card,
-        Details,
-        DetailsContent,
-        DetailsSummary,
-        ControlledDetails,
-      ],
+      imports: [Card, Details, DetailsContent, DetailsSummary],
     }),
   ],
 }
