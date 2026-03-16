@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -6,6 +6,7 @@ import {
 
 @Component({
   selector: 'a[ksd-link]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: ` <ng-content /> `,
   hostDirectives: [
     {

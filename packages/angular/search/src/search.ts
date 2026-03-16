@@ -1,4 +1,9 @@
-import { afterNextRender, Component, contentChild } from '@angular/core'
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  contentChild,
+} from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -21,6 +26,7 @@ import { SearchInput } from './search-input'
  */
 @Component({
   selector: 'ksd-search',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ng-content select="[ksd-search-input]" />
     <ng-content select="[ksd-search-clear]" />

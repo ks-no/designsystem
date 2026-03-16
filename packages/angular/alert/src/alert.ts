@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import {
   HostSeverityColors,
   HostSize,
@@ -9,6 +9,7 @@ import {
  */
 @Component({
   selector: 'ksd-alert',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: ` <ng-content />`,
   host: {
     class: 'ds-alert',

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   contentChild,
   effect,
@@ -14,6 +15,7 @@ import { Heading } from '@ks-digital/designsystem-angular/heading'
 
 @Component({
   selector: '[ksd-error-summary]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: ` <ng-content /> `,
   hostDirectives: [
     {

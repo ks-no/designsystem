@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, input } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -6,6 +6,7 @@ import {
 
 @Component({
   selector: 'label[ksd-chip], button[ksd-chip]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<ng-content />`,
   host: {
     class: 'ds-chip',

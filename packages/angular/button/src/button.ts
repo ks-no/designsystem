@@ -1,4 +1,9 @@
-import { booleanAttribute, Component, input } from '@angular/core'
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -7,6 +12,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
 
 @Component({
   selector: 'button[ksd-button], a[ksd-button]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
       directive: HostSize,
