@@ -58,7 +58,7 @@ const meta: Meta<SuggestionArgs> = {
       ],
     }),
     componentWrapperDecorator(
-      (story) => `<div style="width:400px;">${story}</div>`,
+      (story) => `<div style="width:100%; max-width:500px;">${story}</div>`,
     ),
   ],
   argTypes: {
@@ -103,7 +103,6 @@ export const Preview: Story = {
           <input
             type="text"
             ksd-input
-            placeholder="Skriv for å søke etter destinasjon"
           />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
@@ -197,7 +196,7 @@ export const ControlledMultiple: Story = {
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
-            <input type="text" ksd-input placeholder="Velg destinasjoner" />
+            <input type="text" ksd-input />
             <del aria-label="Tøm" hidden=""></del>
             <ksd-suggestion-list>
               @for (place of places; track place) {
@@ -324,7 +323,7 @@ export const Multiple: Story = {
           [multiple]="multiple"
           [creatable]="creatable"
         >
-          <input type="text" ksd-input placeholder="Velg destinasjoner" />
+          <input type="text" ksd-input />
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
             @for (place of places; track place) {
