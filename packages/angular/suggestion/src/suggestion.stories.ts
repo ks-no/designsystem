@@ -1,4 +1,4 @@
-import { signal } from '@angular/core'
+import { computed, signal } from '@angular/core'
 import { Button } from '@ks-digital/designsystem-angular/button'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
@@ -365,4 +365,66 @@ export const Creatable: Story = {
       </ksd-field>
     `,
   }),
+}
+
+export const CustomFiltering: Story = {
+  args: {
+    multiple: false,
+    creatable: false,
+  },
+  render: (args) => {
+    const selected = signal<SuggestionItem | null>(null)
+    const query = signal('')
+
+    const filteredMunicipalities = computed(() => {
+      const value = query()
+      if (!value) return DATA_MUNICIPALITIES
+
+      const firstLetter = value.charAt(0)
+      const isLetter = firstLetter.toLowerCase() !== firstLetter.toUpperCase()
+      const isUppercase = firstLetter === firstLetter.toUpperCase()
+
+      if (!isLetter || !isUppercase) return []
+
+      return DATA_MUNICIPALITIES.filter((municipality) =>
+        municipality.label.startsWith(firstLetter),
+      )
+    })
+
+    return {
+      props: {
+        ...args,
+        selected,
+        filteredMunicipalities,
+        onSelectedChange: (value: SuggestionItem | null) => selected.set(value),
+        onInput: (event: Event) => {
+          const target = event.target as HTMLInputElement | null
+          query.set(target?.value ?? '')
+        },
+      },
+      template: `
+        <ksd-field>
+          <ksd-label>Velg kommune (kun stor forbokstav matcher)</ksd-label>
+          <ksd-suggestion
+            ${suggestionArgsToTemplate(args)}
+            [multiple]="multiple"
+            [creatable]="creatable"
+            [selected]="selected()"
+            (selectedChange)="onSelectedChange($event)"
+          >
+            <input
+              ksd-input
+              (input)="onInput($event)"
+            />
+            <del aria-label="Tøm" hidden=""></del>
+            <ksd-suggestion-list>
+              @for (municipality of filteredMunicipalities(); track municipality.value) {
+                <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
+              }
+            </ksd-suggestion-list>
+          </ksd-suggestion>
+        </ksd-field>
+      `,
+    }
+  },
 }

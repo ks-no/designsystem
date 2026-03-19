@@ -62,3 +62,9 @@ export class App {
   selected = signal<SuggestionItem | undefined>(undefined)
 }
 ```
+
+### Eget filter
+
+Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv.
+
+<Canvas of={SuggestionStories.CustomFiltering} />
