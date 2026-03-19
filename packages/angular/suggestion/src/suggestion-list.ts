@@ -1,5 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   contentChildren,
@@ -18,6 +19,7 @@ import { SuggestionListOption } from './suggestion-list-option'
   },
   template: `
     <u-datalist
+      [attr.data-nofilter]="noFilter() || undefined"
       [attr.data-sr-singular]="singular()"
       [attr.data-sr-plural]="plural()"
     >
@@ -30,6 +32,16 @@ import { SuggestionListOption } from './suggestion-list-option'
   `,
 })
 export class SuggestionList {
+  /**
+   * Disables built-in filtering in `u-datalist`.
+   * Set this to true when filtering is handled externally.
+   *
+   * @default false
+   */
+  readonly noFilter = input(false, {
+    transform: booleanAttribute,
+  })
+
   /**
    * Screen reader announcement template for singular result count.
    *

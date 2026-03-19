@@ -417,7 +417,7 @@ export const CustomFiltering: Story = {
               (input)="onInput($event)"
             />
             <del aria-label="Tøm" hidden=""></del>
-            <ksd-suggestion-list>
+            <ksd-suggestion-list noFilter>
               @for (municipality of filteredMunicipalities(); track municipality.value) {
                 <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
               }
