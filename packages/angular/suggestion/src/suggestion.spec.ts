@@ -124,4 +124,23 @@ describe('Suggestion', () => {
       },
     ])
   })
+
+  it('should clear input value on Escape key', async () => {
+    const { container } = await renderSuggestion()
+    const input = container.querySelector('input')
+
+    expect(input).toBeInTheDocument()
+    if (!input) return
+
+    input.value = 'Stavanger'
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', {
+        key: 'Escape',
+        bubbles: true,
+        cancelable: true,
+      }),
+    )
+
+    expect(input.value).toBe('')
+  })
 })

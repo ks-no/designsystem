@@ -36,6 +36,7 @@ import { nextSelected, sanitizeItems } from './suggestion.utils'
       [attr.data-multiple]="multiple() || undefined"
       [attr.data-creatable]="creatable() || undefined"
       (comboboxbeforeselect)="onSelect($event)"
+      (keydown)="onKeyDown($event)"
     >
       @for (option of selectedArray(); track option.value) {
         <data [attr.value]="option.value">{{ option.label }}</data>
@@ -76,5 +77,12 @@ export class Suggestion {
     if (!data) return
 
     this.selected.set(nextSelected(data, this.selected(), this.multiple()))
+  }
+
+  protected onKeyDown(event: Event) {
+    const keyboardEvent = event as KeyboardEvent
+    if (keyboardEvent.key !== 'Escape') return
+
+    event.preventDefault()
   }
 }
