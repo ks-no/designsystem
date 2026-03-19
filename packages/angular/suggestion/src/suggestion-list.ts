@@ -1,5 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   contentChildren,
@@ -20,6 +21,7 @@ import { SuggestionListOption } from './suggestion-list-option'
     <u-datalist
       [attr.data-sr-singular]="singular()"
       [attr.data-sr-plural]="plural()"
+      [attr.data-autoplacement]="autoPlacement()"
     >
       @for (option of options(); track option) {
         <u-option [value]="option.value()">
@@ -43,6 +45,15 @@ export class SuggestionList {
    * @default '%d forslag'
    */
   readonly plural = input('%d forslag')
+
+  /**
+   * Whether to enable auto placement.
+   *
+   * @default true
+   */
+  readonly autoPlacement = input(true, {
+    transform: booleanAttribute,
+  })
 
   readonly options = contentChildren(SuggestionListOption, {
     descendants: true,
