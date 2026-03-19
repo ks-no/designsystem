@@ -25,6 +25,7 @@ import {
   Suggestion,
   type SuggestionItem,
   SuggestionList,
+  SuggestionListEmpty,
   SuggestionListOption,
 } from '@ks-digital/designsystem-angular/suggestion'
 
@@ -35,6 +36,7 @@ import {
     Input,
     Suggestion,
     SuggestionList,
+    SuggestionListEmpty,
     SuggestionListOption,
   ],
   template: `
@@ -47,24 +49,25 @@ import {
         <input ksd-input />
         <del aria-label="Tøm" hidden=""></del>
         <ksd-suggestion-list>
-          <ksd-suggestion-list-option value="Sogndal"
-            >Sogndal</ksd-suggestion-list-option
-          >
-          <ksd-suggestion-list-option value="Oslo"
-            >Oslo</ksd-suggestion-list-option
-          >
+          @for (place of places(); track place) {
+            <ksd-suggestion-list-option [value]="place">{{
+              place
+            }}</ksd-suggestion-list-option>
+          }
+          <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
         </ksd-suggestion-list>
       </ksd-suggestion>
     </ksd-field>
   `,
 })
 export class App {
+  places = signal(['Bergen', 'Oslo'])
   selected = signal<SuggestionItem | undefined>(undefined)
 }
 ```
 
 ### Eget filter
 
-Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv. Sett `noFilter`-attributtet på `ksd-suggestion-list` for å deaktivere det innebygde filteret.
+Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv. Sett `[filter]="false"` på `ksd-suggestion` for å deaktivere det innebygde filteret.
 
 <Canvas of={SuggestionStories.CustomFiltering} />

@@ -1,4 +1,9 @@
 export { Suggestion } from './suggestion'
 export { SuggestionList } from './suggestion-list'
+export { SuggestionListEmpty } from './suggestion-list-empty'
 export { SuggestionListOption } from './suggestion-list-option'
-export type { SuggestionItem } from './suggestion.types'
+export type {
+  SuggestionFilter,
+  SuggestionFilterArgs,
+  SuggestionItem,
+} from './suggestion.types'

@@ -1,12 +1,13 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
-  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
+  contentChild,
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
   input,
 } from '@angular/core'
+import { SuggestionListEmpty } from './suggestion-list-empty'
 import { SuggestionListOption } from './suggestion-list-option'
 
 @Component({
@@ -19,7 +20,7 @@ import { SuggestionListOption } from './suggestion-list-option'
   },
   template: `
     <u-datalist
-      [attr.data-nofilter]="noFilter() || undefined"
+      data-nofilter
       [attr.data-sr-singular]="singular()"
       [attr.data-sr-plural]="plural()"
     >
@@ -28,20 +29,15 @@ import { SuggestionListOption } from './suggestion-list-option'
           <ng-container *ngTemplateOutlet="option.templateRef()" />
         </u-option>
       }
+      @if (empty()?.templateRef()) {
+        <u-option data-empty value="" hidden>
+          <ng-container *ngTemplateOutlet="empty()?.templateRef()" />
+        </u-option>
+      }
     </u-datalist>
   `,
 })
 export class SuggestionList {
-  /**
-   * Disables built-in filtering in `u-datalist`.
-   * Set this to true when filtering is handled externally.
-   *
-   * @default false
-   */
-  readonly noFilter = input(false, {
-    transform: booleanAttribute,
-  })
-
   /**
    * Screen reader announcement template for singular result count.
    *
@@ -56,7 +52,9 @@ export class SuggestionList {
    */
   readonly plural = input('%d forslag')
 
-  readonly options = contentChildren(SuggestionListOption, {
+  protected readonly options = contentChildren(SuggestionListOption, {
     descendants: true,
   })
+
+  protected readonly empty = contentChild(SuggestionListEmpty)
 }
