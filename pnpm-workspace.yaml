@@ -32,10 +32,10 @@ catalogs:
     '@angular/common': '>= 21.0.0'
     '@angular/core': '>= 21.0.0'
   designsystemet:
-    '@digdir/designsystemet': 1.12.1
-    '@digdir/designsystemet-css': 1.12.1
-    '@digdir/designsystemet-react': 1.12.1
-    '@digdir/designsystemet-web': 1.12.1
+    '@digdir/designsystemet': 1.13.0
+    '@digdir/designsystemet-css': 1.13.0
+    '@digdir/designsystemet-react': 1.13.0
+    '@digdir/designsystemet-web': 1.13.0
     '@navikt/aksel-icons': 7.33.4
   nx:
     '@nx/angular': 22.3.3
