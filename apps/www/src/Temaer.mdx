@@ -45,9 +45,16 @@ Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler
 ##### v4
 
 ```css
-@import '@ks-digital/designsystem-themes/ledsagerbevis.css';
-@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css';
-@import 'tailwindcss';
+@layer theme, tailwind-base, ds, components, utilities;
+
+@import url('@ks-digital/designsystem-themes/base.css') layer(ds);
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css') layer(ds);
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(tailwind-base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css'
+  layer(theme);
 ```
 
 ##### v3 og eldre

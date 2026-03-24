@@ -15,7 +15,6 @@
   "exports": {
     "./types": "./dist/themes/types.d.ts",
     "./base.css": "./dist/base.css",
-    "./base.tailwind.css": "./dist/base.tailwind.css",
     "./ledsagerbevis.css": "./dist/themes/ledsagerbevis.css",
     "./ledsagerbevis.tailwind.css": "./dist/themes/ledsagerbevis.tailwind.css",
     "./forvaltning.css": "./dist/themes/forvaltning.css",
