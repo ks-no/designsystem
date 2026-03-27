@@ -25,7 +25,57 @@ import {
   Suggestion,
   type SuggestionItem,
   SuggestionList,
+  SuggestionListEmpty,
   SuggestionListOption,
+} from '@ks-digital/designsystem-angular/suggestion'
+
+@Component({
+  imports: [
+    Field,
+    Label,
+    Input,
+    Suggestion,
+    SuggestionList,
+    SuggestionListEmpty,
+    SuggestionListOption,
+  ],
+  template: `
+    <ksd-field>
+      <ksd-label>Velg destinasjon</ksd-label>
+      <ksd-suggestion
+        [selected]="selected()"
+        (selectedChange)="selected.set($event)"
+      >
+        <input ksd-input />
+        <del aria-label="Tøm" hidden=""></del>
+        <ksd-suggestion-list>
+          @for (place of places(); track place) {
+            <ksd-suggestion-list-option [value]="place">{{
+              place
+            }}</ksd-suggestion-list-option>
+          }
+          <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
+        </ksd-suggestion-list>
+      </ksd-suggestion>
+    </ksd-field>
+  `,
+})
+export class App {
+  places = signal(['Bergen', 'Oslo'])
+  selected = signal<SuggestionItem | undefined>(undefined)
+}
+```
+
+### Eget filter
+
+```ts
+import { Component, signal } from '@angular/core'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListOption,
+  type SuggestionFilter,
 } from '@ks-digital/designsystem-angular/suggestion'
 
 @Component({
@@ -39,32 +89,37 @@ import {
   ],
   template: `
     <ksd-field>
-      <ksd-label>Velg destinasjon</ksd-label>
-      <ksd-suggestion
-        [selected]="selected()"
-        (selectedChange)="selected.set($event)"
-      >
+      <ksd-label>Velg kommune</ksd-label>
+      <ksd-suggestion [filter]="startsWithUppercaseFilter">
         <input ksd-input />
         <del aria-label="Tøm" hidden=""></del>
         <ksd-suggestion-list>
-          <ksd-suggestion-list-option value="Sogndal"
-            >Sogndal</ksd-suggestion-list-option
-          >
-          <ksd-suggestion-list-option value="Oslo"
-            >Oslo</ksd-suggestion-list-option
-          >
+          @for (municipality of municipalities(); track municipality) {
+            <ksd-suggestion-list-option [value]="municipality">{{
+              municipality
+            }}</ksd-suggestion-list-option>
+          }
         </ksd-suggestion-list>
       </ksd-suggestion>
     </ksd-field>
   `,
 })
 export class App {
-  selected = signal<SuggestionItem | undefined>(undefined)
+  municipalities = signal(['Bergen', 'Oslo', 'Stavanger', 'Molde'])
+
+  startsWithUppercaseFilter: SuggestionFilter = ({ label, input }) => {
+    const value = input.value.trim()
+    if (!value) return true
+
+    const firstLetter = value.charAt(0)
+    const isLetter = firstLetter.toLowerCase() !== firstLetter.toUpperCase()
+    const isUppercase = firstLetter === firstLetter.toUpperCase()
+
+    if (!isLetter || !isUppercase) return false
+
+    return label.startsWith(firstLetter)
+  }
 }
 ```
-
-### Eget filter
-
-Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv.
 
 <Canvas of={SuggestionStories.CustomFiltering} />

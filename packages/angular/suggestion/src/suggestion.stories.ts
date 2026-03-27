@@ -10,7 +10,12 @@ import {
   type StoryObj,
 } from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
-import { Suggestion, SuggestionList, SuggestionListOption } from './index'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListEmpty,
+  SuggestionListOption,
+} from './index'
 import type { SuggestionItem } from './suggestion.types'
 
 type SuggestionArgs = CommonArgs & {
@@ -49,6 +54,7 @@ const meta: Meta<SuggestionArgs> = {
       imports: [
         Suggestion,
         SuggestionList,
+        SuggestionListEmpty,
         SuggestionListOption,
         Button,
         Field,
@@ -109,6 +115,7 @@ export const Preview: Story = {
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
             }
+            <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
           </ksd-suggestion-list>
         </ksd-suggestion>
       </ksd-field>
@@ -152,6 +159,7 @@ export const ControlledSingle: Story = {
               @for (place of places; track place) {
                 <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
               }
+              <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
             </ksd-suggestion-list>
           </ksd-suggestion>
         </ksd-field>
@@ -202,6 +210,7 @@ export const ControlledMultiple: Story = {
               @for (place of places; track place) {
                 <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
               }
+              <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
             </ksd-suggestion-list>
           </ksd-suggestion>
         </ksd-field>
@@ -254,6 +263,7 @@ export const ControlledIndependentLabelValue: Story = {
               @for (municipality of municipalities; track municipality.value) {
                 <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
               }
+              <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
             </ksd-suggestion-list>
           </ksd-suggestion>
         </ksd-field>
@@ -298,6 +308,7 @@ export const DefaultValue: Story = {
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
             }
+            <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
           </ksd-suggestion-list>
         </ksd-suggestion>
       </ksd-field>
@@ -329,6 +340,7 @@ export const Multiple: Story = {
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
             }
+            <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
           </ksd-suggestion-list>
         </ksd-suggestion>
       </ksd-field>
@@ -360,6 +372,7 @@ export const Creatable: Story = {
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
             }
+            <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
           </ksd-suggestion-list>
         </ksd-suggestion>
       </ksd-field>
@@ -409,6 +422,7 @@ export const CustomFiltering: Story = {
             ${suggestionArgsToTemplate(args)}
             [multiple]="multiple"
             [creatable]="creatable"
+            [filter]="false"
             [selected]="selected()"
             (selectedChange)="onSelectedChange($event)"
           >
@@ -421,6 +435,7 @@ export const CustomFiltering: Story = {
               @for (municipality of filteredMunicipalities(); track municipality.value) {
                 <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
               }
+              <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
             </ksd-suggestion-list>
           </ksd-suggestion>
         </ksd-field>
