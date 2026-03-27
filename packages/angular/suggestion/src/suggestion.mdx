@@ -70,4 +70,60 @@ export class App {
 
 Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv. Sett `[filter]="false"` på `ksd-suggestion` for å deaktivere det innebygde filteret.
 
+`filter` støtter også en callback-funksjon (`SuggestionFilter`), slik at du kan sende inn egen filtreringslogikk direkte via `[filter]`.
+
+```ts
+import { Component, signal } from '@angular/core'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListOption,
+  type SuggestionFilter,
+} from '@ks-digital/designsystem-angular/suggestion'
+
+@Component({
+  imports: [
+    Field,
+    Label,
+    Input,
+    Suggestion,
+    SuggestionList,
+    SuggestionListOption,
+  ],
+  template: `
+    <ksd-field>
+      <ksd-label>Velg kommune</ksd-label>
+      <ksd-suggestion [filter]="startsWithUppercaseFilter">
+        <input ksd-input />
+        <del aria-label="Tøm" hidden=""></del>
+        <ksd-suggestion-list>
+          @for (municipality of municipalities(); track municipality) {
+            <ksd-suggestion-list-option [value]="municipality">{{
+              municipality
+            }}</ksd-suggestion-list-option>
+          }
+        </ksd-suggestion-list>
+      </ksd-suggestion>
+    </ksd-field>
+  `,
+})
+export class App {
+  municipalities = signal(['Bergen', 'Oslo', 'Stavanger', 'Molde'])
+
+  startsWithUppercaseFilter: SuggestionFilter = ({ label, input }) => {
+    const value = input.value.trim()
+    if (!value) return true
+
+    const firstLetter = value.charAt(0)
+    const isLetter = firstLetter.toLowerCase() !== firstLetter.toUpperCase()
+    const isUppercase = firstLetter === firstLetter.toUpperCase()
+
+    if (!isLetter || !isUppercase) return false
+
+    return label.startsWith(firstLetter)
+  }
+}
+```
+
 <Canvas of={SuggestionStories.CustomFiltering} />

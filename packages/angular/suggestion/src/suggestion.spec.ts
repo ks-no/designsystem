@@ -267,5 +267,34 @@ describe('Suggestion', () => {
         expect(bergenOption).toHaveAttribute('aria-hidden', 'false')
       })
     })
+
+    it('should apply custom filter callback to the rendered options', async () => {
+      const customFilter: SuggestionFilter = ({ label }) => label === 'Bergen'
+      const { container } = await renderSuggestionWithList({
+        filter: customFilter,
+      })
+
+      const bergenOption = container.querySelector<HTMLOptionElement>(
+        'u-option[value="4601"]',
+      )
+      const osloOption = container.querySelector<HTMLOptionElement>(
+        'u-option[value="0301"]',
+      )
+      const stavangerOption = container.querySelector<HTMLOptionElement>(
+        'u-option[value="1103"]',
+      )
+
+      expect(bergenOption).toBeInTheDocument()
+      expect(osloOption).toBeInTheDocument()
+      expect(stavangerOption).toBeInTheDocument()
+
+      if (!bergenOption || !osloOption || !stavangerOption) return
+
+      await waitFor(() => {
+        expect(bergenOption.disabled).toBe(false)
+        expect(osloOption.disabled).toBe(true)
+        expect(stavangerOption.disabled).toBe(true)
+      })
+    })
   })
 })
