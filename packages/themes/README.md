@@ -28,17 +28,20 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 #### Tailwind
 
-If you are using Tailwind with [Preflight](https://tailwindcss.com/docs/preflight), ensure that you load the Designsystemet styles first by importing `base.tailwind.css` instead of `base.css`. The `base.tailwind.css` file includes all of `base.css` along with some overrides to ensure smooth integration between Designsystemet and Tailwind.
-
-The [theme].tailwind.css bridges the gap between Designsystemet and Tailwind, by mapping Tailwind-classes to the Designsystem-tokens! So import that as well.
+Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-tokens.
 
 ##### v4
 
 ```css
-@import url('@ks-digital/designsystem-themes/base.tailwind.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css');
-@import url('tailwindcss');
+@layer theme, tailwind-base, ds, components, utilities;
+
+@import url('@ks-digital/designsystem-themes/base.css') layer(ds);
+@import url('@ks-digital/designsystem-themes/ledsagerbevis.css') layer(ds);
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(tailwind-base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css' layer(theme);
 ```
 
 ##### v3 and older
@@ -47,7 +50,7 @@ The [theme].tailwind.css bridges the gap between Designsystemet and Tailwind, by
 > Tailwind versions earlier than v4 do **not** support mapping Tailwind utility classes directly to Designsystemet tokens.
 
 ```css
-@import url('@ks-digital/designsystem-themes/base.tailwind.css');
+@import url('@ks-digital/designsystem-themes/base.css');
 @import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
 
 @layer tailwind-base, ds;
