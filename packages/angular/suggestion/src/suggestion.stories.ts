@@ -113,7 +113,7 @@ export const Preview: Story = {
           <del aria-label="Tøm" hidden=""></del>
           <ksd-suggestion-list>
             @for (place of places; track place) {
-              <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>  
+              <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
             }
             <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
           </ksd-suggestion-list>
