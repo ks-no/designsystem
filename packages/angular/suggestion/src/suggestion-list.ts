@@ -52,7 +52,7 @@ export class SuggestionList {
    */
   readonly plural = input('%d forslag')
 
-  protected readonly options = contentChildren(SuggestionListOption, {
+  readonly options = contentChildren(SuggestionListOption, {
     descendants: true,
   })
 

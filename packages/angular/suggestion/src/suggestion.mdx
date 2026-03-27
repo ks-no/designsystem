@@ -68,10 +68,6 @@ export class App {
 
 ### Eget filter
 
-Om du ønsker å implementere eget filter, kan du gjøre det ved å lytte på `input`-eventen på input-feltet og filtrere listen av forslag selv. Sett `[filter]="false"` på `ksd-suggestion` for å deaktivere det innebygde filteret.
-
-`filter` støtter også en callback-funksjon (`SuggestionFilter`), slik at du kan sende inn egen filtreringslogikk direkte via `[filter]`.
-
 ```ts
 import { Component, signal } from '@angular/core'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'

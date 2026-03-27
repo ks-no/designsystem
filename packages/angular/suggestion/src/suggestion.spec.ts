@@ -1,8 +1,13 @@
+import { signal } from '@angular/core'
 import { Input } from '@ks-digital/designsystem-angular/forms'
 import { render, waitFor } from '@testing-library/angular'
 import { vi } from 'vitest'
 import { axe } from 'vitest-axe'
-import { SuggestionList, SuggestionListOption } from './index'
+import {
+  SuggestionList,
+  SuggestionListEmpty,
+  SuggestionListOption,
+} from './index'
 import { Suggestion } from './suggestion'
 import type { SuggestionFilter, SuggestionItem } from './suggestion.types'
 
@@ -265,6 +270,50 @@ describe('Suggestion', () => {
 
       await waitFor(() => {
         expect(bergenOption).toHaveAttribute('aria-hidden', 'false')
+      })
+    })
+
+    it('should show empty option when projected options become empty', async () => {
+      const showOptions = signal(true)
+
+      const { container } = await render(
+        `
+        <ksd-suggestion [filter]="false">
+          <input ksd-input />
+          <ksd-suggestion-list>
+            @if (showOptions()) {
+              <ksd-suggestion-list-option value="4601">Bergen</ksd-suggestion-list-option>
+            }
+            <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
+          </ksd-suggestion-list>
+        </ksd-suggestion>
+      `,
+        {
+          imports: [
+            Suggestion,
+            SuggestionList,
+            SuggestionListOption,
+            SuggestionListEmpty,
+            Input,
+          ],
+          componentProperties: {
+            showOptions,
+          },
+        },
+      )
+
+      const bergenOption = container.querySelector('u-option[value="4601"]')
+      const emptyOption = container.querySelector('u-option[data-empty]')
+
+      expect(bergenOption).toBeInTheDocument()
+      expect(emptyOption).toBeInTheDocument()
+
+      if (!bergenOption || !emptyOption) return
+
+      showOptions.set(false)
+
+      await waitFor(() => {
+        expect(emptyOption).not.toHaveAttribute('hidden')
       })
     })
 

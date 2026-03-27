@@ -4,7 +4,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  contentChild,
   CUSTOM_ELEMENTS_SCHEMA,
+  effect,
   ElementRef,
   input,
   model,
@@ -15,6 +17,7 @@ import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
+import { SuggestionList } from './suggestion-list'
 import type {
   SuggestionFilter,
   SuggestionFilterArgs,
@@ -89,9 +92,15 @@ export class Suggestion {
   protected selectedArray = computed(() => sanitizeItems(this.selected()))
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
+  private readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
     afterNextRender(() => this.syncOptions(null))
+
+    effect(() => {
+      this.suggestionList()?.options()
+      queueMicrotask(() => this.syncOptions(null))
+    })
   }
 
   protected onSelect(event: Event) {
