@@ -1,3 +1,14 @@
+## 0.0.1-alpha.46
+
+### 🩹 Fixes
+
+- **angular:** `OnPush` change detection everywhere ([#249](https://github.com/ks-no/designsystem/pull/249))
+- **angular/suggestion:** custom filtering and various issues ([#261](https://github.com/ks-no/designsystem/pull/261))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.45
 
 ### 🚀 Features
