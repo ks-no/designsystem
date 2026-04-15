@@ -13,7 +13,6 @@ mkdir -p dist dist/themes
 
 # Build base styles
 postcss src/base.css -o dist/base.css
-postcss src/base.tailwind.css -o dist/base.tailwind.css
 
 # Copy theme css files. They don't need postcss processing
 cp -a src/themes/. dist/themes/
