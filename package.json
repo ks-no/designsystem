@@ -85,8 +85,5 @@
       "@storybook/builder-vite": "10.1.9",
       "@storybook/csf-plugin": "10.1.9"
     }
-  },
-  "dependencies": {
-    "@angular/core": "21.2.8"
   }
 }
