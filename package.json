@@ -32,17 +32,17 @@
     "@nx/react": "catalog:nx",
     "@nx/storybook": "catalog:nx",
     "@nx/vite": "catalog:nx",
-    "@nx/vitest": "22.3.3",
+    "@nx/vitest": "22.6.5",
     "@nx/web": "catalog:nx",
     "@playwright/test": "^1.56.1",
     "@schematics/angular": "catalog:angular",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/angular": "catalog:storybook",
     "@storybook/html-vite": "catalog:storybook",
-    "@swc-node/register": "~1.9.2",
-    "@swc/cli": "~0.6.0",
-    "@swc/core": "~1.5.29",
-    "@swc/helpers": "~0.5.17",
+    "@swc-node/register": "1.11.1",
+    "@swc/cli": "0.7.10",
+    "@swc/core": "1.15.8",
+    "@swc/helpers": "0.5.21",
     "@testing-library/dom": "catalog:testing-library",
     "@testing-library/user-event": "catalog:testing-library",
     "@types/node": "catalog:typescript",
@@ -85,5 +85,8 @@
       "@storybook/builder-vite": "10.1.9",
       "@storybook/csf-plugin": "10.1.9"
     }
+  },
+  "dependencies": {
+    "@angular/core": "21.2.8"
   }
 }
