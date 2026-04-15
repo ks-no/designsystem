@@ -45,6 +45,7 @@ catalogs:
     '@nx/react': '22.6.5'
     '@nx/storybook': '22.6.5'
     '@nx/vite': '22.6.5'
+    '@nx/vitest': '22.6.5'
     '@nx/web': '22.6.5'
     nx: '22.6.5'
   react:

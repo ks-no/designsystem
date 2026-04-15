@@ -123,6 +123,9 @@ catalogs:
     '@nx/vite':
       specifier: 22.6.5
       version: 22.6.5
+    '@nx/vitest':
+      specifier: 22.6.5
+      version: 22.6.5
     '@nx/web':
       specifier: 22.6.5
       version: 22.6.5
@@ -272,7 +275,7 @@ importers:
         specifier: catalog:nx
         version: 22.6.5(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.21))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.8(@swc/helpers@0.5.21))(nx@22.6.5(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.21))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.8(@swc/helpers@0.5.21)))(typescript@5.9.3)(vite@7.2.4(@types/node@24.12.0)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(vitest@4.0.9)
       '@nx/vitest':
-        specifier: 22.6.5
+        specifier: catalog:nx
         version: 22.6.5(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.21))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.8(@swc/helpers@0.5.21))(nx@22.6.5(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.21))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.8(@swc/helpers@0.5.21)))(typescript@5.9.3)(vite@7.2.4(@types/node@24.12.0)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(tsx@4.7.0)(yaml@2.8.2))(vitest@4.0.9)
       '@nx/web':
         specifier: catalog:nx
