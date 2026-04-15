@@ -155,5 +155,6 @@
     "@nx/angular:scam-directive": {
       "type": "directive"
     }
-  }
+  },
+  "analytics": false
 }
