@@ -32,7 +32,7 @@
     "@nx/react": "catalog:nx",
     "@nx/storybook": "catalog:nx",
     "@nx/vite": "catalog:nx",
-    "@nx/vitest": "22.6.5",
+    "@nx/vitest": "catalog:nx",
     "@nx/web": "catalog:nx",
     "@playwright/test": "^1.56.1",
     "@schematics/angular": "catalog:angular",
