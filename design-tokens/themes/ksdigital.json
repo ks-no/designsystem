@@ -3,498 +3,498 @@
     "accent": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.accent.1}"
+        "$value": "{ksdigital.accent.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.accent.2}"
+        "$value": "{ksdigital.accent.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.accent.3}"
+        "$value": "{ksdigital.accent.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.accent.4}"
+        "$value": "{ksdigital.accent.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.accent.5}"
+        "$value": "{ksdigital.accent.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.accent.6}"
+        "$value": "{ksdigital.accent.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.accent.7}"
+        "$value": "{ksdigital.accent.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.accent.8}"
+        "$value": "{ksdigital.accent.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.accent.9}"
+        "$value": "{ksdigital.accent.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.accent.10}"
+        "$value": "{ksdigital.accent.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.accent.11}"
+        "$value": "{ksdigital.accent.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.accent.12}"
+        "$value": "{ksdigital.accent.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.accent.13}"
+        "$value": "{ksdigital.accent.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.accent.14}"
+        "$value": "{ksdigital.accent.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.accent.15}"
+        "$value": "{ksdigital.accent.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.accent.16}"
+        "$value": "{ksdigital.accent.16}"
       }
     },
     "neutral": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.1}"
+        "$value": "{ksdigital.neutral.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.2}"
+        "$value": "{ksdigital.neutral.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.3}"
+        "$value": "{ksdigital.neutral.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.4}"
+        "$value": "{ksdigital.neutral.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.5}"
+        "$value": "{ksdigital.neutral.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.6}"
+        "$value": "{ksdigital.neutral.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.7}"
+        "$value": "{ksdigital.neutral.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.8}"
+        "$value": "{ksdigital.neutral.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.9}"
+        "$value": "{ksdigital.neutral.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.10}"
+        "$value": "{ksdigital.neutral.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.11}"
+        "$value": "{ksdigital.neutral.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.12}"
+        "$value": "{ksdigital.neutral.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.13}"
+        "$value": "{ksdigital.neutral.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.14}"
+        "$value": "{ksdigital.neutral.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.15}"
+        "$value": "{ksdigital.neutral.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.neutral.16}"
+        "$value": "{ksdigital.neutral.16}"
       }
     },
     "support1": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.support1.1}"
+        "$value": "{ksdigital.support1.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.support1.2}"
+        "$value": "{ksdigital.support1.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.support1.3}"
+        "$value": "{ksdigital.support1.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.support1.4}"
+        "$value": "{ksdigital.support1.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.support1.5}"
+        "$value": "{ksdigital.support1.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.support1.6}"
+        "$value": "{ksdigital.support1.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.support1.7}"
+        "$value": "{ksdigital.support1.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.support1.8}"
+        "$value": "{ksdigital.support1.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.support1.9}"
+        "$value": "{ksdigital.support1.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.support1.10}"
+        "$value": "{ksdigital.support1.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.support1.11}"
+        "$value": "{ksdigital.support1.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.support1.12}"
+        "$value": "{ksdigital.support1.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.support1.13}"
+        "$value": "{ksdigital.support1.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.support1.14}"
+        "$value": "{ksdigital.support1.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.support1.15}"
+        "$value": "{ksdigital.support1.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.support1.16}"
+        "$value": "{ksdigital.support1.16}"
       }
     },
     "info": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.info.1}"
+        "$value": "{ksdigital.info.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.info.2}"
+        "$value": "{ksdigital.info.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.info.3}"
+        "$value": "{ksdigital.info.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.info.4}"
+        "$value": "{ksdigital.info.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.info.5}"
+        "$value": "{ksdigital.info.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.info.6}"
+        "$value": "{ksdigital.info.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.info.7}"
+        "$value": "{ksdigital.info.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.info.8}"
+        "$value": "{ksdigital.info.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.info.9}"
+        "$value": "{ksdigital.info.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.info.10}"
+        "$value": "{ksdigital.info.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.info.11}"
+        "$value": "{ksdigital.info.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.info.12}"
+        "$value": "{ksdigital.info.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.info.13}"
+        "$value": "{ksdigital.info.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.info.14}"
+        "$value": "{ksdigital.info.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.info.15}"
+        "$value": "{ksdigital.info.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.info.16}"
+        "$value": "{ksdigital.info.16}"
       }
     },
     "success": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.success.1}"
+        "$value": "{ksdigital.success.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.success.2}"
+        "$value": "{ksdigital.success.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.success.3}"
+        "$value": "{ksdigital.success.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.success.4}"
+        "$value": "{ksdigital.success.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.success.5}"
+        "$value": "{ksdigital.success.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.success.6}"
+        "$value": "{ksdigital.success.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.success.7}"
+        "$value": "{ksdigital.success.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.success.8}"
+        "$value": "{ksdigital.success.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.success.9}"
+        "$value": "{ksdigital.success.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.success.10}"
+        "$value": "{ksdigital.success.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.success.11}"
+        "$value": "{ksdigital.success.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.success.12}"
+        "$value": "{ksdigital.success.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.success.13}"
+        "$value": "{ksdigital.success.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.success.14}"
+        "$value": "{ksdigital.success.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.success.15}"
+        "$value": "{ksdigital.success.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.success.16}"
+        "$value": "{ksdigital.success.16}"
       }
     },
     "warning": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.warning.1}"
+        "$value": "{ksdigital.warning.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.warning.2}"
+        "$value": "{ksdigital.warning.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.warning.3}"
+        "$value": "{ksdigital.warning.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.warning.4}"
+        "$value": "{ksdigital.warning.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.warning.5}"
+        "$value": "{ksdigital.warning.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.warning.6}"
+        "$value": "{ksdigital.warning.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.warning.7}"
+        "$value": "{ksdigital.warning.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.warning.8}"
+        "$value": "{ksdigital.warning.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.warning.9}"
+        "$value": "{ksdigital.warning.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.warning.10}"
+        "$value": "{ksdigital.warning.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.warning.11}"
+        "$value": "{ksdigital.warning.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.warning.12}"
+        "$value": "{ksdigital.warning.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.warning.13}"
+        "$value": "{ksdigital.warning.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.warning.14}"
+        "$value": "{ksdigital.warning.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.warning.15}"
+        "$value": "{ksdigital.warning.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.warning.16}"
+        "$value": "{ksdigital.warning.16}"
       }
     },
     "danger": {
       "1": {
         "$type": "color",
-        "$value": "{forvaltning.danger.1}"
+        "$value": "{ksdigital.danger.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{forvaltning.danger.2}"
+        "$value": "{ksdigital.danger.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{forvaltning.danger.3}"
+        "$value": "{ksdigital.danger.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{forvaltning.danger.4}"
+        "$value": "{ksdigital.danger.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{forvaltning.danger.5}"
+        "$value": "{ksdigital.danger.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{forvaltning.danger.6}"
+        "$value": "{ksdigital.danger.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{forvaltning.danger.7}"
+        "$value": "{ksdigital.danger.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{forvaltning.danger.8}"
+        "$value": "{ksdigital.danger.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{forvaltning.danger.9}"
+        "$value": "{ksdigital.danger.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{forvaltning.danger.10}"
+        "$value": "{ksdigital.danger.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{forvaltning.danger.11}"
+        "$value": "{ksdigital.danger.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{forvaltning.danger.12}"
+        "$value": "{ksdigital.danger.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{forvaltning.danger.13}"
+        "$value": "{ksdigital.danger.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{forvaltning.danger.14}"
+        "$value": "{ksdigital.danger.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{forvaltning.danger.15}"
+        "$value": "{ksdigital.danger.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{forvaltning.danger.16}"
+        "$value": "{ksdigital.danger.16}"
       }
     },
     "link": {
       "visited": {
         "$type": "color",
-        "$value": "{forvaltning.link.visited}"
+        "$value": "{ksdigital.link.visited}"
       }
     },
     "focus": {
       "inner-color": {
         "$type": "color",
-        "$value": "{forvaltning.focus.inner}"
+        "$value": "{ksdigital.focus.inner}"
       },
       "outer-color": {
         "$type": "color",
-        "$value": "{forvaltning.focus.outer}"
+        "$value": "{ksdigital.focus.outer}"
       }
     }
   },
   "font-family": {
     "$type": "fontFamilies",
-    "$value": "{forvaltning.font-family}"
+    "$value": "{ksdigital.font-family}"
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{forvaltning.font-weight.medium}"
+      "$value": "{ksdigital.font-weight.medium}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{forvaltning.font-weight.semibold}"
+      "$value": "{ksdigital.font-weight.semibold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{forvaltning.font-weight.regular}"
+      "$value": "{ksdigital.font-weight.regular}"
     }
   },
   "border-radius": {
