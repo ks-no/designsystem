@@ -3,7 +3,7 @@
   "outDir": "./design-tokens",
   "clean": true,
   "themes": {
-    "forvaltning": {
+    "ksdigital": {
       "colors": {
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
