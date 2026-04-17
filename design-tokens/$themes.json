@@ -39,12 +39,12 @@
     "group": "Size"
   },
   {
-    "id": "cb265157eff94bd0baef10277b58fc7f6c8f8629",
+    "id": "e8e0a09d79597bf0823f5f52314b7bacb9a85a4f",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
     "$figmaModeId": "40960:6",
-    "name": "forvaltning",
+    "name": "ksdigital",
     "selectedTokenSets": {
-      "themes/forvaltning": "enabled"
+      "themes/ksdigital": "enabled"
     },
     "group": "Theme"
   },
@@ -84,7 +84,7 @@
     "$figmaModeId": "36248:2",
     "name": "Primary",
     "selectedTokenSets": {
-      "primitives/modes/typography/primary/forvaltning": "enabled",
+      "primitives/modes/typography/primary/ksdigital": "enabled",
       "primitives/modes/typography/primary/minkommune": "enabled",
       "primitives/modes/typography/primary/ledsagerbevis": "enabled",
       "primitives/modes/typography/primary/tilskudd": "enabled"
@@ -97,7 +97,7 @@
     "$figmaModeId": "36248:3",
     "name": "Secondary",
     "selectedTokenSets": {
-      "primitives/modes/typography/secondary/forvaltning": "enabled",
+      "primitives/modes/typography/secondary/ksdigital": "enabled",
       "primitives/modes/typography/secondary/minkommune": "enabled",
       "primitives/modes/typography/secondary/ledsagerbevis": "enabled",
       "primitives/modes/typography/secondary/tilskudd": "enabled"
@@ -107,7 +107,7 @@
   {
     "name": "Dark",
     "selectedTokenSets": {
-      "primitives/modes/color-scheme/dark/forvaltning": "enabled",
+      "primitives/modes/color-scheme/dark/ksdigital": "enabled",
       "primitives/modes/color-scheme/dark/minkommune": "enabled",
       "primitives/modes/color-scheme/dark/ledsagerbevis": "enabled",
       "primitives/modes/color-scheme/dark/tilskudd": "enabled"
@@ -120,7 +120,7 @@
   {
     "name": "Light",
     "selectedTokenSets": {
-      "primitives/modes/color-scheme/light/forvaltning": "enabled",
+      "primitives/modes/color-scheme/light/ksdigital": "enabled",
       "primitives/modes/color-scheme/light/minkommune": "enabled",
       "primitives/modes/color-scheme/light/ledsagerbevis": "enabled",
       "primitives/modes/color-scheme/light/tilskudd": "enabled"
