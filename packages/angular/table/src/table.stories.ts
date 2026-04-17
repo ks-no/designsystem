@@ -5,10 +5,9 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular'
-import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Table, TableHeaderCell } from './index'
 
-type TableArgs = CommonArgs & {
+type TableArgs = {
   zebra: boolean
   stickyHeader: boolean
   border: boolean
@@ -54,9 +53,6 @@ const meta: Meta<TableArgs> = {
   title: 'Table',
   parameters: {
     layout: 'padded',
-  },
-  argTypes: {
-    ...commonArgTypes,
   },
   decorators: [
     moduleMetadata({

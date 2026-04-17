@@ -4,16 +4,11 @@ import {
   Component,
   input,
 } from '@angular/core'
-import {
-  HostColor,
-  HostSize,
-} from '@ks-digital/designsystem-angular/__internals'
 
 @Component({
   selector: 'table[ksd-table]',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<ng-content />`,
-  hostDirectives: [HostSize, HostColor],
   host: {
     class: 'ds-table',
     '[attr.data-hover]': 'hover() || undefined',
