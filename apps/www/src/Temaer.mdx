@@ -8,9 +8,9 @@ Når du navigerer gjennom de ulike komponentene, kan du forhåndsvise de i de ul
 
 ## Tilgjengelige temaer
 
+- **KS Digital**
 - **Ledsagerbevis**
-- **Forvaltning**
-- **Minkommune**
+- **Min Kommune**
 - **Tilskudd**
 
 ## Om temaene
@@ -35,7 +35,7 @@ Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-
 
 ```js
 @import url('@ks-digital/designsystem-themes/base.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+@import url('@ks-digital/designsystem-themes/ksdigital.css');
 ```
 
 #### Tailwind
@@ -48,7 +48,7 @@ Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler
 @layer theme, tailwind-base, ds, components, utilities;
 
 @import url('@ks-digital/designsystem-themes/base.css') layer(ds);
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css') layer(ds);
+@import url('@ks-digital/designsystem-themes/ksdigital.css') layer(ds);
 
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(tailwind-base);
@@ -63,7 +63,7 @@ Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler
 > Tailwind v3 og eldre støtter ikke direkte mapping av Tailwind-klasser til Designsystemets tokens.
 
 ```css
-@import '@ks-digital/designsystem-themes/ledsagerbevis.css';
+@import '@ks-digital/designsystem-themes/ksdigital.css';
 
 @layer tailwind-base, ds;
 
@@ -80,5 +80,5 @@ Importer stilene direkte i applikasjonen din. Bruker du React, se README i React
 
 ```javascript
 import '@ks-digital/designsystem-themes/base.css'
-import '@ks-digital/designsystem-themes/ledsagerbevis.css'
+import '@ks-digital/designsystem-themes/ksdigital.css'
 ```
