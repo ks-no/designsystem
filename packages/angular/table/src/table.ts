@@ -22,20 +22,32 @@ export class Table {
    * Will give the table a hover effect on rows
    * @default false
    */
-  readonly hover = input(false, { transform: booleanAttribute })
+  readonly hover = input(false, {
+    alias: 'data-hover',
+    transform: booleanAttribute,
+  })
   /**
    * Will give the table a rounded border
    * @default false
    */
-  readonly border = input(false, { transform: booleanAttribute })
+  readonly border = input(false, {
+    alias: 'data-border',
+    transform: booleanAttribute,
+  })
   /**
    * Will make the table header sticky
    * @default false
    */
-  readonly stickyHeader = input(false, { transform: booleanAttribute })
+  readonly stickyHeader = input(false, {
+    alias: 'data-sticky-header',
+    transform: booleanAttribute,
+  })
   /**
    * Will give the table zebra striping
    * @default false
    */
-  readonly zebra = input(false, { transform: booleanAttribute })
+  readonly zebra = input(false, {
+    alias: 'data-zebra',
+    transform: booleanAttribute,
+  })
 }
