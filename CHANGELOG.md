@@ -1,3 +1,13 @@
+## 0.0.1-alpha.47
+
+### 🚀 Features
+
+- **themes:** ksdigital-theme ([#266](https://github.com/ks-no/designsystem/pull/266))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.46
 
 ### 🩹 Fixes
