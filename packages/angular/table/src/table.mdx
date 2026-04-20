@@ -1,0 +1,44 @@
+import { Meta, Primary, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+import * as TableStories from './table.stories'
+
+<Meta of={TableStories} />
+
+# Table
+
+<OfficialDocsLink href="https://designsystemet.no/no/components/docs/table/overview" />
+
+Table brukes for å presentere strukturert data i rader og kolonner.
+
+<Primary />
+<Controls />
+
+## Eksempler
+
+### Tall
+
+<Canvas of={TableStories.Numbers} />
+
+### Sorterbar tabell
+
+<Canvas of={TableStories.Sortable} />
+
+### Sticky header
+
+<Canvas of={TableStories.StickyHeader} />
+
+### Med formelementer
+
+<Canvas of={TableStories.WithFormElements} />
+
+### Fast tabell-layout
+
+<Canvas of={TableStories.FixedTable} />
+
+### Flere header-rader
+
+<Canvas of={TableStories.MultipleHeaderRows} />
+
+### Border
+
+<Canvas of={TableStories.WithBorder} />
