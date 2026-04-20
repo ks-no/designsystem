@@ -39,7 +39,9 @@ export class TableHeaderCell {
    * If 'none' | 'ascending' | 'descending' will add a button to the header cell and change aria-sort and icon
    * @default undefined
    */
-  readonly sort = input<'none' | 'ascending' | 'descending'>()
+  readonly sort = input<'none' | 'ascending' | 'descending'>(undefined, {
+    alias: 'aria-sort',
+  })
   /**
    * Event if sort button has been clicked
    * @emits void
