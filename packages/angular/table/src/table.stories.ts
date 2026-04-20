@@ -153,10 +153,10 @@ export const Numbers: Story = {
 export const Sortable: Story = {
   render: (args) => {
     const state: {
-      sortField: keyof DataRow | null
+      sortField: keyof DataRow | undefined
       sortDirection: 'none' | 'ascending' | 'descending' | undefined
     } = {
-      sortField: null,
+      sortField: undefined,
       sortDirection: undefined,
     }
 
@@ -171,7 +171,7 @@ export const Sortable: Story = {
             state.sortField === field &&
             state.sortDirection === 'descending'
           ) {
-            state.sortField = null
+            state.sortField = undefined
             state.sortDirection = undefined
             return
           }
@@ -185,20 +185,23 @@ export const Sortable: Story = {
         sortedData: () => {
           const sortedRows = [...dummyData]
 
-          if (state.sortField === null || !state.sortDirection) {
+          if (state.sortField === undefined || !state.sortDirection) {
             return sortedRows
           }
 
+          const sortField = state.sortField
+          const sortDirection = state.sortDirection
+
           return sortedRows.sort((a, b) => {
-            const aValue = a[state.sortField!]
-            const bValue = b[state.sortField!]
+            const aValue = a[sortField]
+            const bValue = b[sortField]
 
             if (aValue < bValue) {
-              return state.sortDirection === 'ascending' ? -1 : 1
+              return sortDirection === 'ascending' ? -1 : 1
             }
 
             if (aValue > bValue) {
-              return state.sortDirection === 'ascending' ? 1 : -1
+              return sortDirection === 'ascending' ? 1 : -1
             }
 
             return 0
