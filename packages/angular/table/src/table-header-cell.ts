@@ -43,7 +43,7 @@ export class TableHeaderCell {
     alias: 'aria-sort',
   })
   /**
-   * Event if sort button has been clicked
+   * Emitted when the sort button is clicked
    * @emits void
    */
   readonly sortChange = output()
