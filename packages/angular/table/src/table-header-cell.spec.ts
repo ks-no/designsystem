@@ -1,14 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { render, screen } from '@testing-library/angular'
+import { fireEvent, render, screen } from '@testing-library/angular'
+import { vi } from 'vitest'
 import { TableHeaderCell } from '../src/table-header-cell'
 
 @Component({
-  template: `<th ksd-header-cell [sort]="sort">Header 1</th>`,
+  template: `<th
+    ksd-header-cell
+    [aria-sort]="sort"
+    (sortChange)="onSortChange()"
+  >
+    Header 1
+  </th>`,
   imports: [TableHeaderCell],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestComponent {
   sort: 'none' | 'ascending' | 'descending' | undefined = undefined
+  readonly onSortChange = vi.fn()
 }
 
 describe('table header cell', () => {
@@ -28,5 +36,15 @@ describe('table header cell', () => {
       'aria-sort',
       'ascending',
     )
+  })
+
+  it('should emit sortChange when sort button is clicked', async () => {
+    const { fixture } = await render(TestComponent, {
+      componentProperties: { sort: 'none' },
+    })
+
+    fireEvent.click(screen.getByRole('button'))
+
+    expect(fixture.componentInstance.onSortChange).toHaveBeenCalledTimes(1)
   })
 })
