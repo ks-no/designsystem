@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
-import { TableHeaderCell } from './table-header-cell'
+import { TableHeaderCell } from '../src/table-header-cell'
 
 @Component({
   template: `<th ksd-header-cell [sort]="sort">Header 1</th>`,
