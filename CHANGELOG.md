@@ -1,3 +1,13 @@
+## 0.0.1-alpha.48
+
+### 🚀 Features
+
+- **angular:** table ([#270](https://github.com/ks-no/designsystem/pull/270))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.47
 
 ### 🚀 Features
