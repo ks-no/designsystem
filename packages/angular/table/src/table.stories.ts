@@ -8,10 +8,10 @@ import {
 import { Table, TableHeaderCell } from './index'
 
 type TableArgs = {
-  zebra: boolean
-  stickyHeader: boolean
-  border: boolean
-  hover: boolean
+  'data-zebra': boolean
+  'data-sticky-header': boolean
+  'data-border': boolean
+  'data-hover': boolean
 }
 
 type DataRow = {
