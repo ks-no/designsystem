@@ -66,10 +66,10 @@ type Story = StoryObj<TableArgs>
 
 export const Preview: Story = {
   args: {
-    zebra: false,
-    stickyHeader: false,
-    border: false,
-    hover: false,
+    'data-zebra': false,
+    'data-sticky-header': false,
+    'data-border': false,
+    'data-hover': false,
   },
   render: (args) => ({
     props: args,
@@ -109,8 +109,8 @@ export const Preview: Story = {
 
 export const Numbers: Story = {
   args: {
-    zebra: true,
-    border: true,
+    'data-zebra': true,
+    'data-border': true,
   },
   render: (args) => ({
     props: args,
@@ -214,7 +214,7 @@ export const Sortable: Story = {
             <tr>
               <th
                 ksd-header-cell
-                [sort]="sortFor('navn')"
+                [aria-sort]="sortFor('navn')"
                 (sortChange)="toggleSort('navn')"
               >
                 Navn
@@ -222,7 +222,7 @@ export const Sortable: Story = {
               <th>Epost</th>
               <th
                 ksd-header-cell
-                [sort]="sortFor('telefon')"
+                [aria-sort]="sortFor('telefon')"
                 (sortChange)="toggleSort('telefon')"
               >
                 Telefon
@@ -246,7 +246,7 @@ export const Sortable: Story = {
 
 export const StickyHeader: Story = {
   args: {
-    stickyHeader: true,
+    'data-sticky-header': true,
   },
   render: (args) => ({
     props: {
@@ -384,7 +384,7 @@ export const MultipleHeaderRows: Story = {
 
 export const WithBorder: Story = {
   args: {
-    border: true,
+    'data-border': true,
   },
   render: (args) => ({
     props: {
