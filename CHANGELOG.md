@@ -1,3 +1,13 @@
+## 0.0.1-alpha.50
+
+### 🩹 Fixes
+
+- **angular/tabs:** wrong font-size for projected tab-icons ([#274](https://github.com/ks-no/designsystem/pull/274))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.49
 
 ### 🩹 Fixes
