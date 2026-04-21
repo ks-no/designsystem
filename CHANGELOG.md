@@ -1,3 +1,13 @@
+## 0.0.1-alpha.49
+
+### 🩹 Fixes
+
+- **angular:** dont render buttons-icons if loading ([#273](https://github.com/ks-no/designsystem/pull/273))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.48
 
 ### 🚀 Features
