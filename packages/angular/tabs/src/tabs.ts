@@ -4,6 +4,7 @@ import {
   Component,
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
+  output,
 } from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
@@ -19,8 +20,8 @@ import { TabsTab } from './tabs-tab'
   template: `
     <ds-tabs class="ds-tabs">
       <ds-tablist>
-        @for (tab of tabs(); track tab) {
-          <ds-tab>
+        @for (tab of tabs(); track tab; let index = $index) {
+          <ds-tab (click)="onTabClick(index, tab)">
             <ng-container *ngTemplateOutlet="tab.templateRef()" />
           </ds-tab>
         }
@@ -51,5 +52,15 @@ import { TabsTab } from './tabs-tab'
   ],
 })
 export class Tabs {
+  /**
+   * Emits the tab index when any tab is clicked.
+   */
+  readonly tabClicked = output<number>()
+
   readonly tabs = contentChildren(TabsTab, { descendants: true })
+
+  protected onTabClick(index: number, tab: TabsTab) {
+    this.tabClicked.emit(index)
+    tab.emitTabClicked(index)
+  }
 }
