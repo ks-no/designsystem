@@ -28,6 +28,16 @@ import { TabsTab } from './tabs-tab'
       <ng-content select="ksd-tabs-panel" />
     </ds-tabs>
   `,
+  styles: `
+    :host
+      ::ng-deep
+      :is(.ds-tabs [role='tab'], .ds-tabs ds-tab, .ds-tabs u-tab)
+      > :where(ng-icon, svg, img) {
+      font-size: calc(1em * 1.25);
+      width: 1em;
+      height: 1em;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
