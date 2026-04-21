@@ -94,6 +94,6 @@ it('should not render icon when icon-only button is loading', async () => {
     `,
     { imports: [Button] },
   )
-  expect(screen.queryByText('Ikon')).toBeNull()
-  expect(screen.getByRole('button')).toHaveAttribute('aria-busy')
+  expect(screen.queryByLabelText('Ikon')).toBeNull()
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true')
 })

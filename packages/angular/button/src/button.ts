@@ -75,7 +75,7 @@ export class Button {
   readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
-   * If this is a button with only an icon. When combined with loading, the loading-icon will be shown instead of the icon.
+   * If this is a button with only an icon. When combined with loading, a spinner will be shown instead of the icon.
 
    */
   readonly icon = input(false, { transform: booleanAttribute })
