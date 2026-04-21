@@ -47,7 +47,9 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     @if (loading()) {
       <ksd-spinner aria-hidden="true" />
     }
-    <ng-content />
+    @if (!(loading() && icon())) {
+      <ng-content />
+    }
   `,
 })
 export class Button {
@@ -73,7 +75,8 @@ export class Button {
   readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
-   * If this is a button with only an icon
+   * If this is a button with only an icon. When combined with loading, the loading-icon will be shown instead of the icon.
+
    */
   readonly icon = input(false, { transform: booleanAttribute })
 }

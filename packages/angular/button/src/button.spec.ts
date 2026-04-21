@@ -84,3 +84,16 @@ it('should set aria-busy when loading', async () => {
   const button = screen.getByRole('button')
   expect(button).toHaveAttribute('aria-busy', 'true')
 })
+
+it('should not render icon when icon-only button is loading', async () => {
+  await render(
+    `
+      <button icon loading ksd-button aria-label="Kun ikon">
+        <ng-icon name="phosphorPencilLine" aria-label="Ikon" />
+      </button>
+    `,
+    { imports: [Button] },
+  )
+  expect(screen.queryByText('Ikon')).toBeNull()
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy')
+})
