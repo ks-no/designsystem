@@ -53,7 +53,7 @@ export class TabsTab {
    */
   templateRef = viewChild<TemplateRef<unknown>>('tpl')
 
-  /* Exposted function so Tabs can emit tab click events */
+  /* Exposed function so Tabs can emit tab click events */
   emitTabClicked(event: TabClickEvent) {
     this.tabClicked.emit(event)
   }
