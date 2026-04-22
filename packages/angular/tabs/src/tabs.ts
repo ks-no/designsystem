@@ -19,8 +19,8 @@ import { TabsTab } from './tabs-tab'
   template: `
     <ds-tabs class="ds-tabs">
       <ds-tablist>
-        @for (tab of tabs(); track tab) {
-          <ds-tab>
+        @for (tab of tabs(); track tab; let index = $index) {
+          <ds-tab (click)="onTabClick(index, tab)">
             <ng-container *ngTemplateOutlet="tab.templateRef()" />
           </ds-tab>
         }
@@ -52,4 +52,8 @@ import { TabsTab } from './tabs-tab'
 })
 export class Tabs {
   readonly tabs = contentChildren(TabsTab, { descendants: true })
+
+  protected onTabClick(index: number, tab: TabsTab) {
+    tab.emitTabClicked(index)
+  }
 }

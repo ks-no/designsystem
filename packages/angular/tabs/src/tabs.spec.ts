@@ -1,4 +1,5 @@
-import { render } from '@testing-library/angular'
+import { fireEvent, render, screen } from '@testing-library/angular'
+import { vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import { Tabs, TabsList, TabsPanel, TabsTab } from '.'
 
@@ -19,5 +20,31 @@ describe('Tabs', () => {
 
     const results = await axe(container)
     expect(results).toHaveNoViolations()
+  })
+
+  it('should emit tabClicked from ksd-tabs-tab when a tab is clicked', async () => {
+    const onTabClicked = vi.fn()
+
+    await render(
+      `
+        <ksd-tabs>
+          <ksd-tabs-list>
+            <ksd-tabs-tab (tabClicked)="onTabClicked($event)">Tab 1</ksd-tabs-tab>
+            <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
+          </ksd-tabs-list>
+          <ksd-tabs-panel>content 1</ksd-tabs-panel>
+          <ksd-tabs-panel>content 2</ksd-tabs-panel>
+        </ksd-tabs>
+      `,
+      {
+        imports: [Tabs, TabsList, TabsTab, TabsPanel],
+        componentProperties: {
+          onTabClicked,
+        },
+      },
+    )
+
+    fireEvent.click(screen.getByText('Tab 1'))
+    expect(onTabClicked).toHaveBeenCalledWith(0)
   })
 })

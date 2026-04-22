@@ -48,3 +48,22 @@ import {
 })
 export class App {}
 ```
+
+## Reagere på endring
+
+Bruk `tabClicked`-outputen for å lytte etter klikk på tabs.
+
+```ts
+@Component({
+  imports: [Tabs, TabsList, TabsTab, TabsPanel],
+  template: `
+    <ksd-tabs>
+      <ksd-tabs-list>
+        <ksd-tabs-tab (tabClicked)="onTabClicked($event)">Tab 1</ksd-tabs-tab>
+      </ksd-tabs-list>
+      <ksd-tabs-panel>Content 1</ksd-tabs-panel>
+    </ksd-tabs>
+  `,
+})
+export class App {}
+```
