@@ -1,3 +1,13 @@
+## 0.0.1-alpha.52
+
+### 🩹 Fixes
+
+- **angular/tabs:** easier api for handling tab changes ([#276](https://github.com/ks-no/designsystem/pull/276))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.51
 
 ### 🩹 Fixes
