@@ -4,7 +4,6 @@ import {
   Component,
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
-  output,
 } from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
@@ -52,15 +51,9 @@ import { TabsTab } from './tabs-tab'
   ],
 })
 export class Tabs {
-  /**
-   * Emits the tab index when any tab is clicked.
-   */
-  readonly tabClicked = output<number>()
-
   readonly tabs = contentChildren(TabsTab, { descendants: true })
 
   protected onTabClick(index: number, tab: TabsTab) {
-    this.tabClicked.emit(index)
     tab.emitTabClicked(index)
   }
 }
