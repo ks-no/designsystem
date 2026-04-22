@@ -12,8 +12,20 @@ import {
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
 
+/**
+ * Payload emitted from `tabClicked` on both `ksd-tabs` and `ksd-tabs-tab`.
+ */
 export interface TabClickEvent {
+  /**
+   * Zero-based index of the clicked tab in its current render order.
+   */
   index: number
+
+  /**
+   * Consumer-provided stable tab identifier from `tabId`.
+   *
+   * `undefined` when `tabId` is not provided.
+   */
   tabId: string | undefined
 }
 
@@ -36,7 +48,9 @@ export interface TabClickEvent {
 })
 export class TabsTab {
   /**
-   * Stable identifier for tab
+   * Stable identifier for this tab.
+   *
+   * Recommended for logic such as analytics, routing and persisted state.
    *
    * If omitted, `tabClicked` emits `tabId: undefined`.
    */

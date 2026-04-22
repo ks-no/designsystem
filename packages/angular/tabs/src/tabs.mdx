@@ -53,6 +53,18 @@ export class App {}
 
 Bruk `tabClicked`-outputen for å lytte etter klikk på tabs. Du kan også sette `tabId` for å enklere identifisere hvilken tab som er klikket på.
 
+`tabClicked` sender et `TabClickEvent`:
+
+```ts
+type TabClickEvent = {
+  index: number
+  tabId: string | undefined
+}
+```
+
+- `index`: nullbasert posisjon for tab i gjeldende rekkefolge.
+- `tabId`: verdien satt på `tabId` for taben. `undefined` hvis `tabId` ikke er satt.
+
 ```ts
 @Component({
   imports: [Tabs, TabsList, TabsTab, TabsPanel],
