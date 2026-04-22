@@ -1,3 +1,13 @@
+## 0.0.1-alpha.51
+
+### 🩹 Fixes
+
+- **angular:** `tabClicked` output ([#275](https://github.com/ks-no/designsystem/pull/275))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.50
 
 ### 🩹 Fixes
