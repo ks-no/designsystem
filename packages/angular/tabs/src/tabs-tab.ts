@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  input,
   output,
   TemplateRef,
   viewChild,
@@ -10,6 +11,11 @@ import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
+
+export interface TabClickEvent {
+  index: number
+  tabId: string | undefined
+}
 
 @Component({
   selector: `ksd-tabs-tab`,
@@ -30,9 +36,16 @@ import {
 })
 export class TabsTab {
   /**
-   * Emits the tab index when this tab is clicked.
+   * Stable identifier for tab
+   *
+   * If omitted, `tabClicked` emits `tabId: undefined`.
    */
-  readonly tabClicked = output<number>()
+  readonly tabId = input<string>()
+
+  /**
+   * Emits tab click details when this tab is clicked.
+   */
+  readonly tabClicked = output<TabClickEvent>()
 
   /**
    * Hack to get the content of the tab from outside so that we can
@@ -40,7 +53,8 @@ export class TabsTab {
    */
   templateRef = viewChild<TemplateRef<unknown>>('tpl')
 
-  emitTabClicked(index: number) {
-    this.tabClicked.emit(index)
+  /* Exposted function so Tabs can emit tab click events */
+  emitTabClicked(event: TabClickEvent) {
+    this.tabClicked.emit(event)
   }
 }

@@ -4,13 +4,14 @@ import {
   Component,
   contentChildren,
   CUSTOM_ELEMENTS_SCHEMA,
+  output,
 } from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-import { TabsTab } from './tabs-tab'
+import { TabClickEvent, TabsTab } from './tabs-tab'
 
 @Component({
   selector: `ksd-tabs`,
@@ -51,9 +52,20 @@ import { TabsTab } from './tabs-tab'
   ],
 })
 export class Tabs {
+  /**
+   * Emits tab click details when any tab is clicked.
+   */
+  readonly tabClicked = output<TabClickEvent>()
+
   readonly tabs = contentChildren(TabsTab, { descendants: true })
 
   protected onTabClick(index: number, tab: TabsTab) {
-    tab.emitTabClicked(index)
+    const event: TabClickEvent = {
+      index,
+      tabId: tab.tabId(),
+    }
+
+    this.tabClicked.emit(event)
+    tab.emitTabClicked(event)
   }
 }

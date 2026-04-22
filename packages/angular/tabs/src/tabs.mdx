@@ -51,7 +51,7 @@ export class App {}
 
 ## Reagere på endring
 
-Bruk `tabClicked`-outputen for å lytte etter klikk på tabs.
+Bruk `tabClicked`-outputen for å lytte etter klikk på tabs. Du kan også sette `tabId` for å enklere identifisere hvilken tab som er klikket på.
 
 ```ts
 @Component({
@@ -59,7 +59,9 @@ Bruk `tabClicked`-outputen for å lytte etter klikk på tabs.
   template: `
     <ksd-tabs>
       <ksd-tabs-list>
-        <ksd-tabs-tab (tabClicked)="onTabClicked($event)">Tab 1</ksd-tabs-tab>
+        <ksd-tabs-tab tabId="users" (tabClicked)="onTabClicked($event)">
+          Tab 1
+        </ksd-tabs-tab>
       </ksd-tabs-list>
       <ksd-tabs-panel>Content 1</ksd-tabs-panel>
     </ksd-tabs>
