@@ -17,9 +17,9 @@
     ]
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "~2.1.0",
-    "@analogjs/vite-plugin-angular": "~2.1.0",
-    "@analogjs/vitest-angular": "~2.1.0",
+    "@analogjs/storybook-angular": "catalog:angular",
+    "@analogjs/vite-plugin-angular": "catalog:angular",
+    "@analogjs/vitest-angular": "catalog:angular",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@digdir/designsystemet": "catalog:designsystemet",
@@ -82,8 +82,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@storybook/builder-vite": "10.1.9",
-      "@storybook/csf-plugin": "10.1.9"
+      "@storybook/builder-vite": "10.2.17",
+      "@storybook/csf-plugin": "10.2.17"
     }
   }
 }
