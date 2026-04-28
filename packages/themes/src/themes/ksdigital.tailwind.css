@@ -18,6 +18,7 @@
   --color-accent-border-default: var(--ds-color-accent-border-default);
   --color-accent-border-strong: var(--ds-color-accent-border-strong);
   --color-accent-border-subtle: var(--ds-color-accent-border-subtle);
+  --color-accent-icon-subtle: var(--ds-color-accent-icon-subtle);
   --color-accent-surface-active: var(--ds-color-accent-surface-active);
   --color-accent-surface-default: var(--ds-color-accent-surface-default);
   --color-accent-surface-hover: var(--ds-color-accent-surface-hover);
@@ -48,12 +49,14 @@
   --color-danger-border-default: var(--ds-color-danger-border-default);
   --color-danger-border-strong: var(--ds-color-danger-border-strong);
   --color-danger-border-subtle: var(--ds-color-danger-border-subtle);
+  --color-danger-icon-subtle: var(--ds-color-danger-icon-subtle);
   --color-danger-surface-active: var(--ds-color-danger-surface-active);
   --color-danger-surface-default: var(--ds-color-danger-surface-default);
   --color-danger-surface-hover: var(--ds-color-danger-surface-hover);
   --color-danger-surface-tinted: var(--ds-color-danger-surface-tinted);
   --color-danger-text-default: var(--ds-color-danger-text-default);
   --color-danger-text-subtle: var(--ds-color-danger-text-subtle);
+  --color-icon-subtle: var(--ds-color-icon-subtle);
   --color-info-background-default: var(--ds-color-info-background-default);
   --color-info-background-tinted: var(--ds-color-info-background-tinted);
   --color-info-base-active: var(--ds-color-info-base-active);
@@ -66,6 +69,7 @@
   --color-info-border-default: var(--ds-color-info-border-default);
   --color-info-border-strong: var(--ds-color-info-border-strong);
   --color-info-border-subtle: var(--ds-color-info-border-subtle);
+  --color-info-icon-subtle: var(--ds-color-info-icon-subtle);
   --color-info-surface-active: var(--ds-color-info-surface-active);
   --color-info-surface-default: var(--ds-color-info-surface-default);
   --color-info-surface-hover: var(--ds-color-info-surface-hover);
@@ -88,6 +92,7 @@
   --color-neutral-border-default: var(--ds-color-neutral-border-default);
   --color-neutral-border-strong: var(--ds-color-neutral-border-strong);
   --color-neutral-border-subtle: var(--ds-color-neutral-border-subtle);
+  --color-neutral-icon-subtle: var(--ds-color-neutral-icon-subtle);
   --color-neutral-surface-active: var(--ds-color-neutral-surface-active);
   --color-neutral-surface-default: var(--ds-color-neutral-surface-default);
   --color-neutral-surface-hover: var(--ds-color-neutral-surface-hover);
@@ -110,6 +115,7 @@
   --color-success-border-default: var(--ds-color-success-border-default);
   --color-success-border-strong: var(--ds-color-success-border-strong);
   --color-success-border-subtle: var(--ds-color-success-border-subtle);
+  --color-success-icon-subtle: var(--ds-color-success-icon-subtle);
   --color-success-surface-active: var(--ds-color-success-surface-active);
   --color-success-surface-default: var(--ds-color-success-surface-default);
   --color-success-surface-hover: var(--ds-color-success-surface-hover);
@@ -134,6 +140,7 @@
   --color-support1-border-default: var(--ds-color-support1-border-default);
   --color-support1-border-strong: var(--ds-color-support1-border-strong);
   --color-support1-border-subtle: var(--ds-color-support1-border-subtle);
+  --color-support1-icon-subtle: var(--ds-color-support1-icon-subtle);
   --color-support1-surface-active: var(--ds-color-support1-surface-active);
   --color-support1-surface-default: var(--ds-color-support1-surface-default);
   --color-support1-surface-hover: var(--ds-color-support1-surface-hover);
@@ -162,6 +169,7 @@
   --color-warning-border-default: var(--ds-color-warning-border-default);
   --color-warning-border-strong: var(--ds-color-warning-border-strong);
   --color-warning-border-subtle: var(--ds-color-warning-border-subtle);
+  --color-warning-icon-subtle: var(--ds-color-warning-icon-subtle);
   --color-warning-surface-active: var(--ds-color-warning-surface-active);
   --color-warning-surface-default: var(--ds-color-warning-surface-default);
   --color-warning-surface-hover: var(--ds-color-warning-surface-hover);
