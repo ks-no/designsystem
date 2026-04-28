@@ -8,8 +8,10 @@
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
+    "themes:apply-custom-tokens": "node ./tools/apply-custom-tokens.mjs",
     "themes:create-tokens": "./node_modules/.bin/designsystemet tokens create --config designsystemet.config.json",
-    "themes:build": "./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes"
+    "themes:build": "./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes",
+    "themes:generate": "pnpm themes:create-tokens && pnpm themes:apply-custom-tokens && pnpm themes:build"
   },
   "lint-staged": {
     "*.{ts,tsx,mts,html,scss,json,yml,yaml,md}": [

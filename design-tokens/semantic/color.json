@@ -41,6 +41,10 @@
         "$type": "color",
         "$value": "{color.accent.10}"
       },
+      "icon-subtle": {
+        "$type": "color",
+        "$value": "{color.accent.10}"
+      },
       "text-default": {
         "$type": "color",
         "$value": "{color.accent.11}"
@@ -104,6 +108,10 @@
         "$value": "{color.neutral.9}"
       },
       "text-subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.10}"
+      },
+      "icon-subtle": {
         "$type": "color",
         "$value": "{color.neutral.10}"
       },
@@ -173,6 +181,10 @@
         "$type": "color",
         "$value": "{color.support1.10}"
       },
+      "icon-subtle": {
+        "$type": "color",
+        "$value": "{color.support1.10}"
+      },
       "text-default": {
         "$type": "color",
         "$value": "{color.support1.11}"
@@ -236,6 +248,10 @@
         "$value": "{color.info.9}"
       },
       "text-subtle": {
+        "$type": "color",
+        "$value": "{color.info.10}"
+      },
+      "icon-subtle": {
         "$type": "color",
         "$value": "{color.info.10}"
       },
@@ -305,6 +321,10 @@
         "$type": "color",
         "$value": "{color.success.10}"
       },
+      "icon-subtle": {
+        "$type": "color",
+        "$value": "{color.success.10}"
+      },
       "text-default": {
         "$type": "color",
         "$value": "{color.success.11}"
@@ -371,6 +391,10 @@
         "$type": "color",
         "$value": "{color.warning.10}"
       },
+      "icon-subtle": {
+        "$type": "color",
+        "$value": "{color.warning.10}"
+      },
       "text-default": {
         "$type": "color",
         "$value": "{color.warning.11}"
@@ -434,6 +458,10 @@
         "$value": "{color.danger.9}"
       },
       "text-subtle": {
+        "$type": "color",
+        "$value": "{color.danger.10}"
+      },
+      "icon-subtle": {
         "$type": "color",
         "$value": "{color.danger.10}"
       },
