@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*
 build: v1.12.1
+design-tokens: v1.12.1
 */
 
 @layer ds.theme.size-mode {
@@ -128,7 +129,6 @@ build: v1.12.1
     --ds-color-accent-border-default: #75778e;
     --ds-color-accent-border-strong: #595b77;
     --ds-color-accent-text-subtle: #595b77;
-    --ds-color-accent-icon-subtle: #595b77;
     --ds-color-accent-text-default: #25284c;
     --ds-color-accent-base-default: #00042e;
     --ds-color-accent-base-hover: #151940;
@@ -145,7 +145,6 @@ build: v1.12.1
     --ds-color-neutral-border-default: #74797e;
     --ds-color-neutral-border-strong: #585e64;
     --ds-color-neutral-text-subtle: #585e64;
-    --ds-color-neutral-icon-subtle: #585e64;
     --ds-color-neutral-text-default: #242c34;
     --ds-color-neutral-base-default: #1d252d;
     --ds-color-neutral-base-hover: #2f363d;
@@ -162,7 +161,6 @@ build: v1.12.1
     --ds-color-support1-border-default: #8060ec;
     --ds-color-support1-border-strong: #6244cb;
     --ds-color-support1-text-subtle: #6244cb;
-    --ds-color-support1-icon-subtle: #6244cb;
     --ds-color-support1-text-default: #2e2060;
     --ds-color-support1-base-default: #714eea;
     --ds-color-support1-base-hover: #5d40c0;
@@ -179,7 +177,6 @@ build: v1.12.1
     --ds-color-info-border-default: #1f7dc5;
     --ds-color-info-border-strong: #0860a3;
     --ds-color-info-text-subtle: #0860a3;
-    --ds-color-info-icon-subtle: #0860a3;
     --ds-color-info-text-default: #042d4d;
     --ds-color-info-base-default: #0a71c0;
     --ds-color-info-base-hover: #085d9f;
@@ -196,7 +193,6 @@ build: v1.12.1
     --ds-color-success-border-default: #108c22;
     --ds-color-success-border-strong: #056d13;
     --ds-color-success-text-subtle: #056d13;
-    --ds-color-success-icon-subtle: #056d13;
     --ds-color-success-text-default: #023409;
     --ds-color-success-base-default: #068718;
     --ds-color-success-base-hover: #057014;
@@ -213,7 +209,6 @@ build: v1.12.1
     --ds-color-warning-border-default: #a56d13;
     --ds-color-warning-border-strong: #80540f;
     --ds-color-warning-text-subtle: #80540f;
-    --ds-color-warning-icon-subtle: #80540f;
     --ds-color-warning-text-default: #3c2807;
     --ds-color-warning-base-default: #ea9b1b;
     --ds-color-warning-base-hover: #cd8818;
@@ -230,7 +225,6 @@ build: v1.12.1
     --ds-color-danger-border-default: #ce4d4d;
     --ds-color-danger-border-strong: #b81a1a;
     --ds-color-danger-text-subtle: #b81a1a;
-    --ds-color-danger-icon-subtle: #b81a1a;
     --ds-color-danger-text-default: #590d0d;
     --ds-color-danger-base-default: #c01b1b;
     --ds-color-danger-base-hover: #9b1616;
@@ -256,7 +250,6 @@ build: v1.12.1
       --ds-color-accent-border-default: #75778e;
       --ds-color-accent-border-strong: #595b77;
       --ds-color-accent-text-subtle: #595b77;
-      --ds-color-accent-icon-subtle: #595b77;
       --ds-color-accent-text-default: #25284c;
       --ds-color-accent-base-default: #00042e;
       --ds-color-accent-base-hover: #151940;
@@ -273,7 +266,6 @@ build: v1.12.1
       --ds-color-neutral-border-default: #74797e;
       --ds-color-neutral-border-strong: #585e64;
       --ds-color-neutral-text-subtle: #585e64;
-      --ds-color-neutral-icon-subtle: #585e64;
       --ds-color-neutral-text-default: #242c34;
       --ds-color-neutral-base-default: #1d252d;
       --ds-color-neutral-base-hover: #2f363d;
@@ -290,7 +282,6 @@ build: v1.12.1
       --ds-color-support1-border-default: #8060ec;
       --ds-color-support1-border-strong: #6244cb;
       --ds-color-support1-text-subtle: #6244cb;
-      --ds-color-support1-icon-subtle: #6244cb;
       --ds-color-support1-text-default: #2e2060;
       --ds-color-support1-base-default: #714eea;
       --ds-color-support1-base-hover: #5d40c0;
@@ -307,7 +298,6 @@ build: v1.12.1
       --ds-color-info-border-default: #1f7dc5;
       --ds-color-info-border-strong: #0860a3;
       --ds-color-info-text-subtle: #0860a3;
-      --ds-color-info-icon-subtle: #0860a3;
       --ds-color-info-text-default: #042d4d;
       --ds-color-info-base-default: #0a71c0;
       --ds-color-info-base-hover: #085d9f;
@@ -324,7 +314,6 @@ build: v1.12.1
       --ds-color-success-border-default: #108c22;
       --ds-color-success-border-strong: #056d13;
       --ds-color-success-text-subtle: #056d13;
-      --ds-color-success-icon-subtle: #056d13;
       --ds-color-success-text-default: #023409;
       --ds-color-success-base-default: #068718;
       --ds-color-success-base-hover: #057014;
@@ -341,7 +330,6 @@ build: v1.12.1
       --ds-color-warning-border-default: #a56d13;
       --ds-color-warning-border-strong: #80540f;
       --ds-color-warning-text-subtle: #80540f;
-      --ds-color-warning-icon-subtle: #80540f;
       --ds-color-warning-text-default: #3c2807;
       --ds-color-warning-base-default: #ea9b1b;
       --ds-color-warning-base-hover: #cd8818;
@@ -358,7 +346,6 @@ build: v1.12.1
       --ds-color-danger-border-default: #ce4d4d;
       --ds-color-danger-border-strong: #b81a1a;
       --ds-color-danger-text-subtle: #b81a1a;
-      --ds-color-danger-icon-subtle: #b81a1a;
       --ds-color-danger-text-default: #590d0d;
       --ds-color-danger-base-default: #c01b1b;
       --ds-color-danger-base-hover: #9b1616;
@@ -570,7 +557,6 @@ build: v1.12.1
     --ds-color-accent-border-default: #7e818f;
     --ds-color-accent-border-strong: #a5a7b1;
     --ds-color-accent-text-subtle: #a5a7b1;
-    --ds-color-accent-icon-subtle: #a5a7b1;
     --ds-color-accent-text-default: #ececee;
     --ds-color-accent-base-default: #a9aab8;
     --ds-color-accent-base-hover: #9395a7;
@@ -587,7 +573,6 @@ build: v1.12.1
     --ds-color-neutral-border-default: #7e8285;
     --ds-color-neutral-border-strong: #a6a8aa;
     --ds-color-neutral-text-subtle: #a6a8aa;
-    --ds-color-neutral-icon-subtle: #a6a8aa;
     --ds-color-neutral-text-default: #ececed;
     --ds-color-neutral-base-default: #a8abae;
     --ds-color-neutral-base-hover: #93979a;
@@ -604,7 +589,6 @@ build: v1.12.1
     --ds-color-support1-border-default: #8375cf;
     --ds-color-support1-border-strong: #aaa0de;
     --ds-color-support1-text-subtle: #aaa0de;
-    --ds-color-support1-icon-subtle: #aaa0de;
     --ds-color-support1-text-default: #edebf8;
     --ds-color-support1-base-default: #896cee;
     --ds-color-support1-base-hover: #9f87f1;
@@ -621,7 +605,6 @@ build: v1.12.1
     --ds-color-info-border-default: #5585b4;
     --ds-color-info-border-strong: #8aabcb;
     --ds-color-info-text-subtle: #8aabcb;
-    --ds-color-info-icon-subtle: #8aabcb;
     --ds-color-info-text-default: #e6edf4;
     --ds-color-info-base-default: #2d85c9;
     --ds-color-info-base-hover: #519ad2;
@@ -638,7 +621,6 @@ build: v1.12.1
     --ds-color-success-border-default: #528f52;
     --ds-color-success-border-strong: #89b289;
     --ds-color-success-text-subtle: #89b289;
-    --ds-color-success-icon-subtle: #89b289;
     --ds-color-success-text-default: #e6efe6;
     --ds-color-success-base-default: #138d24;
     --ds-color-success-base-hover: #3ca14b;
@@ -655,7 +637,6 @@ build: v1.12.1
     --ds-color-warning-border-default: #a37a46;
     --ds-color-warning-border-strong: #d39e5b;
     --ds-color-warning-text-subtle: #d39e5b;
-    --ds-color-warning-icon-subtle: #d39e5b;
     --ds-color-warning-text-default: #f7ebdb;
     --ds-color-warning-base-default: #60400b;
     --ds-color-warning-base-hover: #7a510e;
@@ -672,7 +653,6 @@ build: v1.12.1
     --ds-color-danger-border-default: #bc6b64;
     --ds-color-danger-border-strong: #d19a96;
     --ds-color-danger-text-subtle: #d19a96;
-    --ds-color-danger-icon-subtle: #d19a96;
     --ds-color-danger-text-default: #f5eae9;
     --ds-color-danger-base-default: #d76e6e;
     --ds-color-danger-base-hover: #df8b8b;
@@ -698,7 +678,6 @@ build: v1.12.1
       --ds-color-accent-border-default: #7e818f;
       --ds-color-accent-border-strong: #a5a7b1;
       --ds-color-accent-text-subtle: #a5a7b1;
-      --ds-color-accent-icon-subtle: #a5a7b1;
       --ds-color-accent-text-default: #ececee;
       --ds-color-accent-base-default: #a9aab8;
       --ds-color-accent-base-hover: #9395a7;
@@ -715,7 +694,6 @@ build: v1.12.1
       --ds-color-neutral-border-default: #7e8285;
       --ds-color-neutral-border-strong: #a6a8aa;
       --ds-color-neutral-text-subtle: #a6a8aa;
-      --ds-color-neutral-icon-subtle: #a6a8aa;
       --ds-color-neutral-text-default: #ececed;
       --ds-color-neutral-base-default: #a8abae;
       --ds-color-neutral-base-hover: #93979a;
@@ -732,7 +710,6 @@ build: v1.12.1
       --ds-color-support1-border-default: #8375cf;
       --ds-color-support1-border-strong: #aaa0de;
       --ds-color-support1-text-subtle: #aaa0de;
-      --ds-color-support1-icon-subtle: #aaa0de;
       --ds-color-support1-text-default: #edebf8;
       --ds-color-support1-base-default: #896cee;
       --ds-color-support1-base-hover: #9f87f1;
@@ -749,7 +726,6 @@ build: v1.12.1
       --ds-color-info-border-default: #5585b4;
       --ds-color-info-border-strong: #8aabcb;
       --ds-color-info-text-subtle: #8aabcb;
-      --ds-color-info-icon-subtle: #8aabcb;
       --ds-color-info-text-default: #e6edf4;
       --ds-color-info-base-default: #2d85c9;
       --ds-color-info-base-hover: #519ad2;
@@ -766,7 +742,6 @@ build: v1.12.1
       --ds-color-success-border-default: #528f52;
       --ds-color-success-border-strong: #89b289;
       --ds-color-success-text-subtle: #89b289;
-      --ds-color-success-icon-subtle: #89b289;
       --ds-color-success-text-default: #e6efe6;
       --ds-color-success-base-default: #138d24;
       --ds-color-success-base-hover: #3ca14b;
@@ -783,7 +758,6 @@ build: v1.12.1
       --ds-color-warning-border-default: #a37a46;
       --ds-color-warning-border-strong: #d39e5b;
       --ds-color-warning-text-subtle: #d39e5b;
-      --ds-color-warning-icon-subtle: #d39e5b;
       --ds-color-warning-text-default: #f7ebdb;
       --ds-color-warning-base-default: #60400b;
       --ds-color-warning-base-hover: #7a510e;
@@ -800,7 +774,6 @@ build: v1.12.1
       --ds-color-danger-border-default: #bc6b64;
       --ds-color-danger-border-strong: #d19a96;
       --ds-color-danger-text-subtle: #d19a96;
-      --ds-color-danger-icon-subtle: #d19a96;
       --ds-color-danger-text-default: #f5eae9;
       --ds-color-danger-base-default: #d76e6e;
       --ds-color-danger-base-hover: #df8b8b;
@@ -917,7 +890,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-accent-border-default);
     --ds-color-border-strong: var(--ds-color-accent-border-strong);
     --ds-color-text-subtle: var(--ds-color-accent-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-accent-icon-subtle);
     --ds-color-text-default: var(--ds-color-accent-text-default);
     --ds-color-base-default: var(--ds-color-accent-base-default);
     --ds-color-base-hover: var(--ds-color-accent-base-hover);
@@ -944,7 +916,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-danger-border-default);
     --ds-color-border-strong: var(--ds-color-danger-border-strong);
     --ds-color-text-subtle: var(--ds-color-danger-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-danger-icon-subtle);
     --ds-color-text-default: var(--ds-color-danger-text-default);
     --ds-color-base-default: var(--ds-color-danger-base-default);
     --ds-color-base-hover: var(--ds-color-danger-base-hover);
@@ -971,7 +942,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-info-border-default);
     --ds-color-border-strong: var(--ds-color-info-border-strong);
     --ds-color-text-subtle: var(--ds-color-info-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-info-icon-subtle);
     --ds-color-text-default: var(--ds-color-info-text-default);
     --ds-color-base-default: var(--ds-color-info-base-default);
     --ds-color-base-hover: var(--ds-color-info-base-hover);
@@ -996,7 +966,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-neutral-border-default);
     --ds-color-border-strong: var(--ds-color-neutral-border-strong);
     --ds-color-text-subtle: var(--ds-color-neutral-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-neutral-icon-subtle);
     --ds-color-text-default: var(--ds-color-neutral-text-default);
     --ds-color-base-default: var(--ds-color-neutral-base-default);
     --ds-color-base-hover: var(--ds-color-neutral-base-hover);
@@ -1023,7 +992,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-success-border-default);
     --ds-color-border-strong: var(--ds-color-success-border-strong);
     --ds-color-text-subtle: var(--ds-color-success-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-success-icon-subtle);
     --ds-color-text-default: var(--ds-color-success-text-default);
     --ds-color-base-default: var(--ds-color-success-base-default);
     --ds-color-base-hover: var(--ds-color-success-base-hover);
@@ -1050,7 +1018,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-support1-border-default);
     --ds-color-border-strong: var(--ds-color-support1-border-strong);
     --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
     --ds-color-text-default: var(--ds-color-support1-text-default);
     --ds-color-base-default: var(--ds-color-support1-base-default);
     --ds-color-base-hover: var(--ds-color-support1-base-hover);
@@ -1077,7 +1044,6 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-warning-border-default);
     --ds-color-border-strong: var(--ds-color-warning-border-strong);
     --ds-color-text-subtle: var(--ds-color-warning-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-warning-icon-subtle);
     --ds-color-text-default: var(--ds-color-warning-text-default);
     --ds-color-base-default: var(--ds-color-warning-base-default);
     --ds-color-base-hover: var(--ds-color-warning-base-hover);

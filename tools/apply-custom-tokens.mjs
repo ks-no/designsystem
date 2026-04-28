@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(__dirname, '..')
 const semanticTokensDir = join(repoRoot, 'design-tokens', 'semantic')
+const themesDir = join(repoRoot, 'packages', 'themes', 'src', 'themes')
 
 const aliasMap = {
   'text-subtle': ['icon-subtle'],
@@ -126,6 +127,84 @@ const collectJsonFiles = async (directory) => {
   return files.flat()
 }
 
+const collectTailwindFiles = async (directory) => {
+  try {
+    const entries = await readdir(directory, { withFileTypes: true })
+
+    return entries
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.tailwind.css'))
+      .map((entry) => join(directory, entry.name))
+  } catch (error) {
+    if (error && typeof error === 'object' && error.code === 'ENOENT') {
+      return []
+    }
+
+    throw error
+  }
+}
+
+const applyTailwindAliases = (content) => {
+  const lines = content.split('\n')
+  const startIndex = lines.findIndex((line) => line.trim() === '[data-color] {')
+
+  if (startIndex === -1) {
+    return { changed: false, content }
+  }
+
+  let endIndex = startIndex + 1
+
+  while (endIndex < lines.length && lines[endIndex].trim() !== '}') {
+    endIndex += 1
+  }
+
+  if (endIndex >= lines.length) {
+    return { changed: false, content }
+  }
+
+  const blockLines = lines.slice(startIndex, endIndex + 1)
+  let changed = false
+
+  for (const [sourceKey, aliasKeys] of Object.entries(aliasMap)) {
+    const sourceLinePattern = new RegExp(
+      `^(\\s*)--color-${sourceKey}: var\\(--ds-color-${sourceKey}\\);$`,
+    )
+    const sourceLineIndex = blockLines.findIndex((line) =>
+      sourceLinePattern.test(line),
+    )
+
+    if (sourceLineIndex === -1) {
+      continue
+    }
+
+    const sourceLine = blockLines[sourceLineIndex]
+    const indentation = sourceLine.match(sourceLinePattern)?.[1] ?? ''
+
+    for (const aliasKey of aliasKeys) {
+      const aliasLine = `${indentation}--color-${aliasKey}: var(--ds-color-${aliasKey});`
+
+      if (blockLines.includes(aliasLine)) {
+        continue
+      }
+
+      blockLines.splice(sourceLineIndex + 1, 0, aliasLine)
+      changed = true
+    }
+  }
+
+  if (!changed) {
+    return { changed: false, content }
+  }
+
+  return {
+    changed: true,
+    content: [
+      ...lines.slice(0, startIndex),
+      ...blockLines,
+      ...lines.slice(endIndex + 1),
+    ].join('\n'),
+  }
+}
+
 const jsonFiles = await collectJsonFiles(semanticTokensDir)
 let updatedFiles = 0
 let createdAliases = 0
@@ -151,4 +230,26 @@ if (updatedFiles === 0) {
   console.log(
     `Added ${createdAliases} custom token aliases across ${updatedFiles} files.`,
   )
+}
+
+const tailwindFiles = await collectTailwindFiles(themesDir)
+let updatedTailwindFiles = 0
+
+for (const filePath of tailwindFiles) {
+  const raw = await readFile(filePath, 'utf8')
+  const { changed, content } = applyTailwindAliases(raw)
+
+  if (!changed) {
+    continue
+  }
+
+  await writeFile(filePath, content)
+  updatedTailwindFiles += 1
+  console.log(`Patched Tailwind aliases in ${filePath}`)
+}
+
+if (updatedTailwindFiles === 0) {
+  console.log('No Tailwind alias patches were needed.')
+} else {
+  console.log(`Patched Tailwind aliases in ${updatedTailwindFiles} files.`)
 }
