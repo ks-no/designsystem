@@ -917,7 +917,7 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-accent-border-default);
     --ds-color-border-strong: var(--ds-color-accent-border-strong);
     --ds-color-text-subtle: var(--ds-color-accent-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-accent-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-accent-icon-subtle);
     --ds-color-text-default: var(--ds-color-accent-text-default);
     --ds-color-base-default: var(--ds-color-accent-base-default);
     --ds-color-base-hover: var(--ds-color-accent-base-hover);
@@ -1050,7 +1050,7 @@ build: v1.12.1
     --ds-color-border-default: var(--ds-color-support1-border-default);
     --ds-color-border-strong: var(--ds-color-support1-border-strong);
     --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
-    --ds-color-icon-subtle: var(--ds-color-support1-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
     --ds-color-text-default: var(--ds-color-support1-text-default);
     --ds-color-base-default: var(--ds-color-support1-base-default);
     --ds-color-base-hover: var(--ds-color-support1-base-hover);

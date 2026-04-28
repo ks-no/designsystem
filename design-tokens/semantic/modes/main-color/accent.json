@@ -43,7 +43,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.accent.text-subtle}"
+        "$value": "{color.accent.icon-subtle}"
       },
       "text-default": {
         "$type": "color",

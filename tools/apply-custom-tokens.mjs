@@ -12,6 +12,23 @@ const aliasMap = {
   'text-subtle': ['icon-subtle'],
 }
 
+const cloneTokenForAlias = (value, sourceKey, aliasKey) => {
+  const clone = JSON.parse(JSON.stringify(value))
+
+  if (typeof clone.$value === 'string') {
+    clone.$value = clone.$value.replace(
+      new RegExp(`\\.${sourceKey}(?=})`, 'g'),
+      `.${aliasKey}`,
+    )
+  }
+
+  return clone
+}
+
+const areEqual = (left, right) => {
+  return JSON.stringify(left) === JSON.stringify(right)
+}
+
 const isTokenObject = (value) => {
   return (
     typeof value === 'object' &&
@@ -20,8 +37,6 @@ const isTokenObject = (value) => {
     ('$type' in value || '$value' in value)
   )
 }
-
-const cloneToken = (value) => JSON.parse(JSON.stringify(value))
 
 const applyAliases = (value) => {
   if (Array.isArray(value)) {
@@ -45,13 +60,23 @@ const applyAliases = (value) => {
     let inserted = 0
 
     for (const aliasKey of aliasKeys) {
-      if (aliasKey in value) {
+      const nextAliasValue = cloneTokenForAlias(
+        sourceValue,
+        sourceKey,
+        aliasKey,
+      )
+
+      if (!(aliasKey in value)) {
+        inserted += 1
+        changes += 1
+        value[aliasKey] = nextAliasValue
         continue
       }
 
-      inserted += 1
-      changes += 1
-      value[aliasKey] = cloneToken(sourceValue)
+      if (!areEqual(value[aliasKey], nextAliasValue)) {
+        changes += 1
+        value[aliasKey] = nextAliasValue
+      }
     }
 
     if (inserted > 0) {
