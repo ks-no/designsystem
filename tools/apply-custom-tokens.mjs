@@ -1,5 +1,23 @@
 #!/usr/bin/env node
 
+/**
+ * Applies KS-specific token aliases that are not supported directly by the
+ * upstream Designsystemet theme generator.
+ *
+ 
+ * Usage:
+ *   node ./tools/apply-custom-tokens.mjs [tokens|outputs]
+ *
+ * Modes:
+ *   tokens   patches generated semantic token JSON in design-tokens/semantic
+ *   outputs  patches generated theme CSS files in packages/themes/src/themes
+ */
+
+// Supported key -> Our alias
+const aliasMap = {
+  'text-subtle': ['icon-subtle'],
+}
+
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -8,11 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(__dirname, '..')
 const semanticTokensDir = join(repoRoot, 'design-tokens', 'semantic')
 const themesDir = join(repoRoot, 'packages', 'themes', 'src', 'themes')
-const mode = process.argv[2] ?? 'all'
-
-const aliasMap = {
-  'text-subtle': ['icon-subtle'],
-}
+const mode = process.argv[2]
 
 const cloneTokenForAlias = (value, sourceKey, aliasKey) => {
   const clone = JSON.parse(JSON.stringify(value))
@@ -58,7 +72,7 @@ const applyAliases = (value) => {
       continue
     }
 
-    const insertAfterSource = Object.entries(value)
+    const snapshot = Object.entries(value)
     let inserted = 0
 
     for (const aliasKey of aliasKeys) {
@@ -84,7 +98,7 @@ const applyAliases = (value) => {
     if (inserted > 0) {
       const reordered = {}
 
-      for (const [key, entryValue] of insertAfterSource) {
+      for (const [key, entryValue] of snapshot) {
         reordered[key] = entryValue
 
         if (key === sourceKey) {
@@ -128,42 +142,27 @@ const collectJsonFiles = async (directory) => {
   return files.flat()
 }
 
-const collectTailwindFiles = async (directory) => {
+const collectCssFiles = async (directory, filter) => {
   try {
     const entries = await readdir(directory, { withFileTypes: true })
 
     return entries
-      .filter((entry) => entry.isFile() && entry.name.endsWith('.tailwind.css'))
+      .filter((entry) => entry.isFile() && filter(entry.name))
       .map((entry) => join(directory, entry.name))
   } catch (error) {
-    if (error && typeof error === 'object' && error.code === 'ENOENT') {
-      return []
-    }
-
+    if (error?.code === 'ENOENT') return []
     throw error
   }
 }
 
-const collectThemeCssFiles = async (directory) => {
-  try {
-    const entries = await readdir(directory, { withFileTypes: true })
+const collectTailwindFiles = (directory) =>
+  collectCssFiles(directory, (name) => name.endsWith('.tailwind.css'))
 
-    return entries
-      .filter(
-        (entry) =>
-          entry.isFile() &&
-          entry.name.endsWith('.css') &&
-          !entry.name.endsWith('.tailwind.css'),
-      )
-      .map((entry) => join(directory, entry.name))
-  } catch (error) {
-    if (error && typeof error === 'object' && error.code === 'ENOENT') {
-      return []
-    }
-
-    throw error
-  }
-}
+const collectThemeCssFiles = (directory) =>
+  collectCssFiles(
+    directory,
+    (name) => name.endsWith('.css') && !name.endsWith('.tailwind.css'),
+  )
 
 const applyThemeAliases = (content) => {
   const lines = content.split('\n')
@@ -308,61 +307,48 @@ const applyTokenAliases = async () => {
   )
 }
 
+const patchCssFiles = async (files, patchFn, label) => {
+  let count = 0
+
+  for (const filePath of files) {
+    const raw = await readFile(filePath, 'utf8')
+    const { changed, content } = patchFn(raw)
+
+    if (!changed) continue
+
+    await writeFile(filePath, content)
+    count += 1
+    console.log(`Patched ${label} in ${filePath}`)
+  }
+
+  console.log(
+    count === 0
+      ? `No ${label} patches were needed.`
+      : `Patched ${label} in ${count} files.`,
+  )
+}
+
 const patchBuildOutputs = async () => {
-  const tailwindFiles = await collectTailwindFiles(themesDir)
-  let updatedTailwindFiles = 0
-
-  for (const filePath of tailwindFiles) {
-    const raw = await readFile(filePath, 'utf8')
-    const { changed, content } = applyTailwindAliases(raw)
-
-    if (!changed) {
-      continue
-    }
-
-    await writeFile(filePath, content)
-    updatedTailwindFiles += 1
-    console.log(`Patched Tailwind aliases in ${filePath}`)
-  }
-
-  if (updatedTailwindFiles === 0) {
-    console.log('No Tailwind alias patches were needed.')
-  } else {
-    console.log(`Patched Tailwind aliases in ${updatedTailwindFiles} files.`)
-  }
-
-  const themeCssFiles = await collectThemeCssFiles(themesDir)
-  let updatedThemeCssFiles = 0
-
-  for (const filePath of themeCssFiles) {
-    const raw = await readFile(filePath, 'utf8')
-    const { changed, content } = applyThemeAliases(raw)
-
-    if (!changed) {
-      continue
-    }
-
-    await writeFile(filePath, content)
-    updatedThemeCssFiles += 1
-    console.log(`Patched theme aliases in ${filePath}`)
-  }
-
-  if (updatedThemeCssFiles === 0) {
-    console.log('No theme alias patches were needed.')
-    return
-  }
-
-  console.log(`Patched theme aliases in ${updatedThemeCssFiles} files.`)
+  await patchCssFiles(
+    await collectTailwindFiles(themesDir),
+    applyTailwindAliases,
+    'Tailwind aliases',
+  )
+  await patchCssFiles(
+    await collectThemeCssFiles(themesDir),
+    applyThemeAliases,
+    'theme aliases',
+  )
 }
 
-if (!['all', 'tokens', 'outputs'].includes(mode)) {
-  throw new Error(`Unsupported mode: ${mode}`)
+if (!['tokens', 'outputs'].includes(mode)) {
+  throw new Error(`Usage: apply-custom-tokens.mjs <tokens|outputs>`)
 }
 
-if (mode === 'all' || mode === 'tokens') {
+if (mode === 'tokens') {
   await applyTokenAliases()
 }
 
-if (mode === 'all' || mode === 'outputs') {
+if (mode === 'outputs') {
   await patchBuildOutputs()
 }
