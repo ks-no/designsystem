@@ -8,7 +8,8 @@
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
         "support": {
-          "support1": "#714EEA"
+          "support1": "#714EEA",
+          "support2": "#ffffff"
         }
       },
       "borderRadius": 8
@@ -18,7 +19,8 @@
         "main": { "accent": "#00042E" },
         "neutral": "#1D252D",
         "support": {
-          "support1": "#714EEA"
+          "support1": "#714EEA",
+          "support2": "#ffffff"
         }
       },
       "borderRadius": 8
@@ -28,7 +30,8 @@
         "main": { "accent": "#2B5246" },
         "neutral": "#1E2422",
         "support": {
-          "support1": "#1AA87E"
+          "support1": "#1AA87E",
+          "support2": "#ffffff"
         }
       },
       "borderRadius": 16
