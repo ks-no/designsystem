@@ -157,5 +157,13 @@
       "semantic/modes/support-color/support1": "enabled"
     },
     "group": "Support color"
+  },
+  {
+    "id": "e985b504005c1afe1d63357ff11cd4cd7f9fad2b",
+    "name": "support2",
+    "selectedTokenSets": {
+      "semantic/modes/support-color/support2": "enabled"
+    },
+    "group": "Support color"
   }
 ]
