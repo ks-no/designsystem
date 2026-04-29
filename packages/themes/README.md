@@ -75,7 +75,11 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 1. Add theme to `designsystemet.config.json`. The color names must match the other themes.
 2. Create design tokens for theme `pnpm run themes:create-tokens`
-3. Build themes `pnpm run themes:build`
-4. Add theme `exports`-field in `packages/themes/package.json`
-5. Add theme to Storybook `tools/storybook/themes.ts`
-6. Add theme to docs `apps/www/src/Temaer.mdx`
+3. Apply KS custom token aliases to the generated token sources `pnpm run themes:apply-custom-tokens:tokens`
+4. Build themes `pnpm run themes:build`.
+   This also applies KS custom token aliases to the generated theme outputs via `themes:apply-custom-tokens:outputs`.
+5. Add theme `exports`-field in `packages/themes/package.json`
+6. Add theme to Storybook `tools/storybook/themes.ts`
+7. Add theme to docs `apps/www/src/Temaer.mdx`
+
+For the full pipeline, you can also run `pnpm run themes:generate`.

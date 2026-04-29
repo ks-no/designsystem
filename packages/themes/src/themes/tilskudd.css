@@ -129,6 +129,7 @@ design-tokens: v1.12.1
     --ds-color-accent-border-default: #a2afb8;
     --ds-color-accent-border-strong: #10171f;
     --ds-color-accent-text-subtle: #53595e;
+    --ds-color-accent-icon-subtle: #53595e;
     --ds-color-accent-text-default: #10171f;
     --ds-color-accent-base-default: #31373d;
     --ds-color-accent-base-hover: #1c242e;
@@ -145,6 +146,7 @@ design-tokens: v1.12.1
     --ds-color-neutral-border-default: #96a396;
     --ds-color-neutral-border-strong: #172915;
     --ds-color-neutral-text-subtle: #495749;
+    --ds-color-neutral-icon-subtle: #495749;
     --ds-color-neutral-text-default: #10171f;
     --ds-color-neutral-base-default: #4d524d;
     --ds-color-neutral-base-hover: #2b2e2b;
@@ -161,6 +163,7 @@ design-tokens: v1.12.1
     --ds-color-support1-border-default: #797979;
     --ds-color-support1-border-strong: #5d5d5d;
     --ds-color-support1-text-subtle: #5d5d5d;
+    --ds-color-support1-icon-subtle: #5d5d5d;
     --ds-color-support1-text-default: #2b2b2b;
     --ds-color-support1-base-default: #ffffff;
     --ds-color-support1-base-hover: #e8e8e8;
@@ -177,6 +180,7 @@ design-tokens: v1.12.1
     --ds-color-info-border-default: #a583cc;
     --ds-color-info-border-strong: #1e1529;
     --ds-color-info-text-subtle: #6b4399;
+    --ds-color-info-icon-subtle: #6b4399;
     --ds-color-info-text-default: #10171f;
     --ds-color-info-base-default: #7529cc;
     --ds-color-info-base-hover: #28163d;
@@ -193,6 +197,7 @@ design-tokens: v1.12.1
     --ds-color-success-border-default: #7bb893;
     --ds-color-success-border-strong: #132419;
     --ds-color-success-text-subtle: #187a40;
+    --ds-color-success-icon-subtle: #187a40;
     --ds-color-success-text-default: #10171f;
     --ds-color-success-base-default: #00cc52;
     --ds-color-success-base-hover: #142e1e;
@@ -209,6 +214,7 @@ design-tokens: v1.12.1
     --ds-color-warning-border-default: #f5c814;
     --ds-color-warning-border-strong: #292515;
     --ds-color-warning-text-subtle: #7a6a27;
+    --ds-color-warning-icon-subtle: #7a6a27;
     --ds-color-warning-text-default: #10171f;
     --ds-color-warning-base-default: #ffcc00;
     --ds-color-warning-base-hover: #382e04;
@@ -225,6 +231,7 @@ design-tokens: v1.12.1
     --ds-color-danger-border-default: #e58198;
     --ds-color-danger-border-strong: #261418;
     --ds-color-danger-text-subtle: #b8002b;
+    --ds-color-danger-icon-subtle: #b8002b;
     --ds-color-danger-text-default: #10171f;
     --ds-color-danger-base-default: #ff2457;
     --ds-color-danger-base-hover: #3d161f;
@@ -250,6 +257,7 @@ design-tokens: v1.12.1
       --ds-color-accent-border-default: #a2afb8;
       --ds-color-accent-border-strong: #10171f;
       --ds-color-accent-text-subtle: #53595e;
+      --ds-color-accent-icon-subtle: #53595e;
       --ds-color-accent-text-default: #10171f;
       --ds-color-accent-base-default: #31373d;
       --ds-color-accent-base-hover: #1c242e;
@@ -266,6 +274,7 @@ design-tokens: v1.12.1
       --ds-color-neutral-border-default: #96a396;
       --ds-color-neutral-border-strong: #172915;
       --ds-color-neutral-text-subtle: #495749;
+      --ds-color-neutral-icon-subtle: #495749;
       --ds-color-neutral-text-default: #10171f;
       --ds-color-neutral-base-default: #4d524d;
       --ds-color-neutral-base-hover: #2b2e2b;
@@ -282,6 +291,7 @@ design-tokens: v1.12.1
       --ds-color-support1-border-default: #797979;
       --ds-color-support1-border-strong: #5d5d5d;
       --ds-color-support1-text-subtle: #5d5d5d;
+      --ds-color-support1-icon-subtle: #5d5d5d;
       --ds-color-support1-text-default: #2b2b2b;
       --ds-color-support1-base-default: #ffffff;
       --ds-color-support1-base-hover: #e8e8e8;
@@ -298,6 +308,7 @@ design-tokens: v1.12.1
       --ds-color-info-border-default: #a583cc;
       --ds-color-info-border-strong: #1e1529;
       --ds-color-info-text-subtle: #6b4399;
+      --ds-color-info-icon-subtle: #6b4399;
       --ds-color-info-text-default: #10171f;
       --ds-color-info-base-default: #7529cc;
       --ds-color-info-base-hover: #28163d;
@@ -314,6 +325,7 @@ design-tokens: v1.12.1
       --ds-color-success-border-default: #7bb893;
       --ds-color-success-border-strong: #132419;
       --ds-color-success-text-subtle: #187a40;
+      --ds-color-success-icon-subtle: #187a40;
       --ds-color-success-text-default: #10171f;
       --ds-color-success-base-default: #00cc52;
       --ds-color-success-base-hover: #142e1e;
@@ -330,6 +342,7 @@ design-tokens: v1.12.1
       --ds-color-warning-border-default: #f5c814;
       --ds-color-warning-border-strong: #292515;
       --ds-color-warning-text-subtle: #7a6a27;
+      --ds-color-warning-icon-subtle: #7a6a27;
       --ds-color-warning-text-default: #10171f;
       --ds-color-warning-base-default: #ffcc00;
       --ds-color-warning-base-hover: #382e04;
@@ -346,6 +359,7 @@ design-tokens: v1.12.1
       --ds-color-danger-border-default: #e58198;
       --ds-color-danger-border-strong: #261418;
       --ds-color-danger-text-subtle: #b8002b;
+      --ds-color-danger-icon-subtle: #b8002b;
       --ds-color-danger-text-default: #10171f;
       --ds-color-danger-base-default: #ff2457;
       --ds-color-danger-base-hover: #3d161f;
@@ -557,6 +571,7 @@ design-tokens: v1.12.1
     --ds-color-accent-border-default: #7f8184;
     --ds-color-accent-border-strong: #a6a8aa;
     --ds-color-accent-text-subtle: #a6a8aa;
+    --ds-color-accent-icon-subtle: #a6a8aa;
     --ds-color-accent-text-default: #ececed;
     --ds-color-accent-base-default: #a9abae;
     --ds-color-accent-base-hover: #93969a;
@@ -573,6 +588,7 @@ design-tokens: v1.12.1
     --ds-color-neutral-border-default: #808280;
     --ds-color-neutral-border-strong: #a7a8a7;
     --ds-color-neutral-text-subtle: #a7a8a7;
+    --ds-color-neutral-icon-subtle: #a7a8a7;
     --ds-color-neutral-text-default: #ececec;
     --ds-color-neutral-base-default: #9ea19e;
     --ds-color-neutral-base-hover: #898c89;
@@ -589,6 +605,7 @@ design-tokens: v1.12.1
     --ds-color-support1-border-default: #818181;
     --ds-color-support1-border-strong: #a8a8a8;
     --ds-color-support1-text-subtle: #a8a8a8;
+    --ds-color-support1-icon-subtle: #a8a8a8;
     --ds-color-support1-text-default: #ececec;
     --ds-color-support1-base-default: #000000;
     --ds-color-support1-base-hover: #181818;
@@ -605,6 +622,7 @@ design-tokens: v1.12.1
     --ds-color-info-border-default: #9173c1;
     --ds-color-info-border-strong: #b39ed4;
     --ds-color-info-text-subtle: #b39ed4;
+    --ds-color-info-icon-subtle: #b39ed4;
     --ds-color-info-text-default: #efeaf6;
     --ds-color-info-base-default: #af83e2;
     --ds-color-info-base-hover: #c19fe8;
@@ -621,6 +639,7 @@ design-tokens: v1.12.1
     --ds-color-success-border-default: #469054;
     --ds-color-success-border-strong: #5bbb6d;
     --ds-color-success-text-subtle: #5bbb6d;
+    --ds-color-success-icon-subtle: #5bbb6d;
     --ds-color-success-text-default: #dcf2e0;
     --ds-color-success-base-default: #004d1f;
     --ds-color-success-base-hover: #006227;
@@ -637,6 +656,7 @@ design-tokens: v1.12.1
     --ds-color-warning-border-default: #957f43;
     --ds-color-warning-border-strong: #c1a557;
     --ds-color-warning-text-subtle: #c1a557;
+    --ds-color-warning-icon-subtle: #c1a557;
     --ds-color-warning-text-default: #faecc4;
     --ds-color-warning-base-default: #302600;
     --ds-color-warning-base-hover: #463800;
@@ -653,6 +673,7 @@ design-tokens: v1.12.1
     --ds-color-danger-border-default: #de5156;
     --ds-color-danger-border-strong: #eb8e91;
     --ds-color-danger-text-subtle: #eb8e91;
+    --ds-color-danger-icon-subtle: #eb8e91;
     --ds-color-danger-text-default: #fbe8e9;
     --ds-color-danger-base-default: #dd0034;
     --ds-color-danger-base-hover: #b7002b;
@@ -678,6 +699,7 @@ design-tokens: v1.12.1
       --ds-color-accent-border-default: #7f8184;
       --ds-color-accent-border-strong: #a6a8aa;
       --ds-color-accent-text-subtle: #a6a8aa;
+      --ds-color-accent-icon-subtle: #a6a8aa;
       --ds-color-accent-text-default: #ececed;
       --ds-color-accent-base-default: #a9abae;
       --ds-color-accent-base-hover: #93969a;
@@ -694,6 +716,7 @@ design-tokens: v1.12.1
       --ds-color-neutral-border-default: #808280;
       --ds-color-neutral-border-strong: #a7a8a7;
       --ds-color-neutral-text-subtle: #a7a8a7;
+      --ds-color-neutral-icon-subtle: #a7a8a7;
       --ds-color-neutral-text-default: #ececec;
       --ds-color-neutral-base-default: #9ea19e;
       --ds-color-neutral-base-hover: #898c89;
@@ -710,6 +733,7 @@ design-tokens: v1.12.1
       --ds-color-support1-border-default: #818181;
       --ds-color-support1-border-strong: #a8a8a8;
       --ds-color-support1-text-subtle: #a8a8a8;
+      --ds-color-support1-icon-subtle: #a8a8a8;
       --ds-color-support1-text-default: #ececec;
       --ds-color-support1-base-default: #000000;
       --ds-color-support1-base-hover: #181818;
@@ -726,6 +750,7 @@ design-tokens: v1.12.1
       --ds-color-info-border-default: #9173c1;
       --ds-color-info-border-strong: #b39ed4;
       --ds-color-info-text-subtle: #b39ed4;
+      --ds-color-info-icon-subtle: #b39ed4;
       --ds-color-info-text-default: #efeaf6;
       --ds-color-info-base-default: #af83e2;
       --ds-color-info-base-hover: #c19fe8;
@@ -742,6 +767,7 @@ design-tokens: v1.12.1
       --ds-color-success-border-default: #469054;
       --ds-color-success-border-strong: #5bbb6d;
       --ds-color-success-text-subtle: #5bbb6d;
+      --ds-color-success-icon-subtle: #5bbb6d;
       --ds-color-success-text-default: #dcf2e0;
       --ds-color-success-base-default: #004d1f;
       --ds-color-success-base-hover: #006227;
@@ -758,6 +784,7 @@ design-tokens: v1.12.1
       --ds-color-warning-border-default: #957f43;
       --ds-color-warning-border-strong: #c1a557;
       --ds-color-warning-text-subtle: #c1a557;
+      --ds-color-warning-icon-subtle: #c1a557;
       --ds-color-warning-text-default: #faecc4;
       --ds-color-warning-base-default: #302600;
       --ds-color-warning-base-hover: #463800;
@@ -774,6 +801,7 @@ design-tokens: v1.12.1
       --ds-color-danger-border-default: #de5156;
       --ds-color-danger-border-strong: #eb8e91;
       --ds-color-danger-text-subtle: #eb8e91;
+      --ds-color-danger-icon-subtle: #eb8e91;
       --ds-color-danger-text-default: #fbe8e9;
       --ds-color-danger-base-default: #dd0034;
       --ds-color-danger-base-hover: #b7002b;
@@ -890,6 +918,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-accent-border-default);
     --ds-color-border-strong: var(--ds-color-accent-border-strong);
     --ds-color-text-subtle: var(--ds-color-accent-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-accent-icon-subtle);
     --ds-color-text-default: var(--ds-color-accent-text-default);
     --ds-color-base-default: var(--ds-color-accent-base-default);
     --ds-color-base-hover: var(--ds-color-accent-base-hover);
@@ -916,6 +945,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-danger-border-default);
     --ds-color-border-strong: var(--ds-color-danger-border-strong);
     --ds-color-text-subtle: var(--ds-color-danger-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-danger-icon-subtle);
     --ds-color-text-default: var(--ds-color-danger-text-default);
     --ds-color-base-default: var(--ds-color-danger-base-default);
     --ds-color-base-hover: var(--ds-color-danger-base-hover);
@@ -942,6 +972,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-info-border-default);
     --ds-color-border-strong: var(--ds-color-info-border-strong);
     --ds-color-text-subtle: var(--ds-color-info-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-info-icon-subtle);
     --ds-color-text-default: var(--ds-color-info-text-default);
     --ds-color-base-default: var(--ds-color-info-base-default);
     --ds-color-base-hover: var(--ds-color-info-base-hover);
@@ -966,6 +997,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-neutral-border-default);
     --ds-color-border-strong: var(--ds-color-neutral-border-strong);
     --ds-color-text-subtle: var(--ds-color-neutral-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-neutral-icon-subtle);
     --ds-color-text-default: var(--ds-color-neutral-text-default);
     --ds-color-base-default: var(--ds-color-neutral-base-default);
     --ds-color-base-hover: var(--ds-color-neutral-base-hover);
@@ -992,6 +1024,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-success-border-default);
     --ds-color-border-strong: var(--ds-color-success-border-strong);
     --ds-color-text-subtle: var(--ds-color-success-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-success-icon-subtle);
     --ds-color-text-default: var(--ds-color-success-text-default);
     --ds-color-base-default: var(--ds-color-success-base-default);
     --ds-color-base-hover: var(--ds-color-success-base-hover);
@@ -1018,6 +1051,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-support1-border-default);
     --ds-color-border-strong: var(--ds-color-support1-border-strong);
     --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
     --ds-color-text-default: var(--ds-color-support1-text-default);
     --ds-color-base-default: var(--ds-color-support1-base-default);
     --ds-color-base-hover: var(--ds-color-support1-base-hover);
@@ -1044,6 +1078,7 @@ design-tokens: v1.12.1
     --ds-color-border-default: var(--ds-color-warning-border-default);
     --ds-color-border-strong: var(--ds-color-warning-border-strong);
     --ds-color-text-subtle: var(--ds-color-warning-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-warning-icon-subtle);
     --ds-color-text-default: var(--ds-color-warning-text-default);
     --ds-color-base-default: var(--ds-color-warning-base-default);
     --ds-color-base-hover: var(--ds-color-warning-base-hover);
