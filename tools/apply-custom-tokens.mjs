@@ -28,16 +28,9 @@ const semanticTokensDir = join(repoRoot, 'design-tokens', 'semantic')
 const themesDir = join(repoRoot, 'packages', 'themes', 'src', 'themes')
 const mode = process.argv[2]
 
-const cloneTokenForAlias = (value, sourceKey, aliasKey) => {
+const cloneTokenForAlias = (value, sourcePath) => {
   const clone = JSON.parse(JSON.stringify(value))
-
-  if (typeof clone.$value === 'string') {
-    clone.$value = clone.$value.replace(
-      new RegExp(`\\.${sourceKey}(?=})`, 'g'),
-      `.${aliasKey}`,
-    )
-  }
-
+  clone.$value = `{${sourcePath}}`
   return clone
 }
 
@@ -54,9 +47,9 @@ const isTokenObject = (value) => {
   )
 }
 
-const applyAliases = (value) => {
+const applyAliases = (value, path = '') => {
   if (Array.isArray(value)) {
-    return value.reduce((count, item) => count + applyAliases(item), 0)
+    return value.reduce((count, item) => count + applyAliases(item, path), 0)
   }
 
   if (!value || typeof value !== 'object') {
@@ -72,15 +65,12 @@ const applyAliases = (value) => {
       continue
     }
 
+    const sourcePath = path ? `${path}.${sourceKey}` : sourceKey
     const snapshot = Object.entries(value)
     let inserted = 0
 
     for (const aliasKey of aliasKeys) {
-      const nextAliasValue = cloneTokenForAlias(
-        sourceValue,
-        sourceKey,
-        aliasKey,
-      )
+      const nextAliasValue = cloneTokenForAlias(sourceValue, sourcePath)
 
       if (!(aliasKey in value)) {
         inserted += 1
@@ -118,8 +108,9 @@ const applyAliases = (value) => {
     }
   }
 
-  for (const child of Object.values(value)) {
-    changes += applyAliases(child)
+  for (const [key, child] of Object.entries(value)) {
+    const childPath = path ? `${path}.${key}` : key
+    changes += applyAliases(child, childPath)
   }
 
   return changes

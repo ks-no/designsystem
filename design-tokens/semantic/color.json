@@ -43,7 +43,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.accent.10}"
+        "$value": "{color.accent.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -113,7 +113,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.neutral.10}"
+        "$value": "{color.neutral.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -183,7 +183,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.support1.10}"
+        "$value": "{color.support1.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -253,7 +253,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.info.10}"
+        "$value": "{color.info.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -323,7 +323,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.success.10}"
+        "$value": "{color.success.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -393,7 +393,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.warning.10}"
+        "$value": "{color.warning.text-subtle}"
       },
       "text-default": {
         "$type": "color",
@@ -463,7 +463,7 @@
       },
       "icon-subtle": {
         "$type": "color",
-        "$value": "{color.danger.10}"
+        "$value": "{color.danger.text-subtle}"
       },
       "text-default": {
         "$type": "color",
