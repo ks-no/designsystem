@@ -14,6 +14,6 @@
     "@testing-library/react": "catalog:testing-library",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
-    "@vitejs/plugin-react-swc": "^3.9.0"
+    "@vitejs/plugin-react-swc": "^4.3.0"
   }
 }
