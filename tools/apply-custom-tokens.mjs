@@ -28,9 +28,19 @@ const semanticTokensDir = join(repoRoot, 'design-tokens', 'semantic')
 const themesDir = join(repoRoot, 'packages', 'themes', 'src', 'themes')
 const mode = process.argv[2]
 
-const cloneTokenForAlias = (value, sourcePath) => {
+const cloneTokenForAlias = (value, sourceKey, aliasKey, sourcePath) => {
   const clone = JSON.parse(JSON.stringify(value))
-  clone.$value = `{${sourcePath}}`
+
+  if (typeof clone.$value === 'string') {
+    const replaced = clone.$value.replace(
+      new RegExp(`\\.${sourceKey}(?=})`, 'g'),
+      `.${aliasKey}`,
+    )
+    // If the value referenced sourceKey by name, replace it (mode files).
+    // Otherwise, point directly to the source token as a true semantic alias.
+    clone.$value = replaced !== clone.$value ? replaced : `{${sourcePath}}`
+  }
+
   return clone
 }
 
@@ -70,7 +80,12 @@ const applyAliases = (value, path = '') => {
     let inserted = 0
 
     for (const aliasKey of aliasKeys) {
-      const nextAliasValue = cloneTokenForAlias(sourceValue, sourcePath)
+      const nextAliasValue = cloneTokenForAlias(
+        sourceValue,
+        sourceKey,
+        aliasKey,
+        sourcePath,
+      )
 
       if (!(aliasKey in value)) {
         inserted += 1

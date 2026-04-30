@@ -76,7 +76,6 @@
   --color-info-surface-tinted: var(--ds-color-info-surface-tinted);
   --color-info-text-default: var(--ds-color-info-text-default);
   --color-info-text-subtle: var(--ds-color-info-text-subtle);
-  --color-main-text-subtle: var(--ds-color-main-text-subtle);
   --color-neutral-background-default: var(
     --ds-color-neutral-background-default
   );
@@ -123,7 +122,6 @@
   --color-success-surface-tinted: var(--ds-color-success-surface-tinted);
   --color-success-text-default: var(--ds-color-success-text-default);
   --color-success-text-subtle: var(--ds-color-success-text-subtle);
-  --color-support-text-subtle: var(--ds-color-support-text-subtle);
   --color-support1-background-default: var(
     --ds-color-support1-background-default
   );

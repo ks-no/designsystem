@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*
 build: v1.12.1
-design-tokens: v1.12.1
 */
 
 @layer ds.theme.size-mode {
@@ -987,7 +986,6 @@ design-tokens: v1.12.1
     --ds-color-border-strong: var(--ds-color-accent-border-strong);
     --ds-color-text-subtle: var(--ds-color-accent-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-accent-icon-subtle);
-    --ds-color-icon-subtle: var(--ds-color-main-text-subtle);
     --ds-color-text-default: var(--ds-color-accent-text-default);
     --ds-color-base-default: var(--ds-color-accent-base-default);
     --ds-color-base-hover: var(--ds-color-accent-base-hover);
@@ -1121,7 +1119,6 @@ design-tokens: v1.12.1
     --ds-color-border-strong: var(--ds-color-support1-border-strong);
     --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
-    --ds-color-icon-subtle: var(--ds-color-support-text-subtle);
     --ds-color-text-default: var(--ds-color-support1-text-default);
     --ds-color-base-default: var(--ds-color-support1-base-default);
     --ds-color-base-hover: var(--ds-color-support1-base-hover);
@@ -1149,7 +1146,6 @@ design-tokens: v1.12.1
     --ds-color-border-strong: var(--ds-color-support2-border-strong);
     --ds-color-text-subtle: var(--ds-color-support2-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-support2-icon-subtle);
-    --ds-color-icon-subtle: var(--ds-color-support-text-subtle);
     --ds-color-text-default: var(--ds-color-support2-text-default);
     --ds-color-base-default: var(--ds-color-support2-base-default);
     --ds-color-base-hover: var(--ds-color-support2-base-hover);
