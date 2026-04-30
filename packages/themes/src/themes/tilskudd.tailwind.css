@@ -147,6 +147,31 @@
   --color-support1-surface-tinted: var(--ds-color-support1-surface-tinted);
   --color-support1-text-default: var(--ds-color-support1-text-default);
   --color-support1-text-subtle: var(--ds-color-support1-text-subtle);
+  --color-support2-background-default: var(
+    --ds-color-support2-background-default
+  );
+  --color-support2-background-tinted: var(
+    --ds-color-support2-background-tinted
+  );
+  --color-support2-base-active: var(--ds-color-support2-base-active);
+  --color-support2-base-contrast-default: var(
+    --ds-color-support2-base-contrast-default
+  );
+  --color-support2-base-contrast-subtle: var(
+    --ds-color-support2-base-contrast-subtle
+  );
+  --color-support2-base-default: var(--ds-color-support2-base-default);
+  --color-support2-base-hover: var(--ds-color-support2-base-hover);
+  --color-support2-border-default: var(--ds-color-support2-border-default);
+  --color-support2-border-strong: var(--ds-color-support2-border-strong);
+  --color-support2-border-subtle: var(--ds-color-support2-border-subtle);
+  --color-support2-icon-subtle: var(--ds-color-support2-icon-subtle);
+  --color-support2-surface-active: var(--ds-color-support2-surface-active);
+  --color-support2-surface-default: var(--ds-color-support2-surface-default);
+  --color-support2-surface-hover: var(--ds-color-support2-surface-hover);
+  --color-support2-surface-tinted: var(--ds-color-support2-surface-tinted);
+  --color-support2-text-default: var(--ds-color-support2-text-default);
+  --color-support2-text-subtle: var(--ds-color-support2-text-subtle);
   --color-surface-active: var(--ds-color-surface-active);
   --color-surface-default: var(--ds-color-surface-default);
   --color-surface-hover: var(--ds-color-surface-hover);

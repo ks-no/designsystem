@@ -31,6 +31,7 @@
     "semantic/color",
     "semantic/modes/main-color/accent",
     "semantic/modes/support-color/support1",
+    "semantic/modes/support-color/support2",
     "semantic/style"
   ]
 }
