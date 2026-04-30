@@ -1,3 +1,15 @@
+## 0.0.1-alpha.53
+
+### 🚀 Features
+
+- new tilskudd theme ([#279](https://github.com/ks-no/designsystem/pull/279))
+- **themes:** add custom token for `icon-subtle` ([#277](https://github.com/ks-no/designsystem/pull/277))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
 ## 0.0.1-alpha.52
 
 ### 🩹 Fixes
