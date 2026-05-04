@@ -3,6 +3,10 @@ import { mergeConfig, type UserConfig } from 'vite'
 
 export default async function viteFinal(config: UserConfig) {
   return mergeConfig(config, {
+    esbuild: {
+      jsx: 'automatic',
+      jsxImportSource: 'react',
+    },
     plugins: [
       // Make Vite respect our tsconfig path aliases
       nxViteTsPaths(),
