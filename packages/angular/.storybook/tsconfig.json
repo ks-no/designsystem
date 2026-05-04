@@ -15,6 +15,7 @@
     "../**/*.mdx",
     "*.js",
     "*.ts",
+    "./components/**/*.ts",
     "./components/**/*.tsx"
   ]
 }
