@@ -20,9 +20,9 @@
     ]
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "~2.1.0",
-    "@analogjs/vite-plugin-angular": "~2.1.0",
-    "@analogjs/vitest-angular": "~2.1.0",
+    "@analogjs/storybook-angular": "catalog:angular",
+    "@analogjs/vite-plugin-angular": "catalog:angular",
+    "@analogjs/vitest-angular": "catalog:angular",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@digdir/designsystemet": "catalog:designsystemet",
@@ -35,17 +35,17 @@
     "@nx/react": "catalog:nx",
     "@nx/storybook": "catalog:nx",
     "@nx/vite": "catalog:nx",
-    "@nx/vitest": "22.3.3",
+    "@nx/vitest": "catalog:nx",
     "@nx/web": "catalog:nx",
     "@playwright/test": "^1.56.1",
     "@schematics/angular": "catalog:angular",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/angular": "catalog:storybook",
     "@storybook/html-vite": "catalog:storybook",
-    "@swc-node/register": "~1.9.2",
-    "@swc/cli": "~0.6.0",
-    "@swc/core": "~1.5.29",
-    "@swc/helpers": "~0.5.17",
+    "@swc-node/register": "1.11.1",
+    "@swc/cli": "0.7.10",
+    "@swc/core": "1.15.8",
+    "@swc/helpers": "0.5.21",
     "@testing-library/dom": "catalog:testing-library",
     "@testing-library/user-event": "catalog:testing-library",
     "@types/node": "catalog:typescript",
@@ -75,18 +75,12 @@
     "tsx": "catalog:typescript",
     "typescript": "catalog:typescript",
     "typescript-eslint": "^8.47.0",
-    "vite": "7.2.4",
-    "vite-plugin-dts": "~4.5.4",
-    "vitest": "4.0.9"
+    "vite": "catalog:typescript",
+    "vite-plugin-dts": "catalog:typescript",
+    "vitest": "4.0.18"
   },
-  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
+  "packageManager": "pnpm@11.0.4+sha512.0a397165007a014ed52919a61e5f46c48b9bca88404c303ecaecc63f62def563898d3c6b8a5d5ea5811eb398cfe03ab05da1a5ce963f126d5ead4c02f93b83c3",
   "engines": {
     "node": "24.13.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@storybook/builder-vite": "10.1.9",
-      "@storybook/csf-plugin": "10.1.9"
-    }
   }
 }

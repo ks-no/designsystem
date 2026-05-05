@@ -1,4 +1,4 @@
-import { Meta, Primary, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../../.storybook/components/OfficialDocsLink'
 import * as SwitchStories from './switch.stories'
 
@@ -10,8 +10,8 @@ import * as SwitchStories from './switch.stories'
 
 `Switch` brukes til å gi brukeren et valg mellom to alternativer. Bryteren kan enten slås av eller på og skal alltid være innstilt med et standardvalg
 
-<Primary />
-<Controls />
+<Canvas of={SwitchStories.Preview} />
+<Controls of={SwitchStories.Preview} />
 
 ## Bruk
 

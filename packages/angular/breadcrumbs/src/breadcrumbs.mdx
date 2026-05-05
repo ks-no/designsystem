@@ -1,10 +1,4 @@
-import {
-  Meta,
-  Primary,
-  Canvas,
-  Controls,
-  Story,
-} from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Controls, Story } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as BreadcrumbsStories from './breadcrumbs.stories'
 
@@ -14,8 +8,8 @@ import * as BreadcrumbsStories from './breadcrumbs.stories'
 
 <OfficialDocsLink href="https://designsystemet.no/no/components/docs/breadcrumbs/overview" />
 
-<Primary />
-<Controls />
+<Canvas of={BreadcrumbsStories.Preview} />
+<Controls of={BreadcrumbsStories.Preview} />
 
 ## Bruk
 

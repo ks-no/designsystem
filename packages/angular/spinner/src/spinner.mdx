@@ -1,4 +1,4 @@
-import { Meta, Primary, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as SpinnerStories from './spinner.stories'
 
@@ -10,8 +10,8 @@ import * as SpinnerStories from './spinner.stories'
 
 `Spinner` brukes for å indikere at en handling pågår. Dette kan være når vi venter på at et skjema skal sendes inn.
 
-<Primary />
-<Controls />
+<Canvas of={SpinnerStories.Preview} />
+<Controls of={SpinnerStories.Preview} />
 
 ## Størrelser
 

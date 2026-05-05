@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["node"]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx",
+    "**/*.mdx",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "vite.config.ts",
+    "vite.config.mts",
+    "vitest.config.ts",
+    "vitest.config.mts"
+  ]
+}

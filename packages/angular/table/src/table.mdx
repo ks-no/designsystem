@@ -1,4 +1,4 @@
-import { Meta, Primary, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as TableStories from './table.stories'
 
@@ -10,8 +10,8 @@ import * as TableStories from './table.stories'
 
 Table brukes for å presentere strukturert data i rader og kolonner.
 
-<Primary />
-<Controls />
+<Canvas of={TableStories.Preview} />
+<Controls of={TableStories.Preview} />
 
 ## Eksempler
 
