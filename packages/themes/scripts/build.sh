@@ -16,3 +16,6 @@ postcss src/base.css -o dist/base.css
 
 # Copy theme css files. They don't need postcss processing
 cp -a src/themes/. dist/themes/
+
+# Copy types
+cp src/types.d.ts dist/types.d.ts
