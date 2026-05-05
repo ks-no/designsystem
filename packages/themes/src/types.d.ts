@@ -1,2 +1,6 @@
 import './themes/types.d.ts'
-export type { Size } from '@digdir/designsystemet-types'
+export type {
+  ColorDefinitions,
+  SeverityColorDefinitions,
+  Size,
+} from '@digdir/designsystemet-types'
