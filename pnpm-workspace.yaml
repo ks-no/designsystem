@@ -45,9 +45,9 @@ catalogs:
     '@angular/core': '>= 21.0.0 < 22.0.0'
   designsystemet:
     '@digdir/designsystemet': '1.13.3'
-    '@digdir/designsystemet-css': '1.12.1'
-    '@digdir/designsystemet-react': '1.12.1'
-    '@digdir/designsystemet-web': '1.12.1'
+    '@digdir/designsystemet-css': '1.13.3'
+    '@digdir/designsystemet-react': '1.13.3'
+    '@digdir/designsystemet-web': '1.13.3'
     '@navikt/aksel-icons': '7.33.4'
   lit:
     '@lit-labs/signals': '^0.1.3'
