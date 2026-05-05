@@ -92,18 +92,6 @@ catalogs:
     vite-plugin-dts: '~4.5.4'
 cleanupUnusedCatalogs: true
 minimumReleaseAge: 2880
-ignoredBuiltDependencies:
-  - 'less'
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - 'esbuild'
-  - 'lmdb'
-  - 'msgpackr-extract'
-  - 'msw'
-  - 'nx'
-  - 'sharp'
-  - 'unrs-resolver'
 trustPolicy: 'no-downgrade'
 trustPolicyExclude:
   - 'chokidar@4.0.3'
@@ -113,3 +101,19 @@ trustPolicyExclude:
   - 'express-rate-limit@8.3.0'
 trustPolicyIgnoreAfter: 10080
 verifyDepsBeforeRun: 'prompt'
+overrides:
+  vite: catalog:typescript
+publicHoistPattern:
+  - '@angular/*'
+  - '@digdir/designsystemet-web'
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  msw: true
+  nx: true
+  sharp: true
+  unrs-resolver: true
+  less: false
