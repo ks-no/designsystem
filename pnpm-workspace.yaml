@@ -1,6 +1,17 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  less: false
+  lmdb: true
+  msgpackr-extract: true
+  msw: true
+  nx: true
+  sharp: true
+  unrs-resolver: true
 blockExoticSubdeps: true
 catalogs:
   angular:
@@ -33,11 +44,14 @@ catalogs:
     '@angular/common': '>= 21.0.0 < 22.0.0'
     '@angular/core': '>= 21.0.0 < 22.0.0'
   designsystemet:
-    '@digdir/designsystemet': '1.12.1'
+    '@digdir/designsystemet': '1.13.3'
     '@digdir/designsystemet-css': '1.12.1'
     '@digdir/designsystemet-react': '1.12.1'
     '@digdir/designsystemet-web': '1.12.1'
     '@navikt/aksel-icons': '7.33.4'
+  lit:
+    '@lit-labs/signals': '^0.1.3'
+    lit: '^3.3.0'
   nx:
     '@nx/angular': '22.6.5'
     '@nx/devkit': '22.6.5'
@@ -51,6 +65,8 @@ catalogs:
     '@nx/vitest': '22.6.5'
     '@nx/web': '22.6.5'
     nx: '22.6.5'
+  open-wc:
+    '@open-wc/testing': '^4.0.0'
   react:
     '@types/react': '19.2.14'
     '@types/react-dom': '19.2.3'
@@ -69,19 +85,12 @@ catalogs:
     '@storybook/web-components': '10.2.17'
     '@storybook/web-components-vite': '10.2.17'
     storybook: '10.2.17'
-  lit:
-    '@lit-labs/signals': '^0.1.3'
-    lit: '^3.3.0'
-  open-wc:
-    '@open-wc/testing': '^4.0.0'
   testing-library:
     '@testing-library/angular': '^17.4.0'
     '@testing-library/dom': '10.4.1'
     '@testing-library/jest-dom': '~6.6.3'
     '@testing-library/react': '^16.3.0'
     '@testing-library/user-event': '^14.6.1'
-  vitest-a11y:
-    vitest-axe: '^0.1.0'
   typescript:
     '@types/node': '^24.1.0'
     ts-morph: '^27.0.2'
@@ -90,8 +99,15 @@ catalogs:
     typescript: '5.9.3'
     vite: '7.1.12'
     vite-plugin-dts: '~4.5.4'
+  vitest-a11y:
+    vitest-axe: '^0.1.0'
 cleanupUnusedCatalogs: true
 minimumReleaseAge: 2880
+overrides:
+  vite: catalog:typescript
+publicHoistPattern:
+  - '@angular/*'
+  - '@digdir/designsystemet-web'
 trustPolicy: 'no-downgrade'
 trustPolicyExclude:
   - 'chokidar@4.0.3'
@@ -101,19 +117,3 @@ trustPolicyExclude:
   - 'express-rate-limit@8.3.0'
 trustPolicyIgnoreAfter: 10080
 verifyDepsBeforeRun: 'prompt'
-overrides:
-  vite: catalog:typescript
-publicHoistPattern:
-  - '@angular/*'
-  - '@digdir/designsystemet-web'
-allowBuilds:
-  '@parcel/watcher': true
-  '@swc/core': true
-  esbuild: true
-  lmdb: true
-  msgpackr-extract: true
-  msw: true
-  nx: true
-  sharp: true
-  unrs-resolver: true
-  less: false
