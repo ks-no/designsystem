@@ -1,3 +1,14 @@
+## 0.0.1-alpha.54
+
+### 🚀 Features
+
+- update `@digdir/*`-packages to 1.13.3 ([#280](https://github.com/ks-no/designsystem/pull/280))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
 ## 0.0.1-alpha.53
 
 ### 🚀 Features
