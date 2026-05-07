@@ -1,3 +1,14 @@
+## 0.0.1-alpha.55
+
+### 🚀 Features
+
+- **angular:** dialog ([#281](https://github.com/ks-no/designsystem/pull/281))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
 ## 0.0.1-alpha.54
 
 ### 🚀 Features
