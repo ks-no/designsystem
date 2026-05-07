@@ -1,0 +1,94 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as DialogStories from './dialog.stories.ts'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+<OfficialDocsLink href="https://designsystemet.no/no/components/docs/dialog/overview" />
+
+`<dialog>`-elementet brukes til å lage både modale og ikke-modale dialogvinduer. Modale dialoger blokkerer interaksjon med resten av siden, mens ikke-modale lar brukeren fortsette å samhandle med innholdet bak.
+
+<Canvas of={DialogStories.Preview} />
+<Controls of={DialogStories.Preview} />
+
+Legg `ksd-dialog` på et `<dialog>`-element for å bruke Designsystemets dialog-stil og oppførsel.
+Åpning og lukking styres med [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) via `commandfor` og `command`-attributtene.
+
+> Direktivet inkluderer også nødvendige polyfills for eldre nettlesere, og setter automatisk `aria-haspopup="dialog"` på trigger-knapper der det trengs.
+
+## Kommandoer
+
+Bruk `command`-attributtet på en `<button>` sammen med `commandfor` som peker på dialogens `id`:
+
+<table>
+  <thead>
+    <tr>
+      <th>Kommando</th>
+      <th>Beskrivelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>show-modal</code>
+      </td>
+      <td>Åpner dialogen som modal (blokkerer resten av siden)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>close</code>
+      </td>
+      <td>Lukker dialogen</td>
+    </tr>
+    <tr>
+      <td>
+        <code>request-close</code>
+      </td>
+      <td>
+        Ber dialogen om å lukke seg (kan avbrytes med <code>cancel</code>-event)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--show-non-modal</code>
+      </td>
+      <td>
+        Åpner dialogen som ikke-modal (resten av siden forblir interaktiv)
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Bruk
+
+```ts
+import { Component } from '@angular/core'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import { Dialog } from '@ks-digital/designsystem-angular/dialog'
+
+@Component({
+  imports: [Button, Dialog],
+  template: `
+    <button ksd-button commandfor="my-dialog" command="show-modal">
+      Åpne dialog
+    </button>
+    <dialog ksd-dialog id="my-dialog" closedby="any">
+      <button
+        ksd-button
+        data-icon="true"
+        commandfor="my-dialog"
+        data-variant="tertiary"
+        type="button"
+        aria-label="Lukk dialogvindu"
+        data-color="neutral"
+        command="close"
+      ></button>
+      <h2>Dialog tittel</h2>
+      <p>Her er det noe innhold i dialogen.</p>
+    </dialog>
+  `,
+})
+export class App {}
+```
