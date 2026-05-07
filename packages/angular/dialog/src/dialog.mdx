@@ -16,7 +16,7 @@ import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 Legg `ksd-dialog` på et `<dialog>`-element for å bruke Designsystemets dialog-stil og oppførsel.
 Åpning og lukking styres med [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) via `commandfor` og `command`-attributtene.
 
-> Direktivet inkluderer også nødvendige polyfills for eldre nettlesere, og setter automatisk `aria-haspopup="dialog"` på trigger-knapper der det trengs.
+> Direktivet importerer automatisk `@digdir/designsystemet-web`, som polyfiller dialog-funksjonalitet i eldre nettlesere og sørger for at `aria-haspopup="dialog"` settes på relevante trigger-knapper.
 
 ## Kommandoer
 
