@@ -1,8 +1,29 @@
 import { Link } from '@ks-digital/designsystem-angular/link'
 import { render, screen, waitFor } from '@testing-library/angular'
+import { afterAll, beforeAll } from 'vitest'
 import { Breadcrumbs } from './breadcrumbs'
 
 window.dsWarnings = false
+
+// JSDOM has no layout engine — ds-breadcrumbs uses offsetHeight to detect
+// list visibility and removes role="navigation" when it's 0.
+beforeAll(() => {
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    configurable: true,
+    get() {
+      return 1
+    },
+  })
+})
+
+afterAll(() => {
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    configurable: true,
+    get() {
+      return 0
+    },
+  })
+})
 
 const renderCrumbs = async () =>
   await render(
@@ -32,7 +53,7 @@ it('should render breadcrumbs', async () => {
   await renderCrumbs()
 
   await waitFor(() => {
-    const crumbs = screen.getByRole('navigation')
+    const crumbs = screen.getByRole('navigation') // Role is set by underlyting web-component
     expect(crumbs).toBeInTheDocument()
     expect(crumbs).toHaveClass('ds-breadcrumbs')
   })

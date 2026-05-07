@@ -83,8 +83,9 @@ describe('Pagination', () => {
 
     await waitFor(() => {
       const buttons = screen.getAllByRole('button')
-      // 7 page buttons + prev + next = 9
-      expect(buttons.length).toBeGreaterThanOrEqual(9)
+      // 7 pages shown, but ellipsis items get role="none" and are excluded.
+      // 5 real page buttons + prev + next = 7
+      expect(buttons.length).toBeGreaterThanOrEqual(7)
     })
   })
 

@@ -1,3 +1,5 @@
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
@@ -92,7 +94,10 @@ it('should not render icon when icon-only button is loading', async () => {
         <ng-icon name="phosphorPencilLine" aria-label="Ikon" />
       </button>
     `,
-    { imports: [Button] },
+    {
+      imports: [Button, NgIcon],
+      providers: [provideIcons({ phosphorPencilLine })],
+    },
   )
   expect(screen.queryByLabelText('Ikon')).toBeNull()
   expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true')
