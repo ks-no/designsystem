@@ -47,7 +47,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     @if (loading()) {
       <ksd-spinner aria-hidden="true" />
     }
-    @if (!(loading() && icon())) {
+    @if (!(loading() && (icon() || dataIcon()))) {
       <ng-content />
     }
   `,
