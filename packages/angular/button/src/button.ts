@@ -28,7 +28,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     class: 'ds-button',
     type: 'button',
     '[attr.data-variant]': 'variant()',
-    '[attr.data-icon]': 'icon() || null',
+    '[attr.data-icon]': 'icon() || dataIcon() || null',
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
@@ -47,7 +47,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     @if (loading()) {
       <ksd-spinner aria-hidden="true" />
     }
-    @if (!(loading() && icon())) {
+    @if (!(loading() && (icon() || dataIcon()))) {
       <ng-content />
     }
   `,
@@ -76,7 +76,13 @@ export class Button {
 
   /**
    * If this is a button with only an icon. When combined with loading, a spinner will be shown instead of the icon.
-
+   * @deprecated Use `data-icon` instead.
    */
   readonly icon = input(false, { transform: booleanAttribute })
+
+  /** If this is a button with only an icon. When combined with loading, a spinner will be shown instead of the icon. */
+  readonly dataIcon = input(false, {
+    transform: booleanAttribute,
+    alias: 'data-icon',
+  })
 }
