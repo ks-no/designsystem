@@ -49,6 +49,10 @@
         "$type": "color",
         "$value": "{color.accent.text-default}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.accent.icon-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.accent.base-default}"

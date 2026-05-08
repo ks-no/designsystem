@@ -16,6 +16,7 @@
 // Supported key -> Our alias
 const aliasMap = {
   'text-subtle': ['icon-subtle'],
+  'text-default': ['icon-default'],
 }
 
 import { readdir, readFile, writeFile } from 'node:fs/promises'

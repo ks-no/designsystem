@@ -49,6 +49,10 @@
         "$type": "color",
         "$value": "{color.accent.11}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.accent.text-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.accent.12}"
@@ -118,6 +122,10 @@
       "text-default": {
         "$type": "color",
         "$value": "{color.neutral.11}"
+      },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.neutral.text-default}"
       },
       "base-default": {
         "$type": "color",
@@ -189,6 +197,10 @@
         "$type": "color",
         "$value": "{color.support1.11}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.support1.text-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.support1.12}"
@@ -258,6 +270,10 @@
       "text-default": {
         "$type": "color",
         "$value": "{color.support2.11}"
+      },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.support2.text-default}"
       },
       "base-default": {
         "$type": "color",
@@ -329,6 +345,10 @@
         "$type": "color",
         "$value": "{color.info.11}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.info.text-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.info.12}"
@@ -398,6 +418,10 @@
       "text-default": {
         "$type": "color",
         "$value": "{color.success.11}"
+      },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.success.text-default}"
       },
       "base-default": {
         "$type": "color",
@@ -469,6 +493,10 @@
         "$type": "color",
         "$value": "{color.warning.11}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.warning.text-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.warning.12}"
@@ -538,6 +566,10 @@
       "text-default": {
         "$type": "color",
         "$value": "{color.danger.11}"
+      },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.danger.text-default}"
       },
       "base-default": {
         "$type": "color",

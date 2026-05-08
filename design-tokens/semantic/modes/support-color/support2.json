@@ -49,6 +49,10 @@
         "$type": "color",
         "$value": "{color.support2.text-default}"
       },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.support2.icon-default}"
+      },
       "base-default": {
         "$type": "color",
         "$value": "{color.support2.base-default}"
