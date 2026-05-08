@@ -43,16 +43,11 @@
         },
         "support": {
           "support1": "#BCD6BC",
-          "support2": "#0D7A5F"
+          "support2": "#7529CC"
         },
-        "neutral": "#4D524D"
+        "neutral": "#1D252D"
       },
-      "overrides": {
-        "severity": {
-          "info": "#7529CC"
-        }
-      },
-      "borderRadius": 4
+      "borderRadius": 16
     }
   }
 }
