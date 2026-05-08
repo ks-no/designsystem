@@ -103,11 +103,18 @@ catalogs:
     vitest-axe: '^0.1.0'
 cleanupUnusedCatalogs: true
 minimumReleaseAge: 2880
-overrides:
-  vite: catalog:typescript
-publicHoistPattern:
-  - '@angular/*'
-  - '@digdir/designsystemet-web'
+ignoredBuiltDependencies:
+  - 'less'
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - 'esbuild'
+  - 'lmdb'
+  - 'msgpackr-extract'
+  - 'msw'
+  - 'nx'
+  - 'sharp'
+  - 'unrs-resolver'
 trustPolicy: 'no-downgrade'
 trustPolicyExclude:
   - 'chokidar@4.0.3'
