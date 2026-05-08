@@ -117,6 +117,9 @@ const preview: Preview = {
     layout: 'centered',
     docs: {
       theme: customTheme,
+      story: {
+        inline: true,
+      },
     },
   },
 }

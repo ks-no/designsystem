@@ -83,6 +83,11 @@ const preview: Preview = {
       },
     },
     layout: 'centered',
+    docs: {
+      story: {
+        inline: true,
+      },
+    },
   },
 }
 
