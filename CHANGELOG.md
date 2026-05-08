@@ -1,3 +1,17 @@
+## 0.0.1-alpha.56
+
+### 🚀 Features
+
+- **themes:** alias `icon-default` -> `text-default` ([#283](https://github.com/ks-no/designsystem/pull/283))
+
+### 🩹 Fixes
+
+- **themes:** tweak tilskudd-theme ([#285](https://github.com/ks-no/designsystem/pull/285))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.55
 
 ### 🚀 Features
