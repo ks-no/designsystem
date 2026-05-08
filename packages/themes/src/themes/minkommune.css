@@ -131,6 +131,7 @@ design-tokens: v1.13.3
     --ds-color-accent-text-subtle: #595b77;
     --ds-color-accent-icon-subtle: #595b77;
     --ds-color-accent-text-default: #25284c;
+    --ds-color-accent-icon-default: #25284c;
     --ds-color-accent-base-default: #00042e;
     --ds-color-accent-base-hover: #151940;
     --ds-color-accent-base-active: #272a4e;
@@ -148,6 +149,7 @@ design-tokens: v1.13.3
     --ds-color-neutral-text-subtle: #585e64;
     --ds-color-neutral-icon-subtle: #585e64;
     --ds-color-neutral-text-default: #242c34;
+    --ds-color-neutral-icon-default: #242c34;
     --ds-color-neutral-base-default: #1d252d;
     --ds-color-neutral-base-hover: #2f363d;
     --ds-color-neutral-base-active: #41484f;
@@ -165,6 +167,7 @@ design-tokens: v1.13.3
     --ds-color-support1-text-subtle: #6244cb;
     --ds-color-support1-icon-subtle: #6244cb;
     --ds-color-support1-text-default: #2e2060;
+    --ds-color-support1-icon-default: #2e2060;
     --ds-color-support1-base-default: #714eea;
     --ds-color-support1-base-hover: #5d40c0;
     --ds-color-support1-base-active: #493297;
@@ -182,6 +185,7 @@ design-tokens: v1.13.3
     --ds-color-support2-text-subtle: #5d5d5d;
     --ds-color-support2-icon-subtle: #5d5d5d;
     --ds-color-support2-text-default: #2b2b2b;
+    --ds-color-support2-icon-default: #2b2b2b;
     --ds-color-support2-base-default: #ffffff;
     --ds-color-support2-base-hover: #e8e8e8;
     --ds-color-support2-base-active: #d1d1d1;
@@ -199,6 +203,7 @@ design-tokens: v1.13.3
     --ds-color-info-text-subtle: #0860a3;
     --ds-color-info-icon-subtle: #0860a3;
     --ds-color-info-text-default: #042d4d;
+    --ds-color-info-icon-default: #042d4d;
     --ds-color-info-base-default: #0a71c0;
     --ds-color-info-base-hover: #085d9f;
     --ds-color-info-base-active: #074a7e;
@@ -216,6 +221,7 @@ design-tokens: v1.13.3
     --ds-color-success-text-subtle: #056d13;
     --ds-color-success-icon-subtle: #056d13;
     --ds-color-success-text-default: #023409;
+    --ds-color-success-icon-default: #023409;
     --ds-color-success-base-default: #068718;
     --ds-color-success-base-hover: #057014;
     --ds-color-success-base-active: #045a10;
@@ -233,6 +239,7 @@ design-tokens: v1.13.3
     --ds-color-warning-text-subtle: #80540f;
     --ds-color-warning-icon-subtle: #80540f;
     --ds-color-warning-text-default: #3c2807;
+    --ds-color-warning-icon-default: #3c2807;
     --ds-color-warning-base-default: #ea9b1b;
     --ds-color-warning-base-hover: #cd8818;
     --ds-color-warning-base-active: #b27614;
@@ -250,6 +257,7 @@ design-tokens: v1.13.3
     --ds-color-danger-text-subtle: #b81a1a;
     --ds-color-danger-icon-subtle: #b81a1a;
     --ds-color-danger-text-default: #590d0d;
+    --ds-color-danger-icon-default: #590d0d;
     --ds-color-danger-base-default: #c01b1b;
     --ds-color-danger-base-hover: #9b1616;
     --ds-color-danger-base-active: #791111;
@@ -276,6 +284,7 @@ design-tokens: v1.13.3
       --ds-color-accent-text-subtle: #595b77;
       --ds-color-accent-icon-subtle: #595b77;
       --ds-color-accent-text-default: #25284c;
+      --ds-color-accent-icon-default: #25284c;
       --ds-color-accent-base-default: #00042e;
       --ds-color-accent-base-hover: #151940;
       --ds-color-accent-base-active: #272a4e;
@@ -293,6 +302,7 @@ design-tokens: v1.13.3
       --ds-color-neutral-text-subtle: #585e64;
       --ds-color-neutral-icon-subtle: #585e64;
       --ds-color-neutral-text-default: #242c34;
+      --ds-color-neutral-icon-default: #242c34;
       --ds-color-neutral-base-default: #1d252d;
       --ds-color-neutral-base-hover: #2f363d;
       --ds-color-neutral-base-active: #41484f;
@@ -310,6 +320,7 @@ design-tokens: v1.13.3
       --ds-color-support1-text-subtle: #6244cb;
       --ds-color-support1-icon-subtle: #6244cb;
       --ds-color-support1-text-default: #2e2060;
+      --ds-color-support1-icon-default: #2e2060;
       --ds-color-support1-base-default: #714eea;
       --ds-color-support1-base-hover: #5d40c0;
       --ds-color-support1-base-active: #493297;
@@ -327,6 +338,7 @@ design-tokens: v1.13.3
       --ds-color-support2-text-subtle: #5d5d5d;
       --ds-color-support2-icon-subtle: #5d5d5d;
       --ds-color-support2-text-default: #2b2b2b;
+      --ds-color-support2-icon-default: #2b2b2b;
       --ds-color-support2-base-default: #ffffff;
       --ds-color-support2-base-hover: #e8e8e8;
       --ds-color-support2-base-active: #d1d1d1;
@@ -344,6 +356,7 @@ design-tokens: v1.13.3
       --ds-color-info-text-subtle: #0860a3;
       --ds-color-info-icon-subtle: #0860a3;
       --ds-color-info-text-default: #042d4d;
+      --ds-color-info-icon-default: #042d4d;
       --ds-color-info-base-default: #0a71c0;
       --ds-color-info-base-hover: #085d9f;
       --ds-color-info-base-active: #074a7e;
@@ -361,6 +374,7 @@ design-tokens: v1.13.3
       --ds-color-success-text-subtle: #056d13;
       --ds-color-success-icon-subtle: #056d13;
       --ds-color-success-text-default: #023409;
+      --ds-color-success-icon-default: #023409;
       --ds-color-success-base-default: #068718;
       --ds-color-success-base-hover: #057014;
       --ds-color-success-base-active: #045a10;
@@ -378,6 +392,7 @@ design-tokens: v1.13.3
       --ds-color-warning-text-subtle: #80540f;
       --ds-color-warning-icon-subtle: #80540f;
       --ds-color-warning-text-default: #3c2807;
+      --ds-color-warning-icon-default: #3c2807;
       --ds-color-warning-base-default: #ea9b1b;
       --ds-color-warning-base-hover: #cd8818;
       --ds-color-warning-base-active: #b27614;
@@ -395,6 +410,7 @@ design-tokens: v1.13.3
       --ds-color-danger-text-subtle: #b81a1a;
       --ds-color-danger-icon-subtle: #b81a1a;
       --ds-color-danger-text-default: #590d0d;
+      --ds-color-danger-icon-default: #590d0d;
       --ds-color-danger-base-default: #c01b1b;
       --ds-color-danger-base-hover: #9b1616;
       --ds-color-danger-base-active: #791111;
@@ -607,6 +623,7 @@ design-tokens: v1.13.3
     --ds-color-accent-text-subtle: #a5a7b1;
     --ds-color-accent-icon-subtle: #a5a7b1;
     --ds-color-accent-text-default: #ececee;
+    --ds-color-accent-icon-default: #ececee;
     --ds-color-accent-base-default: #a9aab8;
     --ds-color-accent-base-hover: #9395a7;
     --ds-color-accent-base-active: #7e8095;
@@ -624,6 +641,7 @@ design-tokens: v1.13.3
     --ds-color-neutral-text-subtle: #a6a8aa;
     --ds-color-neutral-icon-subtle: #a6a8aa;
     --ds-color-neutral-text-default: #ececed;
+    --ds-color-neutral-icon-default: #ececed;
     --ds-color-neutral-base-default: #a8abae;
     --ds-color-neutral-base-hover: #93979a;
     --ds-color-neutral-base-active: #7d8286;
@@ -641,6 +659,7 @@ design-tokens: v1.13.3
     --ds-color-support1-text-subtle: #aaa0de;
     --ds-color-support1-icon-subtle: #aaa0de;
     --ds-color-support1-text-default: #edebf8;
+    --ds-color-support1-icon-default: #edebf8;
     --ds-color-support1-base-default: #896cee;
     --ds-color-support1-base-hover: #9f87f1;
     --ds-color-support1-base-active: #b3a0f4;
@@ -658,6 +677,7 @@ design-tokens: v1.13.3
     --ds-color-support2-text-subtle: #a8a8a8;
     --ds-color-support2-icon-subtle: #a8a8a8;
     --ds-color-support2-text-default: #ececec;
+    --ds-color-support2-icon-default: #ececec;
     --ds-color-support2-base-default: #000000;
     --ds-color-support2-base-hover: #181818;
     --ds-color-support2-base-active: #282828;
@@ -675,6 +695,7 @@ design-tokens: v1.13.3
     --ds-color-info-text-subtle: #8aabcb;
     --ds-color-info-icon-subtle: #8aabcb;
     --ds-color-info-text-default: #e6edf4;
+    --ds-color-info-icon-default: #e6edf4;
     --ds-color-info-base-default: #2d85c9;
     --ds-color-info-base-hover: #519ad2;
     --ds-color-info-base-active: #77b0dc;
@@ -692,6 +713,7 @@ design-tokens: v1.13.3
     --ds-color-success-text-subtle: #89b289;
     --ds-color-success-icon-subtle: #89b289;
     --ds-color-success-text-default: #e6efe6;
+    --ds-color-success-icon-default: #e6efe6;
     --ds-color-success-base-default: #138d24;
     --ds-color-success-base-hover: #3ca14b;
     --ds-color-success-base-active: #66b571;
@@ -709,6 +731,7 @@ design-tokens: v1.13.3
     --ds-color-warning-text-subtle: #d39e5b;
     --ds-color-warning-icon-subtle: #d39e5b;
     --ds-color-warning-text-default: #f7ebdb;
+    --ds-color-warning-icon-default: #f7ebdb;
     --ds-color-warning-base-default: #60400b;
     --ds-color-warning-base-hover: #7a510e;
     --ds-color-warning-base-active: #946211;
@@ -726,6 +749,7 @@ design-tokens: v1.13.3
     --ds-color-danger-text-subtle: #d19a96;
     --ds-color-danger-icon-subtle: #d19a96;
     --ds-color-danger-text-default: #f5eae9;
+    --ds-color-danger-icon-default: #f5eae9;
     --ds-color-danger-base-default: #d76e6e;
     --ds-color-danger-base-hover: #df8b8b;
     --ds-color-danger-base-active: #e7a8a8;
@@ -752,6 +776,7 @@ design-tokens: v1.13.3
       --ds-color-accent-text-subtle: #a5a7b1;
       --ds-color-accent-icon-subtle: #a5a7b1;
       --ds-color-accent-text-default: #ececee;
+      --ds-color-accent-icon-default: #ececee;
       --ds-color-accent-base-default: #a9aab8;
       --ds-color-accent-base-hover: #9395a7;
       --ds-color-accent-base-active: #7e8095;
@@ -769,6 +794,7 @@ design-tokens: v1.13.3
       --ds-color-neutral-text-subtle: #a6a8aa;
       --ds-color-neutral-icon-subtle: #a6a8aa;
       --ds-color-neutral-text-default: #ececed;
+      --ds-color-neutral-icon-default: #ececed;
       --ds-color-neutral-base-default: #a8abae;
       --ds-color-neutral-base-hover: #93979a;
       --ds-color-neutral-base-active: #7d8286;
@@ -786,6 +812,7 @@ design-tokens: v1.13.3
       --ds-color-support1-text-subtle: #aaa0de;
       --ds-color-support1-icon-subtle: #aaa0de;
       --ds-color-support1-text-default: #edebf8;
+      --ds-color-support1-icon-default: #edebf8;
       --ds-color-support1-base-default: #896cee;
       --ds-color-support1-base-hover: #9f87f1;
       --ds-color-support1-base-active: #b3a0f4;
@@ -803,6 +830,7 @@ design-tokens: v1.13.3
       --ds-color-support2-text-subtle: #a8a8a8;
       --ds-color-support2-icon-subtle: #a8a8a8;
       --ds-color-support2-text-default: #ececec;
+      --ds-color-support2-icon-default: #ececec;
       --ds-color-support2-base-default: #000000;
       --ds-color-support2-base-hover: #181818;
       --ds-color-support2-base-active: #282828;
@@ -820,6 +848,7 @@ design-tokens: v1.13.3
       --ds-color-info-text-subtle: #8aabcb;
       --ds-color-info-icon-subtle: #8aabcb;
       --ds-color-info-text-default: #e6edf4;
+      --ds-color-info-icon-default: #e6edf4;
       --ds-color-info-base-default: #2d85c9;
       --ds-color-info-base-hover: #519ad2;
       --ds-color-info-base-active: #77b0dc;
@@ -837,6 +866,7 @@ design-tokens: v1.13.3
       --ds-color-success-text-subtle: #89b289;
       --ds-color-success-icon-subtle: #89b289;
       --ds-color-success-text-default: #e6efe6;
+      --ds-color-success-icon-default: #e6efe6;
       --ds-color-success-base-default: #138d24;
       --ds-color-success-base-hover: #3ca14b;
       --ds-color-success-base-active: #66b571;
@@ -854,6 +884,7 @@ design-tokens: v1.13.3
       --ds-color-warning-text-subtle: #d39e5b;
       --ds-color-warning-icon-subtle: #d39e5b;
       --ds-color-warning-text-default: #f7ebdb;
+      --ds-color-warning-icon-default: #f7ebdb;
       --ds-color-warning-base-default: #60400b;
       --ds-color-warning-base-hover: #7a510e;
       --ds-color-warning-base-active: #946211;
@@ -871,6 +902,7 @@ design-tokens: v1.13.3
       --ds-color-danger-text-subtle: #d19a96;
       --ds-color-danger-icon-subtle: #d19a96;
       --ds-color-danger-text-default: #f5eae9;
+      --ds-color-danger-icon-default: #f5eae9;
       --ds-color-danger-base-default: #d76e6e;
       --ds-color-danger-base-hover: #df8b8b;
       --ds-color-danger-base-active: #e7a8a8;
@@ -988,6 +1020,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-accent-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-accent-icon-subtle);
     --ds-color-text-default: var(--ds-color-accent-text-default);
+    --ds-color-icon-default: var(--ds-color-accent-icon-default);
     --ds-color-base-default: var(--ds-color-accent-base-default);
     --ds-color-base-hover: var(--ds-color-accent-base-hover);
     --ds-color-base-active: var(--ds-color-accent-base-active);
@@ -1015,6 +1048,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-danger-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-danger-icon-subtle);
     --ds-color-text-default: var(--ds-color-danger-text-default);
+    --ds-color-icon-default: var(--ds-color-danger-icon-default);
     --ds-color-base-default: var(--ds-color-danger-base-default);
     --ds-color-base-hover: var(--ds-color-danger-base-hover);
     --ds-color-base-active: var(--ds-color-danger-base-active);
@@ -1042,6 +1076,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-info-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-info-icon-subtle);
     --ds-color-text-default: var(--ds-color-info-text-default);
+    --ds-color-icon-default: var(--ds-color-info-icon-default);
     --ds-color-base-default: var(--ds-color-info-base-default);
     --ds-color-base-hover: var(--ds-color-info-base-hover);
     --ds-color-base-active: var(--ds-color-info-base-active);
@@ -1067,6 +1102,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-neutral-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-neutral-icon-subtle);
     --ds-color-text-default: var(--ds-color-neutral-text-default);
+    --ds-color-icon-default: var(--ds-color-neutral-icon-default);
     --ds-color-base-default: var(--ds-color-neutral-base-default);
     --ds-color-base-hover: var(--ds-color-neutral-base-hover);
     --ds-color-base-active: var(--ds-color-neutral-base-active);
@@ -1094,6 +1130,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-success-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-success-icon-subtle);
     --ds-color-text-default: var(--ds-color-success-text-default);
+    --ds-color-icon-default: var(--ds-color-success-icon-default);
     --ds-color-base-default: var(--ds-color-success-base-default);
     --ds-color-base-hover: var(--ds-color-success-base-hover);
     --ds-color-base-active: var(--ds-color-success-base-active);
@@ -1121,6 +1158,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
     --ds-color-text-default: var(--ds-color-support1-text-default);
+    --ds-color-icon-default: var(--ds-color-support1-icon-default);
     --ds-color-base-default: var(--ds-color-support1-base-default);
     --ds-color-base-hover: var(--ds-color-support1-base-hover);
     --ds-color-base-active: var(--ds-color-support1-base-active);
@@ -1148,6 +1186,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-support2-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-support2-icon-subtle);
     --ds-color-text-default: var(--ds-color-support2-text-default);
+    --ds-color-icon-default: var(--ds-color-support2-icon-default);
     --ds-color-base-default: var(--ds-color-support2-base-default);
     --ds-color-base-hover: var(--ds-color-support2-base-hover);
     --ds-color-base-active: var(--ds-color-support2-base-active);
@@ -1175,6 +1214,7 @@ design-tokens: v1.13.3
     --ds-color-text-subtle: var(--ds-color-warning-text-subtle);
     --ds-color-icon-subtle: var(--ds-color-warning-icon-subtle);
     --ds-color-text-default: var(--ds-color-warning-text-default);
+    --ds-color-icon-default: var(--ds-color-warning-icon-default);
     --ds-color-base-default: var(--ds-color-warning-base-default);
     --ds-color-base-hover: var(--ds-color-warning-base-hover);
     --ds-color-base-active: var(--ds-color-warning-base-active);
