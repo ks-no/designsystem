@@ -19,12 +19,12 @@ catalogs:
     "@analogjs/vite-plugin-angular": "~2.5.0"
     "@analogjs/vitest-angular": "~2.5.0"
     '@angular-devkit/build-angular': '21.2.7'
-    '@angular-eslint/builder': '^21.1.0'
-    '@angular-eslint/bundled-angular-compiler': '^21.1.0'
-    '@angular-eslint/eslint-plugin': '^21.1.0'
-    '@angular-eslint/eslint-plugin-template': '^21.1.0'
-    '@angular-eslint/schematics': '^21.1.0'
-    '@angular-eslint/template-parser': '21.1.0'
+    '@angular-eslint/builder': '^21.3.1'
+    '@angular-eslint/bundled-angular-compiler': '^21.3.1'
+    '@angular-eslint/eslint-plugin': '^21.3.1'
+    '@angular-eslint/eslint-plugin-template': '^21.3.1'
+    '@angular-eslint/schematics': '^21.3.1'
+    '@angular-eslint/template-parser': '21.3.1'
     '@angular/animations': '21.2.7'
     '@angular/build': '21.2.7'
     '@angular/common': '21.2.7'
@@ -37,7 +37,7 @@ catalogs:
     '@ng-icons/core': '^32.5.0'
     '@ng-icons/phosphor-icons': '^33.0.0'
     '@schematics/angular': '21.2.7'
-    angular-eslint: '21.0.0'
+    angular-eslint: '21.3.1'
     ng-packagr: '21.0.1'
     zone.js: '^0.16.1'
   angular-supported-versions:
