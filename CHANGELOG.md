@@ -1,3 +1,17 @@
+## 0.0.1-alpha.57
+
+### 🚀 Features
+
+- bump `@digdir/*`-packages to 1.14.0 ([#288](https://github.com/ks-no/designsystem/pull/288))
+
+### 🩹 Fixes
+
+- **angular/field:** update attributes ([#290](https://github.com/ks-no/designsystem/pull/290))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.56
 
 ### 🚀 Features
