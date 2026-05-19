@@ -27,7 +27,10 @@ import {
     },
   ],
   template: `
-    <ds-field class="ds-field" [attr.data-position]="position()">
+    <ds-field
+      class="ds-field"
+      [attr.data-position]="dataPosition() ?? position() ?? 'start'"
+    >
       <ng-content />
     </ds-field>
   `,
@@ -40,8 +43,17 @@ import {
 })
 export class Field {
   /**
-   * Position of toggle inputs (radio, checkbox, switch) in field
+   * Preferred position input for toggle inputs (radio, checkbox, switch) in field.
    * @default start
    */
-  position = input<'start' | 'end'>('start')
+  dataPosition = input<'start' | 'end' | undefined>(undefined, {
+    alias: 'data-position',
+  })
+
+  /**
+   * Legacy position input kept for backward compatibility.
+   * @deprecated Use data-position instead.
+   * @default start
+   */
+  position = input<'start' | 'end' | undefined>(undefined)
 }
