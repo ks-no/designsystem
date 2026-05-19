@@ -15,6 +15,7 @@ import { Label } from '../label'
 
 type SwitchArgs = CommonArgs & {
   position: 'start' | 'end'
+  'data-variant'?: 'outline'
 }
 
 const meta: Meta<SwitchArgs> = {
@@ -26,6 +27,11 @@ const meta: Meta<SwitchArgs> = {
       control: 'radio',
       options: ['start', 'end'],
       description: 'Position of the switch input',
+    },
+    'data-variant': {
+      control: 'radio',
+      options: [undefined, 'outline'],
+      description: 'Field variant',
     },
   },
   decorators: [
@@ -49,6 +55,7 @@ type Story = StoryObj<SwitchArgs>
 export const Preview: Story = {
   args: {
     position: 'start',
+    'data-variant': undefined,
   },
 
   render: (args) => ({
@@ -58,6 +65,49 @@ export const Preview: Story = {
           <ksd-label>Min switch</ksd-label>
           <input ksd-input role="switch" type="checkbox" role="switch"/>
         </ksd-field>
+    `,
+  }),
+}
+
+export const Outline: Story = {
+  args: {
+    position: 'start',
+    'data-variant': 'outline',
+  },
+
+  render: () => ({
+    template: `
+      <fieldset ksd-fieldset>
+        <legend ksd-fieldset-legend>Using variant="outline"</legend>
+
+        <ksd-field data-variant="outline">
+          <ksd-label>with description</ksd-label>
+          <input ksd-input role="switch" type="checkbox" value="description" />
+          <p ksd-field-description>description text</p>
+        </ksd-field>
+
+        <ksd-field data-variant="outline">
+          <ksd-label>Checked</ksd-label>
+          <input ksd-input role="switch" type="checkbox" value="checked" checked />
+        </ksd-field>
+
+        <ksd-field data-variant="outline">
+          <ksd-label>disabled</ksd-label>
+          <input ksd-input role="switch" type="checkbox" value="disabled" disabled />
+        </ksd-field>
+
+        <ksd-field data-variant="outline">
+          <ksd-label>readonly checked</ksd-label>
+          <input
+            ksd-input
+            role="switch"
+            type="checkbox"
+            value="readonly"
+            readonly
+            checked
+          />
+        </ksd-field>
+      </fieldset>
     `,
   }),
 }
