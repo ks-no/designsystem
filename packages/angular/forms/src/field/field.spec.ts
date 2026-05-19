@@ -20,6 +20,21 @@ test('should connect checkbox and label', async () => {
   expect(label.getAttribute('for')).toBe(checkbox.getAttribute('id'))
 })
 
+test('should forward data-variant to ds-field', async () => {
+  const { container } = await render(
+    `
+    <ksd-field data-variant="outline">
+      <ksd-label> Check me </ksd-label>
+      <input ksd-input type="checkbox" value="telefon" />
+    </ksd-field>`,
+    { imports: [Field, Label, Input] },
+  )
+
+  const dsField = container.querySelector('ds-field')
+
+  expect(dsField).toHaveAttribute('data-variant', 'outline')
+})
+
 describe('should connect checkbox and description', () => {
   test('should connect checkbox and description', async () => {
     await render(
