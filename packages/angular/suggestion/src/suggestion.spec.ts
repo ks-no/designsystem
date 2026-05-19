@@ -1,5 +1,5 @@
 import { signal } from '@angular/core'
-import { Input } from '@ks-digital/designsystem-angular/forms'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { render, waitFor } from '@testing-library/angular'
 import { vi } from 'vitest'
 import { axe } from 'vitest-axe'
@@ -35,7 +35,7 @@ const renderSuggestion = async ({
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
 			>
-				<input ksd-input />
+        <input ksd-input />
 			</ksd-suggestion>
 		`,
     {
@@ -66,7 +66,7 @@ const renderSuggestionWithList = async ({
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
 			>
-				<input ksd-input />
+        <input ksd-input />
 				<ksd-suggestion-list>
 					<ksd-suggestion-list-option value="4601">Bergen</ksd-suggestion-list-option>
 					<ksd-suggestion-list-option value="0301">Oslo</ksd-suggestion-list-option>
@@ -90,17 +90,27 @@ describe('Suggestion', () => {
   it('should have no obvious accessibility violations', async () => {
     const { container } = await render(
       `
-        <ksd-suggestion>
-          <input ksd-input />
-          <ksd-suggestion-list>
-            <ksd-suggestion-list-option value="4601">Bergen</ksd-suggestion-list-option>
-            <ksd-suggestion-list-option value="0301">Oslo</ksd-suggestion-list-option>
-            <ksd-suggestion-list-option value="1103">Stavanger</ksd-suggestion-list-option>
-          </ksd-suggestion-list>
-        </ksd-suggestion>
+      <ksd-field>
+        <ksd-label>Velg destinasjon</ksd-label>
+          <ksd-suggestion>
+            <input ksd-input />
+            <ksd-suggestion-list>
+              <ksd-suggestion-list-option value="4601">Bergen</ksd-suggestion-list-option>
+              <ksd-suggestion-list-option value="0301">Oslo</ksd-suggestion-list-option>
+              <ksd-suggestion-list-option value="1103">Stavanger</ksd-suggestion-list-option>
+            </ksd-suggestion-list>
+          </ksd-suggestion>
+        </ksd-field>
       `,
       {
-        imports: [Suggestion, SuggestionList, SuggestionListOption, Input],
+        imports: [
+          Suggestion,
+          SuggestionList,
+          SuggestionListOption,
+          Input,
+          Field,
+          Label,
+        ],
       },
     )
 
@@ -237,8 +247,8 @@ describe('Suggestion', () => {
       input.dispatchEvent(new Event('input', { bubbles: true }))
 
       await waitFor(() => {
-        expect(bergenOption).toHaveAttribute('aria-hidden', 'false')
-        expect(osloOption).toHaveAttribute('aria-hidden', 'false')
+        expect(bergenOption).not.toBeDisabled()
+        expect(osloOption).not.toBeDisabled()
       })
     })
 
@@ -269,7 +279,7 @@ describe('Suggestion', () => {
       input.dispatchEvent(new Event('input', { bubbles: true }))
 
       await waitFor(() => {
-        expect(bergenOption).toHaveAttribute('aria-hidden', 'false')
+        expect(bergenOption).not.toBeDisabled()
       })
     })
 
