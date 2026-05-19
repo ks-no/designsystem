@@ -78,7 +78,7 @@ export const Outline: Story = {
   render: () => ({
     template: `
       <fieldset ksd-fieldset>
-        <legend ksd-fieldset-legend>Using variant="outline"</legend>
+        <legend ksd-fieldset-legend>Outline variant</legend>
 
         <ksd-field data-variant="outline">
           <ksd-label>with description</ksd-label>
