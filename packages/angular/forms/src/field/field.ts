@@ -30,6 +30,7 @@ import {
     <ds-field
       class="ds-field"
       [attr.data-position]="dataPosition() ?? position() ?? 'start'"
+      [attr.data-variant]="dataVariant()"
     >
       <ng-content />
     </ds-field>
@@ -56,4 +57,11 @@ export class Field {
    * @default start
    */
   position = input<'start' | 'end' | undefined>(undefined)
+
+  /**
+   * Variant forwarded to ds-field.
+   */
+  dataVariant = input<'outline' | undefined>(undefined, {
+    alias: 'data-variant',
+  })
 }
