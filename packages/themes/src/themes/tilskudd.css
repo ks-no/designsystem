@@ -569,7 +569,7 @@ design-tokens: v1.14.0
 
 @layer ds.theme.semantic {
   :root {
-    --ds-border-radius-base: 1rem;
+    --ds-border-radius-base: 0.5rem;
     --ds-border-radius-scale: 0.25rem;
     --ds-border-radius-sm: min(
       var(--ds-border-radius-base) * 0.5,
