@@ -1,3 +1,13 @@
+## 0.0.1-alpha.58
+
+### 🩹 Fixes
+
+- **themes:** tweak tilskudd-theme border-radius ([#292](https://github.com/ks-no/designsystem/pull/292))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.57
 
 ### 🚀 Features
