@@ -3,9 +3,18 @@ interface Props {
   component: string
 }
 
-export function OfficialDocsLink({ href }: Props) {
+export function OfficialDocsLink({ href, component }: Props) {
   return (
     <div className="ds-alert">
+      <h2
+        className="ds-heading"
+        data-size="sm"
+        style={{
+          paddingBottom: 'var(--ds-size-2) !important',
+        }}
+      >
+        Om dokumentasjonen for {component}
+      </h2>
       Retningslinjer for komponenten finnes på Designsystemet.no. Denne siden
       inneholder kun Angular-spesifikk informasjon for å unngå duplikat
       dokumentasjon. <br />
