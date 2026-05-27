@@ -5,9 +5,9 @@ interface Props {
 
 export function OfficialDocsLink({ href, component }: Props) {
   return (
-    <div className="ds-alert">
+    <div className="sb-unstyled ds-alert">
       <h2
-        className="ds-heading"
+        className="sb-unstyled ds-heading"
         data-size="sm"
         style={{
           paddingBottom: 'var(--ds-size-2) !important',
@@ -22,7 +22,7 @@ export function OfficialDocsLink({ href, component }: Props) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="official-docs"
+        className="sb-unstyled ds-link"
       >
         <span aria-hidden="true">📖</span> {`Besøk Digdir sin dokumentasjon`}
       </a>
