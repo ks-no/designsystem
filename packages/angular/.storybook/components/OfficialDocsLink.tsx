@@ -10,7 +10,7 @@ export function OfficialDocsLink({ href, component }: Props) {
         className="sb-unstyled ds-heading"
         data-size="sm"
         style={{
-          paddingBottom: 'var(--ds-size-2) !important',
+          paddingBottom: 'var(--ds-size-2)',
         }}
       >
         Om dokumentasjonen for {component}
