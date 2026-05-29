@@ -1,6 +1,12 @@
 import { Button } from '@ks-digital/designsystem-angular/button'
 import { Dialog } from '@ks-digital/designsystem-angular/dialog'
-import { Meta, StoryObj, moduleMetadata } from '@storybook/angular'
+import { Heading } from '@ks-digital/designsystem-angular/heading'
+import {
+  Meta,
+  StoryObj,
+  argsToTemplate,
+  moduleMetadata,
+} from '@storybook/angular'
 import { CommonArgs, commonArgTypes } from '../../.storybook/default-args'
 import { Dropdown } from './dropdown'
 
@@ -21,7 +27,7 @@ const meta: Meta<DropdownArgs> = {
   component: Dropdown,
   decorators: [
     moduleMetadata({
-      imports: [Button, Dialog, Dropdown],
+      imports: [Button, Dialog, Dropdown, Heading],
     }),
   ],
   title: 'Dropdown',
@@ -49,6 +55,40 @@ const meta: Meta<DropdownArgs> = {
 export default meta
 type Story = StoryObj<DropdownArgs>
 
+export const Preview: Story = {
+  parameters: {
+    docs: { canvas: { sourceState: 'hidden' } },
+    layout: 'padded',
+  },
+  args: {
+    'data-placement': 'bottom-end',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
+    },
+    template: `
+    <div style="display:flex;justify-content:center;">
+      <button ksd-button data-variant="primary" type="button" popovertarget="preview-dropdown" >
+      Last ned 
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="144" x2="128" y2="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="216 144 216 208 40 208 40 144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="168 104 128 144 88 104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+      </button>
+      <div ksd-dropdown id="preview-dropdown" popover="auto" ${argsToTemplate(args)}>
+        <h2 ksd-heading>Velg format</h2>
+        <ul>
+          <li>
+            <button ksd-button data-variant="tertiary" type="button">.pdf</button>
+          </li>
+          <li>
+            <button ksd-button data-variant="tertiary" type="button">.docx</button>
+          </li>
+        </ul>
+      </div>
+      </div>
+    `,
+  }),
+}
+
 export const Fullmakt: Story = {
   args: {
     'data-placement': 'bottom-end',
@@ -56,12 +96,12 @@ export const Fullmakt: Story = {
   render: (args) => ({
     props: { ...args, isOpen: false },
     template: `
-      <button ksd-button data-variant="tertiary" type="button" popoverTarget="dropdown">
+      <button ksd-button data-variant="tertiary" type="button" popovertarget="dropdown">
         <img alt="" style="width:1.2em; height:auto; margin-right: var(--ds-size-0);" src="https://static.fiks.ks.no/img/kommunevaapen/1502.png" />
         Ola Normann
         <svg [style.transform]="isOpen ? '' : 'scaleY(-1)'" style="transition: transform 0.2s;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" focusable="false" role="img" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06z" clip-rule="evenodd"></path></svg>
       </button>
-      <div ksd-dropdown id="dropdown" popover="auto" data-placement="${args['data-placement'] ?? 'bottom-end'}" data-variant="${args['data-variant'] ?? 'default'}" (toggle)="isOpen = $event.newState === 'open'">
+      <div ksd-dropdown id="dropdown" popover="auto" ${argsToTemplate(args)}>
          <ul>
           <li>
             <a ksd-button data-variant="tertiary" href="#">
@@ -88,8 +128,8 @@ export const Icons: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <button ksd-button data-variant="primary" type="button" popoverTarget="dropdown-icons">Dropdown</button>
-      <div ksd-dropdown id="dropdown-icons" popover="auto" data-placement="${args['data-placement'] ?? 'bottom-end'}" data-variant="${args['data-variant'] ?? 'default'}">
+      <button ksd-button data-variant="primary" type="button" popovertarget="dropdown-icons">Dropdown</button>
+      <div ksd-dropdown id="dropdown-icons" popover="auto" ${argsToTemplate(args)}>
         <ul>
           <li>
             <a ksd-button data-variant="tertiary" href="https://github.com/digdir/designsystemet" target="_blank" rel="noreferrer">
@@ -133,11 +173,11 @@ export const WithNestedDropdown: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <button ksd-button data-variant="primary" type="button" popoverTarget="dropdown-outer">Dropdown</button>
-      <div ksd-dropdown id="dropdown-outer" popover="auto" data-placement="${args['data-placement'] ?? 'bottom-end'}" data-variant="${args['data-variant'] ?? 'default'}">
+      <button ksd-button data-variant="primary" type="button" popovertarget="dropdown-outer">Dropdown</button>
+      <div ksd-dropdown id="dropdown-outer" popover="auto" ${argsToTemplate(args)}>
         <ul>
           <li>
-            <button ksd-button data-variant="tertiary" type="button" popoverTarget="dropdown-inner">Dropdown</button>
+            <button ksd-button data-variant="tertiary" type="button" popovertarget="dropdown-inner">Dropdown</button>
             <div ksd-dropdown id="dropdown-inner" popover="auto" data-placement="right-start">
               <ul>
                 <li>
