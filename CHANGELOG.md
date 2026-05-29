@@ -1,3 +1,13 @@
+## 0.0.1-alpha.59
+
+### 🩹 Fixes
+
+- **themes:** move `Alert`-icon overrides to themes-package ([#293](https://github.com/ks-no/designsystem/pull/293))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.58
 
 ### 🩹 Fixes
