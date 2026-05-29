@@ -30,36 +30,16 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-tokens.
 
-##### v4
-
 ```css
-@layer theme, tailwind-base, ds, components, utilities;
+@layer tw-theme, tw-base, ds, tw-utilities;
 
 @import url('@ks-digital/designsystem-themes/base.css') layer(ds);
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css') layer(ds);
+@import url('@ks-digital/designsystem-themes/ksdigital.css') layer(ds);
 
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/preflight.css' layer(tailwind-base);
-@import 'tailwindcss/utilities.css' layer(utilities);
-@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css' layer(theme);
-```
-
-##### v3 and older
-
-> **Note:**  
-> Tailwind versions earlier than v4 do **not** support mapping Tailwind utility classes directly to Designsystemet tokens.
-
-```css
-@import url('@ks-digital/designsystem-themes/base.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
-
-@layer tailwind-base, ds;
-
-@layer tailwind-base {
-  @tailwind base;
-}
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/theme.css' layer(tw-theme);
+@import 'tailwindcss/preflight.css' layer(tw-base);
+@import 'tailwindcss/utilities.css' layer(tw-utilities);
+@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css' layer(tw-theme);
 ```
 
 ### In JavaScript/TypeScript Files

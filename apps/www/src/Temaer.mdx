@@ -42,36 +42,17 @@ Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-
 
 Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (ekserimentelt).
 
-##### v4
-
 ```css
-@layer theme, tailwind-base, ds, components, utilities;
+@layer tw-theme, tw-base, ds, tw-utilities;
 
 @import url('@ks-digital/designsystem-themes/base.css') layer(ds);
 @import url('@ks-digital/designsystem-themes/ksdigital.css') layer(ds);
 
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/preflight.css' layer(tailwind-base);
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tailwindcss/theme.css' layer(tw-theme);
+@import 'tailwindcss/preflight.css' layer(tw-base);
+@import 'tailwindcss/utilities.css' layer(tw-utilities);
 @import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css'
-  layer(theme);
-```
-
-##### v3 og eldre
-
-> **Merk:**  
-> Tailwind v3 og eldre støtter ikke direkte mapping av Tailwind-klasser til Designsystemets tokens.
-
-```css
-@import '@ks-digital/designsystem-themes/ksdigital.css';
-
-@layer tailwind-base, ds;
-
-@layer tailwind-base {
-  @tailwind base;
-}
-@tailwind components;
-@tailwind utilities;
+  layer(tw-theme);
 ```
 
 ### JavaScript / TypeScript
