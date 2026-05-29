@@ -7,7 +7,7 @@ import {
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[ksd-popover]',
+  selector: '[ksd-dropdown]',
   hostDirectives: [
     {
       directive: HostSize,
@@ -19,7 +19,7 @@ import {
     },
   ],
   host: {
-    class: 'ds-popover',
+    class: 'ds-popover ds-dropdown',
     '[attr.data-variant]': 'variant()',
     '[attr.data-placement]': 'placement()',
     '[attr.data-autoplacement]': 'autoPlacement()',
