@@ -1,1 +1,1 @@
-export { Popover } from './popover'
+export { Dropdown } from './dropdown'
