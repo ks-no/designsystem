@@ -38,6 +38,9 @@
       "@ks-digital/designsystem-angular/dialog": [
         "packages/angular/dialog/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/dropdown": [
+        "packages/angular/dropdown/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/forms": [
         "packages/angular/forms/src/index.ts"
       ],
