@@ -98,12 +98,20 @@ export const Fullmakt: Story = {
     'data-placement': 'bottom-end',
   },
   render: (args) => ({
-    props: { ...args, isOpen: false },
+    props: { ...args },
+    styles: [
+      `
+      .icon-close { display: none; }
+      :host:has(#dropdown:popover-open) .icon-chevron { display: none; }
+      :host:has(#dropdown:popover-open) .icon-close { display: inline; }
+      `,
+    ],
     template: `
-      <button ksd-button data-variant="tertiary" type="button" popovertarget="dropdown">
+      <button ksd-button data-variant="tertiary" type="button" popovertarget="dropdown" aria-label="Ola Normann, Molde kommune">
         <img alt="" style="width:1.2em; height:auto; margin-right: var(--ds-size-0);" src="https://static.fiks.ks.no/img/kommunevaapen/1502.png" />
         Ola Normann
-        <svg [style.transform]="isOpen ? '' : 'scaleY(-1)'" style="transition: transform 0.2s;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" focusable="false" role="img" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06z" clip-rule="evenodd"></path></svg>
+        <svg class="icon-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em"><rect width="256" height="256" fill="none"/><polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em"><rect width="256" height="256" fill="none"/><line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
       </button>
       <div ksd-dropdown id="dropdown" popover="auto" ${argsToTemplate(args)}>
          <ul>
