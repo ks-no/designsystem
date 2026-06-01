@@ -1,3 +1,14 @@
+## 0.0.1-alpha.60
+
+### 🚀 Features
+
+- **angular:** dropdown ([#294](https://github.com/ks-no/designsystem/pull/294))
+
+### ❤️ Thank You
+
+- Copilot Autofix powered by AI @Copilot
+- stianmorsund
+
 ## 0.0.1-alpha.59
 
 ### 🩹 Fixes
