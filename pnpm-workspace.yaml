@@ -101,6 +101,7 @@ catalogs:
   vitest:
     '@vitest/coverage-v8': '4.0.9'
     '@vitest/ui': '4.0.9'
+    vite: '7.1.12'
     vitest: '4.1.0'
   vitest-a11y:
     vitest-axe: '^0.1.0'

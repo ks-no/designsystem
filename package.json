@@ -75,7 +75,7 @@
     "tsx": "catalog:typescript",
     "typescript": "catalog:typescript",
     "typescript-eslint": "^8.60.1",
-    "vite": "7.1.12",
+    "vite": "catalog:vitest",
     "vite-plugin-dts": "catalog:typescript",
     "vitest": "catalog:vitest"
   },
@@ -85,7 +85,7 @@
   },
   "pnpm": {
     "overrides": {
-      "vite": "catalog:typescript"
+      "vite": "catalog:vitest"
     }
   }
 }
