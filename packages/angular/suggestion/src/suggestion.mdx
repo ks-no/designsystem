@@ -50,7 +50,7 @@ import {
         (selectedChange)="selected.set($event)"
       >
         <input ksd-input />
-        <del aria-label="Tøm" hidden=""></del>
+        <button type="reset" aria-label="Tøm" hidden=""></button>
         <ksd-suggestion-list>
           @for (place of places(); track place) {
             <ksd-suggestion-list-option [value]="place">{{
@@ -95,7 +95,7 @@ import {
       <ksd-label>Velg kommune</ksd-label>
       <ksd-suggestion [filter]="startsWithUppercaseFilter">
         <input ksd-input />
-        <del aria-label="Tøm" hidden=""></del>
+        <button type="reset" aria-label="Tøm" hidden=""></button>
         <ksd-suggestion-list>
           @for (municipality of municipalities(); track municipality) {
             <ksd-suggestion-list-option [value]="municipality">{{
