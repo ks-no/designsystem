@@ -42,7 +42,7 @@
     "vitest-axe": "catalog:vitest-a11y",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "vitest": "4.0.9",
+    "vitest": "catalog:vitest",
     "zone.js": "catalog:angular"
   }
 }

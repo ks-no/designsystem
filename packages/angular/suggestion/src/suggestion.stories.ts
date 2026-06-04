@@ -110,7 +110,7 @@ export const Preview: Story = {
             type="text"
             ksd-input
           />
-          <del aria-label="Tøm" hidden=""></del>
+          <button type="reset" aria-label="Tøm" hidden=""></button>
           <ksd-suggestion-list>
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -154,7 +154,7 @@ export const ControlledSingle: Story = {
             (selectedChange)="onSelectedChange($event)"
           >
             <input type="text" ksd-input placeholder="Velg destinasjon" />
-            <del aria-label="Tøm" hidden=""></del>
+            <button type="reset" aria-label="Tøm" hidden=""></button>
             <ksd-suggestion-list>
               @for (place of places; track place) {
                 <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -205,7 +205,7 @@ export const ControlledMultiple: Story = {
             (selectedChange)="onSelectedChange($event)"
           >
             <input type="text" ksd-input />
-            <del aria-label="Tøm" hidden=""></del>
+            <button type="reset" aria-label="Tøm" hidden=""></button>
             <ksd-suggestion-list>
               @for (place of places; track place) {
                 <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -258,7 +258,7 @@ export const ControlledIndependentLabelValue: Story = {
             (selectedChange)="onSelectedChange($event)"
           >
             <input type="text" ksd-input placeholder="Velg kommune" />
-            <del aria-label="Tøm" hidden=""></del>
+            <button type="reset" aria-label="Tøm" hidden=""></button>
             <ksd-suggestion-list>
               @for (municipality of municipalities; track municipality.value) {
                 <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
@@ -303,7 +303,7 @@ export const DefaultValue: Story = {
           [selected]="selected"
         >
           <input type="text" ksd-input placeholder="Velg destinasjon" />
-          <del aria-label="Tøm" hidden=""></del>
+          <button type="reset" aria-label="Tøm" hidden=""></button>
           <ksd-suggestion-list>
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -335,7 +335,7 @@ export const Multiple: Story = {
           [creatable]="creatable"
         >
           <input type="text" ksd-input />
-          <del aria-label="Tøm" hidden=""></del>
+          <button type="reset" aria-label="Tøm" hidden=""></button>
           <ksd-suggestion-list>
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -367,7 +367,7 @@ export const Creatable: Story = {
           [creatable]="creatable"
         >
           <input type="text" ksd-input placeholder="Velg eller legg til destinasjon" />
-          <del aria-label="Tøm" hidden=""></del>
+          <button type="reset" aria-label="Tøm" hidden=""></button>
           <ksd-suggestion-list>
             @for (place of places; track place) {
               <ksd-suggestion-list-option [value]="place">{{ place }}</ksd-suggestion-list-option>
@@ -430,7 +430,7 @@ export const CustomFiltering: Story = {
               ksd-input
               (input)="onInput($event)"
             />
-            <del aria-label="Tøm" hidden=""></del>
+            <button type="reset" aria-label="Tøm" hidden=""></button>
             <ksd-suggestion-list>
               @for (municipality of filteredMunicipalities(); track municipality.value) {
                 <ksd-suggestion-list-option [value]="municipality.value">{{ municipality.label }}</ksd-suggestion-list-option>
