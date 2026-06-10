@@ -1,3 +1,13 @@
+## 0.0.1-alpha.62
+
+### 🩹 Fixes
+
+- **angular/button:** dont set button type ([#298](https://github.com/ks-no/designsystem/pull/298))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.61
 
 ### 🚀 Features
