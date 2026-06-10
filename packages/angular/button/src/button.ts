@@ -26,7 +26,6 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
   imports: [Spinner],
   host: {
     class: 'ds-button',
-    type: 'button',
     '[attr.data-variant]': 'variant()',
     '[attr.data-icon]': 'icon() || dataIcon() || null',
     '[attr.disabled]': 'disabled() ? true : null',
