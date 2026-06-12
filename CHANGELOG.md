@@ -1,3 +1,13 @@
+## 0.0.1-alpha.63
+
+### 🩹 Fixes
+
+- **angular:** ksd-alert should have block display ([#299](https://github.com/ks-no/designsystem/pull/299))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.62
 
 ### 🩹 Fixes
