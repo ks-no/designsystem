@@ -31,15 +31,15 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-tokens.
 
 ```css
-@layer tw-theme, tw-base, ds, tw-utilities;
+@layer tw-theme, tw-base, tw-utilities, ds, ksd;
 
-@import url('@ks-digital/designsystem-themes/base.css') layer(ds);
-@import url('@ks-digital/designsystem-themes/ksdigital.css') layer(ds);
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ksdigital.css');
 
 @import 'tailwindcss/theme.css' layer(tw-theme);
 @import 'tailwindcss/preflight.css' layer(tw-base);
 @import 'tailwindcss/utilities.css' layer(tw-utilities);
-@import '@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css' layer(tw-theme);
+@import '@ks-digital/designsystem-themes/ksdigital.tailwind.css' layer(tw-theme);
 ```
 
 ### In JavaScript/TypeScript Files
