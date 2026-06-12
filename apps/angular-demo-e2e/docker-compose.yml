@@ -1,0 +1,18 @@
+services:
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.60.0-noble
+    working_dir: /work
+    volumes:
+      - ../../:/work
+    network_mode: host
+    environment:
+      - CI=true
+      - BASE_URL=http://localhost:4200
+    command: >
+      sh -c "
+        corepack enable &&
+        corepack prepare pnpm@10.33.0 --activate &&
+        pnpm install --frozen-lockfile &&
+        pnpm exec nx run angular-demo:build &&
+        pnpm exec nx run angular-demo-e2e:e2e
+      "

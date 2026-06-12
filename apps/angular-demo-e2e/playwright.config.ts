@@ -23,12 +23,20 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'pnpm exec nx run angular-demo:serve',
-    url: 'http://localhost:4200',
-    reuseExistingServer: !process.env['CI'],
-    cwd: workspaceRoot,
-  },
+  webServer: process.env['CI']
+    ? {
+        // In CI/Docker: serve the pre-built output with a static server
+        command: 'pnpm exec nx run angular-demo:serve-static --port 4200',
+        url: 'http://localhost:4200',
+        reuseExistingServer: false,
+        cwd: workspaceRoot,
+      }
+    : {
+        command: 'pnpm exec nx run angular-demo:serve',
+        url: 'http://localhost:4200',
+        reuseExistingServer: true,
+        cwd: workspaceRoot,
+      },
   projects: [
     {
       name: 'chromium',
