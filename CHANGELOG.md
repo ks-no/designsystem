@@ -1,3 +1,13 @@
+## 0.0.1-alpha.64
+
+### 🩹 Fixes
+
+- **themes:** ksd layer presedence over ds ([#300](https://github.com/ks-no/designsystem/pull/300))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.63
 
 ### 🩹 Fixes
