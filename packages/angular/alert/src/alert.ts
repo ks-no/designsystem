@@ -14,6 +14,11 @@ import {
   host: {
     class: 'ds-alert',
   },
+  styles: `
+    :host {
+      display: block;
+    }
+  `,
   hostDirectives: [
     {
       directive: HostSize,
