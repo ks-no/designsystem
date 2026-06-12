@@ -1,6 +1,7 @@
 import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Link } from '@ks-digital/designsystem-angular/link'
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { ErrorSummary } from './error-summary'
 
 const renderErrorSummary = async () =>
@@ -124,4 +125,11 @@ it('should focus error-summary', async () => {
   const errorSummary = screen.getByTestId('error-summary')
   errorSummary.focus()
   expect(errorSummary).toHaveFocus()
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await renderErrorSummary()
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

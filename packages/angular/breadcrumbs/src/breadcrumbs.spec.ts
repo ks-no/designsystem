@@ -1,6 +1,7 @@
 import { Link } from '@ks-digital/designsystem-angular/link'
 import { render, screen, waitFor } from '@testing-library/angular'
 import { afterAll, beforeAll } from 'vitest'
+import { axe } from 'vitest-axe'
 import { Breadcrumbs } from './breadcrumbs'
 
 window.dsWarnings = false
@@ -60,4 +61,11 @@ it('should render breadcrumbs', async () => {
 
   const links = screen.getAllByRole('link')
   expect(links).toHaveLength(5)
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await renderCrumbs()
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

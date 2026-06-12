@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Heading } from './heading'
 
 @Component({
@@ -36,4 +37,13 @@ it('Should set id', async () => {
 
   const heading = screen.getByRole('heading', { name: 'My heading' })
   expect(heading).toHaveAttribute('id', 'test-id')
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await render(`<h1 ksd-heading>My heading</h1>`, {
+    imports: [Heading],
+  })
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })
