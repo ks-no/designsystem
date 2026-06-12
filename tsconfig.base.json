@@ -56,8 +56,17 @@
       "@ks-digital/designsystem-angular/popover": [
         "packages/angular/popover/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/breadcrumbs": [
+        "packages/angular/breadcrumbs/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/chip": [
+        "packages/angular/chip/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/error-summary": [
-        "packages/angular/errorsumary/src/index.ts"
+        "packages/angular/error-summary/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/table": [
+        "packages/angular/table/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/search": [
         "packages/angular/search/src/index.ts"
