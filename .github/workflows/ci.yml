@@ -82,5 +82,8 @@ jobs:
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps
 
+      - name: Build affected apps
+        run: pnpm nx affected --target=build
+
       - name: End-to-end test
         run: pnpm nx affected --target=e2e

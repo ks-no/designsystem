@@ -39,3 +39,4 @@ dist
 storybook-static
 .claude/worktrees
 .claude/settings.local.json
+.pnpm-store/*

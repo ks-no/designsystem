@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { fireEvent, render, screen } from '@testing-library/angular'
 import { vi } from 'vitest'
+import { axe } from 'vitest-axe'
 import { TableHeaderCell } from '../src/table-header-cell'
 
 @Component({
@@ -46,5 +47,12 @@ describe('table header cell', () => {
     fireEvent.click(screen.getByRole('button'))
 
     expect(fixture.componentInstance.onSortChange).toHaveBeenCalledTimes(1)
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(TestComponent)
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

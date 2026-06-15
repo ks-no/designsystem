@@ -3,6 +3,7 @@ import { phosphorPencilLine } from '@ng-icons/phosphor-icons/regular'
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
+import { axe } from 'vitest-axe'
 import { Button } from './button'
 
 it('should render as aria-disabled when aria-disabled is true regardless of variant', async () => {
@@ -139,4 +140,13 @@ it('should set data-icon attribute when using deprecated icon input', async () =
     },
   )
   expect(screen.getByRole('button')).toHaveAttribute('data-icon', 'true')
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await render(`<button ksd-button>My button</button>`, {
+    imports: [Button],
+  })
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

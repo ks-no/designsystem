@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Input } from '../input'
 import { Label } from '../label'
 import { Field } from './field'
@@ -96,5 +97,19 @@ describe('should connect checkbox and description', () => {
     const input = screen.getByRole('checkbox')
 
     expect(input).toHaveAttribute('id', 'test')
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(
+      `
+      <ksd-field>
+        <ksd-label>My input</ksd-label>
+        <input ksd-input type="text" />
+      </ksd-field>`,
+      { imports: [Field, Label, Input] },
+    )
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

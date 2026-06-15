@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Table } from './table'
 import { TableHeaderCell } from './table-header-cell'
 
@@ -48,5 +49,12 @@ describe('table', () => {
   it('should render with children', async () => {
     await render(TestComponent)
     expect(screen.getByRole('table').querySelector('tr')).toBeInTheDocument()
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(TestComponent)
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

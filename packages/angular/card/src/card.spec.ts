@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Card } from './card'
 
 describe('Card', () => {
@@ -119,5 +120,14 @@ describe('Card', () => {
       const card = container.querySelector('[ksd-card]')
       expect(card).toHaveAttribute('data-clickdelegatefor', 'existing-target')
     })
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(`<div ksd-card>Card content</div>`, {
+      imports: [Card],
+    })
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

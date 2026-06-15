@@ -1,2 +1,9 @@
+@layer tw-theme, tw-base, tw-utilities, ds, ksd;
+
 @import url('@ks-digital/designsystem-themes/base.css');
 @import url('@ks-digital/designsystem-themes/ksdigital.css');
+
+@import 'tailwindcss/theme.css' layer(tw-theme);
+@import 'tailwindcss/preflight.css' layer(tw-base);
+@import 'tailwindcss/utilities.css' layer(tw-utilities);
+@import '@ks-digital/designsystem-themes/ksdigital.tailwind.css' layer(tw-theme);

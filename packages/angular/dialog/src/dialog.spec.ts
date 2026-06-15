@@ -1,4 +1,5 @@
 import { render } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Dialog } from './dialog'
 
 describe('Dialog', () => {
@@ -40,5 +41,15 @@ describe('Dialog', () => {
 
     const dialog = container.querySelector('dialog')
     expect(dialog).not.toHaveAttribute('data-placement')
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(
+      `<dialog ksd-dialog id="test-dialog" aria-label="Test dialog">Dialog innhold</dialog>`,
+      { imports: [Dialog] },
+    )
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

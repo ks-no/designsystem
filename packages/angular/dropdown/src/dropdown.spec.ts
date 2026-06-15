@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { axe } from 'vitest-axe'
 import { Dropdown } from './dropdown'
 
 const renderDropdown = async () => {
@@ -99,5 +100,12 @@ describe('Dropdown', () => {
     const dropdown = screen.getByText(itemText).closest('[ksd-dropdown]')
 
     expect(triggerButton.getAttribute('popovertarget')).toBe(dropdown.id)
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await renderDropdown()
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

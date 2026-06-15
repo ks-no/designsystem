@@ -17,8 +17,11 @@
     "@angular/build": "catalog:angular",
     "@angular/compiler": "catalog:angular",
     "@angular/compiler-cli": "catalog:angular",
+    "@tailwindcss/postcss": "^4.3.0",
     "@testing-library/angular": "catalog:testing-library",
     "angular-eslint": "catalog:angular",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
     "zone.js": "catalog:angular"
   }
 }

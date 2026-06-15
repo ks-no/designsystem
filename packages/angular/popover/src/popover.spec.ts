@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { axe } from 'vitest-axe'
 import { Popover } from './popover'
 
 const renderPopover = async () => {
@@ -139,5 +140,12 @@ describe('Popover', () => {
     const popover = screen.getByText(contentText).closest('[ksd-popover]')
 
     expect(popoverButton.getAttribute('popovertarget')).toBe(popover.id)
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await renderPopover()
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

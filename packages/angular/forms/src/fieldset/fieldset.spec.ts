@@ -1,5 +1,6 @@
 import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-message'
 import { render, screen, waitFor } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Field } from '../field'
 import { Input } from '../input'
 import { Label } from '../label'
@@ -76,5 +77,23 @@ describe('Should connect checkbox and validation message with aria-describedby',
         )
       })
     })
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(
+      `
+      <fieldset ksd-fieldset>
+        <legend ksd-fieldset-legend>My group</legend>
+        <ksd-field>
+          <ksd-label>Option A</ksd-label>
+          <input ksd-input type="checkbox" value="a" />
+        </ksd-field>
+      </fieldset>
+      `,
+      { imports: [Fieldset, FieldsetLegend, Field, Label, Input] },
+    )
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

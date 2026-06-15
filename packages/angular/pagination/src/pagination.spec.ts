@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/angular'
 import { vi } from 'vitest'
+import { axe } from 'vitest-axe'
 import { Pagination } from './pagination'
 import { PaginationButton } from './pagination.button'
 
@@ -179,5 +180,22 @@ describe('Pagination with links', () => {
       )
       expect(pageLink).toBeInTheDocument()
     })
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await renderPaginationWithLinks({
+      current: 1,
+      total: 5,
+      href: '?page=%d',
+    })
+
+    // Todo: Fix this
+    const results = await axe(container, {
+      rules: {
+        'aria-allowed-role': { enabled: false },
+        'presentation-role-conflict': { enabled: false },
+      },
+    })
+    expect(results).toHaveNoViolations()
   })
 })

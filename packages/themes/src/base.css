@@ -1,13 +1,4 @@
-@import url('@digdir/designsystemet-css/dist/src/index.css');
-@import './overrides.css';
-
-/*
-Base CSS for all themes
-*/
-
-body {
-  font-family: 'Inter', sans-serif;
-  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
-}
-
 @layer ds, ksd;
+
+@import url('@digdir/designsystemet-css/dist/src/index.css');
+@import './ksd/index.css';
