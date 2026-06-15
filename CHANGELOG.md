@@ -1,3 +1,13 @@
+## 0.0.1-alpha.65
+
+### 🩹 Fixes
+
+- **themes:** layer-setup, update docs, improve test coverage ([#301](https://github.com/ks-no/designsystem/pull/301))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.64
 
 ### 🩹 Fixes
