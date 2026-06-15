@@ -40,7 +40,9 @@ Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-
 
 #### Tailwind
 
-Alle tema kan integreres med Tailwind. Importer`[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (ekserimentelt).
+Alle tema kan integreres med Tailwind. Importer `[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (eksperimentelt).
+
+> Den første linjen styrer prioritetsrekkefølgen for CSS-layers: layers som er deklarert senere vinner. Den anbefalte rekkefølgen plasserer `ds` og `ksd` over Tailwind, slik at Designsystemets stiler har prioritet. Trenger du at Tailwind-utilities overstyrer komponentstiler, kan du flytte `tw-utilities` etter `ksd`, men vær oppmerksom på at dette kan gi problemer ved fremtidige oppdateringer.
 
 ```css
 @layer tw-theme, tw-base, tw-utilities, ds, ksd;

@@ -30,6 +30,11 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-tokens.
 
+> The `@layer` declaration on the first line controls cascade priority — later layers win.
+> The recommended order places `ds` and `ksd` above Tailwind so design system styles take precedence.
+> If you need Tailwind utilities to override component styles, move `tw-utilities` after `ksd` —
+> but be aware that overriding component internals may break with future releases.
+
 ```css
 @layer tw-theme, tw-base, tw-utilities, ds, ksd;
 
