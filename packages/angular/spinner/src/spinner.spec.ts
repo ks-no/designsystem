@@ -14,7 +14,7 @@ it('should render a spinner with title "loading"', async () => {
 })
 
 it('should have no obvious accessibility violations', async () => {
-  const { container } = await render(`<ksd-spinner aria-label="Loading">`, {
+  const { container } = await render(`<ksd-spinner aria-label="Loading" />`, {
     imports: [Spinner],
   })
 
