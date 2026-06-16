@@ -44,10 +44,10 @@ catalogs:
     '@angular/common': '>= 21.0.0 < 22.0.0'
     '@angular/core': '>= 21.0.0 < 22.0.0'
   designsystemet:
-    '@digdir/designsystemet': '1.15.0'
-    '@digdir/designsystemet-css': '1.15.0'
-    '@digdir/designsystemet-react': '1.15.0'
-    '@digdir/designsystemet-web': '1.15.0'
+    '@digdir/designsystemet': 'test'
+    '@digdir/designsystemet-css': 'test'
+    '@digdir/designsystemet-react': 'test'
+    '@digdir/designsystemet-web': 'test'
     '@navikt/aksel-icons': '8.10.3'
   lit:
     '@lit-labs/signals': '^0.1.3'
