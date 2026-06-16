@@ -11,7 +11,7 @@
     "themes:apply-custom-tokens:tokens": "node ./tools/apply-custom-tokens.mjs tokens",
     "themes:apply-custom-tokens:outputs": "node ./tools/apply-custom-tokens.mjs outputs",
     "themes:create-tokens": "./node_modules/.bin/designsystemet tokens create --config designsystemet.config.json",
-    "themes:build": "pnpm themes:apply-custom-tokens:tokens && ./node_modules/.bin/designsystemet tokens build --experimental-tailwind --out-dir packages/themes/src/themes && pnpm themes:apply-custom-tokens:outputs",
+    "themes:build": "pnpm themes:apply-custom-tokens:tokens && ./node_modules/.bin/designsystemet tokens build  --out-dir packages/themes/src/themes && pnpm themes:apply-custom-tokens:outputs",
     "themes:generate": "pnpm themes:create-tokens && pnpm themes:build"
   },
   "lint-staged": {
