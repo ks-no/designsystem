@@ -107,6 +107,7 @@
   {
     "name": "Dark",
     "selectedTokenSets": {
+      "primitives/modes/color-scheme/dark/global": "enabled",
       "primitives/modes/color-scheme/dark/ksdigital": "enabled",
       "primitives/modes/color-scheme/dark/minkommune": "enabled",
       "primitives/modes/color-scheme/dark/ledsagerbevis": "enabled",
@@ -120,6 +121,7 @@
   {
     "name": "Light",
     "selectedTokenSets": {
+      "primitives/modes/color-scheme/light/global": "enabled",
       "primitives/modes/color-scheme/light/ksdigital": "enabled",
       "primitives/modes/color-scheme/light/minkommune": "enabled",
       "primitives/modes/color-scheme/light/ledsagerbevis": "enabled",

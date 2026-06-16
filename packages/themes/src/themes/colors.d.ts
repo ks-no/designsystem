@@ -1,19 +1,9 @@
-/* This file is deprecated and will be removed in a future release. Use types.d.ts instead */
-/* build: v1.15.0 */
-import type {} from '@digdir/designsystemet-types'
+import type {} from '@digdir/designsystemet-react/colors'
 
-// Augment types based on theme
-declare module '@digdir/designsystemet-types' {
-  export interface ColorDefinitions {
+declare module '@digdir/designsystemet-react/colors' {
+  export interface MainAndSupportColors {
     accent: never
     support1: never
     support2: never
-    neutral: never
-  }
-  export interface SeverityColorDefinitions {
-    info: never
-    success: never
-    warning: never
-    danger: never
   }
 }
