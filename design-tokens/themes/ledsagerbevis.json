@@ -263,304 +263,26 @@
         "$type": "color",
         "$value": "{ledsagerbevis.support2.16}"
       }
-    },
-    "info": {
-      "1": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.info.16}"
-      }
-    },
-    "success": {
-      "1": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.success.16}"
-      }
-    },
-    "warning": {
-      "1": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.warning.16}"
-      }
-    },
-    "danger": {
-      "1": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.danger.16}"
-      }
-    },
-    "link": {
-      "visited": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.link.visited}"
-      }
-    },
-    "focus": {
-      "inner-color": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.focus.inner}"
-      },
-      "outer-color": {
-        "$type": "color",
-        "$value": "{ledsagerbevis.focus.outer}"
-      }
     }
   },
-  "font-family": {
-    "$type": "fontFamilies",
-    "$value": "{ledsagerbevis.font-family}"
+  "font": {
+    "family": {
+      "$type": "fontFamilies",
+      "$value": "{ledsagerbevis.main}"
+    }
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.medium}"
+      "$value": "{ledsagerbevis.bold}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.semibold}"
+      "$value": "{ledsagerbevis.extra-bold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{ledsagerbevis.font-weight.regular}"
+      "$value": "{ledsagerbevis.regular}"
     }
   },
   "border-radius": {
@@ -590,7 +312,7 @@
     },
     "base": {
       "$type": "dimension",
-      "$value": "16"
+      "$value": "4"
     },
     "scale": {
       "$type": "dimension",
