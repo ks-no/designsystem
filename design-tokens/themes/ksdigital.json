@@ -66,72 +66,6 @@
         "$value": "{ksdigital.accent.16}"
       }
     },
-    "neutral": {
-      "1": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{ksdigital.neutral.16}"
-      }
-    },
     "support1": {
       "1": {
         "$type": "color",
@@ -263,26 +197,370 @@
         "$type": "color",
         "$value": "{ksdigital.support2.16}"
       }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ksdigital.neutral.16}"
+      }
+    },
+    "info": {
+      "1": {
+        "$type": "color",
+        "$value": "{ksdigital.info.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ksdigital.info.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ksdigital.info.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ksdigital.info.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ksdigital.info.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ksdigital.info.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ksdigital.info.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ksdigital.info.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ksdigital.info.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ksdigital.info.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ksdigital.info.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ksdigital.info.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ksdigital.info.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ksdigital.info.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ksdigital.info.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ksdigital.info.16}"
+      }
+    },
+    "success": {
+      "1": {
+        "$type": "color",
+        "$value": "{ksdigital.success.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ksdigital.success.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ksdigital.success.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ksdigital.success.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ksdigital.success.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ksdigital.success.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ksdigital.success.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ksdigital.success.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ksdigital.success.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ksdigital.success.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ksdigital.success.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ksdigital.success.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ksdigital.success.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ksdigital.success.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ksdigital.success.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ksdigital.success.16}"
+      }
+    },
+    "warning": {
+      "1": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ksdigital.warning.16}"
+      }
+    },
+    "danger": {
+      "1": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{ksdigital.danger.16}"
+      }
+    },
+    "link": {
+      "visited": {
+        "$type": "color",
+        "$value": "{ksdigital.link.visited}"
+      }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{ksdigital.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{ksdigital.focus.outer}"
+      }
     }
   },
-  "font": {
-    "family": {
-      "$type": "fontFamilies",
-      "$value": "{ksdigital.main}"
-    }
+  "font-family": {
+    "$type": "fontFamilies",
+    "$value": "{ksdigital.font-family}"
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{ksdigital.bold}"
+      "$value": "{ksdigital.font-weight.medium}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{ksdigital.extra-bold}"
+      "$value": "{ksdigital.font-weight.semibold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{ksdigital.regular}"
+      "$value": "{ksdigital.font-weight.regular}"
     }
   },
   "border-radius": {
@@ -312,7 +590,7 @@
     },
     "base": {
       "$type": "dimension",
-      "$value": "4"
+      "$value": "8"
     },
     "scale": {
       "$type": "dimension",

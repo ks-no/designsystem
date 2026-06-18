@@ -66,72 +66,6 @@
         "$value": "{tilskudd.accent.16}"
       }
     },
-    "neutral": {
-      "1": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{tilskudd.neutral.16}"
-      }
-    },
     "support1": {
       "1": {
         "$type": "color",
@@ -263,26 +197,370 @@
         "$type": "color",
         "$value": "{tilskudd.support2.16}"
       }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{tilskudd.neutral.16}"
+      }
+    },
+    "info": {
+      "1": {
+        "$type": "color",
+        "$value": "{tilskudd.info.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{tilskudd.info.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{tilskudd.info.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{tilskudd.info.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{tilskudd.info.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{tilskudd.info.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{tilskudd.info.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{tilskudd.info.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{tilskudd.info.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{tilskudd.info.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{tilskudd.info.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{tilskudd.info.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{tilskudd.info.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{tilskudd.info.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{tilskudd.info.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{tilskudd.info.16}"
+      }
+    },
+    "success": {
+      "1": {
+        "$type": "color",
+        "$value": "{tilskudd.success.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{tilskudd.success.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{tilskudd.success.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{tilskudd.success.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{tilskudd.success.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{tilskudd.success.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{tilskudd.success.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{tilskudd.success.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{tilskudd.success.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{tilskudd.success.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{tilskudd.success.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{tilskudd.success.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{tilskudd.success.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{tilskudd.success.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{tilskudd.success.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{tilskudd.success.16}"
+      }
+    },
+    "warning": {
+      "1": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{tilskudd.warning.16}"
+      }
+    },
+    "danger": {
+      "1": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{tilskudd.danger.16}"
+      }
+    },
+    "link": {
+      "visited": {
+        "$type": "color",
+        "$value": "{tilskudd.link.visited}"
+      }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{tilskudd.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{tilskudd.focus.outer}"
+      }
     }
   },
-  "font": {
-    "family": {
-      "$type": "fontFamilies",
-      "$value": "{tilskudd.main}"
-    }
+  "font-family": {
+    "$type": "fontFamilies",
+    "$value": "{tilskudd.font-family}"
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{tilskudd.bold}"
+      "$value": "{tilskudd.font-weight.medium}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{tilskudd.extra-bold}"
+      "$value": "{tilskudd.font-weight.semibold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{tilskudd.regular}"
+      "$value": "{tilskudd.font-weight.regular}"
     }
   },
   "border-radius": {
@@ -312,7 +590,7 @@
     },
     "base": {
       "$type": "dimension",
-      "$value": "4"
+      "$value": "8"
     },
     "scale": {
       "$type": "dimension",
