@@ -32,19 +32,19 @@ Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-toke
 
 > The `@layer` declaration on the first line controls cascade priority — later layers win.
 > The recommended order places `ds` and `ksd` above Tailwind so design system styles take precedence.
-> If you need Tailwind utilities to override component styles, move `tw-utilities` after `ksd` —
+> If you need Tailwind utilities to override component styles, move `utilities` after `ksd` —
 > but be aware that overriding component internals may break with future releases.
 
 ```css
-@layer tw-theme, tw-base, tw-utilities, ds, ksd;
+@layer theme, base, utilities, ds, ksd;
 
 @import url('@ks-digital/designsystem-themes/base.css');
 @import url('@ks-digital/designsystem-themes/ksdigital.css');
 
-@import 'tailwindcss/theme.css' layer(tw-theme);
-@import 'tailwindcss/preflight.css' layer(tw-base);
-@import 'tailwindcss/utilities.css' layer(tw-utilities);
-@import '@ks-digital/designsystem-themes/ksdigital.tailwind.css' layer(tw-theme);
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@ks-digital/designsystem-themes/ksdigital.tailwind.css' layer(theme);
 ```
 
 ### In JavaScript/TypeScript Files
