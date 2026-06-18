@@ -66,72 +66,6 @@
         "$value": "{minkommune.accent.16}"
       }
     },
-    "neutral": {
-      "1": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{minkommune.neutral.16}"
-      }
-    },
     "support1": {
       "1": {
         "$type": "color",
@@ -263,26 +197,370 @@
         "$type": "color",
         "$value": "{minkommune.support2.16}"
       }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.neutral.16}"
+      }
+    },
+    "info": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.info.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.info.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.info.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.info.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.info.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.info.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.info.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.info.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.info.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.info.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.info.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.info.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.info.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.info.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.info.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.info.16}"
+      }
+    },
+    "success": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.success.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.success.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.success.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.success.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.success.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.success.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.success.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.success.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.success.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.success.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.success.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.success.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.success.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.success.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.success.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.success.16}"
+      }
+    },
+    "warning": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.warning.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.warning.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.warning.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.warning.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.warning.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.warning.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.warning.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.warning.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.warning.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.warning.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.warning.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.warning.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.warning.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.warning.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.warning.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.warning.16}"
+      }
+    },
+    "danger": {
+      "1": {
+        "$type": "color",
+        "$value": "{minkommune.danger.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{minkommune.danger.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{minkommune.danger.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{minkommune.danger.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{minkommune.danger.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{minkommune.danger.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{minkommune.danger.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{minkommune.danger.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{minkommune.danger.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{minkommune.danger.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{minkommune.danger.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{minkommune.danger.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{minkommune.danger.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{minkommune.danger.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{minkommune.danger.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{minkommune.danger.16}"
+      }
+    },
+    "link": {
+      "visited": {
+        "$type": "color",
+        "$value": "{minkommune.link.visited}"
+      }
+    },
+    "focus": {
+      "inner-color": {
+        "$type": "color",
+        "$value": "{minkommune.focus.inner}"
+      },
+      "outer-color": {
+        "$type": "color",
+        "$value": "{minkommune.focus.outer}"
+      }
     }
   },
-  "font": {
-    "family": {
-      "$type": "fontFamilies",
-      "$value": "{minkommune.main}"
-    }
+  "font-family": {
+    "$type": "fontFamilies",
+    "$value": "{minkommune.font-family}"
   },
   "font-weight": {
     "medium": {
       "$type": "fontWeights",
-      "$value": "{minkommune.bold}"
+      "$value": "{minkommune.font-weight.medium}"
     },
     "semibold": {
       "$type": "fontWeights",
-      "$value": "{minkommune.extra-bold}"
+      "$value": "{minkommune.font-weight.semibold}"
     },
     "regular": {
       "$type": "fontWeights",
-      "$value": "{minkommune.regular}"
+      "$value": "{minkommune.font-weight.regular}"
     }
   },
   "border-radius": {
@@ -312,7 +590,7 @@
     },
     "base": {
       "$type": "dimension",
-      "$value": "4"
+      "$value": "8"
     },
     "scale": {
       "$type": "dimension",

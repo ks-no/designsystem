@@ -1,9 +1,19 @@
-import type {} from '@digdir/designsystemet-react/colors'
+/* This file is deprecated and will be removed in a future release. Use types.d.ts instead */
+/* build: v0.0.0-feat-remove-color-categories-20260616084032 */
+import type {} from '@digdir/designsystemet-types'
 
-declare module '@digdir/designsystemet-react/colors' {
-  export interface MainAndSupportColors {
+// Augment types based on theme
+declare module '@digdir/designsystemet-types' {
+  export interface ColorDefinitions {
     accent: never
     support1: never
     support2: never
+    neutral: never
+  }
+  export interface SeverityColorDefinitions {
+    info: never
+    success: never
+    warning: never
+    danger: never
   }
 }
