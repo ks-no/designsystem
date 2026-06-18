@@ -44,10 +44,10 @@ catalogs:
     '@angular/common': '>= 21.0.0 < 22.0.0'
     '@angular/core': '>= 21.0.0 < 22.0.0'
   designsystemet:
-    '@digdir/designsystemet': 'test'
-    '@digdir/designsystemet-css': 'test'
-    '@digdir/designsystemet-react': 'test'
-    '@digdir/designsystemet-web': 'test'
+    '@digdir/designsystemet': '0.0.0-feat-remove-color-categories-20260616084032'
+    '@digdir/designsystemet-css': '0.0.0-feat-remove-color-categories-20260616084032'
+    '@digdir/designsystemet-react': '0.0.0-feat-remove-color-categories-20260616084032'
+    '@digdir/designsystemet-web': '0.0.0-feat-remove-color-categories-20260616084032'
     '@navikt/aksel-icons': '8.10.3'
   lit:
     '@lit-labs/signals': '^0.1.3'
@@ -109,6 +109,9 @@ cleanupUnusedCatalogs: true
 ignoredBuiltDependencies:
   - 'less'
 minimumReleaseAge: 2880
+minimumReleaseAgeExclude:
+  - '@digdir/*'
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'
