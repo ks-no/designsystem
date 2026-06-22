@@ -71,7 +71,7 @@ export const WithIconRight: Story = {
     template: `
       <a ksd-link href="https://example.com" ${argsToTemplate(args)}>
         <span>Example Link</span>
-        <ng-icon name="phosphorArrowUpRight" />
+        <ng-icon name="phosphorPencilLine" />
       </a>
     `,
   }),
@@ -85,7 +85,7 @@ export const WithMultipleIcons: Story = {
       <a ksd-link href="https://example.com" ${argsToTemplate(args)}>
         <ng-icon name="phosphorPencilLine" />
         <span>Example Link</span>
-        <ng-icon name="phosphorArrowUpRight" />
+        <ng-icon name="phosphorPencilLine" />
       </a>
     `,
   }),
@@ -97,7 +97,7 @@ export const WithOnlyIcons: Story = {
     props: args,
     template: `
       <a ksd-link href="https://example.com" ${argsToTemplate(args)} aria-label="Example Link">
-        <ng-icon name="phosphorArrowUpRight" />
+        <ng-icon name="phosphorPencilLine" />
       </a>
     `,
   }),
