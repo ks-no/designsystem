@@ -1,3 +1,13 @@
+## 0.0.1-alpha.66
+
+### 🩹 Fixes
+
+- **angular/suggestion:** refactor DOM to match expected web-component-structure in order to fix position recalculation ([#313](https://github.com/ks-no/designsystem/pull/313))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.65
 
 ### 🩹 Fixes
