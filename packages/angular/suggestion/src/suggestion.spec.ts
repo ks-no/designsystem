@@ -356,4 +356,17 @@ describe('Suggestion', () => {
       })
     })
   })
+
+  describe('u-datalist popover', () => {
+    it('should render u-datalist as a direct child of ds-suggestion with popover="manual" and data-is-floating', async () => {
+      const { container } = await renderSuggestionWithList()
+
+      const dsSuggestion = container.querySelector('ds-suggestion')
+      const datalist = dsSuggestion?.querySelector(':scope > u-datalist')
+
+      expect(datalist).toBeInTheDocument()
+      expect(datalist).toHaveAttribute('popover', 'manual')
+      expect(datalist).toHaveAttribute('data-is-floating', 'true')
+    })
+  })
 })

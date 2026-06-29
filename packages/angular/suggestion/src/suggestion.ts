@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common'
 import {
   afterNextRender,
   booleanAttribute,
@@ -42,6 +43,7 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
     },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [NgTemplateOutlet],
   host: {},
   template: `
     <ds-suggestion
@@ -57,6 +59,24 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
         <data [attr.value]="option.value">{{ option.label }}</data>
       }
       <ng-content />
+      <u-datalist
+        popover="manual"
+        data-is-floating="true"
+        data-nofilter
+        [attr.data-sr-singular]="suggestionList()?.singular()"
+        [attr.data-sr-plural]="suggestionList()?.plural()"
+      >
+        @for (option of suggestionList()?.options() ?? []; track option) {
+          <u-option [value]="option.value()">
+            <ng-container *ngTemplateOutlet="option.templateRef()" />
+          </u-option>
+        }
+        @if (suggestionList()?.empty()?.templateRef(); as emptyTpl) {
+          <u-option data-empty value="" hidden>
+            <ng-container *ngTemplateOutlet="emptyTpl" />
+          </u-option>
+        }
+      </u-datalist>
     </ds-suggestion>
   `,
 })
@@ -92,7 +112,7 @@ export class Suggestion {
   protected selectedArray = computed(() => sanitizeItems(this.selected()))
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
-  private readonly suggestionList = contentChild(SuggestionList)
+  protected readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
     afterNextRender(() => this.syncOptions(null))

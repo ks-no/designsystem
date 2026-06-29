@@ -1,4 +1,3 @@
-import { NgTemplateOutlet } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -14,28 +13,10 @@ import { SuggestionListOption } from './suggestion-list-option'
   selector: 'ksd-suggestion-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [NgTemplateOutlet],
   host: {
-    style: 'display: contents;',
+    style: 'display: none;',
   },
-  template: `
-    <u-datalist
-      data-nofilter
-      [attr.data-sr-singular]="singular()"
-      [attr.data-sr-plural]="plural()"
-    >
-      @for (option of options(); track option) {
-        <u-option [value]="option.value()">
-          <ng-container *ngTemplateOutlet="option.templateRef()" />
-        </u-option>
-      }
-      @if (empty()?.templateRef()) {
-        <u-option data-empty value="" hidden>
-          <ng-container *ngTemplateOutlet="empty()?.templateRef()" />
-        </u-option>
-      }
-    </u-datalist>
-  `,
+  template: ``,
 })
 export class SuggestionList {
   /**
@@ -56,5 +37,5 @@ export class SuggestionList {
     descendants: true,
   })
 
-  protected readonly empty = contentChild(SuggestionListEmpty)
+  readonly empty = contentChild(SuggestionListEmpty)
 }
