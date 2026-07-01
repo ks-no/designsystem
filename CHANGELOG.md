@@ -1,3 +1,14 @@
+## 0.0.1-alpha.67
+
+### 🩹 Fixes
+
+- **angular:** expand ksd-error selector ([#314](https://github.com/ks-no/designsystem/pull/314))
+- **angular/suggestion:** correct spacing between label and suggestion ([#315](https://github.com/ks-no/designsystem/pull/315))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.66
 
 ### 🩹 Fixes
