@@ -4,6 +4,7 @@ import { Input } from '../input'
 import { Label } from '../label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
+import { FieldError } from './field-error'
 
 test('should connect checkbox and label', async () => {
   await render(
@@ -34,6 +35,20 @@ test('should forward data-variant to ds-field', async () => {
   const dsField = container.querySelector('ds-field')
 
   expect(dsField).toHaveAttribute('data-variant', 'outline')
+})
+
+test('should support ksd-error element selector', async () => {
+  await render(
+    `
+    <ksd-field>
+      <ksd-label> Check me </ksd-label>
+      <input ksd-input type="checkbox" value="telefon" />
+      <ksd-error>Error message</ksd-error>
+    </ksd-field>`,
+    { imports: [Field, Label, Input, FieldError] },
+  )
+
+  expect(screen.getByText('Error message')).toBeVisible()
 })
 
 describe('should connect checkbox and description', () => {
