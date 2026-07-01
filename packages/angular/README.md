@@ -53,3 +53,8 @@ A complete example setup is available in the `angular-demo` located under the `a
 ## Development
 
 `pnpm nx run @ks-digital/designsystem-angular:storybook`
+
+## Update snapshots
+
+From this folder:
+`docker compose run --rm update-snapshots`
