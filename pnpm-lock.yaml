@@ -83,17 +83,17 @@ catalogs:
       version: 0.16.1
   designsystemet:
     '@digdir/designsystemet':
-      specifier: 1.15.0
-      version: 1.15.0
+      specifier: 0.0.0-feat-remove-color-categories-20260616084032
+      version: 0.0.0-feat-remove-color-categories-20260616084032
     '@digdir/designsystemet-css':
-      specifier: 1.15.0
-      version: 1.15.0
+      specifier: 0.0.0-feat-remove-color-categories-20260616084032
+      version: 0.0.0-feat-remove-color-categories-20260616084032
     '@digdir/designsystemet-react':
-      specifier: 1.15.0
-      version: 1.15.0
+      specifier: 0.0.0-feat-remove-color-categories-20260616084032
+      version: 0.0.0-feat-remove-color-categories-20260616084032
     '@digdir/designsystemet-web':
-      specifier: 1.15.0
-      version: 1.15.0
+      specifier: 0.0.0-feat-remove-color-categories-20260616084032
+      version: 0.0.0-feat-remove-color-categories-20260616084032
     '@navikt/aksel-icons':
       specifier: 8.10.3
       version: 8.10.3
@@ -267,7 +267,7 @@ importers:
         version: 19.8.1
       '@digdir/designsystemet':
         specifier: catalog:designsystemet
-        version: 1.15.0(tslib@2.8.1)
+        version: 0.0.0-feat-remove-color-categories-20260616084032(@types/node@24.12.4)(tslib@2.8.1)
       '@nx/angular':
         specifier: catalog:nx
         version: 22.6.5(059a24ce316765c1201b2d20d0e2805c)
@@ -527,7 +527,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-web':
         specifier: catalog:designsystemet
-        version: 1.15.0
+        version: 0.0.0-feat-remove-color-categories-20260616084032
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: catalog:angular
@@ -609,7 +609,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-react':
         specifier: catalog:designsystemet
-        version: 1.15.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 0.0.0-feat-remove-color-categories-20260616084032(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
         version: 8.10.3
@@ -652,7 +652,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-css':
         specifier: catalog:designsystemet
-        version: 1.15.0
+        version: 0.0.0-feat-remove-color-categories-20260616084032
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -662,7 +662,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-web':
         specifier: catalog:designsystemet
-        version: 1.15.0
+        version: 0.0.0-feat-remove-color-categories-20260616084032
       '@lit-labs/signals':
         specifier: catalog:lit
         version: 0.1.3
@@ -2197,6 +2197,9 @@ packages:
   '@bundled-es-modules/deepmerge@4.3.1':
     resolution: {integrity: sha512-Rk453EklPUPC3NRWc3VUNI/SSUjdBaFoaQvFRmNBNtMHVtOFD5AntiWg5kEE1hqcPqedYFDzxE3ZcMYPcA195w==}
 
+  '@bundled-es-modules/deepmerge@4.3.2':
+    resolution: {integrity: sha512-q8doe7ndrY2IolUOFIn0A0++JBX38pMhN7kFhTF4cnjIcILf6X6H2yWczInyv8ZFdR0lrE8088X8XS5efxXz8A==}
+
   '@bundled-es-modules/glob@13.0.6':
     resolution: {integrity: sha512-x9nR2e1pt8LF0yLPC6yz/aUoiN7qJJwZ1znLxIXCxGyH+8BI+yO/sklBdn1+QbUyWXQBM+CjfZz3IhqtgIoDVg==}
 
@@ -2319,23 +2322,23 @@ packages:
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
 
-  '@digdir/designsystemet-css@1.15.0':
-    resolution: {integrity: sha512-U2BisgpZ66yfB3/Wasj8lu4VjZjrEXR05IhvCMpkiIgewUcyiBsopSi0cP6LcALtx8Z+8bR8zW9dqjtTh9Ca9w==}
+  '@digdir/designsystemet-css@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-SJnveOz73yu04NYervxTUm3HSGvD5kwwteJ+1lnfaS1QPq0hJfmeJ28v5sFy4ly0vJ30uY/WUhz9mzgMGWJcjw==}
 
-  '@digdir/designsystemet-react@1.15.0':
-    resolution: {integrity: sha512-x3lRxvOBmkRhnFNNYIg06Yi6iKYQMADqhbfh3Ray/qIEs8tQepF4mprBfKI26sdJ9X3e/RM3nnU+E0QqHPjW/A==}
+  '@digdir/designsystemet-react@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-5UrR6w2/hn5cZe4/u3r8gqeNKiyfjisEKIRYo1HE5hnm0Bp+s4T0O4Xaj6tQ8+BeNPScHCTLNpfGqlPsDMCF+A==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  '@digdir/designsystemet-types@1.15.0':
-    resolution: {integrity: sha512-TBZlldpl0RBcFkrCMjRZFDwsI6A8btIbNpP2LnNElsKThoL1ZFSUutra+NwibV28lBRgSMi2gf46yY08GaoBsg==}
+  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-Sk1s8PnxDRO0t+iGakU4lm3aQV/ynUqGPzVuHeVBYFV8dm8fqKLIhOQVaqYtZt0GwT/RsKKQIuAs6Cul7yvvkQ==}
 
-  '@digdir/designsystemet-web@1.15.0':
-    resolution: {integrity: sha512-WsDhMS08sw7FnP/5BmvdP+Tbj6e4I1CdboZ8fPzU6WVAkV95JIcTWP1uFGtunNsMAyM/kYSSIUUqdMfG/wBiBw==}
+  '@digdir/designsystemet-web@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-hElSB6jofWV5WYasSfC3z7sWIxIv6QBfz1q4kOyssF68V5XrdOHc4S4uW7iiqn9gMeoAbcramo0Rjy7nNsS9uw==}
 
-  '@digdir/designsystemet@1.15.0':
-    resolution: {integrity: sha512-d8FCleuO86QJLichrV/pwBJFF19A8MMGYpuGOJ8GjaM1MIpAiqp0jZev9H7CVhiZjdnLfq5Q8bpLR81+LdEwWw==}
+  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-U7FgAjbwz+RYjgbD9iyQkD0xeU+bgw70fZuY29gJ8RlCHRDzIZ1o8fmXjBHHQPCDFZoS60LCsPGZRxH0P0fJPA==}
     engines: {node: '>=20.20.2'}
     hasBin: true
 
@@ -2904,6 +2907,10 @@ packages:
     resolution: {integrity: sha512-S8qNSZiYzFd0wAcyG5AXCvUHC5Sr7xpZ9wZ2py9XR88jUz8wooStVx5M6dRzczbBWjic9NP7+rY0Xi7qqK/aMQ==}
     engines: {node: '>=18'}
 
+  '@inquirer/ansi@2.0.7':
+    resolution: {integrity: sha512-3eTuUO1vH2cZm2ZKHeQxnOqlTi9EfZDGgIe3BL3I4u+rJHocr9Fz86M4fjYABPvFnQG/gGK551HqDiIcETwU6Q==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+
   '@inquirer/checkbox@4.3.2':
     resolution: {integrity: sha512-VXukHf0RR1doGe6Sm4F0Em7SWYLTHSsbGfJdS9Ja2bX5/D5uwVOEjr07cncLROdBvmnvCATYEWlHqYmXv2IlQA==}
     engines: {node: '>=18'}
@@ -2922,9 +2929,27 @@ packages:
       '@types/node':
         optional: true
 
+  '@inquirer/confirm@6.1.1':
+    resolution: {integrity: sha512-eb8DBZcz/2qHWQda4rk2JiQk5h9QV/cVHi1yjt0f69WFZMRFn0sJTye3EAP8icut8UDMjQPsaH5KbcOogefrFQ==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
   '@inquirer/core@10.3.2':
     resolution: {integrity: sha512-43RTuEbfP8MbKzedNqBrlhhNKVwoK//vUFNW3Q3vZ88BLcrs4kYpGg+B2mm5p2K/HfygoCxuKwJJiv8PbGmE0A==}
     engines: {node: '>=18'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
+  '@inquirer/core@11.2.1':
+    resolution: {integrity: sha512-Qd6GJT1yVyrZZCfN8W2qKF5ApmqryXRhRKCuip8h01x2w/esJQ2XIYc6f9abMIHgKQdBfFTSOdbHRLAhuM09UA==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
     peerDependenciesMeta:
@@ -2961,6 +2986,10 @@ packages:
   '@inquirer/figures@1.0.15':
     resolution: {integrity: sha512-t2IEY+unGHOzAaVM5Xx6DEWKeXlDDcNPeDyUpsRc6CUhBfU3VQOEl+Vssh7VNp1dR8MdUJBWhuObjXCsVpjN5g==}
     engines: {node: '>=18'}
+
+  '@inquirer/figures@2.0.7':
+    resolution: {integrity: sha512-aJ8TBPOGB6f/2qziPfElISTCEd5XOYTFckA2SGjhNmiKzfK/u4ot3v0DUzGVdUnKjN10EqnnEPck36BkyfLnJw==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
 
   '@inquirer/input@4.3.1':
     resolution: {integrity: sha512-kN0pAM4yPrLjJ1XJBjDxyfDduXOuQHrBB8aLDMueuwUGn+vNpF7Gq7TvyVxx8u4SHlFFj4trmj+a2cbpG4Jn1g==}
@@ -3028,6 +3057,15 @@ packages:
   '@inquirer/type@3.0.10':
     resolution: {integrity: sha512-BvziSRxfz5Ov8ch0z/n3oijRSEcEsHnhggm4xFZe93DHcUCTlutlq9Ox4SVENAfcRD22UQq7T/atg9Wr3k09eA==}
     engines: {node: '>=18'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
+  '@inquirer/type@4.0.7':
+    resolution: {integrity: sha512-t28inv14nMQ1PhKpsJPY+kEs/c00qzeCOS2gTNRyTjG5d6qsVA2fItxW4hkvGZ5lvanGLdtCzVIx5dwdRpN1+g==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
     peerDependencies:
       '@types/node': '>=18'
     peerDependenciesMeta:
@@ -3624,8 +3662,8 @@ packages:
   '@navikt/aksel-icons@8.10.3':
     resolution: {integrity: sha512-csrNBbiluUNWP/Ha33g1hZFHqmA7ofusGt3d0TtDe29+tdRYf5Cu7tmrTv1HWlbBe6wiRT8gYiDKv84t35xqwg==}
 
-  '@navikt/aksel-icons@8.11.1':
-    resolution: {integrity: sha512-hXvm/5T8s7fcSlZpg2RWrs870PkH2SeCSQBMmDgI4rm+t5gsw+nDa4qOSCrQQJLiNjMx3jbCO10rL4po9QtfdQ==}
+  '@navikt/aksel-icons@8.13.0':
+    resolution: {integrity: sha512-z2r80EAuKX6W1XUSaBjAvQCAyyjir41XCmXPlmnvvNqOINfV8RFf2LYUx2+FwCqVfuPOdh7sdPLUtzwMl7QNmQ==}
 
   '@ng-icons/core@32.5.0':
     resolution: {integrity: sha512-6zAXQ5vryaclOWEVzprFJjJAW6NSOl0eBm+I6BwmcMk+vR+1vHU82DNpNTbUE9Wn4CGXEP1yd+S+pTKIaRTXjg==}
@@ -5835,8 +5873,8 @@ packages:
     resolution: {integrity: sha512-EbGRQg4FhrmwLodl+t3JNAnXHWVr9Vp+Zl1QBZVPY4ByfkzIT8cX3K6QWODHtkIZqqJVEWvhHSx3v5PDHsaQag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@u-elements/u-combobox@2.0.4':
-    resolution: {integrity: sha512-+X4w54dgySFJWer2n5Q5wYm48vSYW2kiM0fibjFINU8hXeejf+A4qYy4s56g9StHyH3b2Ar/2ZEWgZALGE2zLA==}
+  '@u-elements/u-combobox@2.0.5':
+    resolution: {integrity: sha512-MTvfd9Nl5sR4jHMaAWogTvi6xrpUhhI4wv5NdpkNasfJgPaY8Y9/shR6Q01LrMCZcHZDY8/UYd1d5obus3Ekzw==}
 
   '@u-elements/u-datalist@2.0.1':
     resolution: {integrity: sha512-xfbSiTZApvbqCt6W3LUtoyAArxOYq17Em9mYyjStiq5/XpshTVsN1JkqSqo+OjVOwDieggyAQsRwgloZgtHB7Q==}
@@ -7763,11 +7801,20 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
+  fast-string-truncated-width@3.0.3:
+    resolution: {integrity: sha512-0jjjIEL6+0jag3l2XWWizO64/aZVtpiGE3t0Zgqxv0DPuxiMjvB3M24fCyhZUO4KomJQPj3LTSUnDP3GpdwC0g==}
+
+  fast-string-width@3.0.2:
+    resolution: {integrity: sha512-gX8LrtNEI5hq8DVUfRQMbr5lpaS4nMIWV+7XEbXk2b8kiQIizgnlr12B4dA3ZEx3308ze0O4Q1R+cHts8kyUJg==}
+
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
   fast-uri@3.1.2:
     resolution: {integrity: sha512-rVjf7ArG3LTk+FS6Yw81V1DLuZl1bRbNrev6Tmd/9RaroeeRRJhAt7jg/6YFxbvAQXUCavSoZhPPj6oOx+5KjQ==}
+
+  fast-wrap-ansi@0.2.2:
+    resolution: {integrity: sha512-7F2Fl+TjRSenLqlU3UjSH0iyqopqoZIu7eZVpEirP2g1GtWa2G/ecEmBdgz31+Mxr+ELclgg6sokpSFIQiZ02Q==}
 
   fastq@1.20.1:
     resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
@@ -9372,6 +9419,10 @@ packages:
   mute-stream@2.0.0:
     resolution: {integrity: sha512-WWdIxpyjEn+FhQJQQv9aQAYlHoNVdzIzUySNV1gHUPDSdZJ3yZn7pAAbQcV7B56Mvu881q9FZV+0Vx2xC44VWA==}
     engines: {node: ^18.17.0 || >=20.5.0}
+
+  mute-stream@3.0.0:
+    resolution: {integrity: sha512-dkEJPVvun4FryqBmZ5KhDo0K9iDXAwn08tMLDinNdRBNPcYEDiWYysLcc6k3mjTMlbP9KyylvRpd4wFtwrT9rw==}
+    engines: {node: ^20.17.0 || >=22.9.0}
 
   nanocolors@0.2.13:
     resolution: {integrity: sha512-0n3mSAQLPpGLV9ORXT5+C/D4mwew7Ebws69Hx4E2sgz2ZA5+32Q80B9tL8PbL7XHnRDiAxH/pnrUJ9a4fkTNTA==}
@@ -11140,8 +11191,8 @@ packages:
     resolution: {integrity: sha512-ki4hZQfh5rX0QDLLkOCj+h+CVNkqmp/CMf8v8kZpkNVK6jGQooMytqzLZYUVYIZcFZ6yDB70EfD8POcFXiF5oA==}
     engines: {node: '>=18'}
 
-  style-dictionary@5.4.2:
-    resolution: {integrity: sha512-Mienm46H28PWnydBiLFN7nR1QXqTO2FA+Aa/W7jcBJV8N0QGDDTfPQbb10TqwRybdY0rvp1G4pjdVM2HklGI0g==}
+  style-dictionary@5.4.4:
+    resolution: {integrity: sha512-Sd7dkEOLn33EpvlMyS8ykUu0us2EIFUqsysf4DSwZQ46nqQkZ2Q9o5mozu8cSizj3t7E220HaPk7EV1O7LjvDQ==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -14630,6 +14681,10 @@ snapshots:
     dependencies:
       deepmerge: 4.3.1
 
+  '@bundled-es-modules/deepmerge@4.3.2':
+    dependencies:
+      deepmerge: 4.3.1
+
   '@bundled-es-modules/glob@13.0.6':
     dependencies:
       buffer: 6.0.3
@@ -14796,17 +14851,17 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.0': {}
 
-  '@digdir/designsystemet-css@1.15.0':
+  '@digdir/designsystemet-css@0.0.0-feat-remove-color-categories-20260616084032':
     dependencies:
-      '@digdir/designsystemet-types': 1.15.0
+      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
 
-  '@digdir/designsystemet-react@1.15.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@digdir/designsystemet-react@0.0.0-feat-remove-color-categories-20260616084032(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@digdir/designsystemet-types': 1.15.0
-      '@digdir/designsystemet-web': 1.15.0
+      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
+      '@digdir/designsystemet-web': 0.0.0-feat-remove-color-categories-20260616084032
       '@floating-ui/dom': 1.7.6
       '@floating-ui/react': 0.26.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@navikt/aksel-icons': 8.11.1
+      '@navikt/aksel-icons': 8.13.0
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.14)(react@19.2.4)
       '@tanstack/react-virtual': 3.13.24(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       clsx: 2.1.1
@@ -14815,21 +14870,22 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@digdir/designsystemet-types@1.15.0': {}
+  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032': {}
 
-  '@digdir/designsystemet-web@1.15.0':
+  '@digdir/designsystemet-web@0.0.0-feat-remove-color-categories-20260616084032':
     dependencies:
       '@floating-ui/dom': 1.7.6
-      '@u-elements/u-combobox': 2.0.4
+      '@u-elements/u-combobox': 2.0.5
       '@u-elements/u-datalist': 2.0.1
       '@u-elements/u-details': 1.0.0
       '@u-elements/u-tabs': 1.0.3
 
-  '@digdir/designsystemet@1.15.0(tslib@2.8.1)':
+  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032(@types/node@24.12.4)(tslib@2.8.1)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@digdir/designsystemet-types': 1.15.0
-      '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.2(tslib@2.8.1))
+      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
+      '@inquirer/confirm': 6.1.1(@types/node@24.12.4)
+      '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.4(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
       commander: 14.0.3
@@ -14839,10 +14895,11 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.15
       ramda: 0.32.0
-      style-dictionary: 5.4.2(tslib@2.8.1)
+      style-dictionary: 5.4.4(tslib@2.8.1)
       zod: 4.4.3
       zod-validation-error: 5.0.0(zod@4.4.3)
     transitivePeerDependencies:
+      - '@types/node'
       - tslib
 
   '@discoveryjs/json-ext@0.6.3': {}
@@ -15189,6 +15246,8 @@ snapshots:
 
   '@inquirer/ansi@1.0.2': {}
 
+  '@inquirer/ansi@2.0.7': {}
+
   '@inquirer/checkbox@4.3.2(@types/node@24.12.4)':
     dependencies:
       '@inquirer/ansi': 1.0.2
@@ -15224,6 +15283,13 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.9.1
 
+  '@inquirer/confirm@6.1.1(@types/node@24.12.4)':
+    dependencies:
+      '@inquirer/core': 11.2.1(@types/node@24.12.4)
+      '@inquirer/type': 4.0.7(@types/node@24.12.4)
+    optionalDependencies:
+      '@types/node': 24.12.4
+
   '@inquirer/core@10.3.2(@types/node@24.12.4)':
     dependencies:
       '@inquirer/ansi': 1.0.2
@@ -15249,6 +15315,18 @@ snapshots:
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
       '@types/node': 25.9.1
+
+  '@inquirer/core@11.2.1(@types/node@24.12.4)':
+    dependencies:
+      '@inquirer/ansi': 2.0.7
+      '@inquirer/figures': 2.0.7
+      '@inquirer/type': 4.0.7(@types/node@24.12.4)
+      cli-width: 4.1.0
+      fast-wrap-ansi: 0.2.2
+      mute-stream: 3.0.0
+      signal-exit: 4.1.0
+    optionalDependencies:
+      '@types/node': 24.12.4
 
   '@inquirer/editor@4.2.23(@types/node@24.12.4)':
     dependencies:
@@ -15300,6 +15378,8 @@ snapshots:
       '@types/node': 25.9.1
 
   '@inquirer/figures@1.0.15': {}
+
+  '@inquirer/figures@2.0.7': {}
 
   '@inquirer/input@4.3.1(@types/node@24.12.4)':
     dependencies:
@@ -15443,6 +15523,10 @@ snapshots:
   '@inquirer/type@3.0.10(@types/node@25.9.1)':
     optionalDependencies:
       '@types/node': 25.9.1
+
+  '@inquirer/type@4.0.7(@types/node@24.12.4)':
+    optionalDependencies:
+      '@types/node': 24.12.4
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
@@ -16133,7 +16217,7 @@ snapshots:
 
   '@navikt/aksel-icons@8.10.3': {}
 
-  '@navikt/aksel-icons@8.11.1': {}
+  '@navikt/aksel-icons@8.13.0': {}
 
   '@ng-icons/core@32.5.0(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2)':
     dependencies:
@@ -18365,7 +18449,7 @@ snapshots:
 
   '@tokenizer/token@0.3.0': {}
 
-  '@tokens-studio/sd-transforms@2.0.3(style-dictionary@5.4.2(tslib@2.8.1))':
+  '@tokens-studio/sd-transforms@2.0.3(style-dictionary@5.4.4(tslib@2.8.1))':
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/postcss-calc-ast-parser': 0.1.6
@@ -18373,7 +18457,7 @@ snapshots:
       colorjs.io: 0.5.2
       expr-eval-fork: 3.0.3
       is-mergeable-object: 1.1.1
-      style-dictionary: 5.4.2(tslib@2.8.1)
+      style-dictionary: 5.4.4(tslib@2.8.1)
 
   '@tokens-studio/types@0.5.2': {}
 
@@ -18770,7 +18854,7 @@ snapshots:
       '@typescript-eslint/types': 8.60.1
       eslint-visitor-keys: 5.0.1
 
-  '@u-elements/u-combobox@2.0.4': {}
+  '@u-elements/u-combobox@2.0.5': {}
 
   '@u-elements/u-datalist@2.0.1': {}
 
@@ -21285,9 +21369,19 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
+  fast-string-truncated-width@3.0.3: {}
+
+  fast-string-width@3.0.2:
+    dependencies:
+      fast-string-truncated-width: 3.0.3
+
   fast-uri@3.1.0: {}
 
   fast-uri@3.1.2: {}
+
+  fast-wrap-ansi@0.2.2:
+    dependencies:
+      fast-string-width: 3.0.2
 
   fastq@1.20.1:
     dependencies:
@@ -22984,6 +23078,8 @@ snapshots:
       thunky: 1.1.0
 
   mute-stream@2.0.0: {}
+
+  mute-stream@3.0.0: {}
 
   nanocolors@0.2.13: {}
 
@@ -25095,9 +25191,9 @@ snapshots:
     dependencies:
       '@tokenizer/token': 0.3.0
 
-  style-dictionary@5.4.2(tslib@2.8.1):
+  style-dictionary@5.4.4(tslib@2.8.1):
     dependencies:
-      '@bundled-es-modules/deepmerge': 4.3.1
+      '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/glob': 13.0.6
       '@bundled-es-modules/memfs': 4.17.0(tslib@2.8.1)
       '@zip.js/zip.js': 2.8.26

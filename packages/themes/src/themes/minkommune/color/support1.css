@@ -1,0 +1,30 @@
+/**
+ * These files are generated from design tokens defind using Token Studio
+ */
+
+@layer ds.theme.color {
+  [data-color='support1'] {
+    --ds-color-background-default: var(--ds-color-support1-background-default);
+    --ds-color-background-tinted: var(--ds-color-support1-background-tinted);
+    --ds-color-surface-default: var(--ds-color-support1-surface-default);
+    --ds-color-surface-tinted: var(--ds-color-support1-surface-tinted);
+    --ds-color-surface-hover: var(--ds-color-support1-surface-hover);
+    --ds-color-surface-active: var(--ds-color-support1-surface-active);
+    --ds-color-border-subtle: var(--ds-color-support1-border-subtle);
+    --ds-color-border-default: var(--ds-color-support1-border-default);
+    --ds-color-border-strong: var(--ds-color-support1-border-strong);
+    --ds-color-text-subtle: var(--ds-color-support1-text-subtle);
+    --ds-color-icon-subtle: var(--ds-color-support1-icon-subtle);
+    --ds-color-text-default: var(--ds-color-support1-text-default);
+    --ds-color-icon-default: var(--ds-color-support1-icon-default);
+    --ds-color-base-default: var(--ds-color-support1-base-default);
+    --ds-color-base-hover: var(--ds-color-support1-base-hover);
+    --ds-color-base-active: var(--ds-color-support1-base-active);
+    --ds-color-base-contrast-subtle: var(
+      --ds-color-support1-base-contrast-subtle
+    );
+    --ds-color-base-contrast-default: var(
+      --ds-color-support1-base-contrast-default
+    );
+  }
+}
