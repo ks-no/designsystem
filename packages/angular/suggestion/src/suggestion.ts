@@ -44,7 +44,11 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [NgTemplateOutlet],
-  host: {},
+  styles: `
+    :host {
+      display: block;
+    }
+  `,
   template: `
     <ds-suggestion
       #suggestionElement
