@@ -29,9 +29,14 @@
     "themes/ledsagerbevis",
     "themes/tilskudd",
     "semantic/color",
-    "semantic/modes/main-color/accent",
-    "semantic/modes/support-color/support1",
-    "semantic/modes/support-color/support2",
+    "semantic/color/accent",
+    "semantic/color/support1",
+    "semantic/color/support2",
+    "semantic/color/neutral",
+    "semantic/color/info",
+    "semantic/color/success",
+    "semantic/color/warning",
+    "semantic/color/danger",
     "semantic/style"
   ]
 }

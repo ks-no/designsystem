@@ -5,46 +5,36 @@
   "themes": {
     "ksdigital": {
       "colors": {
-        "main": { "accent": "#00042E" },
-        "neutral": "#1D252D",
-        "support": {
-          "support1": "#714EEA",
-          "support2": "#ffffff"
-        }
+        "accent": "#00042E",
+        "support1": "#714EEA",
+        "support2": "#ffffff",
+        "neutral": "#1D252D"
       },
       "borderRadius": 8
     },
     "minkommune": {
       "colors": {
-        "main": { "accent": "#00042E" },
-        "neutral": "#1D252D",
-        "support": {
-          "support1": "#714EEA",
-          "support2": "#ffffff"
-        }
+        "accent": "#00042E",
+        "support1": "#714EEA",
+        "support2": "#ffffff",
+        "neutral": "#1D252D"
       },
       "borderRadius": 8
     },
     "ledsagerbevis": {
       "colors": {
-        "main": { "accent": "#2B5246" },
-        "neutral": "#1E2422",
-        "support": {
-          "support1": "#1AA87E",
-          "support2": "#ffffff"
-        }
+        "accent": "#2B5246",
+        "support1": "#1AA87E",
+        "support2": "#ffffff",
+        "neutral": "#1E2422"
       },
       "borderRadius": 16
     },
     "tilskudd": {
       "colors": {
-        "main": {
-          "accent": "#00042E"
-        },
-        "support": {
-          "support1": "#BCD6BC",
-          "support2": "#7529CC"
-        },
+        "accent": "#00042E",
+        "support1": "#BCD6BC",
+        "support2": "#7529CC",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
