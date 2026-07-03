@@ -56,5 +56,5 @@ A complete example setup is available in the `angular-demo` located under the `a
 
 ## Update snapshots
 
-From this folder:
+In folder `apps/angular-demo-e2e`:
 `docker compose run --rm update-snapshots`
