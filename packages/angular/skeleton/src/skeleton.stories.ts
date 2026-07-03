@@ -36,9 +36,10 @@ export default meta
 type Story = StoryObj<SkeletonArgs>
 
 export const Preview: Story = {
-  render: () => ({
+  render: (args) => ({
+    props: args,
     template: `
-      <ksd-skeleton style="width: 300px; height: 150px;"></ksd-skeleton>
+      <ksd-skeleton style="width: 300px; height: 150px;" ${argsToTemplate(args)}></ksd-skeleton>
       <div style="display: flex; gap: 10px; align-items: center; padding: 5px 0 5px 0;">
         <ksd-skeleton data-variant="circle" style="width: 30px; height: 30px;"></ksd-skeleton>
         <h2 ksd-heading>

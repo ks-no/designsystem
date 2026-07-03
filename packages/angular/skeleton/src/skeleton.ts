@@ -6,7 +6,7 @@ import {
 } from '@angular/core'
 
 /**
- * Skeleton is used to represent a draft of page while the content loads.
+ * Skeleton is used to represent a draft of a page while the content loads.
  */
 @Component({
   selector: 'ksd-skeleton',
