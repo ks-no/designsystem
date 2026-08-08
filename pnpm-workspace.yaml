@@ -64,7 +64,7 @@ catalogs:
     '@nx/vite': '22.6.5'
     '@nx/vitest': '22.6.5'
     '@nx/web': '22.6.5'
-    nx: '22.6.5'
+    nx: '22.7.7'
   open-wc:
     '@open-wc/testing': '^4.0.0'
   react:
