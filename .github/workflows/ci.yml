@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: ks-no/github-actions-public/checkout@main
+        uses: ks-no/github-actions-public/checkout@23507d99e1864f7eedfa91386a280356bbc93b7f # @11. aug 26
         with:
           fetch-depth: 0
 
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: ks-no/github-actions-public/checkout@main
+        uses: ks-no/github-actions-public/checkout@23507d99e1864f7eedfa91386a280356bbc93b7f # @11. aug 26
         with:
           fetch-depth: 0
 
