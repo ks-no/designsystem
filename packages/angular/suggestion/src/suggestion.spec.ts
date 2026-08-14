@@ -10,14 +10,19 @@ import {
   SuggestionListOption,
 } from './index'
 import { Suggestion } from './suggestion'
-import type { SuggestionFilter, SuggestionItem } from './suggestion.types'
+import type {
+  SuggestionFilter,
+  SuggestionItem,
+  SuggestionModelValue,
+} from './suggestion.types'
 
 type RenderSuggestionProps = {
   creatable?: boolean
   filter?: boolean | SuggestionFilter
   multiple?: boolean
-  onSelectedChange?: (value: SuggestionItem | SuggestionItem[] | null) => void
-  selected?: SuggestionItem | SuggestionItem[] | null
+  onSelectedChange?: (value: SuggestionModelValue) => void
+  onTouch?: () => void
+  selected?: SuggestionModelValue
 }
 
 const renderSuggestion = async ({
@@ -25,6 +30,7 @@ const renderSuggestion = async ({
   filter = true,
   multiple = false,
   onSelectedChange = vi.fn(),
+  onTouch = vi.fn(),
   selected = null,
 }: RenderSuggestionProps = {}) =>
   render(
@@ -35,6 +41,7 @@ const renderSuggestion = async ({
 				[multiple]="multiple"
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
+        (touch)="onTouch()"
 			>
         <input ksd-input />
 			</ksd-suggestion>
@@ -46,6 +53,7 @@ const renderSuggestion = async ({
         filter,
         multiple,
         onSelectedChange,
+        onTouch,
         selected,
       },
     },
@@ -207,6 +215,31 @@ describe('Suggestion', () => {
     })
   })
 
+  it('should not emit selectedChange when selecting the same item again', async () => {
+    const onSelectedChange = vi.fn()
+    const selected: SuggestionItem = {
+      label: 'Option 1',
+      value: 'option-1',
+    }
+
+    const { container } = await renderSuggestion({ onSelectedChange, selected })
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    const data = document.createElement('data')
+    data.value = 'option-1'
+    data.textContent = 'Option 1'
+
+    const event = new CustomEvent('comboboxbeforeselect', {
+      bubbles: true,
+      cancelable: true,
+      detail: data,
+    })
+
+    dsSuggestion?.dispatchEvent(event)
+
+    expect(onSelectedChange).not.toHaveBeenCalled()
+  })
+
   it('should remove selected item in multiple mode when detail element is connected', async () => {
     const onSelectedChange = vi.fn()
     const selected: SuggestionItem[] = [
@@ -259,6 +292,46 @@ describe('Suggestion', () => {
     dsSuggestion.dispatchEvent(event)
 
     expect(event.defaultPrevented).toBe(true)
+  })
+
+  it('should not emit touch when focus moves within the suggestion control', async () => {
+    const onTouch = vi.fn()
+    const { container } = await renderSuggestion({ onTouch })
+    const dsSuggestion = container.querySelector('ds-suggestion')
+    const datalist = container.querySelector('u-datalist')
+
+    expect(dsSuggestion).toBeInTheDocument()
+    expect(datalist).toBeInTheDocument()
+
+    if (!dsSuggestion || !datalist) return
+
+    dsSuggestion.dispatchEvent(
+      new FocusEvent('focusout', {
+        bubbles: true,
+        relatedTarget: datalist,
+      }),
+    )
+
+    expect(onTouch).not.toHaveBeenCalled()
+  })
+
+  it('should emit touch when focus leaves the suggestion control', async () => {
+    const onTouch = vi.fn()
+    const { container } = await renderSuggestion({ onTouch })
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    expect(dsSuggestion).toBeInTheDocument()
+
+    if (!dsSuggestion) return
+
+    dsSuggestion.dispatchEvent(
+      new FocusEvent('focusout', {
+        bubbles: true,
+        relatedTarget: document.body,
+      }),
+    )
+
+    expect(onTouch).toHaveBeenCalledTimes(1)
   })
 
   describe('Filtering', () => {
