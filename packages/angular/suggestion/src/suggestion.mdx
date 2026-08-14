@@ -65,7 +65,7 @@ export class App {
     { label: 'Bergen', value: '4601' },
   ]
 
-  municipalityModel = signal({ municipality: this.municipalities[0] })
+  municipalityModel = signal({ municipality: this.municipalities[0].value })
   municipalityForm = form(this.municipalityModel)
 }
 ```

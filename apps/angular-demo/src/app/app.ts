@@ -29,7 +29,6 @@ import {
   SearchInput,
 } from '@ks-digital/designsystem-angular/search'
 import { Spinner } from '@ks-digital/designsystem-angular/spinner'
-import type { SuggestionItem } from '@ks-digital/designsystem-angular/suggestion'
 import {
   Suggestion,
   SuggestionList,
@@ -515,9 +514,9 @@ export class App {
   ]
 
   protected readonly municipalityModel = signal<{
-    municipality: SuggestionItem
+    municipality: string
   }>({
-    municipality: this.municipalities[1],
+    municipality: this.municipalities[1].value,
   })
 
   protected readonly municipalityForm = form(this.municipalityModel)
