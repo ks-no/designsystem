@@ -15,8 +15,6 @@ import type { SuggestionFilter, SuggestionItem } from './suggestion.types'
 type RenderSuggestionProps = {
   creatable?: boolean
   filter?: boolean | SuggestionFilter
-  formValue?: SuggestionItem | SuggestionItem[] | null
-  onFormValueChange?: (value: SuggestionItem | SuggestionItem[] | null) => void
   multiple?: boolean
   onSelectedChange?: (value: SuggestionItem | SuggestionItem[] | null) => void
   selected?: SuggestionItem | SuggestionItem[] | null
@@ -25,8 +23,6 @@ type RenderSuggestionProps = {
 const renderSuggestion = async ({
   creatable = false,
   filter = true,
-  formValue = null,
-  onFormValueChange = vi.fn(),
   multiple = false,
   onSelectedChange = vi.fn(),
   selected = null,
@@ -36,10 +32,8 @@ const renderSuggestion = async ({
 			<ksd-suggestion
 				[creatable]="creatable"
         [filter]="filter"
-        [formValue]="formValue"
 				[multiple]="multiple"
 				[selected]="selected"
-        (formValueChange)="onFormValueChange($event)"
 				(selectedChange)="onSelectedChange($event)"
 			>
         <input ksd-input />
@@ -50,9 +44,7 @@ const renderSuggestion = async ({
       componentProperties: {
         creatable,
         filter,
-        formValue,
         multiple,
-        onFormValueChange,
         onSelectedChange,
         selected,
       },
@@ -170,32 +162,6 @@ describe('Suggestion', () => {
     expect(rendered).toHaveTextContent('Option 1')
   })
 
-  it('should support formValue binding', async () => {
-    const formValue: SuggestionItem = {
-      label: 'Option 1',
-      value: 'option-1',
-    }
-
-    const { container } = await render(
-      `
-        <ksd-suggestion [formValue]="formValue">
-          <input ksd-input />
-        </ksd-suggestion>
-      `,
-      {
-        imports: [Suggestion, Input],
-        componentProperties: {
-          formValue,
-        },
-      },
-    )
-
-    const rendered = container.querySelector('data[value="option-1"]')
-
-    expect(rendered).toBeInTheDocument()
-    expect(rendered).toHaveTextContent('Option 1')
-  })
-
   it('should work as a formField host', async () => {
     const { container } = await render(SuggestionFormFieldHost)
 
@@ -236,29 +202,6 @@ describe('Suggestion', () => {
 
     expect(event.defaultPrevented).toBe(true)
     expect(onSelectedChange).toHaveBeenCalledWith({
-      label: 'Option 1',
-      value: 'option-1',
-    })
-  })
-
-  it('should emit formValueChange on comboboxbeforeselect', async () => {
-    const onFormValueChange = vi.fn()
-    const { container } = await renderSuggestion({ onFormValueChange })
-    const dsSuggestion = container.querySelector('ds-suggestion')
-
-    const data = document.createElement('data')
-    data.value = 'option-1'
-    data.textContent = 'Option 1'
-
-    const event = new CustomEvent('comboboxbeforeselect', {
-      bubbles: true,
-      cancelable: true,
-      detail: data,
-    })
-
-    dsSuggestion?.dispatchEvent(event)
-
-    expect(onFormValueChange).toHaveBeenCalledWith({
       label: 'Option 1',
       value: 'option-1',
     })

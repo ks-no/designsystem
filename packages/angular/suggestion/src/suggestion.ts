@@ -33,17 +33,12 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
 
 type SuggestionValue = SuggestionItem | SuggestionItem[] | undefined
-type SuggestionCompatValue =
-  | SuggestionItem
-  | SuggestionItem[]
-  | null
-  | undefined
 
 const unboundSelected = Symbol('unboundSelected')
-const unboundFormValue = Symbol('unboundFormValue')
 
-const normalizeValue = (value: SuggestionCompatValue): SuggestionValue =>
-  value ?? undefined
+const normalizeValue = (
+  value: SuggestionItem | SuggestionItem[] | null | undefined,
+): SuggestionValue => value ?? undefined
 
 const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
   const leftItems = sanitizeItems(left)
@@ -138,40 +133,40 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
   filter = input<boolean | SuggestionFilter>(true)
 
   /**
-   * Model for the selected item(s).
+   * Internal value model used by Angular signal forms.
    *
    * @default undefined
    */
   readonly value = model<SuggestionValue>(undefined)
 
   /**
-   * Compatibility input for signal-form style examples.
-   */
-  readonly formValue = input<SuggestionCompatValue | typeof unboundFormValue>(
-    unboundFormValue,
-  )
-
-  /**
-   * Compatibility output for signal-form style examples.
-   */
-  readonly formValueChange = output<SuggestionValue>()
-
-  /**
-   * Backwards compatible input for the selected item(s).
+   * Controlled selected value for direct component usage.
    *
    * @default undefined
    */
-  readonly selected = input<SuggestionCompatValue | typeof unboundSelected>(
-    unboundSelected,
-  )
+  readonly selected = input<
+    | SuggestionItem
+    | SuggestionItem[]
+    | null
+    | undefined
+    | typeof unboundSelected
+  >(unboundSelected)
 
   /**
-   * Backwards compatible output for the selected item(s).
+   * Emits when the controlled selected value changes.
    */
   readonly selectedChange = output<SuggestionValue>()
 
+  /**
+   * Form-control dirty state.
+   *
+   * @default false
+   */
   readonly dirty = input(false, { transform: booleanAttribute })
 
+  /**
+   * Emits when the control should be marked as touched.
+   */
   readonly touch = output<void>()
 
   protected selectedArray = computed(() => sanitizeItems(this.value()))
@@ -182,23 +177,8 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
   constructor() {
     afterNextRender(() => this.syncOptions(null))
 
-    effect(() => {
-      const formValue = this.formValue()
-
-      if (formValue === unboundFormValue) return
-
-      const normalizedValue = normalizeValue(formValue)
-      if (
-        sameItems(
-          normalizedValue,
-          untracked(() => this.value()),
-        )
-      )
-        return
-
-      this.setValue(normalizedValue, false, false)
-    })
-
+    // Keep the internal form-control model in sync when selected is used as the
+    // direct controlled API instead of formField.
     effect(() => {
       const selected = this.selected()
 
@@ -212,9 +192,10 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
       )
         return
 
-      this.setValue(normalizedValue, false, false)
+      this.setValue(normalizedValue, false)
     })
 
+    // Re-run option filtering after projected suggestion options change.
     effect(() => {
       this.suggestionList()?.options()
       queueMicrotask(() => this.syncOptions(null))
@@ -242,6 +223,8 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
     const suggestionElement = this.suggestionElement()?.nativeElement
     const nextTarget = event.relatedTarget
 
+    // Ignore focus changes within the composite widget; only mark touched
+    // when focus leaves the suggestion control entirely.
     if (
       suggestionElement &&
       nextTarget instanceof Node &&
@@ -258,36 +241,13 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
     setTimeout(() => this.syncOptions(inputElement))
   }
 
-  focus(options?: FocusOptions) {
-    this.findInput()?.focus(options)
-  }
-
-  reset() {
-    const inputElement = this.findInput()
-
-    if (inputElement) {
-      inputElement.value = ''
-    }
-
-    this.setValue(undefined)
-    this.syncOptions(inputElement)
-  }
-
-  private setValue(
-    value: SuggestionValue,
-    emitSelectedChange = true,
-    emitFormValueChange = true,
-  ) {
+  private setValue(value: SuggestionValue, emitSelectedChange = true) {
     if (sameItems(value, this.value())) return
 
     this.value.set(value)
 
     if (emitSelectedChange) {
       this.selectedChange.emit(value)
-    }
-
-    if (emitFormValueChange) {
-      this.formValueChange.emit(value)
     }
   }
 
