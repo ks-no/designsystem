@@ -7,10 +7,12 @@
     "@angular/animations": "catalog:angular",
     "@angular/common": "catalog:angular",
     "@angular/core": "catalog:angular",
+    "@angular/forms": "catalog:angular",
     "@angular/platform-browser": "catalog:angular",
     "@angular/platform-server": "catalog:angular",
     "@ks-digital/designsystem-angular": "workspace:*",
-    "@ks-digital/designsystem-themes": "workspace:*"
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "tslib": "catalog:typescript"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "catalog:angular",

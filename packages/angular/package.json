@@ -16,7 +16,8 @@
   },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",
-    "@angular/core": "catalog:angular-supported-versions"
+    "@angular/core": "catalog:angular-supported-versions",
+    "@angular/forms": "catalog:angular-supported-versions"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "catalog:angular",
@@ -29,6 +30,7 @@
     "@angular/common": "catalog:angular",
     "@angular/compiler": "catalog:angular",
     "@angular/core": "catalog:angular",
+    "@angular/forms": "catalog:angular",
     "@angular/platform-browser": "catalog:angular",
     "@angular/router": "catalog:angular",
     "@ks-digital/designsystem-themes": "workspace:*",

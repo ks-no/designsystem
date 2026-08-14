@@ -11,8 +11,11 @@ import {
   ElementRef,
   input,
   model,
+  output,
+  untracked,
   viewChild,
 } from '@angular/core'
+import type { FormValueControl } from '@angular/forms/signals'
 import '@digdir/designsystemet-web'
 import {
   HostColor,
@@ -28,6 +31,33 @@ import { nextSelected, sanitizeItems } from './suggestion.utils'
 
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
+
+type SuggestionValue = SuggestionItem | SuggestionItem[] | undefined
+type SuggestionCompatValue =
+  | SuggestionItem
+  | SuggestionItem[]
+  | null
+  | undefined
+
+const unboundSelected = Symbol('unboundSelected')
+const unboundFormValue = Symbol('unboundFormValue')
+
+const normalizeValue = (value: SuggestionCompatValue): SuggestionValue =>
+  value ?? undefined
+
+const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
+  const leftItems = sanitizeItems(left)
+  const rightItems = sanitizeItems(right)
+
+  return (
+    leftItems.length === rightItems.length &&
+    leftItems.every(
+      (item, index) =>
+        item.label === rightItems[index]?.label &&
+        item.value === rightItems[index]?.value,
+    )
+  )
+}
 
 @Component({
   selector: 'ksd-suggestion',
@@ -56,6 +86,7 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
       [attr.data-multiple]="multiple() || undefined"
       [attr.data-creatable]="creatable() || undefined"
       (comboboxbeforeselect)="onSelect($event)"
+      (focusout)="onFocusOut($event)"
       (input)="onInput($event)"
       (keydown)="onKeyDown($event)"
     >
@@ -84,7 +115,7 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
     </ds-suggestion>
   `,
 })
-export class Suggestion {
+export class Suggestion implements FormValueControl<SuggestionValue> {
   /**
    * Allows the user to select multiple items
    *
@@ -111,15 +142,78 @@ export class Suggestion {
    *
    * @default undefined
    */
-  selected = model<SuggestionItem | SuggestionItem[] | undefined>(undefined)
+  readonly value = model<SuggestionValue>(undefined)
 
-  protected selectedArray = computed(() => sanitizeItems(this.selected()))
+  /**
+   * Compatibility input for signal-form style examples.
+   */
+  readonly formValue = input<SuggestionCompatValue | typeof unboundFormValue>(
+    unboundFormValue,
+  )
+
+  /**
+   * Compatibility output for signal-form style examples.
+   */
+  readonly formValueChange = output<SuggestionValue>()
+
+  /**
+   * Backwards compatible input for the selected item(s).
+   *
+   * @default undefined
+   */
+  readonly selected = input<SuggestionCompatValue | typeof unboundSelected>(
+    unboundSelected,
+  )
+
+  /**
+   * Backwards compatible output for the selected item(s).
+   */
+  readonly selectedChange = output<SuggestionValue>()
+
+  readonly dirty = input(false, { transform: booleanAttribute })
+
+  readonly touch = output<void>()
+
+  protected selectedArray = computed(() => sanitizeItems(this.value()))
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
   protected readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
     afterNextRender(() => this.syncOptions(null))
+
+    effect(() => {
+      const formValue = this.formValue()
+
+      if (formValue === unboundFormValue) return
+
+      const normalizedValue = normalizeValue(formValue)
+      if (
+        sameItems(
+          normalizedValue,
+          untracked(() => this.value()),
+        )
+      )
+        return
+
+      this.setValue(normalizedValue, false, false)
+    })
+
+    effect(() => {
+      const selected = this.selected()
+
+      if (selected === unboundSelected) return
+      const normalizedValue = normalizeValue(selected)
+      if (
+        sameItems(
+          normalizedValue,
+          untracked(() => this.value()),
+        )
+      )
+        return
+
+      this.setValue(normalizedValue, false, false)
+    })
 
     effect(() => {
       this.suggestionList()?.options()
@@ -134,7 +228,7 @@ export class Suggestion {
     const data = customEvent.detail
     if (!data) return
 
-    this.selected.set(nextSelected(data, this.selected(), this.multiple()))
+    this.setValue(nextSelected(data, this.value(), this.multiple()))
   }
 
   protected onKeyDown(event: Event) {
@@ -144,9 +238,65 @@ export class Suggestion {
     event.preventDefault()
   }
 
+  protected onFocusOut(event: FocusEvent) {
+    const suggestionElement = this.suggestionElement()?.nativeElement
+    const nextTarget = event.relatedTarget
+
+    if (
+      suggestionElement &&
+      nextTarget instanceof Node &&
+      suggestionElement.contains(nextTarget)
+    ) {
+      return
+    }
+
+    this.touch.emit()
+  }
+
   protected onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement | null
     setTimeout(() => this.syncOptions(inputElement))
+  }
+
+  focus(options?: FocusOptions) {
+    this.findInput()?.focus(options)
+  }
+
+  reset() {
+    const inputElement = this.findInput()
+
+    if (inputElement) {
+      inputElement.value = ''
+    }
+
+    this.setValue(undefined)
+    this.syncOptions(inputElement)
+  }
+
+  private setValue(
+    value: SuggestionValue,
+    emitSelectedChange = true,
+    emitFormValueChange = true,
+  ) {
+    if (sameItems(value, this.value())) return
+
+    this.value.set(value)
+
+    if (emitSelectedChange) {
+      this.selectedChange.emit(value)
+    }
+
+    if (emitFormValueChange) {
+      this.formValueChange.emit(value)
+    }
+  }
+
+  private findInput() {
+    return (
+      this.suggestionElement()?.nativeElement.querySelector<HTMLInputElement>(
+        'input',
+      ) ?? null
+    )
   }
 
   private syncOptions(inputElement: HTMLInputElement | null) {

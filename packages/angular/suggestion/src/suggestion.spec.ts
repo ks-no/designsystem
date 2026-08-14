@@ -1,4 +1,5 @@
-import { signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core'
+import { FormField, form } from '@angular/forms/signals'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { render, waitFor } from '@testing-library/angular'
 import { vi } from 'vitest'
@@ -14,6 +15,8 @@ import type { SuggestionFilter, SuggestionItem } from './suggestion.types'
 type RenderSuggestionProps = {
   creatable?: boolean
   filter?: boolean | SuggestionFilter
+  formValue?: SuggestionItem | SuggestionItem[] | null
+  onFormValueChange?: (value: SuggestionItem | SuggestionItem[] | null) => void
   multiple?: boolean
   onSelectedChange?: (value: SuggestionItem | SuggestionItem[] | null) => void
   selected?: SuggestionItem | SuggestionItem[] | null
@@ -22,6 +25,8 @@ type RenderSuggestionProps = {
 const renderSuggestion = async ({
   creatable = false,
   filter = true,
+  formValue = null,
+  onFormValueChange = vi.fn(),
   multiple = false,
   onSelectedChange = vi.fn(),
   selected = null,
@@ -31,8 +36,10 @@ const renderSuggestion = async ({
 			<ksd-suggestion
 				[creatable]="creatable"
         [filter]="filter"
+        [formValue]="formValue"
 				[multiple]="multiple"
 				[selected]="selected"
+        (formValueChange)="onFormValueChange($event)"
 				(selectedChange)="onSelectedChange($event)"
 			>
         <input ksd-input />
@@ -43,7 +50,9 @@ const renderSuggestion = async ({
       componentProperties: {
         creatable,
         filter,
+        formValue,
         multiple,
+        onFormValueChange,
         onSelectedChange,
         selected,
       },
@@ -85,6 +94,36 @@ const renderSuggestionWithList = async ({
       },
     },
   )
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [Suggestion, SuggestionList, SuggestionListOption, Input, FormField],
+  template: `
+    <ksd-suggestion [formField]="municipalityForm.municipality">
+      <input ksd-input />
+      <ksd-suggestion-list>
+        <ksd-suggestion-list-option value="4601"
+          >Bergen</ksd-suggestion-list-option
+        >
+        <ksd-suggestion-list-option value="0301"
+          >Oslo</ksd-suggestion-list-option
+        >
+      </ksd-suggestion-list>
+    </ksd-suggestion>
+  `,
+})
+class SuggestionFormFieldHost {
+  readonly municipalityModel = signal<{
+    municipality: SuggestionItem
+  }>({
+    municipality: {
+      label: 'Oslo',
+      value: '0301',
+    },
+  })
+
+  readonly municipalityForm = form(this.municipalityModel)
+}
 
 describe('Suggestion', () => {
   it('should have no obvious accessibility violations', async () => {
@@ -131,6 +170,41 @@ describe('Suggestion', () => {
     expect(rendered).toHaveTextContent('Option 1')
   })
 
+  it('should support formValue binding', async () => {
+    const formValue: SuggestionItem = {
+      label: 'Option 1',
+      value: 'option-1',
+    }
+
+    const { container } = await render(
+      `
+        <ksd-suggestion [formValue]="formValue">
+          <input ksd-input />
+        </ksd-suggestion>
+      `,
+      {
+        imports: [Suggestion, Input],
+        componentProperties: {
+          formValue,
+        },
+      },
+    )
+
+    const rendered = container.querySelector('data[value="option-1"]')
+
+    expect(rendered).toBeInTheDocument()
+    expect(rendered).toHaveTextContent('Option 1')
+  })
+
+  it('should work as a formField host', async () => {
+    const { container } = await render(SuggestionFormFieldHost)
+
+    const rendered = container.querySelector('data[value="0301"]')
+
+    expect(rendered).toBeInTheDocument()
+    expect(rendered).toHaveTextContent('Oslo')
+  })
+
   it('should set multiple and creatable attributes on ds-suggestion', async () => {
     const { container } = await renderSuggestion({
       creatable: true,
@@ -162,6 +236,29 @@ describe('Suggestion', () => {
 
     expect(event.defaultPrevented).toBe(true)
     expect(onSelectedChange).toHaveBeenCalledWith({
+      label: 'Option 1',
+      value: 'option-1',
+    })
+  })
+
+  it('should emit formValueChange on comboboxbeforeselect', async () => {
+    const onFormValueChange = vi.fn()
+    const { container } = await renderSuggestion({ onFormValueChange })
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    const data = document.createElement('data')
+    data.value = 'option-1'
+    data.textContent = 'Option 1'
+
+    const event = new CustomEvent('comboboxbeforeselect', {
+      bubbles: true,
+      cancelable: true,
+      detail: data,
+    })
+
+    dsSuggestion?.dispatchEvent(event)
+
+    expect(onFormValueChange).toHaveBeenCalledWith({
       label: 'Option 1',
       value: 'option-1',
     })
