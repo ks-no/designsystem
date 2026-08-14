@@ -26,13 +26,12 @@ import type {
   SuggestionFilter,
   SuggestionFilterArgs,
   SuggestionItem,
+  SuggestionValue,
 } from './suggestion.types'
 import { nextSelected, sanitizeItems } from './suggestion.utils'
 
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
-
-type SuggestionValue = SuggestionItem | SuggestionItem[] | undefined
 
 const unboundSelected = Symbol('unboundSelected')
 
@@ -249,14 +248,6 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
     if (emitSelectedChange) {
       this.selectedChange.emit(value)
     }
-  }
-
-  private findInput() {
-    return (
-      this.suggestionElement()?.nativeElement.querySelector<HTMLInputElement>(
-        'input',
-      ) ?? null
-    )
   }
 
   private syncOptions(inputElement: HTMLInputElement | null) {

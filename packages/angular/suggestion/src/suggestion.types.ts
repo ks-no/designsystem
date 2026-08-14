@@ -1,5 +1,7 @@
 export type SuggestionItem = { label: string; value: string }
 
+export type SuggestionValue = SuggestionItem | SuggestionItem[] | undefined
+
 export type SuggestionFilterArgs = {
   index: number
   label: string
@@ -11,8 +13,4 @@ export type SuggestionFilterArgs = {
 
 export type SuggestionFilter = (args: SuggestionFilterArgs) => boolean
 
-export type SuggestionModelValue =
-  | SuggestionItem
-  | SuggestionItem[]
-  | null
-  | undefined
+export type SuggestionModelValue = SuggestionValue | null | undefined
