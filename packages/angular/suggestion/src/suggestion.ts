@@ -25,7 +25,7 @@ import { SuggestionList } from './suggestion-list'
 import type {
   SuggestionFilter,
   SuggestionFilterArgs,
-  SuggestionItem,
+  SuggestionModelValue,
   SuggestionValue,
 } from './suggestion.types'
 import { nextSelected, sanitizeItems } from './suggestion.utils'
@@ -35,9 +35,8 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
 
 const unboundSelected = Symbol('unboundSelected')
 
-const normalizeValue = (
-  value: SuggestionItem | SuggestionItem[] | null | undefined,
-): SuggestionValue => value ?? undefined
+const normalizeValue = (value: SuggestionModelValue): SuggestionValue =>
+  value ?? undefined
 
 const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
   const leftItems = sanitizeItems(left)
@@ -143,13 +142,9 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
    *
    * @default undefined
    */
-  readonly selected = input<
-    | SuggestionItem
-    | SuggestionItem[]
-    | null
-    | undefined
-    | typeof unboundSelected
-  >(unboundSelected)
+  readonly selected = input<SuggestionModelValue | typeof unboundSelected>(
+    unboundSelected,
+  )
 
   /**
    * Emits when the controlled selected value changes.
