@@ -87,8 +87,5 @@
     "overrides": {
       "vite": "catalog:vitest"
     }
-  },
-  "dependencies": {
-    "@angular/core": "22.0.8"
   }
 }

@@ -249,10 +249,6 @@ overrides:
 importers:
 
   .:
-    dependencies:
-      '@angular/core':
-        specifier: 22.0.8
-        version: 22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2)(zone.js@0.16.1)
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: catalog:angular
