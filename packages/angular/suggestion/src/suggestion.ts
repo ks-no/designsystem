@@ -12,6 +12,7 @@ import {
   input,
   model,
   output,
+  signal,
   untracked,
   viewChild,
 } from '@angular/core'
@@ -25,10 +26,17 @@ import { SuggestionList } from './suggestion-list'
 import type {
   SuggestionFilter,
   SuggestionFilterArgs,
+  SuggestionFormValue,
+  SuggestionItem,
   SuggestionModelValue,
   SuggestionValue,
 } from './suggestion.types'
-import { nextSelected, sanitizeItems } from './suggestion.utils'
+import {
+  nextSelected,
+  sanitizeItems,
+  toSuggestionValue,
+  usesItemValues,
+} from './suggestion.utils'
 
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
@@ -38,17 +46,21 @@ const unboundSelected = Symbol('unboundSelected')
 const normalizeValue = (value: SuggestionModelValue): SuggestionValue =>
   value ?? undefined
 
-const valueShape = (value: SuggestionValue) => {
+const valueShape = (value: SuggestionFormValue) => {
   if (value === undefined) return 'undefined'
 
   return Array.isArray(value) ? 'array' : 'single'
 }
 
-const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
+const sameItems = (
+  left: SuggestionFormValue,
+  right: SuggestionFormValue,
+  optionItems: SuggestionItem[],
+) => {
   if (valueShape(left) !== valueShape(right)) return false
 
-  const leftItems = sanitizeItems(left)
-  const rightItems = sanitizeItems(right)
+  const leftItems = sanitizeItems(left, optionItems)
+  const rightItems = sanitizeItems(right, optionItems)
 
   return (
     leftItems.length === rightItems.length &&
@@ -116,7 +128,7 @@ const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
     </ds-suggestion>
   `,
 })
-export class Suggestion implements FormValueControl<SuggestionValue> {
+export class Suggestion implements FormValueControl<SuggestionFormValue> {
   /**
    * Allows the user to select multiple items
    *
@@ -143,7 +155,7 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
    *
    * @default undefined
    */
-  readonly value = model<SuggestionValue>(undefined)
+  readonly value = model<SuggestionFormValue>(undefined)
 
   /**
    * Controlled selected value for direct component usage.
@@ -155,7 +167,7 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
   )
 
   /**
-   * Emits when the controlled selected value changes.
+   * Emits object-based selected values for the direct controlled API.
    */
   readonly selectedChange = output<SuggestionValue>()
 
@@ -171,9 +183,12 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
    */
   readonly touch = output<void>()
 
-  protected selectedArray = computed(() => sanitizeItems(this.value()))
+  protected selectedArray = computed(() =>
+    sanitizeItems(this.value(), this.optionItems()),
+  )
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
+  private readonly optionItems = signal<SuggestionItem[]>([])
   protected readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
@@ -190,6 +205,7 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
         sameItems(
           normalizedValue,
           untracked(() => this.value()),
+          untracked(() => this.optionItems()),
         )
       )
         return
@@ -211,7 +227,14 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
     const data = customEvent.detail
     if (!data) return
 
-    this.setValue(nextSelected(data, this.value(), this.multiple()))
+    this.setValue(
+      nextSelected(
+        data,
+        this.value(),
+        this.multiple(),
+        this.selected() !== unboundSelected || usesItemValues(this.value()),
+      ),
+    )
   }
 
   protected onKeyDown(event: Event) {
@@ -243,13 +266,13 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
     setTimeout(() => this.syncOptions(inputElement))
   }
 
-  private setValue(value: SuggestionValue, emitSelectedChange = true) {
-    if (sameItems(value, this.value())) return
+  private setValue(value: SuggestionFormValue, emitSelectedChange = true) {
+    if (sameItems(value, this.value(), this.optionItems())) return
 
     this.value.set(value)
 
     if (emitSelectedChange) {
-      this.selectedChange.emit(value)
+      this.selectedChange.emit(toSuggestionValue(value, this.optionItems()))
     }
   }
 
@@ -264,6 +287,17 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
       suggestionElement.querySelectorAll<HTMLOptionElement>(
         'u-option:not([data-empty])',
       ),
+    )
+
+    this.optionItems.set(
+      options.map((option) => ({
+        label:
+          option.label ||
+          option.text ||
+          option.textContent?.trim() ||
+          option.value,
+        value: option.value,
+      })),
     )
 
     const filter = this.filter()

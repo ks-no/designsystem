@@ -115,6 +115,33 @@ const renderSuggestionWithList = async ({
 })
 class SuggestionFormFieldHost {
   readonly municipalityModel = signal<{
+    municipality: string
+  }>({
+    municipality: '0301',
+  })
+
+  readonly municipalityForm = form(this.municipalityModel)
+}
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [Suggestion, SuggestionList, SuggestionListOption, Input, FormField],
+  template: `
+    <ksd-suggestion [formField]="municipalityForm.municipality">
+      <input ksd-input />
+      <ksd-suggestion-list>
+        <ksd-suggestion-list-option value="4601"
+          >Bergen</ksd-suggestion-list-option
+        >
+        <ksd-suggestion-list-option value="0301"
+          >Oslo</ksd-suggestion-list-option
+        >
+      </ksd-suggestion-list>
+    </ksd-suggestion>
+  `,
+})
+class SuggestionObjectFormFieldHost {
+  readonly municipalityModel = signal<{
     municipality: SuggestionItem
   }>({
     municipality: {
@@ -210,6 +237,63 @@ describe('Suggestion', () => {
 
     expect(rendered).toBeInTheDocument()
     expect(rendered).toHaveTextContent('Oslo')
+  })
+
+  it('should write primitive string values through formField', async () => {
+    const { container, fixture } = await render(SuggestionFormFieldHost)
+    const host = fixture.componentInstance
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    expect(dsSuggestion).toBeInTheDocument()
+    if (!dsSuggestion) return
+
+    const data = document.createElement('data')
+    data.value = '4601'
+    data.textContent = 'Bergen'
+
+    dsSuggestion.dispatchEvent(
+      new CustomEvent('comboboxbeforeselect', {
+        bubbles: true,
+        cancelable: true,
+        detail: data,
+      }),
+    )
+
+    await waitFor(() => {
+      expect(host.municipalityModel().municipality).toBe('4601')
+    })
+  })
+
+  it('should keep supporting object formField values for backwards compatibility', async () => {
+    const { container, fixture } = await render(SuggestionObjectFormFieldHost)
+    const host = fixture.componentInstance
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    const rendered = container.querySelector('data[value="0301"]')
+
+    expect(rendered).toBeInTheDocument()
+    expect(rendered).toHaveTextContent('Oslo')
+    expect(dsSuggestion).toBeInTheDocument()
+    if (!dsSuggestion) return
+
+    const data = document.createElement('data')
+    data.value = '4601'
+    data.textContent = 'Bergen'
+
+    dsSuggestion.dispatchEvent(
+      new CustomEvent('comboboxbeforeselect', {
+        bubbles: true,
+        cancelable: true,
+        detail: data,
+      }),
+    )
+
+    await waitFor(() => {
+      expect(host.municipalityModel().municipality).toEqual({
+        label: 'Bergen',
+        value: '4601',
+      })
+    })
   })
 
   it('should set multiple and creatable attributes on ds-suggestion', async () => {
