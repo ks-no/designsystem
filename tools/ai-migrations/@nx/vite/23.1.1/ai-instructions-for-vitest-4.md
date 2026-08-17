@@ -94,7 +94,7 @@ export default defineConfig({
       experimentalAstAwareRemapping: true,
     },
   },
-});
+})
 
 // ✅ AFTER (Vitest 4.0)
 export default defineConfig({
@@ -105,7 +105,7 @@ export default defineConfig({
       // Remove: all, extensions, ignoreEmptyLines, experimentalAstAwareRemapping
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -143,7 +143,7 @@ export default defineConfig({
       },
     },
   },
-});
+})
 
 // ✅ AFTER (Vitest 4.0 — top-level pool config)
 export default defineConfig({
@@ -154,7 +154,7 @@ export default defineConfig({
     vmMemoryLimit: '512MB', // moved from poolOptions.vmThreads.memoryLimit
     // Remove: poolOptions, threads.useAtomics, minWorkers (also removed in v4)
   },
-});
+})
 ```
 
 **Action Items**:
@@ -185,14 +185,14 @@ export default defineConfig({
   test: {
     workspace: ['apps/*', 'libs/*'],
   },
-});
+})
 
 // ✅ AFTER (Vitest 4.0)
 export default defineConfig({
   test: {
     projects: ['apps/*', 'libs/*'],
   },
-});
+})
 ```
 
 **Action Items**:
@@ -206,11 +206,11 @@ When you inline a workspace file yourself, also apply these checks (the pre-pass
 - [ ] **Config-less packages**: a root config with `test.projects` breaks `vitest` invocations from package directories that have no `vite.config.*`/`vitest.config.*` of their own (common for packages with a package.json `"test": "vitest run"` script). Vitest 4 finds the root config by walking up from the package directory, but resolves the `test.projects` globs relative to the package directory, so it errors with "No projects were found". For each such package, create a minimal local config so vitest stops at it and `@nx/vitest` infers the test target:
 
   ```typescript
-  import { defineConfig } from 'vitest/config';
+  import { defineConfig } from 'vitest/config'
 
   export default defineConfig({
     test: {},
-  });
+  })
   ```
 
   Do NOT "fix" this by anchoring the root globs to the workspace root instead: that makes the package-directory invocation run every project in the workspace while still skipping the config-less package's own tests. Skip packages whose vitest script already passes an explicit `--config`/`-c`/`--root` (space- or `=`-joined); those don't rely on config discovery.
@@ -243,13 +243,13 @@ export default defineConfig({
       testerScripts: ['./setup.js'], // array of scripts
     },
   },
-});
-import { page } from '@vitest/browser/context';
-import { getElementError } from '@vitest/browser/utils';
+})
+import { page } from '@vitest/browser/context'
+import { getElementError } from '@vitest/browser/utils'
 
 // ✅ AFTER (Vitest 4.0)
-import { defineConfig } from 'vitest/config';
-import { playwright } from '@vitest/browser-playwright';
+import { defineConfig } from 'vitest/config'
+import { playwright } from '@vitest/browser-playwright'
 
 export default defineConfig({
   test: {
@@ -262,9 +262,9 @@ export default defineConfig({
       testerHtmlPath: './test-setup.html', // single HTML path replaces script array
     },
   },
-});
-import { page, utils } from 'vitest/browser';
-const { getElementError } = utils;
+})
+import { page, utils } from 'vitest/browser'
+const { getElementError } = utils
 ```
 
 **Action Items**:
@@ -295,7 +295,7 @@ export default defineConfig({
       fallbackCJS: true,
     },
   },
-});
+})
 
 // ✅ AFTER (Vitest 4.0)
 export default defineConfig({
@@ -308,7 +308,7 @@ export default defineConfig({
       },
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -326,19 +326,13 @@ export default defineConfig({
 
 ```typescript
 // To restore Vitest 3.x default exclusion behavior:
-import { configDefaults, defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
-    exclude: [
-      ...configDefaults.exclude,
-      '**/dist/**',
-      '**/cypress/**',
-      '**/.{idea,git,cache,output,temp}/**',
-      '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*',
-    ],
+    exclude: [...configDefaults.exclude, '**/dist/**', '**/cypress/**', '**/.{idea,git,cache,output,temp}/**', '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*'],
   },
-});
+})
 ```
 
 **Recommendation**: prefer `test.dir` to scope discovery for performance, instead of relying on negative exclusions.
@@ -360,7 +354,7 @@ export default {
     /* ... */
   },
   transformMode: 'ssr',
-};
+}
 
 // ✅ AFTER (Vitest 4.0)
 export default {
@@ -369,7 +363,7 @@ export default {
     /* ... */
   },
   viteEnvironment: 'custom-env',
-};
+}
 ```
 
 **Action Items**:
@@ -391,16 +385,16 @@ The custom environment's `transformMode` value is something other than `'ssr'` o
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-const mockFn = vi.fn();
-expect(mockFn.getMockName()).toBe('spy'); // Old default
+const mockFn = vi.fn()
+expect(mockFn.getMockName()).toBe('spy') // Old default
 
 // ✅ AFTER (Vitest 4.0)
-const mockFn = vi.fn();
-expect(mockFn.getMockName()).toBe('vi.fn()'); // New default
+const mockFn = vi.fn()
+expect(mockFn.getMockName()).toBe('vi.fn()') // New default
 
 // If you need custom names, set them explicitly
-const namedMock = vi.fn().mockName('myCustomName');
-expect(namedMock.getMockName()).toBe('myCustomName');
+const namedMock = vi.fn().mockName('myCustomName')
+expect(namedMock.getMockName()).toBe('myCustomName')
 ```
 
 **Action Items**:
@@ -416,14 +410,14 @@ expect(namedMock.getMockName()).toBe('myCustomName');
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-const mockFn = vi.fn();
-mockFn();
-expect(mockFn.mock.invocationCallOrder[0]).toBe(0); // Started at 0
+const mockFn = vi.fn()
+mockFn()
+expect(mockFn.mock.invocationCallOrder[0]).toBe(0) // Started at 0
 
 // ✅ AFTER (Vitest 4.0)
-const mockFn = vi.fn();
-mockFn();
-expect(mockFn.mock.invocationCallOrder[0]).toBe(1); // Now starts at 1 (Jest-compatible)
+const mockFn = vi.fn()
+mockFn()
+expect(mockFn.mock.invocationCallOrder[0]).toBe(1) // Now starts at 1 (Jest-compatible)
 ```
 
 **Action Items**:
@@ -439,20 +433,20 @@ expect(mockFn.mock.invocationCallOrder[0]).toBe(1); // Now starts at 1 (Jest-com
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x) - Arrow function constructors might have worked
-const MockConstructor = vi.fn(() => ({ value: 42 }));
-new MockConstructor(); // May have worked in v3
+const MockConstructor = vi.fn(() => ({ value: 42 }))
+new MockConstructor() // May have worked in v3
 
 // ✅ AFTER (Vitest 4.0) - Must use function or class
 const MockConstructor = vi.fn(function () {
-  return { value: 42 };
-});
-new MockConstructor(); // Correctly supports 'new'
+  return { value: 42 }
+})
+new MockConstructor() // Correctly supports 'new'
 
 // Or use class syntax
 class MockClass {
-  value = 42;
+  value = 42
 }
-const MockConstructor = vi.fn(MockClass);
+const MockConstructor = vi.fn(MockClass)
 ```
 
 **Action Items**:
@@ -469,17 +463,17 @@ const MockConstructor = vi.fn(MockClass);
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-vi.mock('./module', () => ({ fn: vi.fn() }));
-vi.restoreAllMocks(); // Would restore automocks
+vi.mock('./module', () => ({ fn: vi.fn() }))
+vi.restoreAllMocks() // Would restore automocks
 
 // ✅ AFTER (Vitest 4.0)
-vi.mock('./module', () => ({ fn: vi.fn() }));
-vi.restoreAllMocks(); // Only restores manual spies, NOT automocks
+vi.mock('./module', () => ({ fn: vi.fn() }))
+vi.restoreAllMocks() // Only restores manual spies, NOT automocks
 
 // To reset automocks, use:
-vi.unmock('./module');
+vi.unmock('./module')
 // or
-vi.resetModules();
+vi.resetModules()
 ```
 
 **Action Items**:
@@ -496,13 +490,13 @@ vi.resetModules();
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-const mock = vi.fn();
-const spy = vi.spyOn({ method: mock }, 'method');
+const mock = vi.fn()
+const spy = vi.spyOn({ method: mock }, 'method')
 // spy !== mock (created new spy)
 
 // ✅ AFTER (Vitest 4.0)
-const mock = vi.fn();
-const spy = vi.spyOn({ method: mock }, 'method');
+const mock = vi.fn()
+const spy = vi.spyOn({ method: mock }, 'method')
 // spy === mock (returns same instance)
 ```
 
@@ -522,45 +516,45 @@ const spy = vi.spyOn({ method: mock }, 'method');
 // ❌ BEFORE (Vitest 3.x)
 vi.mock('./utils', () => ({
   get value() {
-    return 42;
+    return 42
   }, // getter executed
-}));
+}))
 
-import { value } from './utils';
-console.log(value); // executes getter, prints 42
+import { value } from './utils'
+console.log(value) // executes getter, prints 42
 
 // ✅ AFTER (Vitest 4.0)
 vi.mock('./utils', () => ({
   get value() {
-    return 42;
+    return 42
   },
-}));
+}))
 
-import { value } from './utils';
-console.log(value); // getter NOT executed; prints undefined
+import { value } from './utils'
+console.log(value) // getter NOT executed; prints undefined
 
 // To spy on the getter explicitly:
-vi.spyOn(utilsModule, 'value', 'get').mockReturnValue(42);
+vi.spyOn(utilsModule, 'value', 'get').mockReturnValue(42)
 
 // Or define as a plain property (not a getter):
-vi.mock('./utils', () => ({ value: 42 }));
+vi.mock('./utils', () => ({ value: 42 }))
 ```
 
 Additional behavior changes for automocked instance methods:
 
 ```typescript
 // Each instance gets its own mock for the same method name
-const a = new AutoMockedClass();
-const b = new AutoMockedClass();
-a.method.mockReturnValue(42);
-expect(a.method()).toBe(42);
-expect(b.method()).toBeUndefined(); // independent per instance
+const a = new AutoMockedClass()
+const b = new AutoMockedClass()
+a.method.mockReturnValue(42)
+expect(a.method()).toBe(42)
+expect(b.method()).toBeUndefined() // independent per instance
 
 // But the prototype is shared: a method mocked on the prototype affects all
 // instances that don't have a per-instance mock.
-AutoMockedClass.prototype.method.mockReturnValue(100);
-b.method.mockReset(); // remove per-instance mock if any
-expect(b.method()).toBe(100);
+AutoMockedClass.prototype.method.mockReturnValue(100)
+b.method.mockReset() // remove per-instance mock if any
+expect(b.method()).toBe(100)
 ```
 
 `vi.restoreAllMocks()` no longer touches automocks. Use `vi.unmock(modulePath)` or `vi.resetModules()` to clear an automocked module. **`.mockRestore()` on a single spy still works** (resets its implementation and clears state) regardless of whether the underlying module is automocked.
@@ -580,21 +574,21 @@ expect(b.method()).toBe(100);
 
 ```typescript
 // ✅ AFTER (Vitest 4.0)
-const asyncMock = vi.fn(async () => 'result');
-const promise = asyncMock();
+const asyncMock = vi.fn(async () => 'result')
+const promise = asyncMock()
 
 // settledResults is immediately populated with 'incomplete' status
 expect(asyncMock.mock.settledResults[0]).toEqual({
   type: 'incomplete',
   value: undefined,
-});
+})
 
 // After promise resolves
-await promise;
+await promise
 expect(asyncMock.mock.settledResults[0]).toEqual({
   type: 'fulfilled',
   value: 'result',
-});
+})
 ```
 
 **Action Items**:
@@ -629,7 +623,7 @@ export default {
   onFinished(files) {
     /* ... */
   },
-};
+}
 
 // ✅ AFTER (Vitest 4.0)
 // Use the new test-module / test-case event API. See:
@@ -662,17 +656,17 @@ export default defineConfig({
   test: {
     reporters: ['basic'],
   },
-});
+})
 
 // ✅ AFTER (Vitest 4.0)
 export default defineConfig({
   test: {
     reporters: [['default', { summary: false }]], // Equivalent to 'basic'
   },
-});
+})
 
 // For verbose (tree output)
-reporters: ['tree']; // Use 'tree' for hierarchical output
+reporters: ['tree'] // Use 'tree' for hierarchical output
 ```
 
 **Action Items**:
@@ -700,7 +694,7 @@ export default defineConfig({
       printShadowRoot: false,
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -728,17 +722,17 @@ export default defineConfig({
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-const { toMatchSnapshot } = require('jest-snapshot');
+const { toMatchSnapshot } = require('jest-snapshot')
 
 // ✅ AFTER (Vitest 4.0)
-import { Snapshots } from 'vitest';
-const { toMatchSnapshot } = Snapshots;
+import { Snapshots } from 'vitest'
+const { toMatchSnapshot } = Snapshots
 
 expect.extend({
   toMatchTrimmedSnapshot(received: string, length: number) {
-    return toMatchSnapshot.call(this, received.slice(0, length));
+    return toMatchSnapshot.call(this, received.slice(0, length))
   },
-});
+})
 ```
 
 **Action Items**:
@@ -778,7 +772,7 @@ VITEST_MODULE_DIRECTORIES=/custom/path
 
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
-import { execute } from 'vitest/execute';
+import { execute } from 'vitest/execute'
 // Access to __vitest_executor
 
 // ✅ AFTER (Vitest 4.0)

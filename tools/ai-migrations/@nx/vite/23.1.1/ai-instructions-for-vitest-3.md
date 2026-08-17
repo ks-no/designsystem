@@ -91,7 +91,7 @@ export default defineConfig({
       threads: { singleThread: true },
     },
   },
-});
+})
 
 // ✅ AFTER (Vitest 2.0 — either explicitly set the pool or move options to `forks`)
 export default defineConfig({
@@ -100,7 +100,7 @@ export default defineConfig({
       forks: { singleFork: true },
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -127,7 +127,7 @@ export default defineConfig({
       hooks: 'parallel',
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -161,7 +161,7 @@ export default defineConfig({
       ignoreEmptyLines: false,
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -179,7 +179,7 @@ export default defineConfig({
   test: {
     watchExclude: ['node_modules', 'custom/path/**'],
   },
-});
+})
 
 // ✅ AFTER (Vitest 2.0)
 export default defineConfig({
@@ -188,7 +188,7 @@ export default defineConfig({
       ignored: ['**/node_modules/**', 'custom/path/**'],
     },
   },
-});
+})
 ```
 
 **Pattern Semantics Note**: `server.watch.ignored` uses **chokidar** patterns, while Vitest 1.x's `watchExclude` accepted simpler relative-path matchers. A literal find-and-replace may over- or under-ignore. Treat each entry as manual review:
@@ -239,16 +239,16 @@ An existing `watchExclude` entry uses a pattern whose chokidar equivalent is amb
 
 ```typescript
 // ❌ BEFORE (Vitest 1.x)
-import { type Mock, vi } from 'vitest';
+import { type Mock, vi } from 'vitest'
 
-const add = (x: number, y: number): number => x + y;
+const add = (x: number, y: number): number => x + y
 
-const mockAdd = vi.fn<Parameters<typeof add>, ReturnType<typeof add>>();
-const mockAdd2: Mock<Parameters<typeof add>, ReturnType<typeof add>> = vi.fn();
+const mockAdd = vi.fn<Parameters<typeof add>, ReturnType<typeof add>>()
+const mockAdd2: Mock<Parameters<typeof add>, ReturnType<typeof add>> = vi.fn()
 
 // ✅ AFTER (Vitest 2.0)
-const mockAdd = vi.fn<typeof add>();
-const mockAdd2: Mock<typeof add> = vi.fn();
+const mockAdd = vi.fn<typeof add>()
+const mockAdd2: Mock<typeof add> = vi.fn()
 ```
 
 **Action Items**:
@@ -264,13 +264,13 @@ const mockAdd2: Mock<typeof add> = vi.fn();
 
 ```typescript
 // ❌ BEFORE (Vitest 1.x)
-const fn = vi.fn().mockResolvedValueOnce('result');
-await fn();
-const result = fn.mock.results[0]; // 'result' (auto-resolved)
+const fn = vi.fn().mockResolvedValueOnce('result')
+await fn()
+const result = fn.mock.results[0] // 'result' (auto-resolved)
 
 // ✅ AFTER (Vitest 2.0)
-const result = fn.mock.results[0]; // a Promise
-const settled = fn.mock.settledResults[0]; // 'result'
+const result = fn.mock.results[0] // a Promise
+const settled = fn.mock.settledResults[0] // 'result'
 ```
 
 **Action Items**:
@@ -316,13 +316,13 @@ test(
   () => {
     /* ... */
   },
-  { retry: 3 }
-);
+  { retry: 3 },
+)
 
 // ✅ AFTER (Vitest 3.0)
 test('validation works', { retry: 3 }, () => {
   /* ... */
-});
+})
 ```
 
 A numeric timeout value as the third argument is still accepted (`test('name', () => {}, 1000)`).
@@ -348,7 +348,7 @@ export default defineConfig({
       },
     },
   },
-});
+})
 
 // ✅ AFTER (Vitest 3.0)
 export default defineConfig({
@@ -362,7 +362,7 @@ export default defineConfig({
       ],
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -378,12 +378,12 @@ export default defineConfig({
 
 ```typescript
 // Behavior change illustration:
-const foo = { bar: () => 'Hello, world!' };
-vi.spyOn(foo, 'bar').mockImplementation(() => 'Hello, mock!');
-foo.bar(); // 'Hello, mock!'
+const foo = { bar: () => 'Hello, world!' }
+vi.spyOn(foo, 'bar').mockImplementation(() => 'Hello, mock!')
+foo.bar() // 'Hello, mock!'
 
-foo.bar.mockReset();
-foo.bar(); // BEFORE: undefined  →  AFTER: 'Hello, world!'
+foo.bar.mockReset()
+foo.bar() // BEFORE: undefined  →  AFTER: 'Hello, world!'
 ```
 
 **Action Items**:
@@ -398,10 +398,10 @@ foo.bar(); // BEFORE: undefined  →  AFTER: 'Hello, world!'
 **What Changed**: Calling `vi.spyOn()` on an already-mocked method now returns the existing mock rather than creating a new one. After `vi.restoreAllMocks()`, the method is no longer a mock.
 
 ```typescript
-vi.spyOn(fooService, 'foo').mockImplementation(() => 'bar');
-vi.spyOn(fooService, 'foo').mockImplementation(() => 'bar');
-vi.restoreAllMocks();
-vi.isMockFunction(fooService.foo);
+vi.spyOn(fooService, 'foo').mockImplementation(() => 'bar')
+vi.spyOn(fooService, 'foo').mockImplementation(() => 'bar')
+vi.restoreAllMocks()
+vi.isMockFunction(fooService.foo)
 // BEFORE: true (the second spy survived restore)
 // AFTER:  false (both calls referenced the same spy)
 ```
@@ -422,18 +422,10 @@ vi.isMockFunction(fooService.foo);
 export default defineConfig({
   test: {
     fakeTimers: {
-      toFake: [
-        'setTimeout',
-        'clearTimeout',
-        'setInterval',
-        'clearInterval',
-        'setImmediate',
-        'clearImmediate',
-        'Date',
-      ],
+      toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'setImmediate', 'clearImmediate', 'Date'],
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -449,15 +441,15 @@ export default defineConfig({
 
 ```typescript
 // Cause is checked asymmetrically:
-expect(new Error('hi', { cause: 'x' })).toEqual(new Error('hi')); // ✅ passes
-expect(new Error('hi')).toEqual(new Error('hi', { cause: 'x' })); // ❌ fails
+expect(new Error('hi', { cause: 'x' })).toEqual(new Error('hi')) // ✅ passes
+expect(new Error('hi')).toEqual(new Error('hi', { cause: 'x' })) // ❌ fails
 
 // Prototype is checked:
 expect(() => {
-  throw new TypeError('type error');
+  throw new TypeError('type error')
 })
   .toThrowError(new Error('type error')) // ❌ fails (Error vs TypeError)
-  .toThrowError(new TypeError('type error')); // ✅ passes
+  .toThrowError(new TypeError('type error')) // ✅ passes
 ```
 
 **Action Items**:
@@ -550,16 +542,16 @@ Migrating now (while still on v3) clears the v3.2 deprecation warning and is req
 ```typescript
 // ❌ DEPRECATED (Vitest 3.2+)
 // vitest.workspace.ts
-import { defineWorkspace } from 'vitest/config';
-export default defineWorkspace(['apps/*', 'libs/*']);
+import { defineWorkspace } from 'vitest/config'
+export default defineWorkspace(['apps/*', 'libs/*'])
 
 // ✅ AFTER (inline in root vitest.config.ts)
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     projects: ['apps/*', 'libs/*'],
   },
-});
+})
 ```
 
 **Action Items**:

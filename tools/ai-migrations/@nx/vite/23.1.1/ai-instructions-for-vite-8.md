@@ -36,7 +36,7 @@ export default defineConfig({
       output: { manualChunks: { vendor: ['react', 'react-dom'] } },
     },
   },
-});
+})
 
 // ✅ AFTER (Vite 8)
 export default defineConfig({
@@ -46,7 +46,7 @@ export default defineConfig({
       output: { manualChunks: { vendor: ['react', 'react-dom'] } },
     },
   },
-});
+})
 ```
 
 **Action Items**:
@@ -61,7 +61,7 @@ export default defineConfig({
 
 ```typescript
 // ❌ BEFORE (Vite 7, plugin-react v4)
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
@@ -71,14 +71,14 @@ export default defineConfig({
       },
     }),
   ],
-});
+})
 
 // ✅ AFTER (Vite 8, plugin-react v6)
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-});
+})
 ```
 
 **Action Items**:

@@ -101,12 +101,12 @@ module.exports = {
       rules: { '@typescript-eslint/no-explicit-any': 'error' },
     },
   ],
-};
+}
 ```
 
 ```js
 // AFTER (eslint.config.mjs)
-import baseConfig from '../../eslint.config.mjs';
+import baseConfig from '../../eslint.config.mjs'
 
 export default [
   ...baseConfig,
@@ -114,7 +114,7 @@ export default [
     files: ['**/*.ts'],
     rules: { '@typescript-eslint/no-explicit-any': 'error' },
   },
-];
+]
 ```
 
 **Action items**:
@@ -137,24 +137,24 @@ export default [
 
 ```js
 // BEFORE (FlatCompat shim, eslint.config.mjs)
-import js from '@eslint/js';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+import { FlatCompat } from '@eslint/eslintrc'
 
 const compat = new FlatCompat({
   baseDirectory: dirname(fileURLToPath(import.meta.url)),
   recommendedConfig: js.configs.recommended,
-});
+})
 
-export default [...compat.extends('plugin:@typescript-eslint/recommended')];
+export default [...compat.extends('plugin:@typescript-eslint/recommended')]
 ```
 
 ```js
 // AFTER (flat-native, eslint.config.mjs)
-import tseslint from 'typescript-eslint';
+import tseslint from 'typescript-eslint'
 
-export default [...tseslint.configs.recommended];
+export default [...tseslint.configs.recommended]
 ```
 
 **Action items**:
@@ -196,7 +196,7 @@ export default [
       'no-unused-expressions': 'off',
     },
   },
-];
+]
 ```
 
 **Action items**:
