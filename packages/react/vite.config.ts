@@ -34,7 +34,7 @@ export default defineConfig(() => ({
       fileName: 'index',
       formats: ['es' as const, 'cjs' as const],
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['@digdir/designsystemet-react', '@navikt/aksel-icons'],
     },
   },
