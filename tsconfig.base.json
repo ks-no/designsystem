@@ -94,7 +94,12 @@
       "@ks-digital/designsystem-themes/types": [
         "packages/themes/src/types.d.ts"
       ]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp", "dist"]
 }

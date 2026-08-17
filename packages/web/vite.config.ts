@@ -32,7 +32,7 @@ export default defineConfig(() => ({
       fileName: 'index',
       formats: ['es' as const, 'cjs' as const],
     },
-    rollupOptions: {},
+    rolldownOptions: {},
   },
   test: {
     watch: false,
