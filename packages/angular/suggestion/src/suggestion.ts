@@ -41,8 +41,6 @@ import {
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
 
-const unboundSelected = Symbol('unboundSelected')
-
 const normalizeValue = (value: SuggestionModelValue): SuggestionValue =>
   value ?? undefined
 
@@ -162,14 +160,7 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
    *
    * @default undefined
    */
-  readonly selected = input<SuggestionModelValue | typeof unboundSelected>(
-    unboundSelected,
-  )
-
-  /**
-   * Emits object-based selected values for the direct controlled API.
-   */
-  readonly selectedChange = output<SuggestionValue>()
+  readonly selected = model<SuggestionModelValue>(undefined)
 
   /**
    * Form-control dirty state.
@@ -197,10 +188,7 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
     // Keep the internal form-control model in sync when selected is used as the
     // direct controlled API instead of formField.
     effect(() => {
-      const selected = this.selected()
-
-      if (selected === unboundSelected) return
-      const normalizedValue = normalizeValue(selected)
+      const normalizedValue = normalizeValue(this.selected())
       if (
         sameItems(
           normalizedValue,
@@ -211,6 +199,23 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
         return
 
       untracked(() => this.value.set(normalizedValue))
+    })
+
+    // Mirror the current selection back into the public selected model so
+    // component references can read and update the resolved object value.
+    effect(() => {
+      const selectedValue = toSuggestionValue(this.value(), this.optionItems())
+
+      if (
+        sameItems(
+          selectedValue,
+          untracked(() => this.selected()),
+          untracked(() => this.optionItems()),
+        )
+      )
+        return
+
+      untracked(() => this.selected.set(selectedValue))
     })
 
     // Re-run option filtering after projected suggestion options change.
@@ -232,7 +237,7 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
         data,
         this.value(),
         this.multiple(),
-        this.selected() !== unboundSelected || usesItemValues(this.value()),
+        usesItemValues(this.value()),
       ),
     )
   }
@@ -266,14 +271,10 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
     setTimeout(() => this.syncOptions(inputElement))
   }
 
-  private setValue(value: SuggestionFormValue, emitSelectedChange = true) {
+  private setValue(value: SuggestionFormValue) {
     if (sameItems(value, this.value(), this.optionItems())) return
 
     this.value.set(value)
-
-    if (emitSelectedChange) {
-      this.selectedChange.emit(toSuggestionValue(value, this.optionItems()))
-    }
   }
 
   private syncOptions(inputElement: HTMLInputElement | null) {

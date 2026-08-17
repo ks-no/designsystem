@@ -211,6 +211,35 @@ describe('Suggestion', () => {
     expect(rendered).toHaveTextContent('Option 1')
   })
 
+  it('should expose the current selection through the selected model', async () => {
+    const { container, fixture } = await renderSuggestionWithList()
+    const suggestion = fixture.debugElement.query(By.directive(Suggestion))
+      .componentInstance as Suggestion
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    expect(dsSuggestion).toBeInTheDocument()
+    if (!dsSuggestion) return
+
+    const data = document.createElement('data')
+    data.value = '0301'
+    data.textContent = 'Oslo'
+
+    dsSuggestion.dispatchEvent(
+      new CustomEvent('comboboxbeforeselect', {
+        bubbles: true,
+        cancelable: true,
+        detail: data,
+      }),
+    )
+
+    await waitFor(() => {
+      expect(suggestion.selected()).toEqual({
+        label: 'Oslo',
+        value: '0301',
+      })
+    })
+  })
+
   it('should preserve array shape when selected changes between undefined and empty array', async () => {
     const { fixture } = await render(SuggestionMultipleSelectedHost)
     const host = fixture.componentInstance
