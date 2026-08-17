@@ -205,11 +205,12 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
     // component references can read and update the resolved object value.
     effect(() => {
       const selectedValue = toSuggestionValue(this.value(), this.optionItems())
+      const currentSelected = normalizeValue(untracked(() => this.selected()))
 
       if (
         sameItems(
           selectedValue,
-          untracked(() => this.selected()),
+          currentSelected,
           untracked(() => this.optionItems()),
         )
       )
