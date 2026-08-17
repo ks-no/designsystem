@@ -210,7 +210,7 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
       )
         return
 
-      this.setValue(normalizedValue, false)
+      untracked(() => this.value.set(normalizedValue))
     })
 
     // Re-run option filtering after projected suggestion options change.

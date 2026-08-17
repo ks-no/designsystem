@@ -357,6 +357,43 @@ describe('Suggestion', () => {
     expect(onSelectedChange).not.toHaveBeenCalled()
   })
 
+  it('should not restore stale selected input after an internal selection change', async () => {
+    const onSelectedChange = vi.fn()
+    const { container } = await renderSuggestionWithList({
+      onSelectedChange,
+      selected: {
+        label: 'Bergen',
+        value: '4601',
+      },
+    })
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    expect(dsSuggestion).toBeInTheDocument()
+    if (!dsSuggestion) return
+
+    const data = document.createElement('data')
+    data.value = '0301'
+    data.textContent = 'Oslo'
+
+    dsSuggestion.dispatchEvent(
+      new CustomEvent('comboboxbeforeselect', {
+        bubbles: true,
+        cancelable: true,
+        detail: data,
+      }),
+    )
+
+    await waitFor(() => {
+      expect(onSelectedChange).toHaveBeenCalledWith({
+        label: 'Oslo',
+        value: '0301',
+      })
+      expect(container.querySelector('data[value="0301"]')).toHaveTextContent(
+        'Oslo',
+      )
+    })
+  })
+
   it('should remove selected item in multiple mode when detail element is connected', async () => {
     const onSelectedChange = vi.fn()
     const selected: SuggestionItem[] = [
