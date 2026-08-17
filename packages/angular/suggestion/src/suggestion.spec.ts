@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core'
 import { FormField, form } from '@angular/forms/signals'
+import { By } from '@angular/platform-browser'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { render, waitFor } from '@testing-library/angular'
 import { vi } from 'vitest'
@@ -125,6 +126,19 @@ class SuggestionFormFieldHost {
   readonly municipalityForm = form(this.municipalityModel)
 }
 
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [Suggestion, Input],
+  template: `
+    <ksd-suggestion [multiple]="true" [selected]="selected()">
+      <input ksd-input />
+    </ksd-suggestion>
+  `,
+})
+class SuggestionMultipleSelectedHost {
+  readonly selected = signal<SuggestionModelValue>(undefined)
+}
+
 describe('Suggestion', () => {
   it('should have no obvious accessibility violations', async () => {
     const { container } = await render(
@@ -168,6 +182,25 @@ describe('Suggestion', () => {
 
     expect(rendered).toBeInTheDocument()
     expect(rendered).toHaveTextContent('Option 1')
+  })
+
+  it('should preserve array shape when selected changes between undefined and empty array', async () => {
+    const { fixture } = await render(SuggestionMultipleSelectedHost)
+    const host = fixture.componentInstance
+
+    host.selected.set([])
+    fixture.detectChanges()
+
+    const suggestion = fixture.debugElement.query(By.directive(Suggestion))
+      .componentInstance as Suggestion
+
+    expect(Array.isArray(suggestion.value())).toBe(true)
+    expect(suggestion.value()).toEqual([])
+
+    host.selected.set(undefined)
+    fixture.detectChanges()
+
+    expect(suggestion.value()).toBeUndefined()
   })
 
   it('should work as a formField host', async () => {

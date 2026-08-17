@@ -38,7 +38,15 @@ const unboundSelected = Symbol('unboundSelected')
 const normalizeValue = (value: SuggestionModelValue): SuggestionValue =>
   value ?? undefined
 
+const valueShape = (value: SuggestionValue) => {
+  if (value === undefined) return 'undefined'
+
+  return Array.isArray(value) ? 'array' : 'single'
+}
+
 const sameItems = (left: SuggestionValue, right: SuggestionValue) => {
+  if (valueShape(left) !== valueShape(right)) return false
+
   const leftItems = sanitizeItems(left)
   const rightItems = sanitizeItems(right)
 
