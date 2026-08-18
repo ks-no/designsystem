@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: ks-no/github-actions-public/checkout@23507d99e1864f7eedfa91386a280356bbc93b7f # @11. aug 26
         with:
           fetch-depth: 0
 
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: ks-no/github-actions-public/checkout@23507d99e1864f7eedfa91386a280356bbc93b7f # @11. aug 26
         with:
           fetch-depth: 0
 
@@ -72,7 +72,7 @@ jobs:
         uses: ./.github/actions/install-packages
 
       - name: Cache Playwright
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
