@@ -16,17 +16,74 @@ import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 <Canvas of={SuggestionStories.Preview} />
 <Controls of={SuggestionStories.Preview} />
 
-## Bruk
+## Med forms
 
-- Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`).
-- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg.
+`Suggestion` kan brukes med Angular signal forms via `formField`.
+
+Verdien i skjemamodellen er alltid primitiv: `string` ved enkeltvalg og `string[]` ved `multiple`. Etiketten hentes fra `ksd-suggestion-list-option`.
+
+```ts
+import { Component, signal } from '@angular/core'
+import { FormField, form } from '@angular/forms/signals'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListEmpty,
+  SuggestionListOption,
+} from '@ks-digital/designsystem-angular/suggestion'
+
+@Component({
+  imports: [
+    Field,
+    FormField,
+    Input,
+    Label,
+    Suggestion,
+    SuggestionList,
+    SuggestionListEmpty,
+    SuggestionListOption,
+  ],
+  template: `
+    <ksd-field>
+      <ksd-label>Velg kommune</ksd-label>
+      <ksd-suggestion [formField]="municipalityForm.municipality">
+        <input ksd-input />
+        <ksd-suggestion-list>
+          <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
+          @for (municipality of municipalities; track municipality.value) {
+            <ksd-suggestion-list-option [value]="municipality.value">
+              {{ municipality.label }}
+            </ksd-suggestion-list-option>
+          }
+        </ksd-suggestion-list>
+      </ksd-suggestion>
+    </ksd-field>
+  `,
+})
+export class App {
+  municipalities = [
+    { label: 'Oslo', value: '0301' },
+    { label: 'Bergen', value: '4601' },
+  ]
+
+  municipalityModel = signal({ municipality: this.municipalities[0].value })
+  municipalityForm = form(this.municipalityModel)
+}
+```
+
+## Kontrollert bruk
+
+- Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`). Den godtar både `SuggestionItem` og rene verdier (`string`).
+- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg. Den sender alltid ut `SuggestionSelected`, altså `SuggestionItem` ved enkeltvalg og `SuggestionItem[]` ved `multiple`.
+- Bruk `selected` eller `formField`, ikke begge på samme komponent.
 
 ```ts
 import { Component, signal } from '@angular/core'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import {
   Suggestion,
-  type SuggestionItem,
+  type SuggestionSelected,
   SuggestionList,
   SuggestionListEmpty,
   SuggestionListOption,
@@ -65,7 +122,7 @@ import {
 })
 export class App {
   places = signal(['Bergen', 'Oslo'])
-  selected = signal<SuggestionItem | undefined>(undefined)
+  selected = signal<SuggestionSelected>(undefined)
 }
 ```
 

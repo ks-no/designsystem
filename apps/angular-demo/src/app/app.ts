@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core'
+import { FormField, form } from '@angular/forms/signals'
 import { Alert } from '@ks-digital/designsystem-angular/alert'
 import { Breadcrumbs } from '@ks-digital/designsystem-angular/breadcrumbs'
 import { Button } from '@ks-digital/designsystem-angular/button'
@@ -58,6 +59,7 @@ import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-m
     Dropdown,
     ErrorSummary,
     Field,
+    FormField,
     Fieldset,
     FieldsetDescription,
     FieldsetLegend,
@@ -483,7 +485,7 @@ import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-m
         <h2 class="text-xl font-semibold mb-4">Suggestion</h2>
         <ksd-field style="max-width: 400px">
           <ksd-label>Søk etter kommune</ksd-label>
-          <ksd-suggestion>
+          <ksd-suggestion [formField]="municipalityForm.municipality">
             <input ksd-input type="text" />
             <ksd-suggestion-list>
               <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
@@ -510,6 +512,14 @@ export class App {
     { label: 'Molde', value: '1506' },
     { label: 'Trondheim', value: '5001' },
   ]
+
+  protected readonly municipalityModel = signal<{
+    municipality: string
+  }>({
+    municipality: this.municipalities[1].value,
+  })
+
+  protected readonly municipalityForm = form(this.municipalityModel)
 
   toggleLoading() {
     this.loading.update((v) => !v)

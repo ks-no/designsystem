@@ -6,4 +6,7 @@ export type {
   SuggestionFilter,
   SuggestionFilterArgs,
   SuggestionItem,
+  SuggestionSelected,
+  SuggestionSelectedInput,
+  SuggestionValue,
 } from './suggestion.types'

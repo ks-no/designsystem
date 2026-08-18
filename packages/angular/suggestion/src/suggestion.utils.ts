@@ -1,28 +1,91 @@
-import type { SuggestionItem, SuggestionModelValue } from './suggestion.types'
+import type {
+  SuggestionItem,
+  SuggestionSelected,
+  SuggestionSelectedInput,
+  SuggestionValue,
+} from './suggestion.types'
 
-export const sanitizeItems = (
-  values: SuggestionModelValue,
+export const isSuggestionItem = (
+  value: SuggestionItem | string | null | undefined,
+): value is SuggestionItem =>
+  typeof value === 'object' &&
+  value !== null &&
+  'label' in value &&
+  'value' in value
+
+const sanitizeValues = (
+  values: SuggestionSelectedInput,
+): Array<SuggestionItem | string> =>
+  values == null ? [] : Array.isArray(values) ? values : [values]
+
+const toValues = (value: SuggestionValue): string[] =>
+  value == null ? [] : Array.isArray(value) ? value : [value]
+
+/** Option labels keyed by option value, learned from options and selections. */
+export type SuggestionLabels = ReadonlyMap<string, string>
+
+/** Extracts the labels carried by any items passed to `[selected]`. */
+export const labelEntries = (
+  values: SuggestionSelectedInput,
+): Array<[string, string]> =>
+  sanitizeValues(values)
+    .filter(isSuggestionItem)
+    .map((item) => [item.value, item.label])
+
+/** Normalizes anything accepted by `[selected]` into the primitive value model. */
+export const toValue = (values: SuggestionSelectedInput): SuggestionValue => {
+  if (values == null) return undefined
+
+  const primitives = sanitizeValues(values).map((value) =>
+    isSuggestionItem(value) ? value.value : value,
+  )
+
+  return Array.isArray(values) ? primitives : primitives[0]
+}
+
+export const resolveItems = (
+  value: SuggestionValue,
+  labels: SuggestionLabels,
 ): SuggestionItem[] =>
-  !values ? [] : Array.isArray(values) ? values : [values]
+  toValues(value).map((optionValue) => ({
+    label: labels.get(optionValue) ?? optionValue,
+    value: optionValue,
+  }))
 
-const toItem = (data: HTMLDataElement): SuggestionItem => ({
-  label: data.textContent?.trim() || data.value,
-  value: data.value,
-})
+/** Resolves a primitive value into items, using known labels where available. */
+export const toSelected = (
+  value: SuggestionValue,
+  labels: SuggestionLabels,
+): SuggestionSelected => {
+  if (value == null) return undefined
+
+  const items = resolveItems(value, labels)
+  return Array.isArray(value) ? items : items[0]
+}
+
+export const sameValue = (left: SuggestionValue, right: SuggestionValue) => {
+  if (Array.isArray(left) && Array.isArray(right)) {
+    return (
+      left.length === right.length &&
+      left.every((value, index) => value === right[index])
+    )
+  }
+
+  return left === right
+}
 
 export const nextSelected = (
   data: HTMLDataElement,
-  previous: SuggestionModelValue,
+  previous: SuggestionValue,
   multiple: boolean,
-): SuggestionItem | SuggestionItem[] | undefined => {
-  const item = toItem(data)
+): SuggestionValue => {
+  const value = data.value
 
-  if (!multiple) {
-    return data.isConnected ? undefined : item
-  }
+  if (!multiple) return data.isConnected ? undefined : value
 
-  const prevItems = sanitizeItems(previous)
+  const previousValues = toValues(previous)
+
   return data.isConnected
-    ? prevItems.filter(({ value }) => value !== item.value)
-    : [...prevItems, item]
+    ? previousValues.filter((previousValue) => previousValue !== value)
+    : [...previousValues, value]
 }

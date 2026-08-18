@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
-  afterNextRender,
+  afterRenderEffect,
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
@@ -11,8 +11,12 @@ import {
   ElementRef,
   input,
   model,
+  output,
+  signal,
+  untracked,
   viewChild,
 } from '@angular/core'
+import type { FormValueControl } from '@angular/forms/signals'
 import '@digdir/designsystemet-web'
 import {
   HostColor,
@@ -22,12 +26,25 @@ import { SuggestionList } from './suggestion-list'
 import type {
   SuggestionFilter,
   SuggestionFilterArgs,
-  SuggestionItem,
+  SuggestionSelected,
+  SuggestionSelectedInput,
+  SuggestionValue,
 } from './suggestion.types'
-import { nextSelected, sanitizeItems } from './suggestion.utils'
+import type { SuggestionLabels } from './suggestion.utils'
+import {
+  labelEntries,
+  nextSelected,
+  resolveItems,
+  sameValue,
+  toSelected,
+  toValue,
+} from './suggestion.utils'
 
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
+
+// Distinguishes an unbound `selected` from one explicitly bound to `undefined`.
+const UNSET = Symbol('unset')
 
 @Component({
   selector: 'ksd-suggestion',
@@ -56,8 +73,8 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
       [attr.data-multiple]="multiple() || undefined"
       [attr.data-creatable]="creatable() || undefined"
       (comboboxbeforeselect)="onSelect($event)"
+      (focusout)="onFocusOut($event)"
       (input)="onInput($event)"
-      (keydown)="onKeyDown($event)"
     >
       @for (option of selectedArray(); track option.value) {
         <data [attr.value]="option.value">{{ option.label }}</data>
@@ -84,7 +101,7 @@ const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
     </ds-suggestion>
   `,
 })
-export class Suggestion {
+export class Suggestion implements FormValueControl<SuggestionValue> {
   /**
    * Allows the user to select multiple items
    *
@@ -107,23 +124,73 @@ export class Suggestion {
   filter = input<boolean | SuggestionFilter>(true)
 
   /**
-   * Model for the selected item(s).
+   * Current value, as primitive option values. Bound by Angular signal forms.
    *
    * @default undefined
    */
-  selected = model<SuggestionItem | SuggestionItem[] | undefined>(undefined)
+  readonly value = model<SuggestionValue>(undefined)
 
-  protected selectedArray = computed(() => sanitizeItems(this.selected()))
+  /**
+   * Controlled selection. Accepts items or raw option values.
+   *
+   * @default undefined
+   */
+  readonly selected = input<SuggestionSelectedInput | typeof UNSET>(UNSET)
+
+  /**
+   * Emits the resolved selection whenever the user changes it.
+   */
+  readonly selectedChange = output<SuggestionSelected>()
+
+  /**
+   * Form-control dirty state.
+   *
+   * @default false
+   */
+  readonly dirty = input(false, { transform: booleanAttribute })
+
+  /**
+   * Whether the control has been touched. Synced with Angular signal forms.
+   *
+   * @default false
+   */
+  readonly touched = model(false)
+
+  protected selectedArray = computed(() =>
+    resolveItems(this.value(), this.labels()),
+  )
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
+  private readonly labels = signal<SuggestionLabels>(new Map())
+  private readonly query = signal('')
   protected readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
-    afterNextRender(() => this.syncOptions(null))
-
-    effect(() => {
+    // Runs after render, so projected options are present in the DOM.
+    afterRenderEffect(() => {
+      this.query()
+      this.filter()
       this.suggestionList()?.options()
-      queueMicrotask(() => this.syncOptions(null))
+      this.syncOptions()
+    })
+
+    // Apply the controlled `selected` input, when bound, to the value model.
+    effect(() => {
+      const selected = this.selected()
+      if (selected === UNSET) return
+
+      untracked(() => this.learnLabels(labelEntries(selected)))
+
+      const next = toValue(selected)
+      if (
+        sameValue(
+          next,
+          untracked(() => this.value()),
+        )
+      )
+        return
+
+      untracked(() => this.value.set(next))
     })
   }
 
@@ -134,32 +201,74 @@ export class Suggestion {
     const data = customEvent.detail
     if (!data) return
 
-    this.selected.set(nextSelected(data, this.selected(), this.multiple()))
+    this.learnLabels([[data.value, data.textContent?.trim() || data.value]])
+    this.setValue(nextSelected(data, this.value(), this.multiple()))
   }
 
-  protected onKeyDown(event: Event) {
-    const keyboardEvent = event as KeyboardEvent
-    if (keyboardEvent.key !== 'Escape') return
+  protected onFocusOut(event: FocusEvent) {
+    const suggestionElement = this.suggestionElement()?.nativeElement
+    const nextTarget = event.relatedTarget
 
-    event.preventDefault()
+    // Ignore focus changes within the composite widget; only mark touched
+    // when focus leaves the suggestion control entirely.
+    if (
+      suggestionElement &&
+      nextTarget instanceof Node &&
+      suggestionElement.contains(nextTarget)
+    ) {
+      return
+    }
+
+    this.touched.set(true)
   }
 
   protected onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement | null
-    setTimeout(() => this.syncOptions(inputElement))
+    this.query.set(inputElement?.value ?? '')
   }
 
-  private syncOptions(inputElement: HTMLInputElement | null) {
+  private setValue(value: SuggestionValue) {
+    if (sameValue(value, this.value())) return
+
+    this.value.set(value)
+    this.selectedChange.emit(toSelected(value, this.labels()))
+  }
+
+  private learnLabels(entries: Iterable<readonly [string, string]>) {
+    this.labels.update((current) => {
+      let next: Map<string, string> | null = null
+
+      for (const [value, label] of entries) {
+        if (current.get(value) === label) continue
+
+        next ??= new Map(current)
+        next.set(value, label)
+      }
+
+      return next ?? current
+    })
+  }
+
+  private syncOptions() {
     const suggestionElement = this.suggestionElement()?.nativeElement
     if (!suggestionElement) return
 
-    const input =
-      inputElement ?? suggestionElement.querySelector<HTMLInputElement>('input')
+    const input = suggestionElement.querySelector<HTMLInputElement>('input')
 
     const options = Array.from(
       suggestionElement.querySelectorAll<HTMLOptionElement>(
         'u-option:not([data-empty])',
       ),
+    )
+
+    this.learnLabels(
+      options.map((option) => [
+        option.value,
+        option.label ||
+          option.text ||
+          option.textContent?.trim() ||
+          option.value,
+      ]),
     )
 
     const filter = this.filter()
