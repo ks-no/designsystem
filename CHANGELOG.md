@@ -1,3 +1,17 @@
+## 0.0.1-alpha.69
+
+### 🚀 Features
+
+- ⚠️ **angular/suggestion:** support formField (signal forms) ([#330](https://github.com/ks-no/designsystem/pull/330))
+
+### ⚠️ Breaking Changes
+
+- **angular/suggestion:** support formField (signal forms) ([#330](https://github.com/ks-no/designsystem/pull/330))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.68
 
 ### 🚀 Features
