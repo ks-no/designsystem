@@ -1,10 +1,19 @@
 export type SuggestionItem = { label: string; value: string }
 
-export type SuggestionValue = SuggestionItem | SuggestionItem[] | undefined
+/** Value of the `value` model and Angular signal forms. Always primitive. */
+export type SuggestionValue = string | string[] | undefined
 
-export type SuggestionPrimitiveValue = string | string[] | undefined
+/** Accepted by `[selected]`; items and raw option values are both allowed. */
+export type SuggestionSelectedInput =
+  | SuggestionItem
+  | SuggestionItem[]
+  | string
+  | string[]
+  | null
+  | undefined
 
-export type SuggestionFormValue = SuggestionPrimitiveValue | SuggestionValue
+/** Emitted by `(selectedChange)`. Always resolved items. */
+export type SuggestionSelected = SuggestionItem | SuggestionItem[] | undefined
 
 export type SuggestionFilterArgs = {
   index: number
@@ -16,7 +25,3 @@ export type SuggestionFilterArgs = {
 }
 
 export type SuggestionFilter = (args: SuggestionFilterArgs) => boolean
-
-export type SuggestionModelValue = SuggestionValue | null | undefined
-
-export type SuggestionFormModelValue = SuggestionFormValue | null | undefined

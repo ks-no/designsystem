@@ -20,6 +20,8 @@ import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 `Suggestion` kan brukes med Angular signal forms via `formField`.
 
+Verdien i skjemamodellen er alltid primitiv: `string` ved enkeltvalg og `string[]` ved `multiple`. Etiketten hentes fra `ksd-suggestion-list-option`.
+
 ```ts
 import { Component, signal } from '@angular/core'
 import { FormField, form } from '@angular/forms/signals'
@@ -72,8 +74,9 @@ export class App {
 
 ## Kontrollert bruk
 
-- Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`).
-- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg.
+- Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`). Den godtar både `SuggestionItem` og rene verdier (`string`).
+- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg. Den sender alltid ut `SuggestionItem`.
+- Bruk `selected` eller `formField`, ikke begge på samme komponent.
 
 ```ts
 import { Component, signal } from '@angular/core'

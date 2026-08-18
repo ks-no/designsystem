@@ -1,7 +1,7 @@
 import type {
-  SuggestionFormModelValue,
-  SuggestionFormValue,
   SuggestionItem,
+  SuggestionSelected,
+  SuggestionSelectedInput,
   SuggestionValue,
 } from './suggestion.types'
 
@@ -14,64 +14,78 @@ export const isSuggestionItem = (
   'value' in value
 
 const sanitizeValues = (
-  values: SuggestionFormModelValue,
+  values: SuggestionSelectedInput,
 ): Array<SuggestionItem | string> =>
   values == null ? [] : Array.isArray(values) ? values : [values]
 
-export const sanitizeItems = (
-  values: SuggestionFormModelValue,
-  optionItems: SuggestionItem[] = [],
-): SuggestionItem[] =>
-  sanitizeValues(values).map((value) => {
-    if (isSuggestionItem(value)) return value
+const toValues = (value: SuggestionValue): string[] =>
+  value == null ? [] : Array.isArray(value) ? value : [value]
 
-    const optionItem = optionItems.find((item) => item.value === value)
-    return optionItem ?? { label: value, value }
-  })
+/** Option labels keyed by option value, learned from options and selections. */
+export type SuggestionLabels = ReadonlyMap<string, string>
 
-export const toSuggestionValue = (
-  values: SuggestionFormModelValue,
-  optionItems: SuggestionItem[] = [],
-): SuggestionValue => {
+/** Extracts the labels carried by any items passed to `[selected]`. */
+export const labelEntries = (
+  values: SuggestionSelectedInput,
+): Array<[string, string]> =>
+  sanitizeValues(values)
+    .filter(isSuggestionItem)
+    .map((item) => [item.value, item.label])
+
+/** Normalizes anything accepted by `[selected]` into the primitive value model. */
+export const toValue = (values: SuggestionSelectedInput): SuggestionValue => {
   if (values == null) return undefined
 
-  const items = sanitizeItems(values, optionItems)
-  return Array.isArray(values) ? items : items[0]
-}
-
-export const usesItemValues = (values: SuggestionFormModelValue) =>
-  sanitizeValues(values).some(isSuggestionItem)
-
-const toItem = (data: HTMLDataElement): SuggestionItem => ({
-  label: data.textContent?.trim() || data.value,
-  value: data.value,
-})
-
-export const nextSelected = (
-  data: HTMLDataElement,
-  previous: SuggestionFormModelValue,
-  multiple: boolean,
-  useItemValues: boolean,
-): SuggestionFormValue => {
-  const item = toItem(data)
-
-  if (!multiple) {
-    return data.isConnected ? undefined : useItemValues ? item : item.value
-  }
-
-  if (useItemValues) {
-    const previousItems = sanitizeItems(previous)
-
-    return data.isConnected
-      ? previousItems.filter((value) => value.value !== item.value)
-      : [...previousItems, item]
-  }
-
-  const previousValues = sanitizeValues(previous).map((value) =>
+  const primitives = sanitizeValues(values).map((value) =>
     isSuggestionItem(value) ? value.value : value,
   )
 
+  return Array.isArray(values) ? primitives : primitives[0]
+}
+
+export const resolveItems = (
+  value: SuggestionValue,
+  labels: SuggestionLabels,
+): SuggestionItem[] =>
+  toValues(value).map((optionValue) => ({
+    label: labels.get(optionValue) ?? optionValue,
+    value: optionValue,
+  }))
+
+/** Resolves a primitive value into items, using known labels where available. */
+export const toSelected = (
+  value: SuggestionValue,
+  labels: SuggestionLabels,
+): SuggestionSelected => {
+  if (value == null) return undefined
+
+  const items = resolveItems(value, labels)
+  return Array.isArray(value) ? items : items[0]
+}
+
+export const sameValue = (left: SuggestionValue, right: SuggestionValue) => {
+  if (Array.isArray(left) && Array.isArray(right)) {
+    return (
+      left.length === right.length &&
+      left.every((value, index) => value === right[index])
+    )
+  }
+
+  return left === right
+}
+
+export const nextSelected = (
+  data: HTMLDataElement,
+  previous: SuggestionValue,
+  multiple: boolean,
+): SuggestionValue => {
+  const value = data.value
+
+  if (!multiple) return data.isConnected ? undefined : value
+
+  const previousValues = toValues(previous)
+
   return data.isConnected
-    ? previousValues.filter((value) => value !== item.value)
-    : [...previousValues, item.value]
+    ? previousValues.filter((previousValue) => previousValue !== value)
+    : [...previousValues, value]
 }

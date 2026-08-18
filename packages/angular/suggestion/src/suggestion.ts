@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common'
 import {
-  afterNextRender,
+  afterRenderEffect,
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
@@ -26,49 +26,25 @@ import { SuggestionList } from './suggestion-list'
 import type {
   SuggestionFilter,
   SuggestionFilterArgs,
-  SuggestionFormValue,
-  SuggestionItem,
-  SuggestionModelValue,
+  SuggestionSelected,
+  SuggestionSelectedInput,
   SuggestionValue,
 } from './suggestion.types'
+import type { SuggestionLabels } from './suggestion.utils'
 import {
+  labelEntries,
   nextSelected,
-  sanitizeItems,
-  toSuggestionValue,
-  usesItemValues,
+  resolveItems,
+  sameValue,
+  toSelected,
+  toValue,
 } from './suggestion.utils'
 
 const defaultFilter = ({ label, input }: SuggestionFilterArgs) =>
   label.toLowerCase().includes(input.value.trim().toLowerCase())
 
-const normalizeValue = (value: SuggestionModelValue): SuggestionValue =>
-  value ?? undefined
-
-const valueShape = (value: SuggestionFormValue) => {
-  if (value === undefined) return 'undefined'
-
-  return Array.isArray(value) ? 'array' : 'single'
-}
-
-const sameItems = (
-  left: SuggestionFormValue,
-  right: SuggestionFormValue,
-  optionItems: SuggestionItem[],
-) => {
-  if (valueShape(left) !== valueShape(right)) return false
-
-  const leftItems = sanitizeItems(left, optionItems)
-  const rightItems = sanitizeItems(right, optionItems)
-
-  return (
-    leftItems.length === rightItems.length &&
-    leftItems.every(
-      (item, index) =>
-        item.label === rightItems[index]?.label &&
-        item.value === rightItems[index]?.value,
-    )
-  )
-}
+// Distinguishes an unbound `selected` from one explicitly bound to `undefined`.
+const UNSET = Symbol('unset')
 
 @Component({
   selector: 'ksd-suggestion',
@@ -126,7 +102,7 @@ const sameItems = (
     </ds-suggestion>
   `,
 })
-export class Suggestion implements FormValueControl<SuggestionFormValue> {
+export class Suggestion implements FormValueControl<SuggestionValue> {
   /**
    * Allows the user to select multiple items
    *
@@ -149,18 +125,23 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
   filter = input<boolean | SuggestionFilter>(true)
 
   /**
-   * Internal value model used by Angular signal forms.
+   * Current value, as primitive option values. Bound by Angular signal forms.
    *
    * @default undefined
    */
-  readonly value = model<SuggestionFormValue>(undefined)
+  readonly value = model<SuggestionValue>(undefined)
 
   /**
-   * Controlled selected value for direct component usage.
+   * Controlled selection. Accepts items or raw option values.
    *
    * @default undefined
    */
-  readonly selected = model<SuggestionModelValue>(undefined)
+  readonly selected = input<SuggestionSelectedInput | typeof UNSET>(UNSET)
+
+  /**
+   * Emits the resolved selection whenever the user changes it.
+   */
+  readonly selectedChange = output<SuggestionSelected>()
 
   /**
    * Form-control dirty state.
@@ -170,59 +151,47 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
   readonly dirty = input(false, { transform: booleanAttribute })
 
   /**
-   * Emits when the control should be marked as touched.
+   * Whether the control has been touched. Synced with Angular signal forms.
+   *
+   * @default false
    */
-  readonly touch = output<void>()
+  readonly touched = model(false)
 
   protected selectedArray = computed(() =>
-    sanitizeItems(this.value(), this.optionItems()),
+    resolveItems(this.value(), this.labels()),
   )
   private readonly suggestionElement =
     viewChild<ElementRef<HTMLElement>>('suggestionElement')
-  private readonly optionItems = signal<SuggestionItem[]>([])
+  private readonly labels = signal<SuggestionLabels>(new Map())
+  private readonly query = signal('')
   protected readonly suggestionList = contentChild(SuggestionList)
 
   constructor() {
-    afterNextRender(() => this.syncOptions(null))
-
-    // Keep the internal form-control model in sync when selected is used as the
-    // direct controlled API instead of formField.
-    effect(() => {
-      const normalizedValue = normalizeValue(this.selected())
-      if (
-        sameItems(
-          normalizedValue,
-          untracked(() => this.value()),
-          untracked(() => this.optionItems()),
-        )
-      )
-        return
-
-      untracked(() => this.value.set(normalizedValue))
-    })
-
-    // Mirror the current selection back into the public selected model so
-    // component references can read and update the resolved object value.
-    effect(() => {
-      const selectedValue = toSuggestionValue(this.value(), this.optionItems())
-      const currentSelected = normalizeValue(untracked(() => this.selected()))
-
-      if (
-        sameItems(
-          selectedValue,
-          currentSelected,
-          untracked(() => this.optionItems()),
-        )
-      )
-        return
-
-      untracked(() => this.selected.set(selectedValue))
-    })
-
-    // Re-run option filtering after projected suggestion options change.
-    effect(() => {
+    // Runs after render, so projected options are present in the DOM.
+    afterRenderEffect(() => {
+      this.query()
+      this.filter()
       this.suggestionList()?.options()
-      queueMicrotask(() => this.syncOptions(null))
+      this.syncOptions()
+    })
+
+    // Apply the controlled `selected` input, when bound, to the value model.
+    effect(() => {
+      const selected = this.selected()
+      if (selected === UNSET) return
+
+      untracked(() => this.learnLabels(labelEntries(selected)))
+
+      const next = toValue(selected)
+      if (
+        sameValue(
+          next,
+          untracked(() => this.value()),
+        )
+      )
+        return
+
+      untracked(() => this.value.set(next))
     })
   }
 
@@ -233,14 +202,8 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
     const data = customEvent.detail
     if (!data) return
 
-    this.setValue(
-      nextSelected(
-        data,
-        this.value(),
-        this.multiple(),
-        usesItemValues(this.value()),
-      ),
-    )
+    this.learnLabels([[data.value, data.textContent?.trim() || data.value]])
+    this.setValue(nextSelected(data, this.value(), this.multiple()))
   }
 
   protected onKeyDown(event: Event) {
@@ -264,26 +227,41 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
       return
     }
 
-    this.touch.emit()
+    this.touched.set(true)
   }
 
   protected onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement | null
-    setTimeout(() => this.syncOptions(inputElement))
+    this.query.set(inputElement?.value ?? '')
   }
 
-  private setValue(value: SuggestionFormValue) {
-    if (sameItems(value, this.value(), this.optionItems())) return
+  private setValue(value: SuggestionValue) {
+    if (sameValue(value, this.value())) return
 
     this.value.set(value)
+    this.selectedChange.emit(toSelected(value, this.labels()))
   }
 
-  private syncOptions(inputElement: HTMLInputElement | null) {
+  private learnLabels(entries: Iterable<readonly [string, string]>) {
+    this.labels.update((current) => {
+      let next: Map<string, string> | null = null
+
+      for (const [value, label] of entries) {
+        if (current.get(value) === label) continue
+
+        next ??= new Map(current)
+        next.set(value, label)
+      }
+
+      return next ?? current
+    })
+  }
+
+  private syncOptions() {
     const suggestionElement = this.suggestionElement()?.nativeElement
     if (!suggestionElement) return
 
-    const input =
-      inputElement ?? suggestionElement.querySelector<HTMLInputElement>('input')
+    const input = suggestionElement.querySelector<HTMLInputElement>('input')
 
     const options = Array.from(
       suggestionElement.querySelectorAll<HTMLOptionElement>(
@@ -291,15 +269,14 @@ export class Suggestion implements FormValueControl<SuggestionFormValue> {
       ),
     )
 
-    this.optionItems.set(
-      options.map((option) => ({
-        label:
-          option.label ||
+    this.learnLabels(
+      options.map((option) => [
+        option.value,
+        option.label ||
           option.text ||
           option.textContent?.trim() ||
           option.value,
-        value: option.value,
-      })),
+      ]),
     )
 
     const filter = this.filter()
