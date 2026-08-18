@@ -479,12 +479,12 @@ describe('Suggestion', () => {
     ])
   })
 
-  it('should prevent default on Escape key', async () => {
-    const { container } = await renderSuggestion()
-    const dsSuggestion = container.querySelector('ds-suggestion')
+  it('should not block Escape while the suggestion list is closed', async () => {
+    const { container } = await renderSuggestionWithList()
+    const input = container.querySelector('input')
 
-    expect(dsSuggestion).toBeInTheDocument()
-    if (!dsSuggestion) return
+    expect(input).toBeInTheDocument()
+    if (!input) return
 
     const event = new KeyboardEvent('keydown', {
       key: 'Escape',
@@ -492,9 +492,10 @@ describe('Suggestion', () => {
       cancelable: true,
     })
 
-    dsSuggestion.dispatchEvent(event)
+    input.dispatchEvent(event)
 
-    expect(event.defaultPrevented).toBe(true)
+    // Escape must stay available to ancestors such as <dialog>.
+    expect(event.defaultPrevented).toBe(false)
   })
 
   it('should not mark as touched when focus moves within the suggestion control', async () => {

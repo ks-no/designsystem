@@ -75,7 +75,6 @@ const UNSET = Symbol('unset')
       (comboboxbeforeselect)="onSelect($event)"
       (focusout)="onFocusOut($event)"
       (input)="onInput($event)"
-      (keydown)="onKeyDown($event)"
     >
       @for (option of selectedArray(); track option.value) {
         <data [attr.value]="option.value">{{ option.label }}</data>
@@ -204,13 +203,6 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
 
     this.learnLabels([[data.value, data.textContent?.trim() || data.value]])
     this.setValue(nextSelected(data, this.value(), this.multiple()))
-  }
-
-  protected onKeyDown(event: Event) {
-    const keyboardEvent = event as KeyboardEvent
-    if (keyboardEvent.key !== 'Escape') return
-
-    event.preventDefault()
   }
 
   protected onFocusOut(event: FocusEvent) {
