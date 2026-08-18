@@ -75,7 +75,7 @@ export class App {
 ## Kontrollert bruk
 
 - Bruk `selected` til å lagre nåværende valgt verdi (eller verdier ved `multiple`). Den godtar både `SuggestionItem` og rene verdier (`string`).
-- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg. Den sender alltid ut `SuggestionItem`.
+- Lytt på `selectedChange` for å reagere når brukeren velger eller fjerner et valg. Den sender alltid ut `SuggestionSelected`, altså `SuggestionItem` ved enkeltvalg og `SuggestionItem[]` ved `multiple`.
 - Bruk `selected` eller `formField`, ikke begge på samme komponent.
 
 ```ts
@@ -83,7 +83,7 @@ import { Component, signal } from '@angular/core'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import {
   Suggestion,
-  type SuggestionItem,
+  type SuggestionSelected,
   SuggestionList,
   SuggestionListEmpty,
   SuggestionListOption,
@@ -122,7 +122,7 @@ import {
 })
 export class App {
   places = signal(['Bergen', 'Oslo'])
-  selected = signal<SuggestionItem | undefined>(undefined)
+  selected = signal<SuggestionSelected>(undefined)
 }
 ```
 
