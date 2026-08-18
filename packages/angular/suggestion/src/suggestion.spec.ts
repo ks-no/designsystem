@@ -14,16 +14,17 @@ import { Suggestion } from './suggestion'
 import type {
   SuggestionFilter,
   SuggestionItem,
-  SuggestionModelValue,
+  SuggestionSelected,
+  SuggestionSelectedInput,
 } from './suggestion.types'
 
 type RenderSuggestionProps = {
   creatable?: boolean
   filter?: boolean | SuggestionFilter
   multiple?: boolean
-  onSelectedChange?: (value: SuggestionModelValue) => void
+  onSelectedChange?: (value: SuggestionSelected) => void
   onTouch?: () => void
-  selected?: SuggestionModelValue
+  selected?: SuggestionSelectedInput
 }
 
 const renderSuggestion = async ({
@@ -42,7 +43,7 @@ const renderSuggestion = async ({
 				[multiple]="multiple"
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
-        (touch)="onTouch()"
+        (touchedChange)="onTouch()"
 			>
         <input ksd-input />
 			</ksd-suggestion>
@@ -127,7 +128,7 @@ class SuggestionFormFieldHost {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [Suggestion, SuggestionList, SuggestionListOption, Input, FormField],
   template: `
-    <ksd-suggestion [formField]="municipalityForm.municipality">
+    <ksd-suggestion multiple [formField]="municipalityForm.municipalities">
       <input ksd-input />
       <ksd-suggestion-list>
         <ksd-suggestion-list-option value="4601"
@@ -140,14 +141,11 @@ class SuggestionFormFieldHost {
     </ksd-suggestion>
   `,
 })
-class SuggestionObjectFormFieldHost {
+class SuggestionMultipleFormFieldHost {
   readonly municipalityModel = signal<{
-    municipality: SuggestionItem
+    municipalities: string[]
   }>({
-    municipality: {
-      label: 'Oslo',
-      value: '0301',
-    },
+    municipalities: [],
   })
 
   readonly municipalityForm = form(this.municipalityModel)
@@ -163,7 +161,7 @@ class SuggestionObjectFormFieldHost {
   `,
 })
 class SuggestionMultipleSelectedHost {
-  readonly selected = signal<SuggestionModelValue>(undefined)
+  readonly selected = signal<SuggestionSelectedInput>(undefined)
 }
 
 describe('Suggestion', () => {
@@ -211,7 +209,18 @@ describe('Suggestion', () => {
     expect(rendered).toHaveTextContent('Option 1')
   })
 
-  it('should expose the current selection through the selected model', async () => {
+  it('should accept raw option values in selected and resolve their labels', async () => {
+    const { container } = await renderSuggestionWithList({ selected: '0301' })
+
+    await waitFor(() => {
+      const rendered = container.querySelector('data[value="0301"]')
+
+      expect(rendered).toBeInTheDocument()
+      expect(rendered).toHaveTextContent('Oslo')
+    })
+  })
+
+  it('should expose the current selection through the value model', async () => {
     const { container, fixture } = await renderSuggestionWithList()
     const suggestion = fixture.debugElement.query(By.directive(Suggestion))
       .componentInstance as Suggestion
@@ -233,14 +242,11 @@ describe('Suggestion', () => {
     )
 
     await waitFor(() => {
-      expect(suggestion.selected()).toEqual({
-        label: 'Oslo',
-        value: '0301',
-      })
+      expect(suggestion.value()).toBe('0301')
     })
   })
 
-  it('should preserve array shape when selected changes between undefined and empty array', async () => {
+  it('should distinguish an empty array from undefined', async () => {
     const { fixture } = await render(SuggestionMultipleSelectedHost)
     const host = fixture.componentInstance
 
@@ -293,15 +299,11 @@ describe('Suggestion', () => {
     })
   })
 
-  it('should keep supporting object formField values for backwards compatibility', async () => {
-    const { container, fixture } = await render(SuggestionObjectFormFieldHost)
+  it('should write an array of primitive values through a multiple formField', async () => {
+    const { container, fixture } = await render(SuggestionMultipleFormFieldHost)
     const host = fixture.componentInstance
     const dsSuggestion = container.querySelector('ds-suggestion')
 
-    const rendered = container.querySelector('data[value="0301"]')
-
-    expect(rendered).toBeInTheDocument()
-    expect(rendered).toHaveTextContent('Oslo')
     expect(dsSuggestion).toBeInTheDocument()
     if (!dsSuggestion) return
 
@@ -318,10 +320,28 @@ describe('Suggestion', () => {
     )
 
     await waitFor(() => {
-      expect(host.municipalityModel().municipality).toEqual({
-        label: 'Bergen',
-        value: '4601',
-      })
+      expect(host.municipalityModel().municipalities).toEqual(['4601'])
+    })
+  })
+
+  it('should mark the bound form field as touched on blur', async () => {
+    const { container, fixture } = await render(SuggestionFormFieldHost)
+    const host = fixture.componentInstance
+    const dsSuggestion = container.querySelector('ds-suggestion')
+
+    expect(host.municipalityForm.municipality().touched()).toBe(false)
+    expect(dsSuggestion).toBeInTheDocument()
+    if (!dsSuggestion) return
+
+    dsSuggestion.dispatchEvent(
+      new FocusEvent('focusout', {
+        bubbles: true,
+        relatedTarget: document.body,
+      }),
+    )
+
+    await waitFor(() => {
+      expect(host.municipalityForm.municipality().touched()).toBe(true)
     })
   })
 
@@ -477,7 +497,7 @@ describe('Suggestion', () => {
     expect(event.defaultPrevented).toBe(true)
   })
 
-  it('should not emit touch when focus moves within the suggestion control', async () => {
+  it('should not mark as touched when focus moves within the suggestion control', async () => {
     const onTouch = vi.fn()
     const { container } = await renderSuggestion({ onTouch })
     const dsSuggestion = container.querySelector('ds-suggestion')
@@ -498,7 +518,7 @@ describe('Suggestion', () => {
     expect(onTouch).not.toHaveBeenCalled()
   })
 
-  it('should emit touch when focus leaves the suggestion control', async () => {
+  it('should mark as touched when focus leaves the suggestion control', async () => {
     const onTouch = vi.fn()
     const { container } = await renderSuggestion({ onTouch })
     const dsSuggestion = container.querySelector('ds-suggestion')
@@ -545,37 +565,6 @@ describe('Suggestion', () => {
       await waitFor(() => {
         expect(bergenOption).not.toBeDisabled()
         expect(osloOption).not.toBeDisabled()
-      })
-    })
-
-    it('should keep options visible when filtering is disabled', async () => {
-      const { container } = await render(
-        `
-        <ksd-suggestion [filter]="false">
-          <input ksd-input />
-          <ksd-suggestion-list>
-            <ksd-suggestion-list-option value="4601">Bergen</ksd-suggestion-list-option>
-          </ksd-suggestion-list>
-        </ksd-suggestion>
-      `,
-        {
-          imports: [Suggestion, SuggestionList, SuggestionListOption, Input],
-        },
-      )
-
-      const input = container.querySelector('input')
-      const bergenOption = container.querySelector('u-option[value="4601"]')
-
-      expect(input).toBeInTheDocument()
-      expect(bergenOption).toBeInTheDocument()
-
-      if (!input || !bergenOption) return
-
-      input.value = 'Bx'
-      input.dispatchEvent(new Event('input', { bubbles: true }))
-
-      await waitFor(() => {
-        expect(bergenOption).not.toBeDisabled()
       })
     })
 
