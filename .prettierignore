@@ -5,3 +5,5 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 
 .angular
+
+.nx/self-healing

@@ -28,35 +28,23 @@ If your bundler (e.g., Vite) is configured to resolve npm packages in CSS import
 
 #### Tailwind
 
-If you are using Tailwind with [Preflight](https://tailwindcss.com/docs/preflight), ensure that you load the Designsystemet styles first by importing `base.tailwind.css` instead of `base.css`. The `base.tailwind.css` file includes all of `base.css` along with some overrides to ensure smooth integration between Designsystemet and Tailwind.
+Import [theme].tailwind.css to get Tailwind util-classes for Designsystemet-tokens.
 
-The [theme].tailwind.css bridges the gap between Designsystemet and Tailwind, by mapping Tailwind-classes to the Designsystem-tokens! So import that as well.
-
-##### v4
-
-```css
-@import url('@ks-digital/designsystem-themes/base.tailwind.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.tailwind.css');
-@import url('tailwindcss');
-```
-
-##### v3 and older
-
-> **Note:**  
-> Tailwind versions earlier than v4 do **not** support mapping Tailwind utility classes directly to Designsystemet tokens.
+> The `@layer` declaration on the first line controls cascade priority — later layers win.
+> The recommended order places `ds` and `ksd` above Tailwind so design system styles take precedence.
+> If you need Tailwind utilities to override component styles, move `utilities` after `ksd` —
+> but be aware that overriding component internals may break with future releases.
 
 ```css
-@import url('@ks-digital/designsystem-themes/base.tailwind.css');
-@import url('@ks-digital/designsystem-themes/ledsagerbevis.css');
+@layer theme, base, utilities, ds, ksd;
 
-@layer tailwind-base, ds;
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ksdigital.css');
 
-@layer tailwind-base {
-  @tailwind base;
-}
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@ks-digital/designsystem-themes/ksdigital.tailwind.css' layer(theme);
 ```
 
 ### In JavaScript/TypeScript Files
@@ -72,7 +60,11 @@ import '@ks-digital/designsystem-themes/ledsagerbevis.css'
 
 1. Add theme to `designsystemet.config.json`. The color names must match the other themes.
 2. Create design tokens for theme `pnpm run themes:create-tokens`
-3. Build themes `pnmp run themes:build`
-4. Add theme `exports`-field in `packages/themes/package.json`
-5. Add theme to Storybook `tools/storybook/themes.ts`
-6. Add theme to docs `apps/www/src/Tema.mdx`
+3. Apply KS custom token aliases to the generated token sources `pnpm run themes:apply-custom-tokens:tokens`
+4. Build themes `pnpm run themes:build`.
+   This also applies KS custom token aliases to the generated theme outputs via `themes:apply-custom-tokens:outputs`.
+5. Add theme `exports`-field in `packages/themes/package.json`
+6. Add theme to Storybook `tools/storybook/themes.ts`
+7. Add theme to docs `apps/www/src/Temaer.mdx`
+
+For the full pipeline, you can also run `pnpm run themes:generate`.

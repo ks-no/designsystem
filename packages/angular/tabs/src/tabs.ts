@@ -1,26 +1,43 @@
+import { NgTemplateOutlet } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   contentChildren,
-  effect,
-  input,
-  model,
-  signal,
+  CUSTOM_ELEMENTS_SCHEMA,
+  output,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
-import { TabsTab } from './tabs-tab'
+import { TabClickEvent, TabsTab } from './tabs-tab'
 
 @Component({
   selector: `ksd-tabs`,
+  imports: [NgTemplateOutlet],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <div class="ds-tabs">
-      <ng-content select="ksd-tabs-list" />
+    <ds-tabs class="ds-tabs">
+      <ds-tablist>
+        @for (tab of tabs(); track tab; let index = $index) {
+          <ds-tab (click)="onTabClick(index, tab)">
+            <ng-container *ngTemplateOutlet="tab.templateRef()" />
+          </ds-tab>
+        }
+      </ds-tablist>
       <ng-content select="ksd-tabs-panel" />
-    </div>
+    </ds-tabs>
+  `,
+  styles: `
+    :host
+      ::ng-deep
+      :is(.ds-tabs [role='tab'], .ds-tabs ds-tab, .ds-tabs u-tab)
+      > :where(ng-icon, svg, img) {
+      font-size: calc(1em * 1.25);
+      width: 1em;
+      height: 1em;
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
@@ -35,68 +52,20 @@ import { TabsTab } from './tabs-tab'
   ],
 })
 export class Tabs {
-  readonly defaultValue = input<string>()
-  readonly value = model<string>('')
-  readonly focusedValue = computed(() =>
-    this.tabs()[this.focusedIndex()]?.value(),
-  )
+  /**
+   * Emits tab click details when any tab is clicked.
+   */
+  readonly tabClicked = output<TabClickEvent>()
+
   readonly tabs = contentChildren(TabsTab, { descendants: true })
-  private focusedIndex = signal<number>(0)
 
-  constructor() {
-    effect(() => {
-      if (!this.value()) {
-        const value = this.defaultValue()
-        if (undefined !== value) {
-          this.changeTab(value)
-        }
-      }
-    })
-  }
-
-  onKeyDown(event: KeyboardEvent) {
-    switch (event.code) {
-      case 'ArrowLeft':
-      case 'ArrowUp':
-        this.focusTab(
-          (this.focusedIndex() + this.tabs().length - 1) % this.tabs().length,
-        )
-        event.preventDefault()
-        break
-      case 'ArrowRight':
-      case 'ArrowDown':
-        this.focusTab((this.focusedIndex() + 1) % this.tabs().length)
-        event.preventDefault()
-        break
-      case 'Enter':
-      case 'Space':
-        {
-          const value = this.focusedValue()
-          if (value) {
-            this.changeTab(value)
-          }
-        }
-        event.preventDefault()
-        break
-      case 'Home':
-        this.focusTab(0)
-        event.preventDefault()
-        break
-      case 'End':
-        this.focusTab(this.tabs().length - 1)
-        event.preventDefault()
-        break
+  protected onTabClick(index: number, tab: TabsTab) {
+    const event: TabClickEvent = {
+      index,
+      tabId: tab.tabId(),
     }
-  }
 
-  public changeTab(value: string) {
-    const index = this.tabs().findIndex((tab) => tab.value() === value)
-    this.value.set(value)
-    this.focusTab(index)
-  }
-
-  private focusTab(index: number) {
-    this.focusedIndex.set(index)
-    this.tabs()[index]?.elementRef.nativeElement.focus()
+    this.tabClicked.emit(event)
+    tab.emitTabClicked(event)
   }
 }

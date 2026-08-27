@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as ChipStories from './chip.stories'
 
@@ -6,12 +6,15 @@ import * as ChipStories from './chip.stories'
 
 # Chip
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/chip/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/chip/overview"
+  component="Chip"
+/>
 
 Chip kan brukes på elementene `label` eller `button` for å la brukerne styre hvordan de ser innhold.
 
-<Primary />
-<Controls />
+<Canvas of={ChipStories.Preview} />
+<Controls of={ChipStories.Preview} />
 
 ## Kodeeksempler
 

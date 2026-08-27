@@ -6,34 +6,6 @@ import {
 } from '@ks-digital/designsystem-themes/types'
 
 /**
- * @deprecated Use individual directives instead
- */
-@Directive({
-  host: {
-    '[attr.data-size]': 'dataSize() || null',
-    '[attr.data-color]': 'dataColor() || null',
-  },
-})
-export class CommonInputs {
-  /**
-   * Changes size for descendant Designsystemet components. Select from predefined sizes.
-   * @attribute data-size
-   */
-  readonly dataSize = input<Size>(undefined, {
-    alias: 'data-size',
-  })
-
-  /**
-   * Changes color for descendant Designsystemet components.
-   * Select from predefined colors and colors defined in theme.
-   * @attribute data-color
-   */
-  readonly dataColor = input<keyof ColorDefinitions>(undefined, {
-    alias: 'data-color',
-  })
-}
-
-/**
  * Applies data-size attribute to host-element.
  */
 @Directive({

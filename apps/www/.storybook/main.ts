@@ -1,11 +1,10 @@
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { StorybookConfig } from 'storybook'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const config: StorybookConfig = {
+const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-docs'],
   core: {
@@ -20,7 +19,11 @@ const config: StorybookConfig = {
       title: 'Web',
       url: process.env.STORYBOOK_WEB_URL || 'http://localhost:4401',
     },
-    '02-angular': {
+    '02-react': {
+      title: 'React',
+      url: process.env.STORYBOOK_REACT_URL || 'http://localhost:4403',
+    },
+    '03-angular': {
       title: 'Angular',
       url: process.env.STORYBOOK_ANGULAR_URL || 'http://localhost:4400',
     },

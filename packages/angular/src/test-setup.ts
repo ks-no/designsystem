@@ -1,5 +1,7 @@
 import '@analogjs/vitest-angular/setup-zone'
 import '@testing-library/jest-dom/vitest'
+import { expect } from 'vitest'
+import * as matchers from 'vitest-axe/matchers'
 
 import { getTestBed } from '@angular/core/testing'
 import {
@@ -8,6 +10,8 @@ import {
 } from '@angular/platform-browser/testing'
 
 getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting())
+
+expect.extend(matchers)
 
 // Mock CSS.supports for jsdom
 if (typeof CSS === 'undefined') {

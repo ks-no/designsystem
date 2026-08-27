@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Link } from './link'
 
 describe('Link', () => {
@@ -24,5 +25,15 @@ describe('Link', () => {
     const link = screen.getByRole('link')
     expect(link).toHaveClass('ds-link')
     expect(link).toHaveClass('custom-class')
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(
+      `<a ksd-link href="https://example.com">Example Link</a>`,
+      { imports: [Link] },
+    )
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

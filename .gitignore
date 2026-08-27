@@ -37,3 +37,9 @@ dist
 
 
 storybook-static
+.claude/worktrees
+.claude/settings.local.json
+.pnpm-store/*
+.nx/polygraph
+.nx/self-healing
+.nx/migrate-runs

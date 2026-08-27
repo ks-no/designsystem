@@ -1,4 +1,4 @@
-import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 import * as TagStories from './tag.stories'
@@ -7,7 +7,24 @@ import * as TagStories from './tag.stories'
 
 # Tag
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/tag/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/tag/overview"
+  component="Tag"
+/>
 
-<Primary />
-<Controls />
+<Canvas of={TagStories.Preview} />
+<Controls of={TagStories.Preview} />
+
+## Eksempler
+
+### Outline-variant
+
+<Canvas of={TagStories.VariantOutline} />
+
+### Ulike størrelser
+
+<Canvas of={TagStories.Sizes} />
+
+### Ikoner
+
+<Canvas of={TagStories.Icons} />

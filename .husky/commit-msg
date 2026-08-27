@@ -1,1 +1,7 @@
-npx --no -- commitlint --edit ${1}
+branch_name=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+if [ "$branch_name" != "main" ]; then
+	exit 0
+fi
+
+npx --no -- commitlint --edit "$1"

@@ -18,7 +18,7 @@ type PaginationArgs = CommonArgs & {
 
 const meta: Meta<PaginationArgs> = {
   component: Pagination,
-  title: 'Komponenter/Pagination',
+  title: 'Pagination',
   args: {
     current: 5,
     total: 50,

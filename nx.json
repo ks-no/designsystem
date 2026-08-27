@@ -96,6 +96,7 @@
     },
     "build-storybook": {
       "dependsOn": ["^build"],
+      "inputs": ["default", "^default", "{workspaceRoot}/tools/storybook/**/*"],
       "outputs": ["{projectRoot}/dist"],
       "cache": true
     },
@@ -154,5 +155,7 @@
     "@nx/angular:scam-directive": {
       "type": "directive"
     }
-  }
+  },
+  "analytics": false,
+  "neverConnectToCloud": true
 }

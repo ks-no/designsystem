@@ -1,4 +1,4 @@
-import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../../.storybook/components/OfficialDocsLink'
 import * as TextareaStories from './textarea.stories'
 
@@ -6,11 +6,14 @@ import * as TextareaStories from './textarea.stories'
 
 # Textarea
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/textarea/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/textarea/overview"
+  component="Textarea"
+/>
 
 `Textarea` brukes når brukeren skal kunne skrive inn tekst som går over flere linjer.
 
-<Primary />
-<Controls />
+<Canvas of={TextareaStories.Preview} />
+<Controls of={TextareaStories.Preview} />
 
 ## Bruk

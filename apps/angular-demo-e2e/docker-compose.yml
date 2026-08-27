@@ -1,0 +1,26 @@
+x-e2e-base: &e2e-base
+  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  working_dir: /work
+  volumes:
+    - ../../:/work
+    - pnpm-store:/root/.local/share/pnpm/store
+    - node_modules:/work/node_modules
+  network_mode: host
+  environment:
+    - CI=true
+    - BASE_URL=http://localhost:4200
+    - PNPM_HOME=/root/.local/share/pnpm
+  entrypoint: ['sh', 'apps/angular-demo-e2e/docker-setup.sh']
+
+services:
+  e2e:
+    <<: *e2e-base
+    command: pnpm exec nx run angular-demo-e2e:e2e
+
+  update-snapshots:
+    <<: *e2e-base
+    command: pnpm exec nx run angular-demo-e2e:e2e --update-snapshots
+
+volumes:
+  pnpm-store:
+  node_modules:

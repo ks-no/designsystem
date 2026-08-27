@@ -11,6 +11,7 @@ export default [
       '@angular-eslint/component-class-suffix': 'off',
       '@angular-eslint/directive-class-suffix': 'off',
       '@angular-eslint/no-input-rename': 'off', // We use data-attributes extensively
+      '@angular-eslint/prefer-on-push-component-change-detection': ['error'],
       '@angular-eslint/directive-selector': [
         'error',
         {

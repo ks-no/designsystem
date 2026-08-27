@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
 import * as PopoverStories from './popover.stories.ts'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
@@ -6,25 +6,28 @@ import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 # Popover
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/popover/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/popover/overview"
+  component="Popover"
+/>
 
 `Popover` vises over andre elementer i grensesnittet og er koblet til et spesifikt element. Den brukes til å vise tilleggsinformasjon, interaktive elementer eller korte forklaringer uten å navigere bort fra siden. `Popover` kan brukes som en utvidet løsning når [`Tooltip`](/docs/komponenter-tooltip--docs) ikke strekker til.
 
-<Primary />
-<Controls />
+<Canvas of={PopoverStories.Preview} />
+<Controls of={PopoverStories.Preview} />
 
 ## Bruk
 
 ```ts
 import { Component } from '@angular/core'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import { Popover } from '@ks-digital/designsystem-angular/popover'
 
 @Component({
-  selector: 'app-popover-example',
+  imports: [Button, Popover],
   template: `
-    <button ksd-button variant="primary" popovertarget="my-popover">
-      Enkel popover
-    </button>
-    <ksd-popover popoverId="my-popover"> Her er det noe innhold </ksd-popover>
+    <button ksd-button popovertarget="my-popover">Enkel popover</button>
+    <div ksd-popover id="my-popover">Her er det noe innhold</div>
   `,
 })
 export class App {}

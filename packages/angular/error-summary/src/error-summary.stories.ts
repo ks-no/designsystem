@@ -16,7 +16,7 @@ type ErrorSummaryArgs = Omit<CommonArgs, 'data-color'>
 
 const meta: Meta<ErrorSummaryArgs> = {
   component: ErrorSummary,
-  title: 'Komponenter/ErrorSummary',
+  title: 'ErrorSummary',
   argTypes: {
     'data-size': commonArgTypes['data-size'],
   },

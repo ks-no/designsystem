@@ -1,4 +1,9 @@
-import { booleanAttribute, Component, input } from '@angular/core'
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -7,6 +12,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
 
 @Component({
   selector: 'button[ksd-button], a[ksd-button]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
       directive: HostSize,
@@ -20,9 +26,8 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
   imports: [Spinner],
   host: {
     class: 'ds-button',
-    type: 'button',
     '[attr.data-variant]': 'variant()',
-    '[attr.data-icon]': 'icon() || null',
+    '[attr.data-icon]': 'icon() || dataIcon() || null',
     '[attr.disabled]': 'disabled() ? true : null',
     '[attr.aria-busy]': 'loading() ? true : null',
   },
@@ -31,13 +36,19 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     :host ::ng-deep > * {
       display: inline-flex;
     }
+
+    :host ::ng-deep ng-icon {
+      font-size: var(--ng-icon-size, 1.3em);
+    }
   `,
 
   template: `
     @if (loading()) {
       <ksd-spinner aria-hidden="true" />
     }
-    <ng-content />
+    @if (!(loading() && (icon() || dataIcon()))) {
+      <ng-content />
+    }
   `,
 })
 export class Button {
@@ -63,7 +74,14 @@ export class Button {
   readonly disabled = input(false, { transform: booleanAttribute })
 
   /**
-   * If this is a button with only an icon
+   * If this is a button with only an icon. When combined with loading, a spinner will be shown instead of the icon.
+   * @deprecated Use `data-icon` instead.
    */
   readonly icon = input(false, { transform: booleanAttribute })
+
+  /** If this is a button with only an icon. When combined with loading, a spinner will be shown instead of the icon. */
+  readonly dataIcon = input(false, {
+    transform: booleanAttribute,
+    alias: 'data-icon',
+  })
 }

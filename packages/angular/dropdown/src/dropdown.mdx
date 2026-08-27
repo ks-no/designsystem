@@ -1,0 +1,90 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as DropdownStories from './dropdown.stories.ts'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+Dropdown er en generisk nedtrekksliste. Den legger grunnmuren for å bygge menyer og lister.
+
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/dropdown/overview"
+  component="Dropdown"
+/>
+
+<Canvas of={DropdownStories.Preview} />
+<Controls of={DropdownStories.Preview} />
+
+## Bruk
+
+Dropdown bruker Popover-apiet. Alle attributter som brukes på Popover kan også brukes på Dropdown.
+
+```ts
+import { Component } from '@angular/core'
+import { Button } from '@ks-digital/designsystem-angular/button'
+import { Dropdown } from '@ks-digital/designsystem-angular/dropdown'
+
+@Component({
+  imports: [Button, Dropdown],
+  template: `
+    <button
+      ksd-button
+      data-variant="primary"
+      type="button"
+      popovertarget="dropdown"
+    >
+      Last ned
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 256 256"
+      >
+        <rect width="256" height="256" fill="none" />
+        <line
+          x1="128"
+          y1="144"
+          x2="128"
+          y2="32"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+        <polyline
+          points="216 144 216 208 40 208 40 144"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+        <polyline
+          points="168 104 128 144 88 104"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+      </svg>
+    </button>
+    <div ksd-dropdown id="dropdown" popover="auto">
+      <h2 ksd-heading>Velg format</h2>
+      <ul>
+        <li>
+          <button ksd-button data-variant="tertiary" type="button">.pdf</button>
+        </li>
+        <li>
+          <button ksd-button data-variant="tertiary" type="button">
+            .docx
+          </button>
+        </li>
+      </ul>
+    </div>
+  `,
+})
+export class App {}
+```

@@ -87,6 +87,7 @@ Here is a link to the most recent Angular style guide https://angular.dev/style-
 - Prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead, for context: https://angular.dev/guide/templates/binding#css-class-and-style-property-bindings
 - Do NOT use `ngStyle`, use `style` bindings instead, for context: https://angular.dev/guide/templates/binding#css-class-and-style-property-bindings
+- Do NOT add `.component` suffix to component file names. E.g if the component is called `MyButton`, the file should be named `my-button.ts` and not `my-button.component.ts`
 
 ### State Management
 
@@ -110,11 +111,12 @@ Here is a link to the most recent Angular style guide https://angular.dev/style-
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+- Do NOT add `.service` suffix to service file names. E.g if the service is called `MyService`, the file should be named `my-service.ts` and not `my-service.service.ts`
 
 ## Naming Conventions
 
 - Use `ksd-` prefix for component selectors
-- Use `ksdComponentName` style for directive selectors
+- Use camelcase style for directive selectors, e.g: `ksd-my-component-or-directive`
 - Use PascalCase for classes and interfaces
 - Use camelCase for variables and functions
 

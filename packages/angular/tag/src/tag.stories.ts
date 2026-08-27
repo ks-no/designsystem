@@ -21,7 +21,7 @@ type TagArgs = CommonArgs & {
 
 const meta: Meta<TagArgs> = {
   component: Tag,
-  title: 'Komponenter/Tag',
+  title: 'Tag',
   decorators: [
     moduleMetadata({
       imports: [Tag, NgIcon],

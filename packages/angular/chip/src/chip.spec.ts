@@ -1,5 +1,6 @@
 import { Input } from '@ks-digital/designsystem-angular/forms'
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Chip } from './chip'
 
 it('Should render button chip', async () => {
@@ -44,4 +45,13 @@ it('Should render radio chip', async () => {
   const label = screen.getByText('My radio chip')
   expect(label).toHaveClass('ds-chip')
   expect(label).toBeInTheDocument()
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await render(`<button ksd-chip>My chip</button>`, {
+    imports: [Chip],
+  })
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

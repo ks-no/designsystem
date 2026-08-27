@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as DetailsStories from './details.stories'
 
@@ -6,16 +6,20 @@ import * as DetailsStories from './details.stories'
 
 # Details
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/details/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/details/overview"
+  component="Details"
+/>
 
 Med `Details` kan du presentera mykje innhald på liten plass i ei eller fleire rader. Heile rada er klikkbar og let brukarar opna eller lukka visninga av innhaldet under.
 
-<Primary />
-<Controls />
+<Canvas of={DetailsStories.Preview} />
+<Controls of={DetailsStories.Preview} />
 
 ## Bruk
 
 ```ts
+import { Component } from '@angular/core'
 import { Details } from '@ks-digital/designsystem-angular/details'
 
 @Component({

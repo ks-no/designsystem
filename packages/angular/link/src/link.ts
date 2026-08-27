@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -6,6 +6,7 @@ import {
 
 @Component({
   selector: 'a[ksd-link]',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: ` <ng-content /> `,
   hostDirectives: [
     {
@@ -29,6 +30,7 @@ import {
       ng-icon {
         display: inline-flex;
         vertical-align: middle;
+        font-size: var(--ng-icon-size, 1.3em);
       }
       svg {
         width: 1em;

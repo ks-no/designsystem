@@ -68,8 +68,7 @@
       "options": {
         "buildTarget": "@ks-digital/designsystem-angular:build-storybook",
         "staticFilePath": "dist/storybook/@ks-digital/designsystem-angular",
-        "spa": true,
-        "experimentalZoneless": true
+        "spa": true
       },
       "configurations": {
         "ci": {

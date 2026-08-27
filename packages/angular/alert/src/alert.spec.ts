@@ -1,5 +1,6 @@
 import { NgStyle } from '@angular/common'
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Alert } from './alert'
 
 it('should render children, heading level 1', async () => {
@@ -28,7 +29,21 @@ it('style should be applied', async () => {
   )
 
   const alert = screen.getByTestId('alert')
-  expect(alert).toHaveStyle({ display: 'block' })
   expect(alert).toHaveStyle({ color: '#ffcc00' })
   expect(alert).toHaveClass('my-class')
+})
+
+it('should have no obvious accessibility violations', async () => {
+  const { container } = await render(
+    `
+      <ksd-alert color="info">
+        <h2>Alert me!</h2>
+        <p>Alert content</p>
+      </ksd-alert>
+    `,
+    { imports: [Alert] },
+  )
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

@@ -28,7 +28,7 @@ Import the base styles and the theme you want to use in your application:
 
 ```css
 @import url('@ks-digital/designsystem-themes/base.css');
-@import url('@ks-digital/designsystem-themes/forvaltning.css');
+@import url('@ks-digital/designsystem-themes/ksdigital.css');
 ```
 
 ### 3. Use Components
@@ -53,3 +53,8 @@ A complete example setup is available in the `angular-demo` located under the `a
 ## Development
 
 `pnpm nx run @ks-digital/designsystem-angular:storybook`
+
+## Update snapshots
+
+In folder `apps/angular-demo-e2e`:
+`docker compose run --rm update-snapshots`

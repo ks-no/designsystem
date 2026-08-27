@@ -1,25 +1,20 @@
-import {
-  Meta,
-  Primary,
-  Controls,
-  Story,
-  Canvas,
-  ArgTypes,
-} from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
 import * as TabsStories from './tabs.stories'
-import { Tabs, TabsList, TabsTab, TabsPanel } from './'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 
 <Meta of={TabsStories} />
 
 # Tabs
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/tabs/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/tabs/overview"
+  component="Tabs"
+/>
 
 `Tabs` lar brukerne navigere mellom relaterte deler av innholdet, der én del vises om gangen. Dette er en effektiv måte å organisere og presentere relatert innhold på samme side.
 
-<Primary />
-<Controls />
+<Canvas of={TabsStories.Preview} />
+<Controls of={TabsStories.Preview} />
 
 ## Bruk
 
@@ -36,13 +31,46 @@ import {
   template: `
     <ksd-tabs>
       <ksd-tabs-list>
-        <button ksd-button ksd-tabs-tab value="value1">Tab 1</button>
-        <button ksd-tabs-tab value="value2">Tab 2</button>
-        <button ksd-tabs-tab value="value3">Tab 3</button>
+        <ksd-tabs-tab>Tab 1</ksd-tabs-tab>
+        <ksd-tabs-tab>Tab 2</ksd-tabs-tab>
+        <ksd-tabs-tab>Tab 3</ksd-tabs-tab>
       </ksd-tabs-list>
-      <ksd-tabs-panel value="value1">content 1</ksd-tabs-panel>
-      <ksd-tabs-panel value="value2">content 2</ksd-tabs-panel>
-      <ksd-tabs-panel value="value3">content 3</ksd-tabs-panel>
+      <ksd-tabs-panel>Content 1</ksd-tabs-panel>
+      <ksd-tabs-panel>Content 2</ksd-tabs-panel>
+      <ksd-tabs-panel>Content 3</ksd-tabs-panel>
+    </ksd-tabs>
+  `,
+})
+export class App {}
+```
+
+## Reagere på endring
+
+Bruk `tabClicked`-outputen for å lytte etter klikk på tabs. Du kan også sette `tabId` for å enklere identifisere hvilken tab som er klikket på.
+
+`tabClicked` sender et `TabClickEvent`:
+
+```ts
+type TabClickEvent = {
+  index: number
+  tabId: string | undefined
+}
+```
+
+- `index`: nullbasert posisjon for tab i gjeldende rekkefolge.
+- `tabId`: verdien satt på `tabId` for taben. `undefined` hvis `tabId` ikke er satt.
+
+```ts
+@Component({
+  imports: [Tabs, TabsList, TabsTab, TabsPanel],
+  template: `
+    <ksd-tabs>
+      <ksd-tabs-list>
+        <ksd-tabs-tab tabId="users" (tabClicked)="onTabClicked($event)">
+          Tab 1
+        </ksd-tabs-tab>
+      </ksd-tabs-list>
+      <ksd-tabs-panel>Content 1</ksd-tabs-panel>
     </ksd-tabs>
   `,
 })

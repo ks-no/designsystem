@@ -12,7 +12,7 @@ export function App() {
       <Button variant="primary" data-size="lg">
         Click me!
       </Button>
-      <Spinner data-size="lg" />
+      <Spinner aria-hidden data-size="lg" />
       <Alert data-color="info">En beskjed det er viktig at brukeren ser</Alert>
     </div>
   )

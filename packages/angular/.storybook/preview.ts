@@ -9,8 +9,19 @@ addons.getChannel().on('globalsUpdated', ({ globals }) => {
   setColorScheme(globals.colorScheme)
 })
 
+const allowedMessageOrigins = new Set<string>([window.location.origin])
+
+if (document.referrer) {
+  try {
+    allowedMessageOrigins.add(new URL(document.referrer).origin)
+  } catch {
+    // Ignore invalid referrer URL
+  }
+}
+
 // Composition mode: parent sends globals via postMessage
 window.addEventListener('message', (event) => {
+  if (!allowedMessageOrigins.has(event.origin)) return
   if (event.data?.key !== 'ksd-globals-updated') return
   const globals = event.data.globals
   if (globals) {
@@ -91,6 +102,11 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: ['Introduksjon', '*'],
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
@@ -101,6 +117,9 @@ const preview: Preview = {
     layout: 'centered',
     docs: {
       theme: customTheme,
+      story: {
+        inline: true,
+      },
     },
   },
 }

@@ -1,3 +1,294 @@
+## 0.0.1-alpha.69
+
+### 🚀 Features
+
+- ⚠️ **angular/suggestion:** support formField (signal forms) ([#330](https://github.com/ks-no/designsystem/pull/330))
+
+### ⚠️ Breaking Changes
+
+- **angular/suggestion:** support formField (signal forms) ([#330](https://github.com/ks-no/designsystem/pull/330))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.68
+
+### 🚀 Features
+
+- **angular:** skeleton ([#316](https://github.com/ks-no/designsystem/pull/316))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.67
+
+### 🩹 Fixes
+
+- **angular:** expand ksd-error selector ([#314](https://github.com/ks-no/designsystem/pull/314))
+- **angular/suggestion:** correct spacing between label and suggestion ([#315](https://github.com/ks-no/designsystem/pull/315))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.66
+
+### 🩹 Fixes
+
+- **angular/suggestion:** refactor DOM to match expected web-component-structure in order to fix position recalculation ([#313](https://github.com/ks-no/designsystem/pull/313))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.65
+
+### 🩹 Fixes
+
+- **themes:** layer-setup, update docs, improve test coverage ([#301](https://github.com/ks-no/designsystem/pull/301))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.64
+
+### 🩹 Fixes
+
+- **themes:** ksd layer presedence over ds ([#300](https://github.com/ks-no/designsystem/pull/300))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.63
+
+### 🩹 Fixes
+
+- **angular:** ksd-alert should have block display ([#299](https://github.com/ks-no/designsystem/pull/299))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.62
+
+### 🩹 Fixes
+
+- **angular/button:** dont set button type ([#298](https://github.com/ks-no/designsystem/pull/298))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.61
+
+### 🚀 Features
+
+- bump `@digdir/*` packages et al ([#297](https://github.com/ks-no/designsystem/pull/297))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.60
+
+### 🚀 Features
+
+- **angular:** dropdown ([#294](https://github.com/ks-no/designsystem/pull/294))
+
+### ❤️ Thank You
+
+- Copilot Autofix powered by AI @Copilot
+- stianmorsund
+
+## 0.0.1-alpha.59
+
+### 🩹 Fixes
+
+- **themes:** move `Alert`-icon overrides to themes-package ([#293](https://github.com/ks-no/designsystem/pull/293))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.58
+
+### 🩹 Fixes
+
+- **themes:** tweak tilskudd-theme border-radius ([#292](https://github.com/ks-no/designsystem/pull/292))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.57
+
+### 🚀 Features
+
+- bump `@digdir/*`-packages to 1.14.0 ([#288](https://github.com/ks-no/designsystem/pull/288))
+
+### 🩹 Fixes
+
+- **angular/field:** update attributes ([#290](https://github.com/ks-no/designsystem/pull/290))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.56
+
+### 🚀 Features
+
+- **themes:** alias `icon-default` -> `text-default` ([#283](https://github.com/ks-no/designsystem/pull/283))
+
+### 🩹 Fixes
+
+- **themes:** tweak tilskudd-theme ([#285](https://github.com/ks-no/designsystem/pull/285))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.55
+
+### 🚀 Features
+
+- **angular:** dialog ([#281](https://github.com/ks-no/designsystem/pull/281))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
+## 0.0.1-alpha.54
+
+### 🚀 Features
+
+- update `@digdir/*`-packages to 1.13.3 ([#280](https://github.com/ks-no/designsystem/pull/280))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
+## 0.0.1-alpha.53
+
+### 🚀 Features
+
+- new tilskudd theme ([#279](https://github.com/ks-no/designsystem/pull/279))
+- **themes:** add custom token for `icon-subtle` ([#277](https://github.com/ks-no/designsystem/pull/277))
+
+### ❤️ Thank You
+
+- Copilot
+- stianmorsund
+
+## 0.0.1-alpha.52
+
+### 🩹 Fixes
+
+- **angular/tabs:** easier api for handling tab changes ([#276](https://github.com/ks-no/designsystem/pull/276))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.51
+
+### 🩹 Fixes
+
+- **angular:** `tabClicked` output ([#275](https://github.com/ks-no/designsystem/pull/275))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.50
+
+### 🩹 Fixes
+
+- **angular/tabs:** wrong font-size for projected tab-icons ([#274](https://github.com/ks-no/designsystem/pull/274))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.49
+
+### 🩹 Fixes
+
+- **angular:** dont render buttons-icons if loading ([#273](https://github.com/ks-no/designsystem/pull/273))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.48
+
+### 🚀 Features
+
+- **angular:** table ([#270](https://github.com/ks-no/designsystem/pull/270))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.47
+
+### 🚀 Features
+
+- **themes:** ksdigital-theme ([#266](https://github.com/ks-no/designsystem/pull/266))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.46
+
+### 🩹 Fixes
+
+- **angular:** `OnPush` change detection everywhere ([#249](https://github.com/ks-no/designsystem/pull/249))
+- **angular/suggestion:** custom filtering and various issues ([#261](https://github.com/ks-no/designsystem/pull/261))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.45
+
+### 🚀 Features
+
+- **angular:** suggestion ([#245](https://github.com/ks-no/designsystem/pull/245))
+
+### 🩹 Fixes
+
+- **angular:** slotted icon-size ([#244](https://github.com/ks-no/designsystem/pull/244))
+
+### ❤️ Thank You
+
+- stianmorsund
+
+## 0.0.1-alpha.44
+
+### 🚀 Features
+
+- update to latest `@digdir`-packages ([#237](https://github.com/ks-no/designsystem/pull/237))
+
+### 🩹 Fixes
+
+- ⚠️ **angular:** popover should default to auto ([#241](https://github.com/ks-no/designsystem/pull/241))
+
+### ⚠️ Breaking Changes
+
+- **angular:** popover should default to auto ([#241](https://github.com/ks-no/designsystem/pull/241))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.43
 
 ### 🚀 Features

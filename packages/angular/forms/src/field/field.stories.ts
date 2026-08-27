@@ -14,12 +14,11 @@ import { FieldError } from './field-error'
 type FieldArgs = CommonArgs & {
   readonly: boolean
   disabled: boolean
-  counter: number
 }
 
 const meta: Meta<Field> = {
   component: Field,
-  title: 'Komponenter/Forms/Field',
+  title: 'Forms/Field',
   decorators: [
     moduleMetadata({
       imports: [Label, Field, Input, FieldError, FieldDescription],
@@ -38,7 +37,7 @@ export const Preview: Story = {
   render: (args) => ({
     props: args,
     template: `
-        <ksd-field position="end">
+        <ksd-field data-position="end">
           <ksd-label>Etternavn</ksd-label>
           <div ksd-field-description>Etternavn kan ikke inneholde mellomrom</div>
           <input ksd-input type="text" ${argsToTemplate(args)} />
@@ -66,7 +65,6 @@ export const Rows: Story = {
 export const Counter: Story = {
   args: {
     ...Preview.args,
-    counter: 5,
   },
 
   render: (args) => ({

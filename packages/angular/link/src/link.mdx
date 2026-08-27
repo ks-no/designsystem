@@ -1,10 +1,4 @@
-import {
-  Meta,
-  Primary,
-  Controls,
-  Story,
-  Canvas,
-} from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
 import * as LinkStories from './link.stories'
 
@@ -12,17 +6,19 @@ import * as LinkStories from './link.stories'
 
 # Link
 
-<OfficialDocsLink href="https://designsystemet.no/no/components/docs/link/overview" />
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/link/overview"
+  component="Link"
+/>
 
 `Link` er klikkbar tekst eller grafikk, som gjør det enkelt for brukerne å navigere til filer eller sider internt eller eksternt. Komponenten er basert på [anchor HTML-taggen (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
 
-<Primary />
-<Controls />
+<Canvas of={LinkStories.Preview} />
+<Controls of={LinkStories.Preview} />
 
 ## Bruk
 
 ```ts
-import { Link } from '@ks-digital/designsystem-angular';
 
 <a ksd-link href="https://designsystemet.no/">
   Gå til designsystemet
@@ -43,11 +39,7 @@ import { Link } from '@ks-digital/designsystem-angular';
 
 <Canvas of={LinkStories.WithIconRight} />
 
-### Med flere ikoner
-
-<Canvas of={LinkStories.WithMultipleIcons} />
-
-### Med SVG elementer
+### Med SVG ikon
 
 <Canvas of={LinkStories.WithSVG} />
 

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, input } from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -6,6 +6,7 @@ import {
 
 @Component({
   selector: 'ksd-tag',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
       directive: HostSize,

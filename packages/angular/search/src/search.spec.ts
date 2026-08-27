@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
+import { axe } from 'vitest-axe'
 import { Search } from './search'
 import { SearchButton } from './search-button'
 import { SearchClear } from './search-clear'
@@ -44,4 +45,19 @@ test('should clear the input when the clear button is clicked', async () => {
 
   await userEvent.click(clearButton)
   expect(searchInput.value).toBe('')
+})
+
+test('should have no obvious accessibility violations', async () => {
+  const { container } = await render(
+    `
+      <ksd-search>
+        <input ksd-search-input role="searchbox" aria-label="Søk" />
+        <button ksd-search-button aria-label="Søk"></button>
+      </ksd-search>
+    `,
+    { imports: [SearchInput, SearchButton, Search] },
+  )
+
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
 })

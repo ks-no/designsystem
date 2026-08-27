@@ -35,6 +35,12 @@
       "@ks-digital/designsystem-angular/details": [
         "packages/angular/details/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/dialog": [
+        "packages/angular/dialog/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/dropdown": [
+        "packages/angular/dropdown/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/forms": [
         "packages/angular/forms/src/index.ts"
       ],
@@ -50,11 +56,26 @@
       "@ks-digital/designsystem-angular/popover": [
         "packages/angular/popover/src/index.ts"
       ],
+      "@ks-digital/designsystem-angular/breadcrumbs": [
+        "packages/angular/breadcrumbs/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/chip": [
+        "packages/angular/chip/src/index.ts"
+      ],
       "@ks-digital/designsystem-angular/error-summary": [
-        "packages/angular/errorsumary/src/index.ts"
+        "packages/angular/error-summary/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/table": [
+        "packages/angular/table/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/search": [
         "packages/angular/search/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/skeleton": [
+        "packages/angular/skeleton/src/index.ts"
+      ],
+      "@ks-digital/designsystem-angular/suggestion": [
+        "packages/angular/suggestion/src/index.ts"
       ],
       "@ks-digital/designsystem-angular/spinner": [
         "packages/angular/spinner/src/index.ts"
@@ -71,9 +92,14 @@
       "@ks-digital/designsystem-react": ["packages/react/src/index.ts"],
       "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"],
       "@ks-digital/designsystem-themes/types": [
-        "packages/themes/src/themes/types.d.ts"
+        "packages/themes/src/types.d.ts"
       ]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp", "dist"]
 }

@@ -14,6 +14,7 @@ const config: StorybookConfig = {
   framework: {
     name: '@analogjs/storybook-angular',
     options: {
+      tsconfig: join(__dirname, '../tsconfig.storybook.json'),
       builder: {
         viteConfigPath: 'packages/angular/.storybook/vite.config.mts',
       },

@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/angular'
+import { axe } from 'vitest-axe'
 import { Input } from '../input'
 import { Label } from '../label'
 import { Field } from './field'
 import { FieldDescription } from './field-description'
+import { FieldError } from './field-error'
 
 test('should connect checkbox and label', async () => {
   await render(
@@ -18,6 +20,35 @@ test('should connect checkbox and label', async () => {
   const checkbox = screen.getByRole('checkbox')
 
   expect(label.getAttribute('for')).toBe(checkbox.getAttribute('id'))
+})
+
+test('should forward data-variant to ds-field', async () => {
+  const { container } = await render(
+    `
+    <ksd-field data-variant="outline">
+      <ksd-label> Check me </ksd-label>
+      <input ksd-input type="checkbox" value="telefon" />
+    </ksd-field>`,
+    { imports: [Field, Label, Input] },
+  )
+
+  const dsField = container.querySelector('ds-field')
+
+  expect(dsField).toHaveAttribute('data-variant', 'outline')
+})
+
+test('should support ksd-error element selector', async () => {
+  await render(
+    `
+    <ksd-field>
+      <ksd-label> Check me </ksd-label>
+      <input ksd-input type="checkbox" value="telefon" />
+      <ksd-error>Error message</ksd-error>
+    </ksd-field>`,
+    { imports: [Field, Label, Input, FieldError] },
+  )
+
+  expect(screen.getByText('Error message')).toBeVisible()
 })
 
 describe('should connect checkbox and description', () => {
@@ -81,5 +112,19 @@ describe('should connect checkbox and description', () => {
     const input = screen.getByRole('checkbox')
 
     expect(input).toHaveAttribute('id', 'test')
+  })
+
+  it('should have no obvious accessibility violations', async () => {
+    const { container } = await render(
+      `
+      <ksd-field>
+        <ksd-label>My input</ksd-label>
+        <input ksd-input type="text" />
+      </ksd-field>`,
+      { imports: [Field, Label, Input] },
+    )
+
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })

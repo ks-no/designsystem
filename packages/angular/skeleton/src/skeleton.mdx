@@ -1,0 +1,45 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as SkeletonStories from './skeleton.stories'
+import { OfficialDocsLink } from '../../.storybook/components/OfficialDocsLink'
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+<OfficialDocsLink
+  href="https://designsystemet.no/no/components/docs/skeleton/overview"
+  component="Skeleton"
+/>
+
+`Skeleton` brukes for å vise at innhold på en side er i ferd med å lastes inn. Den gir brukeren et visuelt hint om hvordan innholdet til slutt vil se ut.
+
+<Canvas of={SkeletonStories.Preview} />
+<Controls of={SkeletonStories.Preview} />
+
+## Bruk
+
+```html
+<ksd-skeleton data-variant="rectangle"></ksd-skeleton>
+```
+
+## Kodeeksempler
+
+`Skeleton` kan brukes i flere former, avhengig av hva som lastes inn.
+
+### Rektangel
+
+Bruk `rectangle` når du vil vise et større innholdsområde, som et kort eller en illustrasjon.
+
+<Canvas of={SkeletonStories.Rectangle} />
+
+### Sirkel
+
+Bruk `circle` når du vil vise en avatar, et ikon eller annet avrundet innhold.
+
+<Canvas of={SkeletonStories.Circle} />
+
+### Tekst
+
+Bruk `text` når du vil etterligne en tekstlinje mens innholdet lastes.
+
+<Canvas of={SkeletonStories.Text} />
