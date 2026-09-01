@@ -86,17 +86,17 @@ catalogs:
       version: 0.16.1
   designsystemet:
     '@digdir/designsystemet':
-      specifier: 0.0.0-feat-remove-color-categories-20260616084032
-      version: 0.0.0-feat-remove-color-categories-20260616084032
+      specifier: 1.21.0
+      version: 1.21.0
     '@digdir/designsystemet-css':
-      specifier: 0.0.0-feat-remove-color-categories-20260616084032
-      version: 0.0.0-feat-remove-color-categories-20260616084032
+      specifier: 1.21.0
+      version: 1.21.0
     '@digdir/designsystemet-react':
-      specifier: 0.0.0-feat-remove-color-categories-20260616084032
-      version: 0.0.0-feat-remove-color-categories-20260616084032
+      specifier: 1.21.0
+      version: 1.21.0
     '@digdir/designsystemet-web':
-      specifier: 0.0.0-feat-remove-color-categories-20260616084032
-      version: 0.0.0-feat-remove-color-categories-20260616084032
+      specifier: 1.21.0
+      version: 1.21.0
     '@navikt/aksel-icons':
       specifier: 8.10.3
       version: 8.10.3
@@ -270,7 +270,7 @@ importers:
         version: 19.8.1
       '@digdir/designsystemet':
         specifier: catalog:designsystemet
-        version: 0.0.0-feat-remove-color-categories-20260616084032(@types/node@24.12.4)(tslib@2.8.1)
+        version: 1.21.0(@types/node@24.12.4)(tslib@2.8.1)
       '@nx/angular':
         specifier: catalog:nx
         version: 23.1.1(966a35ff9182235877335f0f3e3f01ea)
@@ -536,7 +536,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-web':
         specifier: catalog:designsystemet
-        version: 0.0.0-feat-remove-color-categories-20260616084032
+        version: 1.21.0
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: catalog:angular
@@ -621,7 +621,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-react':
         specifier: catalog:designsystemet
-        version: 0.0.0-feat-remove-color-categories-20260616084032(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 1.21.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
         version: 8.10.3
@@ -664,7 +664,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-css':
         specifier: catalog:designsystemet
-        version: 0.0.0-feat-remove-color-categories-20260616084032
+        version: 1.21.0
     devDependencies:
       rimraf:
         specifier: ^6.0.1
@@ -674,7 +674,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-web':
         specifier: catalog:designsystemet
-        version: 0.0.0-feat-remove-color-categories-20260616084032
+        version: 1.21.0
       '@lit-labs/signals':
         specifier: catalog:lit
         version: 0.1.3
@@ -2240,10 +2240,10 @@ packages:
   '@colordx/core@5.4.3':
     resolution: {integrity: sha512-kIxYSfA5T8HXjav55UaaH/o/cKivF6jCCGIb8eqtcsfI46wsvlSiT8jMDyrl779qLec3c2c2oHBZo4oAhvbjrQ==}
 
-  '@commander-js/extra-typings@14.0.0':
-    resolution: {integrity: sha512-hIn0ncNaJRLkZrxBIp5AsW/eXEHNKYQBh0aPdoUqNgD+Io3NIykQqpKFyKcuasZhicGaEZJX/JBSIkZ4e5x8Dg==}
+  '@commander-js/extra-typings@15.0.0':
+    resolution: {integrity: sha512-yeJlba62xqmkgELUsn7356MEnzLLu/fw2x4lofFqGnXh6YysRdEs2BaLeLtg1+KU0AXvMeqQvTTp+3hBEBK+EA==}
     peerDependencies:
-      commander: ~14.0.0
+      commander: ~15.0.0
 
   '@commitlint/cli@19.8.1':
     resolution: {integrity: sha512-LXUdNIkspyxrlV6VDHWBmCZRtkEVRpBKxi2Gtw3J54cGWhLCTouVD/Q6ZSaSvd2YaDObWK8mDjrz3TIKtaQMAA==}
@@ -2350,24 +2350,24 @@ packages:
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
 
-  '@digdir/designsystemet-css@0.0.0-feat-remove-color-categories-20260616084032':
-    resolution: {integrity: sha512-SJnveOz73yu04NYervxTUm3HSGvD5kwwteJ+1lnfaS1QPq0hJfmeJ28v5sFy4ly0vJ30uY/WUhz9mzgMGWJcjw==}
+  '@digdir/designsystemet-css@1.21.0':
+    resolution: {integrity: sha512-txCSRqMdEH8jo5zxfeBBYrpo37IcCHzzUtMv4IA2kikqBM6wkahiakg3a1SjIbO5e1a/BVfYwktacYdb+a54mQ==}
 
-  '@digdir/designsystemet-react@0.0.0-feat-remove-color-categories-20260616084032':
-    resolution: {integrity: sha512-5UrR6w2/hn5cZe4/u3r8gqeNKiyfjisEKIRYo1HE5hnm0Bp+s4T0O4Xaj6tQ8+BeNPScHCTLNpfGqlPsDMCF+A==}
+  '@digdir/designsystemet-react@1.21.0':
+    resolution: {integrity: sha512-JSmYSpefR27zgmuCJe5TbrL5IViEsrKagguXEzW2vpMSJSEIGFeOa7PlyABshf9MDPq5SSYhvy9rrvjb9kMvfA==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032':
-    resolution: {integrity: sha512-Sk1s8PnxDRO0t+iGakU4lm3aQV/ynUqGPzVuHeVBYFV8dm8fqKLIhOQVaqYtZt0GwT/RsKKQIuAs6Cul7yvvkQ==}
+  '@digdir/designsystemet-types@1.21.0':
+    resolution: {integrity: sha512-Xgm5QlRHI3W9dQIEk1UM7aExuUzYzA1N7rx8vVrhEpIyyAIjpx27M5J7PdpuUVmFGCrkagmiCmDWh8w519qpfw==}
 
-  '@digdir/designsystemet-web@0.0.0-feat-remove-color-categories-20260616084032':
-    resolution: {integrity: sha512-hElSB6jofWV5WYasSfC3z7sWIxIv6QBfz1q4kOyssF68V5XrdOHc4S4uW7iiqn9gMeoAbcramo0Rjy7nNsS9uw==}
+  '@digdir/designsystemet-web@1.21.0':
+    resolution: {integrity: sha512-RXM+MWx74mwQXdr3ot6qTFEfv095emCATdGoItKSt5Z+u1Qy5/QBNJ/zxX6RAL9kLG3S3xQnJvomCmuniRlODA==}
 
-  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032':
-    resolution: {integrity: sha512-U7FgAjbwz+RYjgbD9iyQkD0xeU+bgw70fZuY29gJ8RlCHRDzIZ1o8fmXjBHHQPCDFZoS60LCsPGZRxH0P0fJPA==}
-    engines: {node: '>=20.20.2'}
+  '@digdir/designsystemet@1.21.0':
+    resolution: {integrity: sha512-5Ik2CsduEpQNUhEle1lzvdhwnAoMB66zxZVNkSS4Rn30UZUs50mQRCHS6ghAtaIasRvSb2UzPvap4kzxCVO4qw==}
+    engines: {node: '>=22.12.0'}
     hasBin: true
 
   '@discoveryjs/json-ext@0.6.3':
@@ -7057,8 +7057,8 @@ packages:
   colorjs.io@0.5.2:
     resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
 
-  colorjs.io@0.6.1:
-    resolution: {integrity: sha512-8lyR2wHzuIykCpqHKgluGsqQi5iDm3/a2IgP2GBZrasn2sBRkE4NOGsglZxWLs/jZQoNkmA/KM/8NV16rLUdBg==}
+  colorjs.io@0.7.1:
+    resolution: {integrity: sha512-LY7OHnJZxHwT5UlzNa9bbhHHDbzB6yE5+3MIPwJEQKRvSCt/T4G7epsj+9j2BExUIIfXFIJGsIXUKdfrK9Q5tA==}
 
   columnify@1.6.0:
     resolution: {integrity: sha512-lomjuFZKfM6MSAnV9aCZC9sc0qGbmZdfygNv+nCpqVkSKdCxCklLtd16O0EILGkImHw9ZpHkAnHaB+8Zxq5W6Q==}
@@ -7083,6 +7083,10 @@ packages:
   commander@14.0.3:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
+
+  commander@15.0.0:
+    resolution: {integrity: sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==}
+    engines: {node: '>=22.12.0'}
 
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -11729,12 +11733,6 @@ packages:
   thenby@1.4.1:
     resolution: {integrity: sha512-D5a/bO0KdalOE3q8MlrRmSxjbKZHT3MQmXkJP+r97Vw8MMwOZKOwUSEyTtK7eSMj2y0kyAjpYMRMZmmLw1FtNQ==}
 
-  thingies@2.5.0:
-    resolution: {integrity: sha512-s+2Bwztg6PhWUD7XMfeYm5qliDdSiZm7M7n8KjTkIsm3l/2lgVRc2/Gx/v+ZX8lT4FMA+i8aQvhcWylldc+ZNw==}
-    engines: {node: '>=10.18'}
-    peerDependencies:
-      tslib: ^2
-
   thingies@2.6.0:
     resolution: {integrity: sha512-rMHRjmlFLM1R96UYPvpmnc3LYtdFrT33JIB7L9hetGue1qAPfn1N2LJeEjxUSidu1Iku+haLZXDuEXUHNGO/lg==}
     engines: {node: '>=10.18'}
@@ -12362,10 +12360,6 @@ packages:
 
   which-collection@1.0.2:
     resolution: {integrity: sha512-K4jVyjnBdgvc86Y6BkaLZEN933SwYOuBFkdmBu9ZfkcAbdVbpITnDmjvZ/aQjRXQrv5EPkTnD1s39GiiqbngCw==}
-    engines: {node: '>= 0.4'}
-
-  which-typed-array@1.1.20:
-    resolution: {integrity: sha512-LYfpUkmqwl0h9A2HL09Mms427Q1RZWuOHsukfVcKRq9q95iQxdw0ix1JQrqbcDR9PH1QDwf5Qo8OZb5lksZ8Xg==}
     engines: {node: '>= 0.4'}
 
   which-typed-array@1.1.21:
@@ -15134,9 +15128,9 @@ snapshots:
 
   '@colordx/core@5.4.3': {}
 
-  '@commander-js/extra-typings@14.0.0(commander@14.0.3)':
+  '@commander-js/extra-typings@15.0.0(commander@15.0.0)':
     dependencies:
-      commander: 14.0.3
+      commander: 15.0.0
 
   '@commitlint/cli@19.8.1(@types/node@24.12.4)(typescript@6.0.3)':
     dependencies:
@@ -15272,14 +15266,14 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.0': {}
 
-  '@digdir/designsystemet-css@0.0.0-feat-remove-color-categories-20260616084032':
+  '@digdir/designsystemet-css@1.21.0':
     dependencies:
-      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
+      '@digdir/designsystemet-types': 1.21.0
 
-  '@digdir/designsystemet-react@0.0.0-feat-remove-color-categories-20260616084032(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@digdir/designsystemet-react@1.21.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
-      '@digdir/designsystemet-web': 0.0.0-feat-remove-color-categories-20260616084032
+      '@digdir/designsystemet-types': 1.21.0
+      '@digdir/designsystemet-web': 1.21.0
       '@floating-ui/dom': 1.8.0
       '@floating-ui/react': 0.26.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/aksel-icons': 8.16.1
@@ -15291,9 +15285,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032': {}
+  '@digdir/designsystemet-types@1.21.0': {}
 
-  '@digdir/designsystemet-web@0.0.0-feat-remove-color-categories-20260616084032':
+  '@digdir/designsystemet-web@1.21.0':
     dependencies:
       '@floating-ui/dom': 1.8.0
       '@u-elements/u-combobox': 2.1.3
@@ -15301,17 +15295,19 @@ snapshots:
       '@u-elements/u-details': 1.0.0
       '@u-elements/u-tabs': 1.0.4
 
-  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032(@types/node@24.12.4)(tslib@2.8.1)':
+  '@digdir/designsystemet@1.21.0(@types/node@24.12.4)(tslib@2.8.1)':
     dependencies:
-      '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
+      '@commander-js/extra-typings': 15.0.0(commander@15.0.0)
+      '@digdir/designsystemet-types': 1.21.0
       '@inquirer/confirm': 6.3.0(@types/node@24.12.4)
       '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.5.2(tslib@2.8.1))
+      '@tokens-studio/types': 0.5.2
       chroma-js: 3.2.0
-      colorjs.io: 0.6.1
-      commander: 14.0.3
+      colorjs.io: 0.7.1
+      commander: 15.0.0
       fast-glob: 3.3.3
       hsluv: 1.0.2
+      jsonc-parser: 3.3.1
       object-hash: 3.0.0
       picocolors: 1.1.1
       postcss: 8.5.26
@@ -15998,7 +15994,7 @@ snapshots:
     dependencies:
       '@jsonjoy.com/fs-node-builtins': 4.56.11(tslib@2.8.1)
       '@jsonjoy.com/fs-node-utils': 4.56.11(tslib@2.8.1)
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
   '@jsonjoy.com/fs-core@4.57.3(tslib@2.8.1)':
@@ -16013,7 +16009,7 @@ snapshots:
       '@jsonjoy.com/fs-core': 4.56.11(tslib@2.8.1)
       '@jsonjoy.com/fs-node-builtins': 4.56.11(tslib@2.8.1)
       '@jsonjoy.com/fs-node-utils': 4.56.11(tslib@2.8.1)
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
   '@jsonjoy.com/fs-fsa@4.57.3(tslib@2.8.1)':
@@ -16064,7 +16060,7 @@ snapshots:
       '@jsonjoy.com/fs-print': 4.56.11(tslib@2.8.1)
       '@jsonjoy.com/fs-snapshot': 4.56.11(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
   '@jsonjoy.com/fs-node@4.57.3(tslib@2.8.1)':
@@ -16114,7 +16110,7 @@ snapshots:
       '@jsonjoy.com/json-pointer': 1.0.2(tslib@2.8.1)
       '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
       hyperdyperid: 1.2.0
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tree-dump: 1.1.0(tslib@2.8.1)
       tslib: 2.8.1
 
@@ -16126,7 +16122,7 @@ snapshots:
       '@jsonjoy.com/json-pointer': 17.67.0(tslib@2.8.1)
       '@jsonjoy.com/util': 17.67.0(tslib@2.8.1)
       hyperdyperid: 1.2.0
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tree-dump: 1.1.0(tslib@2.8.1)
       tslib: 2.8.1
 
@@ -16577,9 +16573,9 @@ snapshots:
 
   '@napi-rs/wasm-runtime@1.0.7':
     dependencies:
-      '@emnapi/core': 1.10.0
-      '@emnapi/runtime': 1.10.0
-      '@tybys/wasm-util': 0.10.2
+      '@emnapi/core': 1.11.3
+      '@emnapi/runtime': 1.11.3
+      '@tybys/wasm-util': 0.10.3
     optional: true
 
   '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
@@ -16663,7 +16659,7 @@ snapshots:
 
   '@npmcli/fs@5.0.0':
     dependencies:
-      semver: 7.8.1
+      semver: 7.8.4
 
   '@npmcli/git@7.0.2':
     dependencies:
@@ -16673,7 +16669,7 @@ snapshots:
       lru-cache: 11.5.1
       npm-pick-manifest: 11.0.3
       proc-log: 6.1.0
-      semver: 7.8.1
+      semver: 7.8.4
       which: 6.0.1
 
   '@npmcli/installed-package-contents@4.0.0':
@@ -16690,7 +16686,7 @@ snapshots:
       hosted-git-info: 9.0.3
       json-parse-even-better-errors: 5.0.0
       proc-log: 6.1.0
-      semver: 7.8.1
+      semver: 7.8.4
       spdx-expression-parse: 4.0.0
 
   '@npmcli/promise-spawn@9.0.1':
@@ -18198,7 +18194,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack-dev-middleware: 7.4.5(tslib@2.8.1)(webpack@5.107.2(@swc/core@1.15.8(@swc/helpers@0.5.21))(esbuild@0.27.3)(postcss@8.5.15))
-      ws: 8.21.0
+      ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -19676,7 +19672,7 @@ snapshots:
       istanbul-reports: 3.2.0
       log-update: 4.0.0
       nanocolors: 0.2.13
-      nanoid: 3.3.12
+      nanoid: 3.3.18
       open: 8.4.2
       picomatch: 2.3.2
       source-map: 0.7.6
@@ -20103,7 +20099,7 @@ snapshots:
   arraybuffer.prototype.slice@1.0.4:
     dependencies:
       array-buffer-byte-length: 1.0.2
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       define-properties: 1.2.1
       es-abstract: 1.24.1
       es-errors: 1.3.0
@@ -20654,7 +20650,7 @@ snapshots:
 
   colorjs.io@0.5.2: {}
 
-  colorjs.io@0.6.1: {}
+  colorjs.io@0.7.1: {}
 
   columnify@1.6.0:
     dependencies:
@@ -20672,6 +20668,8 @@ snapshots:
   commander@13.1.0: {}
 
   commander@14.0.3: {}
+
+  commander@15.0.0: {}
 
   commander@2.20.3: {}
 
@@ -21311,7 +21309,7 @@ snapshots:
       array-buffer-byte-length: 1.0.2
       arraybuffer.prototype.slice: 1.0.4
       available-typed-arrays: 1.0.7
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       data-view-buffer: 1.0.2
       data-view-byte-length: 1.0.2
@@ -21361,7 +21359,7 @@ snapshots:
       typed-array-byte-offset: 1.0.4
       typed-array-length: 1.0.7
       unbox-primitive: 1.1.0
-      which-typed-array: 1.1.20
+      which-typed-array: 1.1.21
 
   es-abstract@1.24.2:
     dependencies:
@@ -22136,7 +22134,7 @@ snapshots:
 
   function.prototype.name@1.1.8:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
       functions-have-names: 1.2.3
@@ -22623,7 +22621,7 @@ snapshots:
 
   is-array-buffer@3.0.5:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
 
@@ -22795,7 +22793,7 @@ snapshots:
 
   is-typed-array@1.1.15:
     dependencies:
-      which-typed-array: 1.1.20
+      which-typed-array: 1.1.21
 
   is-unicode-supported@0.1.0: {}
 
@@ -22887,7 +22885,7 @@ snapshots:
       chalk: 4.1.2
       ci-info: 4.4.0
       graceful-fs: 4.2.11
-      picomatch: 4.0.4
+      picomatch: 4.0.7
 
   jest-worker@27.5.1:
     dependencies:
@@ -23502,7 +23500,7 @@ snapshots:
       '@jsonjoy.com/json-pack': 1.21.0(tslib@2.8.1)
       '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
-      thingies: 2.5.0(tslib@2.8.1)
+      thingies: 2.6.0(tslib@2.8.1)
       tree-dump: 1.1.0(tslib@2.8.1)
       tslib: 2.8.1
 
@@ -23809,7 +23807,7 @@ snapshots:
       graceful-fs: 4.2.11
       nopt: 9.0.0
       proc-log: 6.1.0
-      semver: 7.8.1
+      semver: 7.8.4
       tar: 7.5.16
       tinyglobby: 0.2.17
       undici: 6.26.0
@@ -23840,7 +23838,7 @@ snapshots:
 
   npm-install-checks@8.0.0:
     dependencies:
-      semver: 7.8.1
+      semver: 7.8.4
 
   npm-normalize-package-bin@5.0.0: {}
 
@@ -23848,7 +23846,7 @@ snapshots:
     dependencies:
       hosted-git-info: 9.0.3
       proc-log: 6.1.0
-      semver: 7.8.1
+      semver: 7.8.4
       validate-npm-package-name: 7.0.2
 
   npm-packlist@10.0.4:
@@ -23861,7 +23859,7 @@ snapshots:
       npm-install-checks: 8.0.0
       npm-normalize-package-bin: 5.0.0
       npm-package-arg: 13.0.2
-      semver: 7.8.1
+      semver: 7.8.4
 
   npm-registry-fetch@19.1.1:
     dependencies:
@@ -24044,10 +24042,10 @@ snapshots:
 
   object.assign@4.1.7:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       has-symbols: 1.1.0
       object-keys: 1.1.1
 
@@ -24995,11 +24993,11 @@ snapshots:
 
   reflect.getprototypeof@1.0.10:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       define-properties: 1.2.1
       es-abstract: 1.24.1
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       get-intrinsic: 1.3.0
       get-proto: 1.0.1
       which-builtin-type: 1.2.1
@@ -25014,7 +25012,7 @@ snapshots:
 
   regexp.prototype.flags@1.5.4:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       define-properties: 1.2.1
       es-errors: 1.3.0
       get-proto: 1.0.1
@@ -25284,7 +25282,7 @@ snapshots:
 
   safe-array-concat@1.1.3:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
       has-symbols: 1.1.0
@@ -25604,7 +25602,7 @@ snapshots:
     dependencies:
       dunder-proto: 1.0.1
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   setprototypeof@1.1.0: {}
 
@@ -25918,12 +25916,12 @@ snapshots:
 
   string.prototype.trim@1.2.10:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       call-bound: 1.0.4
       define-data-property: 1.1.4
       define-properties: 1.2.1
       es-abstract: 1.24.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       has-property-descriptors: 1.0.2
 
   string.prototype.trimend@1.0.9:
@@ -25935,9 +25933,9 @@ snapshots:
 
   string.prototype.trimstart@1.0.8:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   string_decoder@1.1.1:
     dependencies:
@@ -26162,10 +26160,6 @@ snapshots:
 
   thenby@1.4.1: {}
 
-  thingies@2.5.0(tslib@2.8.1):
-    dependencies:
-      tslib: 2.8.1
-
   thingies@2.6.0(tslib@2.8.1):
     dependencies:
       tslib: 2.8.1
@@ -26357,7 +26351,7 @@ snapshots:
 
   typed-array-byte-length@1.0.3:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       for-each: 0.3.5
       gopd: 1.2.0
       has-proto: 1.2.0
@@ -26366,7 +26360,7 @@ snapshots:
   typed-array-byte-offset@1.0.4:
     dependencies:
       available-typed-arrays: 1.0.7
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       for-each: 0.3.5
       gopd: 1.2.0
       has-proto: 1.2.0
@@ -26375,7 +26369,7 @@ snapshots:
 
   typed-array-length@1.0.7:
     dependencies:
-      call-bind: 1.0.8
+      call-bind: 1.0.9
       for-each: 0.3.5
       gopd: 1.2.0
       is-typed-array: 1.1.15
@@ -26886,7 +26880,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack-dev-middleware: 7.4.5(tslib@2.8.1)(webpack@5.107.2(@swc/core@1.15.8(@swc/helpers@0.5.21))(esbuild@0.27.3)(postcss@8.5.15))
-      ws: 8.21.0
+      ws: 8.21.3
     optionalDependencies:
       webpack: 5.107.2(@swc/core@1.15.8(@swc/helpers@0.5.21))(esbuild@0.27.3)(postcss@8.5.15)
     transitivePeerDependencies:
@@ -27068,7 +27062,7 @@ snapshots:
       isarray: 2.0.5
       which-boxed-primitive: 1.1.1
       which-collection: 1.0.2
-      which-typed-array: 1.1.20
+      which-typed-array: 1.1.21
 
   which-collection@1.0.2:
     dependencies:
@@ -27076,16 +27070,6 @@ snapshots:
       is-set: 2.0.3
       is-weakmap: 2.0.2
       is-weakset: 2.0.4
-
-  which-typed-array@1.1.20:
-    dependencies:
-      available-typed-arrays: 1.0.7
-      call-bind: 1.0.8
-      call-bound: 1.0.4
-      for-each: 0.3.5
-      get-proto: 1.0.1
-      gopd: 1.2.0
-      has-tostringtag: 1.0.2
 
   which-typed-array@1.1.21:
     dependencies:
