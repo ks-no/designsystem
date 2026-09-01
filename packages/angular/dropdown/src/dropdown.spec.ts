@@ -59,21 +59,6 @@ describe('Dropdown', () => {
     expect(isOpen()).toBe(false)
   })
 
-  // The popover polyfill light-dismisses via pointer events jsdom does not
-  // produce. Covered by the angular-demo e2e suite instead.
-  it.skip('should close when we click outside', async () => {
-    await renderDropdown()
-    const triggerButton = await screen.findByRole('button', {
-      name: /åpne dropdown/i,
-    })
-
-    await user.click(triggerButton)
-    expect(isOpen()).toBe(true)
-
-    await user.click(document.body)
-    expect(isOpen()).toBe(false)
-  })
-
   it('should close when we press ESC', async () => {
     await renderDropdown()
     const triggerButton = await screen.findByRole('button', {
