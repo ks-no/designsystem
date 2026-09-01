@@ -3,7 +3,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   contentChild,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ElementRef,
+  viewChild,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
@@ -27,14 +31,20 @@ import { SearchInput } from './search-input'
 @Component({
   selector: 'ksd-search',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <ng-content select="[ksd-search-input]" />
-    <ng-content select="[ksd-search-clear]" />
-    <ng-content select="[ksd-search-button]" />
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  styles: `
+    :host {
+      display: block;
+    }
   `,
-  host: {
-    class: 'ds-search',
-  },
+  // ds-suggestion hides the clear button while the input is empty
+  template: `
+    <ds-suggestion #suggestionElement class="ds-search">
+      <ng-content select="[ksd-search-input]" />
+      <ng-content select="[ksd-search-clear]" />
+      <ng-content select="[ksd-search-button]" />
+    </ds-suggestion>
+  `,
   hostDirectives: [
     {
       directive: HostSize,
@@ -48,9 +58,14 @@ import { SearchInput } from './search-input'
 })
 export class Search {
   private readonly input = contentChild(SearchInput)
+  private readonly suggestionElement =
+    viewChild.required<ElementRef<HTMLElement>>('suggestionElement')
 
   constructor() {
     afterNextRender(() => {
+      // ds-suggestion only reads its children on connect, which happens before Angular projects them
+      this.suggestionElement().nativeElement.dispatchEvent(new Event('input'))
+
       if (!this.input()) {
         logIfDevMode({
           component: 'Search',

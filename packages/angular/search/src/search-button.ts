@@ -5,7 +5,7 @@ import { Directive, input } from '@angular/core'
  *
  * Used within Search to provide a submit button.
  *
- * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use
+ * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use'
  * @param {string} [aria-label] - Aria label for the button
  *
  */
@@ -15,7 +15,7 @@ import { Directive, input } from '@angular/core'
   host: {
     class: 'ds-button',
     type: 'submit',
-    '[attr.aria-label]': 'this.ariaLabel()',
+    '[attr.aria-label]': 'this.ariaLabel() || null',
     '[attr.data-variant]': 'this.variant()',
   },
 })

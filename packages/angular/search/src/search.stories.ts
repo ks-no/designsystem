@@ -53,14 +53,16 @@ type Story = Meta<Search>
 export const Preview: Story = {
   args: {
     variant: 'primary',
+    buttonLabel: 'Søk',
+    clearButtonLabel: 'Tøm',
   },
   render: (args) => ({
     props: args,
     template: `
-      <ksd-search role="search" ${argsToTemplate(args)}>
+      <ksd-search role="search" ${argsToTemplate(args, { exclude: ['variant', 'buttonLabel', 'clearButtonLabel'] })}>
         <input ksd-search-input role="searchbox" aria-label="Søkefelt" />
         <button ksd-search-clear [aria-label]="clearButtonLabel"></button>
-        <button ksd-search-button [variant]="variant" [aria-label]="buttonLabel"></button>
+        <button ksd-search-button [variant]="variant">{{ buttonLabel }}</button>
       </ksd-search>
     `,
   }),
@@ -92,7 +94,7 @@ export const Controlled: Story = {
         <ksd-search>
           <input ksd-search-input role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
           <button ksd-search-clear (clearInput)="clearValue()" ></button>
-          <button ksd-search-button></button>
+          <button ksd-search-button>Søk</button>
         </ksd-search>
 
         <div>
@@ -119,7 +121,7 @@ export const Variants: Story = {
         <ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear></button>
-          <button ksd-search-button></button>
+          <button ksd-search-button>Søk</button>
         </ksd-search>
       </div>
 
@@ -128,7 +130,7 @@ export const Variants: Story = {
         <ksd-search>
           <input ksd-search-input role="searchbox" />
           <button ksd-search-clear></button>
-          <button ksd-search-button variant="secondary"></button>
+          <button ksd-search-button variant="secondary">Søk</button>
         </ksd-search>
       </div>
 
@@ -153,7 +155,7 @@ export const WithLabel: Story = {
         <ksd-search>
           <input ksd-search-input role="searchbox" name="dog-search" />
           <button ksd-search-clear></button>
-          <button ksd-search-button></button>
+          <button ksd-search-button>Søk</button>
         </ksd-search>
       </ksd-field>
     `,
@@ -181,7 +183,7 @@ export const Form: Story = {
           <ksd-search>
             <input ksd-search-input role="searchbox" name="search" />
             <button ksd-search-clear (clearInput)="onClear()"></button>
-            <button ksd-search-button></button>
+            <button ksd-search-button>Søk</button>
           </ksd-search>
         </form>
 

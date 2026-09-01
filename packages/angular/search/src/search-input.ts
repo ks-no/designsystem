@@ -11,7 +11,6 @@ import { Directive } from '@angular/core'
   host: {
     class: 'ds-input',
     type: 'search',
-    placeholder: '', // Need empty placeholder to enable show/hide for clear button
   },
 })
 export class SearchInput {}

@@ -36,12 +36,16 @@ test('should clear the input when the clear button is clicked', async () => {
   )
 
   const searchInput = screen.getByRole('searchbox') as HTMLInputElement
-  const clearButton = screen.getByRole('button', {
-    name: /tøm/i,
-  }) as HTMLButtonElement
+
+  // The clear button stays hidden until the input has a value
+  expect(screen.queryByRole('button', { name: /tøm/i })).not.toBeInTheDocument()
 
   await userEvent.type(searchInput, 'test')
   expect(searchInput.value).toBe('test')
+
+  const clearButton = screen.getByRole('button', {
+    name: /tøm/i,
+  }) as HTMLButtonElement
 
   await userEvent.click(clearButton)
   expect(searchInput.value).toBe('')

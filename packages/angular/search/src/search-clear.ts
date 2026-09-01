@@ -50,6 +50,7 @@ export class SearchClear {
 
     e.preventDefault()
     inputElement.value = ''
+    inputElement.dispatchEvent(new Event('input', { bubbles: true })) // Lets ds-suggestion hide this button again
     this.clearInput.emit()
     inputElement.focus()
   }
