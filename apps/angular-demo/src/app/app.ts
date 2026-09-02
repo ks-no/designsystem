@@ -279,9 +279,14 @@ import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-m
       <section>
         <h2 class="text-xl font-semibold mb-4">Search</h2>
         <ksd-search role="search">
-          <input ksd-search-input role="searchbox" aria-label="Søk" />
+          <input
+            ksd-search-input
+            type="text"
+            role="searchbox"
+            aria-label="Søk"
+          />
           <button ksd-search-clear aria-label="Tøm søk"></button>
-          <button ksd-search-button aria-label="Søk"></button>
+          <button ksd-search-button>Søk</button>
         </ksd-search>
       </section>
 
