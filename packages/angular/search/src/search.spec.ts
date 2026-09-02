@@ -51,6 +51,37 @@ test('should clear the input when the clear button is clicked', async () => {
   expect(searchInput.value).toBe('')
 })
 
+test('should notify controlled consumers through the input event when cleared', async () => {
+  const state = { value: '' }
+  const onInput = vi.fn((event: Event) => {
+    state.value = (event.target as HTMLInputElement).value
+  })
+
+  await render(
+    `
+      <ksd-search>
+        <input ksd-search-input role="searchbox" [value]="value" (input)="onInput($event)" />
+        <button ksd-search-clear></button>
+      </ksd-search>
+    `,
+    {
+      imports: [SearchInput, SearchClear, Search],
+      componentProperties: { value: '', onInput },
+    },
+  )
+
+  const searchInput = screen.getByRole('searchbox') as HTMLInputElement
+  await userEvent.type(searchInput, 'pizza')
+  expect(state.value).toBe('pizza')
+
+  onInput.mockClear()
+  await userEvent.click(screen.getByRole('button', { name: /tøm/i }))
+
+  expect(onInput).toHaveBeenCalledTimes(1)
+  expect(state.value).toBe('')
+  expect(searchInput.value).toBe('')
+})
+
 test('should keep an initial value and show the clear button for it', async () => {
   await render(
     `
