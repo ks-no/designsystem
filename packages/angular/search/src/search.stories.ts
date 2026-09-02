@@ -1,3 +1,4 @@
+import { signal } from '@angular/core'
 import { Button } from '@ks-digital/designsystem-angular/button'
 import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import { argsToTemplate, moduleMetadata, type Meta } from '@storybook/angular'
@@ -48,7 +49,7 @@ const meta: Meta<SearchArgs> = {
   ],
 }
 export default meta
-type Story = Meta<Search>
+type Story = Meta<SearchArgs>
 
 export const Preview: Story = {
   args: {
@@ -70,41 +71,24 @@ export const Preview: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const state = {
-      value: '',
-    }
+    const value = signal('')
     return {
       props: {
-        state,
-
-        setInput: (value: string) => {
-          state.value = value
-        },
-
-        setValue: (event: KeyboardEvent) => {
-          const input = event.target as HTMLInputElement
-          state.value = input.value
-        },
-
-        clearValue: () => {
-          state.value = ''
-        },
+        value,
+        onInput: (event: Event) =>
+          value.set((event.target as HTMLInputElement).value),
       },
       template: `
         <ksd-search>
-          <input ksd-search-input role="searchbox" [value]="state.value" (keyup)="setValue($event)"/>
-          <button ksd-search-clear (clearInput)="clearValue()" ></button>
+          <input ksd-search-input role="searchbox" [value]="value()" (input)="onInput($event)" />
+          <button ksd-search-clear></button>
           <button ksd-search-button>Søk</button>
         </ksd-search>
 
         <div>
-          <span>Current search value: "{{ state.value }}"</span>
+          <span>Current search value: "{{ value() }}"</span>
 
-          <button ksd-button (click)="setInput('Calzone')">
-            Set input value to "Calzone"
-          </button>
-
-          <p>The clear button has an output <em>(clearInput)</em> that is emitted when clicked.</p>
+          <p>The input fires an <em>(input)</em> event both while typing and when the clear button empties it.</p>
         </div>
       `,
     }
@@ -174,15 +158,12 @@ export const Form: Story = {
           const formData = new FormData(form)
           state.value = formData.get('search') as string
         },
-        onClear: () => {
-          state.value = ''
-        },
       },
       template: `
         <form role="search" (submit)="onSubmit($event)">
           <ksd-search>
             <input ksd-search-input role="searchbox" name="search" />
-            <button ksd-search-clear (clearInput)="onClear()"></button>
+            <button ksd-search-clear></button>
             <button ksd-search-button>Søk</button>
           </ksd-search>
         </form>
@@ -191,7 +172,4 @@ export const Form: Story = {
     `,
     }
   },
-  // play: async ({ canvas }) => {
-  //   await expect(canvas.getByRole('search')).toBeTruthy()
-  // },
 }

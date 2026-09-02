@@ -1,15 +1,12 @@
-import { Directive, input, output } from '@angular/core'
+import { Directive, input } from '@angular/core'
 
 /**
  * Search clear button
  *
  * Used within Search to provide a clear button.
+ * ds-suggestion clears and refocuses the input, and fires an `input` event on it.
  *
  * @param {string} [aria-label] - Aria label for the button.
- *
- * @event clearInput - Emitted when the clear button is clicked.
- * Use this to notify controlled forms that the input should be cleared.
- *
  */
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -19,7 +16,6 @@ import { Directive, input, output } from '@angular/core'
     type: 'reset',
     '[attr.data-variant]': "'tertiary'",
     '[attr.aria-label]': 'this.ariaLabel()',
-    '(click)': 'clearInput.emit()',
   },
 })
 export class SearchClear {
@@ -28,9 +24,4 @@ export class SearchClear {
    * @default 'Tøm'
    */
   readonly ariaLabel = input('Tøm', { alias: 'aria-label' })
-
-  /**
-   * Output to notify controlled forms that input should be cleared
-   */
-  clearInput = output<void>()
 }
