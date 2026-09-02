@@ -4,8 +4,6 @@ import {
   Component,
   contentChild,
   CUSTOM_ELEMENTS_SCHEMA,
-  ElementRef,
-  viewChild,
 } from '@angular/core'
 import '@digdir/designsystemet-web'
 import {
@@ -37,13 +35,17 @@ import { SearchInput } from './search-input'
       display: block;
     }
   `,
-  // ds-suggestion hides the clear button while the input is empty
+  // ds-suggestion hides the clear button while the input is empty, but only reads its
+  // children on connect. The @if builds this as an embedded view, so it is inserted
+  // with the projected content already in place - do not inline it.
   template: `
-    <ds-suggestion #suggestionElement class="ds-search">
-      <ng-content select="[ksd-search-input]" />
-      <ng-content select="[ksd-search-clear]" />
-      <ng-content select="[ksd-search-button]" />
-    </ds-suggestion>
+    @if (true) {
+      <ds-suggestion class="ds-search">
+        <ng-content select="[ksd-search-input]" />
+        <ng-content select="[ksd-search-clear]" />
+        <ng-content select="[ksd-search-button]" />
+      </ds-suggestion>
+    }
   `,
   hostDirectives: [
     {
@@ -58,14 +60,9 @@ import { SearchInput } from './search-input'
 })
 export class Search {
   private readonly input = contentChild(SearchInput)
-  private readonly suggestionElement =
-    viewChild.required<ElementRef<HTMLElement>>('suggestionElement')
 
   constructor() {
     afterNextRender(() => {
-      // ds-suggestion only reads its children on connect, which happens before Angular projects them
-      this.suggestionElement().nativeElement.dispatchEvent(new Event('input'))
-
       if (!this.input()) {
         logIfDevMode({
           component: 'Search',
