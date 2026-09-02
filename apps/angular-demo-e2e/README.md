@@ -4,8 +4,10 @@ Visual snapshot tests for the `angular-demo` app using Playwright. Snapshots are
 
 ## Running tests
 
+From the repo root:
+
 ```sh
-docker compose run --rm e2e
+pnpm e2e
 ```
 
 ## Updating snapshots
@@ -14,10 +16,18 @@ docker compose run --rm e2e
 > Run this after intentional visual changes (e.g. a component style update or theme change):
 
 ```sh
-docker compose run --rm update-snapshots
+pnpm e2e:update-snapshots
 ```
 
 Then commit the updated files in `src/app.spec.ts-snapshots/`.
+
+The container installs its own `node_modules` (it needs Linux binaries, not your host's), so
+those directories are mounted as container-only volumes. If the cached root volume ever goes
+stale after a dependency change, reset it with:
+
+```sh
+docker compose -f apps/angular-demo-e2e/docker-compose.yml down -v
+```
 
 ## Local development (without Docker)
 

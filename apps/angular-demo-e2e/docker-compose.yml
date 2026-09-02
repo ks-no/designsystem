@@ -5,6 +5,16 @@ x-e2e-base: &e2e-base
     - ../../:/work
     - pnpm-store:/root/.local/share/pnpm/store
     - node_modules:/work/node_modules
+    # Nested node_modules are symlinks into the root store, so they have to be
+    # container-only too. Anonymous volumes are dropped with the container, keeping
+    # them in sync with whatever the root volume was installed from.
+    - /work/apps/angular-demo/node_modules
+    - /work/apps/react-demo/node_modules
+    - /work/apps/www/node_modules
+    - /work/packages/angular/node_modules
+    - /work/packages/react/node_modules
+    - /work/packages/themes/node_modules
+    - /work/packages/web/node_modules
   network_mode: host
   environment:
     - CI=true
