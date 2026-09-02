@@ -19,7 +19,7 @@ import { Directive, input, output } from '@angular/core'
     type: 'reset',
     '[attr.data-variant]': "'tertiary'",
     '[attr.aria-label]': 'this.ariaLabel()',
-    '(click)': 'handleClear($event)',
+    '(click)': 'clearInput.emit()',
   },
 })
 export class SearchClear {
@@ -33,25 +33,4 @@ export class SearchClear {
    * Output to notify controlled forms that input should be cleared
    */
   clearInput = output<void>()
-
-  handleClear(e: Event): void {
-    const target = e.target as HTMLButtonElement
-    let inputElement: HTMLElement | null | undefined = null
-
-    if (target instanceof HTMLElement) {
-      inputElement = target.closest('.ds-search')?.querySelector('input')
-    }
-
-    if (!inputElement) throw new Error('Input is missing')
-
-    if (!(inputElement instanceof HTMLInputElement)) {
-      throw new Error('Input is not an input element')
-    }
-
-    e.preventDefault()
-    inputElement.value = ''
-    inputElement.dispatchEvent(new Event('input', { bubbles: true })) // Lets ds-suggestion hide this button again
-    this.clearInput.emit()
-    inputElement.focus()
-  }
 }

@@ -51,6 +51,22 @@ test('should clear the input when the clear button is clicked', async () => {
   expect(searchInput.value).toBe('')
 })
 
+test('should keep an initial value and show the clear button for it', async () => {
+  await render(
+    `
+      <ksd-search>
+        <input ksd-search-input role="searchbox" value="pizza" />
+        <button ksd-search-clear></button>
+      </ksd-search>
+    `,
+    { imports: [SearchInput, SearchClear, Search] },
+  )
+
+  const searchInput = screen.getByRole('searchbox') as HTMLInputElement
+  expect(searchInput.value).toBe('pizza')
+  expect(screen.getByRole('button', { name: /tøm/i })).toBeInTheDocument()
+})
+
 test('should have no obvious accessibility violations', async () => {
   const { container } = await render(
     `
