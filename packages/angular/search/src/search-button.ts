@@ -5,7 +5,7 @@ import { Directive, input } from '@angular/core'
  *
  * Used within Search to provide a submit button.
  *
- * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use'
+ * @param {('primary' | 'secondary')} [variant] - Specify which button variant to use
  * @param {string} [aria-label] - Aria label for the button
  *
  */
