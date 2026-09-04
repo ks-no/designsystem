@@ -5,6 +5,8 @@
   "scripts": {
     "build-storybook": "pnpm nx run @ks-digital/designsystem-angular:build-storybook",
     "chromatic": "npx chromatic --project-token=chpt_086af95d74cc9bd",
+    "e2e": "docker compose -f apps/angular-demo-e2e/docker-compose.yml run --rm e2e",
+    "e2e:update-snapshots": "docker compose -f apps/angular-demo-e2e/docker-compose.yml run --rm update-snapshots",
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
@@ -61,7 +63,7 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jiti": "2.6.1",
-    "jsdom": "~27.2.0",
+    "jsdom": "^30.0.1",
     "lint-staged": "^15.5.2",
     "nx": "catalog:nx",
     "postcss": "^8.5.15",

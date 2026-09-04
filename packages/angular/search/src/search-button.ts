@@ -15,7 +15,7 @@ import { Directive, input } from '@angular/core'
   host: {
     class: 'ds-button',
     type: 'submit',
-    '[attr.aria-label]': 'this.ariaLabel()',
+    '[attr.aria-label]': 'this.ariaLabel() || null',
     '[attr.data-variant]': 'this.variant()',
   },
 })

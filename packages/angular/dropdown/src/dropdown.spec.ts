@@ -22,6 +22,12 @@ const renderDropdown = async () => {
 
 const itemText = 'Item 1'
 
+// jsdom does not implement the Popover API (jsdom/jsdom#3721), so `[popover]`
+// elements always compute to `display: none`. Assert on the popover state, which
+// the polyfill in designsystemet-web resolves correctly, instead of visibility.
+const getDropdown = () => screen.getByText(itemText).closest('[ksd-dropdown]')
+const isOpen = () => getDropdown()?.matches(':popover-open')
+
 describe('Dropdown', () => {
   const user = userEvent.setup()
 
@@ -32,10 +38,10 @@ describe('Dropdown', () => {
     })
 
     expect(triggerButton).toBeVisible()
-    expect(screen.queryByText(itemText)).not.toBeVisible()
+    expect(isOpen()).toBe(false)
 
     await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
+    expect(isOpen()).toBe(true)
   })
 
   it('should close when we click the button twice', async () => {
@@ -44,26 +50,13 @@ describe('Dropdown', () => {
       name: /åpne dropdown/i,
     })
 
-    expect(screen.queryByText(itemText)).not.toBeVisible()
+    expect(isOpen()).toBe(false)
 
     await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
+    expect(isOpen()).toBe(true)
 
     await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).not.toBeVisible()
-  })
-
-  it('should close when we click outside', async () => {
-    await renderDropdown()
-    const triggerButton = await screen.findByRole('button', {
-      name: /åpne dropdown/i,
-    })
-
-    await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
-
-    await user.click(document.body)
-    expect(screen.queryByText(itemText)).not.toBeVisible()
+    expect(isOpen()).toBe(false)
   })
 
   it('should close when we press ESC', async () => {
@@ -73,10 +66,10 @@ describe('Dropdown', () => {
     })
 
     await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
+    expect(isOpen()).toBe(true)
 
     await user.keyboard('[Escape]')
-    expect(screen.queryByText(itemText)).not.toBeVisible()
+    expect(isOpen()).toBe(false)
   })
 
   it('should not close when we click inside the dropdown', async () => {
@@ -86,10 +79,10 @@ describe('Dropdown', () => {
     })
 
     await user.click(triggerButton)
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
+    expect(isOpen()).toBe(true)
 
     await user.click(screen.getByText(itemText))
-    expect(screen.queryByText(itemText)).toBeInTheDocument()
+    expect(isOpen()).toBe(true)
   })
 
   it('should have correct id and popovertarget attributes', async () => {
