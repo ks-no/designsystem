@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   contentChild,
+  CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core'
+import '@digdir/designsystemet-web'
 import {
   HostColor,
   HostSize,
@@ -27,14 +29,24 @@ import { SearchInput } from './search-input'
 @Component({
   selector: 'ksd-search',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <ng-content select="[ksd-search-input]" />
-    <ng-content select="[ksd-search-clear]" />
-    <ng-content select="[ksd-search-button]" />
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  styles: `
+    :host {
+      display: block;
+    }
   `,
-  host: {
-    class: 'ds-search',
-  },
+  // ds-suggestion hides the clear button while the input is empty, but only reads its
+  // children on connect. The @if builds this as an embedded view, so it is inserted
+  // with the projected content already in place - do not inline it.
+  template: `
+    @if (true) {
+      <ds-suggestion class="ds-search">
+        <ng-content select="[ksd-search-input]" />
+        <ng-content select="[ksd-search-clear]" />
+        <ng-content select="[ksd-search-button]" />
+      </ds-suggestion>
+    }
+  `,
   hostDirectives: [
     {
       directive: HostSize,

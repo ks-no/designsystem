@@ -30,7 +30,7 @@ import {
   imports: [Search, SearchInput, SearchClear, SearchButton],
   template: `
     <ksd-search>
-      <input ksd-search-input placeholder="Søk..." />
+      <input ksd-search-input type="text" placeholder="Søk..." />
       <button ksd-search-clear aria-label="Tøm søk"></button>
       <button ksd-search-button>Søk</button>
     </ksd-search>
@@ -39,6 +39,9 @@ import {
 export class App {}
 ```
 
+Søkeknappen trenger en synlig tekst. Vil du heller ha forstørrelsesglass-ikonet i selve
+feltet, dropper du søkeknappen og lar input beholde `type="search"`.
+
 ## Kontrollert
 
 <Canvas of={SearchStories.Controlled} />
@@ -46,6 +49,8 @@ export class App {}
 ## Variants
 
 Du kan endre variant på Button for å tilpasse visningen. Alternativt kan du fjerne knappen for å bruke et søkefelt med ikon. Eksemplene nedenfor viser varianter som inkluderer ikon, primær- og sekundærknapp.
+
+Ikonet kommer fra `type="search"` på input, og vises derfor bare når du ikke har en søkeknapp.
 
 <Canvas of={SearchStories.Variants} />
 

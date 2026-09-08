@@ -46,10 +46,10 @@ catalogs:
     '@angular/core': '>= 21.0.0 < 22.0.0'
     '@angular/forms': '>= 21.0.0 < 22.0.0'
   designsystemet:
-    '@digdir/designsystemet': '1.15.0'
-    '@digdir/designsystemet-css': '1.15.0'
-    '@digdir/designsystemet-react': '1.15.0'
-    '@digdir/designsystemet-web': '1.15.0'
+    '@digdir/designsystemet': '1.21.0'
+    '@digdir/designsystemet-css': '1.21.0'
+    '@digdir/designsystemet-react': '1.21.0'
+    '@digdir/designsystemet-web': '1.21.0'
     '@navikt/aksel-icons': '8.10.3'
   nx:
     '@nx/angular': '23.1.1'
@@ -111,6 +111,7 @@ cleanupUnusedCatalogs: true
 ignoredBuiltDependencies:
   - 'less'
 minimumReleaseAge: 2880
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'

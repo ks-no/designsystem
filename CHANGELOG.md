@@ -1,3 +1,17 @@
+## 0.0.1-alpha.70
+
+### 🚀 Features
+
+- ⚠️ update `@digdir/*` packages ([#307](https://github.com/ks-no/designsystem/pull/307))
+
+### ⚠️ Breaking Changes
+
+- update `@digdir/*` packages ([#307](https://github.com/ks-no/designsystem/pull/307))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.69
 
 ### 🚀 Features
