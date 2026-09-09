@@ -2,6 +2,7 @@ import '@digdir/designsystemet-web/tooltip'
 import {
   attr,
   getComposedTarget,
+  isBrowser,
   on,
   onHotReload,
   onMutation,
@@ -49,6 +50,9 @@ const TIMERS = new WeakMap<Element, ReturnType<typeof setTimeout>>()
 const isDisabled = (el: Element) =>
   el.hasAttribute('disabled') || attr(el, 'aria-disabled') === 'true'
 
+const toState = (value: string | null): CopyState =>
+  value === 'success' || value === 'error' ? value : 'rest'
+
 const setState = (el: Element, state: CopyState) => {
   attr(el, ATTR_STATE, state)
   attr(el, ATTR_TOOLTIP, attr(el, LABEL_ATTR[state]) || LABEL_DEFAULT[state])
@@ -71,7 +75,7 @@ const setup = (el: Element) => {
     el.prepend(icon)
   }
 
-  setState(el, (attr(el, ATTR_STATE) as CopyState) || 'rest')
+  setState(el, toState(attr(el, ATTR_STATE)))
 }
 
 const emit = <T>(el: Element, type: string, detail: T) =>
@@ -103,7 +107,7 @@ const handleClick = async (event: Event) => {
 
 /** Enhances every `[data-copy]` in `scope`. Needed for roots the document observer cannot reach, such as shadow roots. */
 export const initCopyButtons = (
-  scope: Element | ShadowRoot | Document | null = document,
+  scope: Element | ShadowRoot | Document | null = isBrowser() ? document : null,
 ) => {
   for (const el of scope?.querySelectorAll(SELECTOR) || []) setup(el)
 }

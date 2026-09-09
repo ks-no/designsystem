@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import './copy-button'
+import { initCopyButtons } from './copy-button'
 
 // MutationObserver records are delivered at the end of the microtask checkpoint
 const tick = () => new Promise((resolve) => setTimeout(resolve, 0))
@@ -114,5 +115,21 @@ describe('[data-copy]', () => {
     await tick()
 
     expect(added).toHaveAttribute('data-tooltip', 'Kopier')
+  })
+
+  it('falls back to rest for an unrecognised state', async () => {
+    const button = await mount(
+      '<button data-copy="something" data-copy-state="foo"></button>',
+    )
+
+    expect(button).toHaveAttribute('data-copy-state', 'rest')
+    expect(button).toHaveAttribute('data-tooltip', 'Kopier')
+    expect(button.querySelector('[data-copy-icon]')?.innerHTML).toContain(
+      '<svg',
+    )
+  })
+
+  it('does not touch the DOM when initCopyButtons gets a null scope', () => {
+    expect(() => initCopyButtons(null)).not.toThrow()
   })
 })
