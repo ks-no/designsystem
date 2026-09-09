@@ -1,208 +1,140 @@
-import '@digdir/designsystemet-web'
-import { SignalWatcher, signal } from '@lit-labs/signals'
-import { LitElement, css, html, svg } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import '@digdir/designsystemet-web/tooltip'
+import {
+  attr,
+  getComposedTarget,
+  on,
+  onHotReload,
+  onMutation,
+  warn,
+} from '../utils/utils'
 
-type CopyEventDetail = {
+export type CopyState = 'rest' | 'success' | 'error'
+
+export type CopyEventDetail = {
   value: string
 }
 
-type CopyErrorEventDetail = {
+export type CopyErrorEventDetail = {
   value: string
   error: unknown
 }
 
-type CopyStatus = 'rest' | 'success' | 'error'
+const ATTR_COPY = 'data-copy'
+const ATTR_ICON = 'data-copy-icon'
+const ATTR_STATE = 'data-copy-state'
+const ATTR_TOOLTIP = 'data-tooltip'
+const SELECTOR = `[${ATTR_COPY}]`
+const RESET_DELAY = 2000
 
-@customElement('ksd-copy-button')
-export class KsdCopyButton extends SignalWatcher(LitElement) {
-  static override styles = css`
-    :host {
-      display: inline-block;
-      font-size: inherit;
-      color: inherit;
-    }
+const LABEL_ATTR: Record<CopyState, string> = {
+  rest: 'data-copy-label',
+  success: 'data-copied-label',
+  error: 'data-error-label',
+}
 
-    svg {
-      width: 1em;
-      height: 1em;
-      display: block;
-    }
-  `
+const LABEL_DEFAULT: Record<CopyState, string> = {
+  rest: 'Kopier',
+  success: 'Kopiert',
+  error: 'Kopiering feilet',
+}
 
-  copyIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="168 168 216 168 216 40 88 40 88 88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="128" height="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`
-  successIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`
-  errorIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="160" y1="96" x2="96" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="96" x2="160" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`
+const ICON: Record<CopyState, string> = {
+  rest: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="168 168 216 168 216 40 88 40 88 88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="128" height="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
+  success: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
+  error: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="160" y1="96" x2="96" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="96" x2="160" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
+}
 
-  @property({ type: String, reflect: true })
-  value = ''
+const TIMERS = new WeakMap<Element, ReturnType<typeof setTimeout>>()
 
-  @property({ type: Boolean, reflect: true })
-  disabled = false
+const isDisabled = (el: Element) =>
+  el.hasAttribute('disabled') || attr(el, 'aria-disabled') === 'true'
 
-  @property({ type: String, attribute: 'copy-label' })
-  copyLabel = 'Kopier'
+const setState = (el: Element, state: CopyState) => {
+  attr(el, ATTR_STATE, state)
+  attr(el, ATTR_TOOLTIP, attr(el, LABEL_ATTR[state]) || LABEL_DEFAULT[state])
 
-  @property({ type: String, attribute: 'copied-label' })
-  copiedLabel = 'Kopiert'
+  const icon = el.querySelector(`:scope > [${ATTR_ICON}]`)
+  if (icon) icon.innerHTML = ICON[state]
+}
 
-  @property({ type: String, attribute: 'error-label' })
-  errorLabel = 'Kopiering feilet'
-
-  private readonly status = signal<CopyStatus>('rest')
-
-  private readonly isCopying = signal(false)
-
-  private readonly resetCopyStateTimeoutDuration = 2000
-
-  private resetCopyStateTimeout?: number
-
-  private activate(): void {
-    if (this.disabled) return
-    void this.handleCopy()
-  }
-
-  private readonly onHostClick = (): void => {
-    this.activate()
-  }
-
-  private readonly onHostKeyDown = (event: KeyboardEvent): void => {
-    const isActivationKey = event.key === 'Enter' || event.key === ' '
-    if (isActivationKey) {
-      event.preventDefault()
-      this.activate()
-    }
-  }
-
-  private syncTooltip(): void {
-    const currentStatus = this.status.get()
-    const label =
-      currentStatus === 'success'
-        ? this.copiedLabel
-        : currentStatus === 'error'
-          ? this.errorLabel
-          : this.copyLabel
-    this.setAttribute('data-tooltip', label)
-  }
-
-  private syncHostAccessibility(): void {
-    const currentStatus = this.status.get()
-    const label =
-      currentStatus === 'success'
-        ? this.copiedLabel
-        : currentStatus === 'error'
-          ? this.errorLabel
-          : this.copyLabel
-
-    this.setAttribute('role', 'button')
-    this.setAttribute('aria-label', label)
-    this.setAttribute('aria-disabled', String(this.disabled))
-    this.tabIndex = this.disabled ? -1 : 0
-  }
-
-  private scheduleResetToRest(): void {
-    if (this.resetCopyStateTimeout) {
-      window.clearTimeout(this.resetCopyStateTimeout)
-    }
-
-    this.resetCopyStateTimeout = window.setTimeout(() => {
-      this.status.set('rest')
-      this.isCopying.set(false)
-      this.syncTooltip()
-      this.syncHostAccessibility()
-    }, this.resetCopyStateTimeoutDuration)
-  }
-
-  override disconnectedCallback(): void {
-    this.removeEventListener('click', this.onHostClick)
-    this.removeEventListener('keydown', this.onHostKeyDown)
-    super.disconnectedCallback()
-    if (this.resetCopyStateTimeout) {
-      window.clearTimeout(this.resetCopyStateTimeout)
-    }
-  }
-
-  private emitCopied(value: string): void {
-    this.dispatchEvent(
-      new CustomEvent<CopyEventDetail>('ksd-copy', {
-        detail: { value },
-        bubbles: true,
-        composed: true,
-      }),
+const setup = (el: Element) => {
+  if (el.nodeName !== 'BUTTON')
+    warn(
+      `${ATTR_COPY} expects a <button>, got <${el.nodeName.toLowerCase()}>:`,
+      el,
     )
+
+  if (!el.querySelector(`:scope > [${ATTR_ICON}]`)) {
+    const icon = document.createElement('span')
+    attr(icon, ATTR_ICON, '')
+    attr(icon, 'aria-hidden', 'true')
+    el.prepend(icon)
   }
 
-  private emitError(value: string, error: unknown): void {
-    this.dispatchEvent(
-      new CustomEvent<CopyErrorEventDetail>('ksd-error', {
-        detail: { value, error },
-        bubbles: true,
-        composed: true,
-      }),
-    )
+  setState(el, (attr(el, ATTR_STATE) as CopyState) || 'rest')
+}
+
+const emit = <T>(el: Element, type: string, detail: T) =>
+  el.dispatchEvent(
+    new CustomEvent<T>(type, { bubbles: true, composed: true, detail }),
+  )
+
+const handleClick = async (event: Event) => {
+  const el = getComposedTarget(event)?.closest(SELECTOR)
+  if (!el || isDisabled(el)) return
+
+  const value = attr(el, ATTR_COPY) || ''
+  clearTimeout(TIMERS.get(el))
+
+  try {
+    await navigator.clipboard.writeText(value)
+    setState(el, 'success')
+    emit<CopyEventDetail>(el, 'ksd-copy', { value })
+  } catch (error) {
+    setState(el, 'error')
+    emit<CopyErrorEventDetail>(el, 'ksd-error', { value, error })
   }
 
-  override connectedCallback(): void {
-    super.connectedCallback()
-    this.addEventListener('click', this.onHostClick)
-    this.addEventListener('keydown', this.onHostKeyDown)
-    this.syncTooltip()
-    this.syncHostAccessibility()
-  }
+  TIMERS.set(
+    el,
+    setTimeout(() => setState(el, 'rest'), RESET_DELAY),
+  )
+}
 
-  override updated(changed: Map<string, unknown>): void {
-    if (changed.has('copyLabel') || changed.has('copiedLabel')) {
-      this.syncTooltip()
-      this.syncHostAccessibility()
-    }
+/** Enhances every `[data-copy]` in `scope`. Needed for roots the document observer cannot reach, such as shadow roots. */
+export const initCopyButtons = (
+  scope: Element | ShadowRoot | Document | null = document,
+) => {
+  for (const el of scope?.querySelectorAll(SELECTOR) || []) setup(el)
+}
 
-    if (changed.has('disabled')) {
-      this.syncHostAccessibility()
-    }
-  }
+const handleMutations = (_: Document, records?: MutationRecord[]) => {
+  if (!records) return initCopyButtons()
 
-  private async handleCopy(): Promise<void> {
-    if (this.disabled || this.isCopying.get()) return
-
-    if (this.resetCopyStateTimeout) {
-      window.clearTimeout(this.resetCopyStateTimeout)
-    }
-
-    this.isCopying.set(true)
-
-    try {
-      await navigator.clipboard.writeText(this.value)
-      this.status.set('success')
-      this.emitCopied(this.value)
-      this.syncTooltip()
-      this.syncHostAccessibility()
-      this.scheduleResetToRest()
-    } catch (error: unknown) {
-      this.status.set('error')
-      this.emitError(this.value, error)
-      this.syncTooltip()
-      this.syncHostAccessibility()
-      this.scheduleResetToRest()
-    }
-  }
-
-  override render() {
-    const status = this.status.get()
-
-    if (status === 'success') {
-      return html` ${this.successIcon} `
-    }
-
-    if (status === 'error') {
-      return html` ${this.errorIcon} `
-    }
-
-    return html` ${this.copyIcon} `
+  for (const record of records) {
+    if (record.attributeName) setup(record.target as Element)
+    else
+      for (const node of record.addedNodes as NodeListOf<Element>) {
+        if (node.nodeType !== 1) continue
+        if (node.hasAttribute(ATTR_COPY)) setup(node)
+        initCopyButtons(node)
+      }
   }
 }
 
+onHotReload('copy-button', () => [
+  on(document, 'click', handleClick as EventListener, true),
+  onMutation(document, handleMutations, {
+    attributeFilter: [ATTR_COPY, ...Object.values(LABEL_ATTR)],
+    attributes: true,
+    childList: true,
+    subtree: true,
+  }),
+])
+
 declare global {
-  interface HTMLElementTagNameMap {
-    'ksd-copy-button': KsdCopyButton
+  interface GlobalEventHandlersEventMap {
+    'ksd-copy': CustomEvent<CopyEventDetail>
+    'ksd-error': CustomEvent<CopyErrorEventDetail>
   }
 }

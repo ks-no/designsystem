@@ -82,11 +82,6 @@ catalogs:
     '@storybook/web-components': '10.2.17'
     '@storybook/web-components-vite': '10.2.17'
     storybook: '10.5.8'
-  lit:
-    '@lit-labs/signals': '^0.1.3'
-    lit: '^3.3.0'
-  open-wc:
-    '@open-wc/testing': '^4.0.0'
   testing-library:
     '@testing-library/angular': '^17.4.0'
     '@testing-library/dom': '10.4.1'

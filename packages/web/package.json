@@ -21,17 +21,16 @@
     }
   },
   "dependencies": {
-    "@digdir/designsystemet-web": "catalog:designsystemet",
-    "@lit-labs/signals": "catalog:lit",
-    "lit": "catalog:lit"
+    "@digdir/designsystemet-web": "catalog:designsystemet"
   },
   "devDependencies": {
     "@ks-digital/designsystem-themes": "workspace:*",
-    "@open-wc/testing": "catalog:open-wc",
     "@storybook/addon-docs": "catalog:storybook",
+    "@testing-library/jest-dom": "catalog:testing-library",
     "@storybook/web-components": "catalog:storybook",
     "@storybook/web-components-vite": "catalog:storybook",
     "storybook": "catalog:storybook",
-    "typescript": "catalog:typescript"
+    "typescript": "catalog:typescript",
+    "vitest-axe": "catalog:vitest-a11y"
   }
 }

@@ -1,12 +1,29 @@
-# Web 👷
+# Web-pakken
 
-Noen komponenter og mønster finnes ikke i Designsystemet, men er nødvendige for KS Digital.
+## Anbefalt bruk
 
-Dette kan f.eks være mer sammensatte komponenter som er for spesifikke for Designsystemet.
+Denne pakken utvider Designsystemet sin web-pakke. Den gir deg to ting i én import:
 
-Vi jobber med å kartlegge og prioritere hvilke komponenter og mønstre som hører hjemme her og hva som skal videreføres fra gammelt designsystem.
+1. **Alt fra Designsystemet**, uendret og i sin helhet - web components og oppførsel som `data-tooltip` og `popover`.
+2. **KS Digital sine egne komponenter og mønstre**.
 
-**Komponentene skal kunne brukes i alle løsninger, uavhengig av teknologi.**
+Du skal derfor kun installere og importere vår pakke - ikke Designsystemet sin i tillegg.
+
+```bash
+pnpm add @ks-digital/designsystem-web @ks-digital/designsystem-themes
+```
+
+Importer pakken én gang, så tidlig som mulig i applikasjonen:
+
+```javascript
+import '@ks-digital/designsystem-web'
+```
+
+### Ikke importer Designsystemet i tillegg
+
+`@digdir/designsystemet-web` er bygget inn i pakken vår.
+
+Bruker du React eller Angular,
 
 ## Spørsmål?
 
