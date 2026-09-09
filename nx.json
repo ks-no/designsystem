@@ -7,7 +7,8 @@
     "projects": [
       "@ks-digital/designsystem-themes",
       "@ks-digital/designsystem-react",
-      "@ks-digital/designsystem-angular"
+      "@ks-digital/designsystem-angular",
+      "@ks-digital/designsystem-web"
     ],
     "projectsRelationship": "fixed",
     "changelog": {
