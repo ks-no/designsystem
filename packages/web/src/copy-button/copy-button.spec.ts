@@ -33,6 +33,24 @@ describe('[data-copy]', () => {
     expect(await axe(button)).toHaveNoViolations()
   })
 
+  it('gives an icon-only button an accessible name', async () => {
+    const button = await mount(
+      '<button class="ds-button" data-icon data-copy="something"></button>',
+    )
+
+    expect(button).toHaveAttribute('aria-label', 'Kopier')
+    expect(await axe(button)).toHaveNoViolations()
+  })
+
+  it('describes rather than relabels a button that has text', async () => {
+    const button = await mount(
+      '<button data-copy="something" data-copy-label="Kopier saksnummer">Kopier</button>',
+    )
+
+    expect(button).not.toHaveAttribute('aria-label')
+    expect(button).toHaveAttribute('aria-description', 'Kopier saksnummer')
+  })
+
   it('labels the button and injects an icon', async () => {
     const button = await mount('<button data-copy="something"></button>')
 
