@@ -82,7 +82,8 @@ catalogs:
     '@storybook/web-components': '10.2.17'
     '@storybook/web-components-vite': '10.2.17'
     storybook: '10.5.8'
-  # Only used by Storybook stories in packages/web, which declares lit as a peer dependency
+  # Dev-only: Storybook stories in packages/web are written as lit templates,
+  # and @storybook/web-components requires lit as a peer dependency
   lit:
     lit: '^3.3.0'
   testing-library:
