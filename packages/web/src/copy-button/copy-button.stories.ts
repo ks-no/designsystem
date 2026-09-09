@@ -34,7 +34,7 @@ const meta: Meta<CopyButtonArgs> = {
     value: '2026/01482-7',
     text: '',
     variant: 'tertiary',
-    copyLabel: 'Kopier saksnummer',
+    copyLabel: 'Kopier',
     copiedLabel: 'Kopiert',
   },
   argTypes: {
