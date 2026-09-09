@@ -100,6 +100,10 @@ catalogs:
     '@navikt/aksel-icons':
       specifier: 8.10.3
       version: 8.10.3
+  lit:
+    lit:
+      specifier: ^3.3.0
+      version: 3.3.2
   nx:
     '@nx/angular':
       specifier: 23.1.1
@@ -680,6 +684,9 @@ importers:
       '@testing-library/jest-dom':
         specifier: catalog:testing-library
         version: 6.6.4
+      lit:
+        specifier: catalog:lit
+        version: 3.3.2
       storybook:
         specifier: catalog:storybook
         version: 10.5.8(@types/react@19.2.14)(prettier@3.8.3)(react@19.2.4)
