@@ -3,7 +3,7 @@ import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core'
-import '@digdir/designsystemet-web'
+import '@digdir/designsystemet-web/fieldset'
 
 @Component({
   selector: 'fieldset[ksd-fieldset]',

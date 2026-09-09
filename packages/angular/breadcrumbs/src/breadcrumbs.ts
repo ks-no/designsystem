@@ -4,7 +4,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   input,
 } from '@angular/core'
-import '@digdir/designsystemet-web'
+import '@digdir/designsystemet-web/ds-breadcrumbs'
 import {
   HostColor,
   HostSize,

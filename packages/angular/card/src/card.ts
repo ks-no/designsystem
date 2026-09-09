@@ -6,6 +6,7 @@ import {
   inject,
   input,
 } from '@angular/core'
+import '@digdir/designsystemet-web/clickdelegatefor'
 import {
   HostColor,
   HostSize,

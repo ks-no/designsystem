@@ -1,4 +1,5 @@
 import { booleanAttribute, Directive, input, signal } from '@angular/core'
+import '@digdir/designsystemet-web/readonly'
 import {
   HostColor,
   HostSize,

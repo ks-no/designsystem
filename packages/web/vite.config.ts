@@ -32,7 +32,10 @@ export default defineConfig(() => ({
       fileName: 'index',
       formats: ['es' as const, 'cjs' as const],
     },
-    rolldownOptions: {},
+    // Kept external so consumers share one instance with @ks-digital/designsystem-angular
+    rolldownOptions: {
+      external: [/^@digdir\/designsystemet-web/],
+    },
   },
   test: {
     watch: false,

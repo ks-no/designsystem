@@ -21,9 +21,13 @@ import '@ks-digital/designsystem-web'
 
 ### Ikke importer Designsystemet i tillegg
 
-`@digdir/designsystemet-web` er bygget inn i pakken vår.
+`@digdir/designsystemet-web` følger med som avhengighet av pakken vår, og installeres automatisk. Du skal derfor ikke legge den til selv - da risikerer du å låse deg til en annen versjon enn den vi har testet mot.
 
-Bruker du React eller Angular,
+### Sammen med React og Angular
+
+Pakken er rammeverksuavhengig, og fungerer like godt sammen med `@ks-digital/designsystem-react` og `@ks-digital/designsystem-angular` som alene.
+
+Bruker du en av dem allerede, får du Designsystemet sin oppførsel derfra - og denne pakken gir deg våre egne rammeverksuavhengige komponenter på toppen.
 
 ## Spørsmål?
 

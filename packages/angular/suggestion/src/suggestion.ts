@@ -17,6 +17,7 @@ import {
   viewChild,
 } from '@angular/core'
 import type { FormValueControl } from '@angular/forms/signals'
+// Main entrypoint on purpose: u-datalist, which ds-suggestion filtering needs, has no subpath export
 import '@digdir/designsystemet-web'
 import {
   HostColor,

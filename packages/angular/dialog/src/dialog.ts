@@ -1,5 +1,7 @@
 import { Directive, input } from '@angular/core'
-import '@digdir/designsystemet-web'
+import '@digdir/designsystemet-web/dialog'
+// dialog.js reacts to `command` events but does not load the polyfill itself
+import '@digdir/designsystemet-web/invokers'
 import {
   HostColor,
   HostSize,
