@@ -40,7 +40,7 @@ tooltip og som tilgjengelig navn.
 
 ## Med synlig tekst
 
-<Canvas of={CopyButtonStories.WithLabel} />
+<Canvas of={CopyButtonStories.IconAndText} />
 
 ## Attributter
 
@@ -53,7 +53,7 @@ tooltip og som tilgjengelig navn.
 ## Events
 
 - `ksd-copy`: sendes ved vellykket kopiering (`detail.value`)
-- `ksd-error`: sendes hvis kopiering feiler (`detail.value`, `detail.error`)
+- `ksd-copy-error`: sendes hvis kopiering feiler (`detail.value`, `detail.error`)
 
 ```js
 document.addEventListener('ksd-copy', ({ detail }) => {

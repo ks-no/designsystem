@@ -64,7 +64,7 @@ describe('[data-copy]', () => {
       '<button data-copy="Text to copy!" data-error-label="Custom error"></button>',
     )
     const errorSpy = vi.fn()
-    button.addEventListener('ksd-error', errorSpy)
+    button.addEventListener('ksd-copy-error', errorSpy)
 
     button.click()
     await tick()

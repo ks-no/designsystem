@@ -92,7 +92,7 @@ const handleClick = async (event: Event) => {
     emit<CopyEventDetail>(el, 'ksd-copy', { value })
   } catch (error) {
     setState(el, 'error')
-    emit<CopyErrorEventDetail>(el, 'ksd-error', { value, error })
+    emit<CopyErrorEventDetail>(el, 'ksd-copy-error', { value, error })
   }
 
   TIMERS.set(
@@ -135,6 +135,6 @@ onHotReload('copy-button', () => [
 declare global {
   interface GlobalEventHandlersEventMap {
     'ksd-copy': CustomEvent<CopyEventDetail>
-    'ksd-error': CustomEvent<CopyErrorEventDetail>
+    'ksd-copy-error': CustomEvent<CopyErrorEventDetail>
   }
 }

@@ -1,61 +1,51 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
 import './copy-button'
 
 type CopyButtonArgs = {
   value: string
-  label: string
+  text: string
   variant: 'primary' | 'secondary' | 'tertiary'
   copyLabel: string
   copiedLabel: string
-  errorLabel: string
-  disabled: boolean
 }
-
-const esc = (value: string) =>
-  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
 const copyButton = ({
   value,
-  label,
+  text,
   variant,
   copyLabel,
   copiedLabel,
-  errorLabel,
-  disabled,
-}: CopyButtonArgs) => `
-  <button
+}: CopyButtonArgs) =>
+  html`<button
     class="ds-button"
-    data-variant="${variant}"
-    ${label ? '' : 'data-icon'}
-    data-copy="${esc(value)}"
-    data-copy-label="${esc(copyLabel)}"
-    data-copied-label="${esc(copiedLabel)}"
-    data-error-label="${esc(errorLabel)}"
-    ${disabled ? 'disabled' : ''}
-  >${esc(label)}</button>`
+    data-variant=${variant}
+    ?data-icon=${!text}
+    data-copy=${value}
+    data-copy-label=${copyLabel}
+    data-copied-label=${copiedLabel}
+  >
+    ${text}
+  </button>`
 
 const meta: Meta<CopyButtonArgs> = {
   title: 'Copy Button',
   args: {
     value: '2026/01482-7',
-    label: '',
+    text: '',
     variant: 'tertiary',
-    copyLabel: 'Kopier',
+    copyLabel: 'Kopier saksnummer',
     copiedLabel: 'Kopiert',
-    errorLabel: 'Kopiering feilet',
-    disabled: false,
   },
   argTypes: {
     value: { control: 'text' },
-    label: { control: 'text' },
+    text: { control: 'text' },
     variant: {
       options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' },
     },
     copyLabel: { control: 'text' },
     copiedLabel: { control: 'text' },
-    errorLabel: { control: 'text' },
-    disabled: { control: 'boolean' },
   },
 }
 
@@ -64,12 +54,12 @@ export default meta
 type Story = StoryObj<CopyButtonArgs>
 
 export const Preview: Story = {
-  render: (args) => `
-    <p
+  render: (args) =>
+    html`<p
       class="ds-paragraph"
       style="display:flex;align-items:center;gap:var(--ds-size-2)"
     >
-      Saksnummer <strong>${esc(args.value)}</strong>
+      Saksnummer <strong>${args.value}</strong>
       ${copyButton(args)}
     </p>`,
 }
@@ -79,10 +69,10 @@ export const IconOnly: Story = {
   render: copyButton,
 }
 
-export const WithLabel: Story = {
+export const IconAndText: Story = {
   args: {
     value: 'https://designsystem.ks.no/copy-button',
-    label: 'Kopier lenke',
+    text: 'Kopier lenke',
     variant: 'secondary',
     copyLabel: 'Kopier lenke til denne siden',
   },
