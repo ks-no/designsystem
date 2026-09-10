@@ -1,4 +1,4 @@
-import '@digdir/designsystemet-web/tooltip'
+import { initTooltips } from '@digdir/designsystemet-web/tooltip'
 import {
   attr,
   getComposedTarget,
@@ -46,6 +46,7 @@ const ICON: Record<CopyState, string> = {
 }
 
 const TIMERS = new WeakMap<Element, ReturnType<typeof setTimeout>>()
+const OPERATIONS = new WeakMap<Element, number>()
 
 const isDisabled = (el: Element) =>
   el.hasAttribute('disabled') || attr(el, 'aria-disabled') === 'true'
@@ -88,13 +89,18 @@ const handleClick = async (event: Event) => {
   if (!el || isDisabled(el)) return
 
   const value = attr(el, ATTR_COPY) || ''
+  // Overlapping clicks: only the newest operation may update state or schedule the reset
+  const operation = (OPERATIONS.get(el) ?? 0) + 1
+  OPERATIONS.set(el, operation)
   clearTimeout(TIMERS.get(el))
 
   try {
     await navigator.clipboard.writeText(value)
+    if (OPERATIONS.get(el) !== operation) return
     setState(el, 'success')
     emit<CopyEventDetail>(el, 'ksd-copy', { value })
   } catch (error) {
+    if (OPERATIONS.get(el) !== operation) return
     setState(el, 'error')
     emit<CopyErrorEventDetail>(el, 'ksd-copy-error', { value, error })
   }
@@ -105,15 +111,21 @@ const handleClick = async (event: Event) => {
   )
 }
 
+const setupAll = (scope: ParentNode | null) => {
+  for (const el of scope?.querySelectorAll(SELECTOR) || []) setup(el)
+}
+
 /** Enhances every `[data-copy]` in `scope`. Needed for roots the document observer cannot reach, such as shadow roots. */
 export const initCopyButtons = (
   scope: Element | ShadowRoot | Document | null = isBrowser() ? document : null,
 ) => {
-  for (const el of scope?.querySelectorAll(SELECTOR) || []) setup(el)
+  setupAll(scope)
+  // Designsystemet's tooltip observer is document-level, so it cannot label buttons in a shadow root
+  if (scope) initTooltips(scope)
 }
 
 const handleMutations = (_: Document, records?: MutationRecord[]) => {
-  if (!records) return initCopyButtons()
+  if (!records) return setupAll(document)
 
   for (const record of records) {
     if (record.attributeName) setup(record.target as Element)
@@ -121,7 +133,7 @@ const handleMutations = (_: Document, records?: MutationRecord[]) => {
       for (const node of record.addedNodes as NodeListOf<Element>) {
         if (node.nodeType !== 1) continue
         if (node.hasAttribute(ATTR_COPY)) setup(node)
-        initCopyButtons(node)
+        setupAll(node)
       }
   }
 }

@@ -150,4 +150,107 @@ describe('[data-copy]', () => {
   it('does not touch the DOM when initCopyButtons gets a null scope', () => {
     expect(() => initCopyButtons(null)).not.toThrow()
   })
+
+  it('keeps the latest result when clicks overlap', async () => {
+    vi.useFakeTimers()
+    try {
+      const resolvers: Array<() => void> = []
+      mockClipboard(() => new Promise<void>((r) => resolvers.push(r)))
+
+      document.body.innerHTML = '<button data-copy="something"></button>'
+      const button = document.body.querySelector('button') as HTMLButtonElement
+      await vi.advanceTimersByTimeAsync(0)
+
+      button.click()
+      button.click()
+
+      // First copy settles at t=0, so its reset is due at t=2000
+      resolvers[0]()
+      await vi.advanceTimersByTimeAsync(1000)
+
+      // Second settles at t=1000, so the button should stay in success until t=3000
+      resolvers[1]()
+      await vi.advanceTimersByTimeAsync(1000)
+
+      expect(button).toHaveAttribute('data-copy-state', 'success')
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('does not let a stale success overwrite a newer failure', async () => {
+    const resolvers: Array<{
+      resolve: () => void
+      reject: (e: Error) => void
+    }> = []
+    mockClipboard(
+      () =>
+        new Promise<void>((resolve, reject) =>
+          resolvers.push({ resolve, reject }),
+        ),
+    )
+
+    const button = await mount('<button data-copy="something"></button>')
+
+    button.click()
+    button.click()
+
+    // Newest attempt fails first, then the older one succeeds late
+    resolvers[1].reject(new Error('Copy failed'))
+    await tick()
+    resolvers[0].resolve()
+    await tick()
+
+    expect(button).toHaveAttribute('data-copy-state', 'error')
+  })
+
+  describe('inside a shadow root', () => {
+    const mountShadow = async (html: string) => {
+      const host = document.createElement('div')
+      document.body.append(host)
+      const root = host.attachShadow({ mode: 'open' })
+      root.innerHTML = html
+      initCopyButtons(root)
+      await tick()
+      return root.querySelector('button') as HTMLButtonElement
+    }
+
+    it('enhances and labels a button after initCopyButtons', async () => {
+      const button = await mountShadow(
+        '<button data-copy="something"></button>',
+      )
+
+      expect(button).toHaveAttribute('data-copy-state', 'rest')
+      expect(button.querySelector('[data-copy-icon]')).not.toBeNull()
+      expect(button).toHaveAttribute('aria-label', 'Kopier')
+    })
+
+    it('copies on click through the shadow boundary', async () => {
+      const button = await mountShadow(
+        '<button data-copy="Text to copy!"></button>',
+      )
+      const copySpy = vi.fn()
+      button.addEventListener('ksd-copy', copySpy)
+
+      button.click()
+      await tick()
+
+      expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+        'Text to copy!',
+      )
+      expect(button).toHaveAttribute('data-copy-state', 'success')
+      expect(copySpy).toHaveBeenCalledTimes(1)
+    })
+
+    it('is not reached by the document observer without initCopyButtons', async () => {
+      const host = document.createElement('div')
+      document.body.append(host)
+      const root = host.attachShadow({ mode: 'open' })
+      root.innerHTML = '<button data-copy="something"></button>'
+      await tick()
+
+      const button = root.querySelector('button') as HTMLButtonElement
+      expect(button).not.toHaveAttribute('data-copy-state')
+    })
+  })
 })
