@@ -7,8 +7,10 @@ Visual snapshot tests for the `angular-demo` app using Playwright. Snapshots are
 From the repo root:
 
 ```sh
-pnpm e2e
+pnpm e2e:angular
 ```
+
+Use `pnpm e2e` to run this suite and `web-demo-e2e` together.
 
 ## Updating snapshots
 
@@ -16,8 +18,10 @@ pnpm e2e
 > Run this after intentional visual changes (e.g. a component style update or theme change):
 
 ```sh
-pnpm e2e:update-snapshots
+pnpm e2e:angular:update-snapshots
 ```
+
+Use `pnpm e2e:update-snapshots` to update both this suite and `web-demo-e2e`.
 
 Then commit the updated files in `src/app.spec.ts-snapshots/`.
 
