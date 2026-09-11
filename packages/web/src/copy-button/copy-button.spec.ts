@@ -164,11 +164,10 @@ describe('[data-copy]', () => {
       button.click()
       button.click()
 
-      // First copy settles at t=0, so its reset is due at t=2000
+      // The first copy is stale when it settles, so it must not update state or schedule a reset
       resolvers[0]()
       await vi.advanceTimersByTimeAsync(1000)
 
-      // Second settles at t=1000, so the button should stay in success until t=3000
       resolvers[1]()
       await vi.advanceTimersByTimeAsync(1000)
 
