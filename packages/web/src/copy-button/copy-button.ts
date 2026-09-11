@@ -48,6 +48,8 @@ const ICON: Record<CopyState, string> = {
 const TIMERS = new WeakMap<Element, ReturnType<typeof setTimeout>>()
 const OPERATIONS = new WeakMap<Element, number>()
 
+const iconOf = (el: Element) => el.querySelector(`:scope > [${ATTR_ICON}]`)
+
 const isDisabled = (el: Element) =>
   el.hasAttribute('disabled') || attr(el, 'aria-disabled') === 'true'
 
@@ -58,7 +60,7 @@ const setState = (el: Element, state: CopyState) => {
   attr(el, ATTR_STATE, state)
   attr(el, ATTR_TOOLTIP, attr(el, LABEL_ATTR[state]) || LABEL_DEFAULT[state])
 
-  const icon = el.querySelector(`:scope > [${ATTR_ICON}]`)
+  const icon = iconOf(el)
   if (icon) icon.innerHTML = ICON[state]
 }
 
@@ -69,7 +71,7 @@ const setup = (el: Element) => {
       el,
     )
 
-  if (!el.querySelector(`:scope > [${ATTR_ICON}]`)) {
+  if (!iconOf(el)) {
     const icon = document.createElement('span')
     attr(icon, ATTR_ICON, '')
     attr(icon, 'aria-hidden', 'true')
