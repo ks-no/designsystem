@@ -93,7 +93,21 @@ describe('[data-copy]', () => {
     expect(errorSpy).toHaveBeenCalledTimes(1)
   })
 
-  it('returns to rest after the reset delay', async () => {
+  it('returns to rest on blur', async () => {
+    const button = await mount('<button data-copy="something"></button>')
+    button.focus()
+
+    button.click()
+    await tick()
+    expect(button).toHaveAttribute('data-copy-state', 'success')
+
+    button.blur()
+    await tick()
+    expect(button).toHaveAttribute('data-copy-state', 'rest')
+    expect(button).toHaveAttribute('data-tooltip', 'Kopier')
+  })
+
+  it('stays in success while the button keeps focus', async () => {
     vi.useFakeTimers()
     try {
       document.body.innerHTML = '<button data-copy="something"></button>'
@@ -101,15 +115,26 @@ describe('[data-copy]', () => {
       await vi.advanceTimersByTimeAsync(0)
 
       button.click()
-      await vi.advanceTimersByTimeAsync(0)
-      expect(button).toHaveAttribute('data-copy-state', 'success')
+      await vi.advanceTimersByTimeAsync(5000)
 
-      await vi.advanceTimersByTimeAsync(2000)
-      expect(button).toHaveAttribute('data-copy-state', 'rest')
-      expect(button).toHaveAttribute('data-tooltip', 'Kopier')
+      expect(button).toHaveAttribute('data-copy-state', 'success')
     } finally {
       vi.useRealTimers()
     }
+  })
+
+  it('focuses the button so blur can reset it', async () => {
+    const button = await mount('<button data-copy="something"></button>')
+
+    // click() does not move focus, standing in for Safari
+    button.click()
+    await tick()
+
+    expect(document.activeElement).toBe(button)
+
+    button.blur()
+    await tick()
+    expect(button).toHaveAttribute('data-copy-state', 'rest')
   })
 
   it('ignores clicks while aria-disabled', async () => {
@@ -203,53 +228,14 @@ describe('[data-copy]', () => {
     expect(button).toHaveAttribute('data-copy-state', 'error')
   })
 
-  describe('inside a shadow root', () => {
-    const mountShadow = async (html: string) => {
-      const host = document.createElement('div')
-      document.body.append(host)
-      const root = host.attachShadow({ mode: 'open' })
-      root.innerHTML = html
-      initCopyButtons(root)
-      await tick()
-      return root.querySelector('button') as HTMLButtonElement
-    }
+  it('refuses a scope from another document', () => {
+    const foreign = document.implementation.createHTMLDocument()
+    foreign.body.innerHTML = '<button data-copy="something"></button>'
 
-    it('enhances and labels a button after initCopyButtons', async () => {
-      const button = await mountShadow(
-        '<button data-copy="something"></button>',
-      )
+    initCopyButtons(foreign)
 
-      expect(button).toHaveAttribute('data-copy-state', 'rest')
-      expect(button.querySelector('[data-copy-icon]')).not.toBeNull()
-      expect(button).toHaveAttribute('aria-label', 'Kopier')
-    })
-
-    it('copies on click through the shadow boundary', async () => {
-      const button = await mountShadow(
-        '<button data-copy="Text to copy!"></button>',
-      )
-      const copySpy = vi.fn()
-      button.addEventListener('ksd-copy', copySpy)
-
-      button.click()
-      await tick()
-
-      expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
-        'Text to copy!',
-      )
-      expect(button).toHaveAttribute('data-copy-state', 'success')
-      expect(copySpy).toHaveBeenCalledTimes(1)
-    })
-
-    it('is not reached by the document observer without initCopyButtons', async () => {
-      const host = document.createElement('div')
-      document.body.append(host)
-      const root = host.attachShadow({ mode: 'open' })
-      root.innerHTML = '<button data-copy="something"></button>'
-      await tick()
-
-      const button = root.querySelector('button') as HTMLButtonElement
-      expect(button).not.toHaveAttribute('data-copy-state')
-    })
+    const button = foreign.querySelector('button') as HTMLButtonElement
+    // Plain DOM assertion: jest-dom matchers reject elements from another document
+    expect(button.hasAttribute('data-copy-state')).toBe(false)
   })
 })

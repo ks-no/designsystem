@@ -1,4 +1,5 @@
-import { initTooltips } from '@digdir/designsystemet-web/tooltip'
+import '@digdir/designsystemet-web/tooltip'
+import { createIcon, type IconShape } from '../utils/icon'
 import {
   attr,
   getComposedTarget,
@@ -25,7 +26,6 @@ const ATTR_ICON = 'data-copy-icon'
 const ATTR_STATE = 'data-copy-state'
 const ATTR_TOOLTIP = 'data-tooltip'
 const SELECTOR = `[${ATTR_COPY}]`
-const RESET_DELAY = 2000
 
 const LABEL_ATTR: Record<CopyState, string> = {
   rest: 'data-copy-label',
@@ -39,13 +39,21 @@ const LABEL_DEFAULT: Record<CopyState, string> = {
   error: 'Kopiering feilet',
 }
 
-const ICON: Record<CopyState, string> = {
-  rest: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="168 168 216 168 216 40 88 40 88 88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="40" y="88" width="128" height="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
-  success: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
-  error: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="160" y1="96" x2="96" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="96" y1="96" x2="160" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>`,
+// Phosphor regular: copy, check, x-circle
+const ICON: Record<CopyState, IconShape[]> = {
+  rest: [
+    ['polyline', { points: '168 168 216 168 216 40 88 40 88 88' }],
+    ['rect', { x: '40', y: '88', width: '128', height: '128' }],
+  ],
+  success: [['polyline', { points: '40 144 96 200 224 72' }]],
+  error: [
+    ['line', { x1: '160', y1: '96', x2: '96', y2: '160' }],
+    ['line', { x1: '96', y1: '96', x2: '160', y2: '160' }],
+    ['circle', { cx: '128', cy: '128', r: '96' }],
+  ],
 }
 
-const TIMERS = new WeakMap<Element, ReturnType<typeof setTimeout>>()
+const RESETS = new WeakMap<Element, () => void>()
 const OPERATIONS = new WeakMap<Element, number>()
 
 const iconOf = (el: Element) => el.querySelector(`:scope > [${ATTR_ICON}]`)
@@ -61,7 +69,7 @@ const setState = (el: Element, state: CopyState) => {
   attr(el, ATTR_TOOLTIP, attr(el, LABEL_ATTR[state]) || LABEL_DEFAULT[state])
 
   const icon = iconOf(el)
-  if (icon) icon.innerHTML = ICON[state]
+  if (icon) icon.replaceChildren(createIcon(ICON[state]))
 }
 
 const setup = (el: Element) => {
@@ -86,15 +94,30 @@ const emit = <T>(el: Element, type: string, detail: T) =>
     new CustomEvent<T>(type, { bubbles: true, composed: true, detail }),
   )
 
+/** Resets on blur, so the label never changes under a focused button — upstream's tooltip would announce it again. */
+const scheduleReset = (el: Element) => {
+  RESETS.get(el)?.()
+
+  const reset = () => {
+    RESETS.delete(el)
+    setState(el, 'rest')
+  }
+
+  RESETS.set(el, on(el, 'blur', reset, { once: true }))
+}
+
 const handleClick = async (event: Event) => {
   const el = getComposedTarget(event)?.closest(SELECTOR)
   if (!el || isDisabled(el)) return
 
   const value = attr(el, ATTR_COPY) || ''
+  // Safari does not focus a button on click, so focus it to keep the blur-based reset consistent
+  if (el instanceof HTMLElement) el.focus()
+
   // Overlapping clicks: only the newest operation may update state or schedule the reset
   const operation = (OPERATIONS.get(el) ?? 0) + 1
   OPERATIONS.set(el, operation)
-  clearTimeout(TIMERS.get(el))
+  RESETS.get(el)?.()
 
   try {
     await navigator.clipboard.writeText(value)
@@ -107,23 +130,30 @@ const handleClick = async (event: Event) => {
     emit<CopyErrorEventDetail>(el, 'ksd-copy-error', { value, error })
   }
 
-  TIMERS.set(
-    el,
-    setTimeout(() => setState(el, 'rest'), RESET_DELAY),
-  )
+  scheduleReset(el)
 }
 
 const setupAll = (scope: ParentNode | null) => {
   for (const el of scope?.querySelectorAll(SELECTOR) || []) setup(el)
 }
 
-/** Enhances every `[data-copy]` in `scope`. Needed for roots the document observer cannot reach, such as shadow roots. */
+/** Clicks are delegated from the current `document`, so scopes it cannot see into are refused rather than left looking interactive. */
+const isReachable = (scope: Element | Document) => {
+  if ((scope.ownerDocument ?? scope) !== document) {
+    warn('ignoring a scope from another document:', scope)
+    return false
+  }
+
+  return true
+}
+
+/** Enhances every `[data-copy]` in `scope`. Needed for content the document observer has not seen yet. */
 export const initCopyButtons = (
-  scope: Element | ShadowRoot | Document | null = isBrowser() ? document : null,
+  scope: Element | Document | null = isBrowser() ? document : null,
 ) => {
+  if (!scope || !isReachable(scope)) return
+
   setupAll(scope)
-  // Designsystemet's tooltip observer is document-level, so it cannot label buttons in a shadow root
-  if (scope) initTooltips(scope)
 }
 
 const handleMutations = (_: Document, records?: MutationRecord[]) => {
