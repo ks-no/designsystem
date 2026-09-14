@@ -12,7 +12,8 @@
           "target": "build",
           "projects": ["@ks-digital/designsystem-themes"]
         }
-      ]
+      ],
+      "outputs": ["{workspaceRoot}/dist/apps/react-demo"]
     },
     "serve": {
       "dependsOn": [
@@ -21,6 +22,13 @@
           "projects": ["@ks-digital/designsystem-themes"]
         }
       ]
+    },
+    "serve-static": {
+      "options": {
+        "buildTarget": "build",
+        "staticFilePath": "dist/apps/react-demo",
+        "spa": true
+      }
     }
   }
 }
