@@ -116,13 +116,13 @@ export const Horizontal: Story = {
     style="flex: 0 0 auto;"
   />
   <div style="flex: 1 1 16rem; display: flex; flex-direction: column; align-items: start; gap: var(--ds-size-3);">
-    <h2 class="ds-heading" data-size="sm" style="margin: 0;">Brev fra kommunen</h2>
-    <p class="ds-paragraph" style="margin: 0; color: var(--ds-color-neutral-text-subtle);">Fra Bergen kommune 12. november 2025</p>
+    <h2 class="ds-heading" data-size="sm">Brev fra kommunen</h2>
+    <p class="ds-paragraph">Fra Bergen kommune 12. november 2025</p>
     <div style="display: flex; flex-wrap: wrap; gap: var(--ds-size-2);">
       <ksd-tag data-color="success">Innsendt</ksd-tag>
       <ksd-tag data-color="info">1 ny oppgave</ksd-tag>
     </div>
-    <p class="ds-paragraph" style="margin: 0;">Her kommer det en ekstra detaljtekst som gir litt mer kontekst og innhold til kortet. Denne teksten kan være opptil et par linjer lang.</p>
+    <p class="ds-paragraph">Her kommer det en ekstra detaljtekst som gir litt mer kontekst og innhold til kortet. Denne teksten kan være opptil et par linjer lang.</p>
     <button ksd-button>Gå til sak</button>
   </div>
 </article>
