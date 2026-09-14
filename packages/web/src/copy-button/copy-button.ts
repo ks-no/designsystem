@@ -58,6 +58,8 @@ const OPERATIONS = new WeakMap<Element, number>()
 
 const iconOf = (el: Element) => el.querySelector(`:scope > [${ATTR_ICON}]`)
 
+const isButton = (el: Element) => el.nodeName === 'BUTTON'
+
 const isDisabled = (el: Element) =>
   el.hasAttribute('disabled') || attr(el, 'aria-disabled') === 'true'
 
@@ -73,11 +75,14 @@ const setState = (el: Element, state: CopyState) => {
 }
 
 const setup = (el: Element) => {
-  if (el.nodeName !== 'BUTTON')
+  // Anything else would get the icon and accessible label without being focusable or keyboard-operable
+  if (!isButton(el)) {
     warn(
       `${ATTR_COPY} expects a <button>, got <${el.nodeName.toLowerCase()}>:`,
       el,
     )
+    return
+  }
 
   if (!iconOf(el)) {
     const icon = document.createElement('span')
@@ -108,7 +113,7 @@ const scheduleReset = (el: Element) => {
 
 const handleClick = async (event: Event) => {
   const el = getComposedTarget(event)?.closest(SELECTOR)
-  if (!el || isDisabled(el)) return
+  if (!el || !isButton(el) || isDisabled(el)) return
 
   const value = attr(el, ATTR_COPY) || ''
   // Safari does not focus a button on click, so focus it to keep the blur-based reset consistent
@@ -160,8 +165,11 @@ const handleMutations = (_: Document, records?: MutationRecord[]) => {
   if (!records) return setupAll(document)
 
   for (const record of records) {
-    if (record.attributeName) setup(record.target as Element)
-    else
+    // The filter also matches label attributes, which any element may carry
+    if (record.attributeName) {
+      const el = record.target as Element
+      if (el.hasAttribute(ATTR_COPY)) setup(el)
+    } else
       for (const node of record.addedNodes as NodeListOf<Element>) {
         if (node.nodeType !== 1) continue
         if (node.hasAttribute(ATTR_COPY)) setup(node)

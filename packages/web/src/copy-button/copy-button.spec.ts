@@ -176,30 +176,24 @@ describe('[data-copy]', () => {
     expect(() => initCopyButtons(null)).not.toThrow()
   })
 
-  it('keeps the latest result when clicks overlap', async () => {
-    vi.useFakeTimers()
-    try {
-      const resolvers: Array<() => void> = []
-      mockClipboard(() => new Promise<void>((r) => resolvers.push(r)))
+  it('emits only for the newest click when clicks overlap', async () => {
+    const resolvers: Array<() => void> = []
+    mockClipboard(() => new Promise<void>((r) => resolvers.push(r)))
 
-      document.body.innerHTML = '<button data-copy="something"></button>'
-      const button = document.body.querySelector('button') as HTMLButtonElement
-      await vi.advanceTimersByTimeAsync(0)
+    const button = await mount('<button data-copy="something"></button>')
+    const copySpy = vi.fn()
+    button.addEventListener('ksd-copy', copySpy)
 
-      button.click()
-      button.click()
+    button.click()
+    button.click()
 
-      // The first copy is stale when it settles, so it must not update state or schedule a reset
-      resolvers[0]()
-      await vi.advanceTimersByTimeAsync(1000)
+    // The first copy is stale by the time it settles, so it must not report a result
+    resolvers[0]()
+    resolvers[1]()
+    await tick()
 
-      resolvers[1]()
-      await vi.advanceTimersByTimeAsync(1000)
-
-      expect(button).toHaveAttribute('data-copy-state', 'success')
-    } finally {
-      vi.useRealTimers()
-    }
+    expect(copySpy).toHaveBeenCalledTimes(1)
+    expect(button).toHaveAttribute('data-copy-state', 'success')
   })
 
   it('does not let a stale success overwrite a newer failure', async () => {
@@ -226,6 +220,32 @@ describe('[data-copy]', () => {
     await tick()
 
     expect(button).toHaveAttribute('data-copy-state', 'error')
+  })
+
+  it('refuses a non-button, which could not be keyboard-operable', async () => {
+    document.body.innerHTML = '<div data-copy="something"></div>'
+    await tick()
+    const el = document.body.querySelector('div') as HTMLDivElement
+
+    expect(el).not.toHaveAttribute('data-copy-state')
+    expect(el.querySelector('[data-copy-icon]')).toBeNull()
+
+    el.click()
+    await tick()
+    expect(navigator.clipboard.writeText).not.toHaveBeenCalled()
+  })
+
+  it('does not enhance an element that only has a label attribute', async () => {
+    await mount('<button data-copy="first"></button>')
+
+    const other = document.createElement('span')
+    document.body.append(other)
+    await tick()
+    other.setAttribute('data-copy-label', 'Kopier')
+    await tick()
+
+    expect(other).not.toHaveAttribute('data-copy-state')
+    expect(other.querySelector('[data-copy-icon]')).toBeNull()
   })
 
   it('refuses a scope from another document', () => {

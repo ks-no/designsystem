@@ -1,10 +1,11 @@
 export const isBrowser = () =>
   typeof window !== 'undefined' && typeof document !== 'undefined'
 
-export const warn = (message: string, ...args: unknown[]) =>
-  !isBrowser() ||
-  window.dsWarnings === false ||
+/** Returns void on purpose: consuming the result of a logging call is always a mistake. */
+export const warn = (message: string, ...args: unknown[]): void => {
+  if (!isBrowser() || window.dsWarnings === false) return
   console.log(`KS Designsystem: ${message}`, ...args)
+}
 
 /** Get attribute when `value` is omitted, set it when a string, remove it when `null`. */
 export const attr = (el: Element, name: string, value?: string | null) => {
