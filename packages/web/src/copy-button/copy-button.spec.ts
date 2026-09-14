@@ -222,6 +222,21 @@ describe('[data-copy]', () => {
     expect(button).toHaveAttribute('data-copy-state', 'error')
   })
 
+  it('resets when focus left while the copy was in flight', async () => {
+    const resolvers: Array<() => void> = []
+    mockClipboard(() => new Promise<void>((r) => resolvers.push(r)))
+
+    const button = await mount('<button data-copy="something"></button>')
+    button.click()
+    // Tabbing away before the clipboard settles means no later blur is coming
+    button.blur()
+
+    resolvers[0]()
+    await tick()
+
+    expect(button).toHaveAttribute('data-copy-state', 'rest')
+  })
+
   it('refuses a non-button, which could not be keyboard-operable', async () => {
     document.body.innerHTML = '<div data-copy="something"></div>'
     await tick()

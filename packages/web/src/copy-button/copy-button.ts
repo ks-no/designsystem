@@ -108,6 +108,9 @@ const scheduleReset = (el: Element) => {
     setState(el, 'rest')
   }
 
+  // Focus can leave while the copy is in flight, and then no blur is coming
+  if (el !== document.activeElement) return reset()
+
   RESETS.set(el, on(el, 'blur', reset, { once: true }))
 }
 
