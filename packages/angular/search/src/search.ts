@@ -5,6 +5,7 @@ import {
   contentChild,
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core'
+// Main entrypoint on purpose: u-datalist, which ds-suggestion filtering needs, has no subpath export
 import '@digdir/designsystemet-web'
 import {
   HostColor,

@@ -1,0 +1,11 @@
+{
+  "name": "web-demo",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ks-digital/designsystem-themes": "workspace:*",
+    "@ks-digital/designsystem-web": "workspace:*"
+  }
+}

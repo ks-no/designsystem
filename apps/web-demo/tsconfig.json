@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "ignoreDeprecations": "6.0"
+  },
+  "include": ["src/**/*.ts", "vite.config.ts"]
+}

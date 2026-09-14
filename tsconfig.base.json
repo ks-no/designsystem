@@ -93,7 +93,8 @@
       "@ks-digital/designsystem-themes": ["packages/themes/src/index.ts"],
       "@ks-digital/designsystem-themes/types": [
         "packages/themes/src/types.d.ts"
-      ]
+      ],
+      "@ks-digital/designsystem-web": ["packages/web/src/index.ts"]
     },
     "strict": false,
     "noUncheckedSideEffectImports": false,

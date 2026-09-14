@@ -1,5 +1,5 @@
 import { booleanAttribute, Directive, input } from '@angular/core'
-import '@digdir/designsystemet-web'
+import '@digdir/designsystemet-web/popover'
 import {
   HostColor,
   HostSize,

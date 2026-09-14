@@ -6,7 +6,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   output,
 } from '@angular/core'
-import '@digdir/designsystemet-web'
+import '@digdir/designsystemet-web/ds-tabs'
 import {
   HostColor,
   HostSize,

@@ -12,9 +12,11 @@ The Themes and React packages are considered stable. The Angular package is in a
 
 [`@ks-digital/designsystem-themes`](https://www.npmjs.com/package/@ks-digital/designsystem-themes) - Themes officially supported.
 
+[`@ks-digital/designsystem-web`](https://www.npmjs.com/package/@ks-digital/designsystem-web) - Framework-agnostic components
+
 [`@ks-digital/designsystem-react`](https://www.npmjs.com/package/@ks-digital/designsystem-react) - React implementation of components
 
-[`@ks-digital/designsystem-angular`](https://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components (Very WIP, may introduce breaking changes)
+[`@ks-digital/designsystem-angular`](https://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components
 
 ## 🚀 Release and Publishing
 

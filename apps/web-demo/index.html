@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebDemo</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h2 class="ds-heading" data-size="sm">Copy Button</h2>
+        <div class="demo-row">
+          <button
+            class="ds-button"
+            data-variant="primary"
+            data-copy="2026/01482-7"
+          >
+            Kopier saksnummer
+          </button>
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-copy="2026/01482-7"
+          >
+            Kopier saksnummer
+          </button>
+          <button
+            class="ds-button"
+            data-variant="tertiary"
+            data-copy="2026/01482-7"
+          >
+            Kopier saksnummer
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="ds-heading" data-size="sm">Copy Button Icon Only</h2>
+        <div class="demo-row">
+          <button
+            class="ds-button"
+            data-variant="primary"
+            data-icon
+            data-copy="2026/01482-7"
+          ></button>
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-icon
+            data-copy="2026/01482-7"
+          ></button>
+          <button
+            class="ds-button"
+            data-variant="tertiary"
+            data-icon
+            data-copy="2026/01482-7"
+          ></button>
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-icon
+            data-copy="2026/01482-7"
+            disabled
+          ></button>
+        </div>
+      </section>
+
+      <!-- data-copy-state is normally set by the button itself; set here to snapshot every state -->
+      <section>
+        <h2 class="ds-heading" data-size="sm">Copy Button States</h2>
+        <div class="demo-row">
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-icon
+            data-copy="2026/01482-7"
+            data-copy-state="rest"
+          ></button>
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-icon
+            data-copy="2026/01482-7"
+            data-copy-state="success"
+          ></button>
+          <button
+            class="ds-button"
+            data-variant="secondary"
+            data-icon
+            data-copy="2026/01482-7"
+            data-copy-state="error"
+          ></button>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="ds-heading" data-size="sm">Copy Button In Text</h2>
+        <p class="ds-paragraph demo-row">
+          Saksnummer <strong>2026/01482-7</strong>
+          <button
+            class="ds-button"
+            data-variant="tertiary"
+            data-icon
+            data-copy="2026/01482-7"
+            data-copy-label="Kopier saksnummer"
+          ></button>
+        </p>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

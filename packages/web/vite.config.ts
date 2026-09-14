@@ -32,13 +32,17 @@ export default defineConfig(() => ({
       fileName: 'index',
       formats: ['es' as const, 'cjs' as const],
     },
-    rolldownOptions: {},
+    // Kept external so consumers share one instance with @ks-digital/designsystem-angular
+    rolldownOptions: {
+      external: [/^@digdir\/designsystemet-web/],
+    },
   },
   test: {
     watch: false,
     globals: true,
-    environment: 'node',
+    environment: 'jsdom',
     include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    setupFiles: ['src/test-setup.ts'],
     reporters: ['default'],
     coverage: {
       reportsDirectory: '../../coverage/packages/web',

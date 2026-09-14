@@ -1,4 +1,5 @@
 import { Directive, input } from '@angular/core'
+import '@digdir/designsystemet-web/details'
 import {
   HostColor,
   HostSize,

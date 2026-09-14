@@ -1,0 +1,62 @@
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import * as CopyButtonStories from './copy-button.stories'
+
+<Meta of={CopyButtonStories} />
+
+# Copy button
+
+`data-copy` gjør en vanlig `button` om til en kopier-knapp: verdien legges på
+utklippstavlen når brukeren trykker. Knappen er et native `button`-element, så
+tastatur, fokus og `disabled` følger nettleseren.
+
+<Canvas of={CopyButtonStories.Preview} />
+<Controls of={CopyButtonStories.Preview} />
+
+## Bruk
+
+Importer pakken én gang, og bruk `data-copy` der du trenger det. Et ikon settes
+inn automatisk, og oppdateres etter kopiering.
+
+```html
+<p class="ds-paragraph">
+  Saksnummer <strong>2026/01482-7</strong>
+  <button
+    class="ds-button"
+    data-variant="tertiary"
+    data-icon
+    data-copy="2026/01482-7"
+    data-copy-label="Kopier"
+  ></button>
+</p>
+```
+
+## Uten synlig tekst
+
+En knapp uten tekstinnhold blir kvadratisk med `data-icon`. Sett
+`data-copy-label` til noe som beskriver hva som kopieres – teksten brukes både i
+tooltip og som tilgjengelig navn.
+
+<Canvas of={CopyButtonStories.IconOnly} />
+
+## Med synlig tekst
+
+<Canvas of={CopyButtonStories.IconAndText} />
+
+## Attributter
+
+- `data-copy`: teksten som kopieres
+- `data-copy-label` / `data-copied-label` / `data-error-label`: tekst i tooltip
+  og som tilgjengelig navn. Standard: `Kopier`, `Kopiert`, `Kopiering feilet`
+- `data-copy-state`: settes av knappen til `rest`, `success` eller `error`, og
+  kan brukes til styling
+
+## Events
+
+- `ksd-copy`: sendes ved vellykket kopiering (`detail.value`)
+- `ksd-copy-error`: sendes hvis kopiering feiler (`detail.value`, `detail.error`)
+
+```js
+document.addEventListener('ksd-copy', ({ detail }) => {
+  console.log('Kopierte', detail.value)
+})
+```

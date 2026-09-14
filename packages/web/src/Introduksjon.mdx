@@ -1,12 +1,35 @@
-# Web 👷
+# Web-pakken
 
-Noen komponenter og mønster finnes ikke i Designsystemet, men er nødvendige for KS Digital.
+Denne pakken inneholder komponenter som fungerer i alle rammeverk.
 
-Dette kan f.eks være mer sammensatte komponenter som er for spesifikke for Designsystemet.
+## Anbefalt bruk
 
-Vi jobber med å kartlegge og prioritere hvilke komponenter og mønstre som hører hjemme her og hva som skal videreføres fra gammelt designsystem.
+Pakken utvider også Designsystemet sin web-pakke. Den gir deg to ting i én import:
 
-**Komponentene skal kunne brukes i alle løsninger, uavhengig av teknologi.**
+1. **Alt fra Designsystemet**, uendret og i sin helhet
+2. **KS Digital sine egne komponenter og mønstre**.
+
+Du skal derfor kun installere og importere vår pakke - ikke Designsystemet sin i tillegg.
+
+```bash
+pnpm add @ks-digital/designsystem-web @ks-digital/designsystem-themes
+```
+
+Importer pakken én gang, så tidlig som mulig i applikasjonen:
+
+```javascript
+import '@ks-digital/designsystem-web'
+```
+
+### Ikke importer Designsystemet i tillegg
+
+`@digdir/designsystemet-web` følger med som avhengighet av pakken vår, og installeres automatisk. Du skal derfor ikke legge den til selv - da risikerer du å låse deg til en annen versjon enn den vi har testet mot.
+
+### Sammen med React og Angular
+
+Pakken er rammeverksuavhengig, og fungerer like godt sammen med `@ks-digital/designsystem-react` og `@ks-digital/designsystem-angular` som alene.
+
+Bruker du en av dem allerede, får du Designsystemet sin oppførsel derfra - og denne pakken gir deg våre egne rammeverksuavhengige komponenter på toppen.
 
 ## Spørsmål?
 

@@ -19,18 +19,18 @@ x-e2e-base: &e2e-base
   network_mode: host
   environment:
     - CI=true
-    - BASE_URL=http://localhost:4200
+    - BASE_URL=http://localhost:4202
     - PNPM_HOME=/root/.local/share/pnpm
-  entrypoint: ['sh', 'apps/angular-demo-e2e/docker-setup.sh']
+  entrypoint: ['sh', 'apps/web-demo-e2e/docker-setup.sh']
 
 services:
   e2e:
     <<: *e2e-base
-    command: pnpm exec nx run angular-demo-e2e:e2e
+    command: pnpm exec nx run web-demo-e2e:e2e
 
   update-snapshots:
     <<: *e2e-base
-    command: pnpm exec nx run angular-demo-e2e:e2e --update-snapshots
+    command: pnpm exec nx run web-demo-e2e:e2e --update-snapshots
 
 volumes:
   pnpm-store:

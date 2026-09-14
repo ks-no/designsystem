@@ -7,7 +7,7 @@ import {
   numberAttribute,
   output,
 } from '@angular/core'
-import { pagination } from '@digdir/designsystemet-web'
+import { pagination } from '@digdir/designsystemet-web/ds-pagination'
 import {
   HostColor,
   HostSize,

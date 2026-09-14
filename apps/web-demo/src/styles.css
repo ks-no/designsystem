@@ -1,0 +1,22 @@
+@import url('@ks-digital/designsystem-themes/base.css');
+@import url('@ks-digital/designsystem-themes/ksdigital.css');
+
+body {
+  margin: 0;
+  padding: var(--ds-size-8);
+}
+
+section {
+  padding: var(--ds-size-6);
+}
+
+section > h2 {
+  margin-top: 0;
+}
+
+.demo-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-4);
+  flex-wrap: wrap;
+}
