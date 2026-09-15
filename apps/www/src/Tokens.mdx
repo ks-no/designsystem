@@ -64,10 +64,15 @@ export const PANEL = {
   padding: 'var(--ds-size-4)',
 }
 
-export const copyToken = (event) => {
+export const copyToken = async (event) => {
   const button = event.currentTarget
   const token = button.dataset.token
-  navigator.clipboard?.writeText(token)
+  if (!token || !navigator.clipboard) return
+  try {
+    await navigator.clipboard.writeText(token)
+  } catch {
+    return
+  }
   button.setAttribute('aria-label', `${token} - kopiert!`)
   window.setTimeout(() => button.setAttribute('aria-label', token), 1500)
 }
