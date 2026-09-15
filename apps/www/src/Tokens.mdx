@@ -1,0 +1,297 @@
+export const COLORS = [
+  'accent',
+  'neutral',
+  'support1',
+  'support2',
+  'info',
+  'success',
+  'warning',
+  'danger',
+]
+
+export const GROUPS = [
+  [
+    'background',
+    [
+      ['default', 'Sidebakgrunn'],
+      ['tinted', 'Grupper'],
+    ],
+  ],
+  ['surface', [['default', 'Flater'], ['tinted'], ['hover'], ['active']]],
+  [
+    'border',
+    [
+      ['subtle', 'Skillelinjer'],
+      ['default', 'F.eks. knapper'],
+      ['strong', 'F.eks. i skjema'],
+    ],
+  ],
+  [
+    'text',
+    [
+      ['subtle', 'Sekundær tekst'],
+      ['default', 'Brødtekst'],
+    ],
+  ],
+  ['icon', [['subtle'], ['default']]],
+  [
+    'base',
+    [
+      ['default', 'F.eks. knapper'],
+      ['hover'],
+      ['active'],
+      ['contrast-subtle', 'På base'],
+      ['contrast-default', 'På base'],
+    ],
+  ],
+]
+
+export const SIZES = [
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 22, 26, 30,
+]
+
+export const RADIUS = ['sm', 'md', 'lg', 'xl', 'full']
+
+export const FONT_SIZES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+export const toUpper = (str) => str.replace(/\b./g, (m) => m.toUpperCase())
+
+export const PANEL = {
+  background: 'var(--ds-color-neutral-background-default)',
+  borderRadius: 'var(--ds-border-radius-md)',
+  color: 'var(--ds-color-neutral-text-default)',
+  overflowX: 'auto',
+  padding: 'var(--ds-size-4)',
+}
+
+export const copyToken = (event) => {
+  const button = event.currentTarget
+  const token = button.dataset.token
+  navigator.clipboard?.writeText(token)
+  button.setAttribute('aria-label', `${token} - kopiert!`)
+  window.setTimeout(() => button.setAttribute('aria-label', token), 1500)
+}
+
+export const TokenButton = ({ token, style }) => (
+  <button
+    type="button"
+    aria-label={token}
+    title={token}
+    data-token={token}
+    onClick={copyToken}
+    style={{
+      background: 'transparent',
+      border: 0,
+      cursor: 'copy',
+      display: 'block',
+      font: 'inherit',
+      padding: 0,
+      width: '100%',
+      ...style,
+    }}
+  />
+)
+
+# Design tokens
+
+Design tokens er de navngitte byggeklossene i designsystemet: farger, størrelser, radius og typografi.
+Hvert token er en CSS-variabel med prefikset `--ds-`, og verdien bestemmes av temaet som er lastet.
+
+> Bruk temavelgeren (penselikonet) og lys/mørk-modus i verktøylinjen øverst for å se hvordan tokenene endrer seg.
+> Klikk på en verdi for å kopiere tokenet.
+
+## Farger
+
+Fargene er delt inn i åtte fargeroller. Hver rolle har de samme variantene, slik at du kan bytte rolle uten å endre struktur.
+
+Bruk kun farger fra temaet. Hardkodede farger er ikke kvalitetssikret for kontrast, de har ingen mørk-modus-variant og blir derfor feil når brukeren bytter modus. De må også oppdateres manuelt i hver enkelt applikasjon når den visuelle identiteten endres – med tokens skjer det automatisk via temapakken.
+
+<div
+  className="sb-unstyled"
+  style={{ ...PANEL, marginInline: 'calc(50% - 46vw)' }}
+>
+  <table
+    className="ds-table"
+    data-size="sm"
+    style={{ minWidth: '60rem', width: '100%' }}
+  >
+    <thead>
+      <tr style={{ textAlign: 'center' }}>
+        <th aria-label="Fargerolle" />
+        {GROUPS.map(([name, variants]) => (
+          <th key={name} colSpan={variants.length} data-group>
+            {toUpper(name)}
+          </th>
+        ))}
+      </tr>
+      <tr>
+        <th />
+        {GROUPS.flatMap(([name, variants]) =>
+          variants.map(([variant, desc], i) => (
+            <th
+              key={`${name}-${variant}`}
+              style={{
+                borderLeft:
+                  i === 0
+                    ? '1px solid var(--ds-color-neutral-border-subtle)'
+                    : undefined,
+                fontWeight: 500,
+                verticalAlign: 'bottom',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {toUpper(variant)}
+              {!!desc && (
+                <small
+                  style={{
+                    color: 'var(--ds-color-neutral-text-subtle)',
+                    display: 'block',
+                    fontWeight: 400,
+                  }}
+                >
+                  {desc}
+                </small>
+              )}
+            </th>
+          )),
+        )}
+      </tr>
+    </thead>
+    <tbody>
+      {COLORS.map((color) => (
+        <tr key={color}>
+          <th scope="row" style={{ whiteSpace: 'nowrap' }}>
+            {toUpper(color)}
+          </th>
+          {GROUPS.flatMap(([name, variants]) =>
+            variants.map(([variant], i) => (
+              <td
+                key={`${name}-${variant}`}
+                style={{
+                  borderLeft:
+                    i === 0
+                      ? '1px solid var(--ds-color-neutral-border-subtle)'
+                      : undefined,
+                  padding: '2px',
+                }}
+              >
+                <TokenButton
+                  token={`var(--ds-color-${color}-${name}-${variant})`}
+                  style={{
+                    background: `var(--ds-color-${color}-${name}-${variant})`,
+                    border: '1px solid var(--ds-color-neutral-border-subtle)',
+                    borderRadius: 'var(--ds-border-radius-sm)',
+                    height: 'var(--ds-size-10)',
+                  }}
+                />
+              </td>
+            )),
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+## Størrelser
+
+Størrelsene brukes til avstand (padding, margin, gap) og til høyde/bredde. Skalaen er relativ til `--ds-size-unit`,
+og skalerer derfor med størrelsesmodus (`data-size`).
+
+<div className="sb-unstyled" style={PANEL}>
+  <table className="ds-table" data-size="sm" style={{ width: '100%' }}>
+    <thead>
+      <tr>
+        <th style={{ width: '50%' }}>Verdi</th>
+        <th>CSS</th>
+        <th>Tailwind</th>
+      </tr>
+    </thead>
+    <tbody>
+      {SIZES.map((size) => (
+        <tr key={size}>
+          <td>
+            <div
+              style={{
+                background: 'var(--ds-color-accent-base-default)',
+                borderRadius: 'var(--ds-border-radius-sm)',
+                height: 'var(--ds-size-4)',
+                minWidth: '1px',
+                width: `var(--ds-size-${size})`,
+              }}
+            />
+          </td>
+          <td>
+            <code>{`var(--ds-size-${size})`}</code>
+          </td>
+          <td>
+            <code>{`p-${size} / m-${size} / gap-${size}`}</code>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+## Radius
+
+<div className="sb-unstyled" style={PANEL}>
+  <table className="ds-table" data-size="sm" style={{ width: '100%' }}>
+    <thead>
+      <tr>
+        <th style={{ width: '10rem' }}>Navn</th>
+        <th>CSS</th>
+        <th>Tailwind</th>
+      </tr>
+    </thead>
+    <tbody>
+      {RADIUS.map((name) => (
+        <tr key={name}>
+          <td>
+            <div
+              style={{
+                background: 'var(--ds-color-accent-surface-tinted)',
+                borderRadius: `var(--ds-border-radius-${name})`,
+                padding: 'var(--ds-size-4)',
+                textAlign: 'center',
+              }}
+            >
+              {name}
+            </div>
+          </td>
+          <td>
+            <code>{`var(--ds-border-radius-${name})`}</code>
+          </td>
+          <td>
+            <code>{name === 'full' ? 'rounded-full' : `rounded-${name}`}</code>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+## Typografi
+
+Skriftstørrelsene er relative til størrelsesmodus, slik at hele grensesnittet kan skaleres opp eller ned.
+
+<div className="sb-unstyled" style={PANEL}>
+  <table className="ds-table" data-size="sm" style={{ width: '100%' }}>
+    <thead>
+      <tr>
+        <th style={{ width: '50%' }}>Eksempel</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      {FONT_SIZES.map((step) => (
+        <tr key={step}>
+          <td style={{ fontSize: `var(--ds-font-size-${step})` }}>Aa Bb Cc</td>
+          <td>
+            <code>{`var(--ds-font-size-${step})`}</code>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
