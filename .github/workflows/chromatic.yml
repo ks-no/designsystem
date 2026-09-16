@@ -33,3 +33,5 @@ jobs:
           exitZeroOnChanges: false
           autoAcceptChanges: ${{ github.ref == 'refs/heads/main' }}
           onlyChanged: true
+          externals: |
+            packages/themes/src/**
