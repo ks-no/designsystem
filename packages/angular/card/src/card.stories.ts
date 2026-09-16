@@ -1,4 +1,6 @@
+import { Button } from '@ks-digital/designsystem-angular/button'
 import { Input } from '@ks-digital/designsystem-angular/forms'
+import { Tag } from '@ks-digital/designsystem-angular/tag'
 import {
   argsToTemplate,
   moduleMetadata,
@@ -25,7 +27,7 @@ const meta: Meta<CardArgs> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Card, CardBlock, Input],
+      imports: [Card, CardBlock, Input, Button, Tag],
     }),
   ],
 }
@@ -97,6 +99,33 @@ export const AsLink: Story = {
     <h2 class="ds-heading"><a href="/" class="ds-link">Whole card is clickable when link is present inside heading</a></h2>
   </article>
 </div>
+    `,
+  }),
+}
+
+export const Horizontal: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+<article ksd-card ${argsToTemplate(args)} style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--ds-size-6);">
+  <img
+    src="https://static.fiks.ks.no/img/kommunevaapen/4601.png"
+    alt=""
+    width="64"
+    height="64"
+    style="flex: 0 0 auto;"
+  />
+  <div style="flex: 1 1 16rem; display: flex; flex-direction: column; align-items: start; gap: var(--ds-size-3);">
+    <h2 class="ds-heading" data-size="sm">Brev fra kommunen</h2>
+    <p class="ds-paragraph" style="color: var(--ds-color-text-subtle);">Fra Bergen kommune 12. november 2025</p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--ds-size-2);">
+      <ksd-tag data-color="success" data-variant="outline">Innsendt</ksd-tag>
+      <ksd-tag data-color="info" data-variant="outline">1 ny oppgave</ksd-tag>
+    </div>
+    <p class="ds-paragraph">Her kommer det en ekstra detaljtekst som gir litt mer kontekst og innhold til kortet. Denne teksten kan være opptil et par linjer lang.</p>
+    <button ksd-button>Gå til sak</button>
+  </div>
+</article>
     `,
   }),
 }

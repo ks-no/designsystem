@@ -1,4 +1,5 @@
 @import './alert.css';
+@import './card.css';
 
 @layer ksd {
   body {

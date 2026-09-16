@@ -1,0 +1,8 @@
+@layer ksd {
+  /**
+   * Increased from the default ds-size-6
+   */
+  .ds-card {
+    --dsc-card-padding: var(--ds-size-8);
+  }
+}
