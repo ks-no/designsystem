@@ -23,7 +23,23 @@ Pagination er en wrapper for `ds-pagination` web-componenten fra Designsystemet 
 - Utfylling av sidetall og ellipsis håndteres av komponenten, så du behøver ikke fylle ut dette selv.
 - Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
 - Komponenten setter `aria-current` og styler knappene for gjeldende side, så du trenger ikke håndtere dette selv.
-  - Hvis du skriver sidetall selv, så får du ellipsis ved å lage et tomt element, f.eks: `<button ksdPaginationButton>{{page.page || ''}}</button>`
+- Send sideobjektet til direktivet, `[ksdPaginationButton]="page"`, så finner komponenten riktig side ved klikk.
+
+### Knappene må være tomme
+
+Sidetall og ellipsis rendres av CSS-en til Designsystemet via `content: attr(aria-label)` på `:empty`.
+Skriver du innhold i knappen selv, slår du av denne rendringen for det elementet. Du skal derfor ikke
+skrive ut `page`-verdien selv.
+
+Dette gjør at `@angular-eslint/template/elements-content` slår ut på de tomme knappene. Legg direktivet
+i `allowList` i eslint-oppsettet ditt i stedet for å legge inn innhold:
+
+```js
+'@angular-eslint/template/elements-content': [
+  'error',
+  { allowList: ['ksdPaginationButton'] },
+]
+```
 
 ## Med knapper
 
@@ -32,11 +48,11 @@ import { Pagination, PaginationButton } from '@ks-digital/designsystem-angular/p
 
  <ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
     <ol>
-      <li><button ksdPaginationButton>Forrige</button></li>
+      <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
       @for (page of pagination.pages().pages; track page.key) {
-        <li><button ksdPaginationButton></button></li>
+        <li><button [ksdPaginationButton]="page"></button></li>
       }
-      <li><button ksdPaginationButton>Neste</button></li>
+      <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
     </ol>
 </ksd-pagination>
 ```
@@ -58,7 +74,7 @@ import {
       <ol>
         <li>
           <a
-            ksdPaginationButton
+            [ksdPaginationButton]="pagination.pages().prev"
             [routerLink]="[]"
             [queryParams]="{ page: pagination.pages().prev }"
           >
@@ -68,16 +84,16 @@ import {
         @for (page of pagination.pages().pages; track page.key) {
           <li>
             <a
-              ksdPaginationButton
+              [ksdPaginationButton]="page"
               [routerLink]="[]"
-              [queryParams]="{ page: page.page }"
+              [queryParams]="{ page: page.type === 'page' ? page.page : null }"
             >
             </a>
           </li>
         }
         <li>
           <a
-            ksdPaginationButton
+            [ksdPaginationButton]="pagination.pages().next"
             [routerLink]="[]"
             [queryParams]="{ page: pagination.pages().next }"
           >

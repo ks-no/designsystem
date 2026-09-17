@@ -65,11 +65,11 @@ export const Preview: Story = {
     template: `
       <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
         <ol>
-          <li><button ksdPaginationButton>Forrige</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
           @for (page of pagination.pages().pages; track page.key) {
-            <li><button ksdPaginationButton></button></li>
+            <li><button [ksdPaginationButton]="page"></button></li>
           }
-          <li><button ksdPaginationButton>Neste</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
         </ol>
       </ksd-pagination>
     `,
@@ -87,11 +87,11 @@ export const WithLinks: Story = {
     template: `
       <ksd-pagination ${argsToTemplate(args)} #pagination>
         <ol>
-          <li><a ksdPaginationButton>Forrige</a></li>
+          <li><a [ksdPaginationButton]="pagination.pages().prev">Forrige</a></li>
           @for (page of pagination.pages().pages; track page.key) {
-            <li><a ksdPaginationButton></a></li>
+            <li><a [ksdPaginationButton]="page"></a></li>
           }
-          <li><a ksdPaginationButton>Neste</a></li>
+          <li><a [ksdPaginationButton]="pagination.pages().next">Neste</a></li>
         </ol>
       </ksd-pagination>
     `,
@@ -112,11 +112,11 @@ export const Mobile: Story = {
     template: `
       <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
         <ol>
-          <li><button ksdPaginationButton>Forrige</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
           @for (page of pagination.pages().pages; track page.key) {
-            <li><button ksdPaginationButton></button></li>
+            <li><button [ksdPaginationButton]="page"></button></li>
           }
-          <li><button ksdPaginationButton>Neste</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
         </ol>
       </ksd-pagination>
     `,
