@@ -12,6 +12,7 @@ import {
   HostColor,
   HostSize,
 } from '@ks-digital/designsystem-angular/__internals'
+import { PaginationButton } from './pagination.button'
 
 /**
  * A page entry, or an ellipsis placeholder that must render as an empty element
@@ -41,6 +42,7 @@ const readPage = (el: Element): number => {
 @Component({
   selector: 'ksd-pagination',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [PaginationButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ds-pagination
@@ -51,7 +53,35 @@ const readPage = (el: Element): number => {
       [attr.aria-label]="ariaLabel()"
       (click)="onClick($event)"
     >
-      <ng-content />
+      <ng-content>
+        <ol>
+          @if (href()) {
+            <li>
+              <a [ksdPaginationButton]="pages().prev">{{ previousLabel() }}</a>
+            </li>
+            @for (page of pages().pages; track page.key) {
+              <li><a [ksdPaginationButton]="page"></a></li>
+            }
+            <li>
+              <a [ksdPaginationButton]="pages().next">{{ nextLabel() }}</a>
+            </li>
+          } @else {
+            <li>
+              <button [ksdPaginationButton]="pages().prev">
+                {{ previousLabel() }}
+              </button>
+            </li>
+            @for (page of pages().pages; track page.key) {
+              <li><button [ksdPaginationButton]="page"></button></li>
+            }
+            <li>
+              <button [ksdPaginationButton]="pages().next">
+                {{ nextLabel() }}
+              </button>
+            </li>
+          }
+        </ol>
+      </ng-content>
     </ds-pagination>
   `,
   hostDirectives: [
@@ -98,6 +128,16 @@ export class Pagination {
    * E.g if "?page=%d" all the links will set href to "?page=1", "?page=2".
    */
   readonly href = input<string>()
+
+  /**
+   * Label for the previous button. Only used when no content is projected.
+   */
+  readonly previousLabel = input('Forrige')
+
+  /**
+   * Label for the next button. Only used when no content is projected.
+   */
+  readonly nextLabel = input('Neste')
 
   /**
    * Emits the page number when a page is clicked

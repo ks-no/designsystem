@@ -14,6 +14,8 @@ type PaginationArgs = CommonArgs & {
   show?: number
   href?: string
   ariaLabel?: string
+  previousLabel?: string
+  nextLabel?: string
 }
 
 const meta: Meta<PaginationArgs> = {
@@ -45,6 +47,14 @@ const meta: Meta<PaginationArgs> = {
       control: { type: 'text' },
       description: 'Aria-label for the pagination',
     },
+    previousLabel: {
+      control: { type: 'text' },
+      description: 'Label for the previous button. Default rendering only',
+    },
+    nextLabel: {
+      control: { type: 'text' },
+      description: 'Label for the next button. Default rendering only',
+    },
   },
   decorators: [
     moduleMetadata({
@@ -57,6 +67,18 @@ export default meta
 type Story = StoryObj<PaginationArgs>
 
 export const Preview: Story = {
+  render: (args) => ({
+    props: {
+      ...args,
+      onpageClicked: (page: number) => console.log('pageClicked', page),
+    },
+    template: `
+      <ksd-pagination ${argsToTemplate(args)} (pageClicked)="onpageClicked($event)" />
+    `,
+  }),
+}
+
+export const WithCustomMarkup: Story = {
   render: (args) => ({
     props: {
       ...args,
