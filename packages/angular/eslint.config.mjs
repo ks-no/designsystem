@@ -24,7 +24,13 @@ export default [
   },
   {
     files: ['**/*.html'],
-    // Override or add rules here
-    rules: {},
+    rules: {
+      // Pagination buttons must stay empty; the Designsystemet CSS fills them
+      // via `content: attr(aria-label)` on `:empty`.
+      '@angular-eslint/template/elements-content': [
+        'error',
+        { allowList: ['ksdPaginationButton'] },
+      ],
+    },
   },
 ]

@@ -24,11 +24,11 @@ const renderPagination = async (props: {
       #pagination
     >
       <ol>
-        <li><button ksdPaginationButton>Forrige</button></li>
+        <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
         @for (page of pagination.pages().pages; track page.key) {
-          <li><button ksdPaginationButton></button></li>
+          <li><button [ksdPaginationButton]="page"></button></li>
         }
-        <li><button ksdPaginationButton>Neste</button></li>
+        <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
       </ol>
     </ksd-pagination>
     `,
@@ -57,11 +57,11 @@ const renderPaginationWithLinks = async (props: {
       #pagination
     >
       <ol>
-        <li><a ksdPaginationButton>Forrige</a></li>
+        <li><a [ksdPaginationButton]="pagination.pages().prev">Forrige</a></li>
         @for (page of pagination.pages().pages; track page.key) {
-          <li><a ksdPaginationButton></a></li>
+          <li><a [ksdPaginationButton]="page"></a></li>
         }
-        <li><a ksdPaginationButton>Neste</a></li>
+        <li><a [ksdPaginationButton]="pagination.pages().next">Neste</a></li>
       </ol>
     </ksd-pagination>
     `,
@@ -128,6 +128,169 @@ describe('Pagination', () => {
       const buttons = screen.getAllByRole('button')
       // 3 page buttons + prev + next = 5
       expect(buttons.length).toBeLessThanOrEqual(7)
+    })
+  })
+
+  it('should leave the ellipsis empty so the CSS can render it', async () => {
+    const { container } = await renderPagination({ current: 10, total: 50 })
+
+    await waitFor(() => {
+      const ellipsis = container.querySelectorAll('[aria-label="0"]')
+      expect(ellipsis.length).toBeGreaterThan(0)
+      ellipsis.forEach((el) => {
+        expect(el.textContent).toBe('')
+        expect(el).not.toHaveAttribute('data-page')
+      })
+    })
+  })
+
+  it('should not emit pageClicked for the ellipsis', async () => {
+    const { container, onpageClicked } = await renderPagination({
+      current: 10,
+      total: 50,
+    })
+
+    await waitFor(() => {
+      expect(container.querySelector('[aria-label="0"]')).toBeTruthy()
+    })
+
+    fireEvent.click(container.querySelector('[aria-label="0"]') as Element)
+    expect(onpageClicked).not.toHaveBeenCalled()
+  })
+
+  it('should resolve the clicked page without reading aria-label', async () => {
+    const onpageClicked = vi.fn()
+    const { container } = await render(
+      `
+      <ksd-pagination [current]="1" [total]="10" (pageClicked)="onpageClicked($event)" #pagination>
+        <ol>
+          <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
+          @for (page of pagination.pages().pages; track page.key) {
+            <li>
+              <button
+                [ksdPaginationButton]="page"
+                [attr.aria-label]="page.type === 'page' ? 'Side ' + page.page : null"
+              ></button>
+            </li>
+          }
+          <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
+        </ol>
+      </ksd-pagination>
+      `,
+      {
+        imports: [Pagination, PaginationButton],
+        componentProperties: { onpageClicked },
+      },
+    )
+
+    const pageTwo = await waitFor(() => {
+      const el = container.querySelector('[data-page="2"]')
+      expect(el).toBeTruthy()
+      return el as Element
+    })
+
+    fireEvent.click(pageTwo)
+    expect(onpageClicked).toHaveBeenCalledWith(2)
+  })
+})
+
+describe('Pagination without projected content', () => {
+  it('should render the full list when nothing is projected', async () => {
+    const { container } = await render(
+      `<ksd-pagination [current]="3" [total]="50" />`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('li > button').length).toBe(9)
+      expect(screen.getByText('Forrige')).toBeInTheDocument()
+      expect(screen.getByText('Neste')).toBeInTheDocument()
+    })
+  })
+
+  it('should render the fallback when only whitespace is projected', async () => {
+    const { container } = await render(
+      `<ksd-pagination [current]="3" [total]="50">
+       </ksd-pagination>`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('li > button').length).toBe(9)
+    })
+  })
+
+  it('should keep the ellipsis empty', async () => {
+    const { container } = await render(
+      `<ksd-pagination [current]="10" [total]="50" />`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      const ellipsis = container.querySelectorAll('[aria-label="0"]')
+      expect(ellipsis.length).toBe(2)
+      ellipsis.forEach((el) => expect(el.textContent).toBe(''))
+    })
+  })
+
+  it('should render anchors with href when a href pattern is given', async () => {
+    const { container } = await render(
+      `<ksd-pagination [current]="3" [total]="50" href="?page=%d" />`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('li > button').length).toBe(0)
+      expect(container.querySelector('a[href="?page=4"]')).toBeTruthy()
+    })
+  })
+
+  it('should emit pageClicked from the default rendering', async () => {
+    const onpageClicked = vi.fn()
+    const { container } = await render(
+      `<ksd-pagination [current]="3" [total]="50" (pageClicked)="onpageClicked($event)" />`,
+      {
+        imports: [Pagination, PaginationButton],
+        componentProperties: { onpageClicked },
+      },
+    )
+
+    const pageFive = await waitFor(() => {
+      const el = container.querySelector('[data-page="5"]')
+      expect(el).toBeTruthy()
+      return el as Element
+    })
+
+    fireEvent.click(pageFive)
+    expect(onpageClicked).toHaveBeenCalledWith(5)
+  })
+
+  it('should use custom previous and next labels', async () => {
+    await render(
+      `<ksd-pagination [current]="3" [total]="50" previousLabel="Prev" nextLabel="Next" />`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText('Prev')).toBeInTheDocument()
+      expect(screen.getByText('Next')).toBeInTheDocument()
+    })
+  })
+
+  it('should let projected content replace the fallback', async () => {
+    const { container } = await render(
+      `<ksd-pagination [current]="3" [total]="50" #p>
+         <ol>
+           <li><button [ksdPaginationButton]="p.pages().prev">MINE</button></li>
+           <li><button [ksdPaginationButton]="p.pages().next">MINE2</button></li>
+         </ol>
+       </ksd-pagination>`,
+      { imports: [Pagination, PaginationButton] },
+    )
+
+    await waitFor(() => {
+      expect(container.querySelectorAll('li > button').length).toBe(2)
+      expect(screen.queryByText('Forrige')).not.toBeInTheDocument()
     })
   })
 })
