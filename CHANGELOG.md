@@ -1,3 +1,18 @@
+## 0.0.1-alpha.71
+
+### 🚀 Features
+
+- **web:** init web-package. add copy-button ([#332](https://github.com/ks-no/designsystem/pull/332))
+
+### 🩹 Fixes
+
+- **themes:** increase card padding ([#338](https://github.com/ks-no/designsystem/pull/338))
+- **themes:** update alert danger icon ([#341](https://github.com/ks-no/designsystem/pull/341))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.70
 
 ### 🚀 Features
