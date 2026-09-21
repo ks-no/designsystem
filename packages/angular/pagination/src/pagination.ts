@@ -15,8 +15,7 @@ import {
 import { PaginationButton } from './pagination.button'
 
 /**
- * A page entry, or an ellipsis placeholder that must render as an empty element
- * so `@digdir/designsystemet-css` can supply the "…" via `::before`.
+ * A page entry, or an ellipsis placeholder that renders as an empty `<li>`.
  */
 export type PaginationPage =
   | { type: 'page'; page: number; current: boolean; key: string }
@@ -28,58 +27,84 @@ export interface PaginationPages {
   next: number
 }
 
-const INTEGER = /^\d+$/
-
-/** `data-page` is set by PaginationButton; `value` is set by <ds-pagination>. */
-const readPage = (el: Element): number => {
-  const raw =
-    el.getAttribute('data-page') ??
-    el.getAttribute('value') ??
-    el.getAttribute('aria-label')
-  return raw && INTEGER.test(raw) ? Number(raw) : 0
-}
-
 @Component({
   selector: 'ksd-pagination',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [PaginationButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // Deliberately no data-current/data-total. Those put <ds-pagination> into the
+  // mode where it rewrites aria-label, role, tabindex, value and href on every
+  // button/a child. We render the accessible markup ourselves instead.
   template: `
     <ds-pagination
       class="ds-pagination"
-      [attr.data-current]="current()"
-      [attr.data-total]="total()"
-      [attr.data-href]="href()"
       [attr.aria-label]="ariaLabel()"
       (click)="onClick($event)"
     >
       <ng-content>
         <ol>
-          @if (href()) {
-            <li>
-              <a [ksdPaginationButton]="pages().prev">{{ previousLabel() }}</a>
-            </li>
-            @for (page of pages().pages; track page.key) {
-              <li><a [ksdPaginationButton]="page"></a></li>
-            }
-            <li>
-              <a [ksdPaginationButton]="pages().next">{{ nextLabel() }}</a>
-            </li>
-          } @else {
-            <li>
-              <button [ksdPaginationButton]="pages().prev">
+          <li>
+            @if (href()) {
+              <a
+                [ksdPaginationButton]="pages().prev"
+                [attr.href]="hrefFor(pages().prev)"
+                [attr.aria-hidden]="pages().prev ? null : 'true'"
+                >{{ previousLabel() }}</a
+              >
+            } @else {
+              <button
+                type="button"
+                [ksdPaginationButton]="pages().prev"
+                [disabled]="!pages().prev"
+                [attr.aria-hidden]="pages().prev ? null : 'true'"
+              >
                 {{ previousLabel() }}
               </button>
-            </li>
-            @for (page of pages().pages; track page.key) {
-              <li><button [ksdPaginationButton]="page"></button></li>
             }
-            <li>
-              <button [ksdPaginationButton]="pages().next">
+          </li>
+          @for (page of pages().pages; track page.key) {
+            @if (page.type === 'page') {
+              <li>
+                @if (href()) {
+                  <a
+                    [ksdPaginationButton]="page"
+                    [attr.href]="hrefFor(page.page)"
+                    [attr.aria-label]="labelFor(page.page)"
+                    >{{ page.page }}</a
+                  >
+                } @else {
+                  <button
+                    type="button"
+                    [ksdPaginationButton]="page"
+                    [attr.aria-label]="labelFor(page.page)"
+                  >
+                    {{ page.page }}
+                  </button>
+                }
+              </li>
+            } @else {
+              <li></li>
+            }
+          }
+          <li>
+            @if (href()) {
+              <a
+                [ksdPaginationButton]="pages().next"
+                [attr.href]="hrefFor(pages().next)"
+                [attr.aria-hidden]="pages().next ? null : 'true'"
+                >{{ nextLabel() }}</a
+              >
+            } @else {
+              <button
+                type="button"
+                [ksdPaginationButton]="pages().next"
+                [disabled]="!pages().next"
+                [attr.aria-hidden]="pages().next ? null : 'true'"
+              >
                 {{ nextLabel() }}
               </button>
-            </li>
-          }
+            }
+          </li>
         </ol>
       </ng-content>
     </ds-pagination>
@@ -139,6 +164,11 @@ export class Pagination {
   readonly nextLabel = input('Neste')
 
   /**
+   * Screen reader label for each page. Only used when no content is projected.
+   */
+  readonly pageLabel = input('Side %d')
+
+  /**
    * Emits the page number when a page is clicked
    */
   readonly pageClicked = output<number>()
@@ -154,7 +184,7 @@ export class Pagination {
     })
     return {
       pages: result.pages.map((p) =>
-        // Upstream uses page 0 as the ellipsis sentinel.
+        // The page helper uses 0 as the ellipsis sentinel.
         p.page === 0
           ? { type: 'ellipsis', key: p.key }
           : {
@@ -169,19 +199,21 @@ export class Pagination {
     }
   })
 
+  protected hrefFor(page: number) {
+    return page ? (this.href()?.replace('%d', String(page)) ?? null) : null
+  }
+
+  protected labelFor(page: number) {
+    return this.pageLabel().replace('%d', String(page))
+  }
+
   protected onClick(e: Event) {
     const root = e.currentTarget as HTMLElement
     const target = (e.target as HTMLElement).closest('button,a')
     if (!target || !root.contains(target)) return
 
-    // 0 covers the ellipsis and an unavailable prev/next. Those still get an
-    // href from <ds-pagination>, so block the navigation without emitting.
-    const page = readPage(target)
-    if (!page) {
-      e.preventDefault()
-      return
-    }
-    if (page === this.current()) return
+    const page = Number(target.getAttribute('data-page'))
+    if (!page || page === this.current()) return
 
     e.preventDefault()
     this.pageClicked.emit(page)

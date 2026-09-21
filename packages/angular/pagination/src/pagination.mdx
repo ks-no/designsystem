@@ -30,10 +30,11 @@ import { Pagination } from '@ks-digital/designsystem-angular/pagination'
 />
 ```
 
-- Setter du `href`, rendres lenker (`<a>`) i stedet for knapper.
-- Teksten på forrige/neste styres med `previousLabel` og `nextLabel`.
 - Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
-- Komponenten setter `aria-current` og styler knappene for gjeldende side.
+- Komponenten setter `aria-current` og styler knappen for gjeldende side.
+- Sidetall får en skjermleser-tekst fra `pageLabel`, som standard «Side %d».
+- Teksten på forrige/neste styres med `previousLabel` og `nextLabel`.
+- Forrige/neste deaktiveres automatisk på første og siste side.
 
 ### Med lenker
 
@@ -56,8 +57,10 @@ Trenger du full kontroll over markupen, for eksempel `routerLink`, kan du sende 
 selv. Da brukes din markup i stedet for standardrendringen.
 
 - Bruk `pages`-signalet til å rendre sidene.
-- Send sideobjektet til direktivet, `[ksdPaginationButton]="page"`, så finner komponenten riktig side ved klikk.
-- Du må alltid rendre forrige- og neste-elementet. Web-komponenten regner ut antall sider fra antall `button`/`a`-elementer.
+- Send sideobjektet til direktivet, `[ksdPaginationButton]="page"`. Direktivet setter
+  `data-page` og `aria-current`, og komponenten finner riktig side ved klikk.
+- Skriv sidetallet selv, og gi knappen en `aria-label` som «Side 3».
+- Ellipsis er en **tom `<li>`** uten knapp. CSS-en fyller inn «…».
 - Elementene må ligge som `ol > li > button` eller `ol > li > a`. CSS-en treffer bare direkte barn av `li`.
 
 ### Med knapper
@@ -65,14 +68,22 @@ selv. Da brukes din markup i stedet for standardrendringen.
 ```ts
 import { Pagination, PaginationButton } from '@ks-digital/designsystem-angular/pagination'
 
- <ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
-    <ol>
-      <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
-      @for (page of pagination.pages().pages; track page.key) {
-        <li><button [ksdPaginationButton]="page"></button></li>
+<ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
+  <ol>
+    <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
+    @for (page of pagination.pages().pages; track page.key) {
+      @if (page.type === 'page') {
+        <li>
+          <button [ksdPaginationButton]="page" [attr.aria-label]="'Side ' + page.page">
+            {{ page.page }}
+          </button>
+        </li>
+      } @else {
+        <li></li>
       }
-      <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
-    </ol>
+    }
+    <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
+  </ol>
 </ksd-pagination>
 ```
 
@@ -80,6 +91,9 @@ import { Pagination, PaginationButton } from '@ks-digital/designsystem-angular/p
 
 Trenger du ikke `routerLink`, holder det som regel å bruke standardrendringen med `href`
 og håndtere `pageClicked` med `router.navigate`.
+
+`routerLink` navigerer selv, før pagination rekker å stoppe klikket. Sett den derfor bare
+på elementer som peker til en ekte side.
 
 ```ts
 import { Component, signal } from '@angular/core'
@@ -95,32 +109,46 @@ import {
     <ksd-pagination [current]="current()" [total]="total()" #pagination>
       <ol>
         <li>
-          <a
-            [ksdPaginationButton]="pagination.pages().prev"
-            [routerLink]="[]"
-            [queryParams]="{ page: pagination.pages().prev }"
-          >
-            Forrige
-          </a>
+          @if (pagination.pages().prev) {
+            <a
+              [ksdPaginationButton]="pagination.pages().prev"
+              [routerLink]="[]"
+              [queryParams]="{ page: pagination.pages().prev }"
+            >
+              Forrige
+            </a>
+          } @else {
+            <a [ksdPaginationButton]="0" aria-hidden="true">Forrige</a>
+          }
         </li>
         @for (page of pagination.pages().pages; track page.key) {
-          <li>
-            <a
-              [ksdPaginationButton]="page"
-              [routerLink]="[]"
-              [queryParams]="{ page: page.type === 'page' ? page.page : null }"
-            >
-            </a>
-          </li>
+          @if (page.type === 'page') {
+            <li>
+              <a
+                [ksdPaginationButton]="page"
+                [routerLink]="[]"
+                [queryParams]="{ page: page.page }"
+                [attr.aria-label]="'Side ' + page.page"
+              >
+                {{ page.page }}
+              </a>
+            </li>
+          } @else {
+            <li></li>
+          }
         }
         <li>
-          <a
-            [ksdPaginationButton]="pagination.pages().next"
-            [routerLink]="[]"
-            [queryParams]="{ page: pagination.pages().next }"
-          >
-            Neste
-          </a>
+          @if (pagination.pages().next) {
+            <a
+              [ksdPaginationButton]="pagination.pages().next"
+              [routerLink]="[]"
+              [queryParams]="{ page: pagination.pages().next }"
+            >
+              Neste
+            </a>
+          } @else {
+            <a [ksdPaginationButton]="0" aria-hidden="true">Neste</a>
+          }
         </li>
       </ol>
     </ksd-pagination>
@@ -130,20 +158,4 @@ export class App {
   protected current = signal(5)
   protected total = signal(50)
 }
-```
-
-### Knappene må være tomme
-
-Sidetall og ellipsis rendres av CSS-en til Designsystemet via `content: attr(aria-label)` på `:empty`.
-Skriver du innhold i knappen selv, slår du av denne rendringen for det elementet. Du skal derfor ikke
-skrive ut `page`-verdien selv.
-
-Dette gjør at `@angular-eslint/template/elements-content` slår ut på de tomme knappene. Legg direktivet
-i `allowList` i eslint-oppsettet ditt i stedet for å legge inn innhold:
-
-```js
-'@angular-eslint/template/elements-content': [
-  'error',
-  { allowList: ['ksdPaginationButton'] },
-]
 ```
