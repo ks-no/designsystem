@@ -120,8 +120,7 @@ export class Pagination {
    */
   readonly show = input(7, {
     // numberAttribute defaults to NaN, which would collapse the page list.
-    transform: (value: string | number | undefined) =>
-      numberAttribute(value, 7),
+    transform: (value: unknown) => numberAttribute(value, 7),
   })
 
   /**
@@ -171,14 +170,18 @@ export class Pagination {
   })
 
   protected onClick(e: Event) {
-    const target = (e.target as HTMLElement).closest(
-      '[data-page],[value],[aria-label]',
-    )
-    if (!target) return
+    const root = e.currentTarget as HTMLElement
+    const target = (e.target as HTMLElement).closest('button,a')
+    if (!target || !root.contains(target)) return
 
-    // 0 covers the ellipsis and an unavailable prev/next.
+    // 0 covers the ellipsis and an unavailable prev/next. Those still get an
+    // href from <ds-pagination>, so block the navigation without emitting.
     const page = readPage(target)
-    if (!page || page === this.current()) return
+    if (!page) {
+      e.preventDefault()
+      return
+    }
+    if (page === this.current()) return
 
     e.preventDefault()
     this.pageClicked.emit(page)
