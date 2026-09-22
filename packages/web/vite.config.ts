@@ -7,7 +7,7 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/packages/react',
+  cacheDir: '../../node_modules/.vite/packages/web',
   plugins: [
     nxViteTsPaths(),
     nxCopyAssetsPlugin(['*.md']),
@@ -28,7 +28,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: '@ks-digital/designsystem-webt',
+      name: '@ks-digital/designsystem-web',
       fileName: 'index',
       formats: ['es' as const, 'cjs' as const],
     },
