@@ -227,6 +227,46 @@ describe('Pagination with links', () => {
     expect(event.defaultPrevented).toBe(true)
     expect(onpageClicked).toHaveBeenCalledWith(4)
   })
+
+  it.each([
+    ['ctrl', { ctrlKey: true }],
+    ['meta', { metaKey: true }],
+    ['shift', { shiftKey: true }],
+    ['alt', { altKey: true }],
+    ['middle', { button: 1 }],
+  ])('should leave %s-click on a link to the browser', async (_, modifier) => {
+    const { container, onpageClicked } = await renderDefault(
+      `<ksd-pagination [current]="3" [total]="50" href="?page=%d" (pageClicked)="onpageClicked($event)" />`,
+    )
+
+    const link = container.querySelector('a[href="?page=4"]') as Element
+    const event = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      ...modifier,
+    })
+    link.dispatchEvent(event)
+
+    expect(event.defaultPrevented).toBe(false)
+    expect(onpageClicked).not.toHaveBeenCalled()
+  })
+
+  it('should still activate a button on ctrl-click', async () => {
+    const { container, onpageClicked } = await renderDefault(
+      `<ksd-pagination [current]="3" [total]="50" (pageClicked)="onpageClicked($event)" />`,
+    )
+
+    const button = container.querySelector('[data-page="4"]') as Element
+    button.dispatchEvent(
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        ctrlKey: true,
+      }),
+    )
+
+    expect(onpageClicked).toHaveBeenCalledWith(4)
+  })
 })
 
 describe('Pagination content projection', () => {

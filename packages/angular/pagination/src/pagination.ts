@@ -27,6 +27,10 @@ export interface PaginationPages {
   next: number
 }
 
+/** Open-in-new-tab and similar, which the browser should handle itself. */
+const isModifiedClick = (e: MouseEvent) =>
+  e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey
+
 @Component({
   selector: 'ksd-pagination',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -207,10 +211,12 @@ export class Pagination {
     return this.pageLabel().replace('%d', String(page))
   }
 
-  protected onClick(e: Event) {
+  protected onClick(e: MouseEvent) {
     const root = e.currentTarget as HTMLElement
     const target = (e.target as HTMLElement).closest('button,a')
     if (!target || !root.contains(target)) return
+
+    if (target.matches('a[href]') && isModifiedClick(e)) return
 
     const page = Number(target.getAttribute('data-page'))
     if (!page || page === this.current()) return
