@@ -18,30 +18,82 @@ Pagination er en wrapper for `ds-pagination` web-componenten fra Designsystemet 
 
 ## Bruk
 
-- Du kan bruke `pages`-signalet som komponenten gir for å rendre sidene du vil vise.
-- Lytt til `pageClicked`-eventen for å håndtere sideklikk.
-- Utfylling av sidetall og ellipsis håndteres av komponenten, så du behøver ikke fylle ut dette selv.
-- Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
-- Komponenten setter `aria-current` og styler knappene for gjeldende side, så du trenger ikke håndtere dette selv.
-  - Hvis du skriver sidetall selv, så får du ellipsis ved å lage et tomt element, f.eks: `<button ksdPaginationButton>{{page.page || ''}}</button>`
+Du trenger bare å sette `current` og `total`. Da rendrer komponenten hele listen for deg:
 
-## Med knapper
+```ts
+import { Pagination } from '@ks-digital/designsystem-angular/pagination'
+
+<ksd-pagination
+  [current]="current()"
+  [total]="total()"
+  (pageClicked)="current.set($event)"
+/>
+```
+
+- Komponenten har satt role til `navigation`, så ikke wrap den i en nav-tag.
+- Komponenten setter `aria-current` og styler knappen for gjeldende side.
+- Sidetall får en skjermleser-tekst fra `pageLabel`, som standard «Side %d».
+- Teksten på forrige/neste styres med `previousLabel` og `nextLabel`.
+- Forrige/neste deaktiveres automatisk på første og siste side.
+
+### Med lenker
+
+Setter du `href`, rendres `<a>`-elementer med lenker i stedet for knapper. Da fungerer
+midtklikk og «åpne i ny fane». `pageClicked` kaller `preventDefault()`, så du kan fortsatt
+navigere klientside:
+
+```ts
+<ksd-pagination
+  [current]="current()"
+  [total]="total()"
+  href="?page=%d"
+  (pageClicked)="goToPage($event)"
+/>
+```
+
+## Egen markup
+
+Trenger du full kontroll over markupen, for eksempel `routerLink`, kan du sende inn innholdet
+selv. Da brukes din markup i stedet for standardrendringen.
+
+- Bruk `pages`-signalet til å rendre sidene.
+- Send sideobjektet til direktivet, `[ksdPaginationButton]="page"`. Direktivet setter
+  `data-page` og `aria-current`, og komponenten finner riktig side ved klikk.
+- Skriv sidetallet selv, og gi knappen en `aria-label` som «Side 3».
+- Ellipsis er en **tom `<li>`** uten knapp. CSS-en fyller inn «…».
+- Elementene må ligge som `ol > li > button` eller `ol > li > a`. CSS-en treffer bare direkte barn av `li`.
+
+### Med knapper
 
 ```ts
 import { Pagination, PaginationButton } from '@ks-digital/designsystem-angular/pagination'
 
- <ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
-    <ol>
-      <li><button ksdPaginationButton>Forrige</button></li>
-      @for (page of pagination.pages().pages; track page.key) {
-        <li><button ksdPaginationButton></button></li>
+<ksd-pagination #pagination current="5" total="50" (pageClicked)="onpageClicked($event)">
+  <ol>
+    <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
+    @for (page of pagination.pages().pages; track page.key) {
+      @if (page.type === 'page') {
+        <li>
+          <button [ksdPaginationButton]="page" [attr.aria-label]="'Side ' + page.page">
+            {{ page.page }}
+          </button>
+        </li>
+      } @else {
+        <li></li>
       }
-      <li><button ksdPaginationButton>Neste</button></li>
-    </ol>
+    }
+    <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
+  </ol>
 </ksd-pagination>
 ```
 
-## Med Angular Router
+### Med Angular Router
+
+Trenger du ikke `routerLink`, holder det som regel å bruke standardrendringen med `href`
+og håndtere `pageClicked` med `router.navigate`.
+
+`routerLink` navigerer selv, før pagination rekker å stoppe klikket. Sett den derfor bare
+på elementer som peker til en ekte side.
 
 ```ts
 import { Component, signal } from '@angular/core'
@@ -52,37 +104,51 @@ import {
 } from '@ks-digital/designsystem-angular/pagination'
 
 @Component({
-  imports: [Pagination, RouterLink],
+  imports: [Pagination, PaginationButton, RouterLink],
   template: `
     <ksd-pagination [current]="current()" [total]="total()" #pagination>
       <ol>
         <li>
-          <a
-            ksdPaginationButton
-            [routerLink]="[]"
-            [queryParams]="{ page: pagination.pages().prev }"
-          >
-            Forrige
-          </a>
+          @if (pagination.pages().prev) {
+            <a
+              [ksdPaginationButton]="pagination.pages().prev"
+              [routerLink]="[]"
+              [queryParams]="{ page: pagination.pages().prev }"
+            >
+              Forrige
+            </a>
+          } @else {
+            <a [ksdPaginationButton]="0" aria-hidden="true">Forrige</a>
+          }
         </li>
         @for (page of pagination.pages().pages; track page.key) {
-          <li>
-            <a
-              ksdPaginationButton
-              [routerLink]="[]"
-              [queryParams]="{ page: page.page }"
-            >
-            </a>
-          </li>
+          @if (page.type === 'page') {
+            <li>
+              <a
+                [ksdPaginationButton]="page"
+                [routerLink]="[]"
+                [queryParams]="{ page: page.page }"
+                [attr.aria-label]="'Side ' + page.page"
+              >
+                {{ page.page }}
+              </a>
+            </li>
+          } @else {
+            <li></li>
+          }
         }
         <li>
-          <a
-            ksdPaginationButton
-            [routerLink]="[]"
-            [queryParams]="{ page: pagination.pages().next }"
-          >
-            Neste
-          </a>
+          @if (pagination.pages().next) {
+            <a
+              [ksdPaginationButton]="pagination.pages().next"
+              [routerLink]="[]"
+              [queryParams]="{ page: pagination.pages().next }"
+            >
+              Neste
+            </a>
+          } @else {
+            <a [ksdPaginationButton]="0" aria-hidden="true">Neste</a>
+          }
         </li>
       </ol>
     </ksd-pagination>

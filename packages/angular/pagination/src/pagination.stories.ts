@@ -14,6 +14,9 @@ type PaginationArgs = CommonArgs & {
   show?: number
   href?: string
   ariaLabel?: string
+  previousLabel?: string
+  nextLabel?: string
+  pageLabel?: string
 }
 
 const meta: Meta<PaginationArgs> = {
@@ -45,6 +48,19 @@ const meta: Meta<PaginationArgs> = {
       control: { type: 'text' },
       description: 'Aria-label for the pagination',
     },
+    previousLabel: {
+      control: { type: 'text' },
+      description: 'Label for the previous button. Default rendering only',
+    },
+    nextLabel: {
+      control: { type: 'text' },
+      description: 'Label for the next button. Default rendering only',
+    },
+    pageLabel: {
+      control: { type: 'text' },
+      description:
+        'Screen reader label per page, e.g. "Side %d". Default rendering only',
+    },
   },
   decorators: [
     moduleMetadata({
@@ -63,13 +79,29 @@ export const Preview: Story = {
       onpageClicked: (page: number) => console.log('pageClicked', page),
     },
     template: `
+      <ksd-pagination ${argsToTemplate(args)} (pageClicked)="onpageClicked($event)" />
+    `,
+  }),
+}
+
+export const WithCustomMarkup: Story = {
+  render: (args) => ({
+    props: {
+      ...args,
+      onpageClicked: (page: number) => console.log('pageClicked', page),
+    },
+    template: `
       <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
         <ol>
-          <li><button ksdPaginationButton>Forrige</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().prev">Forrige</button></li>
           @for (page of pagination.pages().pages; track page.key) {
-            <li><button ksdPaginationButton></button></li>
+            @if (page.type === 'page') {
+              <li><button [ksdPaginationButton]="page" [attr.aria-label]="'Side ' + page.page">{{ page.page }}</button></li>
+            } @else {
+              <li></li>
+            }
           }
-          <li><button ksdPaginationButton>Neste</button></li>
+          <li><button [ksdPaginationButton]="pagination.pages().next">Neste</button></li>
         </ol>
       </ksd-pagination>
     `,
@@ -85,15 +117,7 @@ export const WithLinks: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <ksd-pagination ${argsToTemplate(args)} #pagination>
-        <ol>
-          <li><a ksdPaginationButton>Forrige</a></li>
-          @for (page of pagination.pages().pages; track page.key) {
-            <li><a ksdPaginationButton></a></li>
-          }
-          <li><a ksdPaginationButton>Neste</a></li>
-        </ol>
-      </ksd-pagination>
+      <ksd-pagination ${argsToTemplate(args)} />
     `,
   }),
 }
@@ -110,15 +134,7 @@ export const Mobile: Story = {
       onpageClicked: (page: number) => console.log('pageClicked', page),
     },
     template: `
-      <ksd-pagination ${argsToTemplate(args)} #pagination (pageClicked)="onpageClicked($event)">
-        <ol>
-          <li><button ksdPaginationButton>Forrige</button></li>
-          @for (page of pagination.pages().pages; track page.key) {
-            <li><button ksdPaginationButton></button></li>
-          }
-          <li><button ksdPaginationButton>Neste</button></li>
-        </ol>
-      </ksd-pagination>
+      <ksd-pagination ${argsToTemplate(args)} (pageClicked)="onpageClicked($event)" />
     `,
   }),
 }

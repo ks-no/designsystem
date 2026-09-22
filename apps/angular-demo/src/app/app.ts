@@ -400,7 +400,6 @@ import { ValidationMessage } from '@ks-digital/designsystem-angular/validation-m
           aria-label="Bla i sider"
           (pageClicked)="currentPage.set($event)"
         />
-        <p ksd-paragraph class="mt-2">Side {{ currentPage() }} av 10</p>
       </section>
 
       <!-- Dialog, Dropdown & Popover -->
