@@ -1,3 +1,17 @@
+## 0.0.1-alpha.72
+
+### 🚀 Features
+
+- ⚠️ **angular/pagination:** render the page list by default ([#340](https://github.com/ks-no/designsystem/pull/340))
+
+### ⚠️ Breaking Changes
+
+- **angular/pagination:** render the page list by default ([#340](https://github.com/ks-no/designsystem/pull/340))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.71
 
 ### 🚀 Features
