@@ -1,3 +1,13 @@
+## 0.0.1-alpha.73
+
+### 🩹 Fixes
+
+- **web:** ci issues ([#342](https://github.com/ks-no/designsystem/pull/342))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.72
 
 ### 🚀 Features
