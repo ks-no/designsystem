@@ -5,8 +5,8 @@ import * as SummaryListStories from './summary-list.stories'
 
 # Summary list
 
-`ksd-summary-list` viser navn/verdi-par, for eksempel et sammendrag av en søknad
-før innsending. Komponenten er ren CSS – du skriver vanlig `dl`-markup, og
+Summary list viser navn/verdi-par, for eksempel et sammendrag av en søknad
+før innsending. Komponenten er ren CSS - du skriver vanlig `dl`-markup, og
 nettleseren beholder den semantiske koblingen mellom `dt` og `dd`.
 
 <Canvas of={SummaryListStories.Preview} />
@@ -33,16 +33,14 @@ tegne skillelinje på.
 ## Smal plass
 
 Lista tilpasser seg plassen den har, ikke vindusbredden. Når det ikke er plass
-til både term og verdi ved siden av hverandre, legger verdien seg under. Den
-samme lista stables derfor i en smal kolonne eller dialog uten at du trenger å
-gjøre noe.
+til både navn og verdi ved siden av hverandre, legger verdien seg under.
 
 <Canvas of={SummaryListStories.SmalKolonne} />
 
 ## Endre-lenker
 
 Legg en ekstra `dd` med klassen `ksd-summary-list__actions` sist i raden. Skriv
-hva lenken gjelder – bruk `ds-sr-only` hvis du ikke vil vise det – slik at
+hva lenken gjelder - bruk `ds-sr-only` hvis du ikke vil vise det - slik at
 «Endre» ikke står alene som lenketekst for skjermleserbrukere.
 
 ```html
