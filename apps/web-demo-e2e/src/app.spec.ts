@@ -11,6 +11,9 @@ const sections = [
   'Copy Button Icon Only',
   'Copy Button States',
   'Copy Button In Text',
+  'Summary List',
+  'Summary List Narrow',
+  'Summary List With Actions',
 ]
 
 for (const title of sections) {

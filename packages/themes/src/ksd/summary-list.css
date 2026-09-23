@@ -1,0 +1,43 @@
+@layer ksd {
+  .ksd-summary-list {
+    display: flex;
+    flex-direction: column;
+    margin-block: 0;
+    color: var(--ds-color-neutral-text-default);
+    line-height: var(--ds-line-height-md);
+  }
+
+  .ksd-summary-list > * {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--ds-size-4);
+    padding-block: var(--ds-size-3);
+    border-block-end: 1px solid var(--ds-color-neutral-border-subtle);
+  }
+
+  .ksd-summary-list > :last-child {
+    border-block-end: 0;
+  }
+
+  .ksd-summary-list :is(dt, dd) {
+    margin: 0;
+    /* Lets long values shrink instead of pushing the row wider. The wrap
+       threshold is the flex-basis below, so this does not affect it. */
+    min-inline-size: 0;
+    overflow-wrap: break-word;
+  }
+
+  .ksd-summary-list dt {
+    flex: 1 1 12rem;
+    font-weight: var(--ds-font-weight-medium);
+  }
+
+  .ksd-summary-list dd {
+    flex: 3 1 24rem;
+  }
+
+  .ksd-summary-list .ksd-summary-list__actions {
+    /* Term and value absorb the free space, which pushes this to the end of the row */
+    flex: 0 0 auto;
+  }
+}

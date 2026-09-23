@@ -114,6 +114,85 @@
           ></button>
         </p>
       </section>
+
+      <section>
+        <h2 class="ds-heading" data-size="sm">Summary List</h2>
+        <dl class="ksd-summary-list">
+          <div>
+            <dt>Navn</dt>
+            <dd>Sarah Philips</dd>
+          </div>
+          <div>
+            <dt>Fødselsnummer</dt>
+            <dd>12345678901</dd>
+          </div>
+          <div>
+            <dt>Adresse</dt>
+            <dd>Storgata 1, 0155 Oslo</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Narrow enough that every row wraps, which is the layout without media queries -->
+      <section>
+        <h2 class="ds-heading" data-size="sm">Summary List Narrow</h2>
+        <div style="max-inline-size: 20rem">
+          <dl class="ksd-summary-list">
+            <div>
+              <dt>Navn</dt>
+              <dd>Sarah Philips</dd>
+            </div>
+            <div>
+              <dt>Fødselsnummer</dt>
+              <dd>12345678901</dd>
+            </div>
+            <div>
+              <dt>Adresse</dt>
+              <dd>Storgata 1, 0155 Oslo</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="ds-heading" data-size="sm">Summary List With Actions</h2>
+        <article class="ds-card">
+          <h3 class="ds-heading ds-card__block" data-size="xs">
+            Søknad om ledsagerbevis
+          </h3>
+          <div class="ds-card__block">
+            <dl class="ksd-summary-list">
+              <div>
+                <dt>Navn</dt>
+                <dd>Sarah Philips</dd>
+                <dd class="ksd-summary-list__actions">
+                  <a class="ds-link" href="#"
+                    >Endre<span class="ds-sr-only"> navn</span></a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt>Fødselsnummer</dt>
+                <dd>12345678901</dd>
+                <dd class="ksd-summary-list__actions">
+                  <a class="ds-link" href="#"
+                    >Endre<span class="ds-sr-only"> fødselsnummer</span></a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt>Adresse</dt>
+                <dd>Storgata 1, 0155 Oslo</dd>
+                <dd class="ksd-summary-list__actions">
+                  <a class="ds-link" href="#"
+                    >Endre<span class="ds-sr-only"> adresse</span></a
+                  >
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </section>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
