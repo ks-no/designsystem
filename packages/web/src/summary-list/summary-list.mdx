@@ -1,0 +1,63 @@
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import * as SummaryListStories from './summary-list.stories'
+
+<Meta of={SummaryListStories} />
+
+# Summary list
+
+`ksd-summary-list` viser navn/verdi-par, for eksempel et sammendrag av en søknad
+før innsending. Komponenten er ren CSS – du skriver vanlig `dl`-markup, og
+nettleseren beholder den semantiske koblingen mellom `dt` og `dd`.
+
+<Canvas of={SummaryListStories.Preview} />
+<Controls of={SummaryListStories.Preview} />
+
+## Bruk
+
+Hver rad pakkes i en `div` inne i `dl`. Det er gyldig HTML, og gir raden noe å
+tegne skillelinje på.
+
+```html
+<dl class="ksd-summary-list">
+  <div>
+    <dt>Navn</dt>
+    <dd>Sarah Philips</dd>
+  </div>
+  <div>
+    <dt>Fødselsnummer</dt>
+    <dd>12345678901</dd>
+  </div>
+</dl>
+```
+
+## Smal plass
+
+Lista tilpasser seg plassen den har, ikke vindusbredden. Når det ikke er plass
+til både term og verdi ved siden av hverandre, legger verdien seg under. Den
+samme lista stables derfor i en smal kolonne eller dialog uten at du trenger å
+gjøre noe.
+
+<Canvas of={SummaryListStories.SmalKolonne} />
+
+## Endre-lenker
+
+Legg en ekstra `dd` med klassen `ksd-summary-list__actions` sist i raden. Skriv
+hva lenken gjelder – bruk `ds-sr-only` hvis du ikke vil vise det – slik at
+«Endre» ikke står alene som lenketekst for skjermleserbrukere.
+
+```html
+<div>
+  <dt>Navn</dt>
+  <dd>Sarah Philips</dd>
+  <dd class="ksd-summary-list__actions">
+    <a class="ds-link" href="#">Endre<span class="ds-sr-only"> navn</span></a>
+  </dd>
+</div>
+```
+
+## I et card
+
+Lista har ingen egen bakgrunn eller ramme, så den kan legges rett inn i et
+`ds-card`.
+
+<Canvas of={SummaryListStories.ICard} />
