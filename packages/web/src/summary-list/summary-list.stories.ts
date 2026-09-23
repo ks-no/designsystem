@@ -8,25 +8,25 @@ type SummaryListArgs = {
   actions: boolean
 }
 
-const summaryList = ({ rows, actions }: SummaryListArgs) =>
-  html`<dl class="ksd-summary-list">
-    ${rows.map(
-      (row) =>
-        html`<div>
-          <dt>${row.term}</dt>
-          <dd>${row.detail}</dd>
-          ${actions
-            ? html`<dd class="ksd-summary-list__actions">
-                <a class="ds-link" href="#"
-                  >Endre<span class="ds-sr-only">
-                    ${row.term.toLowerCase()}</span
-                  ></a
-                >
-              </dd>`
-            : null}
-        </div>`,
-    )}
-  </dl>`
+// Whitespace inside these templates is what Storybook's "show code" panel prints, so it
+// is kept out of Prettier's hands: each row starts on its own line and the optional cell
+// hugs the preceding tag instead of leaving a blank line.
+// prettier-ignore
+const actionsCell = (term: string) => html`
+    <dd class="ksd-summary-list__actions">
+      <a class="ds-link" href="#">Endre<span class="ds-sr-only"> ${term.toLowerCase()}</span></a>
+    </dd>`
+
+// prettier-ignore
+const row = ({ term, detail }: Row, actions: boolean) => html`
+  <div>
+    <dt>${term}</dt>
+    <dd>${detail}</dd>${actions ? actionsCell(term) : ''}
+  </div>`
+
+// prettier-ignore
+const summaryList = ({ rows, actions }: SummaryListArgs) => html`<dl class="ksd-summary-list">${rows.map((r) => row(r, actions))}
+</dl>`
 
 const meta: Meta<SummaryListArgs> = {
   title: 'Summary List',
