@@ -20,7 +20,8 @@ applyTo: '**'
 
 ## Design System
 
-- Use `ds-` prefix for design system CSS classes
+- Use `ds-` prefix for CSS classes that come from upstream `@digdir/designsystemet-css`
+- Use `ksd-` prefix for CSS classes we own, so ownership is visible in consumer markup
 
 ## Testing
 
