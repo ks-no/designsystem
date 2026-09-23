@@ -81,7 +81,7 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Introduksjon', 'Temaer', 'Tokens', 'Ikoner'],
+        order: ['Introduksjon', 'Temaer', 'Farger og tokens', 'Ikoner'],
       },
     },
     layout: 'centered',

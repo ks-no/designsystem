@@ -1,3 +1,5 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
 export const COLORS = [
   'accent',
   'neutral',
@@ -97,10 +99,14 @@ export const TokenButton = ({ token, style }) => (
   />
 )
 
-# Design tokens
+<Meta title="Farger og tokens" />
+
+# Farger og tokens
 
 Design tokens er de navngitte byggeklossene i designsystemet: farger, størrelser, radius og typografi.
 Hvert token er en CSS-variabel med prefikset `--ds-`, og verdien bestemmes av temaet som er lastet.
+
+Bruker du Tailwind, trenger du sjelden variablene direkte. Temapakken genererer Tailwind-klasser for alle tokens, så du skriver `bg-accent-base-default` og `p-4` framfor `var(--ds-color-accent-base-default)` og `var(--ds-size-4)`. Tailwind-kolonnene under viser klassen som hører til hvert token. Se [temaer](/docs/temaer--docs) for oppsett.
 
 > Bruk temavelgeren (penselikonet) og lys/mørk-modus i verktøylinjen øverst for å se hvordan tokenene endrer seg.
 > Klikk på en verdi for å kopiere tokenet.
@@ -177,7 +183,7 @@ Bruk kun farger fra temaet. Hardkodede farger er ikke kvalitetssikret for kontra
                     i === 0
                       ? '1px solid var(--ds-color-neutral-border-subtle)'
                       : undefined,
-                  padding: '2px',
+                  padding: '4px',
                 }}
               >
                 <TokenButton
