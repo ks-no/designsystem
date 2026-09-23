@@ -37,7 +37,9 @@
   }
 
   .ksd-summary-list .ksd-summary-list__actions {
-    /* Term and value absorb the free space, which pushes this to the end of the row */
+    /* Term and value absorb the free space, which pushes this to the end of the row.
+       The auto margin keeps it end-aligned once it wraps onto a line of its own. */
     flex: 0 0 auto;
+    margin-inline-start: auto;
   }
 }
