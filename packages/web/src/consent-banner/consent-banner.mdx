@@ -1,0 +1,96 @@
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import * as ConsentBannerStories from './consent-banner.stories'
+
+<Meta of={ConsentBannerStories} />
+
+# Consent banner
+
+Samtykkebanner for å be brukerne om lov til å lagre informasjon på enheten
+deres. Komponenten er ren CSS og følger
+[mønsteret til Designsystemet](https://designsystemet.no/no/patterns/consent-banner).
+
+<Canvas of={ConsentBannerStories.Preview} />
+<Controls of={ConsentBannerStories.Preview} />
+
+## Bruk
+
+```html
+<section class="ksd-consent-banner" aria-labelledby="samtykkebanner-tittel">
+  <div class="ksd-consent-banner__content">
+    <h2 class="ds-heading" data-size="md" id="samtykkebanner-tittel">
+      Får vi samle informasjon om hvordan nettsiden brukes?
+    </h2>
+    <p class="ds-paragraph">
+      Hvis du svarer ja, lagrer og analyserer vi informasjon som hjelper oss å
+      forbedre nettsiden. Du kan når som helst endre valget ditt nederst på
+      siden.
+      <a class="ds-link" href="/personvern">Mer om hva vi lagrer og hvorfor.</a>
+    </p>
+    <form
+      class="ksd-consent-banner__actions"
+      method="post"
+      action="/api/consent"
+    >
+      <button class="ds-button" type="submit" name="action" value="accept">
+        Ja
+      </button>
+      <button class="ds-button" type="submit" name="action" value="decline">
+        Nei
+      </button>
+    </form>
+    <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
+      <a class="ds-link" href="/personvern#nodvendig"
+        >Vi lagrer også nødvendig informasjon</a
+      >
+      som ikke kan velges bort. Dette gjør at nettsiden fungerer og er trygg.
+    </p>
+  </div>
+</section>
+```
+
+## Plassering og semantikk
+
+- Bruk `<section>`, ikke `role="banner"` eller `role="alertdialog"`. Banneret
+  blir et landemerke når det har et tilgjengelig navn, så koble
+  `aria-labelledby` mot overskriften.
+- Legg banneret inline øverst på siden, før «hopp til hovedinnhold»-lenken.
+  Ikke bruk dialog, og ikke flytt fokus til banneret automatisk.
+- Hvis brukeren ikke svarer, skal banneret vises videre på neste side. Ingen
+  valgfrie teknologier skal tre i kraft før brukeren har svart ja.
+
+## Likestilte valg
+
+Godta og avslå må se like ut. Gi knappene samme `data-variant` og `data-size`,
+og ikke gjør den ene mer fremtredende enn den andre — ellers er ikke samtykket
+gyldig.
+
+## Fotnoten
+
+Strengt nødvendige teknologier er unntatt samtykke og skal ikke være en del av
+spørsmålet. Forklar dem i `ksd-consent-banner__footnote` _under_ knappene, ikke
+som et forhåndsvalgt eller deaktivert valg.
+
+## Bredde
+
+Innholdet er begrenset til `48rem` slik at tekstlinjene ikke blir for lange,
+mens bakgrunnen går i full bredde. Juster med `--ksd-consent-banner-width` hvis
+teksten skal følge sidens egen innholdsbredde.
+
+```css
+.ksd-consent-banner {
+  --ksd-consent-banner-width: 75rem;
+}
+```
+
+<Canvas of={ConsentBannerStories.SmalSkjerm} />
+
+## Lagring av svaret
+
+Komponenten er ren CSS og lagrer ingenting. Det er applikasjonen som eier
+samtykket, fordi den vet hvilke formål den spør om, hvor lenge svaret skal
+vare og om det skal deles på tvers av tjenester.
+
+Eksempelet over poster til et endepunkt, som lar serveren sette en cookie og
+returnere siden uten banner. Et rent klientside-alternativ er å lagre svaret i
+`localStorage` og skjule banneret ved neste sidelast. Uansett: lagre kun svaret
+og et versjonsnummer, slik at du kan spørre på nytt hvis formålene endrer seg.
