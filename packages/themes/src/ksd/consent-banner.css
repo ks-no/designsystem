@@ -1,0 +1,40 @@
+@layer ksd {
+  /**
+   * Inline banner placed at the top of the page, before the skip link.
+   * See https://designsystemet.no/no/patterns/consent-banner
+   */
+  .ksd-consent-banner {
+    background: var(--ds-color-surface-tinted);
+    border-block-end: 1px solid var(--ds-color-border-subtle);
+    color: var(--ds-color-text-default);
+    padding-block: var(--ds-size-6);
+    padding-inline: var(--ds-size-6);
+  }
+
+  /* The banner is full bleed, the text inside is not: long lines are hard to read */
+  .ksd-consent-banner__content {
+    margin-inline: auto;
+    max-inline-size: var(--ksd-consent-banner-width, 48rem);
+  }
+
+  .ksd-consent-banner__content > * + * {
+    margin-block-start: var(--ds-size-2);
+  }
+
+  .ksd-consent-banner__content > .ksd-consent-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ds-size-4);
+    margin-block-start: var(--ds-size-5);
+  }
+
+  /* Set apart from the choices: strictly necessary data is not part of the question */
+  .ksd-consent-banner__content > .ksd-consent-banner__footnote {
+    margin-block-start: var(--ds-size-8);
+  }
+
+  /* Links sit on a tinted surface where the default link blue loses contrast */
+  .ksd-consent-banner .ds-link {
+    color: inherit;
+  }
+}

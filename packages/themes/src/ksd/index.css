@@ -1,5 +1,6 @@
 @import './alert.css';
 @import './card.css';
+@import './consent-banner.css';
 @import './summary-list.css';
 
 @layer ksd {

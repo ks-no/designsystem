@@ -222,6 +222,109 @@
           </dl>
         </div>
       </section>
+
+      <section>
+        <h2 class="ds-heading" data-size="sm">Consent Banner</h2>
+        <section class="ksd-consent-banner" aria-labelledby="samtykke-tittel">
+          <div class="ksd-consent-banner__content">
+            <h3 class="ds-heading" data-size="md" id="samtykke-tittel">
+              Får vi samle informasjon om hvordan nettsiden brukes?
+            </h3>
+            <p class="ds-paragraph">
+              Hvis du svarer ja, lagrer og analyserer vi informasjon som hjelper
+              oss å forbedre nettsiden. Du kan når som helst endre valget ditt
+              nederst på siden.
+              <a class="ds-link" href="#personvern"
+                >Mer om hva vi lagrer og hvorfor.</a
+              >
+            </p>
+            <form
+              class="ksd-consent-banner__actions"
+              method="post"
+              action="/api/consent"
+            >
+              <button
+                class="ds-button"
+                type="submit"
+                name="action"
+                value="accept"
+              >
+                Ja
+              </button>
+              <button
+                class="ds-button"
+                type="submit"
+                name="action"
+                value="decline"
+              >
+                Nei
+              </button>
+            </form>
+            <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
+              <a class="ds-link" href="#nodvendig"
+                >Vi lagrer også nødvendig informasjon</a
+              >
+              som ikke kan velges bort. Dette gjør at nettsiden fungerer og er
+              trygg.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <!-- Narrow enough that the two buttons wrap onto separate lines -->
+      <section>
+        <h2 class="ds-heading" data-size="sm">Consent Banner Narrow</h2>
+        <div style="max-inline-size: 18rem">
+          <section
+            class="ksd-consent-banner"
+            aria-labelledby="samtykke-smal-tittel"
+          >
+            <div class="ksd-consent-banner__content">
+              <h3 class="ds-heading" data-size="md" id="samtykke-smal-tittel">
+                Får vi samle informasjon om hvordan nettsiden brukes?
+              </h3>
+              <p class="ds-paragraph">
+                Hvis du svarer ja, lagrer og analyserer vi informasjon som
+                hjelper oss å forbedre nettsiden.
+                <a class="ds-link" href="#personvern"
+                  >Mer om hva vi lagrer og hvorfor.</a
+                >
+              </p>
+              <form
+                class="ksd-consent-banner__actions"
+                method="post"
+                action="/api/consent"
+              >
+                <button
+                  class="ds-button"
+                  type="submit"
+                  name="action"
+                  value="accept"
+                >
+                  Ja, det er greit
+                </button>
+                <button
+                  class="ds-button"
+                  type="submit"
+                  name="action"
+                  value="decline"
+                >
+                  Nei, det er ikke greit
+                </button>
+              </form>
+              <p
+                class="ds-paragraph ksd-consent-banner__footnote"
+                data-size="sm"
+              >
+                <a class="ds-link" href="#nodvendig"
+                  >Vi lagrer også nødvendig informasjon</a
+                >
+                som ikke kan velges bort.
+              </p>
+            </div>
+          </section>
+        </div>
+      </section>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
