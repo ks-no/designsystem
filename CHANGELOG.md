@@ -1,3 +1,13 @@
+## 0.0.1-alpha.75
+
+### 🚀 Features
+
+- **web:** consent banner ([#344](https://github.com/ks-no/designsystem/pull/344))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.74
 
 ### 🚀 Features
