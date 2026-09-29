@@ -26,15 +26,16 @@ export default defineConfig(() => ({
       transformMixedEsModules: true,
     },
     lib: {
-      // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      entry: {
+        index: 'src/index.ts',
+        'copy-button': 'src/copy-button/index.ts',
+      },
       name: '@ks-digital/designsystem-web',
-      fileName: 'index',
-      formats: ['es' as const, 'cjs' as const],
+      fileName: (_format: string, entryName: string) => `${entryName}.js`,
+      formats: ['es' as const],
     },
-    // Kept external so consumers share one instance with @ks-digital/designsystem-angular
     rolldownOptions: {
-      external: [/^@digdir\/designsystemet-web/],
+      external: [/^@digdir\/designsystemet-web(\/.*)?$/],
     },
   },
   test: {
