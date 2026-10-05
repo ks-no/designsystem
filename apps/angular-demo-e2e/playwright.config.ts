@@ -1,9 +1,14 @@
 import { workspaceRoot } from '@nx/devkit'
 import { nxE2EPreset } from '@nx/playwright/preset'
 import { defineConfig, devices } from '@playwright/test'
+import { join } from 'node:path'
 
 // For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || 'http://localhost:4200'
+
+// The server is started directly rather than via `nx run angular-demo:serve*`: nesting an
+// Nx continuous task inside `nx run angular-demo-e2e:e2e` deadlocks on the task lock.
+const buildOutput = join(workspaceRoot, 'dist/apps/angular-demo')
 
 /**
  * Read environment variables from file.
@@ -26,10 +31,11 @@ export default defineConfig({
   webServer: process.env['CI']
     ? {
         // In CI/Docker: serve the pre-built output with a static server
-        command: 'pnpm exec nx run angular-demo:serve-static --port 4200',
+        command:
+          'pnpm exec vite preview --outDir browser --port 4200 --strictPort',
         url: 'http://localhost:4200',
         reuseExistingServer: false,
-        cwd: workspaceRoot,
+        cwd: buildOutput,
       }
     : {
         command: 'pnpm exec nx run angular-demo:serve',
