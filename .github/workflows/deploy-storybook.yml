@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: ks-no/github-actions-public/checkout@23507d99e1864f7eedfa91386a280356bbc93b7f # @11. aug 26
         with:
           fetch-depth: 1
       - name: Install
