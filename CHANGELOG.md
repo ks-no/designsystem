@@ -1,3 +1,17 @@
+## 0.0.1-alpha.76
+
+### 🚀 Features
+
+- ⚠️ **angular:** update to 22 ([#348](https://github.com/ks-no/designsystem/pull/348))
+
+### ⚠️ Breaking Changes
+
+- **angular:** update to 22 ([#348](https://github.com/ks-no/designsystem/pull/348))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.75
 
 ### 🚀 Features
