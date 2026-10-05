@@ -541,7 +541,7 @@ importers:
         specifier: catalog:nx
         version: 23.2.1(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.21))(@swc/types@0.1.28)(supports-color@8.1.1)(typescript@6.0.3))(@swc/core@1.15.8(@swc/helpers@0.5.21))
       postcss:
-        specifier: ^8.5.15
+        specifier: ^8.5.23
         version: 8.5.28
       postcss-cli:
         specifier: ^11.0.1
@@ -635,7 +635,7 @@ importers:
         specifier: catalog:angular
         version: 22.5.0(chokidar@5.0.0)(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript-eslint@8.71.0(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(typescript@6.0.3)
       postcss:
-        specifier: ^8.5.15
+        specifier: ^8.5.23
         version: 8.5.28
       tailwindcss:
         specifier: ^4.3.0
