@@ -38,7 +38,7 @@ import { Spinner } from '@ks-digital/designsystem-angular/spinner'
     }
 
     :host ::ng-deep ng-icon {
-      font-size: var(--ng-icon-size, 1.3em);
+      font-size: var(--ng-glyph__size, 1.3em);
     }
   `,
 

@@ -22,20 +22,22 @@ import {
     class: 'ds-link',
   },
   styles: `
-    :host {
-      &:has(> span) > :is(ng-icon) {
-        margin-inline: var(--ds-size-1);
-        margin-inline-start: 0;
-      }
-      ng-icon {
-        display: inline-flex;
-        vertical-align: middle;
-        font-size: var(--ng-icon-size, 1.3em);
-      }
-      svg {
-        width: 1em;
-        height: 1em;
-      }
+    /* Transcluded icons need ::ng-deep: they carry the consumer's scoping attribute */
+    :host:has(> span) > ::ng-deep :is(ng-icon, svg) {
+      margin-inline: var(--ds-size-1);
+      margin-inline-start: 0;
+    }
+
+    :host ::ng-deep ng-icon,
+    :host > ::ng-deep svg {
+      display: inline-flex;
+      vertical-align: middle;
+      font-size: var(--ng-glyph__size, 1.3em);
+    }
+
+    :host ::ng-deep svg {
+      width: 1em;
+      height: 1em;
     }
   `,
 })
