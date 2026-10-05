@@ -107,20 +107,7 @@ catalogs:
   vitest-a11y:
     vitest-axe: '^0.1.0'
 cleanupUnusedCatalogs: true
-ignoredBuiltDependencies:
-  - 'less'
 minimumReleaseAge: 2880
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - 'esbuild'
-  - 'lmdb'
-  - 'msgpackr-extract'
-  - 'msw'
-  - 'nx'
-  - 'sharp'
-  - 'unrs-resolver'
 trustPolicy: 'no-downgrade'
 trustPolicyExclude:
   - 'chokidar@4.0.3'
@@ -130,3 +117,9 @@ trustPolicyExclude:
   - 'express-rate-limit@8.3.0'
 trustPolicyIgnoreAfter: 10080
 verifyDepsBeforeRun: 'prompt'
+overrides:
+  '@angular/platform-browser-dynamic': 22.2.0
+  vite: catalog:vitest
+publicHoistPattern:
+  - '@angular/*'
+  - '@digdir/designsystemet-web'
