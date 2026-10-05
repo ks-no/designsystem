@@ -43,7 +43,7 @@ const renderSuggestion = async ({
 				[multiple]="multiple"
 				[selected]="selected"
 				(selectedChange)="onSelectedChange($event)"
-        (touchedChange)="onTouch()"
+        (touch)="onTouch()"
 			>
         <input ksd-input />
 			</ksd-suggestion>

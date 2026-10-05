@@ -92,6 +92,7 @@
   },
   "pnpm": {
     "overrides": {
+      "@angular/platform-browser-dynamic": "22.2.0",
       "vite": "catalog:vitest"
     }
   }

@@ -151,11 +151,16 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
   readonly dirty = input(false, { transform: booleanAttribute })
 
   /**
-   * Whether the control has been touched. Synced with Angular signal forms.
+   * Whether the control has been touched. Bound by Angular signal forms.
    *
    * @default false
    */
-  readonly touched = model(false)
+  readonly touched = input(false, { transform: booleanAttribute })
+
+  /**
+   * Emits when focus leaves the control, marking the bound form field as touched.
+   */
+  readonly touch = output<void>()
 
   protected selectedArray = computed(() =>
     resolveItems(this.value(), this.labels()),
@@ -220,7 +225,7 @@ export class Suggestion implements FormValueControl<SuggestionValue> {
       return
     }
 
-    this.touched.set(true)
+    this.touch.emit()
   }
 
   protected onInput(event: Event) {
