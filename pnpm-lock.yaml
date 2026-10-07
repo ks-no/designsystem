@@ -256,8 +256,8 @@ catalogs:
       specifier: 1.21.0
       version: 1.21.0
     '@navikt/aksel-icons':
-      specifier: 8.10.3
-      version: 8.10.3
+      specifier: 8.18.0
+      version: 8.18.0
   lit:
     lit:
       specifier: ^3.3.0
@@ -788,7 +788,7 @@ importers:
         version: 1.21.0(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/aksel-icons':
         specifier: catalog:designsystemet
-        version: 8.10.3
+        version: 8.18.0
       react:
         specifier: catalog:react-supported-versions
         version: 19.2.4
@@ -3336,9 +3336,6 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.4
       '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.4
-
-  '@navikt/aksel-icons@8.10.3':
-    resolution: {integrity: sha512-csrNBbiluUNWP/Ha33g1hZFHqmA7ofusGt3d0TtDe29+tdRYf5Cu7tmrTv1HWlbBe6wiRT8gYiDKv84t35xqwg==}
 
   '@navikt/aksel-icons@8.18.0':
     resolution: {integrity: sha512-pN15b6dQxDiPdJbXcL7W9xJ0sPUHo5GKM5ltAQ8kLb3Mf5is6Mf6gfON1nwft+aB8WlehDrTTseXVwu1BEfmQA==}
@@ -13458,8 +13455,6 @@ snapshots:
       '@emnapi/runtime': 1.9.2
       '@tybys/wasm-util': 0.10.4
     optional: true
-
-  '@navikt/aksel-icons@8.10.3': {}
 
   '@navikt/aksel-icons@8.18.0': {}
 
