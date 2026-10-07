@@ -50,7 +50,7 @@ catalogs:
     '@digdir/designsystemet-css': '1.21.0'
     '@digdir/designsystemet-react': '1.21.0'
     '@digdir/designsystemet-web': '1.21.0'
-    '@navikt/aksel-icons': '8.10.3'
+    '@navikt/aksel-icons': '8.18.0'
   # Dev-only: Storybook stories in packages/web are written as lit templates,
   # and @storybook/web-components requires lit as a peer dependency
   lit:
