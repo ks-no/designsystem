@@ -15,7 +15,7 @@ allowBuilds:
 blockExoticSubdeps: true
 catalogs:
   angular:
-    '@analogjs/storybook-angular': '2.7.5'
+    '@analogjs/storybook-angular': '2.8.0'
     '@analogjs/vite-plugin-angular': '2.7.5'
     '@analogjs/vitest-angular': '2.7.5'
     '@angular-devkit/build-angular': '22.2.0'

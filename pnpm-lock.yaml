@@ -165,8 +165,8 @@ settings:
 catalogs:
   angular:
     '@analogjs/storybook-angular':
-      specifier: 2.7.5
-      version: 2.7.5
+      specifier: 2.8.0
+      version: 2.8.0
     '@analogjs/vite-plugin-angular':
       specifier: 2.7.5
       version: 2.7.5
@@ -407,7 +407,7 @@ importers:
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: catalog:angular
-        version: 2.7.5(@analogjs/vite-plugin-angular@2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)))(@storybook/angular@10.6.1(a8af422af1dc1dba12b01ece80bdee1d))(storybook@10.6.1(@types/react@19.3.0)(prettier@3.9.9)(react@19.3.0))(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
+        version: 2.8.0(@analogjs/vite-plugin-angular@2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)))(@storybook/angular@10.6.1(a8af422af1dc1dba12b01ece80bdee1d))(storybook@10.6.1(@types/react@19.3.0)(prettier@3.9.9)(react@19.3.0))(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
       '@analogjs/vite-plugin-angular':
         specifier: catalog:angular
         version: 2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
@@ -881,8 +881,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/storybook-angular@2.7.5':
-    resolution: {integrity: sha512-WGTkHRoSVivVMru/Lv/M/Uo/esKjZWmlyzhYGulqySH5zbcEcUnQiI/khyBlJ5FS3b17II0Y7nyaubUg4thpiQ==}
+  '@analogjs/storybook-angular@2.8.0':
+    resolution: {integrity: sha512-but5BlhE3KvBrXofQe387qlgNWH+ptf4+Z0Zm3GWqxsSXwY5geFTvt4nkUNA0H+ahpRFMJgDVP3l5A//o7mjbA==}
     engines: {node: '>=22.22.3'}
     peerDependencies:
       '@analogjs/vite-plugin-angular': '*'
@@ -10437,7 +10437,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/storybook-angular@2.7.5(@analogjs/vite-plugin-angular@2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)))(@storybook/angular@10.6.1(a8af422af1dc1dba12b01ece80bdee1d))(storybook@10.6.1(@types/react@19.3.0)(prettier@3.9.9)(react@19.3.0))(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))':
+  '@analogjs/storybook-angular@2.8.0(@analogjs/vite-plugin-angular@2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)))(@storybook/angular@10.6.1(a8af422af1dc1dba12b01ece80bdee1d))(storybook@10.6.1(@types/react@19.3.0)(prettier@3.9.9)(react@19.3.0))(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))':
     dependencies:
       '@analogjs/vite-plugin-angular': 2.7.5(@angular-devkit/build-angular@22.2.0(a283619864c71fd40e6caaafabb3c17a))(@angular/build@22.2.0(1b3cb59c83f9b2da6612289028893546))(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)(vite@8.2.1(@types/node@24.19.1)(esbuild@0.28.2)(jiti@2.6.1)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
       '@storybook/angular': 10.6.1(a8af422af1dc1dba12b01ece80bdee1d)
