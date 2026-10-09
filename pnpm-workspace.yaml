@@ -46,10 +46,10 @@ catalogs:
     '@angular/core': '>= 22.0.0 < 23.0.0'
     '@angular/forms': '>= 22.0.0 < 23.0.0'
   designsystemet:
-    '@digdir/designsystemet': '1.21.0'
-    '@digdir/designsystemet-css': '1.21.0'
-    '@digdir/designsystemet-react': '1.21.0'
-    '@digdir/designsystemet-web': '1.21.0'
+    '@digdir/designsystemet': '1.23.0'
+    '@digdir/designsystemet-css': '1.23.0'
+    '@digdir/designsystemet-react': '1.23.0'
+    '@digdir/designsystemet-web': '1.23.0'
     '@navikt/aksel-icons': '8.18.0'
   # Dev-only: Storybook stories in packages/web are written as lit templates,
   # and @storybook/web-components requires lit as a peer dependency
