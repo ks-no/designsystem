@@ -26,18 +26,10 @@ deres. Komponenten er ren CSS og følger
       siden.
       <a class="ds-link" href="/personvern">Mer om hva vi lagrer og hvorfor.</a>
     </p>
-    <form
-      class="ksd-consent-banner__actions"
-      method="post"
-      action="/api/consent"
-    >
-      <button class="ds-button" type="submit" name="action" value="accept">
-        Ja
-      </button>
-      <button class="ds-button" type="submit" name="action" value="decline">
-        Nei
-      </button>
-    </form>
+    <div class="ksd-consent-banner__actions">
+      <button class="ds-button" type="button">Ja</button>
+      <button class="ds-button" type="button">Nei</button>
+    </div>
     <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
       <a class="ds-link" href="/personvern#nodvendig"
         >Vi lagrer også nødvendig informasjon</a
@@ -90,7 +82,8 @@ Komponenten er ren CSS og lagrer ingenting. Det er applikasjonen som eier
 samtykket, fordi den vet hvilke formål den spør om, hvor lenge svaret skal
 vare og om det skal deles på tvers av tjenester.
 
-Eksempelet over poster til et endepunkt, som lar serveren sette en cookie og
-returnere siden uten banner. Et rent klientside-alternativ er å lagre svaret i
-`localStorage` og skjule banneret ved neste sidelast. Uansett: lagre kun svaret
-og et versjonsnummer, slik at du kan spørre på nytt hvis formålene endrer seg.
+Lagre svaret sammen med et versjonsnummer, slik at du kan spørre på nytt hvis
+formålene endrer seg.
+
+Banneret skal vises helt til brukeren har svart, også på tvers av sider. Ingen
+valgfrie teknologier skal starte før brukeren har svart ja.
