@@ -7,6 +7,9 @@ updates:
       time: '03:03'
       timezone: 'Europe/Oslo'
     groups:
+      analogjs:
+        patterns:
+          - '@analogjs/*'
       angular:
         patterns:
           - '@angular/*'
