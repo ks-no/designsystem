@@ -17,10 +17,10 @@ const consentBanner = ({ heading, description, linkText, acceptLabel, declineLab
     <p class="ds-paragraph">
       ${description} <a class="ds-link" href="#personvern">${linkText}</a>
     </p>
-    <form class="ksd-consent-banner__actions" method="post" action="/api/consent">
-      <button class="ds-button" type="submit" name="action" value="accept">${acceptLabel}</button>
-      <button class="ds-button" type="submit" name="action" value="decline">${declineLabel}</button>
-    </form>
+    <div class="ksd-consent-banner__actions">
+      <button class="ds-button" type="button">${acceptLabel}</button>
+      <button class="ds-button" type="button">${declineLabel}</button>
+    </div>
     <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
       <a class="ds-link" href="#nodvendig">Vi lagrer også nødvendig informasjon</a>
       som ikke kan velges bort. Dette gjør at nettsiden fungerer og er trygg.

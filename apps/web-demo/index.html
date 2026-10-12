@@ -238,28 +238,10 @@
                 >Mer om hva vi lagrer og hvorfor.</a
               >
             </p>
-            <form
-              class="ksd-consent-banner__actions"
-              method="post"
-              action="/api/consent"
-            >
-              <button
-                class="ds-button"
-                type="submit"
-                name="action"
-                value="accept"
-              >
-                Ja
-              </button>
-              <button
-                class="ds-button"
-                type="submit"
-                name="action"
-                value="decline"
-              >
-                Nei
-              </button>
-            </form>
+            <div class="ksd-consent-banner__actions">
+              <button class="ds-button" type="button">Ja</button>
+              <button class="ds-button" type="button">Nei</button>
+            </div>
             <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
               <a class="ds-link" href="#nodvendig"
                 >Vi lagrer også nødvendig informasjon</a
@@ -290,28 +272,14 @@
                   >Mer om hva vi lagrer og hvorfor.</a
                 >
               </p>
-              <form
-                class="ksd-consent-banner__actions"
-                method="post"
-                action="/api/consent"
-              >
-                <button
-                  class="ds-button"
-                  type="submit"
-                  name="action"
-                  value="accept"
-                >
+              <div class="ksd-consent-banner__actions">
+                <button class="ds-button" type="button">
                   Ja, det er greit
                 </button>
-                <button
-                  class="ds-button"
-                  type="submit"
-                  name="action"
-                  value="decline"
-                >
+                <button class="ds-button" type="button">
                   Nei, det er ikke greit
                 </button>
-              </form>
+              </div>
               <p
                 class="ds-paragraph ksd-consent-banner__footnote"
                 data-size="sm"
