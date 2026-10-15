@@ -60,9 +60,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "nx run @ks-digital/designsystem-angular:storybook",
-          "nx run @ks-digital/designsystem-react:storybook",
-          "nx run @ks-digital/designsystem-web:storybook",
+          "nx run-many -t storybook --parallel=3 -p @ks-digital/designsystem-angular @ks-digital/designsystem-react @ks-digital/designsystem-web",
           "until curl -s http://localhost:4400 > /dev/null && curl -s http://localhost:4401 > /dev/null && curl -s http://localhost:4403 > /dev/null; do sleep 1; done && nx run www:storybook"
         ],
         "parallel": true
