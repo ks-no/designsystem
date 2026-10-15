@@ -27,7 +27,7 @@ jobs:
         uses: ./.github/actions/install-packages
 
       - name: Run Chromatic
-        uses: chromaui/action@a18e9f57b71eb05f941848c0b927aab2ee644e3e # v18.10.2
+        uses: chromaui/action@8e6c25f2af5570e4a0ed34674569c345d545ac4a # v18.12.1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: false
