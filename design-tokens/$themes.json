@@ -166,6 +166,54 @@
     "group": "Color"
   },
   {
+    "id": "8e0fc2040a411ad54245e45cc9e12098261e76d6",
+    "name": "support3",
+    "selectedTokenSets": {
+      "semantic/color/support3": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "f700fddf11d0e3d69c623455bdec107e73a13565",
+    "name": "support4",
+    "selectedTokenSets": {
+      "semantic/color/support4": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "fe41a9d45d271942df159010a906c9e28e710bbf",
+    "name": "support5",
+    "selectedTokenSets": {
+      "semantic/color/support5": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "c316a07377131566bc4a0d50cf8b12afcb64226c",
+    "name": "support6",
+    "selectedTokenSets": {
+      "semantic/color/support6": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "7b20af9b3dfe44a220e46cbe0c4f528ab0c82980",
+    "name": "support7",
+    "selectedTokenSets": {
+      "semantic/color/support7": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "e5597f680da8145eeef1468c2235400dadb311f9",
+    "name": "support8",
+    "selectedTokenSets": {
+      "semantic/color/support8": "enabled"
+    },
+    "group": "Color"
+  },
+  {
     "id": "e7fb41a6a0544d8a8aa178232034311f9d725555",
     "name": "neutral",
     "selectedTokenSets": {
