@@ -1,0 +1,100 @@
+@layer ksd {
+  /**
+   * Full-bleed bar for messages about the service as a whole, e.g. driftsmeldinger.
+   * Variant colours and icons match ds-alert.
+   */
+  .ksd-system-banner {
+    --ksd-system-banner-icon-url: var(--ksd-icon-info);
+
+    background: var(--ds-color-info-surface-tinted);
+    border-block: var(--ds-border-width-default) solid
+      var(--ds-color-info-border-subtle);
+    color: var(--ds-color-info-text-default);
+    padding-block: var(--ksd-system-banner-padding-block, var(--ds-size-4));
+    padding-inline: var(--ksd-system-banner-padding-inline, var(--ds-size-4));
+  }
+
+  /* data-color remaps the ds colour aliases, so the unprefixed names follow the variant */
+  .ksd-system-banner[data-color] {
+    background: var(--ds-color-surface-tinted);
+    border-block-color: var(--ds-color-border-subtle);
+    color: var(--ds-color-text-default);
+  }
+
+  .ksd-system-banner[data-color='warning'] {
+    --ksd-system-banner-icon-url: var(--ksd-icon-warning);
+  }
+
+  .ksd-system-banner[data-color='success'] {
+    --ksd-system-banner-icon-url: var(--ksd-icon-success);
+  }
+
+  .ksd-system-banner[data-color='danger'] {
+    --ksd-system-banner-icon-url: var(--ksd-icon-danger);
+  }
+
+  .ksd-system-banner__content {
+    align-items: center;
+    display: flex;
+    gap: var(--ds-size-3);
+    margin-inline: auto;
+    max-inline-size: var(--ksd-system-banner-width, none);
+  }
+
+  .ksd-system-banner__content::before {
+    align-self: start;
+    background: currentcolor;
+    block-size: var(--ds-icon-size);
+    content: '';
+    flex: 0 0 auto;
+    inline-size: var(--ds-icon-size);
+    -webkit-mask: var(--ksd-system-banner-icon-url) center / contain no-repeat;
+    mask: var(--ksd-system-banner-icon-url) center / contain no-repeat;
+    /* Sit on the first line rather than the centre of a wrapped message */
+    translate: 0
+      calc((1em * var(--ds-line-height-md) - var(--ds-icon-size)) / 2);
+    translate: 0 calc((1lh - var(--ds-icon-size)) / 2);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* The bar is full bleed, the message is not: long lines are hard to read */
+  .ksd-system-banner__text {
+    margin-block: 0;
+    max-inline-size: var(
+      --ksd-system-banner-text-width,
+      var(--ksd-readable-width)
+    );
+    min-inline-size: 0;
+  }
+
+  /* Links sit on a tinted surface where the default link blue loses contrast */
+  .ksd-system-banner .ds-link {
+    color: inherit;
+  }
+
+  .ksd-system-banner__close {
+    flex: 0 0 auto;
+    /* Collapse the button box to icon height so it cannot stretch the bar */
+    margin-block: calc((var(--ds-icon-size) - var(--dsc-button-size)) / 2);
+    margin-inline-start: auto;
+  }
+
+  .ksd-system-banner__close:empty::before {
+    background: currentcolor;
+    block-size: var(--ds-icon-size);
+    content: '';
+    inline-size: var(--ds-icon-size);
+    -webkit-mask: var(--ksd-icon-xmark) center / contain no-repeat;
+    mask: var(--ksd-icon-xmark) center / contain no-repeat;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @media (forced-colors: active) {
+    .ksd-system-banner__content::before,
+    .ksd-system-banner__close:empty::before {
+      background: CanvasText;
+    }
+  }
+}

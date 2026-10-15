@@ -14,7 +14,7 @@
   /* The banner is full bleed, the text inside is not: long lines are hard to read */
   .ksd-consent-banner__content {
     margin-inline: auto;
-    max-inline-size: var(--ksd-consent-banner-width, 48rem);
+    max-inline-size: var(--ksd-consent-banner-width, var(--ksd-readable-width));
   }
 
   .ksd-consent-banner__content > * + * {

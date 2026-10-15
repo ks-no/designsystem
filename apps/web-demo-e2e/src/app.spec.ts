@@ -17,6 +17,10 @@ const sections = [
   'Summary List With Actions Narrow',
   'Consent Banner',
   'Consent Banner Narrow',
+  'System Banner Variants',
+  'System Banner With Close',
+  'System Banner Long Text',
+  'System Banner Narrow',
 ]
 
 for (const title of sections) {
