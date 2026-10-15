@@ -1,3 +1,13 @@
+## 0.0.1-alpha.77
+
+### 🩹 Fixes
+
+- **themes:** sync info and warning icons with new ones from figma ([#371](https://github.com/ks-no/designsystem/pull/371))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.76
 
 ### 🚀 Features
