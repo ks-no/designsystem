@@ -1,23 +1,17 @@
 @layer ksd {
-  /**
-   * Use Phosphor Icons for alerts, except for custom info and warning
-   */
   .ds-alert {
-    --dsc-alert-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none'%3E%3Cpath d='M13.125 13.125C13.3571 13.125 13.5796 13.2172 13.7437 13.3813C13.9078 13.5454 14 13.7679 14 14V18.375C14 18.6071 14.0922 18.8296 14.2563 18.9937C14.4204 19.1578 14.6429 19.25 14.875 19.25' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.5625 7.9375C14.2529 7.9375 14.8125 8.49714 14.8125 9.1875C14.8125 9.87786 14.2529 10.4375 13.5625 10.4375C12.8721 10.4375 12.3125 9.87786 12.3125 9.1875C12.3125 8.49714 12.8721 7.9375 13.5625 7.9375Z' fill='currentColor' stroke='currentColor' stroke-width='0.125'/%3E%3Crect x='4.375' y='4.375' width='19.25' height='19.25' rx='2' stroke='currentColor' stroke-width='2'/%3E%3C/svg%3E");
+    --dsc-alert-icon-url: var(--ksd-icon-info);
   }
 
   .ds-alert[data-color='warning'] {
-    --dsc-alert-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='none'%3E%3Cpath d='M15.5745 4.39906L25.1404 21.0098C25.8109 22.1802 24.9447 23.625 23.5643 23.625H4.43246C3.05215 23.625 2.1859 22.1802 2.85637 21.0098L12.4223 4.39906C13.1114 3.20031 14.8854 3.20031 15.5745 4.39906Z' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 15.75V11.375' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 21C14.7249 21 15.3125 20.4124 15.3125 19.6875C15.3125 18.9626 14.7249 18.375 14 18.375C13.2751 18.375 12.6875 18.9626 12.6875 19.6875C12.6875 20.4124 13.2751 21 14 21Z' fill='currentColor'/%3E%3C/svg%3E");
+    --dsc-alert-icon-url: var(--ksd-icon-warning);
   }
 
   .ds-alert[data-color='success'] {
-    --dsc-alert-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z'%3E%3C/path%3E%3C/svg%3E");
+    --dsc-alert-icon-url: var(--ksd-icon-success);
   }
 
-  /**
-  * Danger icon is a custom icon not part of Phosphor Icons
-  */
   .ds-alert[data-color='danger'] {
-    --dsc-alert-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M164.5 232H91.6a16 16 0 0 1-11.3-4.6l-51.6-51.6a16 16 0 0 1-4.6-11.4V91.5a17 17 0 0 1 4.6-11.3l51.5-51.5a16 16 0 0 1 11.4-4.6h72.9a16 16 0 0 1 11.3 4.6l51.6 51.5a16 16 0 0 1 4.6 11.3v72.9a16 16 0 0 1-4.6 11.4l-51.6 51.5a16 16 0 0 1-11.2 4.6Zm-73-192L40 91.5v72.9l51.5 51.5h72.9l51.5-51.5V91.5L164.4 40z'/%3E%3Cpath d='M96 168q-3 0-5.7-2.3a8 8 0 0 1 0-11.3l64-64a8 8 0 1 1 11.3 11.3l-64 64a8 8 0 0 1-5.7 2.3Z'/%3E%3Cpath d='M160 168q-3 0-5.7-2.3l-64-64a8 8 0 1 1 11.3-11.3l64 64a8 8 0 0 1-5.7 13.6Z'/%3E%3C/svg%3E");
+    --dsc-alert-icon-url: var(--ksd-icon-danger);
   }
 }

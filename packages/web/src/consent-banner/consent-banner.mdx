@@ -50,6 +50,26 @@ deres. Komponenten er ren CSS og følger
 - Hvis brukeren ikke svarer, skal banneret vises videre på neste side. Ingen
   valgfrie teknologier skal tre i kraft før brukeren har svart ja.
 
+## Rekkefølge mot systembanneret
+
+Har siden begge, kommer samtykkebanneret først:
+
+```html
+<body>
+  <section class="ksd-consent-banner">…</section>
+  <div class="ksd-system-banner">…</div>
+  <a class="ds-skip-link" href="#main">Hopp til hovedinnhold</a>
+</body>
+```
+
+Samtykkebanneret krever et svar og forsvinner etterpå, så brukeren bør få bli
+ferdig med det først. Systembanneret blir liggende, og er den stabile toppen av
+siden.
+
+Unntaket er et `danger`-systembanner om at tjenesten er nede. Det legger du
+_over_ samtykkebanneret — det er bortkastet tid å svare på sporingssamtykke for
+en tjeneste som ikke virker.
+
 ## Likestilte valg
 
 Godta og avslå må se like ut. Gi knappene samme `data-variant` og `data-size`,
@@ -64,9 +84,9 @@ som et forhåndsvalgt eller deaktivert valg.
 
 ## Bredde
 
-Innholdet er begrenset til `48rem` slik at tekstlinjene ikke blir for lange,
-mens bakgrunnen går i full bredde. Juster med `--ksd-consent-banner-width` hvis
-teksten skal følge sidens egen innholdsbredde.
+Innholdet er begrenset til `--ksd-readable-width` slik at tekstlinjene ikke blir
+for lange, mens bakgrunnen går i full bredde. Juster med
+`--ksd-consent-banner-width` hvis teksten skal følge sidens egen innholdsbredde.
 
 ```css
 .ksd-consent-banner {
