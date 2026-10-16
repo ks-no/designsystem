@@ -6,9 +6,7 @@ import * as SystemBannerStories from './system-banner.stories'
 # Systembanner
 
 Systembanneret er en melding om tjenesten som helhet, for eksempel en
-driftsmelding. Det går i full bredde øverst på siden, bruker de samme variantene
-som `ds-alert`, og er ren CSS. Lukkeknappen krever
-`@ks-digital/designsystem-web`.
+driftsmelding. Det går i full bredde øverst på siden.
 
 <Canvas of={SystemBannerStories.Preview} />
 <Controls of={SystemBannerStories.Preview} />
@@ -35,13 +33,9 @@ som `ds-alert`, og er ren CSS. Lukkeknappen krever
 </div>
 ```
 
-Ikonet tegnes av CSS-en, så det skal ikke stå noe `<svg>` i markupen.
 Lukkeknappen er valgfri.
 
 ## Varianter
-
-`data-color` styrer både farge og ikon. Uten `data-color` oppfører banneret seg
-som `info`, på samme måte som `ds-alert`.
 
 <Canvas of={SystemBannerStories.Varianter} />
 
@@ -115,7 +109,7 @@ statusside.
 
 ## Universell utforming
 
-- **Ikke legg banneret i `<main>`.** Det handler om tjenesten, ikke om siden.
+- **Ikke legg banneret i `<main>`.**
 - **Statisk banner trenger ingen `role`.** Er det med i HTML-en fra serveren,
   leser skjermleseren det som vanlig innhold.
 - **Settes banneret inn etter at siden har lastet**, bruk `role="status"`.

@@ -2,12 +2,23 @@ import type { StorybookConfig } from '@storybook/web-components-vite'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import remarkGfm from 'remark-gfm'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-docs'],
+  // MDX 3 has no GFM, so tables render as literal pipes without remark-gfm
+  addons: [
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: { remarkPlugins: [remarkGfm] },
+        },
+      },
+    },
+  ],
   core: {
     disableTelemetry: true,
   },
