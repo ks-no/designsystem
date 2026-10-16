@@ -10,8 +10,8 @@
     border-block: var(--ds-border-width-default) solid
       var(--ds-color-info-border-subtle);
     color: var(--ds-color-info-text-default);
-    padding-block: var(--ksd-system-banner-padding-block, var(--ds-size-4));
-    padding-inline: var(--ksd-system-banner-padding-inline, var(--ds-size-4));
+    padding-block: var(--ds-size-4);
+    padding-inline: var(--ds-size-4);
   }
 
   /* data-color remaps the ds colour aliases, so the unprefixed names follow the variant */
@@ -61,10 +61,7 @@
   /* The bar is full bleed, the message is not: long lines are hard to read */
   .ksd-system-banner__text {
     margin-block: 0;
-    max-inline-size: var(
-      --ksd-system-banner-text-width,
-      var(--ksd-readable-width)
-    );
+    max-inline-size: var(--ksd-readable-width);
     min-inline-size: 0;
   }
 

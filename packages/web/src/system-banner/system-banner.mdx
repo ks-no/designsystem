@@ -51,24 +51,23 @@ Har siden en sentrert innholdskolonne, sett `--ksd-system-banner-width` til
 bredden på den kolonnen. Da får du lukkeknappen på linje med resten av innholdet
 i stedet for ute ved vindukanten.
 
-| Variabel                             | Standard                    | Beskrivelse                   |
-| ------------------------------------ | --------------------------- | ----------------------------- |
-| `--ksd-system-banner-width`          | `none`                      | Bredden på innholdsraden      |
-| `--ksd-system-banner-text-width`     | `var(--ksd-readable-width)` | Maksbredde på meldingsteksten |
-| `--ksd-system-banner-padding-block`  | `var(--ds-size-4)`          | Luft over og under            |
-| `--ksd-system-banner-padding-inline` | `var(--ds-size-4)`          | Luft til sidene               |
+| Variabel                    | Standard | Beskrivelse                                                  |
+| --------------------------- | -------- | ------------------------------------------------------------ |
+| `--ksd-system-banner-width` | `none`   | Bredden på innholdsraden                                     |
+| `--ksd-readable-width`      | `48rem`  | Maksbredde på teksten. Global, og deles med samtykkebanneret |
 
 <Canvas of={SystemBannerStories.SmalSkjerm} />
 
 ## Lukking
+
+Lukkeknappen trenger JavaScript. Har du importert pakken én gang, slik
+[introduksjonen](?path=/docs/introduksjon--docs) beskriver, er den i gang.
 
 `data-ksd-dismiss` peker på `id`-en til elementet som skal skjules, slik
 `popovertarget` gjør. Knappen sender et `ksd-dismiss`-event og setter deretter
 `hidden` på elementet.
 
 ```js
-import '@ks-digital/designsystem-web'
-
 document.addEventListener('ksd-dismiss', (event) => {
   localStorage.setItem(`skjult:${event.target.id}`, Date.now())
 })
