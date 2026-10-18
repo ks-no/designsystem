@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
 import { html, nothing } from 'lit'
-import '../dismiss'
 
 type SystemBannerArgs = {
   color: 'info' | 'warning' | 'success' | 'danger'
@@ -11,14 +10,14 @@ type SystemBannerArgs = {
 }
 
 // prettier-ignore
-const systemBanner = (id: string, { color, prefix, text, linkText, closable }: SystemBannerArgs) => html`
-<div class="ksd-system-banner" id=${id} data-color=${color}>
+const systemBanner = ({ color, prefix, text, linkText, closable }: SystemBannerArgs) => html`
+<div class="ksd-system-banner" data-color=${color}>
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       ${prefix ? html`<span class="ds-sr-only">${prefix}</span> ` : nothing}${text}
       ${linkText ? html`<a class="ds-link" href="#support">${linkText}</a>` : nothing}
     </p>
-    ${closable ? html`<button class="ds-button ksd-system-banner__close" type="button" data-variant="tertiary" data-icon data-ksd-dismiss=${id} aria-label="Lukk melding"></button>` : nothing}
+    ${closable ? html`<button class="ds-button ksd-system-banner__close" type="button" data-variant="tertiary" data-icon aria-label="Lukk melding"></button>` : nothing}
   </div>
 </div>`
 
@@ -50,31 +49,31 @@ export default meta
 type Story = StoryObj<SystemBannerArgs>
 
 export const Preview: Story = {
-  render: (args) => systemBanner('systembanner-preview', args),
+  render: systemBanner,
 }
 
 export const Varianter: Story = {
   render: (args) => html`
-    ${systemBanner('systembanner-danger', {
+    ${systemBanner({
       ...args,
       color: 'danger',
       prefix: 'Feil:',
       text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
     })}
-    ${systemBanner('systembanner-warning', {
+    ${systemBanner({
       ...args,
       color: 'warning',
       prefix: 'Advarsel:',
       text: 'Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.',
     })}
-    ${systemBanner('systembanner-success', {
+    ${systemBanner({
       ...args,
       color: 'success',
       prefix: '',
       text: 'Alle systemene våre er oppe og går!',
       linkText: '',
     })}
-    ${systemBanner('systembanner-info', {
+    ${systemBanner({
       ...args,
       color: 'info',
       prefix: '',
@@ -89,13 +88,11 @@ export const LangTekst: Story = {
   args: {
     text: 'Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.',
   },
-  render: (args) => systemBanner('systembanner-lang', args),
+  render: systemBanner,
 }
 
 export const SmalSkjerm: Story = {
   name: 'Smal skjerm',
   render: (args) =>
-    html`<div style="max-inline-size: 22rem">
-      ${systemBanner('systembanner-smal', args)}
-    </div>`,
+    html`<div style="max-inline-size: 22rem">${systemBanner(args)}</div>`,
 }
