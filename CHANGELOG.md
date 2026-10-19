@@ -1,3 +1,13 @@
+## 0.0.1-alpha.78
+
+### 🚀 Features
+
+- **web:** systembanner ([#376](https://github.com/ks-no/designsystem/pull/376))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.77
 
 ### 🩹 Fixes
