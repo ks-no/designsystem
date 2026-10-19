@@ -17,7 +17,6 @@ driftsmelding. Det går i full bredde øverst på siden.
 <div class="ksd-system-banner" id="driftsmelding" data-color="danger">
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
-      <span class="ds-sr-only">Feil:</span>
       Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
       <a class="ds-link" href="/support">Kontakt support</a>
     </p>
@@ -98,8 +97,9 @@ statusside.
   riktig når noe haster. Legg det tomme live-området inn ved sidelast og fyll det
   med tekst etterpå — skjermlesere håndterer det dårlig hvis hele live-området
   settes inn samtidig med innholdet.
-- **Farge alene er ikke nok.** Ikonet er dekorativt og leses ikke opp, så legg
-  inn `<span class="ds-sr-only">Feil:</span>` på `warning` og `danger`.
+- **Teksten må stå på egne bein.** Ikonet er dekorativt og leses ikke opp, så
+  skjermleserbrukeren får bare teksten. Skriv hva som har skjedd og hva det
+  betyr — «Alle systemene våre er nede nå», ikke «Feil».
 - **Lukkeknappen må ha et navn.** CSS kan ikke gi den et, så skriv
   `aria-label="Lukk melding"` selv.
 - **Hold tabbrekkefølgen kort.** Banneret ligger foran hopp-til-innhold-lenken,

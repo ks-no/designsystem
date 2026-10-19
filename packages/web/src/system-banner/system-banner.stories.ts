@@ -3,18 +3,17 @@ import { html, nothing } from 'lit'
 
 type SystemBannerArgs = {
   color: 'info' | 'warning' | 'success' | 'danger'
-  prefix: string
   text: string
   linkText: string
   closable: boolean
 }
 
 // prettier-ignore
-const systemBanner = ({ color, prefix, text, linkText, closable }: SystemBannerArgs) => html`
+const systemBanner = ({ color, text, linkText, closable }: SystemBannerArgs) => html`
 <div class="ksd-system-banner" data-color=${color}>
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
-      ${prefix ? html`<span class="ds-sr-only">${prefix}</span> ` : nothing}${text}
+      ${text}
       ${linkText ? html`<a class="ds-link" href="#support">${linkText}</a>` : nothing}
     </p>
     ${closable ? html`<button class="ds-button ksd-system-banner__close" type="button" data-variant="tertiary" data-icon aria-label="Lukk melding"></button>` : nothing}
