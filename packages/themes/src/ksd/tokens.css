@@ -1,0 +1,6 @@
+@layer ksd {
+  :root {
+    /* Line length cap for running text. Roughly 70 characters at the default font size. */
+    --ksd-readable-width: 48rem;
+  }
+}
