@@ -3,18 +3,17 @@ import { html, nothing } from 'lit'
 
 type SystemBannerArgs = {
   color: 'info' | 'warning' | 'success' | 'danger'
-  prefix: string
   text: string
   linkText: string
   closable: boolean
 }
 
 // prettier-ignore
-const systemBanner = ({ color, prefix, text, linkText, closable }: SystemBannerArgs) => html`
+const systemBanner = ({ color, text, linkText, closable }: SystemBannerArgs) => html`
 <div class="ksd-system-banner" data-color=${color}>
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
-      ${prefix ? html`<span class="ds-sr-only">${prefix}</span> ` : nothing}${text}
+      ${text}
       ${linkText ? html`<a class="ds-link" href="#support">${linkText}</a>` : nothing}
     </p>
     ${closable ? html`<button class="ds-button ksd-system-banner__close" type="button" data-variant="tertiary" data-icon aria-label="Lukk melding"></button>` : nothing}
@@ -27,7 +26,6 @@ const meta: Meta<SystemBannerArgs> = {
   parameters: { layout: 'fullscreen' },
   args: {
     color: 'danger',
-    prefix: 'Feil:',
     text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
     linkText: 'Kontakt support',
     closable: true,
@@ -37,7 +35,6 @@ const meta: Meta<SystemBannerArgs> = {
       control: 'inline-radio',
       options: ['info', 'warning', 'success', 'danger'],
     },
-    prefix: { control: 'text' },
     text: { control: 'text' },
     linkText: { control: 'text' },
     closable: { control: 'boolean' },
@@ -57,26 +54,22 @@ export const Varianter: Story = {
     ${systemBanner({
       ...args,
       color: 'danger',
-      prefix: 'Feil:',
       text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
     })}
     ${systemBanner({
       ...args,
       color: 'warning',
-      prefix: 'Advarsel:',
       text: 'Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.',
     })}
     ${systemBanner({
       ...args,
       color: 'success',
-      prefix: '',
       text: 'Alle systemene våre er oppe og går!',
       linkText: '',
     })}
     ${systemBanner({
       ...args,
       color: 'info',
-      prefix: '',
       text: 'Her kommer en informativ statusoppdatering fra systemet.',
       linkText: 'Sjekk mer opp i dette her',
     })}

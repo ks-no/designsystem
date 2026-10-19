@@ -52,23 +52,20 @@ deres. Komponenten er ren CSS og følger
 
 ## Rekkefølge mot systembanneret
 
-Har siden begge, kommer samtykkebanneret først:
+Har siden begge, kommer systembanneret først:
 
 ```html
 <body>
-  <section class="ksd-consent-banner">…</section>
   <div class="ksd-system-banner">…</div>
+  <section class="ksd-consent-banner">…</section>
   <a class="ds-skip-link" href="#main">Hopp til hovedinnhold</a>
 </body>
 ```
 
-Samtykkebanneret krever et svar og forsvinner etterpå, så brukeren bør få bli
-ferdig med det først. Systembanneret blir liggende, og er den stabile toppen av
-siden.
-
-Unntaket er et `danger`-systembanner om at tjenesten er nede. Det legger du
-_over_ samtykkebanneret — det er bortkastet tid å svare på sporingssamtykke for
-en tjeneste som ikke virker.
+Systembanneret ligger over samtykkebanneret fordi det sier noe om driften: at
+hele eller deler av tjenesten er nede, ustabil eller oppe igjen. Samtykkespørsmålet
+er administrativt, og påvirker ikke om tjenesten lar seg bruke. Rekkefølgen er den
+samme uansett hvilken variant systembanneret har.
 
 ## Likestilte valg
 

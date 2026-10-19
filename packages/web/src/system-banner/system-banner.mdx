@@ -17,7 +17,6 @@ driftsmelding. Det går i full bredde øverst på siden.
 <div class="ksd-system-banner" id="driftsmelding" data-color="danger">
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
-      <span class="ds-sr-only">Feil:</span>
       Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
       <a class="ds-link" href="/support">Kontakt support</a>
     </p>
@@ -64,26 +63,27 @@ selv hvordan valget skal huskes.
 
 ## Rekkefølge på siden
 
-Samtykkebanneret kommer først, systembanneret rett etter, og begge før
+Systembanneret ligger øverst, samtykkebanneret under, og begge før
 hopp-til-innhold-lenken:
 
 ```html
 <body>
-  <section class="ksd-consent-banner">…</section>
   <div class="ksd-system-banner">…</div>
+  <section class="ksd-consent-banner">…</section>
   <a class="ds-skip-link" href="#main">Hopp til hovedinnhold</a>
   <header>…</header>
   <main id="main">…</main>
 </body>
 ```
 
-Samtykkebanneret krever et svar og forsvinner etterpå, så det skal ligge øverst
-der brukeren kan bli ferdig med det. Systembanneret blir liggende, og er derfor
-den stabile toppen av siden.
+Systembanneret ligger øverst på siden. Det ligger over samtykkebanneret fordi det sier noe om driften: at
+hele eller deler av tjenesten er nede, ustabil eller oppe igjen. Det kan avgjøre
+om brukeren får løst oppgaven sin. Samtykkespørsmålet er administrativt, og
+påvirker ikke om tjenesten lar seg bruke.
 
-Unntaket er et `danger`-banner om at tjenesten er nede: da legger du det
-_over_ samtykkebanneret. Det er bortkastet tid å svare på sporingssamtykke for
-en tjeneste som ikke virker.
+Rekkefølgen er den samme for alle varianter. Du slipper å vurdere hvor alvorlig
+meldingen er når du setter opp sida, og banneret blir liggende på samme sted
+når samtykkebanneret forsvinner.
 
 Vis aldri to systembannere samtidig. Slå meldingene sammen, eller lenk til en
 statusside.
@@ -98,9 +98,6 @@ statusside.
   riktig når noe haster. Legg det tomme live-området inn ved sidelast og fyll det
   med tekst etterpå — skjermlesere håndterer det dårlig hvis hele live-området
   settes inn samtidig med innholdet.
-- **Farge alene er ikke nok.** Ikonet er dekorativt og leses ikke opp, så legg
-  inn `<span class="ds-sr-only">Feil:</span>` på `warning` og `danger`.
-- **Lukkeknappen må ha et navn.** CSS kan ikke gi den et, så skriv
-  `aria-label="Lukk melding"` selv.
-- **Hold tabbrekkefølgen kort.** Banneret ligger foran hopp-til-innhold-lenken,
-  så nøy deg med én lenke pluss lukkeknappen.
+- **Teksten må stå på egne bein.** Ikonet er dekorativt og leses ikke opp, så
+  skjermleserbrukeren får bare teksten. Skriv hva som har skjedd og hva det
+  betyr — «Alle systemene våre er nede nå», ikke «Feil».
