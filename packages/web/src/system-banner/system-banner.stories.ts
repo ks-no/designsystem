@@ -26,7 +26,6 @@ const meta: Meta<SystemBannerArgs> = {
   parameters: { layout: 'fullscreen' },
   args: {
     color: 'danger',
-    prefix: 'Feil:',
     text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
     linkText: 'Kontakt support',
     closable: true,
@@ -36,7 +35,6 @@ const meta: Meta<SystemBannerArgs> = {
       control: 'inline-radio',
       options: ['info', 'warning', 'success', 'danger'],
     },
-    prefix: { control: 'text' },
     text: { control: 'text' },
     linkText: { control: 'text' },
     closable: { control: 'boolean' },
@@ -56,26 +54,22 @@ export const Varianter: Story = {
     ${systemBanner({
       ...args,
       color: 'danger',
-      prefix: 'Feil:',
       text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
     })}
     ${systemBanner({
       ...args,
       color: 'warning',
-      prefix: 'Advarsel:',
       text: 'Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.',
     })}
     ${systemBanner({
       ...args,
       color: 'success',
-      prefix: '',
       text: 'Alle systemene våre er oppe og går!',
       linkText: '',
     })}
     ${systemBanner({
       ...args,
       color: 'info',
-      prefix: '',
       text: 'Her kommer en informativ statusoppdatering fra systemet.',
       linkText: 'Sjekk mer opp i dette her',
     })}
