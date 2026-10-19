@@ -1,3 +1,13 @@
+## 0.0.1-alpha.79
+
+### 🚀 Features
+
+- bump `@digdir/*`-packages to 1.23.0 ([#379](https://github.com/ks-no/designsystem/pull/379))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.78
 
 ### 🚀 Features
