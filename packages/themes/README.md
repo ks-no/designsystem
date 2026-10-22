@@ -17,10 +17,10 @@ Additionally, a base style is provided and should be applied first. We aim to ke
 
 ### Inter font
 
-All themes use the Inter font, which must be loaded by your application. Add it to your `index.html`. You can customize which weights are loaded:
+All themes use the Inter font, which must be loaded by your application. Add it to your `index.html`:
 
 ```html
-<link href="https://static.fiks.ks.no/googlefonts/googleapis/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://static.fiks.ks.no/fonts/inter/4.1/inter.css" integrity="sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD" crossorigin="anonymous" />
 ```
 
 To use the themes, include the base styles and one of the supported themes in your CSS or JavaScript/TypeScript files as shown below:
