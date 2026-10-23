@@ -7,6 +7,12 @@ declare module '@digdir/designsystemet-types' {
     accent: never
     support1: never
     support2: never
+    support3: never
+    support4: never
+    support5: never
+    support6: never
+    support7: never
+    support8: never
     neutral: never
   }
   export interface SeverityColorDefinitions {
