@@ -1,18 +1,46 @@
 /// <reference types='vitest' />
-import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import react from '@vitejs/plugin-react-swc'
+import { copyFileSync, readdirSync } from 'fs'
 import * as path from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin, type ResolvedConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
+// Copies the project's top-level *.md files (README.md) into the build output
+function copyMarkdownPlugin(): Plugin {
+  let config: ResolvedConfig
+  const markdownFiles = () =>
+    readdirSync(config.root).filter(
+      (file) => file.endsWith('.md') && !file.startsWith('.'),
+    )
+  return {
+    name: 'copy-markdown',
+    apply: 'build',
+    configResolved(resolvedConfig) {
+      config = resolvedConfig
+    },
+    buildStart() {
+      for (const file of markdownFiles()) {
+        this.addWatchFile(path.join(config.root, file))
+      }
+    },
+    writeBundle() {
+      const outDir = path.resolve(config.root, config.build.outDir)
+      for (const file of markdownFiles()) {
+        copyFileSync(path.join(config.root, file), path.join(outDir, file))
+      }
+    },
+  }
+}
+
 export default defineConfig(() => ({
+  resolve: {
+    tsconfigPaths: true,
+  },
   root: __dirname,
   cacheDir: '../../node_modules/.vite/packages/react',
   plugins: [
     react(),
-    nxViteTsPaths(),
-    nxCopyAssetsPlugin(['*.md']),
+    copyMarkdownPlugin(),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
