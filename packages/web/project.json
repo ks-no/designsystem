@@ -14,28 +14,26 @@
       ]
     },
     "storybook": {
-      "executor": "@nx/storybook:storybook",
       "options": {
         "port": 4401,
-        "configDir": "packages/web/.storybook"
+        "config-dir": ".storybook"
       },
       "configurations": {
         "ci": {
-          "quiet": true
+          "args": ["--quiet"]
         }
       }
     },
     "build-storybook": {
-      "executor": "@nx/storybook:build",
       "dependsOn": ["@ks-digital/designsystem-themes:build"],
-      "outputs": ["{options.outputDir}"],
+      "outputs": ["{projectRoot}/{options.output-dir}"],
       "options": {
-        "outputDir": "dist/storybook/@ks-digital/designsystem-web",
-        "configDir": "packages/web/.storybook"
+        "config-dir": ".storybook",
+        "output-dir": "../../dist/storybook/@ks-digital/designsystem-web"
       },
       "configurations": {
         "ci": {
-          "quiet": true
+          "args": ["--quiet"]
         }
       }
     },
