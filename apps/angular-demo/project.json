@@ -72,6 +72,9 @@
       ],
       "defaultConfiguration": "development",
       "continuous": true,
+      "readyWhen": {
+        "signal": true
+      },
       "configurations": {
         "production": {
           "buildTarget": "angular-demo:build:production"
@@ -79,9 +82,6 @@
         "development": {
           "buildTarget": "angular-demo:build:development"
         }
-      },
-      "readyWhen": {
-        "signal": true
       }
     },
     "serve-static": {
@@ -91,7 +91,11 @@
         "port": 4200,
         "staticFilePath": "dist/apps/angular-demo/browser",
         "spa": true
-      }
+      },
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"]
     }
   }
 }
