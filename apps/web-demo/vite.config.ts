@@ -1,3 +1,4 @@
+import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin'
 import { defineConfig } from 'vite'
 
 export default defineConfig(() => ({
@@ -14,7 +15,7 @@ export default defineConfig(() => ({
     port: 4302,
     host: 'localhost',
   },
-  plugins: [],
+  plugins: [nxReadySignal()],
   build: {
     outDir: '../../dist/apps/web-demo',
     emptyOutDir: true,

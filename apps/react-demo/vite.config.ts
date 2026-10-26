@@ -1,4 +1,5 @@
 /// <reference types='vitest' />
+import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin'
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
 
@@ -17,7 +18,7 @@ export default defineConfig(() => ({
     tsconfigPaths: true,
     dedupe: ['react', 'react-dom'],
   },
-  plugins: [react()],
+  plugins: [react(), nxReadySignal()],
   build: {
     outDir: '../../dist/apps/react-demo',
     emptyOutDir: true,
