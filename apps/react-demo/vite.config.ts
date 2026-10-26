@@ -1,6 +1,5 @@
 /// <reference types='vitest' />
-import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin'
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
+import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin'
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
 
@@ -16,9 +15,10 @@ export default defineConfig(() => ({
     host: 'localhost',
   },
   resolve: {
+    tsconfigPaths: true,
     dedupe: ['react', 'react-dom'],
   },
-  plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
+  plugins: [react(), nxReadySignal()],
   build: {
     outDir: '../../dist/apps/react-demo',
     emptyOutDir: true,

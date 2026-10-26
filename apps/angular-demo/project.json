@@ -15,6 +15,7 @@
           "projects": ["@ks-digital/designsystem-themes"]
         }
       ],
+      "defaultConfiguration": "production",
       "options": {
         "externalDependencies": [""],
         "outputPath": "dist/apps/angular-demo",
@@ -59,8 +60,7 @@
           "extractLicenses": false,
           "sourceMap": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
       "executor": "@angular/build:dev-server",
@@ -70,6 +70,11 @@
           "projects": ["@ks-digital/designsystem-themes"]
         }
       ],
+      "defaultConfiguration": "development",
+      "continuous": true,
+      "readyWhen": {
+        "signal": true
+      },
       "configurations": {
         "production": {
           "buildTarget": "angular-demo:build:production"
@@ -77,12 +82,7 @@
         "development": {
           "buildTarget": "angular-demo:build:development"
         }
-      },
-      "defaultConfiguration": "development",
-      "continuous": true
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
+      }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
@@ -91,7 +91,11 @@
         "port": 4200,
         "staticFilePath": "dist/apps/angular-demo/browser",
         "spa": true
-      }
+      },
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"]
     }
   }
 }

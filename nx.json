@@ -31,6 +31,14 @@
       }
     },
     {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        }
+      }
+    },
+    {
       "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
@@ -50,8 +58,7 @@
         "devTargetName": "dev",
         "startTargetName": "start",
         "watchDepsTargetName": "watch-deps",
-        "buildDepsTargetName": "build-deps",
-        "typecheckTargetName": "typecheck"
+        "buildDepsTargetName": "build-deps"
       }
     },
     {
@@ -149,14 +156,11 @@
     },
     "@schematics/angular:service": {
       "type": "service"
-    },
-    "@nx/angular:scam": {
-      "type": "component"
-    },
-    "@nx/angular:scam-directive": {
-      "type": "directive"
     }
   },
   "analytics": false,
-  "neverConnectToCloud": true
+  "neverConnectToCloud": true,
+  "affected": {
+    "legacy": true
+  }
 }

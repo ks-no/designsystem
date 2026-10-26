@@ -23,9 +23,6 @@
       },
       "defaultConfiguration": "production"
     },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    },
     "storybook": {
       "executor": "@analogjs/storybook-angular:start-storybook",
       "options": {

@@ -1,4 +1,3 @@
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import { mergeConfig, type UserConfig } from 'vite'
 
 export default async function viteFinal(config: UserConfig) {
@@ -8,6 +7,8 @@ export default async function viteFinal(config: UserConfig) {
       jsxImportSource: 'react',
     },
     resolve: {
+      // Make Vite respect our tsconfig path aliases
+      tsconfigPaths: true,
       dedupe: [
         '@angular/core',
         '@angular/common',
@@ -15,9 +16,5 @@ export default async function viteFinal(config: UserConfig) {
         '@angular/platform-browser-dynamic',
       ],
     },
-    plugins: [
-      // Make Vite respect our tsconfig path aliases
-      nxViteTsPaths(),
-    ],
   })
 }
