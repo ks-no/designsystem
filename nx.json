@@ -158,5 +158,8 @@
     }
   },
   "analytics": false,
-  "neverConnectToCloud": true
+  "neverConnectToCloud": true,
+  "affected": {
+    "legacy": true
+  }
 }
