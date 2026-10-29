@@ -5,9 +5,15 @@
   "themes": {
     "ksdigital": {
       "colors": {
-        "accent": "#00042E",
+        "accent": "#001a58",
         "support1": "#714EEA",
-        "support2": "#ffffff",
+        "support2": "#07604F",
+        "support3": "#f3dda2",
+        "support4": "#f4ecdf",
+        "support5": "#d0aef4",
+        "support6": "#e8f7ea",
+        "support7": "#f7e5e4",
+        "support8": "#f1f0ee",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -17,6 +23,12 @@
         "accent": "#00042E",
         "support1": "#714EEA",
         "support2": "#ffffff",
+        "support3": "#ffffff",
+        "support4": "#ffffff",
+        "support5": "#ffffff",
+        "support6": "#ffffff",
+        "support7": "#ffffff",
+        "support8": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -26,6 +38,12 @@
         "accent": "#2B5246",
         "support1": "#1AA87E",
         "support2": "#ffffff",
+        "support3": "#ffffff",
+        "support4": "#ffffff",
+        "support5": "#ffffff",
+        "support6": "#ffffff",
+        "support7": "#ffffff",
+        "support8": "#ffffff",
         "neutral": "#1E2422"
       },
       "borderRadius": 16
@@ -35,6 +53,12 @@
         "accent": "#00042E",
         "support1": "#BCD6BC",
         "support2": "#7529CC",
+        "support3": "#ffffff",
+        "support4": "#ffffff",
+        "support5": "#ffffff",
+        "support6": "#ffffff",
+        "support7": "#ffffff",
+        "support8": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
