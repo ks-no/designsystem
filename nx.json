@@ -89,6 +89,9 @@
       "outputs": ["{projectRoot}/dist"],
       "cache": true
     },
+    "e2e": {
+      "dependsOn": ["^build"]
+    },
     "e2e-ci--**/**": {
       "dependsOn": ["^build"]
     },
