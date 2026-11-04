@@ -154,60 +154,6 @@
   --color-support1-surface-tinted: var(--ds-color-support1-surface-tinted);
   --color-support1-text-default: var(--ds-color-support1-text-default);
   --color-support1-text-subtle: var(--ds-color-support1-text-subtle);
-  --color-support2-alternativ-background-default: var(
-    --ds-color-support2-alternativ-background-default
-  );
-  --color-support2-alternativ-background-tinted: var(
-    --ds-color-support2-alternativ-background-tinted
-  );
-  --color-support2-alternativ-base-active: var(
-    --ds-color-support2-alternativ-base-active
-  );
-  --color-support2-alternativ-base-contrast-default: var(
-    --ds-color-support2-alternativ-base-contrast-default
-  );
-  --color-support2-alternativ-base-contrast-subtle: var(
-    --ds-color-support2-alternativ-base-contrast-subtle
-  );
-  --color-support2-alternativ-base-default: var(
-    --ds-color-support2-alternativ-base-default
-  );
-  --color-support2-alternativ-base-hover: var(
-    --ds-color-support2-alternativ-base-hover
-  );
-  --color-support2-alternativ-border-default: var(
-    --ds-color-support2-alternativ-border-default
-  );
-  --color-support2-alternativ-border-strong: var(
-    --ds-color-support2-alternativ-border-strong
-  );
-  --color-support2-alternativ-border-subtle: var(
-    --ds-color-support2-alternativ-border-subtle
-  );
-  --color-support2-alternativ-icon-default: var(
-    --ds-color-support2-alternativ-icon-default
-  );
-  --color-support2-alternativ-icon-subtle: var(
-    --ds-color-support2-alternativ-icon-subtle
-  );
-  --color-support2-alternativ-surface-active: var(
-    --ds-color-support2-alternativ-surface-active
-  );
-  --color-support2-alternativ-surface-default: var(
-    --ds-color-support2-alternativ-surface-default
-  );
-  --color-support2-alternativ-surface-hover: var(
-    --ds-color-support2-alternativ-surface-hover
-  );
-  --color-support2-alternativ-surface-tinted: var(
-    --ds-color-support2-alternativ-surface-tinted
-  );
-  --color-support2-alternativ-text-default: var(
-    --ds-color-support2-alternativ-text-default
-  );
-  --color-support2-alternativ-text-subtle: var(
-    --ds-color-support2-alternativ-text-subtle
-  );
   --color-support2-background-default: var(
     --ds-color-support2-background-default
   );
@@ -234,6 +180,60 @@
   --color-support2-surface-tinted: var(--ds-color-support2-surface-tinted);
   --color-support2-text-default: var(--ds-color-support2-text-default);
   --color-support2-text-subtle: var(--ds-color-support2-text-subtle);
+  --color-support2alternativ-background-default: var(
+    --ds-color-support2alternativ-background-default
+  );
+  --color-support2alternativ-background-tinted: var(
+    --ds-color-support2alternativ-background-tinted
+  );
+  --color-support2alternativ-base-active: var(
+    --ds-color-support2alternativ-base-active
+  );
+  --color-support2alternativ-base-contrast-default: var(
+    --ds-color-support2alternativ-base-contrast-default
+  );
+  --color-support2alternativ-base-contrast-subtle: var(
+    --ds-color-support2alternativ-base-contrast-subtle
+  );
+  --color-support2alternativ-base-default: var(
+    --ds-color-support2alternativ-base-default
+  );
+  --color-support2alternativ-base-hover: var(
+    --ds-color-support2alternativ-base-hover
+  );
+  --color-support2alternativ-border-default: var(
+    --ds-color-support2alternativ-border-default
+  );
+  --color-support2alternativ-border-strong: var(
+    --ds-color-support2alternativ-border-strong
+  );
+  --color-support2alternativ-border-subtle: var(
+    --ds-color-support2alternativ-border-subtle
+  );
+  --color-support2alternativ-icon-default: var(
+    --ds-color-support2alternativ-icon-default
+  );
+  --color-support2alternativ-icon-subtle: var(
+    --ds-color-support2alternativ-icon-subtle
+  );
+  --color-support2alternativ-surface-active: var(
+    --ds-color-support2alternativ-surface-active
+  );
+  --color-support2alternativ-surface-default: var(
+    --ds-color-support2alternativ-surface-default
+  );
+  --color-support2alternativ-surface-hover: var(
+    --ds-color-support2alternativ-surface-hover
+  );
+  --color-support2alternativ-surface-tinted: var(
+    --ds-color-support2alternativ-surface-tinted
+  );
+  --color-support2alternativ-text-default: var(
+    --ds-color-support2alternativ-text-default
+  );
+  --color-support2alternativ-text-subtle: var(
+    --ds-color-support2alternativ-text-subtle
+  );
   --color-support3-background-default: var(
     --ds-color-support3-background-default
   );

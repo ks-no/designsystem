@@ -198,70 +198,70 @@
         "$value": "{minkommune.support2.16}"
       }
     },
-    "support2-alternativ": {
+    "support2alternativ": {
       "1": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.1}"
+        "$value": "{minkommune.support2alternativ.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.2}"
+        "$value": "{minkommune.support2alternativ.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.3}"
+        "$value": "{minkommune.support2alternativ.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.4}"
+        "$value": "{minkommune.support2alternativ.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.5}"
+        "$value": "{minkommune.support2alternativ.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.6}"
+        "$value": "{minkommune.support2alternativ.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.7}"
+        "$value": "{minkommune.support2alternativ.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.8}"
+        "$value": "{minkommune.support2alternativ.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.9}"
+        "$value": "{minkommune.support2alternativ.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.10}"
+        "$value": "{minkommune.support2alternativ.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.11}"
+        "$value": "{minkommune.support2alternativ.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.12}"
+        "$value": "{minkommune.support2alternativ.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.13}"
+        "$value": "{minkommune.support2alternativ.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.14}"
+        "$value": "{minkommune.support2alternativ.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.15}"
+        "$value": "{minkommune.support2alternativ.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{minkommune.support2-alternativ.16}"
+        "$value": "{minkommune.support2alternativ.16}"
       }
     },
     "support3": {

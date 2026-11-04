@@ -198,70 +198,70 @@
         "$value": "{ledsagerbevis.support2.16}"
       }
     },
-    "support2-alternativ": {
+    "support2alternativ": {
       "1": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.1}"
+        "$value": "{ledsagerbevis.support2alternativ.1}"
       },
       "2": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.2}"
+        "$value": "{ledsagerbevis.support2alternativ.2}"
       },
       "3": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.3}"
+        "$value": "{ledsagerbevis.support2alternativ.3}"
       },
       "4": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.4}"
+        "$value": "{ledsagerbevis.support2alternativ.4}"
       },
       "5": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.5}"
+        "$value": "{ledsagerbevis.support2alternativ.5}"
       },
       "6": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.6}"
+        "$value": "{ledsagerbevis.support2alternativ.6}"
       },
       "7": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.7}"
+        "$value": "{ledsagerbevis.support2alternativ.7}"
       },
       "8": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.8}"
+        "$value": "{ledsagerbevis.support2alternativ.8}"
       },
       "9": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.9}"
+        "$value": "{ledsagerbevis.support2alternativ.9}"
       },
       "10": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.10}"
+        "$value": "{ledsagerbevis.support2alternativ.10}"
       },
       "11": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.11}"
+        "$value": "{ledsagerbevis.support2alternativ.11}"
       },
       "12": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.12}"
+        "$value": "{ledsagerbevis.support2alternativ.12}"
       },
       "13": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.13}"
+        "$value": "{ledsagerbevis.support2alternativ.13}"
       },
       "14": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.14}"
+        "$value": "{ledsagerbevis.support2alternativ.14}"
       },
       "15": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.15}"
+        "$value": "{ledsagerbevis.support2alternativ.15}"
       },
       "16": {
         "$type": "color",
-        "$value": "{ledsagerbevis.support2-alternativ.16}"
+        "$value": "{ledsagerbevis.support2alternativ.16}"
       }
     },
     "support3": {
