@@ -24,7 +24,7 @@ catalogs:
     '@angular-eslint/eslint-plugin': '^22.5.0'
     '@angular-eslint/eslint-plugin-template': '^22.5.0'
     '@angular-eslint/schematics': '^22.5.0'
-    '@angular-eslint/template-parser': '22.5.0'
+    '@angular-eslint/template-parser': '22.6.0'
     '@angular/animations': '22.2.1'
     '@angular/build': '22.2.2'
     '@angular/common': '22.2.2'
@@ -38,7 +38,7 @@ catalogs:
     '@ng-icons/core': '36.1.0'
     '@ng-icons/phosphor-icons': '36.1.0'
     '@schematics/angular': '22.2.0'
-    angular-eslint: '22.5.0'
+    angular-eslint: '22.6.0'
     ng-packagr: '22.2.2'
     zone.js: '^0.16.1'
   angular-supported-versions:
