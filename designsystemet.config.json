@@ -8,7 +8,6 @@
         "accent": "#00042E",
         "support1": "#714EEA",
         "support2": "#ffffff",
-        "support2alternativ": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
         "neutral": "#1D252D"
@@ -20,7 +19,6 @@
         "accent": "#00042E",
         "support1": "#714EEA",
         "support2": "#07604F",
-        "support2alternativ": "#07604F",
         "support3": "#f3dda2",
         "support4": "#f4ecdf",
         "neutral": "#1D252D"
@@ -66,57 +64,6 @@
             },
             "base-contrast-subtle": {
               "light": "#9496A8"
-            }
-          },
-          "support2alternativ": {
-            "background-default": {
-              "dark": "#04372E"
-            },
-            "background-tinted": {
-              "light": "#E0EBE9",
-              "dark": "#054639"
-            },
-            "surface-default": {
-              "dark": "#065546"
-            },
-            "surface-tinted": {
-              "dark": "#07604F"
-            },
-            "surface-hover": {
-              "dark": "#196C5C"
-            },
-            "surface-active": {
-              "dark": "#2B7769"
-            },
-            "border-subtle": {
-              "dark": "#4A8B7F"
-            },
-            "border-default": {
-              "dark": "#AACDC2"
-            },
-            "border-strong": {
-              "dark": "#D9F6ED"
-            },
-            "text-subtle": {
-              "dark": "#D9F6ED"
-            },
-            "text-default": {
-              "dark": "#FFFFFF"
-            },
-            "base-default": {
-              "dark": "#FFFFFF"
-            },
-            "base-hover": {
-              "dark": "#DDE7E4"
-            },
-            "base-active": {
-              "dark": "#C3CDCA"
-            },
-            "base-contrast-default": {
-              "dark": "#043229"
-            },
-            "base-contrast-subtle": {
-              "dark": "#07604F"
             }
           },
           "support3": {
@@ -182,7 +129,6 @@
         "accent": "#00042E",
         "support1": "#714EEA",
         "support2": "#ffffff",
-        "support2alternativ": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
         "neutral": "#1D252D"
@@ -194,7 +140,6 @@
         "accent": "#2B5246",
         "support1": "#1AA87E",
         "support2": "#ffffff",
-        "support2alternativ": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
         "neutral": "#1E2422"
@@ -206,7 +151,6 @@
         "accent": "#00042E",
         "support1": "#BCD6BC",
         "support2": "#7529CC",
-        "support2alternativ": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
         "neutral": "#1D252D"
