@@ -180,14 +180,6 @@
     "group": "Color"
   },
   {
-    "id": "6d925ccf7eeb92c1219372768ae16e8fbd3f3fad",
-    "name": "support2alternativ",
-    "selectedTokenSets": {
-      "semantic/color/support2alternativ": "enabled"
-    },
-    "group": "Color"
-  },
-  {
     "id": "8e0fc2040a411ad54245e45cc9e12098261e76d6",
     "name": "support3",
     "selectedTokenSets": {

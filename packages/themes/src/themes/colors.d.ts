@@ -8,7 +8,6 @@ declare module '@digdir/designsystemet-types' {
     accent: never
     support1: never
     support2: never
-    support2alternativ: never
     support3: never
     support4: never
     neutral: never
