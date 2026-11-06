@@ -1,3 +1,14 @@
+## 0.0.1-alpha.80
+
+### 🩹 Fixes
+
+- update font links ([#382](https://github.com/ks-no/designsystem/pull/382))
+- **angular/tabs:** forward aria-selected ([#389](https://github.com/ks-no/designsystem/pull/389))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.79
 
 ### 🚀 Features
