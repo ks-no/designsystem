@@ -21,7 +21,10 @@ import { TabClickEvent, TabsTab } from './tabs-tab'
     <ds-tabs class="ds-tabs">
       <ds-tablist>
         @for (tab of tabs(); track tab; let index = $index) {
-          <ds-tab (click)="onTabClick(index, tab)">
+          <ds-tab
+            (click)="onTabClick(index, tab)"
+            [selected]="tab.ariaSelected()"
+          >
             <ng-container *ngTemplateOutlet="tab.templateRef()" />
           </ds-tab>
         }
