@@ -27,9 +27,6 @@
       "overrides": {
         "colors": {
           "support1": {
-            "background-tinted": {
-              "light": "#EBE6FC"
-            },
             "base-default": {
               "light": "#00042E"
             },
@@ -47,9 +44,6 @@
             }
           },
           "support2": {
-            "background-tinted": {
-              "light": "#E0EBE9"
-            },
             "base-default": {
               "light": "#00042E"
             },
@@ -71,19 +65,19 @@
               "light": "#F3DDA2"
             },
             "surface-tinted": {
-              "light": "#F3DDA2"
+              "light": "#E8D39B"
             },
             "surface-hover": {
-              "light": "#E4CF98"
+              "light": "#D9C691"
             },
             "surface-active": {
-              "light": "#D3C08D"
+              "light": "#C9B786"
             },
             "text-subtle": {
-              "light": "#534D3A"
+              "light": "#50472F"
             },
             "border-default": {
-              "light": "#655D44"
+              "light": "#696047"
             },
             "base-default": {
               "light": "#00042E"
@@ -103,7 +97,7 @@
           },
           "support4": {
             "background-tinted": {
-              "light": "#EFE8DB"
+              "light": "#F4ECDF"
             },
             "base-default": {
               "light": "#00042E"
@@ -119,6 +113,14 @@
             },
             "base-contrast-subtle": {
               "light": "#9496A8"
+            }
+          },
+          "neutral": {
+            "background-tinted": {
+              "light": "#FAFAF9"
+            },
+            "surface-tinted": {
+              "light": "#F1F0EE"
             }
           }
         }

@@ -24,16 +24,6 @@ that sit _on top of_ the background colors.
 </section>
 ```
 
-By default the generator makes `background-tinted` lighter than `surface-tinted`, so that
-a tinted card stays visible on a tinted section. That puts the brand color on cards rather
-than on the section, which is the opposite of how the design manual uses these colors.
-`ksdigital-v2` therefore overrides `background-tinted` to equal `surface-tinted` for
-support1–4: one tint per support color, whether it is a section or a card.
-
-The trade-off is that a tinted card on a tinted section no longer stands out. Use a
-default (white) card on a tinted section instead. `accent` and `neutral` keep the
-generated two-level scale.
-
 ### Buttons in support colors
 
 The support colors are light surface colors, so their own color is usually too pale to
