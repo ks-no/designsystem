@@ -13,8 +13,7 @@ import {
   type Component,
 } from '@internal/storybook/markup'
 
-export const htmlImports = `// Registrerer <ds-field> og resten, én gang i applikasjonen
-import '@ks-digital/designsystem-web'`
+export const htmlImports = `import '@ks-digital/designsystem-web'`
 
 /** `import { … } from '@ks-digital/designsystem-angular/forms'` */
 export const angularFormsImport = (...names: string[]) =>

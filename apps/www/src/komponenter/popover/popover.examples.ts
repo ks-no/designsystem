@@ -24,8 +24,7 @@ export type PopoverArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Plasserer popoveren ved knappen, én gang i applikasjonen
-import '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Button } from '@ks-digital/designsystem-angular/button'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'
 import { Popover } from '@ks-digital/designsystem-angular/popover'`,

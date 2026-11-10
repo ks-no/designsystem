@@ -19,7 +19,7 @@ export type SuggestionArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Registrerer <ds-suggestion>, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
 import {
   Suggestion,

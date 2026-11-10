@@ -7,7 +7,7 @@ export type ErrorSummaryArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Registrerer <ds-error-summary>, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { ErrorSummary } from '@ks-digital/designsystem-angular/error-summary'
 import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Link } from '@ks-digital/designsystem-angular/link'`,

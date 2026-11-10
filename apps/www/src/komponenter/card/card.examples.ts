@@ -15,8 +15,7 @@ export type CardArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Gjør kort med lenke i overskriften klikkbare (data-clickdelegatefor), én gang i applikasjonen
-import '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Card, CardBlock } from '@ks-digital/designsystem-angular/card'
 import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,

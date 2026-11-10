@@ -13,8 +13,7 @@ export type TooltipArgs = {
   'data-placement'?: 'top' | 'bottom' | 'left' | 'right'
 }
 
-const registration = `// Viser tooltip for alle elementer med data-tooltip, én gang i applikasjonen
-import '@ks-digital/designsystem-web'`
+const registration = `import '@ks-digital/designsystem-web'`
 
 export const imports: Imports = {
   html: registration,

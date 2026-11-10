@@ -13,7 +13,7 @@ export type TabsArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Registrerer <ds-tabs> og resten, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import {
   Tabs,
   TabsList,

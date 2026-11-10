@@ -15,7 +15,7 @@ export type PaginationArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Registrerer <ds-pagination>, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Pagination } from '@ks-digital/designsystem-angular/pagination'`,
   react: `import { useState } from 'react'\nimport { Pagination, usePagination } from '@ks-digital/designsystem-react'`,
 }

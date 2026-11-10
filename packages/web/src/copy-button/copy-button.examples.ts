@@ -10,7 +10,7 @@ export type CopyButtonArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Gir alle knapper med data-copy kopier-oppførsel, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
 }
 
 // A native button with data attributes: the same markup in every framework

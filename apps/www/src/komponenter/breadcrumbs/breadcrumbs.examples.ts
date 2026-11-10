@@ -14,7 +14,7 @@ export type BreadcrumbsArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Registrerer <ds-breadcrumbs>, én gang i applikasjonen\nimport '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Breadcrumbs } from '@ks-digital/designsystem-angular/breadcrumbs'\nimport { Link } from '@ks-digital/designsystem-angular/link'`,
   react: `import { Breadcrumbs } from '@ks-digital/designsystem-react'`,
 }

@@ -7,9 +7,7 @@ export type DialogArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Legger til --show-non-modal, lukking ved klikk utenfor (closedby="any")
-// og støtte for command/commandfor i eldre nettlesere, én gang i applikasjonen
-import '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Button } from '@ks-digital/designsystem-angular/button'
 import { Dialog } from '@ks-digital/designsystem-angular/dialog'
 import { Heading } from '@ks-digital/designsystem-angular/heading'

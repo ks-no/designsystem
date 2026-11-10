@@ -16,8 +16,7 @@ export type DropdownArgs = {
 }
 
 export const imports: Imports = {
-  html: `// Plasserer menyen ved knappen, én gang i applikasjonen
-import '@ks-digital/designsystem-web'`,
+  html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Button } from '@ks-digital/designsystem-angular/button'
 import { Dropdown } from '@ks-digital/designsystem-angular/dropdown'
 import { Heading } from '@ks-digital/designsystem-angular/heading'`,
