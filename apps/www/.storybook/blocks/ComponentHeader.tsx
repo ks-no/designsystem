@@ -28,8 +28,9 @@ export function ComponentHeader({ of }: Props) {
       style={{ marginBlockEnd: 'var(--ds-size-6)' }}
     >
       <p className="ds-paragraph">
-        De fleste retningslinjene for bruk står på designsystemet.no. Vi gjentar
-        dem ikke her, for å unngå dobbel informasjon.
+        De fleste retningslinjene for bruk av denne komponenten står på
+        designsystemet.no. Vi gjentar dem ikke her, for å unngå dobbel
+        informasjon.
       </p>
       <a
         className="ds-link"

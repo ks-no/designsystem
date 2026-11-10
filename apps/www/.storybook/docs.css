@@ -3,39 +3,36 @@
 /* Same background as the sidebar (appBg in customTheme.ts) */
 .ksd-code {
   --ksd-code-bg: var(--ds-color-neutral-background-tinted);
-  --ksd-code-line: var(--ds-color-neutral-surface-tinted);
+  --ksd-code-border: var(--ds-color-neutral-border-subtle);
+  --ksd-code-hover: var(--ds-color-neutral-surface-tinted);
 
   margin-block: var(--ds-size-4);
   background: var(--ksd-code-bg);
-  border: var(--ds-border-width-default) solid var(--ksd-code-line);
+  border: var(--ds-border-width-default) solid var(--ksd-code-border);
   border-radius: var(--ds-border-radius-md);
   overflow: hidden;
 }
 
+/* No padding: the toggle fills the header's full height, flush with the frame */
 .ksd-code__header {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   gap: var(--ds-size-2);
-  padding: var(--ds-size-1) var(--ds-size-2);
-  border-bottom: var(--ds-border-width-default) solid var(--ksd-code-line);
+  border-bottom: var(--ds-border-width-default) solid var(--ksd-code-border);
 }
 
 .ksd-code__section + .ksd-code__section {
-  border-top: var(--ds-border-width-default) solid var(--ksd-code-line);
+  border-top: var(--ds-border-width-default) solid var(--ksd-code-border);
 }
 
-/* Framework toggle: one segmented control (toolbar of toggle buttons) */
+/* Framework toggle: a row of toggle buttons (toolbar), separated by thin lines */
 .ksd-code__toggle {
-  display: inline-flex;
-  gap: 2px;
-  padding: 2px;
-  border-radius: calc(var(--ds-border-radius-sm) + 2px);
-  background: var(--ksd-code-line);
+  display: flex;
 }
 
 .ksd-code__option,
-.ksd-code__copy {
+.ksd-code__label {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -43,12 +40,15 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
-  padding: 5px 10px;
+  padding: 0 var(--ds-size-4);
   border: 0;
-  border-radius: var(--ds-border-radius-sm);
   background: transparent;
   color: var(--ds-color-neutral-text-subtle);
   cursor: pointer;
+}
+
+.ksd-code__option {
+  border-inline-end: var(--ds-border-width-default) solid var(--ksd-code-border);
 }
 
 .ksd-code__icon {
@@ -56,23 +56,37 @@
   flex-shrink: 0;
 }
 
-.ksd-code__option:hover,
-.ksd-code__copy:hover {
-  color: var(--ds-color-neutral-text-default);
+.ksd-code__label {
+  cursor: default;
 }
 
-.ksd-code__copy:hover {
-  background: var(--ksd-code-line);
+.ksd-code__option:hover {
+  color: var(--ds-color-neutral-text-default);
+  background: var(--ksd-code-hover);
 }
 
 .ksd-code__option[aria-pressed='true'] {
   color: var(--ds-color-neutral-text-default);
   background: var(--ds-color-neutral-background-default);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
 }
 
-.ksd-code__option:focus-visible,
-.ksd-code__copy:focus-visible {
+/* Inset, since the frame clips anything outside the header */
+.ksd-code__option:focus-visible {
   outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
-  outline-offset: 1px;
+  outline-offset: calc(-1 * var(--ds-border-width-focus));
+}
+
+/* Copy: a real ds-button (tertiary), sized to match the toggle through its own variables */
+.ksd-code__header .ds-button {
+  --dsc-button-size: 30px;
+  --dsc-button-padding: 0 10px;
+  --dsc-button-gap: 6px;
+
+  align-self: center;
+  margin: var(--ds-size-1) var(--ds-size-2);
+  font-size: 13px;
+}
+
+.ksd-code__header .ds-button .ksd-code__icon {
+  font-size: 14px;
 }

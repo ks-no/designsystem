@@ -3,7 +3,7 @@
  *
  * Each component has an `*.examples.ts` that exports snippet functions built with these
  * helpers. Stories render the `html` snippet, so the live preview *is* the HTML example,
- * and the docs show all three frameworks in tabs.
+ * and the docs show the code for the selected framework.
  *
  * Keep this file (and the examples files) free of Storybook imports: if the docs move to a
  * custom site later, the examples should be reusable unchanged.
@@ -25,8 +25,16 @@ export const FRAMEWORKS: ReadonlyArray<{
 /** The markup for one example, per framework */
 export type Snippets = Record<Framework, string>
 
+/**
+ * For examples whose code is the same in every framework (plain HTML, web components).
+ * The docs then show an "HTML" label instead of the framework toggle.
+ */
+export type HtmlSnippets = { html: string }
+
 /** An example that can follow the story args (Controls) */
-export type SnippetFn<Args = Record<string, unknown>> = (args: Args) => Snippets
+export type SnippetFn<Args = Record<string, unknown>> = (
+  args: Args,
+) => Snippets | HtmlSnippets
 
 /** Imports/registration needed once per component, per framework. Omit when none. */
 export type Imports = Partial<Record<Framework, string>>
@@ -80,6 +88,7 @@ export function text(value: string): string {
     .replaceAll('}', '&#125;')
 }
 
-function escapeAttr(value: string): string {
+/** Escapes a value for use inside a double-quoted attribute */
+export function escapeAttr(value: string): string {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;')
 }

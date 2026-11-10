@@ -1,4 +1,6 @@
-import { Meta, Controls, Primary } from '@storybook/addon-docs/blocks'
+import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as KommunevaapenStories from './kommunevaapen.stories'
 
 <Meta of={KommunevaapenStories} />
@@ -7,12 +9,9 @@ import * as KommunevaapenStories from './kommunevaapen.stories'
 
 Kommunevåpen er en visuell representasjon av en kommune, og brukes for å identifisere og skille kommuner fra hverandre. Vi har alle kommunevåpen tilgjengelig som bilder.
 
-<Primary />
-<Controls />
-
-```
-<img alt="" src="https://static.fiks.ks.no/img/kommunevaapen/1502.png" />
-```
+<Canvas of={KommunevaapenStories.Preview} />
+<Controls of={KommunevaapenStories.Preview} />
+<CodeBlock of={KommunevaapenStories.Preview} />
 
 ## Sprites
 
@@ -22,3 +21,5 @@ oppdatert ved endring av kommunevåpen
 1. Hent CSS-filen fra CDN: `https://static.fiks.ks.no/img/kommunevaapen/sprites/kommunevaapen.css`
 
 2. Inkluder denne CSS-filen og bruk klassen `sprite-kommunevaapen` sammen med `sprite-kommunevaapen-{kommunenummer}` for å vise ønsket kommunevåpenet.
+
+<ComponentOrigin of={KommunevaapenStories} />

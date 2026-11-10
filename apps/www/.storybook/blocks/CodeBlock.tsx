@@ -14,14 +14,10 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from 'react'
-import { SyntaxHighlighter } from 'storybook/internal/components'
 import { STORY_ARGS_UPDATED } from 'storybook/internal/core-events'
-import { convert, ThemeProvider, themes } from 'storybook/theming'
+import { CodeFrame, CodeLabel } from './CodeFrame'
 import { Icon } from './icons'
 import { restoreFocus, useFramework } from './useFramework'
-
-// Styles live in ../docs.css
-const lightTheme = convert(themes.light)
 
 /** The story's current args, following the Controls panel */
 function useLiveArgs(of: unknown) {
@@ -41,32 +37,6 @@ function useLiveArgs(of: unknown) {
   }, [story.id, context.channel])
 
   return { story, args }
-}
-
-function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    if (!copied) return
-    const timeout = setTimeout(() => setCopied(false), 2000)
-    return () => clearTimeout(timeout)
-  }, [copied])
-
-  return (
-    <button
-      type="button"
-      className="ksd-code__copy"
-      onClick={() =>
-        navigator.clipboard.writeText(text).then(() => setCopied(true))
-      }
-    >
-      <Icon name={copied ? 'check' : 'copy'} />
-      {copied ? 'Kopiert' : 'Kopier'}
-      <span className="ds-sr-only" aria-live="polite">
-        {copied ? ' til utklippstavlen' : ''}
-      </span>
-    </button>
-  )
 }
 
 const KEY_STEPS: Record<string, (index: number, count: number) => number> = {
@@ -137,12 +107,6 @@ function FrameworkToggle({
   )
 }
 
-const codeStyle = {
-  margin: 0,
-  fontSize: 13,
-  background: 'transparent',
-}
-
 interface Props {
   /** The story whose `parameters.snippets` to show */
   of: unknown
@@ -155,6 +119,7 @@ interface Props {
 /**
  * The code for a story in the selected framework. The framework toggle in the header is
  * global: it switches every code block on the page, the toolbar and the URL.
+ * Stories whose snippets only have `html` get an "HTML" label instead of the toggle.
  */
 export function CodeBlock({ of, hideImports = false, notes }: Props) {
   const { story, args } = useLiveArgs(of)
@@ -168,45 +133,32 @@ export function CodeBlock({ of, hideImports = false, notes }: Props) {
     throw new Error(`CodeBlock: story "${story.id}" has no parameters.snippets`)
   }
 
-  const code = parameters.snippets(args)[framework]
+  const snippets = parameters.snippets(args)
+  // Same code in every framework (plain HTML, web components): nothing to choose
+  const htmlOnly = !('angular' in snippets && 'react' in snippets)
+  const shown: Framework = htmlOnly ? 'html' : framework
+  const code = (snippets as Partial<Record<Framework, string>>)[shown] ?? ''
   const imports: Imports = hideImports ? {} : (parameters.ksd?.imports ?? {})
-  const importCode = imports[framework]
-  const language = FRAMEWORKS.find((f) => f.id === framework)?.language
+  const importCode = imports[shown]
+  const language = FRAMEWORKS.find((f) => f.id === shown)?.language ?? 'html'
+  const note = notes?.[shown]
 
   return (
-    // The docs page is always light, so the frame is pinned to light too
-    <div className="sb-unstyled" data-color-scheme="light">
-      <div className="ksd-code">
-        <div className="ksd-code__header">
-          <FrameworkToggle value={framework} onChange={setFramework} />
-          <CopyButton text={importCode ? `${importCode}\n\n${code}` : code} />
-        </div>
-        <ThemeProvider theme={lightTheme}>
-          {importCode && (
-            <div className="ksd-code__section">
-              <SyntaxHighlighter
-                language="tsx"
-                copyable={false}
-                padded
-                customStyle={codeStyle}
-              >
-                {importCode}
-              </SyntaxHighlighter>
-            </div>
-          )}
-          <div className="ksd-code__section">
-            <SyntaxHighlighter
-              language={language ?? 'html'}
-              copyable={false}
-              padded
-              customStyle={codeStyle}
-            >
-              {code}
-            </SyntaxHighlighter>
-          </div>
-        </ThemeProvider>
-      </div>
-      {notes?.[framework] && (
+    <div className="sb-unstyled">
+      <CodeFrame
+        header={
+          htmlOnly ? (
+            <CodeLabel icon="html">HTML</CodeLabel>
+          ) : (
+            <FrameworkToggle value={framework} onChange={setFramework} />
+          )
+        }
+        sections={[
+          ...(importCode ? [{ code: importCode, language: 'tsx' }] : []),
+          { code, language },
+        ]}
+      />
+      {note && (
         <p
           className="ds-paragraph"
           data-size="sm"
@@ -214,7 +166,7 @@ export function CodeBlock({ of, hideImports = false, notes }: Props) {
             marginBlock: 'calc(-1 * var(--ds-size-2)) var(--ds-size-4)',
           }}
         >
-          {notes[framework]}
+          {note}
         </p>
       )}
     </div>

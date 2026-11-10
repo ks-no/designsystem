@@ -4,6 +4,7 @@ import { themes } from '@internal/storybook/themes'
 import type { Preview } from '@storybook/web-components-vite'
 import { addons } from 'storybook/preview-api'
 import { ComponentPage } from './blocks/ComponentPage'
+import { MdxCode, MdxPre } from './blocks/MdxCode'
 import { FRAMEWORK_GLOBAL, isFramework } from './blocks/useFramework'
 import customTheme from './customTheme'
 import './docs.css'
@@ -175,6 +176,8 @@ const preview: Preview = {
       theme: customTheme,
       // Component stories tagged `autodocs` get this page; MDX pages override it
       page: ComponentPage,
+      // Fenced code blocks in MDX get the same frame as CodeBlock
+      components: { code: MdxCode, pre: MdxPre },
       story: {
         inline: true,
       },
