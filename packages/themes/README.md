@@ -10,6 +10,55 @@ The following themes are officially supported:
 - **Forvaltning**
 - **Minkommune**
 - **Tilskudd**
+- **KS Digital v2** (`ksdigital-v2`)
+
+### Support colors as section backgrounds
+
+In `ksdigital-v2` the support colors are meant for backgrounds on sections of a page.
+Use the `background-*` tokens for that — per Designsystemet, `surface-*` is for elements
+that sit _on top of_ the background colors.
+
+```html
+<section data-color="support3" style="background: var(--ds-color-background-tinted)">
+  <div class="ds-card">A card, surface-default</div>
+</section>
+```
+
+### Buttons in support colors
+
+The support colors are light surface colors, so their own color is usually too pale to
+work as a button fill. `ksdigital-v2` therefore points the `base-*` tokens at the accent
+color for support1–4, which gives every colored section the same primary-action color.
+
+The `base-*` tokens also drive checkbox and radio fills, chips, badges, pagination and
+toggle groups, so the choice applies to those too.
+
+### `support2-alternativ` — the brand green as a dark section
+
+`support2-alternativ` uses `#07604F` as the actual surface, with white text and white
+buttons. It is defined on the **dark** color scheme, so use it together with
+`data-color-scheme="dark"`:
+
+```html
+<section data-color="support2-alternativ" data-color-scheme="dark">
+  <h2 class="ds-heading">Overskrift</h2>
+  <button class="ds-button">Primær</button>
+</section>
+```
+
+The `data-color-scheme` attribute is what makes this work without any custom CSS.
+Designsystemet paints body text from `--ds-color-neutral-text-default` and the focus ring
+from `--ds-color-focus-outer`; neither follows `data-color`, but both do follow
+`data-color-scheme`. Switching the section to the dark scheme flips them to light
+automatically. A plain `data-color` on its own would render dark text on the dark green.
+
+Without `data-color-scheme="dark"` the color falls back to its light scale, which is the
+same pale green as `support2` but with a green button instead of an accent one.
+
+Known limitation: `#07604F` is lighter than a normal dark-mode surface, so components that
+read `--ds-color-neutral-text-subtle` — unselected tabs and field affixes — land at about
+3.2:1 instead of 4.5:1. Headings, body text, labels, buttons, cards, borders and the focus
+ring all pass.
 
 Additionally, a base style is provided and should be applied first. We aim to keep this base style as minimal as possible.
 
