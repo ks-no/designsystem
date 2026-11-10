@@ -1,9 +1,14 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as SummaryListStories from './summary-list.stories'
 
 <Meta of={SummaryListStories} />
 
 # Summary list
+
+<ComponentHeader of={SummaryListStories} />
 
 Summary list viser navn/verdi-par, for eksempel et sammendrag av en søknad
 før innsending. Komponenten er ren CSS - du skriver vanlig `dl`-markup, og
@@ -11,6 +16,7 @@ nettleseren beholder den semantiske koblingen mellom `dt` og `dd`.
 
 <Canvas of={SummaryListStories.Preview} />
 <Controls of={SummaryListStories.Preview} />
+<CodeBlock of={SummaryListStories.Preview} />
 
 ## Bruk
 
@@ -59,3 +65,6 @@ Lista har ingen egen bakgrunn eller ramme, så den kan legges rett inn i et
 `ds-card`.
 
 <Canvas of={SummaryListStories.ICard} />
+<CodeBlock of={SummaryListStories.ICard} />
+
+<ComponentOrigin of={SummaryListStories} />

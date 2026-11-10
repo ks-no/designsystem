@@ -1,0 +1,78 @@
+/* Docs blocks (CodeBlock). Always light, like the rest of Storybook's docs page. */
+
+/* Same background as the sidebar (appBg in customTheme.ts) */
+.ksd-code {
+  --ksd-code-bg: var(--ds-color-neutral-background-tinted);
+  --ksd-code-line: var(--ds-color-neutral-surface-tinted);
+
+  margin-block: var(--ds-size-4);
+  background: var(--ksd-code-bg);
+  border: var(--ds-border-width-default) solid var(--ksd-code-line);
+  border-radius: var(--ds-border-radius-md);
+  overflow: hidden;
+}
+
+.ksd-code__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-size-2);
+  padding: var(--ds-size-1) var(--ds-size-2);
+  border-bottom: var(--ds-border-width-default) solid var(--ksd-code-line);
+}
+
+.ksd-code__section + .ksd-code__section {
+  border-top: var(--ds-border-width-default) solid var(--ksd-code-line);
+}
+
+/* Framework toggle: one segmented control (toolbar of toggle buttons) */
+.ksd-code__toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: calc(var(--ds-border-radius-sm) + 2px);
+  background: var(--ksd-code-line);
+}
+
+.ksd-code__option,
+.ksd-code__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: var(--ds-border-radius-sm);
+  background: transparent;
+  color: var(--ds-color-neutral-text-subtle);
+  cursor: pointer;
+}
+
+.ksd-code__icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ksd-code__option:hover,
+.ksd-code__copy:hover {
+  color: var(--ds-color-neutral-text-default);
+}
+
+.ksd-code__copy:hover {
+  background: var(--ksd-code-line);
+}
+
+.ksd-code__option[aria-pressed='true'] {
+  color: var(--ds-color-neutral-text-default);
+  background: var(--ds-color-neutral-background-default);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.ksd-code__option:focus-visible,
+.ksd-code__copy:focus-visible {
+  outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+  outline-offset: 1px;
+}
