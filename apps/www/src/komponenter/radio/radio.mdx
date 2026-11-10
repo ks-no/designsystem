@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as RadioStories from './radio.stories'
+
+<Meta of={RadioStories} />
+
+# Radio
+
+<ComponentHeader of={RadioStories} />
+
+Legg alternativene i en [Fieldset](/docs/komponenter-fieldset--docs), og gi dem samme
+`name`. Da kan brukeren bare velge ett, og skjermlesere leser spørsmålet i `legend`
+sammen med hvert alternativ.
+
+<Canvas of={RadioStories.Preview} />
+<Controls of={RadioStories.Preview} />
+<CodeBlock of={RadioStories.Preview} />
+
+## Med feilmelding
+
+Legg feilmeldingen sist i `Fieldset`, ikke i hver `Field`. Da blir den koblet til alle
+alternativene.
+
+<Canvas of={RadioStories.MedFeilmelding} />
+<CodeBlock of={RadioStories.MedFeilmelding} hideImports />
+
+## På samme linje
+
+Som hovedregel skal alternativene stå under hverandre. Har du bare to korte alternativer,
+som «Ja» og «Nei», kan de stå på samme linje.
+
+<Canvas of={RadioStories.PaSammeLinje} />
+<CodeBlock of={RadioStories.PaSammeLinje} hideImports />
+
+<ComponentOrigin of={RadioStories} />

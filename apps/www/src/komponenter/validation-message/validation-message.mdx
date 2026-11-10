@@ -1,0 +1,48 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as ValidationMessageStories from './validation-message.stories'
+
+<Meta of={ValidationMessageStories} />
+
+# Validation Message
+
+<ComponentHeader of={ValidationMessageStories} />
+
+<Canvas of={ValidationMessageStories.Preview} />
+<Controls of={ValidationMessageStories.Preview} />
+<CodeBlock of={ValidationMessageStories.Preview} />
+
+## I et felt
+
+Legg meldingen i [Field](/docs/komponenter-field--docs), etter feltet. `Field` kobler den
+til feltet med `aria-describedby`, og setter `aria-invalid="true"` på feltet hvis du ikke
+har gjort det selv. Meldinger med `data-color` `success`, `warning` eller `info` gjør
+ikke feltet ugyldig.
+
+For en gruppe med valg legger du meldingen sist i
+[Fieldset](/docs/komponenter-fieldset--docs). Se eksempelet under
+[Checkbox](/docs/komponenter-checkbox--docs).
+
+<Canvas of={ValidationMessageStories.IEtFelt} />
+<CodeBlock
+  of={ValidationMessageStories.IEtFelt}
+  hideImports
+  notes={{
+    html: (
+      <>
+        Husk <code>data-field="validation"</code>. Det er den{' '}
+        <code>&lt;ds-field&gt;</code> ser etter.
+      </>
+    ),
+    angular: (
+      <>
+        I et skjema kan du også bruke <code>ksd-error</code> fra{' '}
+        <code>@ks-digital/designsystem-angular/forms</code>. Den gjør det samme.
+      </>
+    ),
+  }}
+/>
+
+<ComponentOrigin of={ValidationMessageStories} />

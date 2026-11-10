@@ -1,35 +1,19 @@
+import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import { html } from 'lit'
+// Registers the behaviour for [data-copy]
 import './copy-button'
+import type { CopyButtonArgs } from './copy-button.examples'
+import * as examples from './copy-button.examples'
 
-type CopyButtonArgs = {
-  value: string
-  text: string
-  variant: 'primary' | 'secondary' | 'tertiary'
-  copyLabel: string
-  copiedLabel: string
+const ksd: KsdDocsParameters = {
+  origin: 'ks',
+  source: 'packages/web/src/copy-button',
+  imports: examples.imports,
 }
-
-const copyButton = ({
-  value,
-  text,
-  variant,
-  copyLabel,
-  copiedLabel,
-}: CopyButtonArgs) =>
-  html`<button
-    class="ds-button"
-    data-variant=${variant}
-    ?data-icon=${!text}
-    data-copy=${value}
-    data-copy-label=${copyLabel}
-    data-copied-label=${copiedLabel}
-  >
-    ${text}
-  </button>`
 
 const meta: Meta<CopyButtonArgs> = {
   title: 'Copy Button',
+  parameters: { ksd, docs: { canvas: { sourceState: 'none' } } },
   args: {
     value: '2026/01482-7',
     text: '',
@@ -47,6 +31,7 @@ const meta: Meta<CopyButtonArgs> = {
     copyLabel: { control: 'text' },
     copiedLabel: { control: 'text' },
   },
+  render: (args, { parameters }) => parameters['snippets'](args).html,
 }
 
 export default meta
@@ -54,19 +39,12 @@ export default meta
 type Story = StoryObj<CopyButtonArgs>
 
 export const Preview: Story = {
-  render: (args) =>
-    html`<p
-      class="ds-paragraph"
-      style="display:flex;align-items:center;gap:var(--ds-size-2)"
-    >
-      Saksnummer <strong>${args.value}</strong>
-      ${copyButton(args)}
-    </p>`,
+  parameters: { snippets: examples.preview },
 }
 
 export const IconOnly: Story = {
   args: { variant: 'secondary', copyLabel: 'Kopier' },
-  render: copyButton,
+  parameters: { snippets: examples.single },
 }
 
 export const IconAndText: Story = {
@@ -76,5 +54,5 @@ export const IconAndText: Story = {
     variant: 'secondary',
     copyLabel: 'Kopier lenke til denne siden',
   },
-  render: copyButton,
+  parameters: { snippets: examples.single },
 }

@@ -1,0 +1,79 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as FieldStories from './field.stories'
+
+<Meta of={FieldStories} />
+
+# Field
+
+<ComponentHeader of={FieldStories} />
+
+<Canvas of={FieldStories.Preview} />
+<Controls of={FieldStories.Preview} />
+<CodeBlock of={FieldStories.Preview} />
+
+## Slik kobler Field feltet sammen
+
+`Field` samler label, beskrivelse, felt og feilmelding, og kobler dem sammen for
+skjermlesere. Du trenger ikke sette `id`, `for` eller `aria-describedby` selv.
+
+- Labelen får `for`, og feltet får en `id` hvis det ikke har en.
+- Elementer med `data-field="description"` eller `data-field="validation"` blir koblet
+  til feltet med `aria-describedby`. Feilmeldingen leses først.
+- Når feltet har en feilmelding, setter `Field` `aria-invalid="true"` på feltet, og fjerner
+  det når feilmeldingen forsvinner. Har du satt `aria-invalid` selv, lar `Field` det være.
+- Bruk bare ett felt i hver `Field`. Flere felt som hører sammen, grupperer du med
+  [Fieldset](/docs/komponenter-fieldset--docs).
+
+Det er web-komponenten `<ds-field>` som gjør dette. Angular sin `ksd-field` og React sin
+`Field` lager det samme elementet, så det virker likt i alle tre.
+
+## Med feilmelding
+
+<Canvas of={FieldStories.MedFeilmelding} />
+<CodeBlock of={FieldStories.MedFeilmelding} hideImports />
+
+## Signal forms i Angular
+
+`ksd-input` er et direktiv på et vanlig `input`, `textarea` eller `select`. Med signal
+forms legger du `[formField]` på feltet. Da kommer også `disabled`, `readonly` og
+`required` fra skjemaet.
+
+Vis feilmeldingen med `@if`. `Field` kobler den til feltet og setter `aria-invalid`.
+
+```ts
+import { Component, signal } from '@angular/core'
+import { FormField, form, required } from '@angular/forms/signals'
+import {
+  Field,
+  FieldError,
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'
+
+@Component({
+  selector: 'app-soknad',
+  imports: [Field, FieldError, FormField, Input, Label],
+  template: `
+    <ksd-field>
+      <ksd-label>Saksnummer</ksd-label>
+      <input ksd-input type="text" [formField]="soknad.saksnummer" />
+      @if (soknad.saksnummer().touched() && soknad.saksnummer().invalid()) {
+        @for (error of soknad.saksnummer().errors(); track $index) {
+          <p ksd-error>{{ error.message }}</p>
+        }
+      }
+    </ksd-field>
+  `,
+})
+export class Soknad {
+  model = signal({ saksnummer: '' })
+  soknad = form(this.model, (s) => {
+    required(s.saksnummer, { message: 'Fyll inn saksnummer.' })
+  })
+}
+```
+
+<ComponentOrigin of={FieldStories} />

@@ -5,7 +5,8 @@ import * as examples from './summary-list.examples'
 
 const ksd: KsdDocsParameters = {
   origin: 'ks',
-  source: 'packages/web/src/summary-list',
+  // The component is CSS only, so link to the stylesheet
+  source: 'packages/themes/src/ksd/summary-list.css',
 }
 
 const meta: Meta<SummaryListArgs> = {

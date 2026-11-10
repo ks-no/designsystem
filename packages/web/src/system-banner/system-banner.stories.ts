@@ -1,29 +1,22 @@
+import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import { html, nothing } from 'lit'
+import type { SystemBannerArgs } from './system-banner.examples'
+import * as examples from './system-banner.examples'
 
-type SystemBannerArgs = {
-  color: 'info' | 'warning' | 'success' | 'danger'
-  text: string
-  linkText: string
-  closable: boolean
+const ksd: KsdDocsParameters = {
+  origin: 'ks',
+  // The component is CSS only, so link to the stylesheet
+  source: 'packages/themes/src/ksd/system-banner.css',
 }
-
-// prettier-ignore
-const systemBanner = ({ color, text, linkText, closable }: SystemBannerArgs) => html`
-<div class="ksd-system-banner" data-color=${color}>
-  <div class="ksd-system-banner__content">
-    <p class="ds-paragraph ksd-system-banner__text">
-      ${text}
-      ${linkText ? html`<a class="ds-link" href="#support">${linkText}</a>` : nothing}
-    </p>
-    ${closable ? html`<button class="ds-button ksd-system-banner__close" type="button" data-variant="tertiary" data-icon aria-label="Lukk melding"></button>` : nothing}
-  </div>
-</div>`
 
 const meta: Meta<SystemBannerArgs> = {
   title: 'System Banner',
-  // Global layout is 'centered', which shrink-wraps the banner to its content width
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    ksd,
+    // Global layout is 'centered', which shrink-wraps the banner to its content width
+    layout: 'fullscreen',
+    docs: { canvas: { sourceState: 'none' } },
+  },
   args: {
     color: 'danger',
     text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
@@ -39,6 +32,7 @@ const meta: Meta<SystemBannerArgs> = {
     linkText: { control: 'text' },
     closable: { control: 'boolean' },
   },
+  render: (args, { parameters }) => parameters['snippets'](args).html,
 }
 
 export default meta
@@ -46,34 +40,11 @@ export default meta
 type Story = StoryObj<SystemBannerArgs>
 
 export const Preview: Story = {
-  render: systemBanner,
+  parameters: { snippets: examples.preview },
 }
 
 export const Varianter: Story = {
-  render: (args) => html`
-    ${systemBanner({
-      ...args,
-      color: 'danger',
-      text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
-    })}
-    ${systemBanner({
-      ...args,
-      color: 'warning',
-      text: 'Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.',
-    })}
-    ${systemBanner({
-      ...args,
-      color: 'success',
-      text: 'Alle systemene våre er oppe og går!',
-      linkText: '',
-    })}
-    ${systemBanner({
-      ...args,
-      color: 'info',
-      text: 'Her kommer en informativ statusoppdatering fra systemet.',
-      linkText: 'Sjekk mer opp i dette her',
-    })}
-  `,
+  parameters: { snippets: examples.variants },
 }
 
 export const LangTekst: Story = {
@@ -81,11 +52,13 @@ export const LangTekst: Story = {
   args: {
     text: 'Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.',
   },
-  render: systemBanner,
+  parameters: { snippets: examples.preview },
 }
 
 export const SmalSkjerm: Story = {
   name: 'Smal skjerm',
-  render: (args) =>
-    html`<div style="max-inline-size: 22rem">${systemBanner(args)}</div>`,
+  parameters: { snippets: examples.preview },
+  decorators: [
+    (story) => `<div style="max-inline-size: 22rem">${story()}</div>`,
+  ],
 }

@@ -1,10 +1,5 @@
-import {
-  attrs,
-  props,
-  text,
-  type Imports,
-  type Snippets,
-} from '@internal/storybook/snippets'
+import { component, per, snippets } from '@internal/storybook/markup'
+import type { Imports } from '@internal/storybook/snippets'
 
 export type AlertArgs = {
   'data-color'?: 'info' | 'success' | 'warning' | 'danger'
@@ -20,27 +15,35 @@ import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,
   react: `import { Alert, Heading, Paragraph } from '@ks-digital/designsystem-react'`,
 }
 
-export const preview = ({ heading, body, ...a }: AlertArgs): Snippets => ({
-  html: `<div class="ds-alert"${attrs(a)}>
-  <h2 class="ds-heading" data-size="xs">${text(heading)}</h2>
-  <p class="ds-paragraph">${text(body)}</p>
-</div>`,
-  angular: `<ksd-alert${attrs(a)}>
-  <h2 ksd-heading data-size="xs">${text(heading)}</h2>
-  <p ksd-paragraph>${text(body)}</p>
-</ksd-alert>`,
-  react: `<Alert${props(a)}>
-  <Heading level={2} data-size="xs">${text(heading)}</Heading>
-  <Paragraph>${text(body)}</Paragraph>
-</Alert>`,
+const Alert = component({
+  html: 'div.ds-alert',
+  angular: 'ksd-alert',
+  react: 'Alert',
+})
+const Heading = component({
+  html: 'h2.ds-heading',
+  angular: 'h2[ksd-heading]',
+  react: 'Heading',
+})
+const Paragraph = component({
+  html: 'p.ds-paragraph',
+  angular: 'p[ksd-paragraph]',
+  react: 'Paragraph',
 })
 
-export const textOnly = (args: AlertArgs): Snippets => {
-  const a = { 'data-color': args['data-color'], 'data-size': args['data-size'] }
-  const body = args.body
-  return {
-    html: `<div class="ds-alert"${attrs(a)}>${text(body)}</div>`,
-    angular: `<ksd-alert${attrs(a)}>${text(body)}</ksd-alert>`,
-    react: `<Alert${props(a)}>${text(body)}</Alert>`,
-  }
-}
+export const preview = ({ heading, body, ...attrs }: AlertArgs) =>
+  snippets(
+    Alert(
+      attrs,
+      Heading({ level: per({ react: 2 }), 'data-size': 'xs' }, heading),
+      Paragraph({}, body),
+    ),
+  )
+
+export const textOnly = ({ body, ...args }: AlertArgs) =>
+  snippets(
+    Alert(
+      { 'data-color': args['data-color'], 'data-size': args['data-size'] },
+      body,
+    ),
+  )

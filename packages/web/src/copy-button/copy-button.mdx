@@ -1,4 +1,6 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as CopyButtonStories from './copy-button.stories'
 
 <Meta of={CopyButtonStories} />
@@ -11,24 +13,12 @@ tastatur, fokus og `disabled` følger nettleseren.
 
 <Canvas of={CopyButtonStories.Preview} />
 <Controls of={CopyButtonStories.Preview} />
+<CodeBlock of={CopyButtonStories.Preview} />
 
 ## Bruk
 
 Importer pakken én gang, og bruk `data-copy` der du trenger det. Et ikon settes
 inn automatisk, og oppdateres etter kopiering.
-
-```html
-<p class="ds-paragraph">
-  Saksnummer <strong>2026/01482-7</strong>
-  <button
-    class="ds-button"
-    data-variant="tertiary"
-    data-icon
-    data-copy="2026/01482-7"
-    data-copy-label="Kopier"
-  ></button>
-</p>
-```
 
 ## Uten synlig tekst
 
@@ -37,10 +27,12 @@ En knapp uten tekstinnhold blir kvadratisk med `data-icon`. Sett
 tooltip og som tilgjengelig navn.
 
 <Canvas of={CopyButtonStories.IconOnly} />
+<CodeBlock of={CopyButtonStories.IconOnly} hideImports />
 
 ## Med synlig tekst
 
 <Canvas of={CopyButtonStories.IconAndText} />
+<CodeBlock of={CopyButtonStories.IconAndText} hideImports />
 
 ## Attributter
 
@@ -60,3 +52,5 @@ document.addEventListener('ksd-copy', ({ detail }) => {
   console.log('Kopierte', detail.value)
 })
 ```
+
+<ComponentOrigin of={CopyButtonStories} />

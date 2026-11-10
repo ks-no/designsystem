@@ -1,0 +1,44 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as SearchStories from './search.stories'
+
+<Meta of={SearchStories} />
+
+# Search
+
+<ComponentHeader of={SearchStories} />
+
+<Canvas of={SearchStories.Preview} />
+<Controls of={SearchStories.Preview} />
+<CodeBlock of={SearchStories.Preview} />
+
+## Bruk
+
+- Gi søkefeltet et navn, med `aria-label` eller med en synlig label.
+- Søkeknappen trenger en synlig tekst. Den har `type="submit"`, så den sender inn
+  skjemaet den ligger i.
+- Tøm-knappen er valgfri. Den vises bare når feltet har tekst, og får et navn for
+  skjermlesere automatisk.
+- Feltet sender en `input`-hendelse både når brukeren skriver og når tøm-knappen
+  tømmer det.
+
+## Med ikon
+
+Uten søkeknapp viser feltet et forstørrelsesglass. Ikonet kommer fra
+`type="search"` på input, som Angular og React setter for deg. Har du søkeknapp,
+setter du `type="text"`, slik at du ikke får både ikon og knapp.
+
+<Canvas of={SearchStories.MedIkon} />
+<CodeBlock of={SearchStories.MedIkon} hideImports />
+
+## Med label
+
+Vil du ha en synlig label, legger du søket i en Field sammen med en Label. Field
+kobler label og søkefelt for deg.
+
+<Canvas of={SearchStories.MedLabel} />
+<CodeBlock of={SearchStories.MedLabel} hideImports />
+
+<ComponentOrigin of={SearchStories} />

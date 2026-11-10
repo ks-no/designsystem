@@ -1,0 +1,60 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { AngularApi } from '../../../.storybook/blocks/AngularApi'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as SuggestionStories from './suggestion.stories'
+
+<Meta of={SuggestionStories} />
+
+# Suggestion
+
+<ComponentHeader of={SuggestionStories} />
+
+<Canvas of={SuggestionStories.Preview} />
+<Controls of={SuggestionStories.Preview} />
+<CodeBlock of={SuggestionStories.Preview} />
+
+## Slik fungerer det i hvert rammeverk
+
+- **HTML:** `<ds-suggestion>` filtrerer forslagene i `<u-datalist>` mens brukeren
+  skriver, og legger valgte verdier inn som `<data>`-elementer.
+- **Angular:** `ksd-suggestion` lager markupen for `ds-suggestion` selv. Du skriver
+  hvert forslag som en `ksd-suggestion-list-option` med en `value`, og
+  `ksd-suggestion-list-empty` vises når ingen forslag passer.
+- **React:** Komponenten heter `EXPERIMENTAL_Suggestion`, fordi Designsystemet
+  fortsatt regner den som eksperimentell.
+
+Med `creatable` lar du det tomme valget (`ksd-suggestion-list-empty`,
+`Suggestion.Empty` eller `u-option` med `data-empty`) stå uten tekst. Da viser
+det «Legg til» med teksten brukeren har skrevet.
+
+## I skjema
+
+- **HTML:** Legg en skjult `<select>` med `name` inne i `ds-suggestion`. Den holdes
+  oppdatert med valget, og sendes med skjemaet. Legg inn et `<data>`-element for å
+  velge en verdi på forhånd.
+- **Angular:** Bind komponenten til signal forms med `formField`. Verdien i
+  skjemamodellen er alltid primitiv: `string` ved enkeltvalg og `string[]` med
+  `multiple`. Etiketten hentes fra `ksd-suggestion-list-option`.
+- **React:** `name` lager den skjulte `<select>`-en for deg, og `defaultSelected`
+  velger en verdi på forhånd.
+
+<Canvas of={SuggestionStories.ISkjema} />
+<CodeBlock of={SuggestionStories.ISkjema} hideImports />
+
+## Kontrollert bruk i Angular
+
+- Bruk `selected` for å styre valget utenfra. Den godtar både `{ label, value }`
+  og rene verdier.
+- `selectedChange` sender alltid ut `{ label, value }`, eller en liste med
+  `multiple`.
+- Bruk `selected` eller `formField`, ikke begge på samme komponent.
+- Med `filter` kan du sende inn din egen filterfunksjon. Henter du forslag selv,
+  for eksempel fra et API, slår du av filtreringen med `[filter]="false"`.
+
+## Angular API
+
+<AngularApi of={SuggestionStories} />
+
+<ComponentOrigin of={SuggestionStories} />
