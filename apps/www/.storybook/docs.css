@@ -2,9 +2,9 @@
 
 /* Same background as the sidebar (appBg in customTheme.ts) */
 .ksd-code {
-  --ksd-code-bg: var(--ds-color-neutral-background-tinted);
-  --ksd-code-border: var(--ds-color-neutral-border-subtle);
-  --ksd-code-hover: var(--ds-color-neutral-surface-tinted);
+  --ksd-code-bg: var(--ds-color-support1-background-tinted);
+  --ksd-code-border: var(--ds-color-support1-border-subtle);
+  --ksd-code-hover: var(--ds-color-support1-surface-tinted);
 
   margin-block: var(--ds-size-4);
   background: var(--ksd-code-bg);

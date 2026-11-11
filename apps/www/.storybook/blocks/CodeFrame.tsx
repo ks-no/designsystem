@@ -26,7 +26,7 @@ function CopyButton({ text }: { text: string }) {
       type="button"
       className="ds-button"
       data-variant="tertiary"
-      data-color="neutral"
+      data-color="support1"
       data-size="sm"
       onClick={() =>
         navigator.clipboard.writeText(text).then(() => setCopied(true))

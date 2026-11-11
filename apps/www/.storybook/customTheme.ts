@@ -13,11 +13,11 @@ export default create({
   barTextColor: '#00042e',
   // Token values from the KS Digital theme (light). The manager page doesn't load the
   // theme CSS, and Storybook runs colour functions on these, so no CSS variables here.
-  barSelectedColor: '#d9dadb', // --ds-color-neutral-surface-hover
-  barHoverColor: '#d9dadb', // --ds-color-neutral-surface-hover
+  barSelectedColor: '#ddd5fa', // --ds-color-support1-surface-hover
+  barHoverColor: '#ddd5fa', // --ds-color-support1-surface-hover
   textColor: '#00042e',
   inputTextColor: '#00042e',
-  appBg: '#f3f4f4', // --ds-color-neutral-background-tinted (sidebar, same as code blocks)
+  appBg: '#f5f2fd', // --ds-color-support1-background-tinted (sidebar, same as code blocks)
   appPreviewBg: 'var(--ds-color-neutral-background-default)',
   appContentBg: '#fefefe',
 })
