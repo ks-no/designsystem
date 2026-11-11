@@ -20,6 +20,9 @@ const Alert = component({
   angular: 'ksd-alert',
   react: 'Alert',
 })
+
+const reactRole = { role: per({ react: 'alert' }) }
+
 const Heading = component({
   html: 'h2.ds-heading',
   angular: 'h2[ksd-heading]',
@@ -34,7 +37,7 @@ const Paragraph = component({
 export const preview = ({ heading, body, ...attrs }: AlertArgs) =>
   snippets(
     Alert(
-      attrs,
+      { ...reactRole, ...attrs },
       Heading({ level: per({ react: 2 }), 'data-size': 'xs' }, heading),
       Paragraph({}, body),
     ),
@@ -43,7 +46,11 @@ export const preview = ({ heading, body, ...attrs }: AlertArgs) =>
 export const textOnly = ({ body, ...args }: AlertArgs) =>
   snippets(
     Alert(
-      { 'data-color': args['data-color'], 'data-size': args['data-size'] },
+      {
+        ...reactRole,
+        'data-color': args['data-color'],
+        'data-size': args['data-size'],
+      },
       body,
     ),
   )
