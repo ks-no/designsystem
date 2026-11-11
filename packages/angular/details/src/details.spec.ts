@@ -3,8 +3,6 @@ import { render, screen } from '@testing-library/angular'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'vitest-axe'
 import { Details } from './details'
-import { DetailsContent } from './details-content'
-import { DetailsSummary } from './details-summary'
 
 describe('Details', () => {
   it('should have summary, content and be open when clicked', async () => {
@@ -16,7 +14,7 @@ describe('Details', () => {
           <div>The fantastic details content text</div>
         </details>
       `,
-      imports: [Details, DetailsContent, DetailsSummary],
+      imports: [Details],
     })
     class TestDetails {}
 
@@ -46,7 +44,7 @@ describe('Details', () => {
           <div>The fantastic details content text</div>
         </details>
       `,
-      imports: [Details, DetailsContent, DetailsSummary],
+      imports: [Details],
     })
     class TestDetailsAxe {}
 
