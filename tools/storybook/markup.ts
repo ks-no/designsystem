@@ -37,46 +37,78 @@ interface Expr {
   readonly code: string
 }
 
-/** Markup inserted as is (icons, comments). Not escaped. */
+/** An attribute with an empty value: `value=""` */
+interface Empty {
+  readonly kind: 'empty'
+}
+
+/** Markup inserted as is (icons, comments). Not escaped; adjusted for JSX in React. */
 interface Raw {
   readonly kind: 'raw'
   readonly code: string
 }
 
-/** Different values per framework. Frameworks left out get nothing. */
-interface PerFramework<T> {
-  readonly kind: 'per'
-  readonly values: Partial<Record<Framework, T>>
-}
+/**
+ * Inline styles, with camelCase or kebab-case keys: `{ maxHeight: '15rem' }` becomes
+ * `style="max-height: 15rem"` in HTML/Angular and `style={{ maxHeight: '15rem' }}` in React.
+ */
+export type Style = { readonly [property: string]: string | number }
 
 export interface Node {
   readonly kind: 'node'
   readonly render: (framework: Framework) => string
 }
 
-export type AttrValue = Scalar | Expr
-export type Attrs = Record<string, AttrValue | PerFramework<AttrValue>>
+export type AttrValue = Scalar | Expr | Empty | Style
 export type PlainChild = Node | Raw | string | null | undefined | false
-export type Child = PlainChild | PerFramework<PlainChild>
 
-/** `per({ angular: 'x', react: 'y' })`: an attribute value or child that differs per framework */
-export const per = <T>(
-  values: Partial<Record<Framework, T>>,
-): PerFramework<T> => ({ kind: 'per', values })
+type PerValues = Partial<
+  Record<Framework | 'default', AttrValue | PlainChild | PerFramework>
+>
+
+/** Different values per framework, see {@link per}. Values can be nested `per()`s. */
+interface PerFramework {
+  readonly kind: 'per'
+  readonly values: PerValues
+}
+
+export type Attrs = Record<string, AttrValue | PerFramework>
+export type Child = PlainChild | PerFramework
+
+/**
+ * An attribute value or child that differs per framework. Frameworks you leave out get
+ * `default`, or nothing:
+ *
+ * ```ts
+ * { type: per({ html: 'button' }) }                     // only in HTML
+ * per({ react: Tooltip({ content }, button), default: button }) // a wrapper only in React
+ * ```
+ */
+export const per = (values: PerValues): PerFramework => ({
+  kind: 'per',
+  values,
+})
 
 /** `expr('() => setOpen(true)')`: a JSX expression for a React prop */
 export const expr = (code: string): Expr => ({ kind: 'expr', code })
 
-/** Markup inserted as is, e.g. an SVG icon */
+/** `{ value: EMPTY }` renders `value=""` (an empty string leaves the attribute out) */
+export const EMPTY: Empty = { kind: 'empty' }
+
+/** Markup inserted as is, e.g. an SVG icon. In React, attribute names are made JSX-safe. */
 export const raw = (code: string): Raw => ({ kind: 'raw', code })
 
-const isPer = (value: unknown): value is PerFramework<unknown> =>
+const hasKind = (value: unknown): value is { kind: string } =>
   typeof value === 'object' && value !== null && 'kind' in value
-    ? value.kind === 'per'
-    : false
 
-function resolve<T>(value: T | PerFramework<T>, framework: Framework) {
-  return isPer(value) ? value.values[framework] : value
+function resolve<T>(value: T | PerFramework, framework: Framework) {
+  if (!hasKind(value) || value.kind !== 'per') return value as T
+  const { values } = value as PerFramework
+  // Resolved again, so per() can be nested
+  return resolve<T>(
+    (framework in values ? values[framework] : values.default) as T,
+    framework,
+  )
 }
 
 const VOID = new Set([
@@ -107,43 +139,95 @@ const REACT_ATTR: Record<string, string> = {
   inputmode: 'inputMode',
 }
 
-const MAX_INLINE = 80
+/** Lines longer than this are wrapped, one attribute per line */
+const MAX_LINE = 80
 
-function attrString(
+const camel = (name: string) =>
+  name.replace(/[-:]([a-z])/g, (_, c: string) => c.toUpperCase())
+const kebab = (name: string) =>
+  name.startsWith('--')
+    ? name
+    : name.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)
+
+/** JSX attribute name for an HTML/SVG one: `stroke-width` → `strokeWidth` */
+function jsxName(name: string): string {
+  if (REACT_ATTR[name]) return REACT_ATTR[name]
+  if (/^(aria|data)-/.test(name)) return name
+  return name.includes('-') || name.includes(':') ? camel(name) : name
+}
+
+function styleString(style: Style, framework: Framework): string {
+  const entries = Object.entries(style)
+  if (framework !== 'react') {
+    return entries.map(([k, v]) => `${kebab(k)}: ${v}`).join('; ')
+  }
+  const props = entries.map(([k, v]) => {
+    const key = k.startsWith('--') ? `'${k}'` : camel(k)
+    return `${key}: ${typeof v === 'number' ? v : `'${v}'`}`
+  })
+  return `{ ${props.join(', ')} }`
+}
+
+/** The attributes of one element, e.g. `['class="ds-tag"', 'data-size="sm"']` */
+function attrList(
   attrs: Attrs,
   framework: Framework,
   rename: Record<string, string> = {},
-): string {
-  return Object.entries(attrs)
-    .map(([name, value]) => [name, resolve(value, framework)] as const)
-    .filter(
-      (entry): entry is readonly [string, string | number | true | Expr] =>
-        entry[1] !== false && entry[1] != null && entry[1] !== '',
+): string[] {
+  return Object.entries(attrs).flatMap(([name, input]) => {
+    const value = resolve<AttrValue | PlainChild>(input, framework)
+    if (value === false || value == null || value === '') return []
+    const key = rename[name] ?? (framework === 'react' ? jsxName(name) : name)
+    if (value === true) return [key]
+    if (typeof value === 'number') {
+      return [framework === 'react' ? `${key}={${value}}` : `${key}="${value}"`]
+    }
+    if (typeof value === 'string') return [`${key}="${escapeAttr(value)}"`]
+    if (!hasKind(value)) {
+      const css = styleString(value, framework)
+      return [framework === 'react' ? `${key}={${css}}` : `${key}="${css}"`]
+    }
+    switch (value.kind) {
+      case 'empty':
+        return [`${key}=""`]
+      case 'expr': {
+        const { code } = value as Expr
+        return [
+          framework === 'react'
+            ? `${key}={${code}}`
+            : `${key}="${escapeAttr(code)}"`,
+        ]
+      }
+      default:
+        throw new Error(`markup: "${name}" can't be a ${value.kind}`)
+    }
+  })
+}
+
+/** Raw markup in JSX: React attribute names, and comments as `{/* … *\/}` */
+function jsx(code: string): string {
+  return code
+    .replace(/<!--([\s\S]*?)-->/g, '{/*$1*/}')
+    .replace(
+      /<([A-Za-z][\w.-]*)(\s[^<>]*?)?(\/?)>/g,
+      (_, tag, attrs = '', end) =>
+        `<${tag}${attrs.replace(/(\s)([A-Za-z_:][-\w:.]*)(?==)/g, (_m: string, space: string, n: string) => space + jsxName(n))}${end}>`,
     )
-    .map(([name, value]) => {
-      const key =
-        rename[name] ??
-        (framework === 'react' ? (REACT_ATTR[name] ?? name) : name)
-      if (value === true) return ` ${key}`
-      if (typeof value === 'object') {
-        return framework === 'react'
-          ? ` ${key}={${value.code}}`
-          : ` ${key}="${escapeAttr(value.code)}"`
-      }
-      if (framework === 'react' && typeof value === 'number') {
-        return ` ${key}={${value}}`
-      }
-      return ` ${key}="${escapeAttr(String(value))}"`
-    })
-    .join('')
 }
 
 function renderChild(child: Child, framework: Framework): string | null {
-  const value = resolve(child, framework)
+  const value = resolve<AttrValue | PlainChild>(child, framework)
   if (value === false || value == null || value === '') return null
   if (typeof value === 'string') return text(value)
-  if (value.kind === 'raw') return value.code
-  return value.render(framework)
+  if (typeof value === 'number') return String(value)
+  if (hasKind(value) && value.kind === 'raw') {
+    const { code } = value as Raw
+    return framework === 'react' ? jsx(code) : code
+  }
+  if (hasKind(value) && value.kind === 'node') {
+    return (value as Node).render(framework)
+  }
+  throw new Error(`markup: a child can't be ${JSON.stringify(value)}`)
 }
 
 interface Selector {
@@ -174,26 +258,39 @@ function element(
   const className = [...classes, resolve(extra, framework)]
     .filter(Boolean)
     .join(' ')
-  const all: Attrs = {
-    ...Object.fromEntries(flags.map((f) => [f, true])),
-    class: className,
-    ...rest,
-  }
-  const open = `<${tag}${attrString(all, framework, rename)}`
+  const list = attrList(
+    {
+      ...Object.fromEntries(flags.map((f) => [f, true])),
+      class: className,
+      ...rest,
+    },
+    framework,
+    rename,
+  )
   const parts = children
     .map((c) => renderChild(c, framework))
     .filter((c): c is string => c !== null)
+  const selfClosing =
+    parts.length === 0 && (framework === 'react' || VOID.has(tag))
 
-  if (parts.length === 0) {
-    if (framework === 'react' || VOID.has(tag)) return `${open} />`
-    return `${open}></${tag}>`
-  }
+  // Like Prettier: one attribute per line when the tag gets too long
+  const oneLine = `<${tag}${list.map((a) => ` ${a}`).join('')}`
+  const wrap = list.length > 1 && oneLine.length + 3 > MAX_LINE
+  const open = wrap ? `<${tag}\n${indent(list.join('\n'))}\n` : oneLine
+  if (selfClosing) return wrap ? `${open}/>` : `${open} />`
+  if (parts.length === 0) return `${open}></${tag}>`
+
   const inline = `${open}>${parts.join('')}</${tag}>`
   const onlyText = children.every((c) => {
-    const v = resolve(c, framework)
-    return typeof v === 'string' || !v
+    const v = resolve<AttrValue | PlainChild>(c, framework)
+    return typeof v === 'string' || typeof v === 'number' || !v
   })
-  if (onlyText && !inline.includes('\n') && inline.length <= MAX_INLINE) {
+  if (
+    !wrap &&
+    onlyText &&
+    !inline.includes('\n') &&
+    inline.length <= MAX_LINE
+  ) {
     return inline
   }
   return `${open}>\n${indent(parts.join('\n'))}\n</${tag}>`
@@ -240,6 +337,21 @@ export function component(spec: ComponentSpec): Component {
 /** A plain element, the same in every framework (`class` becomes `className` in React) */
 export function el(selector: string, attrs: Attrs = {}, ...children: Child[]) {
   return component({ html: selector })(attrs, ...children)
+}
+
+/**
+ * Text and elements on one line, with no line breaks added between them. Use it for
+ * elements inside a sentence: `inline('Les mer om ', Link({ href }, 'søknaden'), '.')`.
+ */
+export function inline(...children: Child[]): Node {
+  return {
+    kind: 'node',
+    render: (framework) =>
+      children
+        .map((c) => renderChild(c, framework))
+        .filter((c): c is string => c !== null)
+        .join(''),
+  }
 }
 
 /** Several elements side by side: a fragment in React */

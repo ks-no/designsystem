@@ -28,8 +28,8 @@ const hidden = { 'aria-hidden': per({ html: 'true' }) }
 // React has width and height props; elsewhere it's inline style
 const size = (width: number, height: number): Attrs => ({
   style: per({
-    html: `width: ${width}px; height: ${height}px`,
-    angular: `width: ${width}px; height: ${height}px`,
+    react: null,
+    default: { width: `${width}px`, height: `${height}px` },
   }),
   width: per({ react: width }),
   height: per({ react: height }),

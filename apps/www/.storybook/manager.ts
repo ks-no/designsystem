@@ -19,6 +19,9 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
   },
+  toolbar: {
+    zoom: { hidden: false },
+  },
 })
 
 updateSidebarSearchPlaceholder()

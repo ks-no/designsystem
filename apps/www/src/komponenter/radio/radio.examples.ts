@@ -1,11 +1,4 @@
-import {
-  el,
-  expr,
-  per,
-  snippets,
-  type AttrValue,
-  type Child,
-} from '@internal/storybook/markup'
+import { el, snippets, type Child } from '@internal/storybook/markup'
 import type { Imports } from '@internal/storybook/snippets'
 import {
   angularFormsImport,
@@ -77,13 +70,7 @@ const Row = (...children: Child[]) =>
   el(
     'div',
     {
-      style: per<AttrValue>({
-        html: 'display:flex;flex-wrap:wrap;gap:var(--ds-size-6)',
-        angular: 'display:flex;flex-wrap:wrap;gap:var(--ds-size-6)',
-        react: expr(
-          "{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ds-size-6)' }",
-        ),
-      }),
+      style: { display: 'flex', flexWrap: 'wrap', gap: 'var(--ds-size-6)' },
     },
     ...children,
   )

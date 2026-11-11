@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
-  stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))', './**/*.mdx'],
+  // Stories only: this Storybook is for Chromatic. The docs live in apps/www.
+  stories: ['../**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-docs'],
   core: {
     disableTelemetry: true,

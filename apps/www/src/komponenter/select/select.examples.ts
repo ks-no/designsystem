@@ -1,4 +1,4 @@
-import { per, raw, snippets } from '@internal/storybook/markup'
+import { EMPTY, snippets } from '@internal/storybook/markup'
 import type { Imports } from '@internal/storybook/snippets'
 import {
   Optgroup,
@@ -22,14 +22,8 @@ export const imports: Imports = {
   react: reactImport('Field', 'Label', 'Select'),
 }
 
-// An empty first option, so nothing is chosen until the user picks a municipality.
-// Written as raw markup because the helper leaves out empty attributes (value="").
-const placeholder = (text: string) =>
-  per({
-    html: raw(`<option value="">${text}</option>`),
-    angular: raw(`<option value="">${text}</option>`),
-    react: raw(`<Select.Option value="">${text}</Select.Option>`),
-  })
+// An empty first option, so nothing is chosen until the user picks a municipality
+const placeholder = (text: string) => Option({ value: EMPTY }, text)
 
 const municipalities = [
   ['4601', 'Bergen'],

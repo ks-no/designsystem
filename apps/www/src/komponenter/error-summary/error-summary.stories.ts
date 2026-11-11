@@ -26,7 +26,17 @@ const meta: Meta<ErrorSummaryArgs> = {
     'data-size': { options: [...sizes], control: { type: 'radio' } },
     heading: { control: 'text' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  render: (args, { parameters }) => {
+    const template = document.createElement('template')
+    template.innerHTML = parameters['snippets'](args).html
+    // ds-error-summary moves focus to itself when it's added to the page. That's right
+    // in an app, but here it would pull focus away from the docs and the Controls panel.
+    // Turn it off on this instance only, before it's connected; the code shown is unchanged.
+    template.content
+      .querySelectorAll<HTMLElement>('ds-error-summary')
+      .forEach((element) => (element.focus = () => undefined))
+    return template.content
+  },
 }
 export default meta
 

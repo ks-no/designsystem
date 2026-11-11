@@ -37,7 +37,7 @@ const Tooltip = component({
 })
 
 // React's Button sets type="button" itself
-const type = per({ html: 'button', angular: 'button' })
+const type = per({ react: null, default: 'button' })
 
 const copyIcon = raw(
   `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor">
@@ -55,20 +55,19 @@ const withTooltip = (
   attrs: Attrs,
   ...children: Child[]
 ) => {
-  const tooltip = per({ html: content, angular: content })
+  const tooltip = per({ react: null, default: content })
   const button = Button(
     {
       type,
       ...attrs,
       'data-tooltip': tooltip,
-      'data-placement': per({ html: placement, angular: placement }),
+      'data-placement': per({ react: null, default: placement }),
     },
     ...children,
   )
   return per({
-    html: button,
-    angular: button,
     react: Tooltip({ content, 'data-placement': placement }, button),
+    default: button,
   })
 }
 

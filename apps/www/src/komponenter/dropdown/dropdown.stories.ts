@@ -7,9 +7,6 @@ import * as examples from './dropdown.examples'
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'dropdown',
-  changes: [
-    'I Angular er standardplasseringen top, mens React bruker bottom-end. Sett data-placement for å få samme plassering.',
-  ],
   imports: examples.imports,
 }
 

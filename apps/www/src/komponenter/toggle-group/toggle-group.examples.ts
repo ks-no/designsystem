@@ -1,4 +1,11 @@
-import { component, el, per, snippets } from '@internal/storybook/markup'
+import {
+  component,
+  el,
+  per,
+  snippets,
+  type AttrValue,
+  type PlainChild,
+} from '@internal/storybook/markup'
 import type { Imports } from '@internal/storybook/snippets'
 
 export type ToggleGroupArgs = {
@@ -19,7 +26,8 @@ const ToggleGroup = component({
 })
 // Each item is a radio button styled as a tertiary button
 const Item = component({ html: 'label.ds-button', react: 'ToggleGroup.Item' })
-const notReact = <T>(value: T) => per({ html: value, angular: value })
+const notReact = (value: AttrValue | PlainChild) =>
+  per({ react: null, default: value })
 
 type Option = { value: string; label: string }
 

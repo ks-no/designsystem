@@ -1,10 +1,5 @@
-import {
-  attrs,
-  props,
-  text,
-  type Imports,
-  type Snippets,
-} from '@internal/storybook/snippets'
+import { component, inline, snippets } from '@internal/storybook/markup'
+import type { Imports } from '@internal/storybook/snippets'
 
 export type LinkArgs = {
   'data-size'?: 'sm' | 'md' | 'lg'
@@ -18,17 +13,21 @@ export const imports: Imports = {
   react: `import { Link } from '@ks-digital/designsystem-react'`,
 }
 
-export const preview = ({ label, href, ...a }: LinkArgs): Snippets => ({
-  html: `<a class="ds-link" href="${href}"${attrs(a)}>${text(label)}</a>`,
-  angular: `<a ksd-link href="${href}"${attrs(a)}>${text(label)}</a>`,
-  react: `<Link href="${href}"${props(a)}>${text(label)}</Link>`,
+const Link = component({
+  html: 'a.ds-link',
+  angular: 'a[ksd-link]',
+  react: 'Link',
+})
+const Paragraph = component({
+  html: 'p.ds-paragraph',
+  angular: 'p[ksd-paragraph]',
+  react: 'Paragraph',
 })
 
-export const inText = (args: LinkArgs): Snippets => {
-  const link = preview(args)
-  return {
-    html: `<p class="ds-paragraph">\n  Les mer om ${link.html}.\n</p>`,
-    angular: `<p ksd-paragraph>\n  Les mer om ${link.angular}.\n</p>`,
-    react: `<Paragraph>\n  Les mer om ${link.react}.\n</Paragraph>`,
-  }
-}
+export const preview = ({ label, href, ...attrs }: LinkArgs) =>
+  snippets(Link({ href, ...attrs }, label))
+
+export const inText = ({ label, href, ...attrs }: LinkArgs) =>
+  snippets(
+    Paragraph({}, inline('Les mer om ', Link({ href, ...attrs }, label), '.')),
+  )

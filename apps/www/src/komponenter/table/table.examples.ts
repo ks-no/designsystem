@@ -5,8 +5,6 @@ import {
   per,
   raw,
   snippets,
-  type AttrValue,
-  type Node,
 } from '@internal/storybook/markup'
 import type { Imports } from '@internal/storybook/snippets'
 
@@ -87,11 +85,7 @@ const sortCell = (key: string, label: string, sort: Sort) =>
       '(sortChange)': per({ angular: `sortBy('${key}')` }),
       onClick: per({ react: expr(`() => sortBy('${key}')`) }),
     },
-    per<Node | string>({
-      html: el('button', { type: 'button' }, label),
-      angular: label,
-      react: label,
-    }),
+    per({ html: el('button', { type: 'button' }, label), default: label }),
   )
 
 export const sortable = (args: TableArgs) =>
@@ -129,11 +123,7 @@ export const stickyHeader = (args: TableArgs) =>
     el(
       'div',
       {
-        style: per<AttrValue>({
-          html: 'max-height: 15rem; overflow: auto',
-          angular: 'max-height: 15rem; overflow: auto',
-          react: expr(`{ maxHeight: '15rem', overflow: 'auto' }`),
-        }),
+        style: { maxHeight: '15rem', overflow: 'auto' },
       },
       Table(
         { ...flags(args), 'data-sticky-header': true },

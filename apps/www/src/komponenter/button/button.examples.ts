@@ -1,11 +1,5 @@
-import {
-  attrs,
-  indent,
-  props,
-  text,
-  type Imports,
-  type Snippets,
-} from '@internal/storybook/snippets'
+import { component, per, raw, snippets } from '@internal/storybook/markup'
+import type { Imports } from '@internal/storybook/snippets'
 
 export type ButtonArgs = {
   'data-variant'?: 'primary' | 'secondary' | 'tertiary'
@@ -33,78 +27,52 @@ const heartIcon = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" wi
 
 type One = Omit<ButtonArgs, 'label'> & { label: string; icon?: boolean }
 
-function html(a: One): string {
-  const open = `<button type="button" class="ds-button"${attrs({
-    'data-variant': a['data-variant'],
-    'data-size': a['data-size'],
-    'data-color': a['data-color'],
-    'data-icon': a.icon,
-    'aria-label': a.icon ? a.label : undefined,
-    'aria-busy': a.loading ? 'true' : undefined,
-    disabled: a.disabled,
-  })}>`
-  const children = [
-    a.loading ? spinner : '',
-    a.icon ? (a.loading ? '' : heartIcon) : text(a.label),
-  ].filter(Boolean)
-  return `${open}\n${indent(children.join('\n'))}\n</button>`
-}
-
-function angular(a: One): string {
-  const open = `<button ksd-button${attrs({
-    'data-variant': a['data-variant'],
-    'data-size': a['data-size'],
-    'data-color': a['data-color'],
-    'data-icon': a.icon,
-    'aria-label': a.icon ? a.label : undefined,
-    loading: a.loading,
-    disabled: a.disabled,
-  })}>`
-  const child = a.icon
-    ? '<ng-icon name="phosphorHeart" aria-hidden="true" />'
-    : text(a.label)
-  return `${open}\n  ${child}\n</button>`
-}
-
-function react(a: One): string {
-  const open = `<Button${props({
-    variant: a['data-variant'],
-    'data-size': a['data-size'],
-    'data-color': a['data-color'],
-    icon: a.icon,
-    'aria-label': a.icon ? a.label : undefined,
-    loading: a.loading,
-    disabled: a.disabled,
-  })}>`
-  const child = a.icon ? '<Heart aria-hidden />' : text(a.label)
-  return `${open}\n  ${child}\n</Button>`
-}
-
-const one = (a: One): Snippets => ({
-  html: html(a),
-  angular: angular(a),
-  react: react(a),
+const Button = component({
+  html: 'button.ds-button',
+  angular: 'button[ksd-button]',
+  react: 'Button',
+  reactProps: { 'data-variant': 'variant', 'data-icon': 'icon' },
 })
 
-const many = (buttons: One[]): Snippets => ({
-  html: buttons.map(html).join('\n'),
-  angular: buttons.map(angular).join('\n'),
-  react: `<>\n${indent(buttons.map(react).join('\n'))}\n</>`,
+const icon = per({
+  html: raw(heartIcon),
+  angular: raw('<ng-icon name="phosphorHeart" aria-hidden="true" />'),
+  react: raw('<Heart aria-hidden />'),
 })
 
-export const preview = (args: ButtonArgs): Snippets => one(args)
-
-export const variants = (args: ButtonArgs): Snippets =>
-  many(
-    (['primary', 'secondary', 'tertiary'] as const).map((variant) => ({
-      ...args,
-      'data-variant': variant,
-      label: variant[0].toUpperCase() + variant.slice(1),
-    })),
+// In HTML you add the spinner and aria-busy yourself; Angular and React do it with `loading`
+const button = (a: One) =>
+  Button(
+    {
+      type: per({ html: 'button' }),
+      'data-variant': a['data-variant'],
+      'data-size': a['data-size'],
+      'data-color': a['data-color'],
+      'data-icon': a.icon,
+      'aria-label': a.icon ? a.label : undefined,
+      'aria-busy': per({ html: a.loading ? 'true' : undefined }),
+      loading: per({ html: null, default: a.loading }),
+      disabled: a.disabled,
+    },
+    per({ html: a.loading ? raw(spinner) : null }),
+    a.icon ? per({ html: a.loading ? null : icon, default: icon }) : a.label,
   )
 
-export const icons = (args: ButtonArgs): Snippets =>
-  many([{ ...args, icon: true, label: 'Legg til i favoritter' }])
+export const preview = (args: ButtonArgs) => snippets(button(args))
 
-export const loading = (args: ButtonArgs): Snippets =>
-  one({ ...args, loading: true, label: 'Lagrer…' })
+export const variants = (args: ButtonArgs) =>
+  snippets(
+    ...(['primary', 'secondary', 'tertiary'] as const).map((variant) =>
+      button({
+        ...args,
+        'data-variant': variant,
+        label: variant[0].toUpperCase() + variant.slice(1),
+      }),
+    ),
+  )
+
+export const icons = (args: ButtonArgs) =>
+  snippets(button({ ...args, icon: true, label: 'Legg til i favoritter' }))
+
+export const loading = (args: ButtonArgs) =>
+  snippets(button({ ...args, loading: true, label: 'Lagrer…' }))
