@@ -12,13 +12,14 @@ export type SearchArgs = {
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
-  angular: `import {
+  angular: `import { Field, Label } from '@ks-digital/designsystem-angular/forms'
+import {
   Search,
   SearchButton,
   SearchClear,
   SearchInput,
 } from '@ks-digital/designsystem-angular/search'`,
-  react: `import { Search } from '@ks-digital/designsystem-react'`,
+  react: `import { Field, Label, Search } from '@ks-digital/designsystem-react'`,
 }
 
 // React's Search and Angular's ksd-search both render <ds-suggestion class="ds-search">

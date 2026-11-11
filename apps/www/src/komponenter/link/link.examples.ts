@@ -9,8 +9,9 @@ export type LinkArgs = {
 }
 
 export const imports: Imports = {
-  angular: `import { Link } from '@ks-digital/designsystem-angular/link'`,
-  react: `import { Link } from '@ks-digital/designsystem-react'`,
+  angular: `import { Link } from '@ks-digital/designsystem-angular/link'
+import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,
+  react: `import { Link, Paragraph } from '@ks-digital/designsystem-react'`,
 }
 
 const Link = component({
