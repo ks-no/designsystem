@@ -1,9 +1,4 @@
-import {
-  component,
-  per,
-  snippets,
-  type AttrValue,
-} from '@internal/storybook/markup'
+import { component, per, snippets } from '@internal/storybook/markup'
 import type { Imports } from '@internal/storybook/snippets'
 
 export type ChipArgs = {
@@ -73,8 +68,9 @@ export const removable = (args: ChipArgs) =>
     ...['Barnehage', 'Skole'].map((label) =>
       Removable(
         {
-          type: per({ html: 'button', angular: 'button' }),
-          'data-removable': per<AttrValue>({ html: true, angular: 'true' }),
+          // React sets type="button" and data-removable itself
+          type: per({ react: null, default: 'button' }),
+          'data-removable': per({ html: true, angular: true }),
           // The text alone doesn't say that the chip removes the filter
           'aria-label': `Fjern filteret ${label}`,
           ...args,

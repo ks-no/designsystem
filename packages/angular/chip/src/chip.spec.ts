@@ -55,3 +55,18 @@ it('should have no obvious accessibility violations', async () => {
   const results = await axe(container)
   expect(results).toHaveNoViolations()
 })
+
+it('should reflect data-removable, also when bound', async () => {
+  await render(
+    `<button ksd-chip data-removable>Static</button>
+     <button ksd-chip [data-removable]="true">Bound</button>
+     <button ksd-chip [data-removable]="false">Not removable</button>`,
+    { imports: [Chip] },
+  )
+
+  expect(screen.getByText('Static')).toHaveAttribute('data-removable', 'true')
+  expect(screen.getByText('Bound')).toHaveAttribute('data-removable', 'true')
+  expect(screen.getByText('Not removable')).not.toHaveAttribute(
+    'data-removable',
+  )
+})
