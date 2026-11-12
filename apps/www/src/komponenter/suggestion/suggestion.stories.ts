@@ -18,8 +18,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'suggestion',
   changes: [
-    'Angular-komponenten lager markupen for ds-suggestion selv. Du skriver forslagene som ksd-suggestion-list-option.',
-    'Angular-komponenten kan bindes til signal forms med formField. Verdien er alltid primitiv: string, eller string[] med multiple.',
+    'Angular-wrapper som bygger oppå `ds-suggestion` som kan brukes med signal forms formField.',
   ],
   source: 'packages/angular/suggestion/src',
   imports: examples.imports,
