@@ -1,8 +1,33 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { commonArgTypes } from '../../../.storybook/args'
-import type { PopoverArgs } from './popover.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './popover.examples'
+
+const placements = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+  'right',
+  'right-start',
+  'right-end',
+] as const
+
+type PopoverArgs = {
+  'data-variant'?: 'default' | 'tinted'
+  'data-placement'?: (typeof placements)[number]
+  'data-size'?: string
+  'data-color'?: string
+  content: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -14,42 +39,56 @@ const meta: Meta<PopoverArgs> = {
   title: 'Komponenter/Popover',
   tags: ['autodocs'],
   parameters: { ksd, docs: { canvas: { sourceState: 'none' } } },
-  args: {
-    content: 'Saksnummeret står øverst i brevet du fikk fra kommunen.',
-    'data-placement': 'top',
-  },
-  argTypes: {
-    ...commonArgTypes,
-    'data-variant': {
-      options: ['default', 'tinted'],
-      control: { type: 'radio' },
-    },
-    'data-placement': {
-      options: [
-        'top',
-        'top-start',
-        'top-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'left',
-        'left-start',
-        'left-end',
-        'right',
-        'right-start',
-        'right-end',
-      ],
-      control: { type: 'select' },
-    },
-    content: { control: 'text' },
-  },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  argTypes: commonArgTypes,
+  render: renderExample,
 }
 export default meta
 
 type Story = StoryObj<PopoverArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: {
+    content: 'Saksnummeret står øverst i brevet du fikk fra kommunen.',
+    'data-placement': 'top',
+  },
+  argTypes: {
+    'data-variant': {
+      options: ['default', 'tinted'],
+      control: { type: 'radio' },
+    },
+    'data-placement': {
+      options: [...placements],
+      control: { type: 'select' },
+    },
+    content: { control: 'text' },
+  },
+  render: (a) =>
+    html`<button
+        class="ds-button"
+        type="button"
+        data-variant="secondary"
+        popovertarget="popover-saksnummer"
+      >
+        Hvor finner jeg saksnummeret?
+      </button>
+      <div
+        class="ds-popover"
+        id="popover-saksnummer"
+        popover
+        data-variant=${ifDefined(a['data-variant'])}
+        data-placement=${ifDefined(a['data-placement'])}
+        data-size=${ifDefined(a['data-size'])}
+        data-color=${ifDefined(a['data-color'])}
+      >
+        ${a.content}
+      </div>`,
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const MedHandlinger: Story = {
   name: 'Med handlinger',
   parameters: { snippets: examples.withActions },

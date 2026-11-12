@@ -1,90 +1,140 @@
-import {
-  component,
-  el,
-  per,
-  snippets,
-  type AttrValue,
-  type PlainChild,
-} from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type ToggleGroupArgs = {
-  'data-variant'?: 'primary' | 'secondary'
-  'data-size'?: 'sm' | 'md' | 'lg'
-  'data-color'?: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   react: `import { ToggleGroup } from '@ks-digital/designsystem-react'`,
 }
 
-// Angular has no ToggleGroup component: use the HTML
-const ToggleGroup = component({
-  html: 'fieldset.ds-toggle-group',
-  react: 'ToggleGroup',
-  reactProps: { 'data-variant': 'variant' },
-})
-// Each item is a radio button styled as a tertiary button
-const Item = component({ html: 'label.ds-button', react: 'ToggleGroup.Item' })
-const notReact = (value: AttrValue | PlainChild) =>
-  per({ react: null, default: value })
+export const preview: Snippets = {
+  html: `<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="kalender" />
+    Kalender
+  </label>
+</fieldset>`,
+  angular: `<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning" value="kalender" />
+    Kalender
+  </label>
+</fieldset>`,
+  react: `<ToggleGroup aria-label="Visning" defaultValue="liste">
+  <ToggleGroup.Item value="liste">Liste</ToggleGroup.Item>
+  <ToggleGroup.Item value="kart">Kart</ToggleGroup.Item>
+  <ToggleGroup.Item value="kalender">Kalender</ToggleGroup.Item>
+</ToggleGroup>`,
+}
 
-type Option = { value: string; label: string }
-
-const group = (
-  name: string,
-  label: string,
-  options: Option[],
-  attrs: ToggleGroupArgs,
-) =>
-  ToggleGroup(
-    {
-      'aria-label': label,
-      focusgroup: notReact('radiogroup'),
-      defaultValue: per({ react: options[0].value }),
-      ...attrs,
-    },
-    ...options.map((option, index) =>
-      Item(
-        {
-          'data-variant': notReact('tertiary'),
-          value: per({ react: option.value }),
-        },
-        notReact(
-          el('input', {
-            type: 'radio',
-            name,
-            value: option.value,
-            checked: index === 0,
-          }),
-        ),
-        option.label,
-      ),
-    ),
-  )
-
-const views: Option[] = [
-  { value: 'liste', label: 'Liste' },
-  { value: 'kart', label: 'Kart' },
-  { value: 'kalender', label: 'Kalender' },
-]
-
-export const preview = (args: ToggleGroupArgs) =>
-  snippets(group('visning', 'Visning', views, args))
-
-export const variants = (args: ToggleGroupArgs) => {
-  const attrs = {
-    'data-size': args['data-size'],
-    'data-color': args['data-color'],
-  }
-  return snippets(
-    group('visning-primary', 'Visning', views, {
-      ...attrs,
-      'data-variant': 'primary',
-    }),
-    group('visning-secondary', 'Visning', views, {
-      ...attrs,
-      'data-variant': 'secondary',
-    }),
-  )
+export const variants: Snippets = {
+  html: `<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+  data-variant="primary"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="kalender" />
+    Kalender
+  </label>
+</fieldset>
+<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+  data-variant="secondary"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="kalender" />
+    Kalender
+  </label>
+</fieldset>`,
+  angular: `<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+  data-variant="primary"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-primary" value="kalender" />
+    Kalender
+  </label>
+</fieldset>
+<fieldset
+  class="ds-toggle-group"
+  aria-label="Visning"
+  focusgroup="radiogroup"
+  data-variant="secondary"
+>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="liste" checked />
+    Liste
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="kart" />
+    Kart
+  </label>
+  <label class="ds-button" data-variant="tertiary">
+    <input type="radio" name="visning-secondary" value="kalender" />
+    Kalender
+  </label>
+</fieldset>`,
+  react: `<>
+  <ToggleGroup aria-label="Visning" defaultValue="liste" variant="primary">
+    <ToggleGroup.Item value="liste">Liste</ToggleGroup.Item>
+    <ToggleGroup.Item value="kart">Kart</ToggleGroup.Item>
+    <ToggleGroup.Item value="kalender">Kalender</ToggleGroup.Item>
+  </ToggleGroup>
+  <ToggleGroup aria-label="Visning" defaultValue="liste" variant="secondary">
+    <ToggleGroup.Item value="liste">Liste</ToggleGroup.Item>
+    <ToggleGroup.Item value="kart">Kart</ToggleGroup.Item>
+    <ToggleGroup.Item value="kalender">Kalender</ToggleGroup.Item>
+  </ToggleGroup>
+</>`,
 }

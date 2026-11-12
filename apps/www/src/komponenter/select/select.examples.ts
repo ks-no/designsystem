@@ -1,82 +1,89 @@
-import { EMPTY, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-import {
-  Optgroup,
-  Option,
-  Select,
-  angularFormsImport,
-  htmlImports,
-  reactImport,
-  textField,
-} from '../field/form-parts'
-
-export type SelectArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-  label: string
-  disabled?: boolean
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
-  html: htmlImports,
-  angular: angularFormsImport('Field', 'Input', 'Label'),
-  react: reactImport('Field', 'Label', 'Select'),
+  html: `import '@ks-digital/designsystem-web'`,
+  angular: `import {
+  Field,
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'`,
+  react: `import { Field, Label, Select } from '@ks-digital/designsystem-react'`,
 }
 
-// An empty first option, so nothing is chosen until the user picks a municipality
-const placeholder = (text: string) => Option({ value: EMPTY }, text)
+export const preview: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Kommune</label>
+  <select class="ds-input">
+    <option value="">Velg kommune</option>
+    <option value="4601">Bergen</option>
+    <option value="0301">Oslo</option>
+    <option value="1103">Stavanger</option>
+    <option value="5001">Trondheim</option>
+  </select>
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Kommune</ksd-label>
+  <select ksd-input>
+    <option value="">Velg kommune</option>
+    <option value="4601">Bergen</option>
+    <option value="0301">Oslo</option>
+    <option value="1103">Stavanger</option>
+    <option value="5001">Trondheim</option>
+  </select>
+</ksd-field>`,
+  react: `<Field>
+  <Label>Kommune</Label>
+  <Select>
+    <Select.Option value="">Velg kommune</Select.Option>
+    <Select.Option value="4601">Bergen</Select.Option>
+    <Select.Option value="0301">Oslo</Select.Option>
+    <Select.Option value="1103">Stavanger</Select.Option>
+    <Select.Option value="5001">Trondheim</Select.Option>
+  </Select>
+</Field>`,
+}
 
-const municipalities = [
-  ['4601', 'Bergen'],
-  ['0301', 'Oslo'],
-  ['1103', 'Stavanger'],
-  ['5001', 'Trondheim'],
-]
-
-export const preview = ({ label, disabled, ...field }: SelectArgs) =>
-  snippets(
-    textField({
-      label,
-      field,
-      control: Select,
-      input: { disabled },
-      options: [
-        placeholder('Velg kommune'),
-        ...municipalities.map(([value, name]) => Option({ value }, name)),
-      ],
-    }),
-  )
-
-const counties: Array<[string, string[][]]> = [
-  [
-    'Rogaland',
-    [
-      ['1103', 'Stavanger'],
-      ['1108', 'Sandnes'],
-    ],
-  ],
-  [
-    'Vestland',
-    [
-      ['4601', 'Bergen'],
-      ['4621', 'Voss'],
-    ],
-  ],
-]
-
-export const groups = (args: SelectArgs) =>
-  snippets(
-    textField({
-      label: 'Kommune',
-      field: { 'data-size': args['data-size'] },
-      control: Select,
-      options: [
-        placeholder('Velg kommune'),
-        ...counties.map(([county, list]) =>
-          Optgroup(
-            { label: county },
-            ...list.map(([value, name]) => Option({ value }, name)),
-          ),
-        ),
-      ],
-    }),
-  )
+export const groups: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Kommune</label>
+  <select class="ds-input">
+    <option value="">Velg kommune</option>
+    <optgroup label="Rogaland">
+      <option value="1103">Stavanger</option>
+      <option value="1108">Sandnes</option>
+    </optgroup>
+    <optgroup label="Vestland">
+      <option value="4601">Bergen</option>
+      <option value="4621">Voss</option>
+    </optgroup>
+  </select>
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Kommune</ksd-label>
+  <select ksd-input>
+    <option value="">Velg kommune</option>
+    <optgroup label="Rogaland">
+      <option value="1103">Stavanger</option>
+      <option value="1108">Sandnes</option>
+    </optgroup>
+    <optgroup label="Vestland">
+      <option value="4601">Bergen</option>
+      <option value="4621">Voss</option>
+    </optgroup>
+  </select>
+</ksd-field>`,
+  react: `<Field>
+  <Label>Kommune</Label>
+  <Select>
+    <Select.Option value="">Velg kommune</Select.Option>
+    <Select.Optgroup label="Rogaland">
+      <Select.Option value="1103">Stavanger</Select.Option>
+      <Select.Option value="1108">Sandnes</Select.Option>
+    </Select.Optgroup>
+    <Select.Optgroup label="Vestland">
+      <Select.Option value="4601">Bergen</Select.Option>
+      <Select.Option value="4621">Voss</Select.Option>
+    </Select.Optgroup>
+  </Select>
+</Field>`,
+}

@@ -1,43 +1,21 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import {
   FRAMEWORKS,
+  type Example,
   type Framework,
   type Imports,
-  type SnippetFn,
 } from '@internal/storybook/snippets'
-import { DocsContext, useOf } from '@storybook/addon-docs/blocks'
+import { useOf } from '@storybook/addon-docs/blocks'
 import {
-  useContext,
   useEffect,
   useRef,
   useState,
   type KeyboardEvent,
   type ReactNode,
 } from 'react'
-import { STORY_ARGS_UPDATED } from 'storybook/internal/core-events'
 import { CodeFrame, CodeLabel } from './CodeFrame'
 import { Icon } from './icons'
 import { restoreFocus, useFramework } from './useFramework'
-
-/** The story's current args, following the Controls panel */
-function useLiveArgs(of: unknown) {
-  const context = useContext(DocsContext)
-  const { story } = useOf(of as Parameters<typeof useOf>[0], ['story'])
-  const [args, setArgs] = useState(() => context.getStoryContext(story).args)
-
-  useEffect(() => {
-    const onArgsUpdated = (event: {
-      storyId: string
-      args: Record<string, unknown>
-    }) => {
-      if (event.storyId === story.id) setArgs(event.args)
-    }
-    context.channel.on(STORY_ARGS_UPDATED, onArgsUpdated)
-    return () => context.channel.off(STORY_ARGS_UPDATED, onArgsUpdated)
-  }, [story.id, context.channel])
-
-  return { story, args }
-}
 
 const KEY_STEPS: Record<string, (index: number, count: number) => number> = {
   ArrowRight: (i, n) => (i + 1) % n,
@@ -122,18 +100,18 @@ interface Props {
  * Stories whose snippets only have `html` get an "HTML" label instead of the toggle.
  */
 export function CodeBlock({ of, hideImports = false, notes }: Props) {
-  const { story, args } = useLiveArgs(of)
+  const { story } = useOf(of as Parameters<typeof useOf>[0], ['story'])
   const [framework, setFramework] = useFramework(story)
 
   const parameters = story.parameters as {
-    snippets?: SnippetFn
+    snippets?: Example
     ksd?: KsdDocsParameters
   }
   if (!parameters.snippets) {
     throw new Error(`CodeBlock: story "${story.id}" has no parameters.snippets`)
   }
 
-  const snippets = parameters.snippets(args)
+  const snippets = parameters.snippets
   // Same code in every framework (plain HTML, web components): nothing to choose
   const htmlOnly = !('angular' in snippets && 'react' in snippets)
   const shown: Framework = htmlOnly ? 'html' : framework

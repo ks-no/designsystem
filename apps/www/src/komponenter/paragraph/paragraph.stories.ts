@@ -1,7 +1,17 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import type { ParagraphArgs } from './paragraph.examples'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './paragraph.examples'
+
+const paragraphSizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const
+
+type ParagraphArgs = {
+  'data-variant'?: 'default' | 'long' | 'short'
+  'data-size'?: (typeof paragraphSizes)[number]
+  label: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -17,6 +27,28 @@ const meta: Meta<ParagraphArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
+  argTypes: {
+    'data-size': {
+      options: [...paragraphSizes],
+      control: { type: 'radio' },
+    },
+  },
+  render: renderExample,
+  decorators: [
+    (story) =>
+      html`<div
+        style="display:flex;flex-direction:column;gap:var(--ds-size-4);max-width:40rem"
+      >
+        ${story()}
+      </div>`,
+  ],
+}
+export default meta
+
+type Story = StoryObj<ParagraphArgs>
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
   args: {
     'data-variant': 'default',
     label:
@@ -27,21 +59,20 @@ const meta: Meta<ParagraphArgs> = {
       options: ['default', 'long', 'short'],
       control: { type: 'radio' },
     },
-    'data-size': {
-      options: [...examples.paragraphSizes],
-      control: { type: 'radio' },
-    },
     label: { control: 'text' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
-  decorators: [
-    (story) =>
-      `<div style="display:flex;flex-direction:column;gap:var(--ds-size-4);max-width:40rem">${story()}</div>`,
-  ],
+  render: (a) =>
+    html`<p
+      class="ds-paragraph"
+      data-variant=${ifDefined(a['data-variant'])}
+      data-size=${ifDefined(a['data-size'])}
+    >
+      ${a.label}
+    </p>`,
 }
-export default meta
 
-type Story = StoryObj<ParagraphArgs>
-
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const Varianter: Story = { parameters: { snippets: examples.variants } }

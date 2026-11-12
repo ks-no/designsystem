@@ -1,12 +1,4 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type AlertArgs = {
-  'data-color'?: 'info' | 'success' | 'warning' | 'danger'
-  'data-size'?: 'sm' | 'md' | 'lg'
-  heading: string
-  body: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   angular: `import { Alert } from '@ks-digital/designsystem-angular/alert'
@@ -15,42 +7,33 @@ import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,
   react: `import { Alert, Heading, Paragraph } from '@ks-digital/designsystem-react'`,
 }
 
-const Alert = component({
-  html: 'div.ds-alert',
-  angular: 'ksd-alert',
-  react: 'Alert',
-})
+export const preview: Snippets = {
+  html: `<div class="ds-alert" data-color="info">
+  <h2 class="ds-heading" data-size="xs">Søknadsfristen er 1. mars</h2>
+  <p class="ds-paragraph">
+    Søknader som kommer inn etter fristen blir ikke behandlet.
+  </p>
+</div>`,
+  angular: `<ksd-alert data-color="info">
+  <h2 ksd-heading data-size="xs">Søknadsfristen er 1. mars</h2>
+  <p ksd-paragraph>Søknader som kommer inn etter fristen blir ikke behandlet.</p>
+</ksd-alert>`,
+  react: `<Alert role="alert" data-color="info">
+  <Heading level={2} data-size="xs">Søknadsfristen er 1. mars</Heading>
+  <Paragraph>
+    Søknader som kommer inn etter fristen blir ikke behandlet.
+  </Paragraph>
+</Alert>`,
+}
 
-const reactRole = { role: per({ react: 'alert' }) }
-
-const Heading = component({
-  html: 'h2.ds-heading',
-  angular: 'h2[ksd-heading]',
-  react: 'Heading',
-})
-const Paragraph = component({
-  html: 'p.ds-paragraph',
-  angular: 'p[ksd-paragraph]',
-  react: 'Paragraph',
-})
-
-export const preview = ({ heading, body, ...attrs }: AlertArgs) =>
-  snippets(
-    Alert(
-      { ...reactRole, ...attrs },
-      Heading({ level: per({ react: 2 }), 'data-size': 'xs' }, heading),
-      Paragraph({}, body),
-    ),
-  )
-
-export const textOnly = ({ body, ...args }: AlertArgs) =>
-  snippets(
-    Alert(
-      {
-        ...reactRole,
-        'data-color': args['data-color'],
-        'data-size': args['data-size'],
-      },
-      body,
-    ),
-  )
+export const textOnly: Snippets = {
+  html: `<div class="ds-alert" data-color="info">
+  Søknader som kommer inn etter fristen blir ikke behandlet.
+</div>`,
+  angular: `<ksd-alert data-color="info">
+  Søknader som kommer inn etter fristen blir ikke behandlet.
+</ksd-alert>`,
+  react: `<Alert role="alert" data-color="info">
+  Søknader som kommer inn etter fristen blir ikke behandlet.
+</Alert>`,
+}

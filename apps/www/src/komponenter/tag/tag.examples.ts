@@ -1,35 +1,23 @@
-import { component, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type TagArgs = {
-  'data-variant'?: 'default' | 'outline'
-  'data-size'?: 'sm' | 'md' | 'lg'
-  'data-color'?: string
-  label: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   angular: `import { Tag } from '@ks-digital/designsystem-angular/tag'`,
   react: `import { Tag } from '@ks-digital/designsystem-react'`,
 }
 
-const Tag = component({
-  html: 'span.ds-tag',
-  angular: 'ksd-tag',
-  react: 'Tag',
-  reactProps: { 'data-variant': 'variant' },
-})
+export const preview: Snippets = {
+  html: `<span class="ds-tag" data-variant="default">Ny</span>`,
+  angular: `<ksd-tag data-variant="default">Ny</ksd-tag>`,
+  react: `<Tag variant="default">Ny</Tag>`,
+}
 
-export const preview = ({ label, ...attrs }: TagArgs) =>
-  snippets(Tag(attrs, label))
-
-export const variants = (args: TagArgs) => {
-  const attrs = {
-    'data-size': args['data-size'],
-    'data-color': args['data-color'],
-  }
-  return snippets(
-    Tag({ 'data-variant': 'default', ...attrs }, 'Default'),
-    Tag({ 'data-variant': 'outline', ...attrs }, 'Outline'),
-  )
+export const variants: Snippets = {
+  html: `<span class="ds-tag" data-variant="default">Default</span>
+<span class="ds-tag" data-variant="outline">Outline</span>`,
+  angular: `<ksd-tag data-variant="default">Default</ksd-tag>
+<ksd-tag data-variant="outline">Outline</ksd-tag>`,
+  react: `<>
+  <Tag variant="default">Default</Tag>
+  <Tag variant="outline">Outline</Tag>
+</>`,
 }

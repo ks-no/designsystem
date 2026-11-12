@@ -1,8 +1,18 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { sizes } from '../../../.storybook/args'
-import type { AlertArgs } from './alert.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './alert.examples'
+
+type AlertArgs = {
+  'data-color'?: 'info' | 'success' | 'warning' | 'danger'
+  'data-size'?: string
+  /** Empty: the alert has only text, without a heading */
+  heading: string
+  body: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -18,28 +28,52 @@ const meta: Meta<AlertArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
-  args: {
-    'data-color': 'info',
-    heading: 'Søknadsfristen er 1. mars',
-    body: 'Søknader som kommer inn etter fristen blir ikke behandlet.',
-  },
   argTypes: {
     'data-color': {
       options: ['info', 'success', 'warning', 'danger'],
       control: { type: 'radio' },
     },
     'data-size': { options: [...sizes], control: { type: 'radio' } },
-    heading: { control: 'text' },
-    body: { control: 'text' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  render: renderExample,
 }
 export default meta
 
 type Story = StoryObj<AlertArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: {
+    'data-color': 'info',
+    heading: 'Søknadsfristen er 1. mars',
+    body: 'Søknader som kommer inn etter fristen blir ikke behandlet.',
+  },
+  argTypes: {
+    heading: { control: 'text' },
+    body: { control: 'text' },
+  },
+  render: (a) =>
+    html`<div
+      class="ds-alert"
+      data-color=${ifDefined(a['data-color'])}
+      data-size=${ifDefined(a['data-size'])}
+    >
+      ${
+        a.heading
+          ? html`<h2 class="ds-heading" data-size="xs">${a.heading}</h2>
+              <p class="ds-paragraph">${a.body}</p>`
+          : a.body
+      }
+    </div>`,
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const BareTekst: Story = {
+  ...controls,
   name: 'Bare tekst',
+  args: { ...controls.args, heading: '' },
   parameters: { snippets: examples.textOnly },
 }

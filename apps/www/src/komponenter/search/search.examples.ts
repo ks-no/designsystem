@@ -1,14 +1,4 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type SearchArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-  'data-color'?: string
-  /** Accessible name of the input, when there is no visible label */
-  label: string
-  buttonLabel: string
-  variant: 'primary' | 'secondary'
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -22,91 +12,62 @@ import {
   react: `import { Field, Label, Search } from '@ks-digital/designsystem-react'`,
 }
 
-// React's Search and Angular's ksd-search both render <ds-suggestion class="ds-search">
-const Search = component({
-  html: 'ds-suggestion.ds-search',
-  angular: 'ksd-search',
-  react: 'Search',
-})
-const Input = component({
-  html: 'input.ds-input',
-  angular: 'input[ksd-search-input]',
-  react: 'Search.Input',
-})
-// ds-suggestion hides the clear button while the input is empty, and names it for screen readers
-const Clear = component({
-  html: 'button',
-  angular: 'button[ksd-search-clear]',
-  react: 'Search.Clear',
-})
-const Button = component({
-  html: 'button.ds-button',
-  angular: 'button[ksd-search-button]',
-  react: 'Search.Button',
-})
-const Field = component({
-  html: 'ds-field.ds-field',
-  angular: 'ksd-field',
-  react: 'Field',
-})
-const Label = component({
-  html: 'label.ds-label',
-  angular: 'ksd-label',
-  react: 'Label',
-})
+export const preview: Snippets = {
+  html: `<ds-suggestion class="ds-search">
+  <input class="ds-input" type="text" aria-label="Søk" />
+  <button type="reset"></button>
+  <button class="ds-button" type="submit" data-variant="primary">Søk</button>
+</ds-suggestion>`,
+  angular: `<ksd-search>
+  <input ksd-search-input type="text" aria-label="Søk" />
+  <button ksd-search-clear></button>
+  <button ksd-search-button>Søk</button>
+</ksd-search>`,
+  react: `<Search>
+  <Search.Input type="text" aria-label="Søk" />
+  <Search.Clear />
+  <Search.Button>Søk</Search.Button>
+</Search>`,
+}
 
-const clear = () => Clear({ type: per({ html: 'reset' }) })
+export const withIcon: Snippets = {
+  html: `<ds-suggestion class="ds-search">
+  <input class="ds-input" type="search" aria-label="Søk" />
+  <button type="reset"></button>
+</ds-suggestion>`,
+  angular: `<ksd-search>
+  <input ksd-search-input aria-label="Søk" />
+  <button ksd-search-clear></button>
+</ksd-search>`,
+  react: `<Search>
+  <Search.Input aria-label="Søk" />
+  <Search.Clear />
+</Search>`,
+}
 
-const submit = ({ buttonLabel, variant }: SearchArgs) =>
-  Button(
-    {
-      type: per({ html: 'submit' }),
-      'data-variant': per({ html: variant }),
-      // Angular and React use primary when left out
-      variant: per({
-        angular: variant === 'primary' ? undefined : variant,
-        react: variant === 'primary' ? undefined : variant,
-      }),
-    },
-    buttonLabel,
-  )
-
-const colorAndSize = (args: SearchArgs) => ({
-  'data-size': args['data-size'],
-  'data-color': args['data-color'],
-})
-
-// With a search button, type="text" leaves out the magnifying glass in the field
-export const preview = (args: SearchArgs) =>
-  snippets(
-    Search(
-      colorAndSize(args),
-      Input({ type: 'text', 'aria-label': args.label }),
-      clear(),
-      submit(args),
-    ),
-  )
-
-// type="search" shows the magnifying glass. Angular and React set it by default.
-export const withIcon = (args: SearchArgs) =>
-  snippets(
-    Search(
-      colorAndSize(args),
-      Input({ type: per({ html: 'search' }), 'aria-label': args.label }),
-      clear(),
-    ),
-  )
-
-export const withLabel = (args: SearchArgs) =>
-  snippets(
-    Field(
-      {},
-      Label({}, 'Søk etter saksnummer eller navn'),
-      Search(
-        colorAndSize(args),
-        Input({ type: 'text' }),
-        clear(),
-        submit(args),
-      ),
-    ),
-  )
+export const withLabel: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Søk etter saksnummer eller navn</label>
+  <ds-suggestion class="ds-search">
+    <input class="ds-input" type="text" />
+    <button type="reset"></button>
+    <button class="ds-button" type="submit" data-variant="primary">Søk</button>
+  </ds-suggestion>
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Søk etter saksnummer eller navn</ksd-label>
+  <ksd-search>
+    <input ksd-search-input type="text" />
+    <button ksd-search-clear></button>
+    <button ksd-search-button>Søk</button>
+  </ksd-search>
+</ksd-field>`,
+  react: `<Field>
+  <Label>Søk etter saksnummer eller navn</Label>
+  <Search>
+    <Search.Input type="text" />
+    <Search.Clear />
+    <Search.Button>Søk</Search.Button>
+  </Search>
+</Field>`,
+}

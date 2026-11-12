@@ -1,10 +1,4 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type TabsArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-  'data-color'?: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -17,56 +11,35 @@ export const imports: Imports = {
   react: `import { Tabs } from '@ks-digital/designsystem-react'`,
 }
 
-const tabs = [
-  { value: 'oversikt', label: 'Oversikt', content: 'Oversikt over søknaden.' },
-  { value: 'vedlegg', label: 'Vedlegg', content: 'Vedlegg du har lastet opp.' },
-  {
-    value: 'historikk',
-    label: 'Historikk',
-    content: 'Hva som har skjedd i saken.',
-  },
-]
-
-const Tabs = component({
-  html: 'ds-tabs.ds-tabs',
-  angular: 'ksd-tabs',
-  react: 'Tabs',
-})
-const TabList = component({
-  html: 'ds-tablist',
-  angular: 'ksd-tabs-list',
-  react: 'Tabs.List',
-})
-const Tab = component({
-  html: 'ds-tab',
-  angular: 'ksd-tabs-tab',
-  react: 'Tabs.Tab',
-})
-const Panel = component({
-  html: 'ds-tabpanel',
-  angular: 'ksd-tabs-panel',
-  react: 'Tabs.Panel',
-})
-
-// HTML and Angular connect tabs and panels by order, with the first tab selected.
-// React connects them by value, and selects the first with defaultValue.
-export const preview = (args: TabsArgs) =>
-  snippets(
-    Tabs(
-      { defaultValue: per({ react: tabs[0].value }), ...args },
-      TabList(
-        {},
-        ...tabs.map((t, i) =>
-          Tab(
-            {
-              tabId: per({ angular: t.value }),
-              value: per({ react: t.value }),
-              'aria-selected': per({ react: null, default: i === 0 && 'true' }),
-            },
-            t.label,
-          ),
-        ),
-      ),
-      ...tabs.map((t) => Panel({ value: per({ react: t.value }) }, t.content)),
-    ),
-  )
+export const preview: Snippets = {
+  html: `<ds-tabs class="ds-tabs">
+  <ds-tablist>
+    <ds-tab aria-selected="true">Oversikt</ds-tab>
+    <ds-tab>Vedlegg</ds-tab>
+    <ds-tab>Historikk</ds-tab>
+  </ds-tablist>
+  <ds-tabpanel>Oversikt over søknaden.</ds-tabpanel>
+  <ds-tabpanel>Vedlegg du har lastet opp.</ds-tabpanel>
+  <ds-tabpanel>Hva som har skjedd i saken.</ds-tabpanel>
+</ds-tabs>`,
+  angular: `<ksd-tabs>
+  <ksd-tabs-list>
+    <ksd-tabs-tab tabId="oversikt" aria-selected="true">Oversikt</ksd-tabs-tab>
+    <ksd-tabs-tab tabId="vedlegg">Vedlegg</ksd-tabs-tab>
+    <ksd-tabs-tab tabId="historikk">Historikk</ksd-tabs-tab>
+  </ksd-tabs-list>
+  <ksd-tabs-panel>Oversikt over søknaden.</ksd-tabs-panel>
+  <ksd-tabs-panel>Vedlegg du har lastet opp.</ksd-tabs-panel>
+  <ksd-tabs-panel>Hva som har skjedd i saken.</ksd-tabs-panel>
+</ksd-tabs>`,
+  react: `<Tabs defaultValue="oversikt">
+  <Tabs.List>
+    <Tabs.Tab value="oversikt">Oversikt</Tabs.Tab>
+    <Tabs.Tab value="vedlegg">Vedlegg</Tabs.Tab>
+    <Tabs.Tab value="historikk">Historikk</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="oversikt">Oversikt over søknaden.</Tabs.Panel>
+  <Tabs.Panel value="vedlegg">Vedlegg du har lastet opp.</Tabs.Panel>
+  <Tabs.Panel value="historikk">Hva som har skjedd i saken.</Tabs.Panel>
+</Tabs>`,
+}

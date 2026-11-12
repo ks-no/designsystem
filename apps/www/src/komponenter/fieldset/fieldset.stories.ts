@@ -1,7 +1,13 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import type { FieldsetArgs } from './fieldset.examples'
+import { html, nothing } from 'lit'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './fieldset.examples'
+
+type FieldsetArgs = {
+  legend: string
+  description: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -17,6 +23,15 @@ const meta: Meta<FieldsetArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
+  render: renderExample,
+  decorators: [(story) => html`<div style="max-width:24rem">${story()}</div>`],
+}
+export default meta
+
+type Story = StoryObj<FieldsetArgs>
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
   args: {
     legend: 'Adresse',
     description: 'Adressen der du bor nå.',
@@ -25,11 +40,36 @@ const meta: Meta<FieldsetArgs> = {
     legend: { control: 'text' },
     description: { control: 'text' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
-  decorators: [(story) => `<div style="max-width:24rem">${story()}</div>`],
+  render: (a) =>
+    html`<fieldset class="ds-fieldset">
+      <legend class="ds-label">${a.legend}</legend>
+      ${
+        a.description
+          ? html`<p class="ds-paragraph">${a.description}</p>`
+          : nothing
+      }
+      <ds-field class="ds-field">
+        <label class="ds-label">Gateadresse</label>
+        <input class="ds-input" type="text" autocomplete="street-address" />
+      </ds-field>
+      <ds-field class="ds-field">
+        <label class="ds-label">Postnummer</label>
+        <input
+          class="ds-input"
+          type="text"
+          size="4"
+          inputmode="numeric"
+          autocomplete="postal-code"
+        />
+      </ds-field>
+      <ds-field class="ds-field">
+        <label class="ds-label">Poststed</label>
+        <input class="ds-input" type="text" autocomplete="address-level2" />
+      </ds-field>
+    </fieldset>`,
 }
-export default meta
 
-type Story = StoryObj<FieldsetArgs>
-
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}

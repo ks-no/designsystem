@@ -1,8 +1,17 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { sizes } from '../../../.storybook/args'
-import type { TableArgs } from './table.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './table.examples'
+
+type TableArgs = {
+  'data-zebra'?: boolean
+  'data-border'?: boolean
+  'data-hover'?: boolean
+  'data-size'?: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -18,20 +27,62 @@ const meta: Meta<TableArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
-  args: { 'data-zebra': false, 'data-border': false, 'data-hover': false },
   argTypes: {
-    'data-zebra': { control: 'boolean' },
-    'data-border': { control: 'boolean' },
-    'data-hover': { control: 'boolean' },
     'data-size': { options: [...sizes], control: { type: 'radio' } },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  render: renderExample,
 }
 export default meta
 
 type Story = StoryObj<TableArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+const columns = ['Saksnummer', 'Søknad', 'Mottatt', 'Status']
+const cases = [
+  ['2024/1187', 'Byggesøknad', '04.03.2024', 'Under behandling'],
+  ['2024/1203', 'Barnehageplass', '05.03.2024', 'Godkjent'],
+  ['2024/1240', 'Skjenkebevilling', '11.03.2024', 'Venter på vedlegg'],
+  ['2024/1262', 'Parkeringstillatelse', '14.03.2024', 'Godkjent'],
+]
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: { 'data-zebra': false, 'data-border': false, 'data-hover': false },
+  argTypes: {
+    'data-zebra': { control: 'boolean' },
+    'data-border': { control: 'boolean' },
+    'data-hover': { control: 'boolean' },
+  },
+  render: (a) =>
+    html`<table
+      class="ds-table"
+      ?data-zebra=${a['data-zebra']}
+      ?data-border=${a['data-border']}
+      ?data-hover=${a['data-hover']}
+      data-size=${ifDefined(a['data-size'])}
+    >
+      <caption>
+        Søknader mottatt i mars
+      </caption>
+      <thead>
+        <tr>
+          ${columns.map((column) => html`<th>${column}</th>`)}
+        </tr>
+      </thead>
+      <tbody>
+        ${cases.map(
+          (row) =>
+            html`<tr>
+              ${row.map((value) => html`<td>${value}</td>`)}
+            </tr>`,
+        )}
+      </tbody>
+    </table>`,
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const Sorterbar: Story = { parameters: { snippets: examples.sortable } }
 export const FastOverskriftsrad: Story = {
   name: 'Fast overskriftsrad',

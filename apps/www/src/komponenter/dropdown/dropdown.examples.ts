@@ -1,19 +1,4 @@
-import { component, el, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type DropdownArgs = {
-  'data-placement'?:
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left'
-    | 'right'
-  'data-size'?: 'sm' | 'md' | 'lg'
-  'data-color'?: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -23,89 +8,124 @@ import { Heading } from '@ks-digital/designsystem-angular/heading'`,
   react: `import { Button, Dropdown } from '@ks-digital/designsystem-react'`,
 }
 
-const Button = component({
-  html: 'button.ds-button',
-  angular: 'button[ksd-button]',
-  react: 'Button',
-  reactProps: { 'data-variant': 'variant' },
-})
-// React's Dropdown renders only ds-dropdown; Angular's directive adds ds-popover too
-const Dropdown = component({
-  html: 'div.ds-dropdown',
-  angular: 'div[ksd-dropdown]',
-  react: 'Dropdown',
-  reactProps: { 'data-placement': 'placement' },
-})
-const Heading = component({
-  html: 'h2.ds-heading',
-  angular: 'h2[ksd-heading]',
-  react: 'Dropdown.Heading',
-})
-const List = component({ html: 'ul', react: 'Dropdown.List' })
-const Item = component({ html: 'li', react: 'Dropdown.Item' })
-// Dropdown.Button is a tertiary Button
-const ItemButton = component({
-  html: 'button.ds-button',
-  angular: 'button[ksd-button]',
-  react: 'Dropdown.Button',
-})
-
-// React's Button sets type="button" itself
-const type = per({ html: 'button', angular: 'button' })
-const tertiary = per({ html: 'tertiary', angular: 'tertiary' })
-// Angular's directive sets popover="auto" and React's Dropdown handles opening itself
-const popover = per({ html: true })
-
-const item = (label: string) =>
-  Item({}, ItemButton({ type, 'data-variant': tertiary }, label))
-
-/** A link styled as a menu item: `asChild` in React */
-const linkItem = (href: string, label: string) => {
-  const link = (selector: string) =>
-    el(selector, { 'data-variant': 'tertiary', href }, label)
-  return Item(
-    {},
-    per({
-      html: link('a.ds-button'),
-      angular: link('a[ksd-button]'),
-      react: ItemButton({ asChild: true }, el('a', { href }, label)),
-    }),
-  )
+export const preview: Snippets = {
+  html: `<button class="ds-button" type="button" popovertarget="dropdown-last-ned">
+  Last ned vedtaket
+</button>
+<div
+  class="ds-dropdown"
+  id="dropdown-last-ned"
+  popover
+  data-placement="bottom-end"
+>
+  <h2 class="ds-heading">Velg format</h2>
+  <ul>
+    <li>
+      <button class="ds-button" type="button" data-variant="tertiary">PDF</button>
+    </li>
+    <li>
+      <button class="ds-button" type="button" data-variant="tertiary">Word</button>
+    </li>
+  </ul>
+</div>`,
+  angular: `<button ksd-button type="button" popovertarget="dropdown-last-ned">
+  Last ned vedtaket
+</button>
+<div ksd-dropdown id="dropdown-last-ned" data-placement="bottom-end">
+  <h2 ksd-heading>Velg format</h2>
+  <ul>
+    <li>
+      <button ksd-button type="button" data-variant="tertiary">PDF</button>
+    </li>
+    <li>
+      <button ksd-button type="button" data-variant="tertiary">Word</button>
+    </li>
+  </ul>
+</div>`,
+  react: `<>
+  <Button popoverTarget="dropdown-last-ned">Last ned vedtaket</Button>
+  <Dropdown id="dropdown-last-ned" placement="bottom-end">
+    <Dropdown.Heading>Velg format</Dropdown.Heading>
+    <Dropdown.List>
+      <Dropdown.Item>
+        <Dropdown.Button>PDF</Dropdown.Button>
+      </Dropdown.Item>
+      <Dropdown.Item>
+        <Dropdown.Button>Word</Dropdown.Button>
+      </Dropdown.Item>
+    </Dropdown.List>
+  </Dropdown>
+</>`,
 }
 
-export const preview = (args: DropdownArgs) => {
-  const id = 'dropdown-last-ned'
-  return snippets(
-    Button({ type, popovertarget: id }, 'Last ned vedtaket'),
-    Dropdown(
-      { id, popover, ...args },
-      Heading({}, 'Velg format'),
-      List({}, item('PDF'), item('Word')),
-    ),
-  )
-}
-
-export const withLinks = (args: DropdownArgs) => {
-  const id = 'dropdown-bruker'
-  return snippets(
-    Button(
-      { type, 'data-variant': 'tertiary', popovertarget: id },
-      'Kari Nordmann',
-    ),
-    Dropdown(
-      {
-        id,
-        popover,
-        'data-placement': 'bottom-end',
-        'data-size': args['data-size'],
-        'data-color': args['data-color'],
-      },
-      List(
-        {},
-        linkItem('/profil', 'Min profil'),
-        linkItem('/saker', 'Mine saker'),
-        item('Logg ut'),
-      ),
-    ),
-  )
+export const withLinks: Snippets = {
+  html: `<button
+  class="ds-button"
+  type="button"
+  data-variant="tertiary"
+  popovertarget="dropdown-bruker"
+>
+  Kari Nordmann
+</button>
+<div
+  class="ds-dropdown"
+  id="dropdown-bruker"
+  popover
+  data-placement="bottom-end"
+>
+  <ul>
+    <li>
+      <a class="ds-button" data-variant="tertiary" href="/profil">Min profil</a>
+    </li>
+    <li>
+      <a class="ds-button" data-variant="tertiary" href="/saker">Mine saker</a>
+    </li>
+    <li>
+      <button class="ds-button" type="button" data-variant="tertiary">Logg ut</button>
+    </li>
+  </ul>
+</div>`,
+  angular: `<button
+  ksd-button
+  type="button"
+  data-variant="tertiary"
+  popovertarget="dropdown-bruker"
+>
+  Kari Nordmann
+</button>
+<div ksd-dropdown id="dropdown-bruker" data-placement="bottom-end">
+  <ul>
+    <li>
+      <a ksd-button data-variant="tertiary" href="/profil">Min profil</a>
+    </li>
+    <li>
+      <a ksd-button data-variant="tertiary" href="/saker">Mine saker</a>
+    </li>
+    <li>
+      <button ksd-button type="button" data-variant="tertiary">Logg ut</button>
+    </li>
+  </ul>
+</div>`,
+  react: `<>
+  <Button variant="tertiary" popoverTarget="dropdown-bruker">
+    Kari Nordmann
+  </Button>
+  <Dropdown id="dropdown-bruker" placement="bottom-end">
+    <Dropdown.List>
+      <Dropdown.Item>
+        <Dropdown.Button asChild>
+          <a href="/profil">Min profil</a>
+        </Dropdown.Button>
+      </Dropdown.Item>
+      <Dropdown.Item>
+        <Dropdown.Button asChild>
+          <a href="/saker">Mine saker</a>
+        </Dropdown.Button>
+      </Dropdown.Item>
+      <Dropdown.Item>
+        <Dropdown.Button>Logg ut</Dropdown.Button>
+      </Dropdown.Item>
+    </Dropdown.List>
+  </Dropdown>
+</>`,
 }

@@ -1,5 +1,7 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './divider.examples'
 
 const ksd: KsdDocsParameters = {
@@ -16,8 +18,8 @@ const meta: Meta = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
-  decorators: [(story) => `<div style="max-width:32rem">${story()}</div>`],
+  render: renderExample,
+  decorators: [(story) => html`<div style="max-width:32rem">${story()}</div>`],
 }
 export default meta
 

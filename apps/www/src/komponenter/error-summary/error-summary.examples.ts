@@ -1,10 +1,4 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type ErrorSummaryArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-  heading: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -14,52 +8,67 @@ import { Link } from '@ks-digital/designsystem-angular/link'`,
   react: `import { ErrorSummary } from '@ks-digital/designsystem-react'`,
 }
 
-const ErrorSummary = component({
-  html: 'ds-error-summary.ds-error-summary',
-  angular: 'div[ksd-error-summary]',
-  react: 'ErrorSummary',
-})
-const Heading = component({
-  html: 'h2.ds-heading',
-  angular: 'h2[ksd-heading]',
-  react: 'ErrorSummary.Heading',
-})
-// No list component in Angular: plain HTML there
-const List = component({ html: 'ul.ds-list', react: 'ErrorSummary.List' })
-const Item = component({ html: 'li', react: 'ErrorSummary.Item' })
-const Link = component({
-  html: 'a.ds-link',
-  angular: 'a[ksd-link]',
-  react: 'ErrorSummary.Link',
-})
-
-// Each link points to the field with the error, with the same text as its validation message
-const errors = [
-  { id: 'fodselsdato', message: 'Fødselsdato kan ikke være etter år 2005' },
-  { id: 'telefon', message: 'Telefonnummer kan bare inneholde siffer' },
-  { id: 'epost', message: 'E-post må være en gyldig e-postadresse' },
-]
-
-export const preview = ({ heading, ...attrs }: ErrorSummaryArgs) =>
-  snippets(
-    ErrorSummary(
-      attrs,
-      Heading({}, heading),
-      List(
-        {},
-        ...errors.map(({ id, message }) =>
-          Item(
-            {},
-            Link(
-              {
-                href: `#${id}`,
-                // ErrorSummary.Link sets data-color="neutral" itself in React
-                'data-color': per({ html: 'neutral', angular: 'neutral' }),
-              },
-              message,
-            ),
-          ),
-        ),
-      ),
-    ),
-  )
+export const preview: Snippets = {
+  html: `<ds-error-summary class="ds-error-summary">
+  <h2 class="ds-heading">For å gå videre må du rette opp disse feilene:</h2>
+  <ul class="ds-list">
+    <li>
+      <a class="ds-link" href="#fodselsdato" data-color="neutral">
+        Fødselsdato kan ikke være etter år 2005
+      </a>
+    </li>
+    <li>
+      <a class="ds-link" href="#telefon" data-color="neutral">
+        Telefonnummer kan bare inneholde siffer
+      </a>
+    </li>
+    <li>
+      <a class="ds-link" href="#epost" data-color="neutral">
+        E-post må være en gyldig e-postadresse
+      </a>
+    </li>
+  </ul>
+</ds-error-summary>`,
+  angular: `<div ksd-error-summary>
+  <h2 ksd-heading>For å gå videre må du rette opp disse feilene:</h2>
+  <ul class="ds-list">
+    <li>
+      <a ksd-link href="#fodselsdato" data-color="neutral">
+        Fødselsdato kan ikke være etter år 2005
+      </a>
+    </li>
+    <li>
+      <a ksd-link href="#telefon" data-color="neutral">
+        Telefonnummer kan bare inneholde siffer
+      </a>
+    </li>
+    <li>
+      <a ksd-link href="#epost" data-color="neutral">
+        E-post må være en gyldig e-postadresse
+      </a>
+    </li>
+  </ul>
+</div>`,
+  react: `<ErrorSummary>
+  <ErrorSummary.Heading>
+    For å gå videre må du rette opp disse feilene:
+  </ErrorSummary.Heading>
+  <ErrorSummary.List>
+    <ErrorSummary.Item>
+      <ErrorSummary.Link href="#fodselsdato">
+        Fødselsdato kan ikke være etter år 2005
+      </ErrorSummary.Link>
+    </ErrorSummary.Item>
+    <ErrorSummary.Item>
+      <ErrorSummary.Link href="#telefon">
+        Telefonnummer kan bare inneholde siffer
+      </ErrorSummary.Link>
+    </ErrorSummary.Item>
+    <ErrorSummary.Item>
+      <ErrorSummary.Link href="#epost">
+        E-post må være en gyldig e-postadresse
+      </ErrorSummary.Link>
+    </ErrorSummary.Item>
+  </ErrorSummary.List>
+</ErrorSummary>`,
+}

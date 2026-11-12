@@ -1,42 +1,50 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
-export const avatarSizes = ['xs', 'sm', 'md', 'lg'] as const
-
-export type AvatarArgs = {
-  'data-size'?: (typeof avatarSizes)[number]
-  'data-color'?: string
-  'aria-label': string
-  initials: string
-}
-
-// No Angular component: Angular uses the HTML
 export const imports: Imports = {
   react: `import { Avatar } from '@ks-digital/designsystem-react'`,
 }
 
-const Avatar = component({ html: 'span.ds-avatar', react: 'Avatar' })
+export const preview: Snippets = {
+  html: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann">KN</span>`,
+  angular: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann">KN</span>`,
+  react: `<Avatar aria-label="Kari Nordmann">KN</Avatar>`,
+}
 
-// React sets role="img" itself
-const role = { role: per({ html: 'img', angular: 'img' }) }
+export const sizes: Snippets = {
+  html: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="xs">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="sm">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="md">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="lg">
+  KN
+</span>`,
+  angular: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="xs">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="sm">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="md">
+  KN
+</span>
+<span class="ds-avatar" role="img" aria-label="Kari Nordmann" data-size="lg">
+  KN
+</span>`,
+  react: `<>
+  <Avatar aria-label="Kari Nordmann" data-size="xs">KN</Avatar>
+  <Avatar aria-label="Kari Nordmann" data-size="sm">KN</Avatar>
+  <Avatar aria-label="Kari Nordmann" data-size="md">KN</Avatar>
+  <Avatar aria-label="Kari Nordmann" data-size="lg">KN</Avatar>
+</>`,
+}
 
-export const preview = ({ initials, ...attrs }: AvatarArgs) =>
-  snippets(Avatar({ ...role, ...attrs }, initials))
-
-export const sizes = ({ initials, ...attrs }: AvatarArgs) =>
-  snippets(
-    ...avatarSizes.map((size) =>
-      Avatar({ ...role, ...attrs, 'data-size': size }, initials),
-    ),
-  )
-
-// Without content the avatar shows a person icon
-export const noInitials = ({ 'aria-label': label, ...attrs }: AvatarArgs) =>
-  snippets(
-    Avatar({
-      ...role,
-      'data-size': attrs['data-size'],
-      'data-color': attrs['data-color'],
-      'aria-label': label,
-    }),
-  )
+export const noInitials: Snippets = {
+  html: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann"></span>`,
+  angular: `<span class="ds-avatar" role="img" aria-label="Kari Nordmann"></span>`,
+  react: `<Avatar aria-label="Kari Nordmann" />`,
+}

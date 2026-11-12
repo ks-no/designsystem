@@ -1,7 +1,15 @@
+import { renderExample } from '@internal/docs/render'
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import type { SystemBannerArgs } from './system-banner.examples'
+import { html, nothing } from 'lit'
 import * as examples from './system-banner.examples'
+
+type SystemBannerArgs = {
+  color: 'info' | 'warning' | 'success' | 'danger'
+  text: string
+  linkText: string
+  closable: boolean
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'ks',
@@ -17,6 +25,15 @@ const meta: Meta<SystemBannerArgs> = {
     layout: 'fullscreen',
     docs: { canvas: { sourceState: 'none' } },
   },
+  render: renderExample,
+}
+
+export default meta
+
+type Story = StoryObj<SystemBannerArgs>
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
   args: {
     color: 'danger',
     text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
@@ -32,14 +49,35 @@ const meta: Meta<SystemBannerArgs> = {
     linkText: { control: 'text' },
     closable: { control: 'boolean' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  render: (a) =>
+    html`<div class="ksd-system-banner" data-color=${a.color}>
+      <div class="ksd-system-banner__content">
+        <p class="ds-paragraph ksd-system-banner__text">
+          ${a.text}
+          ${
+            a.linkText
+              ? html`<a class="ds-link" href="#support">${a.linkText}</a>`
+              : nothing
+          }
+        </p>
+        ${
+          a.closable
+            ? // Optional, and a no-op: you add the closing behaviour yourself
+              html`<button
+                class="ds-button ksd-system-banner__close"
+                type="button"
+                data-variant="tertiary"
+                data-icon
+                aria-label="Lukk melding"
+              ></button>`
+            : nothing
+        }
+      </div>
+    </div>`,
 }
 
-export default meta
-
-type Story = StoryObj<SystemBannerArgs>
-
 export const Preview: Story = {
+  ...controls,
   parameters: { snippets: examples.preview },
 }
 
@@ -48,17 +86,20 @@ export const Varianter: Story = {
 }
 
 export const LangTekst: Story = {
+  ...controls,
   name: 'Lang tekst',
   args: {
+    ...controls.args,
     text: 'Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.',
   },
-  parameters: { snippets: examples.preview },
+  parameters: { snippets: examples.langTekst },
 }
 
 export const SmalSkjerm: Story = {
+  ...controls,
   name: 'Smal skjerm',
-  parameters: { snippets: examples.preview },
+  parameters: { snippets: examples.smalSkjerm },
   decorators: [
-    (story) => `<div style="max-inline-size: 22rem">${story()}</div>`,
+    (story) => html`<div style="max-inline-size: 22rem">${story()}</div>`,
   ],
 }

@@ -1,8 +1,21 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { commonArgTypes } from '../../../.storybook/args'
-import type { PaginationArgs } from './pagination.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './pagination.examples'
+
+type PaginationArgs = {
+  current: number
+  total: number
+  show: number
+  'aria-label': string
+  /** Makes the page controls links. `%d` is replaced with the page number. */
+  href?: string
+  'data-size'?: string
+  'data-color'?: string
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -82,22 +95,74 @@ const ksd: KsdDocsParameters = {
 const meta: Meta<PaginationArgs> = {
   title: 'Komponenter/Pagination',
   parameters: { ksd, docs: { canvas: { sourceState: 'none' } } },
-  args: { current: 4, total: 10, show: 7, 'aria-label': 'Bla i sider' },
-  argTypes: {
-    ...commonArgTypes,
-    current: { control: { type: 'number', min: 1 } },
-    total: { control: { type: 'number', min: 1 } },
-    show: { control: { type: 'number', min: 3, max: 11 } },
-    'aria-label': { control: 'text' },
-  },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  argTypes: commonArgTypes,
+  render: renderExample,
 }
 export default meta
 
 type Story = StoryObj<PaginationArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+// <ds-pagination> fills in page numbers, labels and aria-current on the controls,
+// so the controls have no bindings inside them
+const buttons = {
+  previous: html`<li>
+    <button type="button" class="ds-button" data-variant="tertiary">
+      Forrige
+    </button>
+  </li>`,
+  page: html`<li>
+    <button type="button" class="ds-button" data-variant="tertiary"></button>
+  </li>`,
+  next: html`<li>
+    <button type="button" class="ds-button" data-variant="tertiary">
+      Neste
+    </button>
+  </li>`,
+}
+const links = {
+  previous: html`<li>
+    <a class="ds-button" data-variant="tertiary">Forrige</a>
+  </li>`,
+  page: html`<li><a class="ds-button" data-variant="tertiary"></a></li>`,
+  next: html`<li><a class="ds-button" data-variant="tertiary">Neste</a></li>`,
+}
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: { current: 4, total: 10, show: 7, 'aria-label': 'Bla i sider' },
+  argTypes: {
+    current: { control: { type: 'number', min: 1 } },
+    total: { control: { type: 'number', min: 1 } },
+    show: { control: { type: 'number', min: 3, max: 11 } },
+    'aria-label': { control: 'text' },
+    href: { control: 'text' },
+  },
+  render: (a) => {
+    const control = a.href ? links : buttons
+    return html`<ds-pagination
+      class="ds-pagination"
+      data-current=${a.current}
+      data-total=${a.total}
+      data-href=${ifDefined(a.href || undefined)}
+      aria-label=${a['aria-label']}
+      data-size=${ifDefined(a['data-size'])}
+      data-color=${ifDefined(a['data-color'])}
+    >
+      <ol>
+        ${control.previous}
+        ${Array.from({ length: a.show }, () => control.page)} ${control.next}
+      </ol>
+    </ds-pagination>`
+  },
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const MedLenker: Story = {
+  ...controls,
   name: 'Med lenker',
+  args: { ...controls.args, href: '?side=%d' },
   parameters: { snippets: examples.withLinks },
 }

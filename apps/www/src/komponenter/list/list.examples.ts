@@ -1,35 +1,41 @@
-import { component, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
-export type ListArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-}
-
-// No Angular component: Angular uses the HTML
 export const imports: Imports = {
   react: `import { List } from '@ks-digital/designsystem-react'`,
 }
 
-const Unordered = component({ html: 'ul.ds-list', react: 'List.Unordered' })
-const Ordered = component({ html: 'ol.ds-list', react: 'List.Ordered' })
-const Item = component({ html: 'li', react: 'List.Item' })
+export const preview: Snippets = {
+  html: `<ul class="ds-list">
+  <li>Situasjonskart</li>
+  <li>Tegninger av tiltaket</li>
+  <li>Nabovarsel</li>
+</ul>`,
+  angular: `<ul class="ds-list">
+  <li>Situasjonskart</li>
+  <li>Tegninger av tiltaket</li>
+  <li>Nabovarsel</li>
+</ul>`,
+  react: `<List.Unordered>
+  <List.Item>Situasjonskart</List.Item>
+  <List.Item>Tegninger av tiltaket</List.Item>
+  <List.Item>Nabovarsel</List.Item>
+</List.Unordered>`,
+}
 
-export const preview = (args: ListArgs) =>
-  snippets(
-    Unordered(
-      args,
-      Item({}, 'Situasjonskart'),
-      Item({}, 'Tegninger av tiltaket'),
-      Item({}, 'Nabovarsel'),
-    ),
-  )
-
-export const ordered = (args: ListArgs) =>
-  snippets(
-    Ordered(
-      args,
-      Item({}, 'Fyll ut søknaden'),
-      Item({}, 'Last opp vedlegg'),
-      Item({}, 'Send inn og få kvittering på e-post'),
-    ),
-  )
+export const ordered: Snippets = {
+  html: `<ol class="ds-list">
+  <li>Fyll ut søknaden</li>
+  <li>Last opp vedlegg</li>
+  <li>Send inn og få kvittering på e-post</li>
+</ol>`,
+  angular: `<ol class="ds-list">
+  <li>Fyll ut søknaden</li>
+  <li>Last opp vedlegg</li>
+  <li>Send inn og få kvittering på e-post</li>
+</ol>`,
+  react: `<List.Ordered>
+  <List.Item>Fyll ut søknaden</List.Item>
+  <List.Item>Last opp vedlegg</List.Item>
+  <List.Item>Send inn og få kvittering på e-post</List.Item>
+</List.Ordered>`,
+}

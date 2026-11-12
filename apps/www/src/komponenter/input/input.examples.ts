@@ -1,55 +1,53 @@
-import { per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-import {
-  angularFormsImport,
-  htmlImports,
-  reactImport,
-  textField,
-} from '../field/form-parts'
-
-export type InputArgs = {
-  type: 'text' | 'email' | 'tel' | 'number' | 'date' | 'password'
-  'data-size'?: 'sm' | 'md' | 'lg'
-  label: string
-  disabled?: boolean
-  readonly?: boolean
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
-  html: htmlImports,
-  angular: angularFormsImport('Field', 'Input', 'Label'),
-  react: reactImport('Field', 'Input', 'Label'),
+  html: `import '@ks-digital/designsystem-web'`,
+  angular: `import {
+  Field,
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'`,
+  react: `import { Field, Input, Label } from '@ks-digital/designsystem-react'`,
 }
 
-export const preview = ({
-  label,
-  type,
-  disabled,
-  readonly,
-  ...field
-}: InputArgs) =>
-  snippets(
-    textField({
-      label,
-      field,
-      // React's Input is type="text" unless you say otherwise
-      input: {
-        type: type === 'text' ? per({ html: 'text', angular: 'text' }) : type,
-        disabled,
-        readonly,
-      },
-    }),
-  )
+export const preview: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">E-post</label>
+  <input class="ds-input" type="email" />
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>E-post</ksd-label>
+  <input ksd-input type="email" />
+</ksd-field>`,
+  react: `<Field>
+  <Label>E-post</Label>
+  <Input type="email" />
+</Field>`,
+}
 
-export const width = (args: InputArgs) =>
-  snippets(
-    textField({
-      label: 'Postnummer',
-      field: { 'data-size': args['data-size'] },
-      input: {
-        size: 4,
-        inputmode: 'numeric',
-        autocomplete: 'postal-code',
-      },
-    }),
-  )
+export const width: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Postnummer</label>
+  <input
+    class="ds-input"
+    type="text"
+    size="4"
+    inputmode="numeric"
+    autocomplete="postal-code"
+  />
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Postnummer</ksd-label>
+  <input
+    ksd-input
+    type="text"
+    size="4"
+    inputmode="numeric"
+    autocomplete="postal-code"
+  />
+</ksd-field>`,
+  react: `<Field>
+  <Label>Postnummer</Label>
+  <Input size={4} inputMode="numeric" autoComplete="postal-code" />
+</Field>`,
+}

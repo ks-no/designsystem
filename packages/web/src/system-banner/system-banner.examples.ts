@@ -1,61 +1,117 @@
-import { el, htmlSnippets, type Node } from '@internal/storybook/markup'
+import type { HtmlSnippets } from '@internal/storybook/snippets'
 
-export type SystemBannerArgs = {
-  color: 'info' | 'warning' | 'success' | 'danger'
-  text: string
-  linkText: string
-  closable: boolean
+export const preview: HtmlSnippets = {
+  html: `<div class="ksd-system-banner" data-color="danger">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
+      <a class="ds-link" href="#support">Kontakt support</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>`,
 }
 
-const banner = ({ color, text, linkText, closable }: SystemBannerArgs): Node =>
-  el(
-    'div.ksd-system-banner',
-    { 'data-color': color },
-    el(
-      'div.ksd-system-banner__content',
-      {},
-      el(
-        'p.ds-paragraph.ksd-system-banner__text',
-        {},
-        text,
-        linkText && el('a.ds-link', { href: '#support' }, linkText),
-      ),
-      // Optional, and a no-op: you add the closing behaviour yourself
-      closable &&
-        el('button.ds-button.ksd-system-banner__close', {
-          type: 'button',
-          'data-variant': 'tertiary',
-          'data-icon': true,
-          'aria-label': 'Lukk melding',
-        }),
-    ),
-  )
+export const variants: HtmlSnippets = {
+  html: `<div class="ksd-system-banner" data-color="danger">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
+      <a class="ds-link" href="#support">Kontakt support</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>
+<div class="ksd-system-banner" data-color="warning">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.
+      <a class="ds-link" href="#support">Kontakt support</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>
+<div class="ksd-system-banner" data-color="success">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Alle systemene våre er oppe og går!
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>
+<div class="ksd-system-banner" data-color="info">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Her kommer en informativ statusoppdatering fra systemet.
+      <a class="ds-link" href="#support">Sjekk mer opp i dette her</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>`,
+}
 
-// Pure CSS: the same markup in every framework
-export const preview = (args: SystemBannerArgs) => htmlSnippets(banner(args))
+export const langTekst: HtmlSnippets = {
+  html: `<div class="ksd-system-banner" data-color="danger">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.
+      <a class="ds-link" href="#support">Kontakt support</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>`,
+}
 
-export const variants = (args: SystemBannerArgs) =>
-  htmlSnippets(
-    banner({
-      ...args,
-      color: 'danger',
-      text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
-    }),
-    banner({
-      ...args,
-      color: 'warning',
-      text: 'Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.',
-    }),
-    banner({
-      ...args,
-      color: 'success',
-      text: 'Alle systemene våre er oppe og går!',
-      linkText: '',
-    }),
-    banner({
-      ...args,
-      color: 'info',
-      text: 'Her kommer en informativ statusoppdatering fra systemet.',
-      linkText: 'Sjekk mer opp i dette her',
-    }),
-  )
+export const smalSkjerm: HtmlSnippets = {
+  html: `<div class="ksd-system-banner" data-color="danger">
+  <div class="ksd-system-banner__content">
+    <p class="ds-paragraph ksd-system-banner__text">
+      Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
+      <a class="ds-link" href="#support">Kontakt support</a>
+    </p>
+    <button
+      class="ds-button ksd-system-banner__close"
+      type="button"
+      data-variant="tertiary"
+      data-icon
+      aria-label="Lukk melding"
+    ></button>
+  </div>
+</div>`,
+}

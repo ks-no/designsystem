@@ -1,22 +1,16 @@
-import { component, el, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type SkipLinkArgs = {
-  label: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   react: `import { SkipLink } from '@ks-digital/designsystem-react'`,
 }
 
-// Angular has no SkipLink component: use the HTML
-const SkipLink = component({ html: 'a.ds-skip-link', react: 'SkipLink' })
-
-export const preview = ({ label }: SkipLinkArgs) => {
-  const id = 'hovedinnhold'
-  return snippets(
-    // First on the page, so it's the first thing Tab reaches
-    SkipLink({ href: `#${id}` }, label),
-    el('main', { id, tabindex: -1 }, 'Hovedinnholdet på siden'),
-  )
+export const preview: Snippets = {
+  html: `<a class="ds-skip-link" href="#hovedinnhold">Hopp til hovedinnhold</a>
+<main id="hovedinnhold" tabindex="-1">Hovedinnholdet på siden</main>`,
+  angular: `<a class="ds-skip-link" href="#hovedinnhold">Hopp til hovedinnhold</a>
+<main id="hovedinnhold" tabindex="-1">Hovedinnholdet på siden</main>`,
+  react: `<>
+  <SkipLink href="#hovedinnhold">Hopp til hovedinnhold</SkipLink>
+  <main id="hovedinnhold" tabIndex={-1}>Hovedinnholdet på siden</main>
+</>`,
 }

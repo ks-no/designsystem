@@ -8,6 +8,7 @@ import { MdxCode, MdxPre } from './blocks/MdxCode'
 import { FRAMEWORK_GLOBAL, isFramework } from './blocks/useFramework'
 import customTheme from './customTheme'
 import './docs.css'
+import { withSizeAndColor } from './render'
 
 const FRAMEWORK_STORAGE_KEY = 'ksd-docs-framework'
 
@@ -143,6 +144,7 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
 
 const preview: Preview = {
   decorators: [
+    withSizeAndColor,
     (story, context) => {
       applyGlobals(context.globals as Record<string, string>)
       return story()

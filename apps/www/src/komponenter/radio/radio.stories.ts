@@ -1,8 +1,17 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { sizes } from '../../../.storybook/args'
-import type { RadioArgs } from './radio.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './radio.examples'
+
+type RadioArgs = {
+  'data-size'?: string
+  'data-variant'?: 'outline'
+  legend: string
+  disabled?: boolean
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -17,20 +26,57 @@ const meta: Meta<RadioArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
-  args: { legend: 'Hvordan vil du få svar på søknaden?', disabled: false },
   argTypes: {
     'data-size': { options: [...sizes], control: { type: 'radio' } },
-    'data-variant': { options: ['outline'], control: { type: 'radio' } },
-    legend: { control: 'text' },
-    disabled: { control: 'boolean' },
   },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  render: renderExample,
 }
 export default meta
 
 type Story = StoryObj<RadioArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+const answers = [
+  ['digital', 'Digital postkasse'],
+  ['brev', 'Brev i posten'],
+  ['servicetorget', 'Hente på servicetorget'],
+]
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: { legend: 'Hvordan vil du få svar på søknaden?', disabled: false },
+  argTypes: {
+    'data-variant': { options: ['outline'], control: { type: 'radio' } },
+    legend: { control: 'text' },
+    disabled: { control: 'boolean' },
+  },
+  render: (a) =>
+    html`<fieldset class="ds-fieldset">
+      <legend class="ds-label">${a.legend}</legend>
+      <p class="ds-paragraph">Vi sender svaret innen tre uker.</p>
+      ${answers.map(
+        ([value, label]) =>
+          html`<ds-field
+            class="ds-field"
+            data-size=${ifDefined(a['data-size'])}
+            data-variant=${ifDefined(a['data-variant'])}
+          >
+            <input
+              class="ds-input"
+              type="radio"
+              name="svar"
+              value=${value}
+              ?disabled=${a.disabled}
+            />
+            <label class="ds-label">${label}</label>
+          </ds-field>`,
+      )}
+    </fieldset>`,
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const MedFeilmelding: Story = {
   name: 'Med feilmelding',
   parameters: { snippets: examples.withError },

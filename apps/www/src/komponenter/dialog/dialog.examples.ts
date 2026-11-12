@@ -1,10 +1,4 @@
-import { component, expr, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-
-export type DialogArgs = {
-  closedby?: 'any' | 'closerequest' | 'none'
-  'data-placement'?: 'top' | 'bottom' | 'left' | 'right'
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -15,94 +9,132 @@ import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,
   react: `import { Button, Dialog, Heading, Paragraph } from '@ks-digital/designsystem-react'`,
 }
 
-const Button = component({
-  html: 'button.ds-button',
-  angular: 'button[ksd-button]',
-  react: 'Button',
-  reactProps: { 'data-variant': 'variant', 'data-icon': 'icon' },
-})
-const Dialog = component({
-  html: 'dialog.ds-dialog',
-  angular: 'dialog[ksd-dialog]',
-  react: 'Dialog',
-  reactProps: { 'data-placement': 'placement' },
-})
-const Heading = component({
-  html: 'h2.ds-heading',
-  angular: 'h2[ksd-heading]',
-  react: 'Heading',
-})
-const Paragraph = component({
-  html: 'p.ds-paragraph',
-  angular: 'p[ksd-paragraph]',
-  react: 'Paragraph',
-})
-
-// React's Button sets type="button" itself
-const type = per({ html: 'button', angular: 'button' })
-
-/** The close button in the corner. React's Dialog adds it itself. */
-const closeButton = (id: string) =>
-  per({
-    html: closeButtonNode(id),
-    angular: closeButtonNode(id),
-  })
-const closeButtonNode = (id: string) =>
-  Button({
-    type,
-    'data-variant': 'tertiary',
-    'data-color': 'neutral',
-    'data-icon': true,
-    'aria-label': 'Lukk dialogvindu',
-    command: 'close',
-    commandfor: id,
-  })
-
-export const preview = (args: DialogArgs) => {
-  const id = 'dialog-behandling'
-  return snippets(
-    Button(
-      { type, command: 'show-modal', commandfor: id },
-      'Les om saksbehandlingen',
-    ),
-    Dialog(
-      { id, ...args },
-      closeButton(id),
-      Heading(
-        { level: per({ react: 2 }), 'data-size': 'xs' },
-        'Slik behandler vi søknaden',
-      ),
-      Paragraph(
-        {},
-        'Vi behandler søknadene i den rekkefølgen de kommer inn. Du får svar innen fire uker.',
-      ),
-    ),
-  )
+export const preview: Snippets = {
+  html: `<button
+  class="ds-button"
+  type="button"
+  command="show-modal"
+  commandfor="dialog-behandling"
+>
+  Les om saksbehandlingen
+</button>
+<dialog class="ds-dialog" id="dialog-behandling">
+  <button
+    class="ds-button"
+    type="button"
+    data-variant="tertiary"
+    data-color="neutral"
+    data-icon
+    aria-label="Lukk dialogvindu"
+    command="close"
+    commandfor="dialog-behandling"
+  ></button>
+  <h2 class="ds-heading" data-size="xs">Slik behandler vi søknaden</h2>
+  <p class="ds-paragraph">
+    Vi behandler søknadene i den rekkefølgen de kommer inn. Du får svar innen fire uker.
+  </p>
+</dialog>`,
+  angular: `<button
+  ksd-button
+  type="button"
+  command="show-modal"
+  commandfor="dialog-behandling"
+>
+  Les om saksbehandlingen
+</button>
+<dialog ksd-dialog id="dialog-behandling">
+  <button
+    ksd-button
+    type="button"
+    data-variant="tertiary"
+    data-color="neutral"
+    data-icon
+    aria-label="Lukk dialogvindu"
+    command="close"
+    commandfor="dialog-behandling"
+  ></button>
+  <h2 ksd-heading data-size="xs">Slik behandler vi søknaden</h2>
+  <p ksd-paragraph>
+    Vi behandler søknadene i den rekkefølgen de kommer inn. Du får svar innen fire uker.
+  </p>
+</dialog>`,
+  react: `<>
+  <Button command="show-modal" commandfor="dialog-behandling">
+    Les om saksbehandlingen
+  </Button>
+  <Dialog id="dialog-behandling">
+    <Heading level={2} data-size="xs">Slik behandler vi søknaden</Heading>
+    <Paragraph>
+      Vi behandler søknadene i den rekkefølgen de kommer inn. Du får svar innen fire uker.
+    </Paragraph>
+  </Dialog>
+</>`,
 }
 
-export const nonModal = (args: DialogArgs) => {
-  const id = 'dialog-hjelp'
-  return snippets(
-    Button(
-      {
-        type,
-        'data-variant': 'secondary',
-        command: '--show-non-modal',
-        commandfor: id,
-      },
-      'Vis hjelp',
-    ),
-    Dialog(
-      { id, ...args, modal: per({ react: expr('false') }) },
-      closeButton(id),
-      Heading(
-        { level: per({ react: 2 }), 'data-size': 'xs' },
-        'Hjelp til utfyllingen',
-      ),
-      Paragraph(
-        {},
-        'Du kan fortsette å fylle ut skjemaet mens dette vinduet er åpent.',
-      ),
-    ),
-  )
+export const nonModal: Snippets = {
+  html: `<button
+  class="ds-button"
+  type="button"
+  data-variant="secondary"
+  command="--show-non-modal"
+  commandfor="dialog-hjelp"
+>
+  Vis hjelp
+</button>
+<dialog class="ds-dialog" id="dialog-hjelp">
+  <button
+    class="ds-button"
+    type="button"
+    data-variant="tertiary"
+    data-color="neutral"
+    data-icon
+    aria-label="Lukk dialogvindu"
+    command="close"
+    commandfor="dialog-hjelp"
+  ></button>
+  <h2 class="ds-heading" data-size="xs">Hjelp til utfyllingen</h2>
+  <p class="ds-paragraph">
+    Du kan fortsette å fylle ut skjemaet mens dette vinduet er åpent.
+  </p>
+</dialog>`,
+  angular: `<button
+  ksd-button
+  type="button"
+  data-variant="secondary"
+  command="--show-non-modal"
+  commandfor="dialog-hjelp"
+>
+  Vis hjelp
+</button>
+<dialog ksd-dialog id="dialog-hjelp">
+  <button
+    ksd-button
+    type="button"
+    data-variant="tertiary"
+    data-color="neutral"
+    data-icon
+    aria-label="Lukk dialogvindu"
+    command="close"
+    commandfor="dialog-hjelp"
+  ></button>
+  <h2 ksd-heading data-size="xs">Hjelp til utfyllingen</h2>
+  <p ksd-paragraph>
+    Du kan fortsette å fylle ut skjemaet mens dette vinduet er åpent.
+  </p>
+</dialog>`,
+  react: `<>
+  <Button
+    variant="secondary"
+    command="--show-non-modal"
+    commandfor="dialog-hjelp"
+  >
+    Vis hjelp
+  </Button>
+  <Dialog id="dialog-hjelp" modal={false}>
+    <Heading level={2} data-size="xs">Hjelp til utfyllingen</Heading>
+    <Paragraph>
+      Du kan fortsette å fylle ut skjemaet mens dette vinduet er åpent.
+    </Paragraph>
+  </Dialog>
+</>`,
 }

@@ -1,71 +1,44 @@
-import { component, per, snippets } from '@internal/storybook/markup'
-import type { Imports } from '@internal/storybook/snippets'
-import {
-  Textarea,
-  angularFormsImport,
-  counter,
-  htmlImports,
-  reactImport,
-  textField,
-} from '../field/form-parts'
-
-export type TextfieldArgs = {
-  'data-size'?: 'sm' | 'md' | 'lg'
-  label: string
-  description: string
-  error: string
-}
+import type { Imports, Snippets } from '@internal/storybook/snippets'
 
 export const imports: Imports = {
-  html: htmlImports,
-  angular: angularFormsImport(
-    'Field',
-    'FieldDescription',
-    'FieldError',
-    'Input',
-    'Label',
-  ),
-  react: reactImport('Textfield'),
+  html: `import '@ks-digital/designsystem-web'`,
+  angular: `import {
+  Field,
+  FieldDescription,
+  FieldError,
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'`,
+  react: `import { Textfield } from '@ks-digital/designsystem-react'`,
 }
 
-// React-only: in HTML and Angular you write out what Textfield renders
-const Textfield = component({ html: 'input', react: 'Textfield' })
+export const preview: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Saksnummer</label>
+  <div data-field="description">Står øverst i brevet du fikk fra kommunen.</div>
+  <input class="ds-input" type="text" />
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Saksnummer</ksd-label>
+  <div ksd-field-description>Står øverst i brevet du fikk fra kommunen.</div>
+  <input ksd-input type="text" />
+</ksd-field>`,
+  react: `<Textfield
+  label="Saksnummer"
+  description="Står øverst i brevet du fikk fra kommunen."
+/>`,
+}
 
-export const preview = ({
-  label,
-  description,
-  error,
-  ...field
-}: TextfieldArgs) =>
-  snippets(
-    per({
-      html: textField({ label, description, error, field }),
-      angular: textField({ label, description, error, field }),
-      react: Textfield({ label, description, error, ...field }),
-    }),
-  )
-
-export const multiline = (args: TextfieldArgs) => {
-  const label = 'Kort beskrivelse av saken'
-  const field = { 'data-size': args['data-size'] }
-  const composed = textField({
-    label,
-    field,
-    control: Textarea,
-    input: { rows: 4 },
-    extra: counter(200),
-  })
-  return snippets(
-    per({
-      html: composed,
-      angular: composed,
-      react: Textfield({
-        label,
-        multiline: true,
-        rows: 4,
-        counter: 200,
-        ...field,
-      }),
-    }),
-  )
+export const multiline: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Kort beskrivelse av saken</label>
+  <textarea class="ds-input" rows="4"></textarea>
+  <p class="ds-validation-message" data-field="counter" data-limit="200"></p>
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Kort beskrivelse av saken</ksd-label>
+  <textarea ksd-input rows="4"></textarea>
+  <p class="ds-validation-message" data-field="counter" data-limit="200"></p>
+</ksd-field>`,
+  react: `<Textfield label="Kort beskrivelse av saken" multiline rows={4} counter={200} />`,
 }

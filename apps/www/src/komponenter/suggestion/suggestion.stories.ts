@@ -1,8 +1,18 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
+import { html } from 'lit'
+import { ifDefined } from 'lit/directives/if-defined.js'
 import { commonArgTypes } from '../../../.storybook/args'
-import type { SuggestionArgs } from './suggestion.examples'
+import { renderExample } from '../../../.storybook/render'
 import * as examples from './suggestion.examples'
+
+type SuggestionArgs = {
+  'data-size'?: string
+  'data-color'?: string
+  label: string
+  multiple: boolean
+  creatable: boolean
+}
 
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
@@ -105,24 +115,63 @@ const meta: Meta<SuggestionArgs> = {
     layout: 'padded',
     docs: { canvas: { sourceState: 'none' } },
   },
-  args: { label: 'Velg kommune', multiple: false, creatable: false },
-  argTypes: {
-    ...commonArgTypes,
-    label: { control: 'text' },
-    multiple: { control: 'boolean' },
-    creatable: { control: 'boolean' },
-  },
-  render: (args, { parameters }) => parameters['snippets'](args).html,
+  argTypes: commonArgTypes,
+  render: renderExample,
   decorators: [
     // Full width is too wide for a single field
-    (story) => `<div style="max-inline-size: 30rem">${story()}</div>`,
+    (story) => html`<div style="max-inline-size: 30rem">${story()}</div>`,
   ],
 }
 export default meta
 
 type Story = StoryObj<SuggestionArgs>
 
-export const Preview: Story = { parameters: { snippets: examples.preview } }
+// The value is the municipality number, the label is what the user sees and searches
+const kommuner = [
+  { label: 'Bergen', value: '4601' },
+  { label: 'Kristiansand', value: '4204' },
+  { label: 'Oslo', value: '0301' },
+  { label: 'Stavanger', value: '1103' },
+  { label: 'Trondheim', value: '5001' },
+]
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
+  args: { label: 'Velg kommune', multiple: false, creatable: false },
+  argTypes: {
+    label: { control: 'text' },
+    multiple: { control: 'boolean' },
+    creatable: { control: 'boolean' },
+  },
+  // u-datalist reads data-multiple/data-creatable. The empty option is left empty with
+  // creatable, so ds-suggestion can show «Legg til "…"» in it.
+  render: (a) =>
+    html`<ds-field class="ds-field">
+      <label class="ds-label">${a.label}</label>
+      <ds-suggestion
+        class="ds-suggestion"
+        ?data-multiple=${a.multiple}
+        ?data-creatable=${a.creatable}
+        data-size=${ifDefined(a['data-size'])}
+        data-color=${ifDefined(a['data-color'])}
+      >
+        <input class="ds-input" />
+        <button type="reset"></button>
+        <u-datalist>
+          ${kommuner.map(
+            ({ label, value }) =>
+              html`<u-option value=${value}>${label}</u-option>`,
+          )}
+          <u-option data-empty>${a.creatable ? '' : 'Ingen treff'}</u-option>
+        </u-datalist>
+      </ds-suggestion>
+    </ds-field>`,
+}
+
+export const Preview: Story = {
+  ...controls,
+  parameters: { snippets: examples.preview },
+}
 export const ISkjema: Story = {
   name: 'I skjema',
   parameters: { snippets: examples.inForm },
