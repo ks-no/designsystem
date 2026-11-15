@@ -20,20 +20,6 @@ The Themes and React packages are considered stable. The Angular package is in a
 
 [`@ks-digital/designsystem-angular`](https://www.npmjs.com/package/@ks-digital/designsystem-angular) - Angular implementation of components
 
-## 🚀 Release and Publishing
+## 🤝 Contributing
 
-### Prerequisites
-
-On the main branch, run the following command. Confirm the output with `dry-run`-flag first.
-
-```bash
-pnpm nx release --skip-publish --specifier prerelease --preid alpha --dry-run
-```
-
-This will do the following:
-
-- Generate changelogs based on conventional commits.
-- Perform a semantic version bump. Note: This command will not push the package to Github packages.
-- Push the release to main and create a git tag and a Github release
-
-The [publish pipeline](.github/workflows/publish.yml) will automatically detect the new release and publish the packages to the NPM registry.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, how to add a component, and how to release.
