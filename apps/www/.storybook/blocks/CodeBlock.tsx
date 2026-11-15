@@ -15,7 +15,7 @@ import {
 } from 'react'
 import { CodeFrame, CodeLabel } from './CodeFrame'
 import { Icon } from './icons'
-import { restoreFocus, useFramework } from './useFramework'
+import { useFramework } from './useFramework'
 
 const KEY_STEPS: Record<string, (index: number, count: number) => number> = {
   ArrowRight: (i, n) => (i + 1) % n,
@@ -26,21 +26,21 @@ const KEY_STEPS: Record<string, (index: number, count: number) => number> = {
 
 /**
  * Toolbar of toggle buttons: arrow keys move focus, Enter/Space selects. Selecting
- * re-renders the whole page, so it shouldn't happen just by moving through the options.
+ * switches every code block on the page, so it shouldn't happen just by moving through
+ * the options.
  */
 function FrameworkToggle({
   value,
   onChange,
 }: {
   value: Framework
-  onChange: (framework: Framework, source: Element) => void
+  onChange: (framework: Framework) => void
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const selectedIndex = FRAMEWORKS.findIndex((f) => f.id === value)
   // The one button reachable with Tab (roving tabindex)
   const [focusIndex, setFocusIndex] = useState(selectedIndex)
   useEffect(() => setFocusIndex(selectedIndex), [selectedIndex])
-  useEffect(() => restoreFocus(ref.current))
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     const step = KEY_STEPS[event.key]
@@ -73,8 +73,8 @@ function FrameworkToggle({
           aria-pressed={f.id === value}
           tabIndex={index === focusIndex ? 0 : -1}
           onFocus={() => setFocusIndex(index)}
-          onClick={(event) => {
-            if (f.id !== value) onChange(f.id, event.currentTarget)
+          onClick={() => {
+            if (f.id !== value) onChange(f.id)
           }}
         >
           <Icon name={f.id} />
@@ -95,13 +95,13 @@ interface Props {
 }
 
 /**
- * The code for a story in the selected framework. The framework toggle in the header is
- * global: it switches every code block on the page, the toolbar and the URL.
+ * The code for a story in the selected framework. The framework toggle in the header
+ * switches every code block on the page, and the choice is remembered between visits.
  * Stories whose snippets only have `html` get an "HTML" label instead of the toggle.
  */
 export function CodeBlock({ of, hideImports = false, notes }: Props) {
   const { story } = useOf(of as Parameters<typeof useOf>[0], ['story'])
-  const [framework, setFramework] = useFramework(story)
+  const [framework, setFramework] = useFramework()
 
   const parameters = story.parameters as {
     snippets?: Example
