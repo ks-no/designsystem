@@ -92,8 +92,11 @@
 }
 
 /* Docs page layout: content to the left, table of contents right beside it.
-   Storybook reverses the row, so flex-end is the left side. */
+   Storybook reverses the row, so flex-end is the left side. Storybook pads the page with
+   40px on each side and puts 3rem between the content and the table of contents. */
 .sbdocs.sbdocs-wrapper {
+  --ksd-toc-width: 14rem;
+
   justify-content: flex-end;
 }
 
@@ -101,8 +104,6 @@
    position: fixed, so it needs the width too. Never shrinks, so it can't overlap the
    content. */
 .sbdocs.sbdocs-toc--custom {
-  --ksd-toc-width: 14rem;
-
   flex-shrink: 0;
   width: var(--ksd-toc-width);
 }
@@ -114,4 +115,14 @@
 /* Pages without sections: no lonely toc-title without a list */
 .sbdocs-toc--custom nav:not(:has(.toc-list-item)) {
   display: none;
+}
+
+/* Wide content, like the colour table on "Alle tokens": grows to the right, up to the
+   table of contents. Never narrower than the content; below 768px the table of contents
+   is hidden and the content already fills the page. */
+.ksd-wide {
+  margin-inline-end: min(
+    0px,
+    calc(100% + 2 * 40px + 3rem + var(--ksd-toc-width) - 100vw)
+  );
 }
