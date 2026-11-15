@@ -91,6 +91,7 @@ const setup = (el: Element) => {
     el.prepend(icon)
   }
 
+  // Also marks the button as enhanced: the themes CSS hides [data-copy] until this attribute is set
   setState(el, toState(attr(el, ATTR_STATE)))
 }
 

@@ -23,6 +23,10 @@ tastatur, fokus og `disabled` følger nettleseren.
 Importer pakken én gang, og bruk `data-copy` der du trenger det. Et ikon settes
 inn automatisk, og oppdateres etter kopiering.
 
+Siden knappen er avhengig av javascript for å fungere er den skjult inntil javascript har lastet.
+Sørg for at verdien som kopieres også står synlig på siden, slik at den
+kan markeres og kopieres manuelt.
+
 ## Uten synlig tekst
 
 En knapp uten tekstinnhold blir kvadratisk med `data-icon`. Sett
@@ -43,7 +47,8 @@ tooltip og som tilgjengelig navn.
 - `data-copy-label` / `data-copied-label` / `data-error-label`: tekst i tooltip
   og som tilgjengelig navn. Standard: `Kopier`, `Kopiert`, `Kopiering feilet`
 - `data-copy-state`: settes av knappen til `rest`, `success` eller `error`, og
-  kan brukes til styling
+  kan brukes til styling. Ikke sett den selv: knappen vises først når
+  attributtet er satt
 
 ## Events
 

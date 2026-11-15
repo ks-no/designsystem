@@ -1,0 +1,6 @@
+@layer ksd {
+  /* Hidden until the web package enhances it: without JS the button can't copy, and an icon-only one has no name */
+  [data-copy]:not([data-copy-state]) {
+    display: none;
+  }
+}
