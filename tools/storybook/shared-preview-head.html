@@ -21,15 +21,14 @@
     font-size: 18px;
   }
 
+  /* Storybook underlines links itself (text-decoration), so no extra line here */
   .sbdocs-a {
-    border-bottom: 0;
-    box-shadow: inset 0 -1px 0 currentColor;
     font-weight: 500;
     color: #005db1 !important;
   }
 
   .sbdocs-a:hover {
-    box-shadow: inset 0 -2px 0 currentColor;
+    text-decoration-thickness: 2px;
   }
 
   /* Increase font-size - scoped to docs pages, excluding story canvases */
