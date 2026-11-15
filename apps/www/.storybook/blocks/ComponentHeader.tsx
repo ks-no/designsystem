@@ -16,30 +16,50 @@ export function useKsdParameters(of: unknown): KsdDocsParameters {
 export const digdirUrl = (slug: string) =>
   `https://designsystemet.no/no/components/docs/${slug}/overview`
 
-/** Points to designsystemet.no for guidelines, for components from Designsystemet */
+/**
+ * Under the title: an "Utarbeidet av KS Digital" tag on our own components, and for components from
+ * Designsystemet a pointer to designsystemet.no for guidelines. Designsystemet components
+ * get no tag, the alert already says where they come from. The "Opphav" section at the
+ * bottom has the details.
+ */
 export function ComponentHeader({ of }: Props) {
   const ksd = useKsdParameters(of)
-  if (!ksd.digdir) return null
+  const ours = ksd.origin !== 'digdir'
+  if (!ours && !ksd.digdir) return null
 
   return (
     <div
-      className="sb-unstyled ds-alert"
-      data-color="info"
-      style={{ marginBlockEnd: 'var(--ds-size-6)' }}
+      className="sb-unstyled"
+      style={{
+        display: 'grid',
+        gap: 'var(--ds-size-4)',
+        justifyItems: 'start',
+        marginBlockEnd: 'var(--ds-size-6)',
+      }}
     >
-      <p className="ds-paragraph">
-        De fleste retningslinjene for bruk av denne komponenten står på
-        designsystemet.no. Vi gjentar dem ikke her, for å unngå dobbel
-        informasjon.
-      </p>
-      <a
-        className="ds-link"
-        href={digdirUrl(ksd.digdir)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Les dokumentasjonen på designsystemet.no
-      </a>
+      {ours && (
+        // The KS support colour, not blue like the info alert on the other pages
+        <span className="ds-tag" data-color="support1" data-size="sm">
+          Utarbeidet av KS Digital
+        </span>
+      )}
+      {ksd.digdir && (
+        <div className="ds-alert" data-color="info">
+          <p className="ds-paragraph">
+            De fleste retningslinjene for bruk av denne komponenten står på
+            designsystemet.no. Vi gjentar dem ikke her, for å unngå dobbel
+            informasjon.
+          </p>
+          <a
+            className="ds-link"
+            href={digdirUrl(ksd.digdir)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Les dokumentasjonen på designsystemet.no
+          </a>
+        </div>
+      )}
     </div>
   )
 }

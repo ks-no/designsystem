@@ -1,4 +1,5 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
 import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
 import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as CopyButtonStories from './copy-button.stories'
@@ -6,6 +7,8 @@ import * as CopyButtonStories from './copy-button.stories'
 <Meta of={CopyButtonStories} />
 
 # Copy button
+
+<ComponentHeader of={CopyButtonStories} />
 
 `data-copy` gjør en vanlig `button` om til en kopier-knapp: verdien legges på
 utklippstavlen når brukeren trykker. Knappen er et native `button`-element, så
