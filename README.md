@@ -6,6 +6,8 @@ The KS Digital Designsystem builds upon [Designsystemet from Digdir](https://www
 
 Our goal is to align closely with the components and design decisions of Designsystemet while maintaining a set of custom components that address the unique requirements of our projects. This approach ensures consistency with established standards while allowing flexibility for customization.
 
+The web package is built with progressive enhancement: components start from HTML that works without JavaScript, and scripts only add to it. Read [`packages/web/AGENTS.md`](packages/web/AGENTS.md) before building or changing a component there.
+
 ## 📦 Packages
 
 The Themes and React packages are considered stable. The Angular package is in active development and may introduce breaking changes as it evolves toward web component integration.
