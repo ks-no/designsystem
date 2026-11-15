@@ -180,6 +180,8 @@ const preview: Preview = {
       page: ComponentPage,
       // Fenced code blocks in MDX get the same frame as CodeBlock
       components: { code: MdxCode, pre: MdxPre },
+      // Sections are h2 (## in MDX, <Heading> in the blocks); some guides use ### too
+      toc: { title: 'På denne siden', headingSelector: 'h2, h3' },
       story: {
         inline: true,
       },

@@ -90,3 +90,28 @@
 .ksd-code__header .ds-button .ksd-code__icon {
   font-size: 14px;
 }
+
+/* Docs page layout: content to the left, table of contents right beside it.
+   Storybook reverses the row, so flex-end is the left side. */
+.sbdocs.sbdocs-wrapper {
+  justify-content: flex-end;
+}
+
+/* Wider than Storybook's 10rem, so section names fit on one line. The list inside is
+   position: fixed, so it needs the width too. Never shrinks, so it can't overlap the
+   content. */
+.sbdocs.sbdocs-toc--custom {
+  --ksd-toc-width: 14rem;
+
+  flex-shrink: 0;
+  width: var(--ksd-toc-width);
+}
+
+.sbdocs-toc--custom nav {
+  width: var(--ksd-toc-width);
+}
+
+/* Pages without sections: no lonely toc-title without a list */
+.sbdocs-toc--custom nav:not(:has(.toc-list-item)) {
+  display: none;
+}
