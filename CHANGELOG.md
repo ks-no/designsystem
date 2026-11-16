@@ -1,3 +1,18 @@
+## 0.0.1-alpha.81
+
+### 🩹 Fixes
+
+- ⚠️ **angular/dropdown:** `bottom` as default placement ([#395](https://github.com/ks-no/designsystem/pull/395))
+- **themes:** update readme: `forvaltning` -> `ksdigital` ([246b273](https://github.com/ks-no/designsystem/commit/246b273))
+
+### ⚠️ Breaking Changes
+
+- **angular/dropdown:** `bottom` as default placement ([#395](https://github.com/ks-no/designsystem/pull/395))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.80
 
 ### 🩹 Fixes
