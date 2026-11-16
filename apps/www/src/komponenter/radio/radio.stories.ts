@@ -63,7 +63,7 @@ const controls: Story = {
             <input
               class="ds-input"
               type="radio"
-              name="svar"
+              name="svar-preview"
               value=${value}
               ?disabled=${a.disabled}
             />
