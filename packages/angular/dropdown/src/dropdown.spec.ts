@@ -103,13 +103,13 @@ describe('Dropdown', () => {
   })
 })
 
-it('should default to bottom-end placement, like React', async () => {
+it('should default to bottom placement', async () => {
   await render(`<div ksd-dropdown data-testid="dropdown"></div>`, {
     imports: [Dropdown],
   })
 
   expect(screen.getByTestId('dropdown')).toHaveAttribute(
     'data-placement',
-    'bottom-end',
+    'bottom',
   )
 })
