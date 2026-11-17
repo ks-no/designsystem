@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core'
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core'
 import {
   HostColor,
   HostSize,
@@ -10,6 +15,7 @@ import {
   template: `<ng-content />`,
   host: {
     class: 'ds-chip',
+    '[attr.data-removable]': 'dataRemovable() || null',
   },
   hostDirectives: [
     {
@@ -28,5 +34,8 @@ export class Chip {
    * If using this, you should add an aria-label as well, e.g "Slett {item}"
    * @attribute data-removable
    */
-  dataRemovable = input<boolean>(false, { alias: 'data-removable' })
+  readonly dataRemovable = input(false, {
+    alias: 'data-removable',
+    transform: booleanAttribute,
+  })
 }

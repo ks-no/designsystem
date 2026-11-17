@@ -1,0 +1,28 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as ErrorSummaryStories from './error-summary.stories'
+
+<Meta of={ErrorSummaryStories} />
+
+# Error Summary
+
+<ComponentHeader of={ErrorSummaryStories} />
+
+<Canvas of={ErrorSummaryStories.Preview} />
+<Controls of={ErrorSummaryStories.Preview} />
+<CodeBlock of={ErrorSummaryStories.Preview} />
+
+## Bruk
+
+- Hver lenke peker til feltet med feilen, med `href="#id-til-feltet"`. Bruk samme
+  tekst som feilmeldingen ved feltet.
+- Komponenten får navnet sitt fra overskriften, så du trenger ikke sette
+  `aria-labelledby` selv.
+- I HTML og React flytter `ds-error-summary` fokus til seg selv når den kommer på
+  siden. I Angular gjør du det selv: hent komponenten med `viewChild(ErrorSummary)`
+  og kall `focus()` når du viser den. Eksempelet på denne siden flytter ikke fokus,
+  så siden ikke hopper når du åpner den.
+
+<ComponentOrigin of={ErrorSummaryStories} />

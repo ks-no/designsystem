@@ -30,9 +30,6 @@
   },
   "devDependencies": {
     "@ks-digital/designsystem-themes": "workspace:*",
-    "@storybook/addon-docs": "catalog:storybook",
-    "@storybook/react": "catalog:storybook",
-    "@storybook/react-vite": "catalog:storybook",
     "@testing-library/react": "catalog:testing-library",
     "@vitejs/plugin-react-swc": "^4.3.3",
     "eslint-plugin-jsx-a11y": "^6.10.2",

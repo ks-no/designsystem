@@ -102,11 +102,6 @@ const preview: Preview = {
     },
   ],
   parameters: {
-    options: {
-      storySort: {
-        order: ['Introduksjon', '*'],
-      },
-    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

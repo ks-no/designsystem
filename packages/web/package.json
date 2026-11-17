@@ -33,7 +33,6 @@
     "@storybook/web-components-vite": "catalog:storybook",
     "@testing-library/jest-dom": "catalog:testing-library",
     "lit": "catalog:lit",
-    "remark-gfm": "^4.0.1",
     "storybook": "catalog:storybook",
     "typescript": "catalog:typescript",
     "vitest-axe": "catalog:vitest-a11y"

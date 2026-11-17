@@ -79,10 +79,7 @@ catalogs:
   storybook:
     '@storybook/addon-docs': '10.6.2'
     '@storybook/angular': '10.6.3'
-    '@storybook/html': '10.6.2'
     '@storybook/html-vite': '10.6.3'
-    '@storybook/react': '10.6.2'
-    '@storybook/react-vite': '10.6.2'
     '@storybook/web-components': '10.6.2'
     '@storybook/web-components-vite': '10.6.2'
     storybook: '10.6.3'

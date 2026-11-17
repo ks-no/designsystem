@@ -2,9 +2,15 @@
   "name": "www",
   "private": true,
   "devDependencies": {
+    "@digdir/designsystemet-web": "catalog:designsystemet",
     "@storybook/addon-docs": "catalog:storybook",
-    "@storybook/html": "catalog:storybook",
-    "@storybook/html-vite": "catalog:storybook",
+    "@storybook/web-components": "catalog:storybook",
+    "@storybook/web-components-vite": "catalog:storybook",
+    "@types/react": "catalog:react",
+    "lit": "catalog:lit",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "remark-gfm": "^4.0.1",
     "storybook": "catalog:storybook"
   }
 }

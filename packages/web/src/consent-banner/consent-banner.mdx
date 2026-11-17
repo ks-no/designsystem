@@ -1,9 +1,14 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as ConsentBannerStories from './consent-banner.stories'
 
 <Meta of={ConsentBannerStories} />
 
 # Consent banner
+
+<ComponentHeader of={ConsentBannerStories} />
 
 Samtykkebanner for å be brukerne om lov til å lagre informasjon på enheten
 deres. Komponenten er ren CSS og følger
@@ -11,34 +16,7 @@ deres. Komponenten er ren CSS og følger
 
 <Canvas of={ConsentBannerStories.Preview} />
 <Controls of={ConsentBannerStories.Preview} />
-
-## Bruk
-
-```html
-<section class="ksd-consent-banner" aria-labelledby="samtykkebanner-tittel">
-  <div class="ksd-consent-banner__content">
-    <h2 class="ds-heading" data-size="md" id="samtykkebanner-tittel">
-      Får vi samle informasjon om hvordan nettsiden brukes?
-    </h2>
-    <p class="ds-paragraph">
-      Hvis du svarer ja, lagrer og analyserer vi informasjon som hjelper oss å
-      forbedre nettsiden. Du kan når som helst endre valget ditt nederst på
-      siden.
-      <a class="ds-link" href="/personvern">Mer om hva vi lagrer og hvorfor.</a>
-    </p>
-    <div class="ksd-consent-banner__actions">
-      <button class="ds-button" type="button">Ja</button>
-      <button class="ds-button" type="button">Nei</button>
-    </div>
-    <p class="ds-paragraph ksd-consent-banner__footnote" data-size="sm">
-      <a class="ds-link" href="/personvern#nodvendig"
-        >Vi lagrer også nødvendig informasjon</a
-      >
-      som ikke kan velges bort. Dette gjør at nettsiden fungerer og er trygg.
-    </p>
-  </div>
-</section>
-```
+<CodeBlock of={ConsentBannerStories.Preview} />
 
 ## Plassering og semantikk
 
@@ -104,3 +82,5 @@ formålene endrer seg.
 
 Banneret skal vises helt til brukeren har svart, også på tvers av sider. Ingen
 valgfrie teknologier skal starte før brukeren har svart ja.
+
+<ComponentOrigin of={ConsentBannerStories} />

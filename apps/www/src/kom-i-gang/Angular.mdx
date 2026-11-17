@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Kom i gang/Angular" />
+
+# Angular
+
+Angular-pakken er et tynt lag med standalone-komponenter og -direktiver oppå
+Designsystemet sin web-pakke. Den gir deg typede inputs for (data-)attributtene, og
+Angular-tilpasset oppførsel for blant annet Pagination, Suggestion og skjemaer.
+
+## Installasjon
+
+```bash
+pnpm add @ks-digital/designsystem-angular @ks-digital/designsystem-themes
+```
+
+Hvis du ikke allerede har gjort det, sett opp et [tema](/docs/design-tokens-temaer--docs).
+
+## Bruk
+
+Hver komponent har sitt eget entrypoint. Importér bare det du trenger:
+
+```ts
+import { Button } from '@ks-digital/designsystem-angular/button'
+
+@Component({
+  imports: [Button],
+  template: `<button ksd-button data-variant="secondary">Lagre</button>`,
+})
+export class MyComponent {}
+```
+
+## Bidrag og spørsmål
+
+Har du spørsmål eller ønsker å bidra? Ta kontakt på `fiks@ksdigital.no` eller i
+Slack-kanalen `#designsystem` &hearts;.
