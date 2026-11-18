@@ -21,7 +21,6 @@ const ksd: KsdDocsParameters = {
 
 const meta: Meta<TableArgs> = {
   title: 'Komponenter/Table',
-  tags: ['autodocs'],
   parameters: {
     ksd,
     layout: 'padded',
@@ -87,4 +86,8 @@ export const Sorterbar: Story = { parameters: { snippets: examples.sortable } }
 export const FastOverskriftsrad: Story = {
   name: 'Fast overskriftsrad',
   parameters: { snippets: examples.stickyHeader },
+}
+export const EkspanderbareRader: Story = {
+  name: 'Ekspanderbare rader',
+  parameters: { snippets: examples.expandable },
 }

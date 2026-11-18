@@ -42,6 +42,11 @@ const config: StorybookConfig = {
     // Map the local themes directory to a public path
     { from: '../../../packages/themes/dist', to: '/css' },
   ],
+  // By path rather than  an import, since packages/web's stories already depend on www and nx would see a cycle
+  previewAnnotations: (entries = []) => [
+    ...entries,
+    join(__dirname, '../../../packages/web/src/index.ts'),
+  ],
   previewHead: (head) =>
     `${head}${readFileSync(join(__dirname, '../../../tools/storybook/shared-preview-head.html'), 'utf-8')}`,
   viteFinal: (config) => {

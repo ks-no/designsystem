@@ -1,4 +1,8 @@
-import type { Imports, Snippets } from '@internal/storybook/snippets'
+import type {
+  HtmlSnippets,
+  Imports,
+  Snippets,
+} from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   angular: `import { Table, TableHeaderCell } from '@ks-digital/designsystem-angular/table'`,
@@ -430,4 +434,60 @@ export const stickyHeader: Snippets = {
     </Table.Body>
   </Table>
 </div>`,
+}
+
+/** Same markup in every framework: the behaviour comes from the web package's script */
+export const expandable: HtmlSnippets = {
+  html: `<table class="ds-table">
+  <thead>
+    <tr>
+      <th>Saksnummer</th>
+      <th>Søknad</th>
+      <th>Mottatt</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <button type="button" aria-expanded="false">2024/1187</button>
+      </td>
+      <td>Byggesøknad</td>
+      <td>04.03.2024</td>
+      <td>Under behandling</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        Tilbygg på 24 m². Saksbehandler: Ingrid Solberg. Nabovarsel er sendt,
+        frist for merknader er 25.03.2024.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" aria-expanded="false">2024/1203</button>
+      </td>
+      <td>Barnehageplass</td>
+      <td>05.03.2024</td>
+      <td>Godkjent</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        Plass i Solsiden barnehage fra 01.08.2024. Tilbudet er akseptert.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" aria-expanded="false">2024/1240</button>
+      </td>
+      <td>Skjenkebevilling</td>
+      <td>11.03.2024</td>
+      <td>Venter på vedlegg</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        Mangler politiattest for styrer og stedfortreder. Søker er varslet.
+      </td>
+    </tr>
+  </tbody>
+</table>`,
 }

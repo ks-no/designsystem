@@ -1,0 +1,99 @@
+@layer ksd {
+  /**
+   * Expandable rows: a button with aria-expanded in the first cell toggles the
+   * row after it, when that row has one cell spanning the columns. The web
+   * package flips aria-expanded on click; everything else is here.
+   */
+  .ds-table {
+    /* No Phosphor: Same chevron as Designsystemet's Details and the table's sort headers, so the icons match */
+    --ksd-table-expand-icon-url: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5.97%209.47a.75.75%200%200%201%201.06%200L12%2014.44l4.97-4.97a.75.75%200%201%201%201.06%201.06l-5.5%205.5a.75.75%200%200%201-1.06%200l-5.5-5.5a.75.75%200%200%201%200-1.06%22%2F%3E%3C%2Fsvg%3E');
+    --ksd-table-expand-icon-size: var(--ds-icon-size);
+  }
+
+  /* The button fills the cell, so the whole cell can be clicked */
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child)
+    > :first-child:has(> button[aria-expanded]) {
+    padding: 0;
+  }
+
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child)
+    > :first-child
+    > button[aria-expanded] {
+    align-items: center;
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    gap: var(--ds-size-2);
+    padding: var(--dsc-table-padding);
+    position: relative;
+    text-align: inherit;
+    width: 100%;
+  }
+
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child)
+    > :first-child
+    > button[aria-expanded]:focus-visible {
+    box-shadow: var(--dsc-focus-boxShadow);
+    outline: var(--dsc-focus-outline);
+    outline-offset: var(--ds-border-width-focus);
+  }
+
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child)
+    > :first-child
+    > button[aria-expanded]::before {
+    background: currentcolor;
+    content: '';
+    flex-shrink: 0;
+    forced-color-adjust: none;
+    height: var(--ksd-table-expand-icon-size);
+    mask: center / contain no-repeat var(--ksd-table-expand-icon-url);
+    width: var(--ksd-table-expand-icon-size);
+  }
+
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child)
+    > :first-child
+    > button[aria-expanded='true']::before {
+    rotate: 180deg;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ds-table
+      > tbody
+      > tr:has(+ tr > td[colspan]:only-child)
+      > :first-child
+      > button[aria-expanded]::before {
+      transition: rotate 0.2s;
+    }
+  }
+
+  /* The open row and its details read as one block */
+  .ds-table
+    > tbody
+    > tr:has(+ tr > td[colspan]:only-child):has(
+      > :first-child > button[aria-expanded='true']
+    )
+    > * {
+    border-bottom: 0;
+  }
+
+  .ds-table
+    > tbody
+    > tr:has(> :first-child > button[aria-expanded='false'])
+    + tr:has(> td[colspan]:only-child) {
+    display: none;
+  }
+}
