@@ -46,6 +46,15 @@ describe('expandable rows', () => {
       `<tr><td>2024/1187</td><td>${toggle}</td></tr>
        <tr><td colspan="2">Detaljer</td></tr>`,
     ],
+    [
+      'no detail row follows',
+      `<tr><td>${toggle}</td><td>Byggesøknad</td></tr>
+       <tr><td>2024/1188</td><td>Dispensasjon</td></tr>`,
+    ],
+    [
+      'it is in the last row',
+      `<tr><td>${toggle}</td><td>Byggesøknad</td></tr>`,
+    ],
   ])('leaves a button alone when %s', (_, body) => {
     const button = mount(body)
 

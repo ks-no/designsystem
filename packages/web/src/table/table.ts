@@ -1,7 +1,9 @@
 import { attr, getComposedTarget, on, onHotReload } from '../utils/utils'
 
-// The themes CSS also requires a detail row after it (one cell with colspan) before it hides anything
-const SELECTOR = '.ds-table > tbody > tr > :first-child > button[aria-expanded]'
+// Same structure as the themes CSS: the row must be followed by a detail row
+// (one cell with colspan). Other buttons with aria-expanded, like menus, are left alone.
+const SELECTOR =
+  '.ds-table > tbody > tr:has(+ tr > td[colspan]:only-child) > :first-child > button[aria-expanded]'
 
 /** Flips `aria-expanded`. The CSS shows or hides the detail row. */
 const handleClick = (event: Event) => {
