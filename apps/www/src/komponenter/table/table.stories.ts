@@ -16,6 +16,10 @@ type TableArgs = {
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'table',
+  changes: [
+    'Vi har lagt til støtte for ekspanderbare rader. Inspirert av Mattilsynet og Udir.',
+  ],
+  source: 'packages/web/src/table',
   imports: examples.imports,
 }
 
