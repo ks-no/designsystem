@@ -1,3 +1,13 @@
+## 0.0.1-alpha.82
+
+### 🚀 Features
+
+- **web:** expandable table rows ([#400](https://github.com/ks-no/designsystem/pull/400))
+
+### ❤️ Thank You
+
+- stianmorsund
+
 ## 0.0.1-alpha.81
 
 ### 🩹 Fixes
