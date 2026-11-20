@@ -21,6 +21,7 @@ const sections = [
   'System Banner With Close',
   'System Banner Long Text',
   'System Banner Narrow',
+  'Table Expandable',
 ]
 
 for (const title of sections) {

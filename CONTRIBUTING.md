@@ -45,6 +45,11 @@ from HTML that works without JavaScript, and scripts only add to it.
 3. **Docs** next to it: `<name>.mdx`, `<name>.stories.ts` and
    `<name>.examples.ts`. Storybook in `apps/www` picks these up under
    "Komponenter". Docs are written in Norwegian.
+4. **Visual test**: a `<section>` in `apps/web-demo/index.html` showing each
+   state, with its `<h2>` added to `sections` in
+   `apps/web-demo-e2e/src/app.spec.ts`. Generate the snapshots with
+   `pnpm e2e:web:update-snapshots` (in Docker, so they match CI) and commit
+   them.
 
 `packages/web/src/copy-button/` has all of the above.
 
