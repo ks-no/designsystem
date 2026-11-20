@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "@digdir/designsystemet-react": "catalog:designsystemet",
+    "@ks-digital/designsystem-web": "workspace:*",
     "@navikt/aksel-icons": "catalog:designsystemet"
   },
   "devDependencies": {

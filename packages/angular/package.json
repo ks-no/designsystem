@@ -12,7 +12,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@digdir/designsystemet-web": "catalog:designsystemet"
+    "@digdir/designsystemet-web": "catalog:designsystemet",
+    "@ks-digital/designsystem-web": "workspace:*"
   },
   "peerDependencies": {
     "@angular/common": "catalog:angular-supported-versions",

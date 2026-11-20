@@ -16,12 +16,15 @@ type TableArgs = {
 const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'table',
+  changes: [
+    'Vi har lagt til støtte for ekspanderbare rader. Inspirert av Mattilsynet og Udir.',
+  ],
+  source: 'packages/web/src/table',
   imports: examples.imports,
 }
 
 const meta: Meta<TableArgs> = {
   title: 'Komponenter/Table',
-  tags: ['autodocs'],
   parameters: {
     ksd,
     layout: 'padded',
@@ -87,4 +90,8 @@ export const Sorterbar: Story = { parameters: { snippets: examples.sortable } }
 export const FastOverskriftsrad: Story = {
   name: 'Fast overskriftsrad',
   parameters: { snippets: examples.stickyHeader },
+}
+export const EkspanderbareRader: Story = {
+  name: 'Ekspanderbare rader',
+  parameters: { snippets: examples.expandable },
 }

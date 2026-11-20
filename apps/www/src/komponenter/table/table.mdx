@@ -1,0 +1,35 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as TableStories from './table.stories'
+
+<Meta of={TableStories} />
+
+# Table
+
+<ComponentHeader of={TableStories} />
+
+<Canvas of={TableStories.Preview} />
+<Controls of={TableStories.Preview} />
+<CodeBlock of={TableStories.Preview} />
+
+## Sorterbar
+
+<Canvas of={TableStories.Sorterbar} />
+<CodeBlock of={TableStories.Sorterbar} hideImports />
+
+## Fast overskriftsrad
+
+<Canvas of={TableStories.FastOverskriftsrad} />
+<CodeBlock of={TableStories.FastOverskriftsrad} hideImports />
+
+## Ekspanderbare rader
+
+Legg til en `button` med `aria-expanded` i første celle, og detaljene i raden rett
+etter, i én celle med `colspan`.
+
+<Canvas of={TableStories.EkspanderbareRader} />
+<CodeBlock of={TableStories.EkspanderbareRader} hideImports />
+
+<ComponentOrigin of={TableStories} />

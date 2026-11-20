@@ -40,5 +40,7 @@ next one.
 - [ ] The spec checks that the marker is set on valid elements, not on refused
       ones
 - [ ] The `.mdx` says what users get without JS
+- [ ] A visual snapshot in `apps/web-demo-e2e` covers each state (see
+      `CONTRIBUTING.md`)
 
 `src/copy-button/` is the reference implementation.
