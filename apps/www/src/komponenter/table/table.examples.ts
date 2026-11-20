@@ -458,7 +458,7 @@ export const expandable: HtmlSnippets = {
     </tr>
     <tr>
       <td colspan="4">
-        Tilbygg på 24 m². Saksbehandler: Ingrid Solberg. Nabovarsel er sendt,
+        Tilbygg på 24 m². Nabovarsel er sendt,
         frist for merknader er 25.03.2024.
       </td>
     </tr>
