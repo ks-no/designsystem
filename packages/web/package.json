@@ -18,6 +18,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./table": {
+      "types": "./dist/table/table.d.ts",
+      "import": "./dist/table.js"
     }
   },
   "files": [

@@ -26,9 +26,10 @@ export default defineConfig(() => ({
     },
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      // table is its own entry so the React and Angular packages can load only that
+      entry: { index: 'src/index.ts', table: 'src/table/table.ts' },
       name: '@ks-digital/designsystem-web',
-      fileName: 'index',
+      fileName: (format, name) => `${name}.${format === 'es' ? 'js' : 'cjs'}`,
       formats: ['es' as const, 'cjs' as const],
     },
     // Kept external so consumers share one instance with @ks-digital/designsystem-angular
