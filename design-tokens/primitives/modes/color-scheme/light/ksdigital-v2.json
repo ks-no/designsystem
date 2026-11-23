@@ -73,7 +73,7 @@
       },
       "2": {
         "$type": "color",
-        "$value": "#f5f2fd"
+        "$value": "#EBE6FC"
       },
       "3": {
         "$type": "color",
@@ -139,7 +139,7 @@
       },
       "2": {
         "$type": "color",
-        "$value": "#eff5f4"
+        "$value": "#E0EBE9"
       },
       "3": {
         "$type": "color",
@@ -205,7 +205,7 @@
       },
       "2": {
         "$type": "color",
-        "$value": "#F3DDA2"
+        "$value": "#FEFCF6"
       },
       "3": {
         "$type": "color",
@@ -213,35 +213,35 @@
       },
       "4": {
         "$type": "color",
-        "$value": "#E8D39B"
+        "$value": "#FBF3DF"
       },
       "5": {
         "$type": "color",
-        "$value": "#D9C691"
+        "$value": "#F7E8BF"
       },
       "6": {
         "$type": "color",
-        "$value": "#C9B786"
+        "$value": "#F3DDA2"
       },
       "7": {
         "$type": "color",
-        "$value": "#cdba89"
+        "$value": "#babbc6"
       },
       "8": {
         "$type": "color",
-        "$value": "#696047"
+        "$value": "#655D44"
       },
       "9": {
         "$type": "color",
-        "$value": "#665d44"
+        "$value": "#595b77"
       },
       "10": {
         "$type": "color",
-        "$value": "#50472F"
+        "$value": "#534D3A"
       },
       "11": {
         "$type": "color",
-        "$value": "#2f2b20"
+        "$value": "#25284c"
       },
       "12": {
         "$type": "color",
@@ -271,7 +271,7 @@
       },
       "2": {
         "$type": "color",
-        "$value": "#F4ECDF"
+        "$value": "#FCFAF7"
       },
       "3": {
         "$type": "color",
@@ -279,15 +279,15 @@
       },
       "4": {
         "$type": "color",
-        "$value": "#efe8db"
+        "$value": "#F8F3EB"
       },
       "5": {
         "$type": "color",
-        "$value": "#e0d9cd"
+        "$value": "#EFE8DB"
       },
       "6": {
         "$type": "color",
-        "$value": "#d0c9be"
+        "$value": "#F4ECDF"
       },
       "7": {
         "$type": "color",
@@ -337,7 +337,7 @@
       },
       "2": {
         "$type": "color",
-        "$value": "#FAFAF9"
+        "$value": "#f3f4f4"
       },
       "3": {
         "$type": "color",
@@ -345,7 +345,7 @@
       },
       "4": {
         "$type": "color",
-        "$value": "#F1F0EE"
+        "$value": "#e8e9e9"
       },
       "5": {
         "$type": "color",
