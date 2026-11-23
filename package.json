@@ -29,6 +29,7 @@
     "@analogjs/storybook-angular": "catalog:angular",
     "@analogjs/vite-plugin-angular": "catalog:angular",
     "@analogjs/vitest-angular": "catalog:angular",
+    "@angular/platform-browser-dynamic": "catalog:angular",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^19.8.1",
     "@digdir/designsystemet": "catalog:designsystemet",
