@@ -7,16 +7,32 @@
 import type { HtmlSnippets } from '@internal/storybook/snippets'
 import type { Decorator } from '@storybook/web-components-vite'
 import { html } from 'lit'
+import { guard } from 'lit/directives/guard.js'
 import { ifDefined } from 'lit/directives/if-defined.js'
-import { unsafeHTML } from 'lit/directives/unsafe-html.js'
 
-/** Renders the story's static HTML example (`parameters.snippets.html`) */
-export const renderExample = (
-  _args: unknown,
-  { parameters }: { parameters: Record<string, unknown> },
-) =>
-  // Our own example markup, never user input
-  html`${unsafeHTML((parameters['snippets'] as HtmlSnippets).html)}`
+type ExampleContext = { parameters: Record<string, unknown> }
+
+/**
+ * The only place the docs turn a string into HTML (lint blocks it everywhere else).
+ * Pass it the story's `parameters`, which come from our own `*.examples.ts` files.
+ * Never pass it args or anything built from them: args can be set from the URL.
+ */
+export const parseExample = ({ parameters }: ExampleContext) => {
+  const template = document.createElement('template')
+  // eslint-disable-next-line no-unsanitized/property -- static examples from our own source files
+  template.innerHTML = (parameters['snippets'] as HtmlSnippets).html
+  return template.content
+}
+
+/**
+ * Renders the story's static HTML example (`parameters.snippets.html`). Parses only when
+ * the HTML changes, so a re-render (theme, size, colour) keeps the nodes and any state
+ * the reader gave them, like a table's sort order.
+ */
+export const renderExample = (_args: unknown, context: ExampleContext) =>
+  html`${guard([(context.parameters['snippets'] as HtmlSnippets).html], () =>
+    parseExample(context),
+  )}`
 
 /**
  * Lets the size and colour Controls work on every story. Designsystemet inherits
