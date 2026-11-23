@@ -33,3 +33,13 @@ updates:
         patterns:
           - '@nx/*'
     open-pull-requests-limit: 5
+  - package-ecosystem: 'github-actions'
+    directories:
+      - '/'
+      - '/.github/actions/*'
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
