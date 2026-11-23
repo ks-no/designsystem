@@ -60,4 +60,34 @@ export default [
       'no-unsanitized/property': 'error',
     },
   },
+  {
+    // Docs: stories may render args, which can be set from the URL. Turning strings
+    // into HTML happens only in parseExample (apps/www/.storybook/render.ts).
+    files: [
+      'apps/www/**/*.ts',
+      'apps/www/**/*.tsx',
+      'packages/*/src/**/*.stories.ts',
+    ],
+    plugins: { 'no-unsanitized': noUnsanitized },
+    rules: {
+      'no-unsanitized/method': 'error',
+      'no-unsanitized/property': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'lit/directives/unsafe-html.js',
+              message: 'Use parseExample from apps/www/.storybook/render.ts',
+            },
+            {
+              name: 'lit/static-html.js',
+              importNames: ['unsafeStatic'],
+              message: 'Use parseExample from apps/www/.storybook/render.ts',
+            },
+          ],
+        },
+      ],
+    },
+  },
 ]
