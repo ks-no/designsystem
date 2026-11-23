@@ -15,16 +15,16 @@ allowBuilds:
 blockExoticSubdeps: true
 catalogs:
   angular:
-    '@analogjs/storybook-angular': '2.8.0'
-    '@analogjs/vite-plugin-angular': '2.8.0'
-    '@analogjs/vitest-angular': '2.8.0'
+    '@analogjs/storybook-angular': '2.9.7'
+    '@analogjs/vite-plugin-angular': '2.9.7'
+    '@analogjs/vitest-angular': '2.9.7'
     '@angular-devkit/build-angular': '22.2.0'
-    '@angular-eslint/builder': '^22.5.0'
-    '@angular-eslint/bundled-angular-compiler': '^22.5.0'
-    '@angular-eslint/eslint-plugin': '^22.5.0'
-    '@angular-eslint/eslint-plugin-template': '^22.5.0'
-    '@angular-eslint/schematics': '^22.5.0'
-    '@angular-eslint/template-parser': '22.5.0'
+    '@angular-eslint/builder': '^22.8.0'
+    '@angular-eslint/bundled-angular-compiler': '^22.8.0'
+    '@angular-eslint/eslint-plugin': '^22.8.0'
+    '@angular-eslint/eslint-plugin-template': '^22.8.0'
+    '@angular-eslint/schematics': '^22.8.0'
+    '@angular-eslint/template-parser': '22.8.0'
     '@angular/animations': '22.2.1'
     '@angular/build': '22.2.2'
     '@angular/common': '22.2.2'
@@ -33,6 +33,7 @@ catalogs:
     '@angular/core': '22.2.2'
     '@angular/forms': '22.2.2'
     '@angular/platform-browser': '22.2.2'
+    '@angular/platform-browser-dynamic': '22.2.2'
     '@angular/platform-server': '22.2.2'
     '@angular/router': '22.2.2'
     '@ng-icons/core': '36.1.0'
@@ -56,18 +57,18 @@ catalogs:
   lit:
     lit: '^3.3.0'
   nx:
-    '@nx/angular': '24.0.1'
-    '@nx/devkit': '24.0.1'
-    '@nx/eslint': '24.0.1'
-    '@nx/eslint-plugin': '24.0.1'
-    '@nx/js': '24.0.1'
-    '@nx/playwright': '24.0.1'
-    '@nx/react': '24.0.1'
-    '@nx/storybook': '24.0.1'
-    '@nx/vite': '24.0.1'
-    '@nx/vitest': '24.0.1'
-    '@nx/web': '24.0.1'
-    nx: '24.0.1'
+    '@nx/angular': '24.0.6'
+    '@nx/devkit': '24.0.6'
+    '@nx/eslint': '24.0.6'
+    '@nx/eslint-plugin': '24.0.6'
+    '@nx/js': '24.0.6'
+    '@nx/playwright': '24.0.6'
+    '@nx/react': '24.0.6'
+    '@nx/storybook': '24.0.6'
+    '@nx/vite': '24.0.6'
+    '@nx/vitest': '24.0.6'
+    '@nx/web': '24.0.6'
+    nx: '24.0.6'
   react:
     '@types/react': '19.3.0'
     '@types/react-dom': '19.3.0'
@@ -97,10 +98,10 @@ catalogs:
     typescript: '6.0.3'
     vite-plugin-dts: '~4.5.4'
   vitest:
-    '@vitest/coverage-v8': '4.1.11'
-    '@vitest/ui': '4.1.11'
-    vite: '8.2.1'
-    vitest: '4.1.11'
+    '@vitest/coverage-v8': '4.1.12'
+    '@vitest/ui': '4.1.12'
+    vite: '8.3.8'
+    vitest: '4.1.12'
   vitest-a11y:
     vitest-axe: '^0.1.0'
 cleanupUnusedCatalogs: true
@@ -112,8 +113,13 @@ trustPolicyExclude:
 trustPolicyIgnoreAfter: 10080
 verifyDepsBeforeRun: 'prompt'
 overrides:
-  '@angular/platform-browser-dynamic': 22.2.0
+  # One vite for vitest, analog and @angular/build (which pins an exact,
+  # older vite). Drop once @angular/build's pin matches catalog:vitest.
   vite: catalog:vitest
+  # @storybook/builder-webpack5 still wants ^6 (GHSA-g84c-rxfj-3j2c, fixed in 7.4.5). The
+  # webpack builder is never run here (Storybook uses analog/vite).
+  # Drop once Storybook moves to webpack-dev-middleware >=7.4.5.
+  '@storybook/builder-webpack5>webpack-dev-middleware': ^7.4.5
 publicHoistPattern:
   - '@angular/*'
   - '@digdir/designsystemet-web'
