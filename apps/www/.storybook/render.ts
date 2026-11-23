@@ -7,6 +7,7 @@
 import type { HtmlSnippets } from '@internal/storybook/snippets'
 import type { Decorator } from '@storybook/web-components-vite'
 import { html } from 'lit'
+import { guard } from 'lit/directives/guard.js'
 import { ifDefined } from 'lit/directives/if-defined.js'
 
 type ExampleContext = { parameters: Record<string, unknown> }
@@ -23,9 +24,15 @@ export const parseExample = ({ parameters }: ExampleContext) => {
   return template.content
 }
 
-/** Renders the story's static HTML example (`parameters.snippets.html`) */
+/**
+ * Renders the story's static HTML example (`parameters.snippets.html`). Parses only when
+ * the HTML changes, so a re-render (theme, size, colour) keeps the nodes and any state
+ * the reader gave them, like a table's sort order.
+ */
 export const renderExample = (_args: unknown, context: ExampleContext) =>
-  html`${parseExample(context)}`
+  html`${guard([(context.parameters['snippets'] as HtmlSnippets).html], () =>
+    parseExample(context),
+  )}`
 
 /**
  * Lets the size and colour Controls work on every story. Designsystemet inherits
