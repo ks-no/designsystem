@@ -21,6 +21,8 @@
     "./forvaltning.tailwind.css": "./dist/themes/ksdigital.tailwind.css",
     "./ksdigital.css": "./dist/themes/ksdigital.css",
     "./ksdigital.tailwind.css": "./dist/themes/ksdigital.tailwind.css",
+    "./ksdigital-v2.css": "./dist/themes/ksdigital-v2.css",
+    "./ksdigital-v2.tailwind.css": "./dist/themes/ksdigital-v2.tailwind.css",
     "./minkommune.css": "./dist/themes/minkommune.css",
     "./minkommune.tailwind.css": "./dist/themes/minkommune.tailwind.css",
     "./tilskudd.css": "./dist/themes/tilskudd.css",

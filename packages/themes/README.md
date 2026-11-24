@@ -10,6 +10,7 @@ The following themes are officially supported:
 - **KSDigital**
 - **Minkommune**
 - **Tilskudd**
+- **KS Digital v2** (`ksdigital-v2`) (beta)
 
 Additionally, a base style is provided and should be applied first. We aim to keep this base style as minimal as possible.
 

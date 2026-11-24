@@ -49,9 +49,19 @@
     "group": "Theme"
   },
   {
-    "id": "4d47896cd27865e6e55f090c36b0ba201817d0aa",
+    "id": "b98e3b7a1ae3205881b9f76b0f07ed810d96c4a9",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
     "$figmaModeId": "40960:7",
+    "name": "ksdigital-v2",
+    "selectedTokenSets": {
+      "themes/ksdigital-v2": "enabled"
+    },
+    "group": "Theme"
+  },
+  {
+    "id": "4d47896cd27865e6e55f090c36b0ba201817d0aa",
+    "$figmaCollectionId": "VariableCollectionId:36528:61712",
+    "$figmaModeId": "40960:8",
     "name": "minkommune",
     "selectedTokenSets": {
       "themes/minkommune": "enabled"
@@ -61,7 +71,7 @@
   {
     "id": "f869e160d59823ba4585dc9012e27c4cabceffae",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:8",
+    "$figmaModeId": "40960:9",
     "name": "ledsagerbevis",
     "selectedTokenSets": {
       "themes/ledsagerbevis": "enabled"
@@ -71,7 +81,7 @@
   {
     "id": "35fd589cad5b394b78dd16b1f27d9d49481d5ebd",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:9",
+    "$figmaModeId": "40960:10",
     "name": "tilskudd",
     "selectedTokenSets": {
       "themes/tilskudd": "enabled"
@@ -85,6 +95,7 @@
     "name": "Primary",
     "selectedTokenSets": {
       "primitives/modes/typography/primary/ksdigital": "enabled",
+      "primitives/modes/typography/primary/ksdigital-v2": "enabled",
       "primitives/modes/typography/primary/minkommune": "enabled",
       "primitives/modes/typography/primary/ledsagerbevis": "enabled",
       "primitives/modes/typography/primary/tilskudd": "enabled"
@@ -98,6 +109,7 @@
     "name": "Secondary",
     "selectedTokenSets": {
       "primitives/modes/typography/secondary/ksdigital": "enabled",
+      "primitives/modes/typography/secondary/ksdigital-v2": "enabled",
       "primitives/modes/typography/secondary/minkommune": "enabled",
       "primitives/modes/typography/secondary/ledsagerbevis": "enabled",
       "primitives/modes/typography/secondary/tilskudd": "enabled"
@@ -108,6 +120,7 @@
     "name": "Dark",
     "selectedTokenSets": {
       "primitives/modes/color-scheme/dark/ksdigital": "enabled",
+      "primitives/modes/color-scheme/dark/ksdigital-v2": "enabled",
       "primitives/modes/color-scheme/dark/minkommune": "enabled",
       "primitives/modes/color-scheme/dark/ledsagerbevis": "enabled",
       "primitives/modes/color-scheme/dark/tilskudd": "enabled"
@@ -121,6 +134,7 @@
     "name": "Light",
     "selectedTokenSets": {
       "primitives/modes/color-scheme/light/ksdigital": "enabled",
+      "primitives/modes/color-scheme/light/ksdigital-v2": "enabled",
       "primitives/modes/color-scheme/light/minkommune": "enabled",
       "primitives/modes/color-scheme/light/ledsagerbevis": "enabled",
       "primitives/modes/color-scheme/light/tilskudd": "enabled"
@@ -162,6 +176,22 @@
     "name": "support2",
     "selectedTokenSets": {
       "semantic/color/support2": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "8e0fc2040a411ad54245e45cc9e12098261e76d6",
+    "name": "support3",
+    "selectedTokenSets": {
+      "semantic/color/support3": "enabled"
+    },
+    "group": "Color"
+  },
+  {
+    "id": "f700fddf11d0e3d69c623455bdec107e73a13565",
+    "name": "support4",
+    "selectedTokenSets": {
+      "semantic/color/support4": "enabled"
     },
     "group": "Color"
   },
