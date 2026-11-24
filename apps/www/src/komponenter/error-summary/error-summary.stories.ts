@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite'
 import { html, render, type TemplateResult } from 'lit'
 import { ifDefined } from 'lit/directives/if-defined.js'
 import { sizes } from '../../../.storybook/args'
+import { parseExample } from '../../../.storybook/render'
 import * as examples from './error-summary.examples'
 
 type ErrorSummaryArgs = {
@@ -52,11 +53,7 @@ const meta: Meta<ErrorSummaryArgs> = {
   argTypes: {
     'data-size': { options: [...sizes], control: { type: 'radio' } },
   },
-  render: (_, { parameters }) => {
-    const template = document.createElement('template')
-    template.innerHTML = parameters['snippets'].html
-    return withoutAutofocus(template.content)
-  },
+  render: (_, context) => withoutAutofocus(parseExample(context)),
 }
 export default meta
 

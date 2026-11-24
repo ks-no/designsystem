@@ -86,7 +86,41 @@ export const Preview: Story = {
   ...controls,
   parameters: { snippets: examples.preview },
 }
-export const Sorterbar: Story = { parameters: { snippets: examples.sortable } }
+
+const sortRows = (event: Event) => {
+  const button = (event.target as Element).closest('th[aria-sort] > button')
+  const th = button?.parentElement as HTMLTableCellElement | undefined
+  const table = th?.closest('table')
+  if (!th || !table) return
+
+  const direction =
+    th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending'
+  for (const other of table.querySelectorAll('th[aria-sort]')) {
+    other.setAttribute('aria-sort', 'none')
+  }
+  th.setAttribute('aria-sort', direction)
+
+  // dd.mm.yyyy -> yyyymmdd, so dates sort as text. Other cells have no dots.
+  const key = (row: HTMLTableRowElement) =>
+    (row.cells[th.cellIndex]?.textContent ?? '')
+      .trim()
+      .split('.')
+      .reverse()
+      .join('')
+  const rows = [...table.tBodies[0].rows].sort((a, b) =>
+    key(a).localeCompare(key(b), 'nb', { numeric: true }),
+  )
+  if (direction === 'descending') rows.reverse()
+  table.tBodies[0].append(...rows)
+}
+
+export const Sorterbar: Story = {
+  parameters: { snippets: examples.sortable },
+  render: (args, context) =>
+    html`<div style="display: contents" @click=${sortRows}>
+      ${renderExample(args, context)}
+    </div>`,
+}
 export const FastOverskriftsrad: Story = {
   name: 'Fast overskriftsrad',
   parameters: { snippets: examples.stickyHeader },
