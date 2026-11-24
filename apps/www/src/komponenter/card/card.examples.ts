@@ -1,4 +1,8 @@
-import type { Imports, Snippets } from '@internal/storybook/snippets'
+import type {
+  HtmlSnippets,
+  Imports,
+  Snippets,
+} from '@internal/storybook/snippets'
 
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
@@ -96,4 +100,38 @@ export const withBlocks: Snippets = {
     <Paragraph data-size="sm">Sist oppdatert 12. mars</Paragraph>
   </Card.Block>
 </Card>`,
+}
+
+/** Layout with plain CSS, so the HTML is the same in every framework */
+export const horizontal: HtmlSnippets = {
+  html: `<article
+  class="ds-card"
+  data-variant="default"
+  style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--ds-size-6)"
+>
+  <img
+    src="https://static.fiks.ks.no/img/kommunevaapen/4601.png"
+    alt=""
+    width="64"
+    height="64"
+    style="flex: 0 0 auto"
+  />
+  <div
+    style="flex: 1 1 16rem; display: flex; flex-direction: column; align-items: start; gap: var(--ds-size-3)"
+  >
+    <h2 class="ds-heading" data-size="sm">Brev fra kommunen</h2>
+    <p class="ds-paragraph" style="color: var(--ds-color-text-subtle)">
+      Fra Bergen kommune 12. november 2025
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--ds-size-2)">
+      <span class="ds-tag" data-color="success" data-variant="outline">Innsendt</span>
+      <span class="ds-tag" data-color="info" data-variant="outline">1 ny oppgave</span>
+    </div>
+    <p class="ds-paragraph">
+      Her kommer det en ekstra detaljtekst som gir litt mer kontekst og innhold til kortet.
+      Denne teksten kan være opptil et par linjer lang.
+    </p>
+    <button class="ds-button" type="button" data-variant="primary">Gå til sak</button>
+  </div>
+</article>`,
 }
