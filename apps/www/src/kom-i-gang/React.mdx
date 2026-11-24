@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Kom i gang/React" />
+
+# React
+
+React-pakken er en 1-til-1-implementering av komponentene til Designsystemet. Under
+Komponenter finner du React-kode for hver komponent, og retningslinjene for
+hver komponent finner du på [designsystemet.no](https://designsystemet.no/no/components).
+
+## Installasjon
+
+```bash
+pnpm add @ks-digital/designsystem-react
+```
+
+## Bruk
+
+1. Hvis du ikke allerede har gjort det, sett opp et [tema](/docs/design-tokens-temaer--docs) fra `@ks-digital/designsystem-themes`-pakken.
+
+2. Importer og bruk komponentene du trenger
+
+```tsx
+import { Button } from '@ks-digital/designsystem-react'
+
+function MyComponent() {
+  return <Button data-size="lg">My Button</Button>
+}
+```
+
+## Bidrag og spørsmål
+
+Har du spørsmål eller ønsker å bidra? Ta kontakt på `fiks@ksdigital.no` eller i Slack-kanalen `#designsystem` &hearts;.

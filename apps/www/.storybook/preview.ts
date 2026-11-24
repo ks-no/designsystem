@@ -1,6 +1,13 @@
+// Registers Designsystemet's web components (ds-breadcrumbs, ds-tabs, ds-pagination, …)
+import '@digdir/designsystemet-web'
 import { themes } from '@internal/storybook/themes'
+import type { Preview } from '@storybook/web-components-vite'
 import { addons } from 'storybook/preview-api'
+import { ComponentPage } from './blocks/ComponentPage'
+import { MdxCode, MdxPre } from './blocks/MdxCode'
 import customTheme from './customTheme'
+import './docs.css'
+import { withSizeAndColor } from './render'
 
 function setTheme(href?: string): void {
   let link = document.getElementById(
@@ -16,10 +23,12 @@ function setTheme(href?: string): void {
 }
 
 function setColorScheme(colorScheme?: string): void {
-  document.documentElement.setAttribute(
-    'data-color-scheme',
-    colorScheme ?? 'light',
-  )
+  const scheme = colorScheme ?? 'light'
+  document.documentElement.setAttribute('data-color-scheme', scheme)
+  // Docs pages render stories inline, so each story root needs the scheme too
+  document.querySelectorAll('.docs-story').forEach((el) => {
+    el.setAttribute('data-color-scheme', scheme)
+  })
 }
 
 function applyGlobals(globals: Record<string, string> = {}): void {
@@ -70,7 +79,14 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
   },
 }
 
-const preview = {
+const preview: Preview = {
+  decorators: [
+    withSizeAndColor,
+    (story, context) => {
+      applyGlobals(context.globals as Record<string, string>)
+      return story()
+    },
+  ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -81,12 +97,31 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Introduksjon', 'Temaer', 'Farger og tokens', 'Ikoner'],
+        // Anything not listed below (e.g. the components) is sorted A–Z
+        method: 'alphabetical',
+        order: [
+          'Kom i gang',
+          ['Introduksjon', 'Web', 'Angular', 'React'],
+          'Design tokens',
+          ['Temaer', 'Alle tokens'],
+          'Komponenter',
+          ['*', ['Docs', 'Preview', '*']],
+          'Eksempler',
+        ],
       },
     },
     layout: 'centered',
     docs: {
       theme: customTheme,
+      // Component stories tagged `autodocs` get this page; MDX pages override it
+      page: ComponentPage,
+      // Fenced code blocks in MDX get the same frame as CodeBlock
+      components: { code: MdxCode, pre: MdxPre },
+      // Sections are h2 (## in MDX, <Heading> in the blocks); some guides use ### too
+      toc: { title: 'På denne siden', headingSelector: 'h2, h3' },
+      story: {
+        inline: true,
+      },
     },
   },
 }

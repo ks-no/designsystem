@@ -5,5 +5,8 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "allowedNonPeerDependencies": ["@digdir/designsystemet-web"]
+  "allowedNonPeerDependencies": [
+    "@digdir/designsystemet-web",
+    "@ks-digital/designsystem-web"
+  ]
 }

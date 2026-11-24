@@ -1,9 +1,14 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as CopyButtonStories from './copy-button.stories'
 
 <Meta of={CopyButtonStories} />
 
 # Copy button
+
+<ComponentHeader of={CopyButtonStories} />
 
 `data-copy` gjør en vanlig `button` om til en kopier-knapp: verdien legges på
 utklippstavlen når brukeren trykker. Knappen er et native `button`-element, så
@@ -11,24 +16,16 @@ tastatur, fokus og `disabled` følger nettleseren.
 
 <Canvas of={CopyButtonStories.Preview} />
 <Controls of={CopyButtonStories.Preview} />
+<CodeBlock of={CopyButtonStories.Preview} />
 
 ## Bruk
 
 Importer pakken én gang, og bruk `data-copy` der du trenger det. Et ikon settes
 inn automatisk, og oppdateres etter kopiering.
 
-```html
-<p class="ds-paragraph">
-  Saksnummer <strong>2026/01482-7</strong>
-  <button
-    class="ds-button"
-    data-variant="tertiary"
-    data-icon
-    data-copy="2026/01482-7"
-    data-copy-label="Kopier"
-  ></button>
-</p>
-```
+Siden knappen er avhengig av javascript for å fungere er den skjult inntil javascript har lastet.
+Sørg for at verdien som kopieres også står synlig på siden, slik at den
+kan markeres og kopieres manuelt.
 
 ## Uten synlig tekst
 
@@ -37,10 +34,12 @@ En knapp uten tekstinnhold blir kvadratisk med `data-icon`. Sett
 tooltip og som tilgjengelig navn.
 
 <Canvas of={CopyButtonStories.IconOnly} />
+<CodeBlock of={CopyButtonStories.IconOnly} hideImports />
 
 ## Med synlig tekst
 
 <Canvas of={CopyButtonStories.IconAndText} />
+<CodeBlock of={CopyButtonStories.IconAndText} hideImports />
 
 ## Attributter
 
@@ -48,7 +47,8 @@ tooltip og som tilgjengelig navn.
 - `data-copy-label` / `data-copied-label` / `data-error-label`: tekst i tooltip
   og som tilgjengelig navn. Standard: `Kopier`, `Kopiert`, `Kopiering feilet`
 - `data-copy-state`: settes av knappen til `rest`, `success` eller `error`, og
-  kan brukes til styling
+  kan brukes til styling. Ikke sett den selv: knappen vises først når
+  attributtet er satt
 
 ## Events
 
@@ -60,3 +60,5 @@ document.addEventListener('ksd-copy', ({ detail }) => {
   console.log('Kopierte', detail.value)
 })
 ```
+
+<ComponentOrigin of={CopyButtonStories} />

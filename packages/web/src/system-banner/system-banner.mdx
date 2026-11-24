@@ -1,41 +1,28 @@
 import { Meta, Controls, Canvas } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
+import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
+import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as SystemBannerStories from './system-banner.stories'
 
 <Meta of={SystemBannerStories} />
 
 # Systembanner
 
+<ComponentHeader of={SystemBannerStories} />
+
 Systembanneret er en melding om tjenesten som helhet, for eksempel en
 driftsmelding. Det går i full bredde øverst på siden.
 
 <Canvas of={SystemBannerStories.Preview} />
 <Controls of={SystemBannerStories.Preview} />
-
-## Bruk
-
-```html
-<div class="ksd-system-banner" data-color="danger">
-  <div class="ksd-system-banner__content">
-    <p class="ds-paragraph ksd-system-banner__text">
-      Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
-      <a class="ds-link" href="/support">Kontakt support</a>
-    </p>
-    <button
-      class="ds-button ksd-system-banner__close"
-      type="button"
-      data-variant="tertiary"
-      data-icon
-      aria-label="Lukk melding"
-    ></button>
-  </div>
-</div>
-```
+<CodeBlock of={SystemBannerStories.Preview} />
 
 Lukkeknappen er valgfri.
 
 ## Varianter
 
 <Canvas of={SystemBannerStories.Varianter} />
+<CodeBlock of={SystemBannerStories.Varianter} />
 
 ## Lesbar bredde
 
@@ -101,3 +88,5 @@ statusside.
 - **Teksten må stå på egne bein.** Ikonet er dekorativt og leses ikke opp, så
   skjermleserbrukeren får bare teksten. Skriv hva som har skjedd og hva det
   betyr — «Alle systemene våre er nede nå», ikke «Feil».
+
+<ComponentOrigin of={SystemBannerStories} />

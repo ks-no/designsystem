@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@internal/docs/*": ["apps/www/.storybook/*"],
       "@internal/storybook/*": ["tools/storybook/*"],
       "@ks-digital/designsystem-angular": ["packages/angular/src/index.ts"],
       "@ks-digital/designsystem-angular/__internals": [
@@ -94,7 +95,8 @@
       "@ks-digital/designsystem-themes/types": [
         "packages/themes/src/types.d.ts"
       ],
-      "@ks-digital/designsystem-web": ["packages/web/src/index.ts"]
+      "@ks-digital/designsystem-web": ["packages/web/src/index.ts"],
+      "@ks-digital/designsystem-web/table": ["packages/web/src/table/table.ts"]
     },
     "strict": false,
     "noUncheckedSideEffectImports": false,

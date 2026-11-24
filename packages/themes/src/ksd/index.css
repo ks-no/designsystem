@@ -4,8 +4,10 @@
 @import './alert.css';
 @import './card.css';
 @import './consent-banner.css';
+@import './copy-button.css';
 @import './summary-list.css';
 @import './system-banner.css';
+@import './table.css';
 
 @layer ksd {
   body {

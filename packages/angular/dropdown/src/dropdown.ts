@@ -46,7 +46,7 @@ export class Dropdown {
     | 'top'
     | 'top-end'
     | 'top-start'
-  >('top', { alias: 'data-placement' })
+  >('bottom', { alias: 'data-placement' })
 
   readonly popover = input<'auto' | 'manual'>('auto', { alias: 'popover' })
 }

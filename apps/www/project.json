@@ -17,11 +17,7 @@
       }
     },
     "build-storybook": {
-      "dependsOn": [
-        "@ks-digital/designsystem-angular:build-storybook",
-        "@ks-digital/designsystem-react:build-storybook",
-        "@ks-digital/designsystem-web:build-storybook"
-      ],
+      "dependsOn": ["@ks-digital/designsystem-themes:build"],
       "outputs": ["{projectRoot}/{options.output-dir}"],
       "options": {
         "config-dir": ".storybook",
@@ -51,16 +47,6 @@
         "ci": {
           "buildTarget": "www:build-storybook:ci"
         }
-      }
-    },
-    "storybook-all": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "nx run-many -t storybook --parallel=3 -p @ks-digital/designsystem-angular @ks-digital/designsystem-react @ks-digital/designsystem-web",
-          "until curl -s http://localhost:4400 > /dev/null && curl -s http://localhost:4401 > /dev/null && curl -s http://localhost:4403 > /dev/null; do sleep 1; done && nx run www:storybook"
-        ],
-        "parallel": true
       }
     }
   }

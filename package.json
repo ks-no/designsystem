@@ -29,6 +29,7 @@
     "@analogjs/storybook-angular": "catalog:angular",
     "@analogjs/vite-plugin-angular": "catalog:angular",
     "@analogjs/vitest-angular": "catalog:angular",
+    "@angular/platform-browser-dynamic": "catalog:angular",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^19.8.1",
     "@digdir/designsystemet": "catalog:designsystemet",
@@ -73,7 +74,7 @@
     "nx": "catalog:nx",
     "postcss": "^8.5.23",
     "postcss-cli": "^11.0.1",
-    "postcss-import": "^16.1.1",
+    "postcss-import": "^17.0.1",
     "prettier": "^3.8.3",
     "prettier-plugin-organize-imports": "^4.3.0",
     "storybook": "catalog:storybook",
@@ -86,8 +87,8 @@
     "vite-plugin-dts": "catalog:typescript",
     "vitest": "catalog:vitest"
   },
-  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61",
+  "packageManager": "pnpm@12.21.0+sha512.66fd8278ee28935ce951792d34367ff3af5c432a2756445823029533835b8da529bbe0be5130afd56ed0713fb8789e47bad82d93bd5ae2fe54b15562d6276ef0",
   "engines": {
-    "node": "24.22.1"
+    "node": "24.22.3"
   }
 }

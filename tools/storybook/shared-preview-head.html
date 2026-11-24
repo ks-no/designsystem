@@ -21,15 +21,14 @@
     font-size: 18px;
   }
 
+  /* Storybook underlines links itself (text-decoration), so no extra line here */
   .sbdocs-a {
-    border-bottom: 0;
-    box-shadow: inset 0 -1px 0 currentColor;
     font-weight: 500;
     color: #005db1 !important;
   }
 
   .sbdocs-a:hover {
-    box-shadow: inset 0 -2px 0 currentColor;
+    text-decoration-thickness: 2px;
   }
 
   /* Increase font-size - scoped to docs pages, excluding story canvases */
@@ -63,8 +62,9 @@
         .sb-unstyled
       )
     ) {
-    font-size: max(0.8em, 16px) !important;
-    line-height: 2rem !important;
+    /* Same size as Designsystemet's paragraphs (.ds-paragraph) */
+    font-size: var(--ds-body-md-font-size) !important;
+    line-height: var(--ds-body-md-line-height) !important;
   }
 </style>
 

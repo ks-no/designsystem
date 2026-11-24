@@ -102,3 +102,14 @@ describe('Dropdown', () => {
     expect(results).toHaveNoViolations()
   })
 })
+
+it('should default to bottom placement', async () => {
+  await render(`<div ksd-dropdown data-testid="dropdown"></div>`, {
+    imports: [Dropdown],
+  })
+
+  expect(screen.getByTestId('dropdown')).toHaveAttribute(
+    'data-placement',
+    'bottom',
+  )
+})

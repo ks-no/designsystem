@@ -1,0 +1,34 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import * as BreadcrumbsStories from './breadcrumbs.stories'
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs
+
+<ComponentHeader of={BreadcrumbsStories} />
+
+<Canvas of={BreadcrumbsStories.Preview} />
+<Controls of={BreadcrumbsStories.Preview} />
+<CodeBlock of={BreadcrumbsStories.Preview} />
+
+## Bruk
+
+- Husk å sette `aria-label` på breadcrumbs.
+- Du trenger ikke sette `aria-current="page"`. Komponenten setter det automatisk på siste lenke.
+- Komponenten får `role="navigation"`, så ikke legg den i en `nav`.
+- Når det ikke er plass til hele stien, vises bare tilbake-lenken. Gjør vinduet smalere for å se det.
+
+## Bare liste
+
+<Canvas of={BreadcrumbsStories.ListOnly} />
+<CodeBlock of={BreadcrumbsStories.ListOnly} hideImports />
+
+## Bare tilbake-lenke
+
+<Canvas of={BreadcrumbsStories.BackOnly} />
+<CodeBlock of={BreadcrumbsStories.BackOnly} hideImports />
+
+<ComponentOrigin of={BreadcrumbsStories} />

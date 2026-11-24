@@ -20,7 +20,11 @@ export default [
         'error',
         {
           enforceBuildableLibDependency: true,
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+          allow: [
+            '^.*/eslint(\\.base)?\\.config\\.[cm]?js$',
+            // Docs blocks and story helpers in apps/www, shared with the docs pages in packages/web
+            '^@internal/docs/.*$',
+          ],
           depConstraints: [
             {
               sourceTag: '*',

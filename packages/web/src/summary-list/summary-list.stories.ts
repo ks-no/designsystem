@@ -1,37 +1,40 @@
+import { renderExample } from '@internal/docs/render'
+import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
-import { html } from 'lit'
+import { html, nothing } from 'lit'
+import * as examples from './summary-list.examples'
 
 type Row = { term: string; detail: string }
 
 type SummaryListArgs = {
   rows: Row[]
+  /** An "Endre" link on each row */
   actions: boolean
 }
 
-// Whitespace inside these templates is what Storybook's "show code" panel prints, so it
-// is kept out of Prettier's hands: each row starts on its own line and the optional cell
-// hugs the preceding tag instead of leaving a blank line.
-// prettier-ignore
-const actionsCell = (term: string) => html`
-    <dd class="ksd-summary-list__actions">
-      <a class="ds-link" href="#">Endre<span class="ds-sr-only"> ${term.toLowerCase()}</span></a>
-    </dd>`
-
-// prettier-ignore
-const row = ({ term, detail }: Row, actions: boolean) => html`
-  <div>
-    <dt>${term}</dt>
-    <dd>${detail}</dd>${actions ? actionsCell(term) : ''}
-  </div>`
-
-// prettier-ignore
-const summaryList = ({ rows, actions }: SummaryListArgs) => html`<dl class="ksd-summary-list">${rows.map((r) => row(r, actions))}
-</dl>`
+const ksd: KsdDocsParameters = {
+  origin: 'ks',
+  // The component is CSS only, so link to the stylesheet
+  source: 'packages/themes/src/ksd/summary-list.css',
+}
 
 const meta: Meta<SummaryListArgs> = {
   title: 'Summary List',
-  // Global layout is 'centered', which shrink-wraps the list to its content width
-  parameters: { layout: 'padded' },
+  parameters: {
+    ksd,
+    // Global layout is 'centered', which shrink-wraps the list to its content width
+    layout: 'padded',
+    docs: { canvas: { sourceState: 'none' } },
+  },
+  render: renderExample,
+}
+
+export default meta
+
+type Story = StoryObj<SummaryListArgs>
+
+/** The preview follows the Controls; the code below it stays the static example */
+const controls: Story = {
   args: {
     rows: [
       { term: 'Navn', detail: 'Sarah Philips' },
@@ -45,30 +48,44 @@ const meta: Meta<SummaryListArgs> = {
     rows: { control: 'object' },
     actions: { control: 'boolean' },
   },
+  render: (a) =>
+    html`<dl class="ksd-summary-list">
+      ${a.rows.map(
+        ({ term, detail }) =>
+          html`<div>
+            <dt>${term}</dt>
+            <dd>${detail}</dd>
+            ${
+              a.actions
+                ? html`<dd class="ksd-summary-list__actions">
+                    <a class="ds-link" href="#"
+                      >Endre<span class="ds-sr-only">
+                        ${String(term).toLowerCase()}</span
+                      ></a
+                    >
+                  </dd>`
+                : nothing
+            }
+          </div>`,
+      )}
+    </dl>`,
 }
 
-export default meta
-
-type Story = StoryObj<SummaryListArgs>
-
 export const Preview: Story = {
-  render: summaryList,
+  ...controls,
+  parameters: { snippets: examples.preview },
 }
 
 export const SmalKolonne: Story = {
+  ...controls,
   name: 'Smal kolonne',
-  render: (args) =>
-    html`<div style="max-inline-size: 20rem">${summaryList(args)}</div>`,
+  parameters: { snippets: examples.preview },
+  decorators: [
+    (story) => html`<div style="max-inline-size: 20rem">${story()}</div>`,
+  ],
 }
 
 export const ICard: Story = {
   name: 'I card',
-  args: { actions: true },
-  render: (args) =>
-    html`<article class="ds-card">
-      <h2 class="ds-heading ds-card__block" data-size="xs">
-        Søknad om ledsagerbevis
-      </h2>
-      <div class="ds-card__block">${summaryList(args)}</div>
-    </article>`,
+  parameters: { snippets: examples.inCard },
 }

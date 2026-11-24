@@ -4,6 +4,8 @@ import {
   Component,
   input,
 } from '@angular/core'
+// Expandable rows support
+import '@ks-digital/designsystem-web/table'
 
 @Component({
   selector: 'table[ksd-table]',

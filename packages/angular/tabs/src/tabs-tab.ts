@@ -1,4 +1,5 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -55,6 +56,16 @@ export class TabsTab {
    * If omitted, `tabClicked` emits `tabId: undefined`.
    */
   readonly tabId = input<string>()
+
+  /**
+   * Marks this tab as the selected tab, forwarded to the underlying `ds-tab`.
+   *
+   * @default false
+   */
+  readonly ariaSelected = input(false, {
+    alias: 'aria-selected',
+    transform: booleanAttribute,
+  })
 
   /**
    * Emits tab click details when this tab is clicked.

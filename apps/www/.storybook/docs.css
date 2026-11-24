@@ -1,0 +1,128 @@
+/* Docs blocks (CodeBlock). Always light, like the rest of Storybook's docs page. */
+
+/* Same background as the sidebar (appBg in customTheme.ts) */
+.ksd-code {
+  --ksd-code-bg: var(--ds-color-support1-background-tinted);
+  --ksd-code-border: var(--ds-color-support1-border-subtle);
+  --ksd-code-hover: var(--ds-color-support1-surface-tinted);
+
+  margin-block: var(--ds-size-4);
+  background: var(--ksd-code-bg);
+  border: var(--ds-border-width-default) solid var(--ksd-code-border);
+  border-radius: var(--ds-border-radius-md);
+  overflow: hidden;
+}
+
+/* No padding: the toggle fills the header's full height, flush with the frame */
+.ksd-code__header {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--ds-size-2);
+  border-bottom: var(--ds-border-width-default) solid var(--ksd-code-border);
+}
+
+.ksd-code__section + .ksd-code__section {
+  border-top: var(--ds-border-width-default) solid var(--ksd-code-border);
+}
+
+/* Framework toggle: a row of toggle buttons (toolbar), separated by thin lines */
+.ksd-code__toggle {
+  display: flex;
+}
+
+.ksd-code__option,
+.ksd-code__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0 var(--ds-size-4);
+  border: 0;
+  background: transparent;
+  color: var(--ds-color-neutral-text-subtle);
+  cursor: pointer;
+}
+
+.ksd-code__option {
+  border-inline-end: var(--ds-border-width-default) solid var(--ksd-code-border);
+}
+
+.ksd-code__icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ksd-code__label {
+  cursor: default;
+}
+
+.ksd-code__option:hover {
+  color: var(--ds-color-neutral-text-default);
+  background: var(--ksd-code-hover);
+}
+
+.ksd-code__option[aria-pressed='true'] {
+  color: var(--ds-color-neutral-text-default);
+  background: var(--ds-color-neutral-background-default);
+}
+
+/* Inset, since the frame clips anything outside the header */
+.ksd-code__option:focus-visible {
+  outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+  outline-offset: calc(-1 * var(--ds-border-width-focus));
+}
+
+/* Copy: a real ds-button (tertiary), sized to match the toggle through its own variables */
+.ksd-code__header .ds-button {
+  --dsc-button-size: 30px;
+  --dsc-button-padding: 0 10px;
+  --dsc-button-gap: 6px;
+
+  align-self: center;
+  margin: var(--ds-size-1) var(--ds-size-2);
+  font-size: 13px;
+}
+
+.ksd-code__header .ds-button .ksd-code__icon {
+  font-size: 14px;
+}
+
+/* Docs page layout: content to the left, table of contents right beside it.
+   Storybook reverses the row, so flex-end is the left side. Storybook pads the page with
+   40px on each side and puts 3rem between the content and the table of contents. */
+.sbdocs.sbdocs-wrapper {
+  --ksd-toc-width: 14rem;
+
+  justify-content: flex-end;
+}
+
+/* Wider than Storybook's 10rem, so section names fit on one line. The list inside is
+   position: fixed, so it needs the width too. Never shrinks, so it can't overlap the
+   content. */
+.sbdocs.sbdocs-toc--custom {
+  flex-shrink: 0;
+  width: var(--ksd-toc-width);
+}
+
+.sbdocs-toc--custom nav {
+  width: var(--ksd-toc-width);
+}
+
+/* Pages without sections: no lonely toc-title without a list */
+.sbdocs-toc--custom nav:not(:has(.toc-list-item)) {
+  display: none;
+}
+
+/* Wide content, like the colour table on "Alle tokens": grows to the right, up to the
+   table of contents. Never narrower than the content; below 768px the table of contents
+   is hidden and the content already fills the page. */
+.ksd-wide {
+  margin-inline-end: min(
+    0px,
+    calc(100% + 2 * 40px + 3rem + var(--ksd-toc-width) - 100vw)
+  );
+}

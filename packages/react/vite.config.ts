@@ -63,7 +63,11 @@ export default defineConfig(() => ({
       formats: ['es' as const, 'cjs' as const],
     },
     rolldownOptions: {
-      external: ['@digdir/designsystemet-react', '@navikt/aksel-icons'],
+      external: [
+        '@digdir/designsystemet-react',
+        '@navikt/aksel-icons',
+        /^@ks-digital\/designsystem-web/,
+      ],
     },
   },
   test: {

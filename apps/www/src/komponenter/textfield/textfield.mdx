@@ -1,0 +1,32 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as TextfieldStories from './textfield.stories'
+
+<Meta of={TextfieldStories} />
+
+# Textfield
+
+<ComponentHeader of={TextfieldStories} />
+
+`Textfield` finnes bare i React. Den setter sammen [Field](/docs/komponenter-field--docs),
+`Label`, beskrivelse, [Input](/docs/komponenter-input--docs) og
+[Validation Message](/docs/komponenter-validation-message--docs), så du kan lage et
+tekstfelt med én komponent. I HTML og Angular skriver du det samme selv. Velg rammeverk i
+kodeblokken for å se hvordan.
+
+Skriv inn en feilmelding i `error` under for å se feltet med feil.
+
+<Canvas of={TextfieldStories.Preview} />
+<Controls of={TextfieldStories.Preview} />
+<CodeBlock of={TextfieldStories.Preview} />
+
+## Flere linjer
+
+Med `multiline` blir feltet en `Textarea`. `counter` legger til en tegnteller.
+
+<Canvas of={TextfieldStories.FlereLinjer} />
+<CodeBlock of={TextfieldStories.FlereLinjer} hideImports />
+
+<ComponentOrigin of={TextfieldStories} />

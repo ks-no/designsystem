@@ -1,0 +1,65 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import * as ButtonStories from './button.stories'
+
+<Meta of={ButtonStories} />
+
+# Button
+
+<ComponentHeader of={ButtonStories} />
+
+<Canvas of={ButtonStories.Preview} />
+<Controls of={ButtonStories.Preview} />
+<CodeBlock of={ButtonStories.Preview} />
+
+## Varianter
+
+<Canvas of={ButtonStories.Variants} />
+<CodeBlock of={ButtonStories.Variants} hideImports />
+
+## Ikoner
+
+Vi støtter offisielt ikonene fra Phosphor Icons og Material Icons.
+[Unngå å bruke ikonfonter](https://www.irigoyen.dev/blog/2021/02/17/stop-using-icon-fonts/).
+
+Hvis knappen bare inneholder et ikon, setter du `data-icon`. Husk å gi knappen en
+beskrivende tekst, for eksempel med `aria-label`.
+
+<Canvas of={ButtonStories.Icons} />
+<CodeBlock
+  of={ButtonStories.Icons}
+  hideImports
+  notes={{
+    html: (
+      <>
+        Bruk SVG direkte i knappen, med <code>aria-hidden="true"</code>.
+      </>
+    ),
+    angular: (
+      <>
+        Bruk{' '}
+        <a href="https://ng-icons.github.io/ng-icons" target="_blank">
+          Ng Icons
+        </a>
+        , og registrer ikonene med <code>provideIcons</code>.
+      </>
+    ),
+    react: (
+      <>
+        Bruk for eksempel <code>@phosphor-icons/react</code>.
+      </>
+    ),
+  }}
+/>
+
+## Lasting
+
+Bruk `loading` for å vise at en handling er i gang. I Angular og React legger komponenten
+til spinner og `aria-busy` for deg. I HTML legger du dem til selv.
+
+<Canvas of={ButtonStories.Loading} />
+<CodeBlock of={ButtonStories.Loading} hideImports />
+
+<ComponentOrigin of={ButtonStories} />

@@ -1,0 +1,40 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { AngularApi } from '../../../.storybook/blocks/AngularApi'
+import { CodeBlock } from '../../../.storybook/blocks/CodeBlock'
+import { ComponentHeader } from '../../../.storybook/blocks/ComponentHeader'
+import { ComponentOrigin } from '../../../.storybook/blocks/ComponentOrigin'
+import * as PaginationStories from './pagination.stories'
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+<ComponentHeader of={PaginationStories} />
+
+<Canvas of={PaginationStories.Preview} />
+<Controls of={PaginationStories.Preview} />
+<CodeBlock of={PaginationStories.Preview} />
+
+## Slik fungerer det i hvert rammeverk
+
+- **HTML:** `<ds-pagination>` regner ut sidetallene og setter `aria-current` når du setter
+  `data-current` og `data-total`. Du lager én knapp per side, pluss forrige og neste. Når
+  brukeren klikker, leser du sidetallet fra knappens `value` og oppdaterer `data-current`.
+- **Angular:** `ksd-pagination` lager hele markupen for deg. Du sender inn `current` og
+  `total`, og får valgt side tilbake i `pageClicked`.
+- **React:** `usePagination` regner ut sidene og gir deg props til hver knapp.
+
+## Med lenker
+
+Bruk lenker når hver side har sin egen URL, slik at brukeren kan dele lenken og bruke
+tilbake-knappen. I Angular stopper `pageClicked` vanlige klikk, så du kan navigere med
+routeren, mens ctrl/cmd-klikk fortsatt åpner siden i ny fane.
+
+<Canvas of={PaginationStories.MedLenker} />
+<CodeBlock of={PaginationStories.MedLenker} hideImports />
+
+## Angular API
+
+<AngularApi of={PaginationStories} />
+
+<ComponentOrigin of={PaginationStories} />
