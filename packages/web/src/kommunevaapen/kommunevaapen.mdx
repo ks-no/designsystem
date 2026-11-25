@@ -11,7 +11,7 @@ import { kommuner } from './kommuner'
 
 <ComponentHeader of={KommunevaapenStories} />
 
-Kommunevåpen er en visuell representasjon av en kommune, og brukes for å identifisere og skille kommuner fra hverandre. Vi har alle kommunevåpen tilgjengelig som bilder.
+Et kommunevåpen er kommunens visuelle kjennetegn og brukes til å kjenne igjen og skille kommuner fra hverandre. Alle kommunevåpnene er tilgjengelige som bilder.
 
 <Canvas of={KommunevaapenStories.Preview} />
 <Controls of={KommunevaapenStories.Preview} />
@@ -19,12 +19,12 @@ Kommunevåpen er en visuell representasjon av en kommune, og brukes for å ident
 
 ## Sprites
 
-Sprites kan brukes for å laste inn alle kommunevåpen på samme forespørsel. Sprites blir automatisk
-oppdatert ved endring av kommunevåpen
+Med sprites laster du inn alle kommunevåpnene i én forespørsel. Sprites oppdateres automatisk
+når et kommunevåpen endres.
 
 1. Hent CSS-filen fra CDN: `https://static.fiks.ks.no/img/kommunevaapen/sprites/kommunevaapen.css`
 
-2. Inkluder denne CSS-filen og bruk klassen `sprite-kommunevaapen` sammen med `sprite-kommunevaapen-{kommunenummer}` for å vise ønsket kommunevåpenet.
+2. Ta med CSS-filen, og bruk klassen `sprite-kommunevaapen` sammen med `sprite-kommunevaapen-{kommunenummer}` for å vise kommunevåpenet du vil ha.
 
 Klassene setter bredde og høyde, men ikke `display`. Gi elementet `display: inline-block`
 (eller bruk det i flex eller grid), ellers blir det ikke synlig.
@@ -47,8 +47,8 @@ Klassene setter bredde og høyde, men ikke `display`. Gi elementet `display: inl
 
 Sprites er bakgrunnsbilder, så de har ingen `alt`-tekst.
 
-- Står kommunevåpenet alene, bruk `role="img"` og `aria-label` for å beskrive bildet, som i eksempelet over.
-- Hvis kommunenavnet står ved siden av og kommunevåpenet er kun dekorativt, så kan du bruke `aria-hidden`.
+- Står kommunevåpenet alene, bruker du `role="img"` og `aria-label` for å beskrive bildet, som i eksempelet over.
+- Står kommunenavnet ved siden av, og kommunevåpenet bare er pynt, kan du skjule det med `aria-hidden`.
 
 ## Alle kommunevåpen
 

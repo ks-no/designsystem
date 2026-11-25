@@ -70,3 +70,17 @@ export const FlereEtterHverandre: Story = {
   name: 'Flere etter hverandre',
   parameters: { snippets: examples.several },
 }
+export const IKort: Story = {
+  name: 'I kort',
+  parameters: { snippets: examples.inCard },
+}
+export const IKortMedFarge: Story = {
+  name: 'I kort med farge',
+  decorators: [
+    (story) =>
+      html`<div style="display:flex;flex-direction:column;gap:var(--ds-size-4)">
+        ${story()}
+      </div>`,
+  ],
+  parameters: { snippets: examples.inCardWithColor },
+}

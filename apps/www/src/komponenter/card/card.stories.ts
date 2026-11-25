@@ -17,7 +17,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'card',
   changes: [
-    'Vi har endret padding fra default `--ds-size-6` til `--ds-size-8`',
+    'Vi har endret padding fra standardverdien `--ds-size-6` til `--ds-size-8`.',
   ],
   source: 'packages/angular/card/src',
   imports: examples.imports,
@@ -86,4 +86,15 @@ export const MedBlokker: Story = {
 export const Horisontal: Story = {
   decorators: maxWidth('40rem'),
   parameters: { snippets: examples.horizontal },
+}
+export const ListeMedKort: Story = {
+  name: 'Liste med kort',
+  decorators: maxWidth('40rem'),
+  parameters: { snippets: examples.list },
+}
+/** Hele kortet er klikkbart og krysser av i avkrysningsboksen. */
+export const MedAvkrysningsboks: Story = {
+  name: 'Med avkrysningsboks',
+  decorators: maxWidth('22rem'),
+  parameters: { snippets: examples.withCheckbox },
 }

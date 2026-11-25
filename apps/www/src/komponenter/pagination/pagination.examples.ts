@@ -109,3 +109,51 @@ return (
   </Pagination>
 )`,
 }
+
+export const narrow: Snippets = {
+  html: `<ds-pagination class="ds-pagination" data-current="3" data-total="5" aria-label="Bla i sider">
+  <ol>
+    <li><button type="button" class="ds-button" data-variant="tertiary">Forrige</button></li>
+    <li><button type="button" class="ds-button" data-variant="tertiary"></button></li>
+    <li><button type="button" class="ds-button" data-variant="tertiary"></button></li>
+    <li><button type="button" class="ds-button" data-variant="tertiary"></button></li>
+    <li><button type="button" class="ds-button" data-variant="tertiary">Neste</button></li>
+  </ol>
+</ds-pagination>`,
+  angular: `<!-- I komponenten: page = signal(3) -->
+<ksd-pagination
+  [current]="page()"
+  total="5"
+  show="3"
+  (pageClicked)="page.set($event)"
+/>`,
+  react: `const [currentPage, setCurrentPage] = useState(3)
+const { pages, prevButtonProps, nextButtonProps } = usePagination({
+  currentPage,
+  setCurrentPage,
+  totalPages: 5,
+  showPages: 3,
+})
+
+return (
+  <Pagination aria-label="Bla i sider">
+    <Pagination.List>
+      <Pagination.Item>
+        <Pagination.Button {...prevButtonProps}>Forrige</Pagination.Button>
+      </Pagination.Item>
+      {pages.map(({ page, itemKey, buttonProps }) => (
+        <Pagination.Item key={itemKey}>
+          {typeof page === 'number' && (
+            <Pagination.Button aria-label={\`Side \${page}\`} {...buttonProps}>
+              {page}
+            </Pagination.Button>
+          )}
+        </Pagination.Item>
+      ))}
+      <Pagination.Item>
+        <Pagination.Button {...nextButtonProps}>Neste</Pagination.Button>
+      </Pagination.Item>
+    </Pagination.List>
+  </Pagination>
+)`,
+}

@@ -67,3 +67,7 @@ export const Preview: Story = {
   parameters: { snippets: examples.preview },
 }
 export const Bredde: Story = { parameters: { snippets: examples.width } }
+export const MedTegnteller: Story = {
+  name: 'Med tegnteller',
+  parameters: { snippets: examples.withCounter },
+}

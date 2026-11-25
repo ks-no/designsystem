@@ -20,7 +20,10 @@ import { ComponentOrigin } from './ComponentOrigin'
  */
 export function ComponentPage() {
   const { componentStories } = useContext(DocsContext)
-  const [primary, ...rest] = componentStories()
+  // Stories tagged `!autodocs` stay in the sidebar but not on this page
+  const [primary, ...rest] = componentStories().filter((story) =>
+    story.tags?.includes('autodocs'),
+  )
 
   return (
     <>

@@ -18,7 +18,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'suggestion',
   changes: [
-    'Angular-wrapper som bygger oppå `ds-suggestion` som kan brukes med signal forms formField.',
+    'Angular-komponenten bygger på `ds-suggestion` og kan brukes med `formField` i signal forms.',
   ],
   source: 'packages/angular/suggestion/src',
   imports: examples.imports,
@@ -65,7 +65,7 @@ const ksd: KsdDocsParameters = {
       kind: 'output',
       type: 'SuggestionItem | SuggestionItem[] | undefined',
       description:
-        'Valget når brukeren endrer det, alltid som { label, value }, eller en liste med multiple.',
+        'Sendes når brukeren endrer valget, alltid som { label, value }, eller som en liste med multiple.',
     },
     {
       name: 'touched',
@@ -94,7 +94,7 @@ const ksd: KsdDocsParameters = {
       type: 'string',
       default: "'%d forslag'",
       description:
-        'På ksd-suggestion-list: skjermlesertekst for antall treff, når det er ett.',
+        'På ksd-suggestion-list: skjermlesertekst for antall treff når det er ett.',
     },
     {
       name: 'plural',
@@ -102,7 +102,7 @@ const ksd: KsdDocsParameters = {
       type: 'string',
       default: "'%d forslag'",
       description:
-        'På ksd-suggestion-list: skjermlesertekst for antall treff, når det er flere.',
+        'På ksd-suggestion-list: skjermlesertekst for antall treff når det er flere.',
     },
   ],
 }
@@ -170,8 +170,4 @@ const controls: Story = {
 export const Preview: Story = {
   ...controls,
   parameters: { snippets: examples.preview },
-}
-export const ISkjema: Story = {
-  name: 'I skjema',
-  parameters: { snippets: examples.inForm },
 }

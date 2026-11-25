@@ -15,23 +15,82 @@ import * as PaginationStories from './pagination.stories'
 <Controls of={PaginationStories.Preview} />
 <CodeBlock of={PaginationStories.Preview} />
 
-## Slik fungerer det i hvert rammeverk
-
-- **HTML:** `<ds-pagination>` regner ut sidetallene og setter `aria-current` når du setter
-  `data-current` og `data-total`. Du lager én knapp per side, pluss forrige og neste. Når
-  brukeren klikker, leser du sidetallet fra knappens `value` og oppdaterer `data-current`.
-- **Angular:** `ksd-pagination` lager hele markupen for deg. Du sender inn `current` og
-  `total`, og får valgt side tilbake i `pageClicked`.
-- **React:** `usePagination` regner ut sidene og gir deg props til hver knapp.
-
 ## Med lenker
 
 Bruk lenker når hver side har sin egen URL, slik at brukeren kan dele lenken og bruke
-tilbake-knappen. I Angular stopper `pageClicked` vanlige klikk, så du kan navigere med
-routeren, mens ctrl/cmd-klikk fortsatt åpner siden i ny fane.
+tilbake-knappen.
 
 <Canvas of={PaginationStories.MedLenker} />
 <CodeBlock of={PaginationStories.MedLenker} hideImports />
+
+## Smal skjerm
+
+<Canvas of={PaginationStories.SmalSkjerm} />
+<CodeBlock of={PaginationStories.SmalSkjerm} hideImports />
+
+## Egen markup i Angular
+
+`<ksd-pagination>` støtter også at du sender inn egen markup. Du kan da bygge din egen visningslogikk på samme måte som standard i `<ds-pagination>`.`
+
+```ts
+import { Component, signal } from '@angular/core'
+import {
+  Pagination,
+  PaginationButton,
+} from '@ks-digital/designsystem-angular/pagination'
+
+@Component({
+  selector: 'app-sakliste-sider',
+  imports: [Pagination, PaginationButton],
+  template: `
+    <ksd-pagination
+      #pagination
+      [current]="side()"
+      total="10"
+      (pageClicked)="side.set($event)"
+    >
+      <ol>
+        <li>
+          <button
+            type="button"
+            [ksdPaginationButton]="pagination.pages().prev"
+            [disabled]="!pagination.pages().prev"
+          >
+            Forrige
+          </button>
+        </li>
+        @for (page of pagination.pages().pages; track page.key) {
+          @if (page.type === 'page') {
+            <li>
+              <button
+                type="button"
+                [ksdPaginationButton]="page"
+                [attr.aria-label]="'Side ' + page.page"
+              >
+                {{ page.page }}
+              </button>
+            </li>
+          } @else {
+            <li></li>
+          }
+        }
+        <li>
+          <button
+            type="button"
+            [ksdPaginationButton]="pagination.pages().next"
+            [disabled]="!pagination.pages().next"
+          >
+            Neste
+          </button>
+        </li>
+      </ol>
+    </ksd-pagination>
+  `,
+})
+export class SaklisteSider {
+  side = signal(4)
+}
+```
 
 ## Angular API
 

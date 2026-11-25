@@ -108,14 +108,14 @@ export const TokenButton = ({ token, style }) => (
 Design tokens er de navngitte byggeklossene i designsystemet: farger, størrelser, radius og typografi.
 Hvert token er en CSS-variabel med prefikset `--ds-`, og verdien bestemmes av temaet som er lastet.
 
-> Bruk temavelgeren (penselikonet) og lys/mørk-modus i verktøylinjen øverst for å se hvordan tokenene endrer seg.
+> Bruk temavelgeren (penselikonet) og valget for lys og mørk modus i verktøylinjen øverst for å se hvordan tokenene endrer seg.
 > Klikk på en verdi for å kopiere tokenet.
 
 ## Farger
 
 Fargene er delt inn i ti fargeroller. Hver rolle har de samme variantene, slik at du kan bytte rolle uten å endre struktur.
 
-Bruk kun farger fra temaet. Hardkodede farger er ikke kvalitetssikret for kontrast, de har ingen mørk-modus-variant og blir derfor feil når brukeren bytter modus. De må også oppdateres manuelt i hver enkelt applikasjon når den visuelle identiteten endres – med tokens skjer det automatisk via temapakken.
+Bruk bare farger fra temaet. Hardkodede farger er ikke kvalitetssikret for kontrast. De har heller ingen variant for mørk modus og blir derfor feil når brukeren bytter modus. De må også oppdateres manuelt i hver enkelt applikasjon når den visuelle identiteten endres – med tokens skjer det automatisk via temapakken.
 
 <div className="sb-unstyled ksd-wide" style={PANEL}>
   <table
@@ -203,7 +203,7 @@ Bruk kun farger fra temaet. Hardkodede farger er ikke kvalitetssikret for kontra
 
 ## Størrelser
 
-Størrelsene brukes til avstand (padding, margin, gap) og til høyde/bredde. Skalaen er relativ til `--ds-size-unit`,
+Størrelsene brukes til avstand (padding, margin, gap) og til høyde og bredde. Skalaen er relativ til `--ds-size-unit`,
 og skalerer derfor med størrelsesmodus (`data-size`).
 
 <div className="sb-unstyled" style={PANEL}>

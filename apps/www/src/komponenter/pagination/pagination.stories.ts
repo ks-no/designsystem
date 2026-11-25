@@ -21,8 +21,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'pagination',
   changes: [
-    'Angular-komponenten lager hele markupen selv. Du sender inn current og total, og får valgt side tilbake i pageClicked.',
-    'Angular-komponenten kan lage lenker i stedet for knapper med href, slik at hver side får sin egen URL.',
+    'Angular-komponenten lager hele markupen selv, samt noen justeringer for å fungere med `RouterLink`',
   ],
   source: 'packages/angular/pagination/src',
   imports: examples.imports,
@@ -87,7 +86,7 @@ const ksd: KsdDocsParameters = {
       kind: 'output',
       type: 'number',
       description:
-        'Sidetallet brukeren valgte. Vanlige klikk på lenker stoppes, så du kan navigere med routeren; ctrl/cmd-klikk åpner som vanlig.',
+        'Sidetallet brukeren valgte. Vanlige klikk på lenker stoppes, så du kan navigere med routeren. Ctrl/cmd-klikk åpner som vanlig.',
     },
   ],
 }
@@ -165,4 +164,13 @@ export const MedLenker: Story = {
   name: 'Med lenker',
   args: { ...controls.args, href: '?side=%d' },
   parameters: { snippets: examples.withLinks },
+}
+export const SmalSkjerm: Story = {
+  ...controls,
+  name: 'Smal skjerm',
+  args: { ...controls.args, current: 3, total: 5, show: 3 },
+  parameters: { snippets: examples.narrow },
+  decorators: [
+    (story) => html`<div style="max-inline-size: 22rem">${story()}</div>`,
+  ],
 }

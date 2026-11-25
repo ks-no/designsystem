@@ -91,3 +91,8 @@ export const BackOnly: Story = {
   args: { ...controls.args, trail: false },
   parameters: { snippets: examples.backOnly },
 }
+
+export const LangeSidenavn: Story = {
+  name: 'Lange sidenavn',
+  parameters: { snippets: examples.longItems },
+}

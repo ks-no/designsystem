@@ -55,3 +55,34 @@ export const ITekst: Story = {
   name: 'I tekst',
   parameters: { snippets: examples.inText },
 }
+/**
+ * Pakk teksten inn i en `span`, så får ikonet riktig avstand til teksten, enten det står
+ * foran eller bak.
+ */
+export const MedIkon: Story = {
+  name: 'Med ikon',
+  decorators: (story) =>
+    html`<div
+      style="display:flex;flex-direction:column;align-items:start;gap:var(--ds-size-2)"
+    >
+      ${story()}
+    </div>`,
+  parameters: {
+    snippets: examples.withIcon,
+    exampleImports: examples.withIconImports,
+  },
+}
+/** En lenke med bare ikon må ha en `aria-label` som beskriver hvor lenken fører. */
+export const BareIkon: Story = {
+  name: 'Bare ikon',
+  parameters: {
+    snippets: examples.iconOnly,
+    exampleImports: examples.iconOnlyImports,
+  },
+}
+/** Lange lenketekster brytes over flere linjer. */
+export const LangLenketekst: Story = {
+  name: 'Lang lenketekst',
+  decorators: (story) => html`<div style="max-width:20rem">${story()}</div>`,
+  parameters: { snippets: examples.longText },
+}

@@ -5,7 +5,7 @@ export const preview: HtmlSnippets = {
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
-      <a class="ds-link" href="#support">Kontakt support</a>
+      <a class="ds-link" href="#support">Kontakt brukerstøtte</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"
@@ -23,7 +23,7 @@ export const variants: HtmlSnippets = {
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
-      <a class="ds-link" href="#support">Kontakt support</a>
+      <a class="ds-link" href="#support">Kontakt brukerstøtte</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"
@@ -38,7 +38,7 @@ export const variants: HtmlSnippets = {
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       Vi har litt teknisk krøll akkurat nå, men jobber med å få løst opp i floken.
-      <a class="ds-link" href="#support">Kontakt support</a>
+      <a class="ds-link" href="#support">Kontakt brukerstøtte</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"
@@ -67,7 +67,7 @@ export const variants: HtmlSnippets = {
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       Her kommer en informativ statusoppdatering fra systemet.
-      <a class="ds-link" href="#support">Sjekk mer opp i dette her</a>
+      <a class="ds-link" href="#support">Se driftsstatus</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"
@@ -84,8 +84,8 @@ export const langTekst: HtmlSnippets = {
   html: `<div class="ksd-system-banner" data-color="danger">
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
-      Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.
-      <a class="ds-link" href="#support">Kontakt support</a>
+      Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn, blir behandlet som vanlig, og du trenger ikke gjøre noe selv.
+      <a class="ds-link" href="#support">Kontakt brukerstøtte</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"
@@ -103,7 +103,7 @@ export const smalSkjerm: HtmlSnippets = {
   <div class="ksd-system-banner__content">
     <p class="ds-paragraph ksd-system-banner__text">
       Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.
-      <a class="ds-link" href="#support">Kontakt support</a>
+      <a class="ds-link" href="#support">Kontakt brukerstøtte</a>
     </p>
     <button
       class="ds-button ksd-system-banner__close"

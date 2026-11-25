@@ -65,8 +65,16 @@ export const loading: Snippets = {
     <circle class="ds-spinner__background" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
     <circle class="ds-spinner__circle" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
   </svg>
-  Lagrer…
+  Lagrer …
 </button>`,
-  angular: `<button ksd-button data-variant="primary" loading>Lagrer…</button>`,
-  react: `<Button variant="primary" loading>Lagrer…</Button>`,
+  angular: `<button ksd-button data-variant="primary" loading>Lagrer …</button>`,
+  react: `<Button variant="primary" loading>Lagrer …</Button>`,
+}
+
+export const asLink: Snippets = {
+  html: `<a class="ds-button" href="#" data-variant="primary">Start søknaden</a>`,
+  angular: `<a ksd-button href="#" data-variant="primary">Start søknaden</a>`,
+  react: `<Button asChild variant="primary">
+  <a href="#">Start søknaden</a>
+</Button>`,
 }

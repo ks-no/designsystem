@@ -106,6 +106,8 @@ export function CodeBlock({ of, hideImports = false, notes }: Props) {
   const parameters = story.parameters as {
     snippets?: Example
     ksd?: KsdDocsParameters
+    /** Imports only this example needs (e.g. icons), shown even with `hideImports` */
+    exampleImports?: Imports
   }
   if (!parameters.snippets) {
     throw new Error(`CodeBlock: story "${story.id}" has no parameters.snippets`)
@@ -117,7 +119,9 @@ export function CodeBlock({ of, hideImports = false, notes }: Props) {
   const shown: Framework = htmlOnly ? 'html' : framework
   const code = (snippets as Partial<Record<Framework, string>>)[shown] ?? ''
   const imports: Imports = hideImports ? {} : (parameters.ksd?.imports ?? {})
-  const importCode = imports[shown]
+  const importCode = [imports[shown], parameters.exampleImports?.[shown]]
+    .filter(Boolean)
+    .join('\n')
   const language = FRAMEWORKS.find((f) => f.id === shown)?.language ?? 'html'
   const note = notes?.[shown]
 

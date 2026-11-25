@@ -23,6 +23,14 @@ import * as ErrorSummaryStories from './error-summary.stories'
 - I HTML og React flytter `ds-error-summary` fokus til seg selv når den kommer på
   siden. I Angular gjør du det selv: hent komponenten med `viewChild(ErrorSummary)`
   og kall `focus()` når du viser den. Eksempelet på denne siden flytter ikke fokus,
-  så siden ikke hopper når du åpner den.
+  slik at siden ikke hopper når du åpner den.
+
+## Med skjema
+
+Vis feiloppsummeringen når brukeren prøver å sende inn et skjema med feil. Hver lenke peker til `id`-en på feltet med feilen, så
+brukeren kommer rett dit.
+
+<Canvas of={ErrorSummaryStories.MedSkjema} />
+<CodeBlock of={ErrorSummaryStories.MedSkjema} hideImports />
 
 <ComponentOrigin of={ErrorSummaryStories} />

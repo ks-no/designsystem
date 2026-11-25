@@ -65,7 +65,7 @@ export const globalTypes: Record<string, ThemeGlobalType> = {
   },
   colorScheme: {
     name: 'Color Scheme',
-    description: 'Velg lys/dark-mode for stories',
+    description: 'Velg lys eller mørk modus for stories',
     defaultValue: 'light',
     toolbar: {
       icon: 'moon',

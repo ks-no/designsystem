@@ -35,12 +35,12 @@ export function ComponentOrigin({ of }: Props) {
             ) : (
               'Designsystemet'
             )}{' '}
-            (Digdir), og bruker temaene til KS Digital.
+            (Digdir) og bruker temaene til KS Digital.
             {changes.length === 0 && ' Ellers har vi ikke endret noe.'}
           </p>
         ) : (
           <p className="ds-paragraph">
-            Komponenten er laget av KS Digital, og fungerer med temaene og
+            Komponenten er laget av KS Digital og fungerer med temaene og
             komponentene fra Designsystemet.
           </p>
         )}

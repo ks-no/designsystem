@@ -127,3 +127,103 @@ export const backOnly: Snippets = {
   </Breadcrumbs.Link>
 </Breadcrumbs>`,
 }
+
+export const longItems: Snippets = {
+  html: `<ds-breadcrumbs class="ds-breadcrumbs" aria-label="Du er her:">
+  <a
+    class="ds-link"
+    href="#"
+    aria-label="Tilbake til Slik betaler du renovasjonsgebyr"
+    >Slik betaler du renovasjonsgebyr</a
+  >
+  <ol>
+    <li>
+      <a class="ds-link" href="#">Hjem</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Innbygger</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Avfall og gjenvinning</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Renovasjon og gebyr</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Informasjon om renovasjonsgebyr</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Slik betaler du renovasjonsgebyr</a>
+    </li>
+    <li>
+      <a class="ds-link" href="#">Oppgjør og gebyrberegning</a>
+    </li>
+  </ol>
+</ds-breadcrumbs>`,
+  angular: `<ksd-breadcrumbs aria-label="Du er her:">
+  <a
+    ksd-link
+    href="#"
+    aria-label="Tilbake til Slik betaler du renovasjonsgebyr"
+    >Slik betaler du renovasjonsgebyr</a
+  >
+  <ol>
+    <li>
+      <a ksd-link href="#">Hjem</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Innbygger</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Avfall og gjenvinning</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Renovasjon og gebyr</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Informasjon om renovasjonsgebyr</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Slik betaler du renovasjonsgebyr</a>
+    </li>
+    <li>
+      <a ksd-link href="#">Oppgjør og gebyrberegning</a>
+    </li>
+  </ol>
+</ksd-breadcrumbs>`,
+  react: `<Breadcrumbs aria-label="Du er her:">
+  <Breadcrumbs.Link
+    href="#"
+    aria-label="Tilbake til Slik betaler du renovasjonsgebyr"
+  >
+    Slik betaler du renovasjonsgebyr
+  </Breadcrumbs.Link>
+  <Breadcrumbs.List>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">Hjem</Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">Innbygger</Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">Avfall og gjenvinning</Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">Renovasjon og gebyr</Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">
+        Informasjon om renovasjonsgebyr
+      </Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">
+        Slik betaler du renovasjonsgebyr
+      </Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>
+      <Breadcrumbs.Link href="#">Oppgjør og gebyrberegning</Breadcrumbs.Link>
+    </Breadcrumbs.Item>
+  </Breadcrumbs.List>
+</Breadcrumbs>`,
+}

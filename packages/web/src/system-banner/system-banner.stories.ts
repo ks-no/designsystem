@@ -37,7 +37,7 @@ const controls: Story = {
   args: {
     color: 'danger',
     text: 'Alle systemene våre er nede nå, men vi jobber med å få løst opp i floken.',
-    linkText: 'Kontakt support',
+    linkText: 'Kontakt brukerstøtte',
     closable: true,
   },
   argTypes: {
@@ -90,7 +90,7 @@ export const LangTekst: Story = {
   name: 'Lang tekst',
   args: {
     ...controls.args,
-    text: 'Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn blir behandlet som vanlig, og du trenger ikke gjøre noe selv.',
+    text: 'Vi bytter ut fagsystemet i helgen, og tjenesten er derfor utilgjengelig fra fredag klokken 16 til mandag klokken 08. Søknader som allerede er sendt inn, blir behandlet som vanlig, og du trenger ikke gjøre noe selv.',
   },
   parameters: { snippets: examples.langTekst },
 }

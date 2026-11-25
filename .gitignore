@@ -47,3 +47,5 @@ storybook-static
 # Visual snapshots must be generated in Docker (linux); ignore host-generated ones
 apps/*-e2e/src/**/*-snapshots/*-darwin.png
 apps/*-e2e/src/**/*-snapshots/*-win32.png
+
+skills/

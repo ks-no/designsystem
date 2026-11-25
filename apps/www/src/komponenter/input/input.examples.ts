@@ -51,3 +51,21 @@ export const width: Snippets = {
   <Input size={4} inputMode="numeric" autoComplete="postal-code" />
 </Field>`,
 }
+
+export const withCounter: Snippets = {
+  html: `<ds-field class="ds-field">
+  <label class="ds-label">Tittel på saken</label>
+  <input class="ds-input" type="text" />
+  <p class="ds-validation-message" data-field="counter" data-limit="60"></p>
+</ds-field>`,
+  angular: `<ksd-field>
+  <ksd-label>Tittel på saken</ksd-label>
+  <input ksd-input type="text" />
+  <p class="ds-validation-message" data-field="counter" data-limit="60"></p>
+</ksd-field>`,
+  react: `<Field>
+  <Label>Tittel på saken</Label>
+  <Input />
+  <Field.Counter limit={60} />
+</Field>`,
+}
