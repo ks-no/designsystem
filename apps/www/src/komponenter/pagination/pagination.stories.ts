@@ -21,8 +21,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'pagination',
   changes: [
-    'Angular-komponenten lager hele markupen selv. Du sender inn current og total, og får valgt side tilbake i pageClicked.',
-    'Angular-komponenten kan lage lenker i stedet for knapper med href, slik at hver side får sin egen URL.',
+    'Angular-komponenten lager hele markupen selv, samt noen justeringer for å fungere med `RouterLink`',
   ],
   source: 'packages/angular/pagination/src',
   imports: examples.imports,
@@ -87,7 +86,7 @@ const ksd: KsdDocsParameters = {
       kind: 'output',
       type: 'number',
       description:
-        'Sidetallet brukeren valgte. Vanlige klikk på lenker stoppes, så du kan navigere med routeren; ctrl/cmd-klikk åpner som vanlig.',
+        'Sidetallet brukeren valgte. Vanlige klikk på lenker stoppes, så du kan navigere med routeren. Ctrl/cmd-klikk åpner som vanlig.',
     },
   ],
 }

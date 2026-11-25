@@ -132,6 +132,6 @@ export const Icons: Story = {
 
 export const Loading: Story = {
   ...controls,
-  args: { ...controls.args, loading: true, label: 'Lagrer…' },
+  args: { ...controls.args, loading: true, label: 'Lagrer …' },
   parameters: { snippets: examples.loading },
 }

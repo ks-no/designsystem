@@ -27,31 +27,31 @@ Lukkeknappen er valgfri.
 ## Lesbar bredde
 
 Selve banneret går i full bredde, men teksten stopper ved
-`--ksd-readable-width`. Lukkeknappen følger ikke teksten — den blir liggende helt
+`--ksd-readable-width`. Lukkeknappen følger ikke teksten – den blir liggende helt
 ute til høyre, der brukeren forventer å finne den.
 
 <Canvas of={SystemBannerStories.LangTekst} />
 
 Har siden en sentrert innholdskolonne, sett `--ksd-system-banner-width` til
 bredden på den kolonnen. Da får du lukkeknappen på linje med resten av innholdet
-i stedet for ute ved vindukanten.
+i stedet for ute ved vinduskanten.
 
-| Variabel                    | Standard | Beskrivelse                                                  |
-| --------------------------- | -------- | ------------------------------------------------------------ |
-| `--ksd-system-banner-width` | `none`   | Bredden på innholdsraden                                     |
-| `--ksd-readable-width`      | `48rem`  | Maksbredde på teksten. Global, og deles med samtykkebanneret |
+| Variabel                    | Standard | Beskrivelse                                                 |
+| --------------------------- | -------- | ----------------------------------------------------------- |
+| `--ksd-system-banner-width` | `none`   | Bredden på innholdsraden                                    |
+| `--ksd-readable-width`      | `48rem`  | Maksbredde på teksten. Global og deles med samtykkebanneret |
 
 <Canvas of={SystemBannerStories.SmalSkjerm} />
 
 ## Lukking
 
-Lukkeknappen er "no-op". Du kobler på oppførselen selv, og bestemmer også
-selv hvordan valget skal huskes.
+Lukkeknappen gjør ingenting av seg selv. Du kobler på oppførselen og bestemmer
+også selv hvordan valget skal huskes.
 
 ## Rekkefølge på siden
 
 Systembanneret ligger øverst, samtykkebanneret under, og begge før
-hopp-til-innhold-lenken:
+«Hopp til hovedinnhold»-lenken:
 
 ```html
 <body>
@@ -65,11 +65,11 @@ hopp-til-innhold-lenken:
 
 Systembanneret ligger øverst på siden. Det ligger over samtykkebanneret fordi det sier noe om driften: at
 hele eller deler av tjenesten er nede, ustabil eller oppe igjen. Det kan avgjøre
-om brukeren får løst oppgaven sin. Samtykkespørsmålet er administrativt, og
+om brukeren får løst oppgaven sin. Samtykkespørsmålet er administrativt og
 påvirker ikke om tjenesten lar seg bruke.
 
 Rekkefølgen er den samme for alle varianter. Du slipper å vurdere hvor alvorlig
-meldingen er når du setter opp sida, og banneret blir liggende på samme sted
+meldingen er når du setter opp siden, og banneret blir liggende på samme sted
 når samtykkebanneret forsvinner.
 
 Vis aldri to systembannere samtidig. Slå meldingene sammen, eller lenk til en
@@ -81,12 +81,12 @@ statusside.
 - **Statisk banner trenger ingen `role`.** Er det med i HTML-en fra serveren,
   leser skjermleseren det som vanlig innhold.
 - **Settes banneret inn etter at siden har lastet**, bruk `role="status"`.
-  `role="alert"` avbryter brukeren midt i det hen holder på med, og er bare
-  riktig når noe haster. Legg det tomme live-området inn ved sidelast og fyll det
-  med tekst etterpå — skjermlesere håndterer det dårlig hvis hele live-området
+  `role="alert"` avbryter brukeren midt i det hen holder på med og er bare
+  riktig når noe haster. Legg det tomme live-området inn når siden lastes, og fyll det
+  med tekst etterpå – skjermlesere håndterer det dårlig hvis hele live-området
   settes inn samtidig med innholdet.
 - **Teksten må stå på egne bein.** Ikonet er dekorativt og leses ikke opp, så
   skjermleserbrukeren får bare teksten. Skriv hva som har skjedd og hva det
-  betyr — «Alle systemene våre er nede nå», ikke «Feil».
+  betyr – «Alle systemene våre er nede nå», ikke «Feil».
 
 <ComponentOrigin of={SystemBannerStories} />

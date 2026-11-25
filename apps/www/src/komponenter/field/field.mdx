@@ -22,13 +22,13 @@ skjermlesere. Du trenger ikke sette `id`, `for` eller `aria-describedby` selv.
 - Labelen får `for`, og feltet får en `id` hvis det ikke har en.
 - Elementer med `data-field="description"` eller `data-field="validation"` blir koblet
   til feltet med `aria-describedby`. Feilmeldingen leses først.
-- Når feltet har en feilmelding, setter `Field` `aria-invalid="true"` på feltet, og fjerner
+- Når feltet har en feilmelding, setter `Field` `aria-invalid="true"` på feltet og fjerner
   det når feilmeldingen forsvinner. Har du satt `aria-invalid` selv, lar `Field` det være.
 - Bruk bare ett felt i hver `Field`. Flere felt som hører sammen, grupperer du med
   [Fieldset](/docs/komponenter-fieldset--docs).
 
-Det er web-komponenten `<ds-field>` som gjør dette. Angular sin `ksd-field` og React sin
-`Field` lager det samme elementet, så det virker likt i alle tre.
+Det er web-komponenten `<ds-field>` som gjør dette. `ksd-field` i Angular og
+`Field` i React lager det samme elementet, så det virker likt i alle tre.
 
 ## Med feilmelding
 

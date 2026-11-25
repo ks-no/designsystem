@@ -15,20 +15,10 @@ import * as PaginationStories from './pagination.stories'
 <Controls of={PaginationStories.Preview} />
 <CodeBlock of={PaginationStories.Preview} />
 
-## Slik fungerer det i hvert rammeverk
-
-- **HTML:** `<ds-pagination>` regner ut sidetallene og setter `aria-current` når du setter
-  `data-current` og `data-total`. Du lager én knapp per side, pluss forrige og neste. Når
-  brukeren klikker, leser du sidetallet fra knappens `value` og oppdaterer `data-current`.
-- **Angular:** `ksd-pagination` lager hele markupen for deg. Du sender inn `current` og
-  `total`, og får valgt side tilbake i `pageClicked`.
-- **React:** `usePagination` regner ut sidene og gir deg props til hver knapp.
-
 ## Med lenker
 
 Bruk lenker når hver side har sin egen URL, slik at brukeren kan dele lenken og bruke
-tilbake-knappen. I Angular stopper `pageClicked` vanlige klikk, så du kan navigere med
-routeren, mens ctrl/cmd-klikk fortsatt åpner siden i ny fane.
+tilbake-knappen.
 
 <Canvas of={PaginationStories.MedLenker} />
 <CodeBlock of={PaginationStories.MedLenker} hideImports />

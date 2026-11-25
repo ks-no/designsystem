@@ -10,7 +10,7 @@ import * as CopyButtonStories from './copy-button.stories'
 
 <ComponentHeader of={CopyButtonStories} />
 
-`data-copy` gjør en vanlig `button` om til en kopier-knapp: verdien legges på
+`data-copy` gjør en vanlig `button` om til en kopieringsknapp: verdien legges på
 utklippstavlen når brukeren trykker. Knappen er et native `button`-element, så
 tastatur, fokus og `disabled` følger nettleseren.
 
@@ -21,10 +21,10 @@ tastatur, fokus og `disabled` følger nettleseren.
 ## Bruk
 
 Importer pakken én gang, og bruk `data-copy` der du trenger det. Et ikon settes
-inn automatisk, og oppdateres etter kopiering.
+inn automatisk og oppdateres etter kopiering.
 
-Siden knappen er avhengig av javascript for å fungere er den skjult inntil javascript har lastet.
-Sørg for at verdien som kopieres også står synlig på siden, slik at den
+Siden knappen trenger JavaScript for å fungere, er den skjult til JavaScript er lastet.
+Sørg for at verdien som kopieres, også står synlig på siden, slik at den
 kan markeres og kopieres manuelt.
 
 ## Uten synlig tekst
@@ -50,10 +50,10 @@ tooltip og som tilgjengelig navn.
   kan brukes til styling. Ikke sett den selv: knappen vises først når
   attributtet er satt
 
-## Events
+## Hendelser
 
-- `ksd-copy`: sendes ved vellykket kopiering (`detail.value`)
-- `ksd-copy-error`: sendes hvis kopiering feiler (`detail.value`, `detail.error`)
+- `ksd-copy`: sendes når kopieringen lykkes (`detail.value`)
+- `ksd-copy-error`: sendes hvis kopieringen mislykkes (`detail.value`, `detail.error`)
 
 ```js
 document.addEventListener('ksd-copy', ({ detail }) => {

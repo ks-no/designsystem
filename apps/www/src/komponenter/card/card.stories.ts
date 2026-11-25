@@ -17,7 +17,7 @@ const ksd: KsdDocsParameters = {
   origin: 'digdir',
   digdir: 'card',
   changes: [
-    'Vi har endret padding fra default `--ds-size-6` til `--ds-size-8`',
+    'Vi har endret padding fra standardverdien `--ds-size-6` til `--ds-size-8`.',
   ],
   source: 'packages/angular/card/src',
   imports: examples.imports,

@@ -46,7 +46,7 @@ const controls: Story = {
   args: {
     'data-color': 'info',
     heading: 'Søknadsfristen er 1. mars',
-    body: 'Søknader som kommer inn etter fristen blir ikke behandlet.',
+    body: 'Søknader som kommer inn etter fristen, blir ikke behandlet.',
   },
   argTypes: {
     heading: { control: 'text' },

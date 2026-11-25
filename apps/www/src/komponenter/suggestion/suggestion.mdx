@@ -15,33 +15,63 @@ import * as SuggestionStories from './suggestion.stories'
 <Controls of={SuggestionStories.Preview} />
 <CodeBlock of={SuggestionStories.Preview} />
 
-## Slik fungerer det i hvert rammeverk
+## Signal forms i Angular
 
-- **HTML:** `<ds-suggestion>` filtrerer forslagene i `<u-datalist>` mens brukeren
-  skriver, og legger valgte verdier inn som `<data>`-elementer.
-- **Angular:** `ksd-suggestion` lager markupen for `ds-suggestion` selv. Du skriver
-  hvert forslag som en `ksd-suggestion-list-option` med en `value`, og
-  `ksd-suggestion-list-empty` vises når ingen forslag passer.
-- **React:** Komponenten heter `EXPERIMENTAL_Suggestion`, fordi Designsystemet
-  fortsatt regner den som eksperimentell.
+Bind komponenten til skjemaet med `[formField]`. Verdien i skjemamodellen er alltid
+primitiv: `string` ved enkeltvalg og `string[]` med `multiple`. Etiketten hentes fra
+`ksd-suggestion-list-option`.
 
-Med `creatable` lar du det tomme valget (`ksd-suggestion-list-empty`,
-`Suggestion.Empty` eller `u-option` med `data-empty`) stå uten tekst. Da viser
-det «Legg til» med teksten brukeren har skrevet.
+```ts
+import { Component, signal } from '@angular/core'
+import { FormField, form } from '@angular/forms/signals'
+import { Field, Input, Label } from '@ks-digital/designsystem-angular/forms'
+import {
+  Suggestion,
+  SuggestionList,
+  SuggestionListEmpty,
+  SuggestionListOption,
+} from '@ks-digital/designsystem-angular/suggestion'
 
-## I skjema
-
-- **HTML:** Legg en skjult `<select>` med `name` inne i `ds-suggestion`. Den holdes
-  oppdatert med valget, og sendes med skjemaet. Legg inn et `<data>`-element for å
-  velge en verdi på forhånd.
-- **Angular:** Bind komponenten til signal forms med `formField`. Verdien i
-  skjemamodellen er alltid primitiv: `string` ved enkeltvalg og `string[]` med
-  `multiple`. Etiketten hentes fra `ksd-suggestion-list-option`.
-- **React:** `name` lager den skjulte `<select>`-en for deg, og `defaultSelected`
-  velger en verdi på forhånd.
-
-<Canvas of={SuggestionStories.ISkjema} />
-<CodeBlock of={SuggestionStories.ISkjema} hideImports />
+@Component({
+  selector: 'app-velg-kommune',
+  imports: [
+    Field,
+    FormField,
+    Input,
+    Label,
+    Suggestion,
+    SuggestionList,
+    SuggestionListEmpty,
+    SuggestionListOption,
+  ],
+  template: `
+    <ksd-field>
+      <ksd-label>Velg kommune</ksd-label>
+      <ksd-suggestion [formField]="skjema.kommune">
+        <input ksd-input />
+        <button type="reset"></button>
+        <ksd-suggestion-list>
+          @for (kommune of kommuner; track kommune.value) {
+            <ksd-suggestion-list-option [value]="kommune.value">
+              {{ kommune.label }}
+            </ksd-suggestion-list-option>
+          }
+          <ksd-suggestion-list-empty>Ingen treff</ksd-suggestion-list-empty>
+        </ksd-suggestion-list>
+      </ksd-suggestion>
+    </ksd-field>
+  `,
+})
+export class VelgKommune {
+  kommuner = [
+    { label: 'Bergen', value: '4601' },
+    { label: 'Oslo', value: '0301' },
+    { label: 'Trondheim', value: '5001' },
+  ]
+  model = signal({ kommune: '0301' })
+  skjema = form(this.model)
+}
+```
 
 ## Kontrollert bruk i Angular
 

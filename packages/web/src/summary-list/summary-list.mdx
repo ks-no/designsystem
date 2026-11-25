@@ -10,8 +10,8 @@ import * as SummaryListStories from './summary-list.stories'
 
 <ComponentHeader of={SummaryListStories} />
 
-Summary list viser navn/verdi-par, for eksempel et sammendrag av en søknad
-før innsending. Komponenten er ren CSS - du skriver vanlig `dl`-markup, og
+Summary list viser par med navn og verdi, for eksempel et sammendrag av en søknad
+før innsending. Komponenten er ren CSS – du skriver vanlig `dl`-markup, og
 nettleseren beholder den semantiske koblingen mellom `dt` og `dd`.
 
 <Canvas of={SummaryListStories.Preview} />
@@ -20,8 +20,8 @@ nettleseren beholder den semantiske koblingen mellom `dt` og `dd`.
 
 ## Bruk
 
-Hver rad pakkes i en `div` inne i `dl`. Det er gyldig HTML, og gir raden noe å
-tegne skillelinje på.
+Hver rad pakkes i en `div` inne i `dl`. Det er gyldig HTML og gir raden noe å
+tegne skillelinjen på.
 
 ```html
 <dl class="ksd-summary-list">
@@ -38,7 +38,7 @@ tegne skillelinje på.
 
 ## Smal plass
 
-Lista tilpasser seg plassen den har, ikke vindusbredden. Når det ikke er plass
+Listen tilpasser seg plassen den har, ikke vindusbredden. Når det ikke er plass
 til både navn og verdi ved siden av hverandre, legger verdien seg under.
 
 <Canvas of={SummaryListStories.SmalKolonne} />
@@ -46,7 +46,7 @@ til både navn og verdi ved siden av hverandre, legger verdien seg under.
 ## Endre-lenker
 
 Legg en ekstra `dd` med klassen `ksd-summary-list__actions` sist i raden. Skriv
-hva lenken gjelder - bruk `ds-sr-only` hvis du ikke vil vise det - slik at
+hva lenken gjelder – bruk `ds-sr-only` hvis du ikke vil vise det – slik at
 «Endre» ikke står alene som lenketekst for skjermleserbrukere.
 
 ```html
@@ -61,7 +61,7 @@ hva lenken gjelder - bruk `ds-sr-only` hvis du ikke vil vise det - slik at
 
 ## I et card
 
-Lista har ingen egen bakgrunn eller ramme, så den kan legges rett inn i et
+Listen har ingen egen bakgrunn eller ramme, så den kan legges rett inn i et
 `ds-card`.
 
 <Canvas of={SummaryListStories.ICard} />

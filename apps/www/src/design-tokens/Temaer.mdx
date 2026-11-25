@@ -4,11 +4,11 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Temaer
 
-Løsningene som KS Digital utvikler har ulik visuell identitet. Designsystemet gir oss en struktur for å bygge og vedlikeholde disse. Temaene er basert på design tokens – en W3C-standard som fungerer som felles kilde for både Figma og generert CSS.
+Løsningene som KS Digital utvikler, har ulik visuell identitet. Designsystemet gir oss en struktur for å bygge og vedlikeholde disse. Temaene er basert på design tokens – en W3C-standard som fungerer som felles kilde for både Figma og generert CSS.
 
-Temaene distribueres som en sentral npm-pakke, slik at team raskt kan komme i gang - både i Figma og i kode.
+Temaene distribueres som en sentral npm-pakke, slik at teamene raskt kan komme i gang – både i Figma og i kode.
 
-Når du navigerer gjennom de ulike komponentene, kan du forhåndsvise de i de ulike temaene, samt lys/mørk-modus via verktøylinjen øverst på siden.
+Når du navigerer gjennom de ulike komponentene, kan du forhåndsvise dem i de ulike temaene og i lys og mørk modus via verktøylinjen øverst på siden.
 
 ## Tilgjengelige temaer
 
@@ -20,21 +20,21 @@ Når du navigerer gjennom de ulike komponentene, kan du forhåndsvise de i de ul
 
 ## Om temaene
 
-Ved å bruke et tema fra Designsystemet får du en generert fargeskala som er satt opp for å fungere med lys og mørk modus. Bruk kun farger definert i temaet – farger utenfor kan gjøre identiteten utydelig og bryte modus-støtten.
+Ved å bruke et tema fra Designsystemet får du en generert fargeskala som er satt opp for å fungere med lys og mørk modus. Bruk bare farger som er definert i temaet – andre farger kan gjøre identiteten utydelig og bryte støtten for lys og mørk modus.
 
-CSS-pakken inneholder også eventuelle stiler for egne komponenter. Disse bruker prefikset `ksd-` istedenfor `ds-`.
+CSS-pakken inneholder også eventuelle stiler for egne komponenter. Disse bruker prefikset `ksd-` i stedet for `ds-`.
 
 ## Bruk
 
-Innstallér temapakken:
+Installer temapakken:
 
 ```bash
 pnpm add @ks-digital/designsystem-themes
 ```
 
-### Last inn font
+### Last inn skrifttypen
 
-Alle temaene bruker skrifttypen Inter, og den må lastes inn av applikasjonen din. Legg til denne i `index.html`.
+Alle temaene bruker skrifttypen Inter, og den må lastes inn av applikasjonen din. Legg til denne i `index.html`:
 
 ```html
 <link
@@ -45,11 +45,11 @@ Alle temaene bruker skrifttypen Inter, og den må lastes inn av applikasjonen di
 />
 ```
 
-Importer basisstiler og ønsket tema i CSS- eller JavaScript/TypeScript-filene dine:
+Importer basisstilene og temaet du vil bruke, i CSS- eller JavaScript/TypeScript-filene dine.
 
 ### CSS
 
-Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-imports:
+Hvis bundleren din (for eksempel Vite) er satt opp til å løse npm-pakker i CSS-importer:
 
 ```css
 @import url('@ks-digital/designsystem-themes/base.css');
@@ -58,9 +58,9 @@ Dersom bundleren din (f.eks. Vite) er konfigurert til å løse npm-pakker i CSS-
 
 #### Tailwind
 
-Alle tema kan integreres med Tailwind. Importer `[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (eksperimentelt).
+Alle temaene kan integreres med Tailwind. Importer `[tema].tailwind.css`, som kobler Tailwind-klasser til Designsystemets tokens (eksperimentelt).
 
-> Den første linjen styrer prioritetsrekkefølgen for CSS-layers: layers som er deklarert senere vinner. Den anbefalte rekkefølgen plasserer `ds` og `ksd` over Tailwind, slik at Designsystemets stiler har prioritet. Trenger du at Tailwind-utilities overstyrer komponentstiler, kan du flytte `utilities` etter `ksd`, men vær oppmerksom på at dette kan gi problemer ved fremtidige oppdateringer.
+> Den første linjen styrer prioritetsrekkefølgen for CSS-layers: layers som er deklarert senere, vinner. Den anbefalte rekkefølgen plasserer `ds` og `ksd` over Tailwind, slik at Designsystemets stiler går foran. Trenger du at Tailwind-utilities overstyrer komponentstilene, kan du flytte `utilities` etter `ksd`. Det kan likevel gi problemer når pakkene oppdateres senere.
 
 ```css
 @layer theme, base, utilities, ds, ksd;
@@ -76,7 +76,7 @@ Alle tema kan integreres med Tailwind. Importer `[tema].tailwind.css`, som koble
 
 ### JavaScript / TypeScript
 
-Importer stilene direkte i applikasjonen din. Bruker du React, se README i React-pakken.
+Importer stilene direkte i applikasjonen din. Bruker du React, se README-en i React-pakken.
 
 ```javascript
 import '@ks-digital/designsystem-themes/base.css'
