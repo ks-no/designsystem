@@ -67,5 +67,8 @@ export const Varianter: Story = { parameters: { snippets: examples.variants } }
  */
 export const MedIkon: Story = {
   name: 'Med ikon',
-  parameters: { snippets: examples.withIcon },
+  parameters: {
+    snippets: examples.withIcon,
+    exampleImports: examples.withIconImports,
+  },
 }

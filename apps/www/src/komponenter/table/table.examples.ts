@@ -846,6 +846,8 @@ export const fixedLayout: Snippets = {
 
 export const multipleHeaderRows: Snippets = {
   html: `<table class="ds-table">
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
   <thead>
     <tr>
       <th colspan="2" scope="colgroup">Søker</th>
@@ -880,6 +882,8 @@ export const multipleHeaderRows: Snippets = {
   </tbody>
 </table>`,
   angular: `<table ksd-table>
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
   <thead>
     <tr>
       <th colspan="2" scope="colgroup">Søker</th>
@@ -914,6 +918,8 @@ export const multipleHeaderRows: Snippets = {
   </tbody>
 </table>`,
   react: `<Table>
+  <colgroup span={2} />
+  <colgroup span={2} />
   <Table.Head>
     <Table.Row>
       <Table.HeaderCell colSpan={2} scope="colgroup">

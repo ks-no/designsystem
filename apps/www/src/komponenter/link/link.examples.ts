@@ -57,6 +57,20 @@ export const withIcon: Snippets = {
 </>`,
 }
 
+/** Icons used in the example above */
+export const withIconImports: Imports = {
+  angular: `import { NgIcon, provideIcons } from '@ng-icons/core'
+import {
+  phosphorDownloadSimple,
+  phosphorPencilLine,
+} from '@ng-icons/phosphor-icons/regular'
+
+// I @Component:
+// imports: [NgIcon],
+// providers: [provideIcons({ phosphorDownloadSimple, phosphorPencilLine })],`,
+  react: `import { DownloadSimple, PencilLine } from '@phosphor-icons/react'`,
+}
+
 export const iconOnly: Snippets = {
   html: `<a class="ds-link" href="#" aria-label="Endre søknaden">
   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor">
@@ -69,6 +83,19 @@ export const iconOnly: Snippets = {
   react: `<Link href="#" aria-label="Endre søknaden">
   <PencilLine aria-hidden />
 </Link>`,
+}
+
+/** Icons used in the example above */
+export const iconOnlyImports: Imports = {
+  angular: `import { NgIcon, provideIcons } from '@ng-icons/core'
+import {
+  phosphorPencilLine,
+} from '@ng-icons/phosphor-icons/regular'
+
+// I @Component:
+// imports: [NgIcon],
+// providers: [provideIcons({ phosphorPencilLine })],`,
+  react: `import { PencilLine } from '@phosphor-icons/react'`,
 }
 
 export const longText: Snippets = {

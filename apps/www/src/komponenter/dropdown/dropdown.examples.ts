@@ -240,7 +240,7 @@ export const proxy: Snippets = {
         </Dropdown.Button>
       </Dropdown.Item>
     </Dropdown.List>
-    <Divider />
+    <hr className="ds-divider" aria-hidden />
     <Dropdown.List>
       <Dropdown.Item>
         <Dropdown.Button asChild>

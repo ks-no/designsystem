@@ -54,3 +54,17 @@ export const withIcon: Snippets = {
   </Tag>
 </>`,
 }
+
+/** Icons used in the example above */
+export const withIconImports: Imports = {
+  angular: `import { NgIcon, provideIcons } from '@ng-icons/core'
+import {
+  phosphorCheckCircle,
+  phosphorHourglass,
+} from '@ng-icons/phosphor-icons/regular'
+
+// I @Component:
+// imports: [NgIcon],
+// providers: [provideIcons({ phosphorCheckCircle, phosphorHourglass })],`,
+  react: `import { CheckCircle, Hourglass } from '@phosphor-icons/react'`,
+}

@@ -67,12 +67,18 @@ export const MedIkon: Story = {
     >
       ${story()}
     </div>`,
-  parameters: { snippets: examples.withIcon },
+  parameters: {
+    snippets: examples.withIcon,
+    exampleImports: examples.withIconImports,
+  },
 }
 /** En lenke med bare ikon må ha en `aria-label` som beskriver hvor lenken fører. */
 export const BareIkon: Story = {
   name: 'Bare ikon',
-  parameters: { snippets: examples.iconOnly },
+  parameters: {
+    snippets: examples.iconOnly,
+    exampleImports: examples.iconOnlyImports,
+  },
 }
 /** Lange lenketekster brytes over flere linjer. */
 export const LangLenketekst: Story = {

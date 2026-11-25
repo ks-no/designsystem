@@ -109,3 +109,18 @@ export const withIcons: Snippets = {
   <Tabs.Panel value="historikk">Hva som har skjedd i saken.</Tabs.Panel>
 </Tabs>`,
 }
+
+/** Icons used in the example above */
+export const withIconsImports: Imports = {
+  angular: `import { NgIcon, provideIcons } from '@ng-icons/core'
+import {
+  phosphorClockCounterClockwise,
+  phosphorFileText,
+  phosphorPaperclip,
+} from '@ng-icons/phosphor-icons/regular'
+
+// I @Component:
+// imports: [NgIcon],
+// providers: [provideIcons({ phosphorClockCounterClockwise, phosphorFileText, phosphorPaperclip })],`,
+  react: `import { ClockCounterClockwise, FileText, Paperclip } from '@phosphor-icons/react'`,
+}
