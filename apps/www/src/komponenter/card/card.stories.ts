@@ -33,11 +33,15 @@ const meta: Meta<CardArgs> = {
   },
   argTypes: commonArgTypes,
   render: renderExample,
-  decorators: [(story) => html`<div style="max-width:22rem">${story()}</div>`],
 }
 export default meta
 
 type Story = StoryObj<CardArgs>
+
+const maxWidth =
+  (width: string): Story['decorators'] =>
+  (story) =>
+    html`<div style="max-width:${width}">${story()}</div>`
 
 /** The preview follows the Controls; the code below it stays the static example */
 const controls: Story = {
@@ -65,13 +69,21 @@ const controls: Story = {
 
 export const Preview: Story = {
   ...controls,
+  decorators: maxWidth('22rem'),
   parameters: { snippets: examples.preview },
 }
 export const MedLenke: Story = {
   name: 'Med lenke',
+  decorators: maxWidth('22rem'),
   parameters: { snippets: examples.withLink },
 }
 export const MedBlokker: Story = {
   name: 'Med blokker',
+  decorators: maxWidth('22rem'),
   parameters: { snippets: examples.withBlocks },
+}
+/** Bilde ved siden av innholdet. Innholdet brytes under bildet når det er lite plass. */
+export const Horisontal: Story = {
+  decorators: maxWidth('40rem'),
+  parameters: { snippets: examples.horizontal },
 }

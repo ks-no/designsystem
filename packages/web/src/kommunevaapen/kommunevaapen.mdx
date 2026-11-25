@@ -3,6 +3,7 @@ import { ComponentHeader } from '@internal/docs/blocks/ComponentHeader'
 import { ComponentOrigin } from '@internal/docs/blocks/ComponentOrigin'
 import { CodeBlock } from '@internal/docs/blocks/CodeBlock'
 import * as KommunevaapenStories from './kommunevaapen.stories'
+import { kommuner } from './kommuner'
 
 <Meta of={KommunevaapenStories} />
 
@@ -24,5 +25,91 @@ oppdatert ved endring av kommunevåpen
 1. Hent CSS-filen fra CDN: `https://static.fiks.ks.no/img/kommunevaapen/sprites/kommunevaapen.css`
 
 2. Inkluder denne CSS-filen og bruk klassen `sprite-kommunevaapen` sammen med `sprite-kommunevaapen-{kommunenummer}` for å vise ønsket kommunevåpenet.
+
+Klassene setter bredde og høyde, men ikke `display`. Gi elementet `display: inline-block`
+(eller bruk det i flex eller grid), ellers blir det ikke synlig.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://static.fiks.ks.no/img/kommunevaapen/sprites/kommunevaapen.css"
+/>
+
+<span
+  class="sprite-kommunevaapen sprite-kommunevaapen-0301"
+  style="display: inline-block"
+  role="img"
+  aria-label="Oslos kommunevåpen"
+></span>
+```
+
+### Tilgjengelighet
+
+Sprites er bakgrunnsbilder, så de har ingen `alt`-tekst.
+
+- Står kommunevåpenet alene, bruk `role="img"` og `aria-label` for å beskrive bildet, som i eksempelet over.
+- Hvis kommunenavnet står ved siden av og kommunevåpenet er kun dekorativt, så kan du bruke `aria-hidden`.
+
+## Alle kommunevåpen
+
+<link
+  rel="stylesheet"
+  href="https://static.fiks.ks.no/img/kommunevaapen/sprites/kommunevaapen.css"
+/>
+
+<style>{`
+  .ksd-kommunevaapen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    margin: var(--ds-size-6) 0 0;
+    padding: 0;
+    list-style: none;
+    /* Inner lines only: each cell draws its right and bottom line and reaches 1px past
+       its track, so the lines on the right and bottom edge fall outside and are clipped */
+    overflow: hidden;
+  }
+  .ksd-kommunevaapen-grid li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Våpen differ in height, so stack from the bottom: names and numbers line up */
+    justify-content: flex-end;
+    gap: var(--ds-size-1);
+    padding: var(--ds-size-3) var(--ds-size-2);
+    border-inline-end: var(--ds-border-width-default) solid
+      var(--ds-color-neutral-border-subtle);
+    border-block-end: var(--ds-border-width-default) solid
+      var(--ds-color-neutral-border-subtle);
+    margin: 0 calc(-1 * var(--ds-border-width-default))
+      calc(-1 * var(--ds-border-width-default)) 0;
+    text-align: center;
+  }
+  /* Sprite sizes are fixed (most are 120px tall), so shrink them */
+  .ksd-kommunevaapen-grid .sprite-kommunevaapen {
+    display: block;
+    zoom: 0.5;
+    margin-block-end: var(--ds-size-2);
+  }
+  .ksd-kommunevaapen-grid small {
+    color: var(--ds-color-neutral-text-subtle);
+  }
+`}</style>
+
+{/* sb-unstyled: keeps Storybook's docs styles for lists off the grid */}
+
+<div className="sb-unstyled">
+  <ul className="ksd-kommunevaapen-grid">
+    {kommuner.map((k) => (
+      <li key={k.nummer}>
+        <span
+          className={`sprite-kommunevaapen sprite-kommunevaapen-${k.nummer}`}
+          aria-hidden="true"
+        />
+        <span>{k.navn}</span>
+        <small>{k.nummer}</small>
+      </li>
+    ))}
+  </ul>
+</div>
 
 <ComponentOrigin of={KommunevaapenStories} />
