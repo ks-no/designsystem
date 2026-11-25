@@ -71,3 +71,27 @@ export const withLabel: Snippets = {
   </Search>
 </Field>`,
 }
+
+export const inForm: Snippets = {
+  html: `<form role="search" action="/sok">
+  <ds-suggestion class="ds-search">
+    <input class="ds-input" type="text" name="q" aria-label="Søk på nettstedet" />
+    <button type="reset"></button>
+    <button class="ds-button" type="submit" data-variant="primary">Søk</button>
+  </ds-suggestion>
+</form>`,
+  angular: `<form role="search" action="/sok">
+  <ksd-search>
+    <input ksd-search-input type="text" name="q" aria-label="Søk på nettstedet" />
+    <button ksd-search-clear></button>
+    <button ksd-search-button>Søk</button>
+  </ksd-search>
+</form>`,
+  react: `<form role="search" action="/sok">
+  <Search>
+    <Search.Input type="text" name="q" aria-label="Søk på nettstedet" />
+    <Search.Clear />
+    <Search.Button>Søk</Search.Button>
+  </Search>
+</form>`,
+}

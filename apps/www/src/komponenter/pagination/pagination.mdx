@@ -23,6 +23,75 @@ tilbake-knappen.
 <Canvas of={PaginationStories.MedLenker} />
 <CodeBlock of={PaginationStories.MedLenker} hideImports />
 
+## Smal skjerm
+
+<Canvas of={PaginationStories.SmalSkjerm} />
+<CodeBlock of={PaginationStories.SmalSkjerm} hideImports />
+
+## Egen markup i Angular
+
+`<ksd-pagination>` støtter også at du sender inn egen markup. Du kan da bygge din egen visningslogikk på samme måte som standard i `<ds-pagination>`.`
+
+```ts
+import { Component, signal } from '@angular/core'
+import {
+  Pagination,
+  PaginationButton,
+} from '@ks-digital/designsystem-angular/pagination'
+
+@Component({
+  selector: 'app-sakliste-sider',
+  imports: [Pagination, PaginationButton],
+  template: `
+    <ksd-pagination
+      #pagination
+      [current]="side()"
+      total="10"
+      (pageClicked)="side.set($event)"
+    >
+      <ol>
+        <li>
+          <button
+            type="button"
+            [ksdPaginationButton]="pagination.pages().prev"
+            [disabled]="!pagination.pages().prev"
+          >
+            Forrige
+          </button>
+        </li>
+        @for (page of pagination.pages().pages; track page.key) {
+          @if (page.type === 'page') {
+            <li>
+              <button
+                type="button"
+                [ksdPaginationButton]="page"
+                [attr.aria-label]="'Side ' + page.page"
+              >
+                {{ page.page }}
+              </button>
+            </li>
+          } @else {
+            <li></li>
+          }
+        }
+        <li>
+          <button
+            type="button"
+            [ksdPaginationButton]="pagination.pages().next"
+            [disabled]="!pagination.pages().next"
+          >
+            Neste
+          </button>
+        </li>
+      </ol>
+    </ksd-pagination>
+  `,
+})
+export class SaklisteSider {
+  side = signal(4)
+}
+```
+
 ## Angular API
 
 <AngularApi of={PaginationStories} />

@@ -135,3 +135,8 @@ export const Loading: Story = {
   args: { ...controls.args, loading: true, label: 'Lagrer …' },
   parameters: { snippets: examples.loading },
 }
+
+export const SomLenke: Story = {
+  name: 'Som lenke',
+  parameters: { snippets: examples.asLink },
+}

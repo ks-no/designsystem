@@ -172,3 +172,25 @@ export const inline: Snippets = {
   </div>
 </Fieldset>`,
 }
+
+export const withoutVisibleLabel: Snippets = {
+  html: `<ds-field class="ds-field">
+  <input
+    class="ds-input"
+    type="radio"
+    name="sak"
+    value="2024/1187"
+    aria-label="Velg sak 2024/1187"
+  />
+</ds-field>`,
+  angular: `<ksd-field>
+  <input
+    ksd-input
+    type="radio"
+    name="sak"
+    value="2024/1187"
+    aria-label="Velg sak 2024/1187"
+  />
+</ksd-field>`,
+  react: `<Radio name="sak" value="2024/1187" aria-label="Velg sak 2024/1187" />`,
+}

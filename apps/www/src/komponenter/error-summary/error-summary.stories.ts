@@ -1,6 +1,8 @@
 import type { KsdDocsParameters } from '@internal/storybook/docs-parameters'
+import type { HtmlSnippets } from '@internal/storybook/snippets'
 import type { Meta, StoryObj } from '@storybook/web-components-vite'
 import { html, render, type TemplateResult } from 'lit'
+import { guard } from 'lit/directives/guard.js'
 import { ifDefined } from 'lit/directives/if-defined.js'
 import { sizes } from '../../../.storybook/args'
 import { parseExample } from '../../../.storybook/render'
@@ -53,7 +55,12 @@ const meta: Meta<ErrorSummaryArgs> = {
   argTypes: {
     'data-size': { options: [...sizes], control: { type: 'radio' } },
   },
-  render: (_, context) => withoutAutofocus(parseExample(context)),
+  // Like renderExample: guard parses again for each render, so a decorator's lit
+  // template doesn't hand Storybook's source render the same (then emptied) fragment
+  render: (_, context) =>
+    html`${guard([(context.parameters['snippets'] as HtmlSnippets).html], () =>
+      withoutAutofocus(parseExample(context)),
+    )}`,
 }
 export default meta
 
@@ -96,4 +103,18 @@ const controls: Story = {
 export const Preview: Story = {
   ...controls,
   parameters: { snippets: examples.preview },
+}
+export const MedSkjema: Story = {
+  name: 'Med skjema',
+  parameters: { snippets: examples.withForm },
+  decorators: [
+    // Submitting would leave the docs page; the code shown is unchanged
+    (story) =>
+      html`<div
+        style="max-inline-size: 30rem"
+        @submit=${(event: SubmitEvent) => event.preventDefault()}
+      >
+        ${story()}
+      </div>`,
+  ],
 }

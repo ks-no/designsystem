@@ -61,3 +61,11 @@ export const Preview: Story = {
   parameters: { snippets: examples.preview },
 }
 export const Varianter: Story = { parameters: { snippets: examples.variants } }
+/**
+ * Designsystemet gir ikke avstand mellom ikon og tekst i en tag, så i HTML og React
+ * setter du `gap` selv. Angular-komponenten gjør det for deg.
+ */
+export const MedIkon: Story = {
+  name: 'Med ikon',
+  parameters: { snippets: examples.withIcon },
+}

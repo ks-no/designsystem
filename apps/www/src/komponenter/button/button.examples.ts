@@ -70,3 +70,11 @@ export const loading: Snippets = {
   angular: `<button ksd-button data-variant="primary" loading>Lagrer …</button>`,
   react: `<Button variant="primary" loading>Lagrer …</Button>`,
 }
+
+export const asLink: Snippets = {
+  html: `<a class="ds-button" href="#" data-variant="primary">Start søknaden</a>`,
+  angular: `<a ksd-button href="#" data-variant="primary">Start søknaden</a>`,
+  react: `<Button asChild variant="primary">
+  <a href="#">Start søknaden</a>
+</Button>`,
+}

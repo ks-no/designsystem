@@ -32,4 +32,35 @@ etter, i én celle med `colspan`.
 <Canvas of={TableStories.EkspanderbareRader} />
 <CodeBlock of={TableStories.EkspanderbareRader} hideImports />
 
+## Tall
+
+Høyrejuster kolonner med tall, slik at sifrene står under hverandre. Med
+`font-variant-numeric: tabular-nums` får alle sifrene samme bredde.
+
+<Canvas of={TableStories.Tall} />
+<CodeBlock of={TableStories.Tall} hideImports />
+
+## Med skjemaelementer
+
+Skjemaelementer i en tabell har sjelden en synlig ledetekst. Gi dem en `aria-label`
+som sier hvilken rad de gjelder.
+
+<Canvas of={TableStories.MedSkjemaelementer} />
+<CodeBlock of={TableStories.MedSkjemaelementer} hideImports />
+
+## Like brede kolonner
+
+Med `table-layout: fixed` blir kolonnene like brede, uansett hva cellene inneholder.
+
+<Canvas of={TableStories.LikeBredeKolonner} />
+<CodeBlock of={TableStories.LikeBredeKolonner} hideImports />
+
+## Flere overskriftsrader
+
+Bruk `colspan` på overskrifter som gjelder flere kolonner, og `scope="colgroup"`, slik at
+skjermlesere kobler dem til de riktige kolonnene.
+
+<Canvas of={TableStories.FlereOverskriftsrader} />
+<CodeBlock of={TableStories.FlereOverskriftsrader} hideImports />
+
 <ComponentOrigin of={TableStories} />

@@ -129,3 +129,18 @@ export const EkspanderbareRader: Story = {
   name: 'Ekspanderbare rader',
   parameters: { snippets: examples.expandable },
 }
+export const Tall: Story = {
+  parameters: { snippets: examples.numbers },
+}
+export const MedSkjemaelementer: Story = {
+  name: 'Med skjemaelementer',
+  parameters: { snippets: examples.formElements },
+}
+export const LikeBredeKolonner: Story = {
+  name: 'Like brede kolonner',
+  parameters: { snippets: examples.fixedLayout },
+}
+export const FlereOverskriftsrader: Story = {
+  name: 'Flere overskriftsrader',
+  parameters: { snippets: examples.multipleHeaderRows },
+}

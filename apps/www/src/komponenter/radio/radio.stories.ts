@@ -11,6 +11,7 @@ type RadioArgs = {
   'data-variant'?: 'outline'
   legend: string
   disabled?: boolean
+  readonly?: boolean
 }
 
 const ksd: KsdDocsParameters = {
@@ -43,11 +44,16 @@ const answers = [
 
 /** The preview follows the Controls; the code below it stays the static example */
 const controls: Story = {
-  args: { legend: 'Hvordan vil du få svar på søknaden?', disabled: false },
+  args: {
+    legend: 'Hvordan vil du få svar på søknaden?',
+    disabled: false,
+    readonly: false,
+  },
   argTypes: {
     'data-variant': { options: ['outline'], control: { type: 'radio' } },
     legend: { control: 'text' },
     disabled: { control: 'boolean' },
+    readonly: { control: 'boolean' },
   },
   render: (a) =>
     html`<fieldset class="ds-fieldset">
@@ -66,6 +72,7 @@ const controls: Story = {
               name="svar-preview"
               value=${value}
               ?disabled=${a.disabled}
+              ?readonly=${a.readonly}
             />
             <label class="ds-label">${label}</label>
           </ds-field>`,
@@ -84,4 +91,8 @@ export const MedFeilmelding: Story = {
 export const PaSammeLinje: Story = {
   name: 'På samme linje',
   parameters: { snippets: examples.inline },
+}
+export const UtenSynligLabel: Story = {
+  name: 'Uten synlig label',
+  parameters: { snippets: examples.withoutVisibleLabel },
 }

@@ -26,3 +26,7 @@ export default meta
 type Story = StoryObj
 
 export const Preview: Story = { parameters: { snippets: examples.preview } }
+export const MedIkoner: Story = {
+  name: 'Med ikoner',
+  parameters: { snippets: examples.withIcons },
+}

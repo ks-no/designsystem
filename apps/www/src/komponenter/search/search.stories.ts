@@ -72,3 +72,14 @@ export const MedLabel: Story = {
   name: 'Med label',
   parameters: { snippets: examples.withLabel },
 }
+export const ISkjema: Story = {
+  name: 'I skjema',
+  parameters: { snippets: examples.inForm },
+  decorators: [
+    // Submitting would leave the docs page; the code shown is unchanged
+    (story) =>
+      html`<div @submit=${(event: SubmitEvent) => event.preventDefault()}>
+        ${story()}
+      </div>`,
+  ],
+}

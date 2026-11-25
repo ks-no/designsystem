@@ -159,3 +159,23 @@ export const withError: Snippets = {
   </ValidationMessage>
 </Fieldset>`,
 }
+
+export const withoutVisibleLabel: Snippets = {
+  html: `<ds-field class="ds-field">
+  <input
+    class="ds-input"
+    type="checkbox"
+    value="2024/1187"
+    aria-label="Velg sak 2024/1187"
+  />
+</ds-field>`,
+  angular: `<ksd-field>
+  <input
+    ksd-input
+    type="checkbox"
+    value="2024/1187"
+    aria-label="Velg sak 2024/1187"
+  />
+</ksd-field>`,
+  react: `<Checkbox value="2024/1187" aria-label="Velg sak 2024/1187" />`,
+}

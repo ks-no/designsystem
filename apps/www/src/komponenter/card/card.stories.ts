@@ -87,3 +87,14 @@ export const Horisontal: Story = {
   decorators: maxWidth('40rem'),
   parameters: { snippets: examples.horizontal },
 }
+export const ListeMedKort: Story = {
+  name: 'Liste med kort',
+  decorators: maxWidth('40rem'),
+  parameters: { snippets: examples.list },
+}
+/** Hele kortet er klikkbart og krysser av i avkrysningsboksen. */
+export const MedAvkrysningsboks: Story = {
+  name: 'Med avkrysningsboks',
+  decorators: maxWidth('22rem'),
+  parameters: { snippets: examples.withCheckbox },
+}

@@ -85,7 +85,13 @@ export const Preview: Story = {
   ...controls,
   parameters: { snippets: examples.preview },
 }
-export const MedLenker: Story = {
-  name: 'Med lenker',
-  parameters: { snippets: examples.withLinks },
+// Not on the docs page, only in the sidebar
+export const Fullmakt: Story = {
+  tags: ['!autodocs'],
+  parameters: { snippets: examples.proxy },
+}
+export const MedIkoner: Story = {
+  name: 'Med ikoner',
+  tags: ['!autodocs'],
+  parameters: { snippets: examples.withIcons },
 }

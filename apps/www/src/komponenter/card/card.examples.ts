@@ -7,9 +7,15 @@ import type {
 export const imports: Imports = {
   html: `import '@ks-digital/designsystem-web'`,
   angular: `import { Card, CardBlock } from '@ks-digital/designsystem-angular/card'
+import {
+  Field,
+  FieldDescription,
+  Input,
+  Label,
+} from '@ks-digital/designsystem-angular/forms'
 import { Heading } from '@ks-digital/designsystem-angular/heading'
 import { Paragraph } from '@ks-digital/designsystem-angular/paragraph'`,
-  react: `import { Card, Heading, Paragraph } from '@ks-digital/designsystem-react'`,
+  react: `import { Card, Checkbox, Heading, Paragraph } from '@ks-digital/designsystem-react'`,
 }
 
 export const preview: Snippets = {
@@ -134,4 +140,115 @@ export const horizontal: HtmlSnippets = {
     <button class="ds-button" type="button" data-variant="primary">Gå til sak</button>
   </div>
 </article>`,
+}
+
+export const list: Snippets = {
+  html: `<ul
+  style="display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: var(--ds-size-4); margin: 0; padding: 0; list-style: none"
+>
+  <li class="ds-card" data-variant="default">
+    <h2 class="ds-heading" data-size="xs">Byggesak 2025/1234</h2>
+    <p class="ds-paragraph">Søknaden er under behandling.</p>
+  </li>
+  <li class="ds-card" data-variant="default">
+    <h2 class="ds-heading" data-size="xs">Barnehageplass</h2>
+    <p class="ds-paragraph">Du har fått tilbud om plass. Svar seinest 15. mai.</p>
+  </li>
+  <li class="ds-card" data-variant="default">
+    <h2 class="ds-heading" data-size="xs">Parkeringstillatelse</h2>
+    <p class="ds-paragraph">Tillatelsen gjelder til 31. desember.</p>
+  </li>
+  <li class="ds-card" data-variant="default">
+    <h2 class="ds-heading" data-size="xs">Eiendomsskatt</h2>
+    <p class="ds-paragraph">Neste faktura har forfall 20. mai.</p>
+  </li>
+</ul>`,
+  angular: `<ul
+  style="display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: var(--ds-size-4); margin: 0; padding: 0; list-style: none"
+>
+  <li ksd-card variant="default">
+    <h2 ksd-heading data-size="xs">Byggesak 2025/1234</h2>
+    <p ksd-paragraph>Søknaden er under behandling.</p>
+  </li>
+  <li ksd-card variant="default">
+    <h2 ksd-heading data-size="xs">Barnehageplass</h2>
+    <p ksd-paragraph>Du har fått tilbud om plass. Svar seinest 15. mai.</p>
+  </li>
+  <li ksd-card variant="default">
+    <h2 ksd-heading data-size="xs">Parkeringstillatelse</h2>
+    <p ksd-paragraph>Tillatelsen gjelder til 31. desember.</p>
+  </li>
+  <li ksd-card variant="default">
+    <h2 ksd-heading data-size="xs">Eiendomsskatt</h2>
+    <p ksd-paragraph>Neste faktura har forfall 20. mai.</p>
+  </li>
+</ul>`,
+  react: `<ul
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(14rem, 1fr))',
+    gap: 'var(--ds-size-4)',
+    margin: 0,
+    padding: 0,
+    listStyle: 'none',
+  }}
+>
+  <Card asChild variant="default">
+    <li>
+      <Heading level={2} data-size="xs">Byggesak 2025/1234</Heading>
+      <Paragraph>Søknaden er under behandling.</Paragraph>
+    </li>
+  </Card>
+  <Card asChild variant="default">
+    <li>
+      <Heading level={2} data-size="xs">Barnehageplass</Heading>
+      <Paragraph>Du har fått tilbud om plass. Svar seinest 15. mai.</Paragraph>
+    </li>
+  </Card>
+  <Card asChild variant="default">
+    <li>
+      <Heading level={2} data-size="xs">Parkeringstillatelse</Heading>
+      <Paragraph>Tillatelsen gjelder til 31. desember.</Paragraph>
+    </li>
+  </Card>
+  <Card asChild variant="default">
+    <li>
+      <Heading level={2} data-size="xs">Eiendomsskatt</Heading>
+      <Paragraph>Neste faktura har forfall 20. mai.</Paragraph>
+    </li>
+  </Card>
+</ul>`,
+}
+
+export const withCheckbox: Snippets = {
+  html: `<div
+  class="ds-card"
+  data-variant="default"
+  data-clickdelegatefor="varsel-epost"
+>
+  <ds-field class="ds-field">
+    <input class="ds-input" type="checkbox" id="varsel-epost" value="epost" />
+    <label class="ds-label">Varsle meg på e-post</label>
+    <div data-field="description">
+      Du får en e-post når saken din er ferdig behandlet.
+    </div>
+  </ds-field>
+</div>`,
+  angular: `<div ksd-card variant="default" data-clickdelegatefor="varsel-epost">
+  <ksd-field>
+    <input ksd-input type="checkbox" id="varsel-epost" value="epost" />
+    <ksd-label>Varsle meg på e-post</ksd-label>
+    <div ksd-field-description>
+      Du får en e-post når saken din er ferdig behandlet.
+    </div>
+  </ksd-field>
+</div>`,
+  react: `<Card variant="default" data-clickdelegatefor="varsel-epost">
+  <Checkbox
+    id="varsel-epost"
+    label="Varsle meg på e-post"
+    description="Du får en e-post når saken din er ferdig behandlet."
+    value="epost"
+  />
+</Card>`,
 }

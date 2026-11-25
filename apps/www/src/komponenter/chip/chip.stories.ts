@@ -34,3 +34,4 @@ export const EttValg: Story = {
   parameters: { snippets: examples.radio },
 }
 export const Fjernbar: Story = { parameters: { snippets: examples.removable } }
+export const Knapp: Story = { parameters: { snippets: examples.button } }

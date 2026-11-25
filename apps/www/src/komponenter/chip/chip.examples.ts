@@ -107,3 +107,9 @@ export const removable: Snippets = {
   <Chip.Removable aria-label="Fjern filteret Skole">Skole</Chip.Removable>
 </>`,
 }
+
+export const button: Snippets = {
+  html: `<button class="ds-chip" type="button">Tøm alle filtre</button>`,
+  angular: `<button ksd-chip type="button">Tøm alle filtre</button>`,
+  react: `<Chip.Button>Tøm alle filtre</Chip.Button>`,
+}

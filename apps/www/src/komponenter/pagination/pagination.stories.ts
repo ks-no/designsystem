@@ -165,3 +165,12 @@ export const MedLenker: Story = {
   args: { ...controls.args, href: '?side=%d' },
   parameters: { snippets: examples.withLinks },
 }
+export const SmalSkjerm: Story = {
+  ...controls,
+  name: 'Smal skjerm',
+  args: { ...controls.args, current: 3, total: 5, show: 3 },
+  parameters: { snippets: examples.narrow },
+  decorators: [
+    (story) => html`<div style="max-inline-size: 22rem">${story()}</div>`,
+  ],
+}

@@ -91,3 +91,11 @@ export const MedFeilmelding: Story = {
   name: 'Med feilmelding',
   parameters: { snippets: examples.withError },
 }
+/**
+ * Har du ikke plass til en synlig label, for eksempel i en tabellrad, må du gi
+ * avkrysningsboksen en `aria-label` som sier hva den velger.
+ */
+export const UtenSynligLabel: Story = {
+  name: 'Uten synlig label',
+  parameters: { snippets: examples.withoutVisibleLabel },
+}
