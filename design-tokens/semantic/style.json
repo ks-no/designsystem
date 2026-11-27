@@ -370,6 +370,80 @@
         "$value": "{color.support4.16}"
       }
     },
+    "support5": {
+      "background-default": {
+        "$type": "color",
+        "$value": "{color.support5.1}"
+      },
+      "background-tinted": {
+        "$type": "color",
+        "$value": "{color.support5.2}"
+      },
+      "surface-default": {
+        "$type": "color",
+        "$value": "{color.support5.3}"
+      },
+      "surface-tinted": {
+        "$type": "color",
+        "$value": "{color.support5.4}"
+      },
+      "surface-hover": {
+        "$type": "color",
+        "$value": "{color.support5.5}"
+      },
+      "surface-active": {
+        "$type": "color",
+        "$value": "{color.support5.6}"
+      },
+      "border-subtle": {
+        "$type": "color",
+        "$value": "{color.support5.7}"
+      },
+      "border-default": {
+        "$type": "color",
+        "$value": "{color.support5.8}"
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "{color.support5.9}"
+      },
+      "text-subtle": {
+        "$type": "color",
+        "$value": "{color.support5.10}"
+      },
+      "icon-subtle": {
+        "$type": "color",
+        "$value": "{color.support5.text-subtle}"
+      },
+      "text-default": {
+        "$type": "color",
+        "$value": "{color.support5.11}"
+      },
+      "icon-default": {
+        "$type": "color",
+        "$value": "{color.support5.text-default}"
+      },
+      "base-default": {
+        "$type": "color",
+        "$value": "{color.support5.12}"
+      },
+      "base-hover": {
+        "$type": "color",
+        "$value": "{color.support5.13}"
+      },
+      "base-active": {
+        "$type": "color",
+        "$value": "{color.support5.14}"
+      },
+      "base-contrast-subtle": {
+        "$type": "color",
+        "$value": "{color.support5.15}"
+      },
+      "base-contrast-default": {
+        "$type": "color",
+        "$value": "{color.support5.16}"
+      }
+    },
     "neutral": {
       "background-default": {
         "$type": "color",
