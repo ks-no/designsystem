@@ -91,14 +91,6 @@
               "light": "#F4ECDF"
             }
           },
-          "neutral": {
-            "background-tinted": {
-              "light": "#FAFAF9"
-            },
-            "surface-tinted": {
-              "light": "#F1F0EE"
-            }
-          },
           "support5": {
             "base-default": {
               "light": "#00042E"
@@ -125,6 +117,14 @@
               "light": "#E9E8E6"
             },
             "surface-active": {
+              "light": "#F1F0EE"
+            }
+          },
+          "neutral": {
+            "background-tinted": {
+              "light": "#FAFAF9"
+            },
+            "surface-tinted": {
               "light": "#F1F0EE"
             }
           }
