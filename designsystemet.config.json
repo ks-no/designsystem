@@ -10,6 +10,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -19,36 +20,32 @@
         "accent": "#00042E",
         "support1": "#714EEA",
         "support2": "#07604F",
-        "support3": "#00042E",
+        "support3": "#F3DDA2",
         "support4": "#F4ECDF",
+        "support5": "#F1F0EE",
         "neutral": "#1D252D"
       },
       "borderRadius": 8,
       "overrides": {
         "colors": {
-          "support1": {
+          "support3": {
             "background-tinted": {
-              "light": "#EBE6FC"
+              "light": "#FEFCF6"
             },
-            "base-default": {
-              "light": "#00042E"
+            "surface-tinted": {
+              "light": "#FBF3DF"
             },
-            "base-hover": {
-              "light": "#151940"
+            "surface-hover": {
+              "light": "#F7E8BF"
             },
-            "base-active": {
-              "light": "#272A4E"
+            "surface-active": {
+              "light": "#F3DDA2"
             },
-            "base-contrast-default": {
-              "light": "#FFFFFF"
+            "text-subtle": {
+              "light": "#50472F"
             },
-            "base-contrast-subtle": {
-              "light": "#9496A8"
-            }
-          },
-          "support2": {
-            "background-tinted": {
-              "light": "#E0EBE9"
+            "border-default": {
+              "light": "#696047"
             },
             "base-default": {
               "light": "#00042E"
@@ -95,13 +92,7 @@
               "light": "#F4ECDF"
             }
           },
-          "support3": {
-            "text-subtle": {
-              "light": "#534D3A"
-            },
-            "border-default": {
-              "light": "#655D44"
-            },
+          "support5": {
             "base-default": {
               "light": "#00042E"
             },
@@ -111,23 +102,31 @@
             "base-active": {
               "light": "#272A4E"
             },
-            "base-contrast-default": {
-              "light": "#FFFFFF"
-            },
             "base-contrast-subtle": {
               "light": "#9496A8"
             },
+            "base-contrast-default": {
+              "light": "#FFFFFF"
+            },
             "background-tinted": {
-              "light": "#FEFCF6"
+              "light": "#FAFAF9"
             },
             "surface-tinted": {
-              "light": "#FBF3DF"
+              "light": "#F4F3F2"
             },
             "surface-hover": {
-              "light": "#F7E8BF"
+              "light": "#E9E8E6"
             },
             "surface-active": {
-              "light": "#F3DDA2"
+              "light": "#F1F0EE"
+            }
+          },
+          "neutral": {
+            "background-tinted": {
+              "light": "#FAFAF9"
+            },
+            "surface-tinted": {
+              "light": "#F1F0EE"
             }
           }
         }
@@ -140,6 +139,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -151,6 +151,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1E2422"
       },
       "borderRadius": 16
@@ -162,6 +163,7 @@
         "support2": "#7529CC",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8

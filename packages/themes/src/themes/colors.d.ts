@@ -10,6 +10,7 @@ declare module '@digdir/designsystemet-types' {
     support2: never
     support3: never
     support4: never
+    support5: never
     neutral: never
   }
   export interface SeverityColorDefinitions {

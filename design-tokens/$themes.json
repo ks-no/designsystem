@@ -196,6 +196,14 @@
     "group": "Color"
   },
   {
+    "id": "fe41a9d45d271942df159010a906c9e28e710bbf",
+    "name": "support5",
+    "selectedTokenSets": {
+      "semantic/color/support5": "enabled"
+    },
+    "group": "Color"
+  },
+  {
     "id": "e7fb41a6a0544d8a8aa178232034311f9d725555",
     "name": "neutral",
     "selectedTokenSets": {
