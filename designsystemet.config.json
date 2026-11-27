@@ -10,6 +10,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -138,6 +139,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
@@ -149,6 +151,7 @@
         "support2": "#ffffff",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1E2422"
       },
       "borderRadius": 16
@@ -160,6 +163,7 @@
         "support2": "#7529CC",
         "support3": "#ffffff",
         "support4": "#ffffff",
+        "support5": "#ffffff",
         "neutral": "#1D252D"
       },
       "borderRadius": 8
